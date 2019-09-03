@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3516815613302156607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3516815613302156606}
+  - component: {fileID: 3516815613302156601}
+  - component: {fileID: 3516815613302156600}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &3516815613302156606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516815613302156607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3516815613302156601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516815613302156607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa5a38019eaa4b8b82f10a2bdfd6506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitUI: {fileID: 0}
+  buildingUI: {fileID: 0}
+  ressround: {fileID: 0}
+  menudesc: {fileID: 0}
+--- !u!114 &3516815613302156600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516815613302156607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d62e09b73bf94bc69b69ec7c257f1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1072203049712213437, guid: fdfb38c64b75d472dbdbb2071e44d66c, type: 3}
+  imageTextButton: {fileID: 5913307913073529843, guid: 91a4c0f93b8d6427ca8275d2e51e46ac,
+    type: 3}
+  label: {fileID: 3932309353240543134, guid: 159bf9b72219b4b6e9e68fe2829b23b4, type: 3}
+  panelLabel: {fileID: 3932309353240543134, guid: 88cec0552c4dc4a5d94864cda7841126,
+    type: 3}
+  panelLabelDesc: {fileID: 3932309353240543134, guid: ae3dc82a277084b61aae240da8239ffc,
+    type: 3}
+  richlabel: {fileID: 6535159070551223911, guid: 3a52d208df5b642aba7b1186d3458333,
+    type: 3}
+  input: {fileID: 2211671767768322347, guid: 949aa88a73a9c4ebfa46e0e998f05c9d, type: 3}
+  window: {fileID: 6682967817187489416, guid: 62ddbca19f5c84f909420172ae721af1, type: 3}
+  splitWindow: {fileID: 3827550852429096437, guid: 624e3086212294f2bbfe21608b42a0be,
+    type: 3}
+  imageButton: {fileID: 602599259370398112, guid: 52b732773f274444eac8e413f51357fd,
+    type: 3}
+  panelBuilder: {fileID: 7097815028930616848, guid: 775001ce760cb45d3a64e1e1fba06703,
+    type: 3}
+  imageLabel: {fileID: 5829473691482938839, guid: abc94de50d4b8459282e49ea4643ff10,
+    type: 3}
+  headerLabel: {fileID: 2375408466761624241, guid: d9289af99087f44e8abcf85b5cb23a23,
+    type: 3}
+  panelWindow: {fileID: 3827550852429096437, guid: 466e10b7eef7e4ff4a6b5fe394d61f2b,
+    type: 3}
+  checkBox: {fileID: 304893771287829080, guid: 70ae740aaaaae4e29b167b484ba60990, type: 3}
+  dropdown: {fileID: 5781263005038914098, guid: 9b414424516374fe28d995b3508a6104,
+    type: 3}

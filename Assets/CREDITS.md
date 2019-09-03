@@ -1,0 +1,44 @@
+
+#General
+* Background image by yd from opengameart.org/content/aleonas-tales-some-ui
+* Logo by DJ Viandox from fixicon.com
+* UI from opengameart.org/content/arkana-fts-gui
+* Units from finalbossblues.itch.io
+
+#Tileset
+* by Avery from forums.rpgmakerweb.com/index.php?threads/averys-ace-stuff.26173
+* by Nekura from forums.rpgmakerweb.com/index.php?threads/nekura.38957
+* by Champion Of Darkness from forums.rpgmakerweb.com/index.php?threads/c.44668
+* by Eos from eosbox.hiroimon.com/loft_mate.html
+* by Pixel Art World from yms.main.jp/page-msets/worldmap1.html
+* https://www25.atwiki.jp/mack_material/pages/13.html
+* by Lunarea from forums.rpgmakerweb.com/index.php?threads/lunas-tiles.84
+* by Paladin Ramos from forums.rpgmakerweb.com/index.php?threads/o.25878
+* by Carpinteyrovzj from kissclipart.com/rpg-maker-vx-ace-tileset-sao-clipart-rpg-maker-mv-elatlz
+* by Drack669 from minus.com/mdIpPfHlRsx9R
+* by ayene-chan from deviantart.com/ayene-chan
+
+#Icons
+* by Avy from forums.rpgmakerweb.com/index.php?threads/avys-icon-workshop-back-to-buisness.21623
+* by Shikashi from shikashiassets.itch.io/shikashis-fantasy-icons-pack
+* by Gamejolt from gamejolt.com/about
+* by bogo-d from deviantart.com/bogo-d/art/Project-Icons-v-2-1-8-155863784
+
+#Sound
+* by artisticdude from opengameart.org/content/rpg-sound-pack
+* by Kenney from kenney.nl/assets/
+* by spuispuin from opengameart.org/content/won-orchestral-winning-jingle
+* by qubodup from opengameart.org/content/3-background-crash-explosion-bang-sounds
+
+#Music
+* by tob from RTP-Tunes
+
+#Using Source Code
+* Unity Engine by Unity from unity.com
+* 2D Extras by Unity from github.com/Unity-Technologies/2d-extras
+* Easy Save by Moodkie from assetstore.unity.com/packages/tools/input-management/easy-save-the-complete-save-load-asset-768
+* In-game Debug Console by Süleyman Yasir Kula from assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068
+* MetaSheets Free by renderhjs from assetstore.unity.com/packages/tools/utilities/metasheets-free-94656
+* DOTween by Demigiant from assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
+* Pixel UI by Pixelsoft Games from assetstore.unity.com/packages/2d/gui/pixel-ui-128440
+* Unity Build by Chaser324 from github.com/Chaser324/unity-build

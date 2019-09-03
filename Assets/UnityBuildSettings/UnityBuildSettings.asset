@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6175776181376792511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0f7a04940394844a505e73c3eb8cec, type: 3}
+  m_Name: ZipFileOperation
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: ZipFileOperation
+  note: 
+  actionEnabled: 1
+  filter:
+    condition: 0
+    clauses: []
+  inputPath: $BUILDPATH
+  outputPath: export
+  outputFileName: $PRODUCT_NAME-$VERSION-$ARCHITECTURE.zip
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: UnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: export
+    buildPath: $VERSION/$PLATFORM
+    openFolderPostBuild: 1
+  _productParameters:
+    buildCounter: 4
+    lastGeneratedVersion: 0.2b
+    version: 0.2b
+    autoGenerate: 0
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Alpha
+      bundleIndentifier: 
+      companyName: 9nations.de
+      productName: 9 Nations
+      developmentBuild: 0
+      allowDebugging: 0
+      enableHeadlessMode: 0
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - fileGUID: c164bb71546ec43dcb4d4a20e485d411
+        - fileGUID: 86d3761fb1b064494b7045f1a38cb07e
+        - fileGUID: fff433dcecc44404a9d96d25ce04a654
+        - fileGUID: b57c1fa8d665e456a92239888f6aef93
+        - fileGUID: 23bbed4fe3267423ebe6201a1b6778ab
+  _platformList:
+    platforms:
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 5
+        name: Windows x86
+        enabled: 1
+      - target: 19
+        name: Windows x64
+        enabled: 0
+      variants: []
+      platformName: PC
+      binaryNameFormat: '{0}.exe'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 1
+    - enabled: 0
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 2
+        name: OSX
+        enabled: 1
+      variants: []
+      platformName: OSX
+      binaryNameFormat: '{0}.app'
+      dataDirNameFormat: '{0}.app/Contents'
+      targetGroup: 1
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 25
+        name: Linux Universal
+        enabled: 1
+      - target: 17
+        name: Linux x86
+        enabled: 0
+      - target: 24
+        name: Linux x64
+        enabled: 0
+      variants: []
+      platformName: Linux
+      binaryNameFormat: '{0}.x86'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 1
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 2
+        name: OSX
+        enabled: 1
+      variants: []
+      platformName: OSX
+      binaryNameFormat: '{0}.app'
+      dataDirNameFormat: '{0}.app/Contents'
+      targetGroup: 1
+  _projectConfigurations:
+    configSet:
+      _Buckets: 0500000006000000ffffffff02000000000000000300000004000000
+      _HashCodes: 664a974ae6b77e1f2529a87c09fd34771a68220eb3e9d104da582817
+      _Next: ffffffffffffffffffffffffffffffff01000000ffffffffffffffff
+      _Count: 7
+      _Version: 7
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Alpha/PC/Windows x86
+      - Alpha/PC
+      - Alpha/Linux/Linux Universal
+      - Alpha/Linux
+      - Alpha/OSX/OSX
+      - Alpha/OSX
+      - Alpha
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Alpha/PC/Windows x86
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Alpha/Linux/Linux Universal
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Alpha/OSX/OSX
+      - enabled: 1
+        childKeys:
+        - Alpha/PC
+        - Alpha/Linux
+        - Alpha/OSX
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 0
+    treeView: 0
+    selectedKeyChain: 
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions:
+    - {fileID: -6175776181376792511}
