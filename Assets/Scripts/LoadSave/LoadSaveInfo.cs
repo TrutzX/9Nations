@@ -1,6 +1,6 @@
 using System;
 
-namespace DefaultNamespace
+namespace Help
 {
     [Serializable]
     public class LoadSaveInfo

@@ -25,13 +25,33 @@ public class BuildingMgmt : MonoBehaviour
     /// <returns>the unit or null</returns>
     public static BuildingInfo At(int x, int y)
     {
-        GameObject b = Get().GetAll().SingleOrDefault(g => g != null && (int) g.transform.position.x == x && (int) g.transform.position.y == y);
-        return b == null ? null : b.GetComponent<BuildingInfo>();
+        BuildingInfo b = Get().GetAll().SingleOrDefault(g => g.X() == x && g.Y() == y);
+        return b == null ? null : b;
     }
 
-    public GameObject[] GetAll()
+    public BuildingInfo[] GetAll()
     {
-        return GameObject.FindGameObjectsWithTag("Building");
+        return GetComponentsInChildren<BuildingInfo>(true);
+    }
+
+    public BuildingInfo[] GetByTown(int tid)
+    {
+        return GetAll().Where(g => g.data.townId == tid).ToArray();
+    }
+
+    public BuildingInfo[] GetByTownType(int tid, string type)
+    {
+        return GetByTown(tid).Where(g => g.data.type == type).ToArray();
+    }
+
+    public BuildingInfo[] GetByPlayer(int pid)
+    {
+        return GetAll().Where(g => g.data.playerId == pid).ToArray();
+    }
+
+    public BuildingInfo[] GetByPlayerType(int pid, string type)
+    {
+        return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
     }
 
     public GameObject Create(int town, string type, int x, int y)
@@ -48,7 +68,7 @@ public class BuildingMgmt : MonoBehaviour
         return building;
     }
 
-    public GameObject Load(BuildingData data)
+    public GameObject Load(BuildingUnitData data)
     {
         //exist?
         if (!Data.building.ContainsKey(data.type))

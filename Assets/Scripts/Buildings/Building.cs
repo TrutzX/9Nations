@@ -11,7 +11,7 @@ namespace DataTypes
 
         public Sprite GetIcon()
         {
-            return SpriteHelper.Load("Building/" + file);
+            return BuildingHelper.GetIcon(file);
         }
 
         
@@ -22,8 +22,12 @@ namespace DataTypes
 
         public Dictionary<string, string> GetActions()
         {
-            return ReqHelper.GetReq(action1, action2, action3,
-                action4, action5);
+            return ReqHelper.GetReq(action1, action2, action3,action4, action5);
+        }
+
+        public Dictionary<string, string> GetActionsOnce()
+        {
+            return ReqHelper.GetReq(actiononce1, actiononce2);
         }
         
         public Dictionary<string,int> GenCost()
@@ -55,6 +59,8 @@ namespace DataTypes
             panel.AddRess("Production",GenProduce());
             panel.AddReq("Requirement for production",GenProduceReq());
             panel.AddRess("Production once",GenProduceOnce());
+            panel.AddAction("Actions", GetActions());
+            panel.AddAction("Action after construction", GetActionsOnce());
         }
 
         public void ShowInfo(PanelBuilder panel, GameObject onMap, int x, int y)
@@ -66,6 +72,8 @@ namespace DataTypes
             panel.AddRess("Production",GenProduce());
             panel.AddReq("Requirement for production",GenProduceReq(), onMap, x, y);
             panel.AddRess("Production once",GenProduceOnce());
+            panel.AddAction("Actions", GetActions());
+            panel.AddAction("Action after construction", GetActionsOnce());
         }
         
     }

@@ -20,7 +20,7 @@ namespace PixelsoftGames.PixelUI
     {
         #region Fields & Properties
 
-        Slider slider;
+        private Slider slider = null;
 
         #endregion
 

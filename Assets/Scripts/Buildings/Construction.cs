@@ -9,12 +9,12 @@ namespace Game
     public class Construction : MonoBehaviour
     {
         private BuildingUnitData data;
-        private IMapElement info;
+        private MapElementInfo info;
 
-        public void Init(BuildingUnitData data, Dictionary<string, int> construction, IMapElement info, int buildTime, int town)
+        public void Init(BuildingUnitData data, Dictionary<string, int> construction, MapElementInfo info, int buildTime, int town)
         {
             data.construction = construction;
-            data.construction.Add("buildtime",buildTime-1);
+            data.construction.Add("buildtime",buildTime+1);
             data.buildTime = buildTime;
             this.data = data;
             this.info = info;
@@ -31,7 +31,7 @@ namespace Game
         /// <returns>true == under construction</returns>
         public bool RoundConstruct()
         {
-            Town t = TownMgmt.Get(data.town);
+            Town t = info.Town();
         
             foreach (KeyValuePair<string, int> cost in data.construction.ToDictionary(entry => entry.Key,entry => entry.Value))
             {
@@ -42,15 +42,15 @@ namespace Game
                 }
                 
                 //normal ress?
-                if (t.GetRess(cost.Key) >= cost.Value)
+                if (t.GetRes(cost.Key) >= cost.Value)
                 {
-                    t.AddRess(cost.Key, -cost.Value);
+                    t.AddRes(cost.Key, -cost.Value);
                     data.construction.Remove(cost.Key);
-                } else if (t.GetRess(cost.Key) >= 1)
+                } else if (t.GetRes(cost.Key) >= 1)
                 {
-                    int val = t.GetRess(cost.Key);
+                    int val = t.GetRes(cost.Key);
                     data.construction[cost.Key] -= val;
-                    t.AddRess(cost.Key,-val);
+                    t.AddRes(cost.Key,-val);
                     data.lastError = $"Need {data.construction[cost.Key]} more {Data.ress[cost.Key].name} for construction.";
                 }
                 else
@@ -65,6 +65,7 @@ namespace Game
                 data.construction["buildtime"] -= 1;
                 //set opacity
                 GetComponent<SpriteRenderer>().color = new Color(1,1,1,GetConstructionProcent());
+                
             }
 
             //finish?
@@ -85,7 +86,7 @@ namespace Game
         {
             if (data.construction == null)
             {
-                return 100;
+                return 1;
             }
             return (1f * data.buildTime - data.construction["buildtime"]) / data.buildTime;
         }

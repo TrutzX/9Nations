@@ -8,6 +8,7 @@
  ******************************************************************************************/
 namespace PixelsoftGames.PixelUI
 {
+    [System.Obsolete("This method is now obsolete.  Please use UnityEngine.RangeInt instead.")]
     public struct RangeInt
     {
         #region Fields & Properties
@@ -66,9 +67,13 @@ namespace PixelsoftGames.PixelUI
         public bool IsInRange(int value)
         {
             if (value >= Min && value <= Max)
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         #endregion
@@ -132,9 +137,13 @@ namespace PixelsoftGames.PixelUI
         public bool IsInRange(float value)
         {
             if (value >= Min && value <= Max)
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         #endregion

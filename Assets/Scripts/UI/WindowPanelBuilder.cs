@@ -19,7 +19,8 @@ public class WindowPanelBuilder : MonoBehaviour
 
     public void Finish(int w)
     {
-        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(w,panel.GetComponent<PanelBuilder>().GetEleCount()*32+40);
+        panel.CalcSize();
+        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(w,panel.GetComponent<PanelBuilder>().Count()*32+48);
         gameObject.SetActive(true);
     }
     

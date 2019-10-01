@@ -64,10 +64,10 @@ TextureImporter:
     second: north-tower_31
   - first:
       213: 150988241000476207
-    second: north-tower_32
+    second: gfgdgf
   - first:
       213: -486663668983442419
-    second: north-tower_33
+    second: gfgdgf
   - first:
       213: -1170314500333301099
     second: north-tower_34
@@ -271,7 +271,7 @@ TextureImporter:
     second: north-tower_112
   - first:
       213: -8413234004442387277
-    second: nmarket
+    second: xxxx
   - first:
       213: 1547394552127617709
     second: north-tower_114
@@ -286,7 +286,7 @@ TextureImporter:
     second: north-tower_117
   - first:
       213: -4484316623184305629
-    second: north-tower_118
+    second: nresearcher
   - first:
       213: 3932557224126760231
     second: north-tower_119
@@ -610,7 +610,7 @@ TextureImporter:
     second: north-tower_225
   - first:
       213: 718545542322860474
-    second: north-tower_226
+    second: xxx
   - first:
       213: 8766371726690362093
     second: north-tower_227
@@ -649,7 +649,7 @@ TextureImporter:
     second: north-tower_238
   - first:
       213: 7457600284264671506
-    second: nrtower
+    second: xxx
   - first:
       213: -8268126760017934398
     second: north-tower_240
@@ -1197,7 +1197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: north-tower_32
+      name: nmine
       rect:
         serializedVersion: 2
         x: 32
@@ -1218,7 +1218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: north-tower_33
+      name: gfgdgf
       rect:
         serializedVersion: 2
         x: 64
@@ -2646,7 +2646,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nmarket
+      name: xxxx
       rect:
         serializedVersion: 2
         x: 64
@@ -2751,7 +2751,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: north-tower_118
+      name: nresearcher
       rect:
         serializedVersion: 2
         x: 224
@@ -4956,55 +4956,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: north-tower_224
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43d7c6f80f449420fa83976d69f4d00b
-      internalID: 1660791499912989894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: north-tower_225
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2389278604ba74ca69abce8068e4d71f
-      internalID: 3402643680763865734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: north-tower_226
+      name: nrtower
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5014,27 +4972,6 @@ TextureImporter:
       bones: []
       spriteID: 75c4c968c5faa47a0a553859d822186e
       internalID: 718545542322860474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: north-tower_227
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 32
-        height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aed102872677b4a89a6c6adf81e8f85e
-      internalID: 8766371726690362093
       vertices: []
       indices: 
       edges: []
@@ -5271,7 +5208,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nrtower
+      name: xxx
       rect:
         serializedVersion: 2
         x: 0
@@ -5298,7 +5235,7 @@ TextureImporter:
         x: 32
         y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5319,7 +5256,7 @@ TextureImporter:
         x: 64
         y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5329,27 +5266,6 @@ TextureImporter:
       bones: []
       spriteID: 4180481d71a524885a16bb48b629c807
       internalID: 7939215850947305199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: north-tower_242
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62b32eaaf8e6c4edaa1553f4b97dbd22
-      internalID: 2383774726549257600
       vertices: []
       indices: 
       edges: []

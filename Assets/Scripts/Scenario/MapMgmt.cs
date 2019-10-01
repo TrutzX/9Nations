@@ -5,9 +5,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using DataTypes;
-using DefaultNamespace;
+using Help;
 using Game;
 using Scenario;
+using Units;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.Tilemaps;
@@ -58,11 +59,13 @@ public class MapMgmt : MonoBehaviour
         GameMgmt.Get().data.mapwidth = l.Length;
         GameMgmt.Get().data.mapheight = l[0].Length;
         
+        Debug.Log($"Load Map {map.name} ({l.Length}/{l[0].Length})");
+        
         //load layer
         layers = new List<Tilemap>();
         AddNewLayer(transform.childCount,CSV.Convert(l));
         AddNewLayer(transform.childCount,CSV.Convert(CSV.Read(map.Layer(1))));
-
+        //todo dynamic
     }
 
     private void AddNewLayer(int level, int[][] data)
@@ -97,6 +100,7 @@ public class MapMgmt : MonoBehaviour
                     if (y == 0)
                     {
                         Set(t, x, y-1, tiles[d]);
+                        
                     }
                     if (y == GameMgmt.Get().data.mapheight-1)
                     {
@@ -115,6 +119,7 @@ public class MapMgmt : MonoBehaviour
     private void AddBorder()
     {
         Tilemap t = CreateLayer("Border");
+        t.transform.position = new Vector3(0,0,-1);
 
         for (int x = -1; x <= GameMgmt.Get().data.mapwidth; x++)
         {

@@ -10,14 +10,7 @@ namespace DataTypes
 
         public Sprite GetIcon(int id = 1)
         {
-            Sprite[] s = Resources.LoadAll<Sprite>("Units/" + file);
-
-            if (s==null || s.Length != 12)
-            {
-                Debug.LogWarning($"Sprite Units/{file} is wrong formated.");
-                return Resources.Load<Sprite>("Units/" + file);
-            }
-            return s[id];
+            return UnitHelper.GetIcon(file, id);
         }
         
         public Dictionary<string, string> GetActions()

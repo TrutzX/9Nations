@@ -1,7 +1,8 @@
 using System;
 using System.IO;
-using DefaultNamespace;
+using Help;
 using Game;
+using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -48,7 +49,7 @@ namespace Players
                     {
                         setTile(-1,y,MapMgmt.Get().fog);
                     }
-                    if (x == visible.GetLength(0))
+                    if (x == visible.GetLength(0)-1)
                     {
                         setTile(visible.GetLength(0),y,MapMgmt.Get().fog);
                     }
@@ -56,12 +57,18 @@ namespace Players
                     {
                         setTile(x,-1,MapMgmt.Get().fog);
                     }
-                    if (y == visible.GetLength(1))
+                    if (y == visible.GetLength(1)-1)
                     {
                         setTile(x,visible.GetLength(1),MapMgmt.Get().fog);
                     }
                 }
             }
+            
+            //add points
+            setTile(-1,-1,MapMgmt.Get().fog);
+            setTile(-1,visible.GetLength(1),MapMgmt.Get().fog);
+            setTile(visible.GetLength(0),-1,MapMgmt.Get().fog);
+            setTile(visible.GetLength(0),visible.GetLength(1),MapMgmt.Get().fog);
             
             FinishRound();
         }
@@ -151,7 +158,39 @@ namespace Players
 
         public void StartRound()
         {
+            //has fog?
+            if (!Data.features.fog.Bool())
+                return;
+            
             tilemap.gameObject.SetActive(true);
+
+            ShowHideBuilding();
+            ShowHideUnits();
+        }
+
+        private void ShowHideBuilding()
+        {
+            //hide / show all objects
+            foreach (BuildingInfo b in BuildingMgmt.Get().GetAll())
+            {
+                int x = b.data.x;
+                int y = b.data.y;
+
+                b.gameObject.SetActive(visible[x, y]);
+            }
+        }
+
+        private void ShowHideUnits()
+        {
+            //hide / show all objects
+            foreach (UnitInfo u in UnitMgmt.Get().GetAll())
+            {
+                int x = u.data.x;
+                int y = u.data.y;
+                
+                u.gameObject.SetActive(visible[x, y]);
+                
+            }
         }
 
         public void FinishRound()

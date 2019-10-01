@@ -26,39 +26,47 @@ public class NLib : ScriptableObject
     {
         self = CreateInstance<NLib>();
         self.actions = new Dictionary<string,BaseAction>();
-        addAction("destroy",CreateInstance<DestroyAction>());
-        addAction("build",CreateInstance<BuildAction>());
-        addAction("buildUpgrade",CreateInstance<BuildUpgradeAction>());
-        addAction("foundTown",CreateInstance<FoundTownAction>());
-        addAction("train",CreateInstance<TrainAction>());
-        addAction("trainUpgrade",CreateInstance<TrainUpgradeAction>());
-        addAction("endGameLose",CreateInstance<EndGameLoseAction>());
-        addAction("endGameWin",CreateInstance<EndGameWinAction>());
-        addAction("trade",CreateInstance<TradeAction>());
+        AddAction("destroy",CreateInstance<DestroyAction>());
+        AddAction("build",CreateInstance<BuildAction>());
+        AddAction("buildUpgrade",CreateInstance<BuildUpgradeAction>());
+        AddAction("foundTown",CreateInstance<FoundTownAction>());
+        AddAction("train",CreateInstance<TrainAction>());
+        AddAction("trainUpgrade",CreateInstance<TrainUpgradeAction>());
+        AddAction("endGameLose",CreateInstance<EndGameLoseAction>());
+        AddAction("endGameWin",CreateInstance<EndGameWinAction>());
+        AddAction("trade",CreateInstance<TradeAction>());
+        AddAction("sleep",CreateInstance<SleepAction>());
+        AddAction("featureP",CreateInstance<FeaturePlayerAction>());
         
         self.req = new Dictionary<string, BaseReq>();
-        addReq("nation", CreateInstance<ReqNation>());
-        addReq("terrain", CreateInstance<ReqTerrain>());
-        addReq("terrainNear", CreateInstance<ReqTerrainNear>());
-        addReq("season", CreateInstance<ReqSeason>());
-        addReq("daytime", CreateInstance<ReqDayTime>());
-        addReq("empty", CreateInstance<ReqEmpty>());
-        addReq("townLevel", CreateInstance<ReqTownLevel>());
-        addReq("townMin", CreateInstance<ReqTownMin>());
-        addReq("townMax", CreateInstance<ReqTownMax>());
-        addReq("townNear", CreateInstance<ReqTownNear>());
-        addReq("ressMin", CreateInstance<ReqTownNear>());
-        addReq("maxUnitPlayer", CreateInstance<ReqUnitMaxPlayer>());
-        addReq("field", CreateInstance<ReqSameField>());
+        AddReq("nation", CreateInstance<ReqNation>());
+        AddReq("terrain", CreateInstance<ReqTerrain>());
+        AddReq("terrainNear", CreateInstance<ReqTerrainNear>());
+        AddReq("season", CreateInstance<ReqSeason>());
+        AddReq("daytime", CreateInstance<ReqDayTime>());
+        AddReq("empty", CreateInstance<ReqEmpty>());
+        AddReq("townLevel", CreateInstance<ReqTownLevel>());
+        AddReq("townMin", CreateInstance<ReqTownMin>());
+        AddReq("townMax", CreateInstance<ReqTownMax>());
+        AddReq("townNear", CreateInstance<ReqTownNear>());
+        AddReq("questMin", CreateInstance<ReqQuestMin>());
+        AddReq("questMax", CreateInstance<ReqQuestMax>());
+        AddReq("resMin", CreateInstance<ReqResMin>());
+        AddReq("maxUnitPlayer", CreateInstance<ReqUnitMaxPlayer>());
+        AddReq("field", CreateInstance<ReqSameField>());
+        AddReq("research", CreateInstance<ReqResearch>());
+        AddReq("feature", CreateInstance<ReqFeature>());
+        AddReq("featureP", CreateInstance<ReqFeaturePlayer>());
+        AddReq("building", CreateInstance<ReqBuilding>());
     }
 
-    private static void addAction(string id, BaseAction action)
+    private static void AddAction(string id, BaseAction action)
     {
         self.actions[id] = action;
         self.actions[id].id = id;
     }
 
-    private static void addReq(string id, BaseReq action)
+    private static void AddReq(string id, BaseReq action)
     {
         self.req[id] = action;
         self.req[id].id = id;

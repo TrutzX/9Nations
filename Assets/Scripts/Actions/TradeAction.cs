@@ -23,7 +23,7 @@ namespace Actions
         private GameObject shop1, shop10, shop100, shop1000;
         protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
         {
-            town = GameHelper.GetMapElement(gameObject).GetTown();
+            town = GameHelper.GetMapElement(gameObject).Town();
             
             WindowPanelBuilder w = WindowPanelBuilder.Create(Data.nAction[id].desc);
 
@@ -39,10 +39,10 @@ namespace Actions
                     continue;
                 }
                 
-                if (r.market > 0 && town.GetRess(r.id) > 0)
+                if (r.market > 0 && town.GetRes(r.id) > 0)
                 {
                     values.Add(r.id);
-                    titles.Add($"{town.GetRess(r.id)}x {r.name}");
+                    titles.Add($"{town.GetRes(r.id)}x {r.name}");
                 }
             }
             
@@ -134,30 +134,30 @@ namespace Actions
             //Debug.LogWarning($"Erhalten {bT}:{bP}");
             int v = Convert.ToInt32(Math.Ceiling(1d * bP / sP));
             UIHelper.UpdateButtonText(shop1,$"{v}x {sT} for 1x {bT}");
-            shop1.SetActive(bT != sT && town.GetRess(sell) >= v);
-            Debug.LogWarning($"Diff {sT} {town.GetRess(sell)}>={v}");
+            shop1.SetActive(bT != sT && town.GetRes(sell) >= v);
+            Debug.LogWarning($"Diff {sT} {town.GetRes(sell)}>={v}");
             
             //10
             v = Convert.ToInt32(Math.Ceiling(10d * bP / sP));
             UIHelper.UpdateButtonText(shop10,$"{v}x {sT} for 10x {bT}");
-            shop10.SetActive(bT != sT && town.GetRess(sell) >= v);
+            shop10.SetActive(bT != sT && town.GetRes(sell) >= v);
             
             //100
             v = Convert.ToInt32(Math.Ceiling(100d * bP / sP));
             UIHelper.UpdateButtonText(shop100,$"{v}x {sT} for 100x {bT}");
-            shop100.SetActive(bT != sT && town.GetRess(sell) >= v);
+            shop100.SetActive(bT != sT && town.GetRes(sell) >= v);
             
             //1000
             v = Convert.ToInt32(Math.Ceiling(1000d * bP / sP));
             UIHelper.UpdateButtonText(shop1000,$"{v}x {sT} for 1000x {bT}");
-            shop1000.SetActive(bT != sT && town.GetRess(sell) >= v);
+            shop1000.SetActive(bT != sT && town.GetRes(sell) >= v);
         }
         
         private void Shop(int count)
         {
             int b = Convert.ToInt32(Math.Ceiling(count * 1d * Data.ress[buy].market / Data.ress[buy].market));
-            town.AddRess(sell,-b);
-            town.AddRess(buy,count);
+            town.AddRes(sell,-b);
+            town.AddRes(buy,count);
         }
 
         protected override void ButtonAction(Player player, string settings)

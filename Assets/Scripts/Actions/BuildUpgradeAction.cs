@@ -24,10 +24,10 @@ namespace Actions
             {
                 Building build = Data.building[key];
                 Dictionary<string, string> reqs = build.GenBuildReq();
-                if (ReqHelper.CheckOnlyFinal(player, reqs, null, x, y))
+                if (ReqHelper.CheckOnlyFinal(player, reqs, gameObject, x, y))
                 {
-                    BuildSplitElement be = new BuildSplitElement(build, x, y);
-                    be.disabled = ReqHelper.Desc(player, reqs, null, x, y);
+                    BuildSplitElement be = new BuildSplitElement(build, gameObject, x, y);
+                    be.disabled = ReqHelper.Desc(player, reqs, gameObject, x, y);
                     b.AddElement(be);
                     //win.AddBuilding(build.id);
                 }
@@ -46,7 +46,7 @@ namespace Actions
         
         class BuildSplitElement : BuildAction.BuildSplitElement
         {
-            public BuildSplitElement(Building build, int x, int y) : base(build, x, y)
+            public BuildSplitElement(Building build, GameObject gameObject, int x, int y) : base(build, gameObject, x, y)
             {
             }
 

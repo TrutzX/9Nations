@@ -17,7 +17,9 @@ namespace Game
 
         public TownMgmt towns;
         
-        public List<UnitData> units;
-        public List<BuildingData> buildings;
+        public List<BuildingUnitData> units;
+        public List<BuildingUnitData> buildings;
+
+        public Dictionary<string, string> features;
     }
 }

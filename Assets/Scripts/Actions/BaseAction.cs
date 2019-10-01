@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Players;
 using reqs;
 using UI;
+using Units;
 using UnityEngine;
 
 namespace Actions
@@ -32,72 +34,68 @@ namespace Actions
         /// <summary>
         /// Perform the action for the unit
         /// </summary>
-        /// <param name="gameObject"></param>
+        /// <param name="info"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="settings"></param>
-        public void ButtonUnitRun(GameObject gameObject, int x, int y, string settings)
+        public void ButtonRun(MapElementInfo info, int x, int y, string settings, MapElementUI ui)
         {
-            UnitInfo unitInfo = gameObject.GetComponent<UnitInfo>();
+            string mess = ActionRun(PlayerMgmt.ActPlayer(), info, x, y, settings);
+            if (mess != null)
+            {
+                ui.SetPanelMessage(mess);
+                NAudio.PlayBuzzer();
+            }
+        }
+
+        /// <summary>
+        /// Perform the action for the unit
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="settings"></param>
+        public void BackgroundRun(MapElementInfo info, int x, int y, string settings)
+        {
+            string mess = ActionRun(info.Player(),info, x, y, settings);
+            if (mess != null)
+            {
+                info.data.lastError = mess;
+            }
+        }
+
+        /// <summary>
+        /// Perform the action for the unit
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="settings"></param>
+        private string ActionRun(Player player, MapElementInfo info, int x, int y, string settings)
+        {
             NAction action = Data.nAction[id];
             //has ap?
-            if (action.cost > unitInfo.data.ap)
+            if (action.cost > info.data.ap)
             {
-                OnMapUI.Get().unitUI
-                    .SetPanelMessage(
-                        $"Action {action.name} need {action.cost - unitInfo.data.ap} AP more. Please wait a round to refill your AP.");
-                return;
+                return $"Action {action.name} need {action.cost - info.data.ap} AP more. Please wait a round to refill your AP.";
             }
 
             //check pref
-            string pref = CheckPref(gameObject, x, y, action);
-            if (pref != null)
+            Debug.Log($"call {action.id}");
+            //can use?
+            if (!ReqHelper.Check(player, ActionHelper.GenReq(action), info.gameObject, x, y))
             {
-                OnMapUI.Get().unitUI.SetPanelMessage(pref);
-                return;
+                return ReqHelper.Desc(player, ActionHelper.GenReq(action), info.gameObject, x, y);
             }
 
-            unitInfo.data.ap -= action.cost;
-            ButtonAction(PlayerMgmt.ActPlayer(), gameObject, x, y, settings);
+            info.data.ap -= action.cost;
+            ButtonAction(player, info.gameObject, x, y, settings);
+            return null;
         }
 
         public void QuestRun(Player player, string settings)
         {
             ButtonAction(player, settings);
-        }
-
-        private string CheckPref(GameObject gameObject, int x, int y, NAction action)
-        {
-            Debug.Log($"call {action.id}");
-            //can use?
-            if (!ReqHelper.Check(PlayerMgmt.ActPlayer(), ActionHelper.GenReq(action), gameObject, x, y))
-            {
-                return ReqHelper.Desc(PlayerMgmt.ActPlayer(), ActionHelper.GenReq(action), gameObject, x, y);
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Perform the action
-        /// </summary>
-        /// <param name="gameObject"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="action"></param>
-        /// <param name="settings"></param>
-        public void ButtonBuildingRun(GameObject gameObject, int x, int y, string settings)
-        {
-            NAction action = Data.nAction[id];
-            //check pref
-            string pref = CheckPref(gameObject, x, y, action);
-            if (pref != null)
-            {
-                OnMapUI.Get().buildingUI.SetPanelMessage(pref);
-                return;
-            }
-
-            ButtonAction(PlayerMgmt.ActPlayer(), gameObject, x, y, settings);
         }
 
         protected WindowBuilderSplit CreateSplit()

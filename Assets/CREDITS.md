@@ -23,6 +23,8 @@
 * by Shikashi from shikashiassets.itch.io/shikashis-fantasy-icons-pack
 * by Gamejolt from gamejolt.com/about
 * by bogo-d from deviantart.com/bogo-d/art/Project-Icons-v-2-1-8-155863784
+* by Jorge Avila from opengameart.org/content/georgui-icon-set
+* by Jorge Avila from opengameart.org/content/georgui-icon-set
 
 #Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack

@@ -18,7 +18,7 @@ public class PanelBuilder : MonoBehaviour
         GameObject p = Instantiate(UIElements.Get().panelBuilder, transform);
         return p.GetComponent<PanelBuilder>();
     }
-
+    
     public GameObject AddLabel(string title)
     {
         GameObject button = Instantiate(UIElements.Get().panelLabel, panel.transform);
@@ -45,9 +45,19 @@ public class PanelBuilder : MonoBehaviour
         return UIElements.CreateImageLabel(panel.transform, title, icon);
     }
 
-    public GameObject AddButton(string title, Action action)
+    public GameObject AddButton(string title, Action action, string sound = "click")
     {
-        return UIHelper.CreateButton(title,panel.transform,action);
+        GameObject g = UIHelper.CreateButton(title,panel.transform,action);
+        if (sound != null)
+            g.GetComponent<Button>().onClick.AddListener(() => { NAudio.Play(sound); });
+        return g;
+    }
+
+    public GameObject AddImageButton(string title, Sprite icon, Action action, string sound = "click")
+    {
+        GameObject g = UIHelper.CreateImageTextButton(title, icon, panel.transform, action, sound);
+        
+        return g;
     }
 
     public GameObject AddImageLabel(string title, string icon)
@@ -77,6 +87,16 @@ public class PanelBuilder : MonoBehaviour
         return button;
     }
     
+    public Slider AddSlider(int min, int max, int def, UnityAction<int> save)
+    {
+        Slider slider = Instantiate(UIElements.Get().slider, panel.transform);
+        slider.minValue = min;
+        slider.value = def;
+        slider.maxValue = max;
+        slider.onValueChanged.AddListener((val) => { save((int)val); });
+        return slider;
+    }
+    
     public GameObject AddDropdown(string[] values, string def, string[] titles, UnityAction<string> save)
     {
         GameObject button = Instantiate(UIElements.Get().dropdown.gameObject, panel.transform);
@@ -92,10 +112,11 @@ public class PanelBuilder : MonoBehaviour
         return button;
     }
     
-    public GameObject AddCheckbox(bool value, string title, UnityAction<bool> save)
+    public Toggle AddCheckbox(bool value, string title, UnityAction<bool> save, string audio="checkBoxClick")
     {
-        GameObject button = UIElements.CreateCheckBox(panel.transform, title, save);
-        button.GetComponent<Toggle>().isOn = value;
+        Toggle button = UIElements.CreateCheckBox(panel.transform, title, save).GetComponent<Toggle>();
+        button.isOn = value;
+        button.onValueChanged.AddListener((pos) => { NAudio.Play(audio); });
         return button;
     }
 
@@ -161,16 +182,13 @@ public class PanelBuilder : MonoBehaviour
         }
     }
 
-    public int GetEleCount()
+    public int Count()
     {
-        int c = 0;
+        return panel.transform.childCount;
+    }
 
-        foreach (Transform t in panel.transform.GetComponentsInChildren<Transform>())
-        {
-            if (t.parent == panel.transform)
-                c++;
-        }
-        
-        return c;
+    public void CalcSize()
+    {
+        panel.GetComponent<RectTransform>().sizeDelta = new Vector2(0,(Count())*32);
     }
 }

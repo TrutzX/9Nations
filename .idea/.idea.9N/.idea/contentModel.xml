@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_9N.-1159244708.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_9N.-1159244708.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="9N.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ActiveAction.cs" t="Include" />
         <e p="Config" t="Include">
           <e p="Data.cs" t="Include" />
           <e p="NGenTown.cs" t="Include" />
@@ -45,14 +44,12 @@
             <e p="ES2_Sprite.cs" t="Include" />
           </e>
         </e>
-        <e p="EscTest.cs" t="Include" />
         <e p="ExitButtonDestroy.cs" t="Include" />
         <e p="Graphics" t="Include">
           <e p="GUI" t="Include">
             <e p="GUIWindow.cs" t="Include" />
           </e>
         </e>
-        <e p="InputAction.cs" t="Include" />
         <e p="LoadNextScene.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="2d-extras-master" t="Include">
@@ -630,13 +627,19 @@
             <e p="Demo" t="Include">
               <e p="Scripts" t="Include">
                 <e p="ClockDemo.cs" t="Include" />
+                <e p="CubitsController.cs" t="Include" />
                 <e p="DemoDialogue.cs" t="Include" />
                 <e p="DemoWindow.cs" t="Include" />
+                <e p="ExampleController.cs" t="Include" />
                 <e p="ExperienceButton.cs" t="Include" />
                 <e p="ExperienceLabel.cs" t="Include" />
                 <e p="IconDemo.cs" t="Include" />
                 <e p="LoadScene.cs" t="Include" />
+                <e p="MagicTargetController.cs" t="Include" />
+                <e p="PanelController.cs" t="Include" />
                 <e p="PingPong.cs" t="Include" />
+                <e p="Shake.cs" t="Include" />
+                <e p="SlimusController.cs" t="Include" />
                 <e p="SwatchButton.cs" t="Include" />
                 <e p="SwatchHandler.cs" t="Include" />
               </e>
@@ -652,6 +655,7 @@
               </e>
               <e p="Range.cs" t="Include" />
               <e p="Rotator.cs" t="Include" />
+              <e p="Singleton.cs" t="Include" />
               <e p="UICard.cs" t="Include" />
               <e p="UIClock.cs" t="Include" />
               <e p="UIDeck.cs" t="Include" />
@@ -663,6 +667,19 @@
               <e p="UITabbedWindow.cs" t="Include" />
               <e p="UITooltip.cs" t="Include" />
               <e p="UITypewriter.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Pixelplacement" t="Include">
+            <e p="iTween" t="Include">
+              <e p="iTween.cs" t="Include" />
+              <e p="ReadMe!" t="Include">
+                <e p="ReadMe!.txt" t="Include" />
+              </e>
+              <e p="Sample" t="Include">
+                <e p="MoveSample.cs" t="Include" />
+                <e p="RotateSample.cs" t="Include" />
+                <e p="SampleInfo.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="TextMesh Pro" t="Include">
@@ -887,20 +904,23 @@
             <e p="BuildUpgradeAction.cs" t="Include" />
             <e p="DestroyAction.cs" t="Include" />
             <e p="EndGameAction.cs" t="Include" />
+            <e p="FeatureAction.cs" t="Include" />
             <e p="FoundTownAction.cs" t="Include" />
+            <e p="SleepAction.cs" t="Include" />
             <e p="TradeAction.cs" t="Include" />
             <e p="TrainAction.cs" t="Include" />
             <e p="TrainUpgradeAction.cs" t="Include" />
           </e>
           <e p="Buildings" t="Include">
             <e p="Building.cs" t="Include" />
-            <e p="BuildingData.cs" t="Include" />
             <e p="BuildingHelper.cs" t="Include" />
             <e p="BuildingInfo.cs" t="Include" />
             <e p="BuildingMgmt.cs" t="Include" />
+            <e p="BuildingUI.cs" t="Include" />
             <e p="BuildingUnitData.cs" t="Include" />
             <e p="Construction.cs" t="Include" />
-            <e p="IMapElement.cs" t="Include" />
+            <e p="MapElementInfo.cs" t="Include" />
+            <e p="MapElementUI.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
             <e p="GameData.cs" t="Include" />
@@ -911,6 +931,11 @@
           </e>
           <e p="Help" t="Include">
             <e p="HelpHelper.cs" t="Include" />
+            <e p="HelpSplitElement.cs" t="Include" />
+          </e>
+          <e p="Input" t="Include">
+            <e p="CameraMove.cs" t="Include" />
+            <e p="InputAction.cs" t="Include" />
           </e>
           <e p="LoadSave" t="Include">
             <e p="LoadSaveInfo.cs" t="Include" />
@@ -919,26 +944,37 @@
             <e p="SaveWindow.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
-            <e p="MainMenuButton.cs" t="Include" />
             <e p="Startgame.cs" t="Include" />
-            <e p="Version.cs" t="Include" />
           </e>
           <e p="NLib.cs" t="Include" />
+          <e p="Options" t="Include">
+            <e p="Feature.cs" t="Include" />
+            <e p="OptionHelper.cs" t="Include" />
+          </e>
           <e p="Players" t="Include">
+            <e p="KingdomOverview.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerFog.cs" t="Include" />
             <e p="PlayerMgmt.cs" t="Include" />
             <e p="Quest.cs" t="Include" />
             <e p="QuestHelper.cs" t="Include" />
             <e p="QuestMgmt.cs" t="Include" />
+            <e p="Research.cs" t="Include" />
+            <e p="ResearchMgmt.cs" t="Include" />
+            <e p="ResearchWindow.cs" t="Include" />
           </e>
           <e p="reqs" t="Include">
             <e p="BaseReq.cs" t="Include" />
+            <e p="ReqBuilding.cs" t="Include" />
             <e p="ReqDayTime.cs" t="Include" />
             <e p="ReqEmpty.cs" t="Include" />
+            <e p="ReqFeature.cs" t="Include" />
             <e p="ReqHelper.cs" t="Include" />
+            <e p="ReqMinMax.cs" t="Include" />
             <e p="ReqNation.cs" t="Include" />
-            <e p="ReqRessMin.cs" t="Include" />
+            <e p="ReqQuest.cs" t="Include" />
+            <e p="ReqResearch.cs" t="Include" />
+            <e p="ReqResMin.cs" t="Include" />
             <e p="ReqSameField.cs" t="Include" />
             <e p="ReqSeason.cs" t="Include" />
             <e p="ReqTerrain.cs" t="Include" />
@@ -957,23 +993,25 @@
           <e p="Terrain" t="Include">
             <e p="TerrainHelper.cs" t="Include" />
           </e>
-          <e p="TextHelper.cs" t="Include" />
           <e p="Tools" t="Include">
             <e p="CSV.cs" t="Include" />
+            <e p="NRandom.cs" t="Include" />
+            <e p="TextHelper.cs" t="Include" />
           </e>
           <e p="Towns" t="Include">
             <e p="Town.cs" t="Include" />
             <e p="TownHelper.cs" t="Include" />
             <e p="TownMgmt.cs" t="Include" />
+            <e p="TownSplitElement.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
-            <e p="BuildingUI.cs" t="Include" />
+            <e p="GameButton.cs" t="Include" />
+            <e p="GameButtonHelper.cs" t="Include" />
             <e p="OnMapUI.cs" t="Include" />
             <e p="PanelBuilder.cs" t="Include" />
             <e p="SpriteHelper.cs" t="Include" />
             <e p="UIElements.cs" t="Include" />
             <e p="UIHelper.cs" t="Include" />
-            <e p="UnitUI.cs" t="Include" />
             <e p="WindowBuilderSplit.cs" t="Include" />
             <e p="WindowPanelBuilder.cs" t="Include" />
             <e p="WindowsMgmt.cs" t="Include" />
@@ -981,14 +1019,13 @@
           </e>
           <e p="Units" t="Include">
             <e p="Unit.cs" t="Include" />
-            <e p="UnitData.cs" t="Include" />
             <e p="UnitHelper.cs" t="Include" />
             <e p="UnitInfo.cs" t="Include" />
             <e p="UnitMgmt.cs" t="Include" />
+            <e p="UnitUI.cs" t="Include" />
           </e>
         </e>
         <e p="SetTargetFrameRate.cs" t="Include" />
-        <e p="StartUpScen.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

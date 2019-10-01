@@ -32,10 +32,10 @@ namespace Actions
             {
                 Building build = Data.building[key];
                 Dictionary<string, string> reqs = build.GenBuildReq();
-                if (ReqHelper.CheckOnlyFinal(player, reqs, null, x, y))
+                if (ReqHelper.CheckOnlyFinal(player, reqs, gameObject, x, y))
                 {
-                    BuildSplitElement be = new BuildSplitElement(build, x, y);
-                    be.disabled = ReqHelper.Desc(player, reqs, null, x, y);
+                    BuildSplitElement be = new BuildSplitElement(build, gameObject,x, y);
+                    be.disabled = ReqHelper.Desc(player, reqs, gameObject, x, y);
                     b.AddElement(be);
                     //win.AddBuilding(build.id);
                 }
@@ -53,17 +53,19 @@ namespace Actions
         public class BuildSplitElement : WindowBuilderSplit.SplitElement
         {
             protected Building build;
+            protected GameObject go;
             protected int x, y;
-            public BuildSplitElement(Building build, int x, int y) : base(build.name, build.GetIcon())
+            public BuildSplitElement(Building build, GameObject go, int x, int y) : base(build.name, build.GetIcon())
             {
                 this.build = build;
                 this.x = x;
                 this.y = y;
+                this.go = go;
             }
 
             public override void ShowDetail(PanelBuilder panel)
             {
-                build.ShowInfo(panel, null, x, y);
+                build.ShowInfo(panel, go, x, y);
             }
 
             public override void Perform()

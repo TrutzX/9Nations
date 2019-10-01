@@ -1,7 +1,7 @@
 using System;
 using DataTypes;
 
-namespace DefaultNamespace
+namespace Help
 {
     public class TerrainHelper
     {

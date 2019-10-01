@@ -121,7 +121,9 @@ namespace PixelsoftGames.PixelUI
         protected virtual void Start()
         {
             if (startPaused)
+            {
                 isPaused = true;
+            }
         }
 
         protected virtual void OnDestroy()
@@ -137,7 +139,9 @@ namespace PixelsoftGames.PixelUI
                 if (time >= timeScale)
                 {
                     if (Tick != null)
+                    {
                         Tick(this);
+                    }
                 }
             }
         }
@@ -196,9 +200,13 @@ namespace PixelsoftGames.PixelUI
         {
             currentDay = day;
             if (month >= System.Enum.GetValues(typeof(CalendarMonths)).Length)
+            {
                 month = (int)CalendarMonths.December;
+            }
             else if (month < 0)
+            {
                 month = (int)CalendarMonths.January;
+            }
             currentMonth = month;
             currentYear = year;
         }

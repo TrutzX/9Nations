@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Game;
+using LoadSave;
 using Players;
+using Units;
 using UnityEngine;
 
 public class RoundMgmt : ScriptableObject
@@ -33,15 +35,21 @@ public class RoundMgmt : ScriptableObject
         round++;
         GameMgmt.Get().data.round = round;
         
-        foreach (GameObject u in BuildingMgmt.Get().GetAll())
+        foreach (BuildingInfo u in BuildingMgmt.Get().GetAll())
         {
-            u.GetComponent<BuildingInfo>().NextRound();
+            u.NextRound();
         }
-        foreach (GameObject u in UnitMgmt.Get().GetAll())
+        foreach (UnitInfo u in UnitMgmt.Get().GetAll())
         {
-            u.GetComponent<UnitInfo>().NextRound();
+            u.NextRound();
         }
         PlayerMgmt.Get().NextRound();
+        
+        //save game
+        if (Data.features.autosave.Bool())
+        {
+            LoadSaveMgmt.UpdateSave("autosave.9n");
+        }
         
     }
 

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
+using DataTypes;
+using Help;
 using Game;
 using LoadSave;
+using Options;
 using Players;
 using Towns;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,107 +32,48 @@ public class WindowsMgmt : MonoBehaviour
         self = this;
     }
 
-    public bool TryDestroyWindow(string title)
+    public static void GameMainMenu()
     {
-        GameObject go = GameObject.Find(title);
-        if (go != null)
-        {
-            Destroy(go);
-            return true;
-        }
-
-        return false;
-    }
-
-    public void SwitchMainMenu()
-    {
-        //is open?
-        if (TryDestroyWindow("Main menu"))
-        {
-            return;
-        }
         
         //create it
         WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
-        win.panel.AddButton("To Main menu", () =>
-        {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
-        });
-        win.panel.AddButton("Save game", SaveWindow.Show);
-        win.panel.AddButton("Load game", LoadWindow.Show);
+        GameButtonHelper.buildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
         win.Finish();
     }
 
-    public void SwitchDebugMenu()
+    public static void DebugMenu()
     {
-        //is open?
-        if (TryDestroyWindow("Debug Window"))
-        {
-            return;
-        }
-        
         //create it
         WindowPanelBuilder p = WindowPanelBuilder.Create("Debug Window");
         p.panel.AddButton("Give ress", () =>
         {
             Town t = TownMgmt.Get().GetByActPlayer()[0];
             
-            t.AddRess("wood",15);
-            t.AddRess("stone",150);
-            t.AddRess("food",12);
-            t.AddRess("tool",14);
+            t.AddRes("wood",15);
+            t.AddRes("stone",150);
+            t.AddRes("food",12);
+            t.AddRes("tool",14);
+        });
+        p.panel.AddButton("Give research", () =>
+        {
+            Town t = TownMgmt.Get().GetByActPlayer()[0];
+            
+            t.AddRes("research",100);
+        });
+        p.panel.AddButton("Switch Fog", () =>
+        {
+            PlayerMgmt.ActPlayer().fog.tilemap.gameObject.SetActive(!PlayerMgmt.ActPlayer().fog.tilemap.gameObject.activeSelf);
+        });
+        p.panel.AddButton("Player features", () =>
+        {
+            WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
+            foreach (FeaturePlayer fp in Data.featurePlayer)
+            {
+                wp.panel.AddLabel(fp.name+": "+PlayerMgmt.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
+            }
+            wp.Finish();
         });
         p.Finish();
-    }
-
-    public void ShowTownMenu()
-    {
-        string n = "Town Window";
-        //is open?
-        if (TryDestroyWindow(n))
-        {
-            return;
-        }
-        
-        //create it
-        if (TownMgmt.Get().GetByActPlayer().Count == 0)
-        {
-            OnMapUI.Get().SetMenuMessage("No town found. Please found one before.");
-            return;
-        }
-
-        TownHelper.ShowTownWindow();
-    }
-
-    public void ShowQuestMenu()
-    {
-        string n = "Quest window";
-        //is open?
-        if (TryDestroyWindow(n))
-        {
-            return;
-        }
-        
-        //create it
-        if (PlayerMgmt.ActPlayer().quests.quests.Count == 0)
-        {
-            OnMapUI.Get().SetMenuMessage("No quests found.");
-            return;
-        }
-
-        QuestHelper.ShowQuestWindow();
-    }
-
-    public void ShowHelpMenu()
-    {
-        string n = "Help window";
-        //is open?
-        if (TryDestroyWindow(n))
-        {
-            return;
-        }
-
-        HelpHelper.ShowHelpWindow();
     }
     
     private bool IsOpen(string text)

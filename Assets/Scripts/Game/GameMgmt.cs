@@ -66,8 +66,9 @@ namespace Game
             data = new GameData();
             data.players = new PlayerMgmt();
             data.towns = new TownMgmt();
-            data.buildings = new List<BuildingData>();
-            data.units = new List<UnitData>();
+            data.buildings = new List<BuildingUnitData>();
+            data.units = new List<BuildingUnitData>();
+            data.features = new Dictionary<string, string>();
             round = ScriptableObject.CreateInstance<RoundMgmt>();
             unit = GameObject.Find("UnitMgmt").GetComponent<UnitMgmt>();
             building = GameObject.Find("BuildingMgmt").GetComponent<BuildingMgmt>();
@@ -137,13 +138,13 @@ namespace Game
             data.players.AfterLoad();
 
             //load buildings
-            foreach (BuildingData bdata in data.buildings.ToArray())
+            foreach (BuildingUnitData bdata in data.buildings.ToArray())
             {
                 BuildingMgmt.Get().Load(bdata);
             }
 
             //load units
-            foreach (UnitData udata in data.units)
+            foreach (BuildingUnitData udata in data.units)
             {
                 UnitMgmt.Get().Load(udata);
             }
@@ -166,14 +167,19 @@ namespace Game
             MapMgmt.Get().LoadMap();
             
             int pid = PlayerMgmt.Get().CreatePlayer("userx", "north");
-            UnitMgmt.Get().Create(pid,"nking", 5,5);
+            UnitMgmt.Get().Create(pid,"nking", 6,4);
             UnitMgmt.Get().Create(pid,"nsoldier", MapMgmt.Get().GetStartPos("north"));
             UnitMgmt.Get().Create(pid,"nworker", MapMgmt.Get().GetStartPos("north"));
             int tid = TownMgmt.Get().Create(NGenTown.GetTownName("north"), pid, 6, 6);
-            BuildingMgmt.Get().Create(tid, "ntemple",6, 5);
+            TownMgmt.Get(tid).AddRes("stone",6);
+            BuildingMgmt.Get().Create(tid, "nlibrary",6, 5);
             
-            PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Win().AddReq("season","summer"));
-            PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Lose().AddReq("season","summer"));
+            //PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Win().AddReq("season","summer"));
+            //PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Lose().AddReq("daytime","afternoon"));
+            
+            
+            pid = PlayerMgmt.Get().CreatePlayer("user2", "north");
+            UnitMgmt.Get().Create(pid,"nking", 7,4);
             
             FinishStart();
 

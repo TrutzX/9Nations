@@ -33,22 +33,22 @@ namespace PixelsoftGames.PixelUI
         [SerializeField]
         [Range(1, 1000)]
         [Tooltip("The default level to begin with (i.e. - we start the game as a level 1 player)")]
-        int DefaultLevel = 1;
+        private int DefaultLevel = 1;
         [SerializeField]
         [Range(1, 1000)]
         [Tooltip("The maximum possible level that can be achieved.")]
-        int MaximumLevel = 100;
+        private int MaximumLevel = 100;
         [SerializeField]
         [Tooltip("The base experience required to gain the first level")]
-        int BaseExperience = 1000;
+        private int BaseExperience = 1000;
         [SerializeField]
         [Tooltip("How should the exp required to level for each level be staggered")]
-        float TableStagger = 1.5f;
+        private float TableStagger = 1.5f;
 
-        int[] expTable;
-        int currentExperienceTowardsLevel;
-        int currentLevel;
-        Slider slider;
+        private int[] expTable = null;
+        private int currentExperienceTowardsLevel = 0;
+        private int currentLevel = 0;
+        private Slider slider = null;
 
         /// <summary>
         /// Returns the amount of experience points earned towards the next level.
@@ -89,7 +89,7 @@ namespace PixelsoftGames.PixelUI
         }
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             currentLevel = DefaultLevel;
             CreateTable();
@@ -116,7 +116,9 @@ namespace PixelsoftGames.PixelUI
             }
 
             if (!suppressEvent && LevelUp != null)
+            {
                 LevelUp(this);
+            }
 
             UpdateValue();
         }
@@ -131,7 +133,9 @@ namespace PixelsoftGames.PixelUI
             int total = 0;
 
             for (int i = 0; i < currentLevel; i++)
+            {
                 total += expTable[i];
+            }
             total += currentExperienceTowardsLevel;
 
             return total;
@@ -144,17 +148,19 @@ namespace PixelsoftGames.PixelUI
         /// <summary>
         /// This method will create an experience points table from level 1 to the maximum level.
         /// </summary>
-        void CreateTable()
+        private void CreateTable()
         {
             expTable = new int[MaximumLevel];
             for (int i = 0; i < expTable.Length; i++)
-                expTable[i] = Mathf.FloorToInt(BaseExperience * Mathf.Pow(i+1, TableStagger));
+            {
+                expTable[i] = Mathf.FloorToInt(BaseExperience * Mathf.Pow(i + 1, TableStagger));
+            }
         }
 
         /// <summary>
         /// This will update the slider experience point value.
         /// </summary>
-        void UpdateValue()
+        private void UpdateValue()
         {
             slider.value = (float)currentExperienceTowardsLevel / expTable[currentLevel - 1];
         }

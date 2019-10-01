@@ -18,16 +18,16 @@ namespace PixelsoftGames.PixelUI
 
         [SerializeField]
         [Tooltip("The minimum value to scale to")]
-        float minScale = 1f;
+        private float minScale = 1f;
         [SerializeField]
         [Tooltip("The maximum value to scale to")]
-        float maxScale = 1.5f;
+        private float maxScale = 1.5f;
         [Range(1f, 0f)]
         [SerializeField]
         [Tooltip("The speed at which we move between minimum and maximum scales")]
-        float speed;
+        private float speed = 0f;
 
-        RectTransform rect;
+        private RectTransform rect = null;
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace PixelsoftGames.PixelUI
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             float scale = Mathf.Lerp(minScale, maxScale, Mathf.PingPong(Time.time / speed, 1f));
             rect.localScale = new Vector3(scale, scale, rect.localScale.z);

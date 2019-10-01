@@ -2,7 +2,7 @@ using DataTypes;
 using UI;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Help
 {
     public class HelpHelper
     {
@@ -12,7 +12,7 @@ namespace DefaultNamespace
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Help window",null);
 
-            foreach(Help h in Data.help)
+            foreach(DataTypes.Help h in Data.help)
             {
                 b.AddElement(new HelpSplitElement(h));
             }
@@ -20,24 +20,6 @@ namespace DefaultNamespace
             b.Finish();
         }
 
-        public class HelpSplitElement : WindowBuilderSplit.SplitElement
-        {
-            protected Help help;
-            public HelpSplitElement(Help help) : base(help.name, SpriteHelper.LoadIcon(help.icon))
-            {
-                this.help = help;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                panel.AddHeaderLabel(help.name);
-                panel.AddDesc(help.text);
-            }
-
-            public override void Perform()
-            {
-                Debug.LogWarning("Not implemented");
-            }
-        }
+        
     }
 }

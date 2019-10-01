@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using Players;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,8 +24,9 @@ namespace Actions
             {
                 Debug.Log("found");
                 TownMgmt.Get().Create(name.GetComponent<InputField>().text,  x,  y);
-                Destroy(win.gameObject);
+                win.Close();
                 OnMapUI.Get().UpdatePanelXY(x,y);
+                PlayerMgmt.ActPlayer().UpdateButtonTop();
             });
             win.Finish(400);
         }

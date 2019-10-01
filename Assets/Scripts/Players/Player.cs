@@ -1,5 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Schema;
+using DataTypes;
+using Game;
+using Towns;
+using UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Players
@@ -15,6 +22,9 @@ namespace Players
         public QuestMgmt quests;
 
         public PlayerFog fog;
+        public ResearchMgmt research;
+
+        [SerializeField] private Dictionary<string, string> features;
         
         /// <summary>
         /// Only for loading
@@ -30,32 +40,80 @@ namespace Players
             this.name = name;
             this.nation = nation;
             
+            features = new Dictionary<string, string>();
+            research = new ResearchMgmt();
+            research.player = this;
             quests = new QuestMgmt();
+            quests.player = this;
             fog = new PlayerFog();
             fog.Init(id);
         }
 
+        public string GetFeature(string key)
+        {
+            if (!features.ContainsKey(key))
+                return Data.featurePlayer[key].standard;
+            return features[key];
+        }
+
+        public void SetFeature(string key, string value)
+        {
+            features[key] = value;
+        }
+        
         public void StartRound()
         {
-            OnMapUI.Get().SetRessRoundMessage(RoundMgmt.Get().GetRoundString());
+            Debug.Log($"Start round {RoundMgmt.Get().GetRoundString()} for player {name}");
+            OnMapUI.Get().SetRessRoundMessage($"Welcome {name}, it is "+RoundMgmt.Get().GetRoundString());
+
             fog.StartRound();
+
+            //update buttons
+            UpdateButtonTop();
+            UpdateButtonBottom();
+
+            //clear panels
+            OnMapUI.Get().buildingUI.UpdatePanel(null);
+            OnMapUI.Get().unitUI.UpdatePanel(null);
             
             //win?
+            WinLose();
+        }
+
+        public void UpdateButtonBottom()
+        {
+            UIHelper.ClearChild(OnMapUI.Get().bottomButton);
+            GameButtonHelper.buildMenu(this, "bottom", OnMapUI.Get().bottomButtonText, false,
+                OnMapUI.Get().bottomButton.transform);
+        }
+
+        public void UpdateButtonTop()
+        {
+            UIHelper.ClearChild(OnMapUI.Get().topButton);
+            GameButtonHelper.buildMenu(this, "top", OnMapUI.Get().topButtonText, false, OnMapUI.Get().topButton.transform);
+        }
+
+        private void WinLose()
+        {
             if (status == "win")
             {
                 WindowPanelBuilder w = WindowPanelBuilder.Create("You won");
                 w.panel.AddButton("End Game", () => { SceneManager.LoadScene(0); });
                 w.panel.AddButton("Play a little more", () => { });
                 w.Finish();
+                NAudio.PlayMusic("win",false);
                 status = null;
-            } else if (status == "lose")
+            }
+            else if (status == "lose")
             {
                 WindowPanelBuilder w = WindowPanelBuilder.Create("You lose");
-                w.panel.AddButton("End Game", () => { 
+                w.panel.AddButton("End Game", () =>
+                {
                     //TODO delete player and move units to gaia player
                     SceneManager.LoadScene(0);
                 });
                 w.Finish();
+                NAudio.PlayMusic("lose",false);
                 status = null;
             }
         }
@@ -68,11 +126,14 @@ namespace Players
         public void AfterLoad()
         {
             fog.AfterLoad(id);
+            research.player = this;
+            quests.player = this;
         }
 
         public void NextRound()
         {
-            quests.NextRound(this);
+            quests.NextRound();
+            research.NextRound();
         }
 
         /// <summary>
@@ -82,7 +143,50 @@ namespace Players
         /// <returns></returns>
         public int GetRessTotal(string key)
         {
-            return TownMgmt.Get().GetByPlayer(id).Sum(t => t.GetRess(key));
+            return TownMgmt.Get().GetByPlayer(id).Sum(t => t.GetRes(key));
+        }
+
+        /// <summary>
+        /// Add the ress to all player towns
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public void AddRessTotal(string key, int amount)
+        {
+            //has a town?
+            if (TownMgmt.Get().GetByPlayer(id).Count == 0)
+                return;
+            
+            //add?
+            if (amount >= 0)
+            {
+                TownMgmt.Get().GetByPlayer(id)[0].AddRes(key,amount);
+                return;
+            }
+            
+            //remove
+            foreach (Town town in TownMgmt.Get().GetByPlayer(id))
+            {
+                int act = town.GetRes(key);
+                if (act >= -amount)
+                {
+                    town.AddRes(key,amount);
+                    return;
+                }
+                
+                town.AddRes(key,-act);
+                amount += act;
+            }
+
+            if (amount != 0)
+            {
+                Debug.LogWarning($"Can not add all ress {amount} {key}");
+            }
+        }
+
+        public Nation Nation()
+        {
+            return Data.nation[nation];
         }
     }
 }

@@ -60,7 +60,7 @@ public class TownMgmt
 
     public List<Town> GetByPlayer(int id)
     {
-        return towns.Where(p => id == p.playerID).ToList();
+        return towns.Where(p => id == p.playerId).ToList();
     }
     
     public List<Town> GetByActPlayer()
@@ -83,8 +83,8 @@ public class TownMgmt
         foreach (BuildingInfo b in new [] { BuildingMgmt.At(x, y), BuildingMgmt.At(x-1, y),
             BuildingMgmt.At(x, y+1), BuildingMgmt.At(x+1, y),
             BuildingMgmt.At(x, y-1) }) {
-            if (b != null && b.GetTown().playerID == player.id) {
-                return b.GetTown();
+            if (b != null && b.Town().playerId == player.id) {
+                return b.Town();
             }
         }
 

@@ -20,14 +20,14 @@ namespace PixelsoftGames.PixelUI
         /// </summary>
         [Tooltip("Speed at which we will rotate the object.")]
         [SerializeField]
-        float rotationSpeed;
+        private float rotationSpeed = 0f;
 
         #endregion
 
         #region Monobehaviour Callbacks
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }

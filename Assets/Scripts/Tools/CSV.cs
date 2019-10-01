@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Help
 {
     public class CSV
     {

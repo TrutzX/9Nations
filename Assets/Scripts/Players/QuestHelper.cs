@@ -19,19 +19,17 @@ namespace Players
 
         public static void ShowQuestWindow()
         {
-            
-                //load buildings
-                WindowBuilderSplit b = WindowBuilderSplit.Create("Quest window",null);
+            //load buildings
+            WindowBuilderSplit b = WindowBuilderSplit.Create("Quest window",null);
 
-                foreach (Quest q in PlayerMgmt.ActPlayer().quests.quests)
-                {
-                    b.AddElement(new QuestSplitElement(q));
-                }
-
-                b.Finish();
+            foreach (Quest q in PlayerMgmt.ActPlayer().quests.quests)
+            {
+                b.AddElement(new QuestSplitElement(q));
             }
+            b.Finish();
+        }
 
-        public class QuestSplitElement : WindowBuilderSplit.SplitElement
+        private class QuestSplitElement : WindowBuilderSplit.SplitElement
         {
             protected Quest quest;
             public QuestSplitElement(Quest quest) : base(quest.name, SpriteHelper.LoadIcon(quest.icon))

@@ -37,18 +37,18 @@ namespace PixelsoftGames.PixelUI
 
         [SerializeField]
         [Tooltip("Reference to the negative response button")]
-        Button declineButton;
+        private Button declineButton = null;
         [SerializeField]
         [Tooltip("Reference to the positive response button")]
-        Button confirmButton;
+        private Button confirmButton = null;
         [SerializeField]
         [Tooltip("The title to display at the top of the window")]
-        Text title;
+        private Text title = null;
         [SerializeField]
         [Tooltip("The message to display in the window body.")]
-        Text message;
+        private Text message = null;
 
-        DialogueType type;
+        private DialogueType type = DialogueType.Cancel;
 
         #endregion
 
@@ -121,7 +121,7 @@ namespace PixelsoftGames.PixelUI
         /// Parses and raises the result event if there are any listeners
         /// </summary>
         /// <param name="isConfirmed">Whether the confirm button was clicked or not</param>
-        void PrintResult(bool isConfirmed)
+        private void PrintResult(bool isConfirmed)
         {
             if (DialogueResult != null)
             {

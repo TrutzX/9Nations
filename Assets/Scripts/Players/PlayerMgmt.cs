@@ -43,7 +43,12 @@ namespace Players
 
         public static Player ActPlayer()
         {
-            return Get().players[Get().actPlayer];
+            return Get().players[ActPlayerID()];
+        }
+
+        public static int ActPlayerID()
+        {
+            return Get().actPlayer;
         }
     
         // Update is called once per frame

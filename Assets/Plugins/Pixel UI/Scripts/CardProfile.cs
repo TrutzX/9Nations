@@ -21,25 +21,25 @@ namespace PixelsoftGames.PixelUI
         [Tooltip("The prefab to use when instantiating cards.")]
         public GameObject CardPrefab = null;
         [Tooltip("The sprite displayed behind a card or deck (typically a black card outline).")]
-        public Sprite CardBlankSprite;
+        public Sprite CardBlankSprite = null;
         [Tooltip("The sprite used to represent the card deck.")]
-        public Sprite CardDeckSprite;
+        public Sprite CardDeckSprite = null;
         [Tooltip("The sprite used to represent the back of the card.")]
-        public Sprite CardBackSprite;
+        public Sprite CardBackSprite = null;
         [Tooltip("The sprite used to represent the front of the card.")]
-        public Sprite CardFrontSprite;
+        public Sprite CardFrontSprite = null;
         [Tooltip("The sprite to use for displaying inventory (crate) foreground.")]
-        public Sprite InventoryForegroundSprite;
+        public Sprite InventoryForegroundSprite = null;
         [Tooltip("The sprite to use for displaying shop (coin) foreground.")]
-        public Sprite ShopForegroundSprite;
+        public Sprite ShopForegroundSprite = null;
         [Tooltip("The sprite to use for displaying the time (hourglass) foreground.")]
-        public Sprite TimeForegroundSprite;
+        public Sprite TimeForegroundSprite = null;
         [Tooltip("The sprite to use for displaying the energy (lightning bolt) foreground.")]
-        public Sprite EnergyForegroundSprite;
+        public Sprite EnergyForegroundSprite = null;
         [Tooltip("The sprites to use for displaying hearts (relationship).")]
-        public List<Sprite> HeartForegroundSprites;
+        public List<Sprite> HeartForegroundSprites = null;
         [Tooltip("The sprites to use for displaying stars (quality).")]
-        public List<Sprite> StarForegroundSprites;
+        public List<Sprite> StarForegroundSprites = null;
         [Tooltip("How long it takes to flip a card over.")]
         public float Flip_Duration = 1f;
         [Tooltip("How long we wait for a card to fade in/out.")]

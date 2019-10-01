@@ -16,6 +16,11 @@ public class EndlessGameWindow : MonoBehaviour
     public GameObject startButton;
     public Dictionary<string, string> startConfig;
     private WindowBuilderSplit window;
+
+    public static EndlessGameWindow Get()
+    {
+        return GameObject.Find("EndlessGame").GetComponent<EndlessGameWindow>();
+    }
     
     // Start is called before the first frame update
     public void Show()

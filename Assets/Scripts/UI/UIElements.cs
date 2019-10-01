@@ -24,6 +24,7 @@ public class UIElements : MonoBehaviour
     public GameObject panelWindow;
     public GameObject checkBox;
     public Dropdown dropdown;
+    public Slider slider;
     
 
     public static UIElements Get()
@@ -31,12 +32,13 @@ public class UIElements : MonoBehaviour
         return GameObject.Find("UI").GetComponent<UIElements>();
     }
     
-    public static GameObject CreateImageButton(string icon, Transform parent)
+    public static GameObject CreateImageButton(string icon, Transform parent, Action action, string sound="click")
     {
-        
         GameObject act = Instantiate(Get().imageButton, parent);
         act.name = icon;
-        act.transform.Find("Image").GetComponent<Image>().sprite = SpriteHelper.Load("Icons/"+icon);
+        act.transform.Find("Image").GetComponent<Image>().sprite = SpriteHelper.LoadIcon(icon);
+        act.GetComponent<Button>().onClick.AddListener(() => action());
+        UIElements.AddButtonSound(act, sound);
         return act;
     }
     
@@ -69,5 +71,11 @@ public class UIElements : MonoBehaviour
         act.transform.GetChild(1).GetComponent<Text>().text = title;
         act.GetComponent<Toggle>().onValueChanged.AddListener(action);
         return act;
+    }
+
+    public static void AddButtonSound(GameObject g, string sound)
+    {
+        if (sound != null)
+            g.GetComponent<Button>().onClick.AddListener(() => { NAudio.Play(sound); });
     }
 }

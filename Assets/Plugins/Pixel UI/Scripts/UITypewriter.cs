@@ -20,35 +20,35 @@ namespace PixelsoftGames.PixelUI
 
         [SerializeField]
         [Tooltip("Should we start typing immediately when this script runs?")]
-        bool playOnStart = false;
+        private bool playOnStart = false;
         [SerializeField]
         [Tooltip("Should we erase content and start typing again as soon as we finish?")]
-        bool repeat = false;
+        private bool repeat = false;
         [SerializeField]
         [Tooltip("Should we bypass time scale, so that typed messages still work regardless of time scale value?")]
-        bool bypassTimeScale = true;
+        private bool bypassTimeScale = true;
         [SerializeField]
         [Tooltip("Should we allow skipping if the player presses any button?")]
-        bool allowSkip = true;
+        private bool allowSkip = true;
         [SerializeField]
         [Tooltip("How slow or fast to type each character")]
-        float TypeDelay = 1500;
+        private float TypeDelay = 1500;
         [SerializeField]
         [Tooltip("A special color to make the last typed character for an added visual effect")]
-        Color highlightColor;
+        private Color highlightColor;
         [Tooltip("The event that gets called when the typewriter finishes writing.")]
         public UnityEvent OnComplete;
         [Tooltip("The event that gets called when the typewriter has finished and the user clicks (to progress).")]
         public UnityEvent OnRequestProgress;
 
         // The text component we will be working with
-        Text label;
+        private Text label = null;
         // s1 holds the string to be typed, s2 holds what has been typed
-        string s1 = string.Empty, s2 = string.Empty;
+        private string s1 = string.Empty, s2 = string.Empty;
         // Index keeps track of where we are in the string
-        int index = 0;
+        private int index = 0;
         // The typewriter coroutine reference in case we need to kill it
-        Coroutine typewriter = null;
+        private Coroutine typewriter = null;
 
         #endregion
 
@@ -60,14 +60,14 @@ namespace PixelsoftGames.PixelUI
         }
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             if (playOnStart)
                 SetText(label.text);
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (Input.anyKeyDown)
             {
@@ -116,10 +116,13 @@ namespace PixelsoftGames.PixelUI
 
         #region Private Methods
 
-        void FinishCoroutine()
+        private void FinishCoroutine()
         {
-            StopCoroutine(typewriter);
-            typewriter = null;
+            if (typewriter != null)
+            {
+                StopCoroutine(typewriter);
+                typewriter = null;
+            }
 
             if (OnComplete != null)
                 OnComplete.Invoke();
@@ -130,7 +133,7 @@ namespace PixelsoftGames.PixelUI
         /// </summary>
         /// <param name="time">Time to wait</param>
         /// <returns></returns>
-        Coroutine WaitForRealSeconds(float time)
+        private Coroutine WaitForRealSeconds(float time)
         {
             return StartCoroutine(_WaitForRealSeconds(time));
         }
@@ -144,7 +147,7 @@ namespace PixelsoftGames.PixelUI
         /// </summary>
         /// <param name="time">Time to wait</param>
         /// <returns></returns>
-        IEnumerator _WaitForRealSeconds(float time)
+        private IEnumerator _WaitForRealSeconds(float time)
         {
             while (time > 0f)
             {
@@ -157,7 +160,7 @@ namespace PixelsoftGames.PixelUI
         /// The actual coroutine that executes the typewriter script.
         /// </summary>
         /// <returns></returns>
-        IEnumerator Typewriter()
+        private IEnumerator Typewriter()
         {
             index = 0;
             s2 = string.Empty;

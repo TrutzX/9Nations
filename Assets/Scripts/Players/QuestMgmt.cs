@@ -7,6 +7,7 @@ namespace Players
     public class QuestMgmt
     {
         public List<Quest> quests;
+        [NonSerialized] public Player player;
 
         public QuestMgmt()
         {
@@ -18,7 +19,7 @@ namespace Players
             quests.Add(q);
         }
 
-        public void NextRound(Player player)
+        public void NextRound()
         {
             foreach (Quest q in quests)
             {

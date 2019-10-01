@@ -32,7 +32,7 @@ namespace PixelsoftGames.PixelUI
         [Tooltip("The image used by the card deck.")]
         private Image deckImage = null;
 
-        GameObject activeCard = null;
+        private GameObject activeCard = null;
 
         [Tooltip("DEMO ONLY")]
         public Sprite DemoSprite1 = null, DemoSprite2 = null, DemoSprite3 = null, DemoSprite4 = null, DemoSprite5 = null, DemoSprite6 = null;
@@ -42,7 +42,7 @@ namespace PixelsoftGames.PixelUI
         #region Monobehavior Callbacks
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             LoadCardProfile();
         }

@@ -11,32 +11,17 @@ using UnityEngine.UI;
 
 namespace PixelsoftGames.PixelUI
 {
-    public class UITooltip : MonoBehaviour
+    public class UITooltip : Singleton<UITooltip>
     {
-        #region Singleton Implementation
-
-        static UITooltip _Instance = null;
-        public static UITooltip Instance { get { return _Instance; } }
-
-        #endregion
-
         #region Fields & Properties
 
         [SerializeField]
         [Tooltip("The text being displayed by this tooltip.")]
-        Text tooltip = null;
+        private Text tooltip = null;
 
         #endregion
 
         #region Monobehavior Callbacks
-
-        private void Awake()
-        {
-            if (Instance != null)
-                Destroy(gameObject);
-            else
-                _Instance = this;
-        }
 
         private void OnEnable()
         {
@@ -48,15 +33,9 @@ namespace PixelsoftGames.PixelUI
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             transform.position = Input.mousePosition;
-        }
-
-        private void OnDestroy()
-        {
-            if (Instance == this)
-                _Instance = null;
         }
 
         #endregion

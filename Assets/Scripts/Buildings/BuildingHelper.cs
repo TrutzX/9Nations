@@ -28,6 +28,11 @@ namespace Game
             return c;
         }
 
+        public static Sprite GetIcon(string file)
+        {
+            return SpriteHelper.Load("Building/" + file);
+        }
+        
         public static string[] GetIDs()
         {
             List<string> ids = new List<string>();

@@ -13,7 +13,7 @@ TextureImporter:
     second: other_2
   - first:
       213: 2216051457789328346
-    second: other_3
+    second: nextUnit
   - first:
       213: 2048146988604860407
     second: other_4
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: other_3
+      name: nextUnit
       rect:
         serializedVersion: 2
         x: 96

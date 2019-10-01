@@ -47,14 +47,23 @@ public class UIHelper : ScriptableObject
         button.transform.GetChild(0).GetComponent<Text>().text = title;
     }
 
-    public static GameObject CreateImageTextButton(string title, Sprite icon, Transform parent, Action action)
+    public static GameObject CreateImageTextButton(string title, Sprite icon, Transform parent, Action action, string sound="click")
     {
         GameObject act = Instantiate(UIElements.Get().imageTextButton, parent);
         act.name = title;
         act.transform.GetChild(0).GetComponent<Text>().text = title;
         act.transform.GetChild(1).GetComponent<Image>().sprite = icon;
         act.GetComponent<Button>().onClick.AddListener(() => { action(); });
-
+        UIElements.AddButtonSound(act, sound);
         return act;
+    }
+
+    public static void ClearChild(GameObject go)
+    {
+        Transform[] old = go.transform.GetComponentsInChildren<Transform>();
+        for (int i = 1; i < old.Length; i++)
+        {
+            Destroy(old[i].gameObject);
+        }
     }
 }

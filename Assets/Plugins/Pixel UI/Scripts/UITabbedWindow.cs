@@ -21,13 +21,13 @@ namespace PixelsoftGames.PixelUI
 
         [SerializeField]
         [Tooltip("List of content panes for this tabbed window")]
-        List<GameObject> ContentPanes;
+        private List<GameObject> ContentPanes = null;
         [SerializeField]
         [Tooltip("The default pane to display on instantiation")]
-        GameObject DefaultPane;
+        private GameObject DefaultPane = null;
 
         // The currently active pane
-        GameObject activePane;
+        private GameObject activePane = null;
 
         #endregion
 
@@ -66,7 +66,7 @@ namespace PixelsoftGames.PixelUI
         /// <summary>
         /// This method is called on startup and validates the tabbed window, deactivates inactive windows and activates the default. 
         /// </summary>
-        void SetupContent()
+        private void SetupContent()
         {
             if (ContentPanes == null || ContentPanes.Count == 0)
             {

@@ -25,7 +25,7 @@ TextureImporter:
     second: base_6
   - first:
       213: 6152791594083192685
-    second: base_7
+    second: sleep
   - first:
       213: 1760888675555090820
     second: base_8
@@ -256,7 +256,7 @@ TextureImporter:
     second: base_83
   - first:
       213: 8787948424237141558
-    second: base:weapon
+    second: weapon
   - first:
       213: 1574168999704996879
     second: base_85
@@ -538,7 +538,7 @@ TextureImporter:
     second: base_177
   - first:
       213: 8847513860228937832
-    second: base_178
+    second: audio
   - first:
       213: 2229214286069376844
     second: base_179
@@ -664,7 +664,7 @@ TextureImporter:
     second: base_219
   - first:
       213: 1215403257119898583
-    second: base_220
+    second: option
   - first:
       213: -4807256266919855215
     second: base_221
@@ -1083,7 +1083,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_7
+      name: sleep
       rect:
         serializedVersion: 2
         x: 256
@@ -2700,7 +2700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base:weapon
+      name: weapon
       rect:
         serializedVersion: 2
         x: 32
@@ -4674,7 +4674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_178
+      name: audio
       rect:
         serializedVersion: 2
         x: 256
@@ -5556,7 +5556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_220
+      name: option
       rect:
         serializedVersion: 2
         x: 64

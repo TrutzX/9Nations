@@ -1,11 +1,12 @@
 using Buildings;
+using Units;
 using UnityEngine;
 
 namespace Game
 {
     public class GameHelper
     {
-        public static IMapElement GetMapElement(GameObject game)
+        public static MapElementInfo GetMapElement(GameObject game)
         {
             if (game.GetComponent<BuildingInfo>())
             {

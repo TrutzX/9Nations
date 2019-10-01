@@ -19,7 +19,7 @@ TextureImporter:
     second: magic_4
   - first:
       213: 4640800853956266320
-    second: magic_5
+    second: water
   - first:
       213: -6482081916739643334
     second: magic_6
@@ -133,7 +133,7 @@ TextureImporter:
     second: magic_42
   - first:
       213: -4090812237999928717
-    second: magic_43
+    second: air
   - first:
       213: -1783074766144496309
     second: magic_44
@@ -163,7 +163,7 @@ TextureImporter:
     second: magic_52
   - first:
       213: -6225213010028215901
-    second: magic_53
+    second: energy
   - first:
       213: -2227931498297556789
     second: magic_54
@@ -232,7 +232,7 @@ TextureImporter:
     second: magic_75
   - first:
       213: 4385583710117794566
-    second: magic_76
+    second: earth
   - first:
       213: -8133230126814790265
     second: magic_77
@@ -361,7 +361,7 @@ TextureImporter:
     second: magic_118
   - first:
       213: 6211183366023920449
-    second: magic_119
+    second: death
   - first:
       213: 4784200097788463288
     second: magic_120
@@ -514,7 +514,7 @@ TextureImporter:
     second: magic_169
   - first:
       213: 5910592813952386135
-    second: magic_170
+    second: research
   - first:
       213: -1753205972718690237
     second: magic_171
@@ -846,7 +846,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_5
+      name: water
       rect:
         serializedVersion: 2
         x: 160
@@ -1644,7 +1644,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_43
+      name: air
       rect:
         serializedVersion: 2
         x: 352
@@ -1854,7 +1854,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_53
+      name: energy
       rect:
         serializedVersion: 2
         x: 160
@@ -2337,7 +2337,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_76
+      name: earth
       rect:
         serializedVersion: 2
         x: 384
@@ -3240,7 +3240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_119
+      name: death
       rect:
         serializedVersion: 2
         x: 288
@@ -4311,7 +4311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_170
+      name: research
       rect:
         serializedVersion: 2
         x: 448

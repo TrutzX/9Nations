@@ -24,47 +24,47 @@ namespace PixelsoftGames.PixelUI
 
         [SerializeField]
         [Tooltip("The start mode of the fader.")]
-        FadeMode mode = FadeMode.None;
+        private FadeMode mode = FadeMode.None;
         [SerializeField]
         [Tooltip("What type of component will we be fading?")]
-        ComponentType componentType = ComponentType.Image;
+        private ComponentType componentType = ComponentType.Image;
         [SerializeField]
         [Tooltip("The amount of time given for each fade transition.")]
-        float fadeTime = 1f;
+        private float fadeTime = 1f;
         [SerializeField]
         [Tooltip("Should we destroy the GameObject after fade out is complete?")]
-        bool destroyOnFadeOut = false;
+        private bool destroyOnFadeOut = false;
 
         public UnityEvent OnFadeOutComplete = null, OnFadeInComplete = null;
 
         /// <summary>
         /// If we are fading an image, this will be our target image.
         /// </summary>
-        Image image = null;
+        private Image image = null;
         /// <summary>
         /// If we are fading a text, this will be our target text.
         /// </summary>
-        Text text = null;
+        private Text text = null;
         /// <summary>
         /// If we are fading a canvas group, this will be our target group.
         /// </summary>
-        CanvasGroup canvasGroup = null;
+        private CanvasGroup canvasGroup = null;
         /// <summary>
         /// The current state of the fader.
         /// </summary>
-        FadeMode currentState = FadeMode.None;
+        private FadeMode currentState = FadeMode.None;
         /// <summary>
         /// The default and fade out colors for the fader to target.
         /// </summary>
-        Color defaultColor, fadeOutColor;
+        private Color defaultColor, fadeOutColor;
         /// <summary>
         /// The timer that keeps track of our fade time.
         /// </summary>
-        float timer = 0f;
+        private float timer = 0f;
         /// <summary>
         /// Tells us if this component has been initialized before we try to use it.
         /// </summary>
-        bool isInitialized = false;
+        private bool isInitialized = false;
 
         #endregion
 
@@ -108,7 +108,7 @@ namespace PixelsoftGames.PixelUI
 
         #region Private Methods
 
-        void Initialize()
+        private void Initialize()
         {
             if (isInitialized)
             {
@@ -267,7 +267,7 @@ namespace PixelsoftGames.PixelUI
             }
         }
 
-        void CompleteFadeOut()
+        private void CompleteFadeOut()
         {
             if (OnFadeOutComplete != null)
             {
@@ -289,7 +289,7 @@ namespace PixelsoftGames.PixelUI
             }
         }
 
-        void CompleteFadeIn()
+        private void CompleteFadeIn()
         {
             if (OnFadeInComplete != null)
             {

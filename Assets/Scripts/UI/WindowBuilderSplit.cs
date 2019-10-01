@@ -51,9 +51,14 @@ namespace UI
             selectButton = UIHelper.CreateButton("Select an element first",buttonPanel.transform,()=>
             {
                 selectedElement.Perform();
-                Destroy(gameObject);
+                CloseWindow();
             });
             selectButton.GetComponent<Button>().enabled = false;
+        }
+
+        public void CloseWindow()
+        {
+            Destroy(gameObject);
         }
 
         public void AddElement(SplitElement ele)
@@ -80,7 +85,7 @@ namespace UI
                     if (ele == selectedElement && selectButton != null)
                     {
                         selectedElement.Perform();
-                        Destroy(gameObject);
+                        CloseWindow();
                         return;
                     }
 
@@ -97,7 +102,8 @@ namespace UI
                 }
             );
             //splitElementButtonPanel.GetComponent<RectTransform>().o
-            
+            ele.window = this;
+
         }
 
         private void ShowDetail()
@@ -108,7 +114,11 @@ namespace UI
                     GameObject.Destroy(child.gameObject);
                 };
             }
-            selectedElement.ShowDetail(PanelBuilder.Create(infoPanel.transform));
+
+            PanelBuilder p = PanelBuilder.Create(infoPanel.transform);
+            selectedElement.ShowDetail(p);
+            p.CalcSize();
+            NAudio.Play(selectedElement.audioSwitch);
         }
         
         public void Finish()
@@ -120,8 +130,10 @@ namespace UI
         public abstract class SplitElement
         {
             public string title;
+            public string audioSwitch;
             public Sprite icon;
             public GameObject button;
+            public WindowBuilderSplit window;
         
             /// <summary>
             /// content = error message to display
@@ -133,6 +145,7 @@ namespace UI
             {
                 this.title = title;
                 this.icon = icon;
+                audioSwitch = "switch";
             }
             
             protected SplitElement(string title, string icon) : this (title, SpriteHelper.LoadIcon(icon)){}

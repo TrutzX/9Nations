@@ -47,7 +47,10 @@ MonoBehaviour:
   unitUI: {fileID: 0}
   buildingUI: {fileID: 0}
   ressround: {fileID: 0}
-  menudesc: {fileID: 0}
+  topButton: {fileID: 0}
+  topButtonText: {fileID: 0}
+  bottomButton: {fileID: 0}
+  bottomButtonText: {fileID: 0}
 --- !u!114 &3516815613302156600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +87,8 @@ MonoBehaviour:
     type: 3}
   panelWindow: {fileID: 3827550852429096437, guid: 466e10b7eef7e4ff4a6b5fe394d61f2b,
     type: 3}
-  checkBox: {fileID: 304893771287829080, guid: 70ae740aaaaae4e29b167b484ba60990, type: 3}
+  checkBox: {fileID: 2569203467461159016, guid: 6e4da79bad3814c54bcff7de0de0c291,
+    type: 3}
   dropdown: {fileID: 5781263005038914098, guid: 9b414424516374fe28d995b3508a6104,
     type: 3}
+  slider: {fileID: 7806044235152765932, guid: b592b59c6341d425cb62ab811f27806d, type: 3}

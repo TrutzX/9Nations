@@ -74,7 +74,9 @@ namespace PixelsoftGames.PixelUI
         private void OnDestroy()
         {
             if (currentCoroutine != null)
+            {
                 StopCoroutine(currentCoroutine);
+            }
         }
 
         #endregion
