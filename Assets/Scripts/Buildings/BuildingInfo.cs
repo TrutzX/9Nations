@@ -6,6 +6,7 @@ using Buildings;
 using DataTypes;
 using Game;
 using Help;
+using MapActions;
 using Players;
 using reqs;
 using Towns;
@@ -16,10 +17,10 @@ using UnityEngine;
 public class BuildingInfo : MapElementInfo
 {
     public Building config;
-
+    
     public void NextRound()
     {
-        data.lastError = null;
+        data.lastInfo = null;
         data.BuildingUpdate();
         Town t = Town();
         
@@ -30,10 +31,10 @@ public class BuildingInfo : MapElementInfo
         }
         
         //produce?
-        if (!ReqHelper.Check(Player(),config.GenProduceReq(),gameObject,X(),Y()))
+        if (!ReqHelper.Check(Player(),config.GenProduceReq(),this,X(),Y()))
         {
-            data.lastError = ReqHelper.Desc(Player(), config.GenProduceReq(),
-                gameObject, X(), Y());
+            SetLastInfo( ReqHelper.Desc(Player(), config.GenProduceReq(),
+                this, X(), Y()));
             return;
         }
         
@@ -56,7 +57,7 @@ public class BuildingInfo : MapElementInfo
         config = Data.building[configType];
 
         gameObject.AddComponent<Construction>();
-        gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime,town);
+        gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime);
         
         PlayerMgmt.Get(Town().playerId).fog.Clear(x,y);
 
@@ -92,8 +93,11 @@ public class BuildingInfo : MapElementInfo
         
         //todo get ress back
         Destroy(gameObject);
-        
-        
+    }
+
+    public override string UniversalImage()
+    {
+        return "b:" + config.id;
     }
 
     public override void FinishConstruct()
@@ -121,11 +125,20 @@ public class BuildingInfo : MapElementInfo
         win.AddElement(new BuildingSplitInfo(this));
         win.AddElement(new BuildingLexiconInfo(this));
         win.AddElement(new HelpSplitElement("building"));
+        if (Data.features.debug.Bool())
+            win.AddElement(new DebugMapElementSplitElement(this));
         win.Finish();
         return win;
     }
 
-    class BuildingSplitInfo : WindowBuilderSplit.SplitElement
+    public override void Upgrade(string type)
+    {
+        GameMgmt.Get().data.buildings.Remove(data);
+        Init(data.townId,type,X(),Y());
+        GameMgmt.Get().data.buildings.Add(GetComponent<BuildingInfo>().data);
+    }
+
+    class BuildingSplitInfo : SplitElement
     {
         private readonly BuildingInfo _building;
         
@@ -163,7 +176,7 @@ public class BuildingInfo : MapElementInfo
         }
     }
 
-    class BuildingLexiconInfo : WindowBuilderSplit.SplitElement
+    class BuildingLexiconInfo : SplitElement
     {
         private readonly BuildingInfo _unit;
         

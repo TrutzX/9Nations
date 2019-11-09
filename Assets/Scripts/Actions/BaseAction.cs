@@ -22,7 +22,7 @@ namespace Actions
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="settings"></param>
-        protected abstract void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings);
+        protected abstract void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings);
         
         /// <summary>
         /// Run for the player
@@ -38,14 +38,9 @@ namespace Actions
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="settings"></param>
-        public void ButtonRun(MapElementInfo info, int x, int y, string settings, MapElementUI ui)
+        public string ButtonRun(MapElementInfo info, int x, int y, string settings)
         {
-            string mess = ActionRun(PlayerMgmt.ActPlayer(), info, x, y, settings);
-            if (mess != null)
-            {
-                ui.SetPanelMessage(mess);
-                NAudio.PlayBuzzer();
-            }
+            return ActionRun(PlayerMgmt.ActPlayer(), info, x, y, settings);
         }
 
         /// <summary>
@@ -60,13 +55,14 @@ namespace Actions
             string mess = ActionRun(info.Player(),info, x, y, settings);
             if (mess != null)
             {
-                info.data.lastError = mess;
+                info.SetLastInfo(mess);
             }
         }
 
         /// <summary>
         /// Perform the action for the unit
         /// </summary>
+        /// <param name="player"></param>
         /// <param name="info"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -83,13 +79,13 @@ namespace Actions
             //check pref
             Debug.Log($"call {action.id}");
             //can use?
-            if (!ReqHelper.Check(player, ActionHelper.GenReq(action), info.gameObject, x, y))
+            if (!ReqHelper.Check(player, ActionHelper.GenReq(action), info, x, y))
             {
-                return ReqHelper.Desc(player, ActionHelper.GenReq(action), info.gameObject, x, y);
+                return ReqHelper.Desc(player, ActionHelper.GenReq(action), info, x, y);
             }
 
             info.data.ap -= action.cost;
-            ButtonAction(player, info.gameObject, x, y, settings);
+            ButtonAction(player, info, x, y, settings);
             return null;
         }
 

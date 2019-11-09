@@ -19,9 +19,7 @@ namespace Game
                 txt.Add($"<sprite=\"{i[0]}\" name=\"{i[1]}\"> {r.Value}x");
             }
             
-            
-            
-            return TextHelper.CommaSepA(txt.ToArray());
+            return TextHelper.CommaSep(txt.ToArray());
         }
     }
 }

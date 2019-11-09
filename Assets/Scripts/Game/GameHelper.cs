@@ -15,5 +15,10 @@ namespace Game
 
             return game.GetComponent<UnitInfo>();
         }
+
+        public static bool Valide(int x, int y)
+        {
+            return !(y < 0 || x < 0 || y >= GameMgmt.Get().data.mapheight || x >= GameMgmt.Get().data.mapwidth);
+        }
     }
 }

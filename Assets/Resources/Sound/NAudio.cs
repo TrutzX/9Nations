@@ -51,6 +51,11 @@ public class NAudio : MonoBehaviour
     {
         Play("buzzer");
     }
+    
+    public static void PlayCancel()
+    {
+        Play("cancel");
+    }
 
     public void UpdateAudio()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Towns
 {
-    public class TownSplitElement : WindowBuilderSplit.SplitElement
+    public class TownSplitElement : SplitElement
     {
         protected Town town;
         public TownSplitElement(Town town) : base(town.name, town.GetIcon())

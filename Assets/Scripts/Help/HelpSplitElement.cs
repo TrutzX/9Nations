@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Help
 {
-    public class HelpSplitElement : WindowBuilderSplit.SplitElement
+    public class HelpSplitElement : SplitElement
     {
         private DataTypes.Help help;
         

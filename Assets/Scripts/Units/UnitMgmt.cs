@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Linq;
 using Buildings;
 using Game;
+using Maps;
+using NesScripts.Controls.PathFind;
 using Players;
 using UI;
 using UnityEngine;
@@ -34,6 +36,17 @@ namespace Units
         {
             return GetComponentsInChildren<UnitInfo>(true);
         }
+
+        /// <summary>
+        /// Returns true, if no unit is on the field
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public bool IsFree(int x, int y)
+        {
+            return At(x, y) == null;
+        }
     
         public UnitInfo[] GetUnitPlayer(int pid)
         {
@@ -45,23 +58,28 @@ namespace Units
             return GetUnitPlayer(pid).Where(g => g.data.type == type).ToArray();
         }
 
-        public GameObject Create(int player, string type, int x, int y)
+        public UnitInfo Create(int player, string type, int x, int y)
         {
             //exist?
             if (!Data.unit.ContainsKey(type))
             {
                 throw new MissingComponentException("Unit "+type+ "not exist");
             }
+
+            if (!GameHelper.Valide(x, y))
+            {
+                throw new MissingComponentException("not a valid position");
+            }
         
-            GameObject unit = Instantiate(unitPrefab, GetComponent<Transform>());
-            unit.GetComponent<UnitInfo>().Init(type,player,x,y);
-            GameMgmt.Get().data.units.Add(unit.GetComponent<UnitInfo>().data);
+            UnitInfo unit = Instantiate(unitPrefab, GetComponent<Transform>()).GetComponent<UnitInfo>();
+            unit.Init(type,player,x,y);
+            GameMgmt.Get().data.units.Add(unit.data);
             return unit;
         }
 
-        public GameObject Create(int player, string type, Point p)
+        public UnitInfo Create(int player, string type, PPoint p)
         {
-            return Create(player, type, p.X, p.Y);
+            return Create(player, type, p.x, p.y);
         }
 
         public GameObject Load(BuildingUnitData data)
@@ -80,8 +98,8 @@ namespace Units
         public void ShowNextAvaibleUnitForPlayer()
         {
             //has an active unit?
-            Debug.LogWarning(FindObjectOfType<OnMapUI>());
-            UnitInfo u = FindObjectOfType<OnMapUI>().unitUI.activeUnit;
+            //Debug.LogWarning(FindObjectOfType<OnMapUI>());
+            UnitInfo u = FindObjectOfType<OnMapUI>().unitUI.active;
             UnitInfo[] units = GetUnitPlayer(PlayerMgmt.ActPlayer().id);
             
             //get startpos?

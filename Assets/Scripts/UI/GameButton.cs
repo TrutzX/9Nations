@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using InputAction;
 using Players;
 using reqs;
 using UI;
@@ -10,7 +11,7 @@ namespace DataTypes
 {
     public partial class GameButton {
         // Start is called before the first frame update
-        
+
         public Dictionary<string,string> GenReq()
         {
             return ReqHelper.GetReq(req1,req2);
@@ -27,7 +28,7 @@ namespace DataTypes
             {
                 GameButtonHelper.Call(id, player);
             }, sound);
-            UIHelper.HoverEnter(text,name,button, () => { text.text = ""; });
+            UIHelper.HoverEnter(text,InputKeyHelper.GameButtonName(this),button, () => { text.text = ""; });
 
             return button;
         }

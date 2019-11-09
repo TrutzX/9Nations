@@ -5,13 +5,15 @@ using System.Data;
 using System.Drawing;
 using Buildings;
 using LoadSave;
+using Maps;
 using Players;
-using Scenario;
+using Tools;
 using Towns;
 using Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Color = UnityEngine.Color;
 
 namespace Game
 {
@@ -28,6 +30,10 @@ namespace Game
         public static Dictionary<string, string> startConfig;
 
         public GameObject loadingScreen;
+        public Text mainText;
+        public Text subText;
+        
+        private int loadScene = 0;
 
         public static void Init()
         {
@@ -49,16 +55,42 @@ namespace Game
             data.players.NextPlayer();
         }
         
-        void Start()
+        void Update()
         {
-            ShowLoadingScreen("Loading");
-            StartCoroutine("Start2");
+            // If the player has pressed the space bar and a new scene is not loading yet...
+            if (loadScene == 0) {
+
+                // ...set the loadScene boolean to true to prevent loading a new scene more than once...
+                loadScene = 1;
+
+                // ...change the instruction text to read "Loading..."
+                ShowLoadingScreenText("Loading");
+                
+                // ...and start a coroutine that will load the desired scene.
+                StartCoroutine(Start2());
+
+            }
+
+            // If the new scene has started loading...
+            if (loadScene == 1) {
+                // ...then pulse the transparency of the loading text to let the player know that the computer is still working.
+                mainText.color = new Color(mainText.color.r, mainText.color.g, mainText.color.b, Mathf.PingPong(Time.time, 1));
+                subText.color = new Color(subText.color.r, subText.color.g, subText.color.b, Mathf.PingPong(Time.time, 1));
+            }
         }
 
-        public void ShowLoadingScreen(string text)
+        public IEnumerator ShowLoadingScreenText(string text)
         {
+            Debug.Log(text);
             loadingScreen.SetActive(true);
-            loadingScreen.GetComponentInChildren<Text>().text = text;
+            mainText.text = text;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        public IEnumerator ShowLoadingScreenSecond(string text)
+        {
+            subText.text = text;
+            yield return new WaitForFixedUpdate();
         }
         
         IEnumerator Start2()
@@ -74,123 +106,94 @@ namespace Game
             building = GameObject.Find("BuildingMgmt").GetComponent<BuildingMgmt>();
             map = GameObject.Find("MapMgmt").GetComponent<MapMgmt>();
             self = this;
-
-            yield return null;
             
             if (startConfig == null)
             {
-                StartDebug();
-            } else
+                startConfig = new Dictionary<string, string>();
+                startConfig["name"] = "debug";
+                startConfig["type"] = "scenario";
+                startConfig["scenario"] = "debug";
+                startConfig["scenario"] = "tutorialbasic";
+                
+            }
+            
+            yield return ShowLoadingScreenText("Loading "+startConfig["name"]);
+            
             switch (startConfig["type"])
             {
                 case "endless":
-                    StartEndless();
+                    yield return (StartScenario(Data.scenario.endless.id,startConfig["map"]));
                     break;
                 case "load":
-                    StartLoad();
+                    yield return StartLoad();
+                    break;
+                default:
+                    yield return (StartScenario(startConfig["scenario"],Data.scenario[startConfig["scenario"]].map));
                     break;
             }
 
+            loadScene = 2;
             loadingScreen.SetActive(false);
         }
 
-        void StartEndless()
+        public IEnumerator StartScenario(string id, string _map)
         {
-            ShowLoadingScreen("Loading endless game");
-            
-            data.mapfile = startConfig["map"];
-            
             //load Map
-            MapMgmt.Get().LoadMap();
+            data.mapfile = _map;
+            yield return StartCoroutine(MapMgmt.Get().LoadMap());
             
-            //add player
-            int id = 0;
-            while (startConfig.ContainsKey(id + "name"))
+            yield return ShowLoadingScreenSecond($"Loading players");
+            try
             {
-                //add player
-                int pid = PlayerMgmt.Get().CreatePlayer(startConfig[id+"name"], startConfig[id+"nation"]);
-                Player p = PlayerMgmt.Get(pid);
-                UnitMgmt.Get().Create(pid,Data.nation[startConfig[id+"nation"]].leader, MapMgmt.Get().GetStartPos(startConfig[id + "nation"]));
-            
-                //add quests
-                if (Boolean.Parse(startConfig[id+"winGold"]))
-                {
-                    p.quests.AddQuest(QuestHelper.Win().AddReq("ressMin","gold,1000"));
-                }
-            
-                //add quests
-                if (Boolean.Parse(startConfig[id+"loseKing"]))
-                {
-                    p.quests.AddQuest(QuestHelper.Lose().AddReq("maxUnitPlayer",Data.nation[startConfig[id+"nation"]].leader+",0"));
-                }
-
-                id++;
+                NLib.Get().ScenarioRuns[id].Run();
+                FinishStart();
+            }
+            catch (Exception e)
+            {
+                ExceptionHelper.ShowException(e);
+                throw e;
             }
             
-            FinishStart();
+            yield return null;
         }
 
-        void StartLoad()
+        IEnumerator StartLoad()
         {
-            ShowLoadingScreen("Loading "+startConfig["file"]);
-
+            yield return ShowLoadingScreenSecond($"Loading File");
             data = ES3.Load<GameData>("game",startConfig["file"]);
             data.players.AfterLoad();
+            
+            //load Map
+            yield return map.LoadMap();
 
             //load buildings
+            yield return ShowLoadingScreenSecond($"Loading Buildings");
             foreach (BuildingUnitData bdata in data.buildings.ToArray())
             {
                 BuildingMgmt.Get().Load(bdata);
             }
+            
 
             //load units
+            yield return ShowLoadingScreenSecond($"Loading Units");
             foreach (BuildingUnitData udata in data.units)
             {
                 UnitMgmt.Get().Load(udata);
             }
             
-            //load Map
-            MapMgmt.Get().LoadMap();
-            
             //init data
             round.Load();
             
-        }
-        
-        void StartDebug()
-        {
-            ShowLoadingScreen("Loading debug game");
-            
-            data.mapfile = "field6";
-            
-            //load Map
-            MapMgmt.Get().LoadMap();
-            
-            int pid = PlayerMgmt.Get().CreatePlayer("userx", "north");
-            UnitMgmt.Get().Create(pid,"nking", 6,4);
-            UnitMgmt.Get().Create(pid,"nsoldier", MapMgmt.Get().GetStartPos("north"));
-            UnitMgmt.Get().Create(pid,"nworker", MapMgmt.Get().GetStartPos("north"));
-            int tid = TownMgmt.Get().Create(NGenTown.GetTownName("north"), pid, 6, 6);
-            TownMgmt.Get(tid).AddRes("stone",6);
-            BuildingMgmt.Get().Create(tid, "nlibrary",6, 5);
-            
-            //PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Win().AddReq("season","summer"));
-            //PlayerMgmt.Get(pid).quests.AddQuest(QuestHelper.Lose().AddReq("daytime","afternoon"));
-            
-            
-            pid = PlayerMgmt.Get().CreatePlayer("user2", "north");
-            UnitMgmt.Get().Create(pid,"nking", 7,4);
-            
-            FinishStart();
-
-            //LoadSaveMgmt.UpdateSave("autosave");
-            //LoadSaveMgmt.LoadSave("autosave");
-
+            //init players
+            map.FinishStart();
+            PlayerMgmt.ActPlayer().StartRound();
+            NAudio.Play("startgame");
         }
 
         void FinishStart()
         {
-            MapMgmt.Get().FinishStart();
+            map.FinishStart();
+            PlayerMgmt.Get().FirstRound();
             PlayerMgmt.Get().NextPlayer();
             NAudio.Play("startgame");
         }

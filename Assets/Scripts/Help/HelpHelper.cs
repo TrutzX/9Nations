@@ -1,4 +1,5 @@
 using DataTypes;
+using InputAction;
 using UI;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace Help
             {
                 b.AddElement(new HelpSplitElement(h));
             }
+            
+            b.AddElement(new InputOptionSplitElement());
 
             b.Finish();
         }

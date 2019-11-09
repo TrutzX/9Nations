@@ -1,5 +1,6 @@
 using System;
 using DataTypes;
+using InputAction;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +18,12 @@ namespace Options
             b.AddElement(new AudioOptionSplitElement());
             b.AddElement(new GameOptionSplitElement());
             b.AddElement(new NetworkOptionSplitElement());
+            b.AddElement(new InputOptionSplitElement());
 
             b.Finish();
         }
 
-        private class AudioOptionSplitElement : WindowBuilderSplit.SplitElement
+        private class AudioOptionSplitElement : SplitElement
         {
             public AudioOptionSplitElement() : base("Audio", SpriteHelper.LoadIcon("base:audio"))
             {
@@ -52,7 +54,7 @@ namespace Options
             }
         }
         
-        private class NetworkOptionSplitElement : WindowBuilderSplit.SplitElement
+        private class NetworkOptionSplitElement : SplitElement
         {
             public NetworkOptionSplitElement() : base("Network", SpriteHelper.LoadIcon("magic:privacy"))
             {
@@ -75,7 +77,7 @@ namespace Options
             }
         }
         
-        private class GameOptionSplitElement : WindowBuilderSplit.SplitElement
+        private class GameOptionSplitElement : SplitElement
         {
             public GameOptionSplitElement() : base("Game", SpriteHelper.LoadIcon("logo"))
             {

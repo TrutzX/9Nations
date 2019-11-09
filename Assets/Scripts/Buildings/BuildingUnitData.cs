@@ -17,13 +17,15 @@ namespace Buildings
         public int x;
         public int y;
         public string type;
-        public string lastError;
+        public string name;
+        public string lastInfo;
         public Dictionary<string, int> construction;
         public int buildTime;
         
         public void BuildingInit(string type, int town)
         {
             this.type = type;
+            name = Data.building[type].name;
             hp = Data.building[type].hp;
             hpMax = Data.building[type].hp;
             ap = Data.building[type].ap;
@@ -40,6 +42,7 @@ namespace Buildings
         public void UnitInit(string type, int town, int player)
         {
             this.type = type;
+            name = Data.unit[type].name;
             hp = Data.unit[type].hp;
             hpMax = Data.unit[type].hp;
             ap = Data.unit[type].ap;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -34,11 +35,29 @@ public class UIElements : MonoBehaviour
     
     public static GameObject CreateImageButton(string icon, Transform parent, Action action, string sound="click")
     {
-        GameObject act = Instantiate(Get().imageButton, parent);
+        GameObject act = CreateImageButton(SpriteHelper.Load(icon), parent, action, sound);
         act.name = icon;
-        act.transform.Find("Image").GetComponent<Image>().sprite = SpriteHelper.LoadIcon(icon);
-        act.GetComponent<Button>().onClick.AddListener(() => action());
-        UIElements.AddButtonSound(act, sound);
+        return act;
+    }
+    
+    public static GameObject CreateImageButton(Sprite icon, Transform parent, Action action, string sound="click")
+    {
+        GameObject act = Instantiate(Get().imageButton, parent);
+        act.transform.Find("Image").GetComponent<Image>().sprite = icon;
+        if (action != null)
+            act.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                try
+                {
+                    action();
+                }
+                catch (Exception e)
+                {
+                    ExceptionHelper.ShowException(e);
+                }
+            }
+        );
+        AddButtonSound(act, sound);
         return act;
     }
     

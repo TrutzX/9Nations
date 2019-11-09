@@ -833,14 +833,6 @@
               <e p="nouns.txt" t="Include" />
             </e>
           </e>
-        </e>
-        <e p="Resources" t="Include">
-          <e p="Maps" t="Include">
-            <e p="list.txt" t="Include" />
-          </e>
-          <e p="Sound" t="Include">
-            <e p="NAudio.cs" t="Include" />
-          </e>
           <e p="UserReporting" t="Include">
             <e p="Release Notes.txt" t="Include" />
             <e p="Scripts" t="Include">
@@ -896,18 +888,31 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Maps" t="Include">
+            <e p="list.txt" t="Include" />
+          </e>
+          <e p="Sound" t="Include">
+            <e p="NAudio.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Actions" t="Include">
             <e p="ActionHelper.cs" t="Include" />
+            <e p="ActiveAction.cs" t="Include" />
             <e p="BaseAction.cs" t="Include" />
+            <e p="BaseOldAction.cs" t="Include" />
             <e p="BuildAction.cs" t="Include" />
             <e p="BuildUpgradeAction.cs" t="Include" />
-            <e p="DestroyAction.cs" t="Include" />
+            <e p="CameraMoveOldAction.cs" t="Include" />
+            <e p="DestroyOldAction.cs" t="Include" />
             <e p="EndGameAction.cs" t="Include" />
             <e p="FeatureAction.cs" t="Include" />
             <e p="FoundTownAction.cs" t="Include" />
-            <e p="SleepAction.cs" t="Include" />
-            <e p="TradeAction.cs" t="Include" />
+            <e p="GameButtonOldAction.cs" t="Include" />
+            <e p="MoveAction.cs" t="Include" />
+            <e p="SleepOldAction.cs" t="Include" />
+            <e p="TradeOldAction.cs" t="Include" />
             <e p="TrainAction.cs" t="Include" />
             <e p="TrainUpgradeAction.cs" t="Include" />
           </e>
@@ -919,8 +924,26 @@
             <e p="BuildingUI.cs" t="Include" />
             <e p="BuildingUnitData.cs" t="Include" />
             <e p="Construction.cs" t="Include" />
+            <e p="DebugMapElementSplitElement.cs" t="Include" />
             <e p="MapElementInfo.cs" t="Include" />
             <e p="MapElementUI.cs" t="Include" />
+          </e>
+          <e p="Campaigns" t="Include">
+            <e p="Campaign.cs" t="Include" />
+            <e p="CampaignHelper.cs" t="Include" />
+            <e p="CampaignSplitElement.cs" t="Include" />
+            <e p="Scenario.cs" t="Include" />
+            <e p="ScenarioRun.cs" t="Include" />
+            <e p="Scenarios" t="Include">
+              <e p="DebugScenario.cs" t="Include" />
+              <e p="TutorialBasicScenario.cs" t="Include" />
+            </e>
+            <e p="ScenarioSplitElement.cs" t="Include" />
+          </e>
+          <e p="Endless" t="Include">
+            <e p="EndlessGame.cs" t="Include" />
+            <e p="EndlessGameWindow.cs" t="Include" />
+            <e p="MapHelper.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
             <e p="GameData.cs" t="Include" />
@@ -933,9 +956,12 @@
             <e p="HelpHelper.cs" t="Include" />
             <e p="HelpSplitElement.cs" t="Include" />
           </e>
-          <e p="Input" t="Include">
+          <e p="InputAction" t="Include">
             <e p="CameraMove.cs" t="Include" />
             <e p="InputAction.cs" t="Include" />
+            <e p="InputKey.cs" t="Include" />
+            <e p="InputKeyHelper.cs" t="Include" />
+            <e p="InputOptionSplitElement.cs" t="Include" />
           </e>
           <e p="LoadSave" t="Include">
             <e p="LoadSaveInfo.cs" t="Include" />
@@ -946,55 +972,91 @@
           <e p="MainMenu" t="Include">
             <e p="Startgame.cs" t="Include" />
           </e>
+          <e p="Mapactions" t="Include">
+            <e p="Actions" t="Include">
+              <e p="AttackAction.cs" t="Include" />
+              <e p="BaseMapAction.cs" t="Include" />
+              <e p="HealAction.cs" t="Include" />
+              <e p="LeaveAction.cs" t="Include" />
+            </e>
+            <e p="InteractionHelper.cs" t="Include" />
+            <e p="MapAction.cs" t="Include" />
+            <e p="MapActionSplitElement.cs" t="Include" />
+          </e>
+          <e p="Maps" t="Include">
+            <e p="Map.cs" t="Include" />
+            <e p="MapMgmt.cs" t="Include" />
+            <e p="MapPathFinding.cs" t="Include" />
+            <e p="PathFinding" t="Include">
+              <e p="Node.cs" t="Include" />
+              <e p="PathFinding.cs" t="Include" />
+              <e p="PGrid.cs" t="Include" />
+              <e p="PPoint.cs" t="Include" />
+            </e>
+            <e p="TileMapHelper.cs" t="Include" />
+          </e>
           <e p="NLib.cs" t="Include" />
           <e p="Options" t="Include">
             <e p="Feature.cs" t="Include" />
             <e p="OptionHelper.cs" t="Include" />
           </e>
           <e p="Players" t="Include">
+            <e p="Infos" t="Include">
+              <e p="Info.cs" t="Include" />
+              <e p="InfoMgmt.cs" t="Include" />
+              <e p="InfosSplitElement.cs" t="Include" />
+              <e p="InfoUI.cs" t="Include" />
+            </e>
             <e p="KingdomOverview.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerFog.cs" t="Include" />
             <e p="PlayerMgmt.cs" t="Include" />
-            <e p="Quest.cs" t="Include" />
-            <e p="QuestHelper.cs" t="Include" />
-            <e p="QuestMgmt.cs" t="Include" />
-            <e p="Research.cs" t="Include" />
-            <e p="ResearchMgmt.cs" t="Include" />
-            <e p="ResearchWindow.cs" t="Include" />
+            <e p="Quests" t="Include">
+              <e p="Quest.cs" t="Include" />
+              <e p="QuestHelper.cs" t="Include" />
+              <e p="QuestMgmt.cs" t="Include" />
+            </e>
+            <e p="Researchs" t="Include">
+              <e p="Research.cs" t="Include" />
+              <e p="ResearchMgmt.cs" t="Include" />
+              <e p="ResearchWindow.cs" t="Include" />
+            </e>
           </e>
           <e p="reqs" t="Include">
             <e p="BaseReq.cs" t="Include" />
+            <e p="BaseReqOld.cs" t="Include" />
+            <e p="BaseReqOnlyPlayer.cs" t="Include" />
+            <e p="ReqAp.cs" t="Include" />
             <e p="ReqBuilding.cs" t="Include" />
-            <e p="ReqDayTime.cs" t="Include" />
+            <e p="ReqDisabled.cs" t="Include" />
             <e p="ReqEmpty.cs" t="Include" />
-            <e p="ReqFeature.cs" t="Include" />
+            <e p="ReqFogField.cs" t="Include" />
             <e p="ReqHelper.cs" t="Include" />
+            <e p="ReqHP.cs" t="Include" />
             <e p="ReqMinMax.cs" t="Include" />
-            <e p="ReqNation.cs" t="Include" />
+            <e p="ReqOldDayTime.cs" t="Include" />
+            <e p="ReqOldFeature.cs" t="Include" />
+            <e p="ReqOldNation.cs" t="Include" />
+            <e p="ReqOldResearch.cs" t="Include" />
+            <e p="ReqOldResMin.cs" t="Include" />
+            <e p="ReqOldSameField.cs" t="Include" />
+            <e p="ReqOldSeason.cs" t="Include" />
+            <e p="ReqOldTerrain.cs" t="Include" />
+            <e p="ReqOldTerrainNear.cs" t="Include" />
+            <e p="ReqOldTownNear.cs" t="Include" />
+            <e p="ReqOldUnitMaxPlayer.cs" t="Include" />
             <e p="ReqQuest.cs" t="Include" />
-            <e p="ReqResearch.cs" t="Include" />
-            <e p="ReqResMin.cs" t="Include" />
-            <e p="ReqSameField.cs" t="Include" />
-            <e p="ReqSeason.cs" t="Include" />
-            <e p="ReqTerrain.cs" t="Include" />
-            <e p="ReqTerrainNear.cs" t="Include" />
+            <e p="ReqQuestFinish.cs" t="Include" />
             <e p="ReqTown.cs" t="Include" />
-            <e p="ReqTownlevel.cs" t="Include" />
-            <e p="ReqTownNear.cs" t="Include" />
-            <e p="ReqUnitMaxPlayer.cs" t="Include" />
-          </e>
-          <e p="Scenario" t="Include">
-            <e p="EndlessGameWindow.cs" t="Include" />
-            <e p="Map.cs" t="Include" />
-            <e p="MapMgmt.cs" t="Include" />
-            <e p="ScenarioMgmt.cs" t="Include" />
+            <e p="ReqTownLevel.cs" t="Include" />
+            <e p="ReqUnit.cs" t="Include" />
           </e>
           <e p="Terrain" t="Include">
             <e p="TerrainHelper.cs" t="Include" />
           </e>
           <e p="Tools" t="Include">
             <e p="CSV.cs" t="Include" />
+            <e p="ExceptionHelper.cs" t="Include" />
             <e p="NRandom.cs" t="Include" />
             <e p="TextHelper.cs" t="Include" />
           </e>
@@ -1005,10 +1067,12 @@
             <e p="TownSplitElement.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="ClickableObject.cs" t="Include" />
             <e p="GameButton.cs" t="Include" />
             <e p="GameButtonHelper.cs" t="Include" />
             <e p="OnMapUI.cs" t="Include" />
             <e p="PanelBuilder.cs" t="Include" />
+            <e p="SplitElement.cs" t="Include" />
             <e p="SpriteHelper.cs" t="Include" />
             <e p="UIElements.cs" t="Include" />
             <e p="UIHelper.cs" t="Include" />

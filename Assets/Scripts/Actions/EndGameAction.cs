@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 namespace Actions
 {
-    public class EndGameLoseAction : BaseAction
+    public class EndGameLoseOldAction : BaseOldAction
     {
         protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
         {
@@ -26,7 +26,7 @@ namespace Actions
     }
     
     
-    public class EndGameWinAction : BaseAction
+    public class EndGameWinOldAction : BaseOldAction
     {
         protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
         {

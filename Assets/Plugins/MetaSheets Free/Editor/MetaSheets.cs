@@ -1,3 +1,5 @@
+using System;
+
 namespace MetaSheets {
 	///		Meta Sheets Free
 	///		Copyright © 2017 renderhjs
@@ -85,6 +87,7 @@ namespace MetaSheets {
 			}
 			JSONNode json = JSON.Parse(request.text);
 			configuration.documentTitle = json["feed"]["title"]["$t"].Value;
+			
 			if (window  != null && window == Window) {
 				Save();
 			}

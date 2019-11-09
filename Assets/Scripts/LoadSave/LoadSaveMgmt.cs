@@ -70,6 +70,7 @@ namespace LoadSave
         {
             GameMgmt.startConfig = new Dictionary<string, string>();
             GameMgmt.startConfig["type"] = "load";
+            GameMgmt.startConfig["name"] = "save game "+file;
             GameMgmt.startConfig["file"] = file;
             SceneManager.LoadScene(1);
         }

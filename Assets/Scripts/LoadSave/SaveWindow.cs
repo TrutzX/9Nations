@@ -23,7 +23,7 @@ namespace LoadSave
             w.Finish();
         }
 
-        class SaveWindowSplitElement : WindowBuilderSplit.SplitElement
+        class SaveWindowSplitElement : SplitElement
         {
             private LoadSaveInfo info;
 

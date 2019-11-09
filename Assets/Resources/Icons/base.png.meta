@@ -13,7 +13,7 @@ TextureImporter:
     second: base_2
   - first:
       213: -5255372173975147240
-    second: base_3
+    second: info
   - first:
       213: 1692280188772239226
     second: base_4
@@ -211,7 +211,7 @@ TextureImporter:
     second: base_68
   - first:
       213: -4801518839904136767
-    second: base_69
+    second: fight
   - first:
       213: 1775142770807614477
     second: base_70
@@ -505,7 +505,7 @@ TextureImporter:
     second: base_166
   - first:
       213: 2547161234064313
-    second: base_167
+    second: campaign
   - first:
       213: -8154837236024056748
     second: map
@@ -999,7 +999,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_3
+      name: info
       rect:
         serializedVersion: 2
         x: 128
@@ -2385,7 +2385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_69
+      name: fight
       rect:
         serializedVersion: 2
         x: 384
@@ -4443,7 +4443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_167
+      name: campaign
       rect:
         serializedVersion: 2
         x: 416

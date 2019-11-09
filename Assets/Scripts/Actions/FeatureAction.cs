@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 namespace Actions
 {
-    public class FeaturePlayerAction : BaseAction
+    public class FeaturePlayerOldAction : BaseOldAction
     {
         protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
         {

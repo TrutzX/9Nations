@@ -24,7 +24,9 @@
 * by Gamejolt from gamejolt.com/about
 * by bogo-d from deviantart.com/bogo-d/art/Project-Icons-v-2-1-8-155863784
 * by Jorge Avila from opengameart.org/content/georgui-icon-set
-* by Jorge Avila from opengameart.org/content/georgui-icon-set
+* by Bogdan Mihaiciuc from deviantart.com/bogo-d/art/Kingdom-Icons-212892514
+
+
 
 #Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack
@@ -44,3 +46,4 @@
 * DOTween by Demigiant from assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
 * Pixel UI by Pixelsoft Games from assetstore.unity.com/packages/2d/gui/pixel-ui-128440
 * Unity Build by Chaser324 from github.com/Chaser324/unity-build
+* Pathfinding by RonenNess from github.com/RonenNess/UnityUtils

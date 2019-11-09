@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class WindowBuilderSplit : MonoBehaviour
+    public partial class WindowBuilderSplit : MonoBehaviour
     {
         public GameObject splitElementButtonPanel;
         public GameObject infoPanel;
@@ -50,6 +51,7 @@ namespace UI
             this.selectButtonText = buttonText;
             selectButton = UIHelper.CreateButton("Select an element first",buttonPanel.transform,()=>
             {
+                NAudio.Play(selectedElement.audioPerform);
                 selectedElement.Perform();
                 CloseWindow();
             });
@@ -61,49 +63,60 @@ namespace UI
             Destroy(gameObject);
         }
 
+        public int ElementCount()
+        {
+            return elements.Count;
+        }
+
         public void AddElement(SplitElement ele)
         {
             elements.Add(ele);
             ele.button = UIHelper.CreateImageTextButton(ele.title, ele.icon, splitElementButtonPanel.transform,() =>
                 {
-                    //disabled?
-                    if (ele.disabled != null)
-                    {
-                        //has a button?
-                        if (selectButton != null)
-                        {
-                            UIHelper.UpdateButtonText(selectButton,ele.disabled);
-                            selectButton.GetComponent<Button>().enabled = false;
-                        }
-
-                        selectedElement = ele;
-                        ShowDetail();
-                        return;
-                    }
-             
-                    //same element?
-                    if (ele == selectedElement && selectButton != null)
-                    {
-                        selectedElement.Perform();
-                        CloseWindow();
-                        return;
-                    }
-
-                    //show infos
-                    selectedElement = ele;
-                    if (selectButton != null)
-                    {
-                        selectButton.GetComponent<Button>().enabled = true;
-                        UIHelper.UpdateButtonText(selectButton, $"{selectButtonText} {ele.title}");
-                    }
-
-                    //create panel
-                    ShowDetail();
+                    ClickButton(ele);
                 }
-            );
+            ,null);
             //splitElementButtonPanel.GetComponent<RectTransform>().o
             ele.window = this;
 
+        }
+
+        private void ClickButton(SplitElement ele)
+        {
+            //disabled?
+            if (ele.disabled != null)
+            {
+                //has a button?
+                if (selectButton != null)
+                {
+                    UIHelper.UpdateButtonText(selectButton, ele.disabled);
+                    selectButton.GetComponent<Button>().enabled = false;
+                }
+
+                selectedElement = ele;
+                ShowDetail();
+                return;
+            }
+
+            //same element?
+            if (ele == selectedElement && selectButton != null)
+            {
+                NAudio.Play(selectedElement.audioPerform);
+                selectedElement.Perform();
+                CloseWindow();
+                return;
+            }
+
+            //show infos
+            selectedElement = ele;
+            if (selectButton != null)
+            {
+                selectButton.GetComponent<Button>().enabled = true;
+                UIHelper.UpdateButtonText(selectButton, $"{selectButtonText} {ele.title}");
+            }
+
+            //create panel
+            ShowDetail();
         }
 
         private void ShowDetail()
@@ -124,35 +137,14 @@ namespace UI
         public void Finish()
         {
             splitElementButtonPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(0,(elements.Count-1)*32);
-            gameObject.SetActive(true);
-        }
-
-        public abstract class SplitElement
-        {
-            public string title;
-            public string audioSwitch;
-            public Sprite icon;
-            public GameObject button;
-            public WindowBuilderSplit window;
-        
-            /// <summary>
-            /// content = error message to display
-            /// </summary>
-            public string disabled;
-
-
-            protected SplitElement(string title, Sprite icon)
+            
+            //select first element
+            if (elements.Count > 0)
             {
-                this.title = title;
-                this.icon = icon;
-                audioSwitch = "switch";
+                ClickButton(elements.First());
             }
             
-            protected SplitElement(string title, string icon) : this (title, SpriteHelper.LoadIcon(icon)){}
-
-            public abstract void ShowDetail(PanelBuilder panel);
-
-            public abstract void Perform();
+            gameObject.SetActive(true);
         }
     }
 }

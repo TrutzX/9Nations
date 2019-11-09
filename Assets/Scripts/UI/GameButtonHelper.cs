@@ -1,9 +1,12 @@
 using DataTypes;
+using Endless;
 using Game;
 using Help;
 using LoadSave;
+using MapActions;
 using Options;
 using Players;
+using Players.Quests;
 using Towns;
 using Units;
 using UnityEngine;
@@ -63,6 +66,9 @@ namespace UI
                 case "nextUnit":
                     UnitMgmt.Get().ShowNextAvaibleUnitForPlayer();
                     return;
+                case "campaign":
+                    CampaignHelper.ShowCampaigns();
+                    return;
                 default:
                     Debug.LogWarning($"Game button type {id} is unknown");
                     return;
@@ -70,7 +76,7 @@ namespace UI
         
         }
 
-        public static void buildMenu(Player player, string location, Text text, bool button, Transform transform)
+        public static void BuildMenu(Player player, string location, Text text, bool button, Transform transform)
         {
             foreach (GameButton b in Data.gameButton)
             {

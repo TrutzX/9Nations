@@ -79,7 +79,7 @@ TextureImporter:
     second: magic_24
   - first:
       213: 6108656779617163309
-    second: magic_25
+    second: fire
   - first:
       213: 4893618579097795567
     second: magic_26
@@ -148,13 +148,13 @@ TextureImporter:
     second: magic_47
   - first:
       213: -2085558007322595306
-    second: magic_48
+    second: life
   - first:
       213: -2608792820906012876
     second: magic_49
   - first:
       213: 6931917618629631095
-    second: magic_50
+    second: heal
   - first:
       213: -5654204924416505389
     second: magic_51
@@ -163,7 +163,7 @@ TextureImporter:
     second: magic_52
   - first:
       213: -6225213010028215901
-    second: energy
+    second: xxx
   - first:
       213: -2227931498297556789
     second: magic_54
@@ -205,7 +205,7 @@ TextureImporter:
     second: magic_66
   - first:
       213: -1856326642984729445
-    second: magic_67
+    second: energy
   - first:
       213: 2323602938289776274
     second: magic_68
@@ -580,7 +580,7 @@ TextureImporter:
     second: magic_191
   - first:
       213: -6795748235694283160
-    second: magic_192
+    second: single
   - first:
       213: -682378376695613611
     second: magic_193
@@ -715,7 +715,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -726,7 +726,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -737,6 +738,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1266,7 +1268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_25
+      name: fire
       rect:
         serializedVersion: 2
         x: 288
@@ -1749,7 +1751,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_48
+      name: life
       rect:
         serializedVersion: 2
         x: 0
@@ -1791,7 +1793,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_50
+      name: heal
       rect:
         serializedVersion: 2
         x: 64
@@ -1854,7 +1856,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energy
+      name: xxx
       rect:
         serializedVersion: 2
         x: 160
@@ -2148,7 +2150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_67
+      name: energy
       rect:
         serializedVersion: 2
         x: 96
@@ -4773,7 +4775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_192
+      name: single
       rect:
         serializedVersion: 2
         x: 0

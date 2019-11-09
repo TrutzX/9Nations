@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Buildings;
 using Game;
 using reqs;
 using UnityEngine;
@@ -19,9 +20,13 @@ namespace DataTypes
                 action4, action5);
         }
         
+        public Dictionary<string, string> GetMapActions()
+        {
+            return ReqHelper.GetReq(mapaction1,mapaction2);
+        }
         public Dictionary<string,string> GenBuildReq()
         {
-            return ReqHelper.GetReq("nation:"+reqbuildnation,"townLevel:"+reqbuildtownlevel,reqbuild1,reqbuild2,reqbuild3);
+            return ReqHelper.GetReq("nation:"+reqbuildnation,"townLevel:>"+reqbuildtownlevel,reqbuild1,reqbuild2,reqbuild3);
         }
         
         public Dictionary<string,int> GenCost()
@@ -49,7 +54,7 @@ namespace DataTypes
             panel.AddReq("Requirement for production",GenProduceReq());
         }
 
-        public void ShowInfo(PanelBuilder panel, GameObject onMap, int x, int y)
+        public void ShowInfo(PanelBuilder panel, MapElementInfo onMap, int x, int y)
         {
             panel.AddImageLabel(name,GetIcon());
             panel.AddRess("Cost for construction",GenCost());

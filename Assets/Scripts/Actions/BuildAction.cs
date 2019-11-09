@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Game;
 using Players;
@@ -13,7 +14,7 @@ namespace Actions
 {
     public class BuildAction : BaseAction
     {
-        protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
         {
             string[] keys;
             if (!String.IsNullOrEmpty(settings))
@@ -50,12 +51,12 @@ namespace Actions
             Debug.LogWarning("Not implemented");
         }
 
-        public class BuildSplitElement : WindowBuilderSplit.SplitElement
+        public class BuildSplitElement : SplitElement
         {
             protected Building build;
-            protected GameObject go;
+            protected MapElementInfo go;
             protected int x, y;
-            public BuildSplitElement(Building build, GameObject go, int x, int y) : base(build.name, build.GetIcon())
+            public BuildSplitElement(Building build, MapElementInfo go, int x, int y) : base(build.name, build.GetIcon())
             {
                 this.build = build;
                 this.x = x;

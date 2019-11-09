@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Game;
 using Players;
@@ -14,7 +15,7 @@ namespace Actions
 {
     public class TrainUpgradeAction : BaseAction
     {
-        protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
         {
             string[] keys = settings.Split(',');
             
@@ -52,8 +53,7 @@ namespace Actions
 
             public override void Perform()
             {
-                UnitMgmt.At(x,y).Kill();
-                base.Perform();
+                UnitMgmt.At(x,y).Upgrade(unit.id);
             }
         }
     }

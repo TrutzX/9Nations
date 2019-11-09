@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Game;
 using Players;
@@ -13,7 +14,7 @@ namespace Actions
 {
     public class BuildUpgradeAction : BaseAction
     {
-        protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
         {
             string[] keys = settings.Split(',');
             
@@ -34,6 +35,20 @@ namespace Actions
                 
             }
             
+            //found nothing?
+            if (b.ElementCount() == 0)
+            {
+                b.CloseWindow();
+                if (gameObject.IsBuilding())
+                    OnMapUI.Get().buildingUI.SetPanelMessageError("Not possible to upgrade. Maybe research something?");
+                else
+                {
+                    OnMapUI.Get().unitUI.SetPanelMessageError("Not possible to upgrade. Maybe research something?");
+                }
+                
+                return;
+            }
+            
             b.Finish();
 
             
@@ -46,14 +61,13 @@ namespace Actions
         
         class BuildSplitElement : BuildAction.BuildSplitElement
         {
-            public BuildSplitElement(Building build, GameObject gameObject, int x, int y) : base(build, gameObject, x, y)
+            public BuildSplitElement(Building build, MapElementInfo gameObject, int x, int y) : base(build, gameObject, x, y)
             {
             }
 
             public override void Perform()
             {
-                BuildingMgmt.At(x,y).Kill();
-                base.Perform();
+                BuildingMgmt.At(x,y).Upgrade(build.id);
             }
         }
     }

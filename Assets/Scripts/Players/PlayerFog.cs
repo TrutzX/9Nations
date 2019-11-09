@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Help;
 using Game;
+using Maps;
 using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -21,6 +22,11 @@ namespace Players
         public void Init(int pid)
         {
             visible = new bool[GameMgmt.Get().data.mapwidth,GameMgmt.Get().data.mapheight];
+
+            if (!Data.features.fog.Bool())
+                for (int x = 0; x < visible.GetLength(0); x++)
+                    for (int y = 0; y < visible.GetLength(1); y++)
+                        visible[x, y] = true;
 
             AfterLoad(pid);
         }
@@ -94,10 +100,7 @@ namespace Players
         private void setTile(int x, int y, TileBase tile = null)
         {
             //set it
-            tilemap.SetTile(new Vector3Int(x * 2, y * 2, 0), tile);
-            tilemap.SetTile(new Vector3Int(x * 2 + 1, y * 2, 0), tile);
-            tilemap.SetTile(new Vector3Int(x * 2, y * 2 + 1, 0), tile);
-            tilemap.SetTile(new Vector3Int(x * 2 + 1, y * 2 + 1, 0), tile);
+            TilemapHelper.setTile(tilemap,x,y,tile);
         }
 
         public void Clear(int x, int y, int radius)

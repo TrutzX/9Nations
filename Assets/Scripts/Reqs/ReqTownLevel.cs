@@ -1,39 +1,60 @@
 using System;
 using System.Linq;
+using Buildings;
+using DataTypes;
 using Players;
 using Towns;
+using Units;
 using UnityEngine;
 
 namespace reqs
 {
     
-    public class ReqTownLevel : BaseReq
+    public class ReqTownLevel : ReqMinMax
     {
-        public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
         {
-            Town t = TownMgmt.Get().NearstTown(player, x, y, false);
-            return t.level >= Int32.Parse(sett);
+            return 5;
         }
 
-        public override bool Check(Player player, string sett)
+        protected override int ValueMax(Player player, string element, string sett)
         {
-            return TownMgmt.Get().GetByPlayer(player.id).Max(t => t.level) >= Int32.Parse(sett);
+            return 5;
         }
 
-        public override bool Final(Player player, GameObject onMap, string sett, int x, int y)
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
         {
-            return false;
+            //has it?
+            if (onMap != null)
+            {
+                return onMap.Town()?.level??0;
+            }
+            //has the field it?
+            UnitInfo u = UnitMgmt.At(x, y);
+            if (u != null)
+            {
+                return u.Town()?.level??0;
+            }
+            //has the field it?
+            BuildingInfo b = BuildingMgmt.At(x, y);
+            if (b != null)
+            {
+                return b.Town()?.level??0;
+            }
+            //get the nearest town
+            Town t = TownMgmt.Get().NearstTown(player, x, y,false);
+            
+            return t?.level??0;
         }
 
-        public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
+        protected override int ValueAct(Player player, string element, string sett)
         {
-            Town t = TownMgmt.Get().NearstTown(player, x, y, false);
-            return Desc(sett)+$" Has at the moment {t.GetTownLevelName()}";
+            return TownMgmt.Get().GetByPlayer(player.id)?[0].level??0;
         }
 
-        public override string Desc(string sett)
+        protected override string Name(string element, string sett)
         {
-            return $"Needs the town level {Int32.Parse(sett)}.";
+            return "town level";
         }
     }
 }

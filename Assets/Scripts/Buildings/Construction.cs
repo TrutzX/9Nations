@@ -11,7 +11,7 @@ namespace Game
         private BuildingUnitData data;
         private MapElementInfo info;
 
-        public void Init(BuildingUnitData data, Dictionary<string, int> construction, MapElementInfo info, int buildTime, int town)
+        public void Init(BuildingUnitData data, Dictionary<string, int> construction, MapElementInfo info, int buildTime)
         {
             data.construction = construction;
             data.construction.Add("buildtime",buildTime+1);
@@ -22,6 +22,7 @@ namespace Game
 
         public void Load(BuildingUnitData data)
         {
+            this.info = GetComponent<MapElementInfo>();
             this.data = data;
         }
         
@@ -51,11 +52,11 @@ namespace Game
                     int val = t.GetRes(cost.Key);
                     data.construction[cost.Key] -= val;
                     t.AddRes(cost.Key,-val);
-                    data.lastError = $"Need {data.construction[cost.Key]} more {Data.ress[cost.Key].name} for construction.";
+                    info.SetLastInfo($"Need {data.construction[cost.Key]} more {Data.ress[cost.Key].name} for construction of {data.name}.");
                 }
                 else
                 {
-                    data.lastError = $"Need {data.construction[cost.Key]} more {Data.ress[cost.Key].name} for construction.";
+                    info.SetLastInfo($"Need {data.construction[cost.Key]} more {Data.ress[cost.Key].name} for construction of {data.name}.");
                 }
             }
         
@@ -74,6 +75,7 @@ namespace Game
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 data.construction = null;
                 data.buildTime = 0;
+                info.SetLastInfo($"Finish construction of {info.name}.");
                 info.FinishConstruct();
                 Destroy(this);
                 return false;

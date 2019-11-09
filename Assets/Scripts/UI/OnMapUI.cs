@@ -1,5 +1,7 @@
-﻿using Players;
-using Scenario;
+﻿using Actions;
+using Maps;
+using Players;
+using Players.Infos;
 using TMPro;
 using Units;
 using UnityEngine;
@@ -13,19 +15,20 @@ namespace UI
 
         public UnitUI unitUI;
         public BuildingUI buildingUI;
-
-        public static OnMapUI Get()
-        {
-            return self;
-        }
-
-        public TextMeshProUGUI ressround;
+        public InfoUI InfoUi;
 
         public GameObject topButton;
         public Text topButtonText;
         
         public GameObject bottomButton;
         public Text bottomButtonText;
+
+        private ActiveAction _action;
+        
+        public static OnMapUI Get()
+        {
+            return self;
+        }
     
         // Start is called before the first frame update
         void Start()
@@ -33,19 +36,17 @@ namespace UI
             self = this;
         }
 
-        public void SetRessRoundMessage(string text)
-        {
-            ressround.text = text;
-        }
-
         public void SetMenuMessage(string text)
         {
             topButtonText.text = text;
         }
-    
 
         public void UpdatePanelXY(int x, int y)
         {
+            //remove old action?
+            if (_action != null)
+                SetActiveAction(null,false);
+            
             
             //can view?
             if (Data.features.fog.Bool() && !PlayerMgmt.ActPlayer().fog.visible[x,y])
@@ -71,13 +72,37 @@ namespace UI
                 return;
             }
             
-            UpdatePanelXY(x, y);
+            //active action?
+            if (_action != null)
+            {
+                _action.Click(x,y);
+            } else 
+                UpdatePanelXY(x, y);
         
             //center mouse?
             if (Data.features.centermouse.Bool())
             {
                 CameraMove.Get().MoveTo(x, y);
             }
+        }
+
+        public void SetActiveAction(ActiveAction activeAction, bool building)
+        {
+            //has an old action?
+            if (_action != null)
+            {
+                _action.Remove();
+            }
+            
+            _action = activeAction;
+
+            if (building)
+            {
+                buildingUI.SetActiveAction(activeAction);
+                return;
+            }
+            
+            unitUI.SetActiveAction(activeAction);
         }
     }
 }

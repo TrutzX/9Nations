@@ -6,6 +6,8 @@ using DataTypes;
 using DigitalRuby.Tween;
 using Game;
 using Help;
+using MapActions;
+using Maps;
 using Players;
 using reqs;
 using Towns;
@@ -20,7 +22,7 @@ namespace Units
 
         public void NextRound()
         {
-            data.lastError = null;
+            data.lastInfo = null;
             data.UnitUpdate();
         
             //under construction?
@@ -42,9 +44,9 @@ namespace Units
             Town t = Town();
         
             //produce?
-            if (!ReqHelper.Check(PlayerMgmt.Get(t.playerId),config.GenProduceReq(),gameObject,x,y))
+            if (!ReqHelper.Check(PlayerMgmt.Get(t.playerId),config.GenProduceReq(),this,x,y))
             {
-                data.lastError = ReqHelper.Desc(PlayerMgmt.Get(t.playerId), config.GenProduceReq(), gameObject, x, y);
+                SetLastInfo(ReqHelper.Desc(PlayerMgmt.Get(t.playerId), config.GenProduceReq(), this, x, y));
                 return;
             }
         
@@ -74,7 +76,7 @@ namespace Units
             {
                 data.townId = t.id;
                 gameObject.AddComponent<Construction>();
-                gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime,t.id);
+                gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime);
                 PlayerMgmt.Get(player).fog.Clear(x,y);
             }
             else
@@ -104,7 +106,18 @@ namespace Units
             FinishInit();
         }
 
+        public override void Upgrade(string type)
+        {
+            GameMgmt.Get().data.units.Remove(data);
+            Init(type,data.playerId,X(),Y());
+            GameMgmt.Get().data.units.Add(GetComponent<UnitInfo>().data);
+        }
+
         public void MoveTo(int x, int y)
+        {
+            MoveBy(x-X(),y-Y());
+        }
+        public void MoveBy(int x, int y)
         {
             //own unit?
             if (!Owner(PlayerMgmt.ActPlayerID()))
@@ -119,7 +132,7 @@ namespace Units
             NTerrain land = MapMgmt.Get().GetTerrain(dX, dY);
 
             //check terrain
-            int cost = TerrainHelper.GetMoveCost(land, config.movetyp, PlayerMgmt.ActPlayer().nation);
+            int cost = MapMgmt.Get().PathFinding.Cost(PlayerMgmt.ActPlayer().nation,config.movetyp,X(),Y(),dX,dY);
             if (cost == 0)
             {
                 OnMapUI.Get().unitUI.SetPanelMessage($"Can not move in {land.name}, because it is not passable.");
@@ -136,7 +149,7 @@ namespace Units
             }
 
             //another unit?
-            if (UnitMgmt.At(dX, dY) != null)
+            if (!UnitMgmt.Get().IsFree(dX,dY))
             {
                 OnMapUI.Get().unitUI
                     .SetPanelMessage($"Can not move in {land.name}, because {UnitMgmt.At(dX, dY).name} standing their.");
@@ -190,6 +203,11 @@ namespace Units
             NAudio.Play("moveUnit");
         }
 
+        public override string UniversalImage()
+        {
+            return "u:" + config.id;
+        }
+
         /// <summary>
         /// Destroy this unit
         /// </summary>
@@ -216,12 +234,14 @@ namespace Units
             win.AddElement(new UnitSplitInfo(this));
             win.AddElement(new UnitLexiconInfo(this));
             win.AddElement(new HelpSplitElement("unit"));
+            if (Data.features.debug.Bool())
+                win.AddElement(new DebugMapElementSplitElement(this));
             
             win.Finish();
             return win;
         }
 
-        class UnitSplitInfo : WindowBuilderSplit.SplitElement
+        class UnitSplitInfo : SplitElement
         {
             private readonly UnitInfo _unit;
         
@@ -259,7 +279,7 @@ namespace Units
             }
         }
 
-        class UnitLexiconInfo : WindowBuilderSplit.SplitElement
+        class UnitLexiconInfo : SplitElement
         {
             private readonly UnitInfo _unit;
         

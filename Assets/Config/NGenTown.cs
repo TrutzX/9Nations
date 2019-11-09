@@ -223,7 +223,7 @@ public class NGenTown {
 		while (rnd == rnd2) {
 			rnd2 = getRndA(nm2);
 		}
-		return TextHelper.cap(rnd + rnd2);
+		return TextHelper.Cap(rnd + rnd2);
 
 	}
 
@@ -249,7 +249,7 @@ public class NGenTown {
 		while (rnd == rnd2) {
 			rnd2 = getRndA(nm2);
 		}
-		return TextHelper.cap(rnd + rnd2);
+		return TextHelper.Cap(rnd + rnd2);
 
 	}
 
@@ -342,7 +342,7 @@ public class NGenTown {
 					+ nm4[Random.Range(0, 3) + 1];
 		}
 
-		return TextHelper.cap(name);
+		return TextHelper.Cap(name);
 
 	}
 
@@ -415,7 +415,7 @@ public class NGenTown {
 			name = getRndA(nm10) + getRndA(nm9);
 		}
 
-		return TextHelper.cap(name);
+		return TextHelper.Cap(name);
 	}
 
 }

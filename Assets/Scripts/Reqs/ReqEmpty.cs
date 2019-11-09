@@ -1,3 +1,4 @@
+using Buildings;
 using DataTypes;
 using Players;
 using Units;
@@ -8,7 +9,7 @@ namespace reqs
     
     public class ReqEmpty : BaseReq
     {
-        public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
+        public override bool Check(Player player, MapElementInfo onMap, string sett, int x, int y)
         {
             if (sett == "building")
             {
@@ -23,12 +24,17 @@ namespace reqs
             return false;
         }
 
-        public override bool Final(Player player, GameObject onMap, string sett, int x, int y)
+        public override bool Final(Player player, MapElementInfo onMap, string sett, int x, int y)
         {
-            return true;
+            return false;
         }
 
-        public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
+        public override bool Final(Player player, string sett)
+        {
+            return false;
+        }
+
+        public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
         {
             if (sett == "building")
             {

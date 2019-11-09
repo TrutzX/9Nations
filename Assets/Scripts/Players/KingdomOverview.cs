@@ -1,5 +1,6 @@
 using DataTypes;
 using Help;
+using Players.Infos;
 using Towns;
 using UI;
 using Units;
@@ -22,10 +23,12 @@ namespace Players
                 b.AddElement(new CameraTownSplitElement(b, t));
             }
 
+            b.AddElement(new InfosSplitElement());
+            
             b.Finish();
         }
         
-        public class CameraUnitSplitElement : WindowBuilderSplit.SplitElement
+        public class CameraUnitSplitElement : SplitElement
         {
             private WindowBuilderSplit b;
             public CameraUnitSplitElement(WindowBuilderSplit b) : base("Units", "logo")
@@ -38,7 +41,7 @@ namespace Players
                 foreach (UnitInfo info in UnitMgmt.Get().GetUnitPlayer(PlayerMgmt.ActPlayer().id))
                 {
 
-                    panel.AddImageButton(info.name, info.config.GetIcon(), () =>
+                    panel.AddImageTextButton(info.name, info.config.GetIcon(), () =>
                     {
                         CameraMove.Get().MoveTo(info.X(), info.Y());
                         OnMapUI.Get().UpdatePanelXY(info.X(), info.Y());
@@ -70,7 +73,7 @@ namespace Players
                 //add buildings
                 foreach (BuildingInfo info in BuildingMgmt.Get().GetByTown(town.id))
                 {
-                    panel.AddImageButton(info.name, info.config.GetIcon(), () =>
+                    panel.AddImageTextButton(info.name, info.config.GetIcon(), () =>
                     {
                         CameraMove.Get().MoveTo(info.X(), info.Y());
                         OnMapUI.Get().UpdatePanelXY(info.X(), info.Y());

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Xml.Schema;
 using DataTypes;
 using Game;
+using Players.Infos;
 using Towns;
 using UI;
+using Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,8 +25,10 @@ namespace Players
 
         public PlayerFog fog;
         public ResearchMgmt research;
+        public InfoMgmt info;
 
         [SerializeField] private Dictionary<string, string> features;
+        
         
         /// <summary>
         /// Only for loading
@@ -41,12 +45,17 @@ namespace Players
             this.nation = nation;
             
             features = new Dictionary<string, string>();
+            
             research = new ResearchMgmt();
             research.player = this;
+            
             quests = new QuestMgmt();
             quests.player = this;
+            
             fog = new PlayerFog();
             fog.Init(id);
+            
+            info = new InfoMgmt();
         }
 
         public string GetFeature(string key)
@@ -64,7 +73,7 @@ namespace Players
         public void StartRound()
         {
             Debug.Log($"Start round {RoundMgmt.Get().GetRoundString()} for player {name}");
-            OnMapUI.Get().SetRessRoundMessage($"Welcome {name}, it is "+RoundMgmt.Get().GetRoundString());
+            info.Add(new Info($"Welcome {name}, it is "+RoundMgmt.Get().GetRoundString(), RoundMgmt.Get().Icon()));
 
             fog.StartRound();
 
@@ -75,22 +84,26 @@ namespace Players
             //clear panels
             OnMapUI.Get().buildingUI.UpdatePanel(null);
             OnMapUI.Get().unitUI.UpdatePanel(null);
+            OnMapUI.Get().InfoUi.UpdatePanel();
             
             //win?
             WinLose();
+            
+            //show unit
+            UnitMgmt.Get().ShowNextAvaibleUnitForPlayer();
         }
 
         public void UpdateButtonBottom()
         {
             UIHelper.ClearChild(OnMapUI.Get().bottomButton);
-            GameButtonHelper.buildMenu(this, "bottom", OnMapUI.Get().bottomButtonText, false,
+            GameButtonHelper.BuildMenu(this, "bottom", OnMapUI.Get().bottomButtonText, false,
                 OnMapUI.Get().bottomButton.transform);
         }
 
         public void UpdateButtonTop()
         {
             UIHelper.ClearChild(OnMapUI.Get().topButton);
-            GameButtonHelper.buildMenu(this, "top", OnMapUI.Get().topButtonText, false, OnMapUI.Get().topButton.transform);
+            GameButtonHelper.BuildMenu(this, "top", OnMapUI.Get().topButtonText, false, OnMapUI.Get().topButton.transform);
         }
 
         private void WinLose()
@@ -133,7 +146,9 @@ namespace Players
         public void NextRound()
         {
             quests.NextRound();
-            research.NextRound();
+            if (GetFeature("research") == "true")
+                research.NextRound();
+            info.NextRound();
         }
 
         /// <summary>
@@ -180,13 +195,18 @@ namespace Players
 
             if (amount != 0)
             {
-                Debug.LogWarning($"Can not add all ress {amount} {key}");
+                Debug.LogWarning($"Can not add all res {amount} {key}");
             }
         }
 
         public Nation Nation()
         {
             return Data.nation[nation];
+        }
+
+        public void FirstRound()
+        {
+            NextRound();
         }
     }
 }

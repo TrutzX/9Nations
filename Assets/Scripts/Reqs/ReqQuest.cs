@@ -5,7 +5,7 @@ using UnityEngine;
 namespace reqs
 {
     
-    public class ReqQuestMin : BaseReq
+    public class ReqOldQuestMin : BaseReqOld
     {
         public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
         {
@@ -24,7 +24,7 @@ namespace reqs
 
         public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
         {
-            return Desc(sett)+$" You have only {player.quests.quests.Count} town.";
+            return Desc(sett)+$" You have only {player.quests.quests.Count} quest.";
         }
 
         public override string Desc(string sett)
@@ -34,7 +34,7 @@ namespace reqs
     }
     
     
-    public class ReqQuestMax : BaseReq
+    public class ReqOldQuestMax : BaseReqOld
     {
         public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
         {

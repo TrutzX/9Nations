@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DataTypes;
 using Help;
 using Game;
@@ -37,7 +38,7 @@ public class WindowsMgmt : MonoBehaviour
         
         //create it
         WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
-        GameButtonHelper.buildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
+        GameButtonHelper.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
         win.Finish();
     }
 
@@ -45,14 +46,17 @@ public class WindowsMgmt : MonoBehaviour
     {
         //create it
         WindowPanelBuilder p = WindowPanelBuilder.Create("Debug Window");
-        p.panel.AddButton("Give ress", () =>
+        p.panel.AddButton("Give 500 gold", () =>
+        {
+            Town t = TownMgmt.Get().GetByActPlayer().First();
+            
+            t.AddRes("gold",500);
+        });
+        p.panel.AddButton("Trade", () =>
         {
             Town t = TownMgmt.Get().GetByActPlayer()[0];
-            
-            t.AddRes("wood",15);
-            t.AddRes("stone",150);
-            t.AddRes("food",12);
-            t.AddRes("tool",14);
+
+            NLib.GetAction("trade").QuestRun(PlayerMgmt.ActPlayer(), null);
         });
         p.panel.AddButton("Give research", () =>
         {
@@ -72,6 +76,10 @@ public class WindowsMgmt : MonoBehaviour
                 wp.panel.AddLabel(fp.name+": "+PlayerMgmt.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
             }
             wp.Finish();
+        });
+        p.panel.AddButton("Set first player active", () =>
+        {
+            PlayerMgmt.Get().ResetRound();
         });
         p.Finish();
     }

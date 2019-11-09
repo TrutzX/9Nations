@@ -1,3 +1,5 @@
+using Buildings;
+using JetBrains.Annotations;
 using Players;
 using UnityEngine;
 
@@ -16,7 +18,7 @@ namespace reqs
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>true, if valid, false otherwise</returns>
-        public abstract bool Check(Player player, GameObject onMap, string sett, int x, int y);
+        public abstract bool Check(Player player, [CanBeNull] MapElementInfo onMap, string sett, int x, int y);
         
         /// <summary>
         /// Checks only for the player
@@ -35,10 +37,18 @@ namespace reqs
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public abstract bool Final(Player player, GameObject onMap, string sett, int x, int y);
+        public abstract bool Final(Player player, [CanBeNull] MapElementInfo onMap, string sett, int x, int y);
+
+        /// <summary>
+        /// Hide form user, if final
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="sett"></param>
+        /// <returns></returns>
+        public abstract bool Final(Player player, string sett);
 
     
-        public abstract string Desc(Player player, GameObject onMap, string sett, int x, int y);
+        public abstract string Desc(Player player, [CanBeNull] MapElementInfo onMap, string sett, int x, int y);
 
         /// <summary>
         /// Return an general desciption

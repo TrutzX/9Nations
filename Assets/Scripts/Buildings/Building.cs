@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Buildings;
 using Game;
 using reqs;
 using UI;
@@ -17,7 +18,7 @@ namespace DataTypes
         
         public Dictionary<string,string> GenBuildReq()
         {
-            return ReqHelper.GetReq("nation:"+reqbuildnation,"townLevel:"+reqbuildtownlevel,reqbuild1,reqbuild2,reqbuild3);
+            return ReqHelper.GetReq("nation:"+reqbuildnation,"townLevel:>"+reqbuildtownlevel,reqbuild1,reqbuild2,reqbuild3);
         }
 
         public Dictionary<string, string> GetActions()
@@ -63,7 +64,7 @@ namespace DataTypes
             panel.AddAction("Action after construction", GetActionsOnce());
         }
 
-        public void ShowInfo(PanelBuilder panel, GameObject onMap, int x, int y)
+        public void ShowInfo(PanelBuilder panel, MapElementInfo onMap, int x, int y)
         {
             panel.AddImageLabel(name,GetIcon());
             panel.AddLabel($"Build time: {buildtime}");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Players;
 using reqs;
@@ -22,10 +23,39 @@ public class PanelBuilder : MonoBehaviour
     public GameObject AddLabel(string title)
     {
         GameObject button = Instantiate(UIElements.Get().panelLabel, panel.transform);
-        button.name = title;
+        button.name = title.Substring(0,Math.Min(title.Length,20));
         button.GetComponent<Text>().text = title;
+        button.GetComponent<RectTransform>().sizeDelta = new Vector2(button.GetComponent<RectTransform>().sizeDelta.x,(title.Length/35+1)*16);
 
         return button;
+    }
+
+    public void RichText(string desc)
+    {
+        string[] lines = desc.Split(new string[]{";;"}, StringSplitOptions.RemoveEmptyEntries);
+        foreach (string line in lines)
+        {
+            if (!line.StartsWith("@"))
+            {
+                AddLabel(line);
+                continue;
+            }
+
+            if (line.StartsWith("@H@"))
+            {
+                AddHeaderLabel(line.Substring(3));
+                continue;
+            }
+
+            if (line.StartsWith("@IL@"))
+            {
+                string[] p = line.Split('@');
+                AddImageLabel(p[3], p[2]);
+                continue;
+            }
+            
+            AddLabel("Error: "+line);
+        }
     }
     
     public GameObject AddDesc(string title)
@@ -53,7 +83,7 @@ public class PanelBuilder : MonoBehaviour
         return g;
     }
 
-    public GameObject AddImageButton(string title, Sprite icon, Action action, string sound = "click")
+    public GameObject AddImageTextButton(string title, Sprite icon, Action action, string sound = "click")
     {
         GameObject g = UIHelper.CreateImageTextButton(title, icon, panel.transform, action, sound);
         
@@ -69,7 +99,7 @@ public class PanelBuilder : MonoBehaviour
     {
         //addHeader
         if (ress.Count > 0)
-        AddHeaderLabel(title);
+            AddHeaderLabel(title);
         
         //add ress
         foreach (KeyValuePair<string, int> r in ress)
@@ -84,6 +114,15 @@ public class PanelBuilder : MonoBehaviour
         button.transform.GetChild(0).GetComponent<Text>().text = $"Enter {title}...";
         button.GetComponent<InputField>().text = def;
         button.GetComponent<InputField>().onValueChanged.AddListener((val) => { save(val); });
+        return button;
+    }
+    
+    public GameObject AddInput(string title, int def, UnityAction<int> save)
+    {
+        GameObject button = Instantiate(UIElements.Get().input, panel.transform);
+        button.transform.GetChild(0).GetComponent<Text>().text = $"Enter {title}...";
+        button.GetComponent<InputField>().text = def.ToString();
+        button.GetComponent<InputField>().onValueChanged.AddListener((val) => { save(Int32.Parse(val)); });
         return button;
     }
     
@@ -168,7 +207,7 @@ public class PanelBuilder : MonoBehaviour
         }
     }
 
-    public void AddReq(string title, Dictionary<string, string> reqs,GameObject onMap, int x, int y)
+    public void AddReq(string title, Dictionary<string, string> reqs,MapElementInfo onMap, int x, int y)
     {
         //addHeader
         if (reqs.Count > 0)
@@ -189,6 +228,15 @@ public class PanelBuilder : MonoBehaviour
 
     public void CalcSize()
     {
-        panel.GetComponent<RectTransform>().sizeDelta = new Vector2(0,(Count())*32);
+        RectTransform rt = panel.GetComponent<RectTransform>();
+     
+        int h = 0;
+        foreach (RectTransform crt in rt.GetComponentsInChildren<RectTransform>() ) {
+            if ( crt == rt ) continue;
+            if ( crt.parent != rt ) continue;
+        
+            h += (int)crt.sizeDelta.y;
+        }
+        panel.GetComponent<RectTransform>().sizeDelta = new Vector2(0,h);
     }
 }

@@ -20,13 +20,18 @@ public class WindowPanelBuilder : MonoBehaviour
     public void Finish(int w)
     {
         panel.CalcSize();
-        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(w,panel.GetComponent<PanelBuilder>().Count()*32+48);
+        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(w,panel.panel.GetComponent<RectTransform>().sizeDelta.y+48);
         gameObject.SetActive(true);
     }
     
     public void Finish()
     {
         Finish(300);
+    }
+
+    public void AddClose()
+    {
+        panel.AddButton("Close",Close);
     }
 
     public void Close()

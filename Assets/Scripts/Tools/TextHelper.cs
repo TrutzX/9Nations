@@ -7,54 +7,40 @@
  */
 namespace Tools
 {
-    public class TextHelper {
-
-        private TextHelper() {}
+    public static class TextHelper {
 
         /**
-     * Capitalize a string
-     * 
-     * @param name
-     * @return
-     */
-        public static string cap(string name) {
+         * Capitalize a string
+         * 
+         * @param name
+         * @return
+         */
+        public static string Cap(string name) {
             return char.ToUpper(name[0]) + name.Substring(1);
         }
 
-        /**
-     * Get the time stamp
-     * 
-     * @param l
-     * @return
-     */
-        public static string CommaSep(params string[] l) {
-            return CommaSepA(l);
+        public static string CommaSep(string[] l)
+        {
+            return String.Join(", ", l);
         }
 
-        /**
-     * Get the time stamp
-     * 
-     * @param l
-     * @return
-     */
-        public static string CommaSepA(string[] l) {
-            string erg = "";
-            foreach (string s in l) {
-                if (String.IsNullOrEmpty(s)) {
-                    continue;
-                }
-
-                if (erg.Length > 0) {
-                    erg += ", ";
-                }
-                erg += s;
-            }
-
-            return erg;
-        }
-
-        public static string plus(int num) {
+        public static string Plus(int num) {
             return num > 0 ? "+" + num : num.ToString();
+        }
+
+        public static string RichText(params string[] d)
+        {
+            return String.Join(";;", d);
+        }
+
+        public static string Header(string h)
+        {
+            return $"@H@{h}";
+        }
+
+        public static string IconLabel(string icon, string text)
+        {
+            return $"@IL@{icon}@{text}";
         }
     }
 }

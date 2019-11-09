@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Game;
 using Players;
@@ -14,8 +15,9 @@ namespace Actions
 {
     public class TrainAction : BaseAction
     {
-        protected override void ButtonAction(Player player, GameObject gameObject, int x, int y, string settings)
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
         {
+            Debug.Log(gameObject);
             string[] keys;
             if (!String.IsNullOrEmpty(settings))
             {
@@ -52,7 +54,7 @@ namespace Actions
             Debug.LogWarning("Not implemented");
         }
         
-        public class UnitSplitElement : WindowBuilderSplit.SplitElement
+        public class UnitSplitElement : SplitElement
         {
             protected Unit unit;
             protected int x, y;

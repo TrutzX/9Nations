@@ -25,7 +25,7 @@ TextureImporter:
     second: ui_6
   - first:
       213: 8599436577718238185
-    second: ui_7
+    second: key
   - first:
       213: -9080700020481880845
     second: ui_8
@@ -55,7 +55,7 @@ TextureImporter:
     second: ui_16
   - first:
       213: -7787622976490332879
-    second: ui_17
+    second: tutorial
   - first:
       213: 3793417686556777753
     second: ui_18
@@ -522,7 +522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_7
+      name: key
       rect:
         serializedVersion: 2
         x: 224
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_17
+      name: tutorial
       rect:
         serializedVersion: 2
         x: 32

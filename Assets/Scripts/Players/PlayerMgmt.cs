@@ -51,21 +51,25 @@ namespace Players
             return Get().actPlayer;
         }
     
-        // Update is called once per frame
         public void NextRound()
         {
-            foreach (var p in players)
-            {
-                p.NextRound();
-            }
+            players.ForEach(p => p.NextRound());
+        }
+    
+        public void FirstRound()
+        {
+            players.ForEach(p => p.FirstRound());
         }
 
         public void AfterLoad()
         {
-            foreach (var p in players)
-            {
-                p.AfterLoad();
-            }
+            players.ForEach(p => p.AfterLoad());
+        }
+
+        public void ResetRound()
+        {
+            actPlayer = 0;
+            ActPlayer().StartRound();
         }
         
         public void NextPlayer()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Buildings;
 using DataTypes;
 using Players;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace reqs
 {
     public class ReqHelper
     {
-        public static bool Check(Dictionary<string, string> reqs, GameObject onMap, int x, int y)
+        public static bool Check(Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
         {
             return Check(PlayerMgmt.ActPlayer(), reqs, onMap, x, y);
         }
@@ -22,7 +23,7 @@ namespace reqs
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>true=can use it, false=not possible</returns>
-        public static bool Check(Player player, Dictionary<string, string> reqs, GameObject onMap, int x, int y)
+        public static bool Check(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
@@ -61,11 +62,32 @@ namespace reqs
         /// </summary>
         /// <param name="player"></param>
         /// <param name="reqs"></param>
+        /// <returns>true=can use it, false=not possible</returns>
+        public static bool CheckOnlyFinal(Player player, Dictionary<string, string> reqs)
+        {
+            foreach (KeyValuePair<string, string> req in reqs)
+            {
+                //can use it?
+                BaseReq r = NLib.GetReq(req.Key);
+                if (!r.Check(player, req.Value) && r.Final(player, req.Value))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
+        /// <summary>
+        /// Check if the req allow it
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="reqs"></param>
         /// <param name="onMap"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>true=can use it, false=not possible</returns>
-        public static bool CheckOnlyFinal(Player player, Dictionary<string, string> reqs, GameObject onMap, int x, int y)
+        public static bool CheckOnlyFinal(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
@@ -80,10 +102,36 @@ namespace reqs
             return true;
         }
 
-        public static string Desc(Dictionary<string, string> reqs, GameObject onMap, int x, int y)
+        public static string Desc(Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
         {
             return Desc(PlayerMgmt.ActPlayer(), reqs, onMap, x, y);
         }
+
+        /// <summary>
+        /// Return the description, why the check its not working or null
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="reqs"></param>
+        /// <param name="onMap"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>the error message or null</returns>
+        public static string Desc(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        {
+            foreach (KeyValuePair<string, string> req in reqs)
+            {
+                BaseReq br = NLib.GetReq(req.Key);
+                
+                //can use it?
+                if (!br.Check(player, onMap, req.Value, x, y))
+                {
+                    return br.Desc(player, onMap, req.Value, x, y);
+                }
+            }
+
+            return null;
+        }
+        
 
         /// <summary>
         /// Return the description, why the check its not working
@@ -94,16 +142,16 @@ namespace reqs
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>the error message or null</returns>
-        public static string Desc(Player player, Dictionary<string, string> reqs, GameObject onMap, int x, int y)
+        public static string Desc(Player player, Dictionary<string, string> reqs)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 BaseReq br = NLib.GetReq(req.Key);
                 
                 //can use it?
-                if (!br.Check(player, onMap, req.Value, x, y))
+                if (!br.Check(player, req.Value))
                 {
-                    return br.Desc(player, onMap, req.Value, x, y);
+                    return br.Desc(req.Value);
                 }
             }
 

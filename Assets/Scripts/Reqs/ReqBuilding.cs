@@ -11,20 +11,29 @@ namespace reqs
     
     public class ReqBuilding : ReqMinMax
     {
-        protected override int Value(Player player, GameObject onMap, string element, string sett, int x, int y)
+
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int ValueMax(Player player, string element, string sett)
+        {
+            throw new NotImplementedException();
+        }
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
         {
             
-            MapElementInfo info = GameHelper.GetMapElement(onMap);
-            Town t = info.Town();
+            Town t = onMap.Town();
             if (t == null)
             {
-                return Value(player, element, sett);
+                return ValueAct(player, element, sett);
             }
             
             return BuildingMgmt.Get().GetByTownType(t.id, element).Length;
         }
 
-        protected override int Value(Player player, string element, string sett)
+        protected override int ValueAct(Player player, string element, string sett)
         {
             return BuildingMgmt.Get().GetByPlayerType(player.id, element).Length;
         }
