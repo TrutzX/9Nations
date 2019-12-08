@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Game;
+using Libraries;
 using Players;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,7 +50,7 @@ public class TownMgmt
         towns.Add(new Town(++createTownCounter,playerID,name, x, y));
         Debug.Log($"Create town {name} ({createTownCounter}) for {playerID}");
         //create townhall
-        BuildingMgmt.Get().Create(createTownCounter, Data.nation[PlayerMgmt.Get(playerID).nation].townhall,x,y);
+        BuildingMgmt.Get().Create(createTownCounter, PlayerMgmt.Get(playerID).Nation().Townhall,x,y);
         return createTownCounter;
     }
 

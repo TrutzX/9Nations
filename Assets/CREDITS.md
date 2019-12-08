@@ -5,7 +5,7 @@
 * UI from opengameart.org/content/arkana-fts-gui
 * Units from finalbossblues.itch.io
 
-#Tileset
+#Buildings and Terrains
 * by Avery from forums.rpgmakerweb.com/index.php?threads/averys-ace-stuff.26173
 * by Nekura from forums.rpgmakerweb.com/index.php?threads/nekura.38957
 * by Champion Of Darkness from forums.rpgmakerweb.com/index.php?threads/c.44668
@@ -17,6 +17,10 @@
 * by Carpinteyrovzj from kissclipart.com/rpg-maker-vx-ace-tileset-sao-clipart-rpg-maker-mv-elatlz
 * by Drack669 from minus.com/mdIpPfHlRsx9R
 * by ayene-chan from deviantart.com/ayene-chan
+* by The Inquisitor from downloads.rpg-palace.com/details.php?id=103
+* by Mack from vxresource.wordpress.com/category/resources/tilesets
+* by Idril from idrilart.wordpress.com/2016/04
+* by TerraVX from rpgdreams.forumotion.com/t171p25-rpg-dreams-unique-tile-style
 
 #Icons
 * by Avy from forums.rpgmakerweb.com/index.php?threads/avys-icon-workshop-back-to-buisness.21623
@@ -25,8 +29,6 @@
 * by bogo-d from deviantart.com/bogo-d/art/Project-Icons-v-2-1-8-155863784
 * by Jorge Avila from opengameart.org/content/georgui-icon-set
 * by Bogdan Mihaiciuc from deviantart.com/bogo-d/art/Kingdom-Icons-212892514
-
-
 
 #Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack

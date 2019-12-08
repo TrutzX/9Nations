@@ -1,3 +1,4 @@
+using Libraries;
 using Players;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace reqs
 
         public override string Desc(string sett)
         {
-            return $"Can only build from the nation {Data.nation[sett].name}.";
+            return $"Can only build from the nation {L.b.nations[sett].Name}.";
         }
     }
 }

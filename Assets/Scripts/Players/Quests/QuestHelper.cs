@@ -33,7 +33,7 @@ namespace Players.Quests
     public class QuestSplitElement : SplitElement
     {
         protected Quest quest;
-        public QuestSplitElement(Quest quest) : base(quest.name, SpriteHelper.LoadIcon(quest.icon))
+        public QuestSplitElement(Quest quest) : base(quest.name, SpriteHelper.Load(quest.icon))
         {
             this.quest = quest;
         }

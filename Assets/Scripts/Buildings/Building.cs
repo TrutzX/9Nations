@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Buildings;
 using Game;
+using Libraries;
+using Players;
 using reqs;
 using UI;
 using UnityEngine;
@@ -66,8 +68,13 @@ namespace DataTypes
 
         public void ShowInfo(PanelBuilder panel, MapElementInfo onMap, int x, int y)
         {
+            //TODO Vector3Int Z
+            //calc time
+            int newb = L.b.modifiers["build"].CalcModi(buildtime, PlayerMgmt.ActPlayer(), new Vector3Int(x, y, 0));
+            string nb = newb == buildtime ? newb + " rounds" : $"{newb} ({buildtime}) rounds";
+            
             panel.AddImageLabel(name,GetIcon());
-            panel.AddLabel($"Build time: {buildtime}");
+            panel.AddImageLabel($"Build time: {nb}","Icons/icons:NextRound");
             panel.AddRess("Cost for construction",GenCost());
             panel.AddReq("Requirement for construction",GenBuildReq(), onMap, x, y);
             panel.AddRess("Production",GenProduce());

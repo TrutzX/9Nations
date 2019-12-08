@@ -1,6 +1,10 @@
 using System;
 using Game;
+using GameButtons;
+using Help;
 using JetBrains.Annotations;
+using Libraries;
+using MapActions;
 using Players;
 using Players.Infos;
 using Towns;
@@ -41,6 +45,9 @@ namespace Buildings
         public int X() => data.x;
 
         public int Y() => data.y;
+        
+        //TODO Vector3Int ADD Z
+        public Vector3Int Pos() => new Vector3Int(X(), Y(), 0);
 
         /// <summary>
         /// check if it a building or a unit
@@ -76,7 +83,13 @@ namespace Buildings
         
         public virtual WindowBuilderSplit ShowInfoWindow()
         {
-            return WindowBuilderSplit.Create(gameObject.name,null);
+            WindowBuilderSplit win =  WindowBuilderSplit.Create(gameObject.name,null);
+            win.AddElement(new LexiconSplitElement(GameMgmt.Get().map.GetTerrain(X(), Y())));
+            if (Data.features.debug.Bool())
+                win.AddElement(new DebugMapElementSplitElement(this));
+            if (L.b.improvements.Has(Pos()))
+                win.AddElement(new LexiconSplitElement(L.b.improvements.At(Pos())));
+            return win;
         }
 
         public virtual void Load(BuildingUnitData data)

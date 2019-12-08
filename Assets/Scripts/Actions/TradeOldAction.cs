@@ -146,7 +146,7 @@ namespace Actions
             int v = Convert.ToInt32(Math.Ceiling(1d * bP / sP));
             UIHelper.UpdateButtonText(shop1,$"{v}x {sT} for 1x {bT}");
             shop1.SetActive(bT != sT && town.GetRes(sell) >= v);
-            Debug.LogWarning($"Diff {sT} {town.GetRes(sell)}>={v}");
+            //Debug.LogWarning($"Diff {sT} {town.GetRes(sell)}>={v}");
             
             //10
             v = Convert.ToInt32(Math.Ceiling(10d * bP / sP));

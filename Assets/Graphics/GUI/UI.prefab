@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitUI: {fileID: 0}
   buildingUI: {fileID: 0}
-  ressround: {fileID: 0}
+  InfoUi: {fileID: 0}
   topButton: {fileID: 0}
   topButtonText: {fileID: 0}
   bottomButton: {fileID: 0}
@@ -87,7 +87,11 @@ MonoBehaviour:
     type: 3}
   panelWindow: {fileID: 3827550852429096437, guid: 466e10b7eef7e4ff4a6b5fe394d61f2b,
     type: 3}
+  tabWindow: {fileID: 3827550852429096437, guid: 7d2ba33f5c35f48acbc16885f5ac1dee,
+    type: 3}
   checkBox: {fileID: 2569203467461159016, guid: 6e4da79bad3814c54bcff7de0de0c291,
+    type: 3}
+  panelSplit: {fileID: 3827550852429096437, guid: 544087e6411a9461db3b99dcec94bbc2,
     type: 3}
   dropdown: {fileID: 5781263005038914098, guid: 9b414424516374fe28d995b3508a6104,
     type: 3}

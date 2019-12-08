@@ -65,7 +65,7 @@ namespace MapActions.Actions
             int atk = uSelf.config.atk, def = unSelf.config.def;
 
             // add ethos
-            string ae = self.Player().Nation().ethos, de = nonSelf.Player().Nation().ethos;
+            string ae = self.Player().Nation().Ethos, de = nonSelf.Player().Nation().Ethos;
             // good>bad, bad>neutral, neutral>good
             if (ae == "good" && de == "bad" || ae == "bad" && de == "neutral" || ae == "neutral" && de == "good") {
                 dam *= 1.25f;

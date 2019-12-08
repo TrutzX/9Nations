@@ -94,7 +94,7 @@ namespace Players
                 panel.AddHeaderLabel("Finish researches");
                 foreach (Research r in Data.research)
                 {
-                    if (PlayerMgmt.ActPlayer().research.Finish(r.id))
+                    if (PlayerMgmt.ActPlayer().research.IsFinish(r.id))
                         panel.AddImageLabel(r.name, r.GetIcon());
                 }
 

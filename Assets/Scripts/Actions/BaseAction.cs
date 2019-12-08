@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Buildings;
 using DataTypes;
@@ -7,6 +8,7 @@ using reqs;
 using UI;
 using Units;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Actions
 {
@@ -70,6 +72,10 @@ namespace Actions
         private string ActionRun(Player player, MapElementInfo info, int x, int y, string settings)
         {
             NAction action = Data.nAction[id];
+            
+            Assert.IsNotNull(action,$"Action {id} is missing.");
+            Assert.IsNotNull(info,$"MapElementInfo is missing.");
+            
             //has ap?
             if (action.cost > info.data.ap)
             {

@@ -15,10 +15,10 @@ namespace DataTypes
 
         public void Start()
         {
-            GameMgmt.startConfig = new Dictionary<string, string>();
-            GameMgmt.startConfig["type"] = "scenario";
-            GameMgmt.startConfig["scenario"] = id;
-            GameMgmt.startConfig["name"] = name+" scenario";
+            GameMgmt.StartConfig = new Dictionary<string, string>();
+            GameMgmt.StartConfig["type"] = "scenario";
+            GameMgmt.StartConfig["scenario"] = id;
+            GameMgmt.StartConfig["name"] = name+" scenario";
             GameMgmt.Init();
         }
     }

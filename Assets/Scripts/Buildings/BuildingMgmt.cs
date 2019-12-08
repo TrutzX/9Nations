@@ -18,7 +18,7 @@ public class BuildingMgmt : MonoBehaviour
     }
     
     /// <summary>
-    /// Return the unit, if exist, at this postion
+    /// Return the building, if exist, at this postion
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
@@ -26,7 +26,18 @@ public class BuildingMgmt : MonoBehaviour
     public static BuildingInfo At(int x, int y)
     {
         BuildingInfo b = Get().GetAll().SingleOrDefault(g => g.X() == x && g.Y() == y);
-        return b == null ? null : b;
+        return b;
+    }
+    
+    /// <summary>
+    /// Return the building, if exist, at this postion
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns>the unit or null</returns>
+    public static BuildingInfo At(Vector3Int pos)
+    {
+        return GameHelper.Valide(pos)?At(pos.x, pos.y):null;
     }
 
     public BuildingInfo[] GetAll()
@@ -54,18 +65,19 @@ public class BuildingMgmt : MonoBehaviour
         return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
     }
 
-    public GameObject Create(int town, string type, int x, int y)
+    public BuildingInfo Create(int town, string type, int x, int y)
     {
         //exist?
         if (!Data.building.ContainsKey(type))
         {
-            throw new MissingComponentException("Building "+type+ "not exist");
+            throw new MissingComponentException($"Building {type} not exist");
         }
         
         GameObject building = Instantiate(buildPrefab, GetComponent<Transform>());
-        building.GetComponent<BuildingInfo>().Init(town,type,x,y);
-        GameMgmt.Get().data.buildings.Add(building.GetComponent<BuildingInfo>().data);
-        return building;
+        BuildingInfo bi = building.GetComponent<BuildingInfo>();
+        bi.Init(town,type,x,y);
+        GameMgmt.Get().data.buildings.Add(bi.data);
+        return bi;
     }
 
     public GameObject Load(BuildingUnitData data)

@@ -20,6 +20,11 @@ namespace Towns
             foreach (Town t in TownMgmt.Get().GetByActPlayer())
             {
                 b.AddElement(new TownSplitElement(t));
+
+                if (Data.features.debug.Bool())
+                {
+                    b.AddElement(new DebugTownSplitElement(t));
+                }
             }
             
             b.AddElement(new HelpSplitElement("town"));

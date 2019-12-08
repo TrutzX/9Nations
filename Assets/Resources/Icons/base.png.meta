@@ -232,7 +232,7 @@ TextureImporter:
     second: qqqq
   - first:
       213: 90457772778482900
-    second: base_76
+    second: option2
   - first:
       213: 5179909770837815113
     second: base_77
@@ -343,7 +343,7 @@ TextureImporter:
     second: base_112
   - first:
       213: -6707767957304755670
-    second: base_113
+    second: north
   - first:
       213: -2709032140791186680
     second: base_114
@@ -574,7 +574,7 @@ TextureImporter:
     second: base_189
   - first:
       213: 7805653799000405592
-    second: base_190
+    second: view
   - first:
       213: -2005076676740015780
     second: base_191
@@ -613,7 +613,7 @@ TextureImporter:
     second: tool
   - first:
       213: 8982787451057019840
-    second: base_203
+    second: mod
   - first:
       213: -6994205082485593949
     second: base_204
@@ -664,7 +664,7 @@ TextureImporter:
     second: base_219
   - first:
       213: 1215403257119898583
-    second: option
+    second: option2
   - first:
       213: -4807256266919855215
     second: base_221
@@ -910,7 +910,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -921,7 +921,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -932,6 +933,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2532,7 +2534,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_76
+      name: option
       rect:
         serializedVersion: 2
         x: 96
@@ -3309,7 +3311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_113
+      name: north
       rect:
         serializedVersion: 2
         x: 64
@@ -4926,7 +4928,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_190
+      name: view
       rect:
         serializedVersion: 2
         x: 128
@@ -5199,7 +5201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_203
+      name: mod
       rect:
         serializedVersion: 2
         x: 32
@@ -5556,7 +5558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: option
+      name: option2
       rect:
         serializedVersion: 2
         x: 64

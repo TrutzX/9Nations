@@ -31,7 +31,7 @@ namespace Help
             foreach (string d in StringToList(data))
             {
                 if (d.Length > 0)
-                lists.Add(d.Split(','));
+                    lists.Add(d.Split(','));
             }
             
             return lists.ToArray();

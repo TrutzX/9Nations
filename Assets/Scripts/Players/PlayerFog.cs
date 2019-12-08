@@ -2,7 +2,9 @@ using System;
 using System.IO;
 using Help;
 using Game;
+using Libraries;
 using Maps;
+using Terrains;
 using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -21,7 +23,7 @@ namespace Players
         /// <param name="pid"></param>
         public void Init(int pid)
         {
-            visible = new bool[GameMgmt.Get().data.mapwidth,GameMgmt.Get().data.mapheight];
+            visible = new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height];
 
             if (!Data.features.fog.Bool())
                 for (int x = 0; x < visible.GetLength(0); x++)
@@ -33,7 +35,7 @@ namespace Players
 
         public void AfterLoad(int pid)
         {
-            tilemap = MapMgmt.Get().CreateLayer($"Fog of war {pid}");
+            tilemap = GameMapMgmt.Get().CreateLayer16($"Fog of war {pid}",GameMapMgmt.SortFog).GetComponent<Tilemap>();
             
             //paint everything
             for (int x = 0; x < visible.GetLength(0); x++)
@@ -48,33 +50,33 @@ namespace Players
                     }
                     
                     //set it
-                    setTile(x,y,MapMgmt.Get().fog);
+                    setTile(x,y,GameMapMgmt.Get().fog);
                     
                     //set border
                     if (x == 0)
                     {
-                        setTile(-1,y,MapMgmt.Get().fog);
+                        setTile(-1,y,GameMapMgmt.Get().fog);
                     }
                     if (x == visible.GetLength(0)-1)
                     {
-                        setTile(visible.GetLength(0),y,MapMgmt.Get().fog);
+                        setTile(visible.GetLength(0),y,GameMapMgmt.Get().fog);
                     }
                     if (y == 0)
                     {
-                        setTile(x,-1,MapMgmt.Get().fog);
+                        setTile(x,-1,GameMapMgmt.Get().fog);
                     }
                     if (y == visible.GetLength(1)-1)
                     {
-                        setTile(x,visible.GetLength(1),MapMgmt.Get().fog);
+                        setTile(x,visible.GetLength(1),GameMapMgmt.Get().fog);
                     }
                 }
             }
             
             //add points
-            setTile(-1,-1,MapMgmt.Get().fog);
-            setTile(-1,visible.GetLength(1),MapMgmt.Get().fog);
-            setTile(visible.GetLength(0),-1,MapMgmt.Get().fog);
-            setTile(visible.GetLength(0),visible.GetLength(1),MapMgmt.Get().fog);
+            setTile(-1,-1,GameMapMgmt.Get().fog);
+            setTile(-1,visible.GetLength(1),GameMapMgmt.Get().fog);
+            setTile(visible.GetLength(0),-1,GameMapMgmt.Get().fog);
+            setTile(visible.GetLength(0),visible.GetLength(1),GameMapMgmt.Get().fog);
             
             FinishRound();
         }
@@ -82,7 +84,7 @@ namespace Players
         public void Clear(int x, int y)
         {
             //check koor
-            if (!MapMgmt.Valide(x, y))
+            if (!GameMapMgmt.Valide(x, y))
             {
                 return;
             }
@@ -100,12 +102,11 @@ namespace Players
         private void setTile(int x, int y, TileBase tile = null)
         {
             //set it
-            TilemapHelper.setTile(tilemap,x,y,tile);
+            TilemapHelper.SetTile(tilemap,x,y,tile);
         }
 
         public void Clear(int x, int y, int radius)
         {
-            radius = TerrainHelper.GetViewRadius(x, y, radius);
             //Debug.Log($"Clear {x},{y} for {radius}");
             
             if (radius >= 0)

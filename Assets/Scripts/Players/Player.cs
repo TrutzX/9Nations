@@ -4,6 +4,8 @@ using System.Linq;
 using System.Xml.Schema;
 using DataTypes;
 using Game;
+using Libraries;
+using Nations;
 using Players.Infos;
 using Towns;
 using UI;
@@ -27,6 +29,8 @@ namespace Players
         public ResearchMgmt research;
         public InfoMgmt info;
 
+        public Dictionary<string, string> Modi;
+        
         [SerializeField] private Dictionary<string, string> features;
         
         
@@ -45,6 +49,7 @@ namespace Players
             this.nation = nation;
             
             features = new Dictionary<string, string>();
+            Modi = new Dictionary<string, string>();
             
             research = new ResearchMgmt();
             research.player = this;
@@ -201,7 +206,7 @@ namespace Players
 
         public Nation Nation()
         {
-            return Data.nation[nation];
+            return L.b.nations[nation];
         }
 
         public void FirstRound()

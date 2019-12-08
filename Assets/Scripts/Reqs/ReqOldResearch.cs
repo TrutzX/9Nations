@@ -13,7 +13,7 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
-            return player.research.Finish(sett);
+            return player.research.IsFinish(sett);
         }
 
         public override bool Final(Player player, GameObject onMap, string sett, int x, int y)

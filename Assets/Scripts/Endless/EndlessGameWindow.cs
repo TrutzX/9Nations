@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using DataTypes;
 using Game;
+using Libraries;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Nation = Nations.Nation;
 
 namespace Endless
 {
     public class EndlessGameWindow : MonoBehaviour
     {
-        public Maps.Map selectedMap;
+        public Maps.NMap selectedMap;
         public GameObject startButton;
         public Dictionary<string, string> startConfig;
         private WindowBuilderSplit window;
@@ -29,9 +31,9 @@ namespace Endless
             //add start button
             startButton = UIHelper.CreateButton("",window.buttonPanel.transform,()=>
             {
-                GameMgmt.startConfig = startConfig;
-                GameMgmt.startConfig["name"] = "endless game";
-                GameMgmt.startConfig["type"] = "endless";
+                GameMgmt.StartConfig = startConfig;
+                GameMgmt.StartConfig["name"] = "endless game";
+                GameMgmt.StartConfig["type"] = "endless";
             
                 GameMgmt.Init();
             });
@@ -71,7 +73,7 @@ namespace Endless
             private EndlessGameWindow endless;
             private int id;
         
-            public MapSelectSplitElement(EndlessGameWindow endless) : base("General", SpriteHelper.LoadIcon("base:map"))
+            public MapSelectSplitElement(EndlessGameWindow endless) : base("General", SpriteHelper.Load("base:map"))
             {
                 this.endless = endless;
                 id = 0;
@@ -89,14 +91,15 @@ namespace Endless
                     endless.UpdateButtonText();
                 });
                 panel.AddHeaderLabel("Select a map");
-                foreach (Maps.Map map in MapHelper.GetAllMaps())
+                foreach (Maps.NMap map in L.b.maps.Values())
                 {
-                    panel.AddButton($"Select {map.name}", () =>
+                    
+                    panel.AddButton($"Select {map.Name}", () =>
                     {
                         endless.selectedMap = map;
-                        endless.startConfig["map"] = map.name;
+                        endless.startConfig["map"] = map.Id;
                         endless.UpdateButtonText();
-                        UIHelper.UpdateButtonText(button,$"Play map {map.name}");
+                        UIHelper.UpdateButtonText(button,$"Play map {map.Name}");
                     });
                 }
             }
@@ -112,10 +115,11 @@ namespace Endless
             private EndlessGameWindow endless;
             private int id;
         
-            public PlayerSelectSplitElement(EndlessGameWindow endless, int id) : base("Player", SpriteHelper.LoadIcon("base:map"))
+            public PlayerSelectSplitElement(EndlessGameWindow endless, int id) : base("Player", SpriteHelper.Load("base:map"))
             {
                 this.endless = endless;
                 this.id = id;
+                this.icon = L.b.nations[endless.startConfig[id + "nation"]].Sprite();
             }
 
             public override void ShowDetail(PanelBuilder panel)
@@ -123,23 +127,26 @@ namespace Endless
                 panel.AddHeaderLabel("Name");
                 panel.AddInput("Name",endless.startConfig[id + "name"], s => { 
                     endless.startConfig[id + "name"] = s;
-                    UIHelper.UpdateButtonText(button,s); 
+                    UIHelper.UpdateButtonText(button,s);
                 });
 
                 List<string> ids = new List<string>();
                 List<string> titles = new List<string>();
-                foreach (Nation nation in Data.nation)
+                foreach (Nation nation in L.b.nations.Values())
                 {
-                    if (nation.hidden)
+                    if (nation.Hidden)
                         continue;
                 
-                    ids.Add(nation.id);
-                    titles.Add(nation.name);
+                    ids.Add(nation.Id);
+                    titles.Add(nation.Name);
                 }
             
                 panel.AddHeaderLabel("Nation");
                 panel.AddDropdown(ids.ToArray(), endless.startConfig[id + "nation"], titles.ToArray(),
-                    s => { endless.startConfig[id + "nation"] = s; });
+                    s => { 
+                        endless.startConfig[id + "nation"] = s;
+                        UIHelper.UpdateButtonImage(button,L.b.nations[s].Sprite());
+                    });
 
             
                 panel.AddHeaderLabel("How to win");

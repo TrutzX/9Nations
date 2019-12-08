@@ -183,6 +183,12 @@
               </e>
             </e>
           </e>
+          <e p="dotnetzip-for-unity" t="Include">
+            <e p="License.BZip2.txt" t="Include" />
+            <e p="License.txt" t="Include" />
+            <e p="License.zlib.txt" t="Include" />
+            <e p="README.txt" t="Include" />
+          </e>
           <e p="Easy Save 2" t="Include">
             <e p="Editor" t="Include">
               <e p="AutoSave" t="Include">
@@ -588,6 +594,44 @@
               <e p="DebugsOnScrollListener.cs" t="Include" />
             </e>
           </e>
+          <e p="ini-parser-2.5.2" t="Include">
+            <e p="src" t="Include">
+              <e p="IniFileParser" t="Include">
+                <e p="Exceptions" t="Include">
+                  <e p="ParsingException.cs" t="Include" />
+                </e>
+                <e p="FileIniParser.cs" t="Include" />
+                <e p="Helpers" t="Include">
+                  <e p="Assert.cs" t="Include" />
+                </e>
+                <e p="Model" t="Include">
+                  <e p="Configuration" t="Include">
+                    <e p="ConcatenateDuplicatedKeysIniParserConfiguration.cs" t="Include" />
+                    <e p="IniParserConfiguration.cs" t="Include" />
+                  </e>
+                  <e p="Formatting" t="Include">
+                    <e p="DefaultIniDataFormatter.cs" t="Include" />
+                    <e p="IIniDataFormatter.cs" t="Include" />
+                  </e>
+                  <e p="IniData.cs" t="Include" />
+                  <e p="IniDataCaseInsensitive.cs" t="Include" />
+                  <e p="KeyData.cs" t="Include" />
+                  <e p="KeyDataCollection.cs" t="Include" />
+                  <e p="SectionData.cs" t="Include" />
+                  <e p="SectionDataCollection.cs" t="Include" />
+                </e>
+                <e p="Parser" t="Include">
+                  <e p="ConcatenateDuplicatedKeysIniDataParser.cs" t="Include" />
+                  <e p="IniDataParser.cs" t="Include" />
+                </e>
+                <e p="Properties" t="Include">
+                  <e p="AssemblyInfo.cs" t="Include" />
+                </e>
+                <e p="StreamIniDataParser.cs" t="Include" />
+                <e p="StringIniParser.cs" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="MetaSheets Free" t="Include">
             <e p="Editor" t="Include">
               <e p="Copy" t="Include">
@@ -621,6 +665,307 @@
             </e>
             <e p="README.txt" t="Include" />
             <e p="SimpleJSON.cs" t="Include" />
+          </e>
+          <e p="mod.io" t="Include">
+            <e p="Mod Browser" t="Include">
+              <e p="Images" t="Include">
+                <e p="FontAwesomeIcons" t="Include">
+                  <e p="_attribution.txt" t="Include" />
+                </e>
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="UIBlur.shader" t="Include" />
+                <e p="UIBlur_Shared.cginc" t="Include" />
+              </e>
+            </e>
+            <e p="mod.io.UnityPlugin.asmdef" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="_Obsolete" t="Include">
+                <e p="UI" t="Include">
+                  <e p="DisplayData" t="Include">
+                    <e p="DownloadDisplayData.cs" t="Include" />
+                    <e p="ImageDescriptor.cs" t="Include" />
+                    <e p="ImageDisplayData.cs" t="Include" />
+                    <e p="ModDisplayData.cs" t="Include" />
+                    <e p="ModfileDisplayData.cs" t="Include" />
+                    <e p="ModProfileDisplayData.cs" t="Include" />
+                    <e p="ModStatisticsDisplayData.cs" t="Include" />
+                    <e p="ModTagDisplayData.cs" t="Include" />
+                    <e p="UserDisplayData.cs" t="Include" />
+                    <e p="UserProfileDisplayData.cs" t="Include" />
+                  </e>
+                  <e p="DownloadDisplay.cs" t="Include" />
+                  <e p="ExplorerTagFilterBar.cs" t="Include" />
+                  <e p="ExplorerTagFilterView.cs" t="Include" />
+                  <e p="ImageDisplay.cs" t="Include" />
+                  <e p="ModBinaryDownloadDisplay.cs" t="Include" />
+                  <e p="ModfileDisplay.cs" t="Include" />
+                  <e p="ModMediaCollectionDisplayComponent.cs" t="Include" />
+                  <e p="ModMediaContainer.cs" t="Include" />
+                  <e p="ModProfileDisplay.cs" t="Include" />
+                  <e p="ModStatisticsDisplay.cs" t="Include" />
+                  <e p="ModTagCategoryDisplay.cs" t="Include" />
+                  <e p="ModTagCollectionDisplayComponent.cs" t="Include" />
+                  <e p="ModTagCollectionTextDisplay.cs" t="Include" />
+                  <e p="ModTagContainer.cs" t="Include" />
+                  <e p="ModTagDisplay.cs" t="Include" />
+                  <e p="UserProfileDisplay.cs" t="Include" />
+                </e>
+              </e>
+              <e p="API" t="Include">
+                <e p="APIPaginationParameters.cs" t="Include" />
+                <e p="APIParameters.cs" t="Include" />
+                <e p="RequestFilters" t="Include">
+                  <e p="_FieldFilters.cs" t="Include" />
+                  <e p="_RequestFilter.cs" t="Include" />
+                  <e p="FieldFilterMethod.cs" t="Include" />
+                  <e p="GetAllGamesFilterFields.cs" t="Include" />
+                  <e p="GetAllModCommentsFilterFields.cs" t="Include" />
+                  <e p="GetAllModDependenciesFilterFields.cs" t="Include" />
+                  <e p="GetAllModEventsFilterFields.cs" t="Include" />
+                  <e p="GetAllModfilesFilterFields.cs" t="Include" />
+                  <e p="GetAllModsFilterFields.cs" t="Include" />
+                  <e p="GetAllModStatsFilterFields.cs" t="Include" />
+                  <e p="GetAllModTeamMembersFilterFields.cs" t="Include" />
+                  <e p="GetAllUsersFilterFields.cs" t="Include" />
+                  <e p="GetModEventsFilterFields.cs" t="Include" />
+                  <e p="GetModTagsFilterFields.cs" t="Include" />
+                  <e p="GetUserEventsFilterFields.cs" t="Include" />
+                  <e p="GetUserModfilesFilterFields.cs" t="Include" />
+                  <e p="GetUserModFilterFields.cs" t="Include" />
+                  <e p="GetUserRatingsFilterFields.cs" t="Include" />
+                  <e p="GetUserSubscriptionsFilterFields.cs" t="Include" />
+                </e>
+                <e p="RequestPage.cs" t="Include" />
+                <e p="RequestParameters" t="Include">
+                  <e p="_RequestParameters.cs" t="Include" />
+                  <e p="AddGameMediaParameters.cs" t="Include" />
+                  <e p="AddGameTagOptionParameters.cs" t="Include" />
+                  <e p="AddModDependenciesParameters.cs" t="Include" />
+                  <e p="AddModfileParameters.cs" t="Include" />
+                  <e p="AddModKVPMetadataParameters.cs" t="Include" />
+                  <e p="AddModMediaParamters.cs" t="Include" />
+                  <e p="AddModParameters.cs" t="Include" />
+                  <e p="AddModRatingParameters.cs" t="Include" />
+                  <e p="AddModTagsParameters.cs" t="Include" />
+                  <e p="AddModTeamMemberParameters.cs" t="Include" />
+                  <e p="DeleteGameTagOptionParameters.cs" t="Include" />
+                  <e p="DeleteModDependenciesParameters.cs" t="Include" />
+                  <e p="DeleteModKVPMetadataParameters.cs" t="Include" />
+                  <e p="DeleteModMediaParameters.cs" t="Include" />
+                  <e p="DeleteModTagsParameters.cs" t="Include" />
+                  <e p="EditGameParameters.cs" t="Include" />
+                  <e p="EditModfileParameters.cs" t="Include" />
+                  <e p="EditModParameters.cs" t="Include" />
+                  <e p="SubmitReportParameters.cs" t="Include" />
+                  <e p="UpdateModTeamMemberParameters.cs" t="Include" />
+                </e>
+              </e>
+              <e p="API Objects" t="Include">
+                <e p="APIMessage.cs" t="Include" />
+                <e p="FileHash.cs" t="Include" />
+                <e p="GameProfile.cs" t="Include" />
+                <e p="MetadataKVP.cs" t="Include" />
+                <e p="ModComment.cs" t="Include" />
+                <e p="ModDependency.cs" t="Include" />
+                <e p="ModEvent.cs" t="Include" />
+                <e p="Modfile.cs" t="Include" />
+                <e p="ModfileLocator.cs" t="Include" />
+                <e p="ModMediaCollection.cs" t="Include" />
+                <e p="ModProfile.cs" t="Include" />
+                <e p="ModRating.cs" t="Include" />
+                <e p="ModStatistics.cs" t="Include" />
+                <e p="ModTag.cs" t="Include" />
+                <e p="ModTagCategory.cs" t="Include" />
+                <e p="ModTeamMember.cs" t="Include" />
+                <e p="UserEvent.cs" t="Include" />
+                <e p="UserProfile.cs" t="Include" />
+                <e p="WebRequestError.cs" t="Include" />
+              </e>
+              <e p="APIClient.cs" t="Include" />
+              <e p="CacheClient.cs" t="Include" />
+              <e p="DownloadClient.cs" t="Include" />
+              <e p="Editable Objects" t="Include">
+                <e p="_EditableFields.cs" t="Include" />
+                <e p="EditableImageLocator.cs" t="Include" />
+                <e p="EditableModfile.cs" t="Include" />
+                <e p="EditableModProfile.cs" t="Include" />
+                <e p="EditableReport.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="EditorMenuItems.cs" t="Include" />
+              </e>
+              <e p="Enums" t="Include">
+                <e p="APIResourceType.cs" t="Include" />
+                <e p="GameAPIPermissions.cs" t="Include" />
+                <e p="GameCommunityFeatures.cs" t="Include" />
+                <e p="GameModContentPermission.cs" t="Include" />
+                <e p="GameModCuration.cs" t="Include" />
+                <e p="GameModGalleryPresentation.cs" t="Include" />
+                <e p="GameModRevenuePermissions.cs" t="Include" />
+                <e p="GameModSubmissionPermission.cs" t="Include" />
+                <e p="GameStatus.cs" t="Include" />
+                <e p="IconSize.cs" t="Include" />
+                <e p="LogoSize.cs" t="Include" />
+                <e p="ModContentWarnings.cs" t="Include" />
+                <e p="ModEventType.cs" t="Include" />
+                <e p="ModfileVirusScanResult.cs" t="Include" />
+                <e p="ModfileVirusScanStatus.cs" t="Include" />
+                <e p="ModGalleryImageSize.cs" t="Include" />
+                <e p="ModRatingValue.cs" t="Include" />
+                <e p="ModStatus.cs" t="Include" />
+                <e p="ModTeamMemberAccessLevel.cs" t="Include" />
+                <e p="ModVisibility.cs" t="Include" />
+                <e p="ReportedResourceType.cs" t="Include" />
+                <e p="UserAvatarSize.cs" t="Include" />
+                <e p="UserEventType.cs" t="Include" />
+              </e>
+              <e p="Image Locators" t="Include">
+                <e p="_ImageLocator.cs" t="Include" />
+                <e p="AvatarImageLocator.cs" t="Include" />
+                <e p="GalleryImageLocator.cs" t="Include" />
+                <e p="HeaderImageLocator.cs" t="Include" />
+                <e p="IconImageLocator.cs" t="Include" />
+                <e p="LogoImageLocator.cs" t="Include" />
+              </e>
+              <e p="ModfileIdPair.cs" t="Include" />
+              <e p="ModManager.cs" t="Include" />
+              <e p="PluginSettings.cs" t="Include" />
+              <e p="Requests" t="Include">
+                <e p="FileDownloadInfo.cs" t="Include" />
+                <e p="ImageRequest.cs" t="Include" />
+              </e>
+              <e p="SimpleVersion.cs" t="Include" />
+              <e p="UI" t="Include">
+                <e p="_Interfaces" t="Include">
+                  <e p="IAuthenticatedUserUpdateReceiver.cs" t="Include" />
+                  <e p="IDownloadViewElement.cs" t="Include" />
+                  <e p="IExplorerViewElement.cs" t="Include" />
+                  <e p="IGameProfileUpdateReceiver.cs" t="Include" />
+                  <e p="IModDisabledReceiver.cs" t="Include" />
+                  <e p="IModDownloadStartedReceiver.cs" t="Include" />
+                  <e p="IModEnabledReceiver.cs" t="Include" />
+                  <e p="IModfileViewElement.cs" t="Include" />
+                  <e p="IModRatingAddedReceiver.cs" t="Include" />
+                  <e p="IModSubscriptionsUpdateReceiver.cs" t="Include" />
+                  <e p="IModViewElement.cs" t="Include" />
+                  <e p="ISubscriptionsViewElement.cs" t="Include" />
+                  <e p="IUserViewElement.cs" t="Include" />
+                </e>
+                <e p="AccountOptionsMenu.cs" t="Include" />
+                <e p="AccountReactiveButton.cs" t="Include" />
+                <e p="AuthenticatedUserViewController.cs" t="Include" />
+                <e p="CurrentBuildDisplay.cs" t="Include" />
+                <e p="DisplayComponents" t="Include">
+                  <e p="DownloadFieldDisplay.cs" t="Include" />
+                  <e p="DownloadProgressBar.cs" t="Include" />
+                  <e p="DownloadTimeRemainingDisplay.cs" t="Include" />
+                  <e p="DownloadView.cs" t="Include" />
+                  <e p="GalleryImageContainer.cs" t="Include" />
+                  <e p="GalleryImageDisplay.cs" t="Include" />
+                  <e p="ModContainer.cs" t="Include" />
+                  <e p="ModEnabledDisplay.cs" t="Include" />
+                  <e p="ModfileContainer.cs" t="Include" />
+                  <e p="ModfileFieldDisplay.cs" t="Include" />
+                  <e p="ModLogoDisplay.cs" t="Include" />
+                  <e p="ModMediaDisplaySwitch.cs" t="Include" />
+                  <e p="ModProfileFieldDisplay.cs" t="Include" />
+                  <e p="ModReleaseHistoryDisplay.cs" t="Include" />
+                  <e p="ModStatisticsFieldDisplay.cs" t="Include" />
+                  <e p="ModSubscribedDisplay.cs" t="Include" />
+                  <e p="ModUserRatingDisplay.cs" t="Include" />
+                  <e p="TagCollectionTextDisplay.cs" t="Include" />
+                  <e p="TagContainer.cs" t="Include" />
+                  <e p="TagContainerItem.cs" t="Include" />
+                  <e p="UserAvatarDisplay.cs" t="Include" />
+                  <e p="UserProfileFieldDisplay.cs" t="Include" />
+                  <e p="YouTubeThumbnailContainer.cs" t="Include" />
+                  <e p="YouTubeThumbnailDisplay.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="ExplorerSortDropdownEditor.cs" t="Include" />
+                  <e p="GenericTextComponentDrawer.cs" t="Include" />
+                  <e p="GraphicColorSchemeEditor.cs" t="Include" />
+                  <e p="MemberReferenceDropdownDrawer.cs" t="Include" />
+                  <e p="ModBrowserEditor.cs" t="Include" />
+                  <e p="PluginSettingsEditor.cs" t="Include" />
+                  <e p="ScaleFitterEditor.cs" t="Include" />
+                  <e p="SelectableColorSchemeEditor.cs" t="Include" />
+                  <e p="SubscriptionSortDropdownEditor.cs" t="Include" />
+                  <e p="TouchableEditor.cs" t="Include" />
+                </e>
+                <e p="ExplorerFilterTagsContainer.cs" t="Include" />
+                <e p="ExplorerFilterTagsSelector.cs" t="Include" />
+                <e p="ExplorerSortDropdownController.cs" t="Include" />
+                <e p="ExplorerView.cs" t="Include" />
+                <e p="GameTagCategoryDisplay.cs" t="Include" />
+                <e p="ImageRequestManager.cs" t="Include" />
+                <e p="InspectorView.cs" t="Include" />
+                <e p="LoginDialog.cs" t="Include" />
+                <e p="MessageDisplay.cs" t="Include" />
+                <e p="MessageDisplayData.cs" t="Include" />
+                <e p="MessageSystem.cs" t="Include" />
+                <e p="ModBrowser.cs" t="Include" />
+                <e p="ModfileView.cs" t="Include" />
+                <e p="ModNameFilterInputField.cs" t="Include" />
+                <e p="ModProfileRequestManager.cs" t="Include" />
+                <e p="ModStatisticsRequestManager.cs" t="Include" />
+                <e p="ModSubmittorDisplay.cs" t="Include" />
+                <e p="ModTagFilterView.cs" t="Include" />
+                <e p="ModView.cs" t="Include" />
+                <e p="ObjectSwitchTagDisplay.cs" t="Include" />
+                <e p="PageCountDisplay.cs" t="Include" />
+                <e p="PageNumberDisplay.cs" t="Include" />
+                <e p="ResultCountDisplay.cs" t="Include" />
+                <e p="SubscriptionSortDropdownController.cs" t="Include" />
+                <e p="SubscriptionsView.cs" t="Include" />
+                <e p="TextLoadingOverlay.cs" t="Include" />
+                <e p="ToastAnimationSettings.cs" t="Include" />
+                <e p="UserLoginSlideToggle.cs" t="Include" />
+                <e p="UserView.cs" t="Include" />
+                <e p="Utility" t="Include">
+                  <e p="ClickOffCatcher.cs" t="Include" />
+                  <e p="GameObjectToggle.cs" t="Include" />
+                  <e p="GenericTextComponent.cs" t="Include" />
+                  <e p="GraphicColorApplicator.cs" t="Include" />
+                  <e p="GraphicColorScheme.cs" t="Include" />
+                  <e p="GridCellCounter.cs" t="Include" />
+                  <e p="HorizontalProgressBar.cs" t="Include" />
+                  <e p="JumpScrollAnchor.cs" t="Include" />
+                  <e p="JumpScrollRect.cs" t="Include" />
+                  <e p="LayoutElementDuplicator.cs" t="Include" />
+                  <e p="MemberReference.cs" t="Include" />
+                  <e p="MoveOnEnable.cs" t="Include" />
+                  <e p="ObjectActiveSetter.cs" t="Include" />
+                  <e p="RectTransformSpinner.cs" t="Include" />
+                  <e p="ScaleFitter.cs" t="Include" />
+                  <e p="ScrollingImageCycle.cs" t="Include" />
+                  <e p="ScrollViewReset.cs" t="Include" />
+                  <e p="SelectableColorApplicator.cs" t="Include" />
+                  <e p="SelectableColorScheme.cs" t="Include" />
+                  <e p="SelectChildOnEnable.cs" t="Include" />
+                  <e p="SetRectTransformOnEnable.cs" t="Include" />
+                  <e p="SlideToggle.cs" t="Include" />
+                  <e p="StateToggle.cs" t="Include" />
+                  <e p="StateToggleDisplay.cs" t="Include" />
+                  <e p="TextOverflowEllipses.cs" t="Include" />
+                  <e p="TextureAspectRatioMatcher.cs" t="Include" />
+                  <e p="Touchable.cs" t="Include" />
+                  <e p="UIUtilities.cs" t="Include" />
+                  <e p="ValueFormatting.cs" t="Include" />
+                  <e p="WebLinkFollower.cs" t="Include" />
+                </e>
+                <e p="ViewManager.cs" t="Include" />
+              </e>
+              <e p="UserAccountManagement.cs" t="Include" />
+              <e p="UserAuthenticationData.cs" t="Include" />
+              <e p="Utility" t="Include">
+                <e p="IOUtilities.cs" t="Include" />
+                <e p="ServerTimeStamp.cs" t="Include" />
+                <e p="Utility.cs" t="Include" />
+              </e>
+              <e p="VersionUpdater.cs" t="Include" />
+            </e>
           </e>
           <e p="Pixel UI" t="Include">
             <e p="Changelog.txt" t="Include" />
@@ -807,7 +1152,6 @@
                   </e>
                   <e p="UnityBuild-ZipFile" t="Include">
                     <e p="Editor" t="Include">
-                      <e p="Ionic.Zip.License.txt" t="Include" />
                       <e p="ZipFileOperation.cs" t="Include" />
                     </e>
                   </e>
@@ -889,8 +1233,16 @@
           </e>
         </e>
         <e p="Resources" t="Include">
+          <e p="Data" t="Include">
+            <e p="files.txt" t="Include" />
+          </e>
           <e p="Maps" t="Include">
-            <e p="list.txt" t="Include" />
+            <e p="field6" t="Include">
+              <e p="map.txt" t="Include" />
+            </e>
+            <e p="field6mono" t="Include">
+              <e p="map.txt" t="Include" />
+            </e>
           </e>
           <e p="Sound" t="Include">
             <e p="NAudio.cs" t="Include" />
@@ -905,13 +1257,15 @@
             <e p="BuildAction.cs" t="Include" />
             <e p="BuildUpgradeAction.cs" t="Include" />
             <e p="CameraMoveOldAction.cs" t="Include" />
-            <e p="DestroyOldAction.cs" t="Include" />
+            <e p="DestroyAction.cs" t="Include" />
             <e p="EndGameAction.cs" t="Include" />
             <e p="FeatureAction.cs" t="Include" />
             <e p="FoundTownAction.cs" t="Include" />
             <e p="GameButtonOldAction.cs" t="Include" />
+            <e p="ImprovementAction.cs" t="Include" />
             <e p="MoveAction.cs" t="Include" />
             <e p="SleepOldAction.cs" t="Include" />
+            <e p="TownlevelAction.cs" t="Include" />
             <e p="TradeOldAction.cs" t="Include" />
             <e p="TrainAction.cs" t="Include" />
             <e p="TrainUpgradeAction.cs" t="Include" />
@@ -924,7 +1278,6 @@
             <e p="BuildingUI.cs" t="Include" />
             <e p="BuildingUnitData.cs" t="Include" />
             <e p="Construction.cs" t="Include" />
-            <e p="DebugMapElementSplitElement.cs" t="Include" />
             <e p="MapElementInfo.cs" t="Include" />
             <e p="MapElementUI.cs" t="Include" />
           </e>
@@ -943,7 +1296,6 @@
           <e p="Endless" t="Include">
             <e p="EndlessGame.cs" t="Include" />
             <e p="EndlessGameWindow.cs" t="Include" />
-            <e p="MapHelper.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
             <e p="GameData.cs" t="Include" />
@@ -952,9 +1304,23 @@
             <e p="RessHelper.cs" t="Include" />
             <e p="RoundMgmt.cs" t="Include" />
           </e>
+          <e p="GameButtons" t="Include">
+            <e p="DebugHelper.cs" t="Include" />
+            <e p="DebugMapElementSplitElement.cs" t="Include" />
+            <e p="GameButton.cs" t="Include" />
+            <e p="GameButtonHelper.cs" t="Include" />
+          </e>
           <e p="Help" t="Include">
             <e p="HelpHelper.cs" t="Include" />
             <e p="HelpSplitElement.cs" t="Include" />
+            <e p="HelpSplitTab.cs" t="Include" />
+            <e p="LexiconSplitElement.cs" t="Include" />
+            <e p="LexiconSplitTab.cs" t="Include" />
+          </e>
+          <e p="Improvements" t="Include">
+            <e p="Improvement.cs" t="Include" />
+            <e p="ImprovementHelper.cs" t="Include" />
+            <e p="ImprovementMgmt.cs" t="Include" />
           </e>
           <e p="InputAction" t="Include">
             <e p="CameraMove.cs" t="Include" />
@@ -962,6 +1328,16 @@
             <e p="InputKey.cs" t="Include" />
             <e p="InputKeyHelper.cs" t="Include" />
             <e p="InputOptionSplitElement.cs" t="Include" />
+          </e>
+          <e p="Libraries" t="Include">
+            <e p="BaseData.cs" t="Include" />
+            <e p="BaseMgmt.cs" t="Include" />
+            <e p="IRead.cs" t="Include" />
+            <e p="L.cs" t="Include" />
+          </e>
+          <e p="Loading" t="Include">
+            <e p="ILoadScreen.cs" t="Include" />
+            <e p="LoadingScreen.cs" t="Include" />
           </e>
           <e p="LoadSave" t="Include">
             <e p="LoadSaveInfo.cs" t="Include" />
@@ -984,20 +1360,47 @@
             <e p="MapActionSplitElement.cs" t="Include" />
           </e>
           <e p="Maps" t="Include">
-            <e p="Map.cs" t="Include" />
+            <e p="GameMap" t="Include">
+              <e p="GameMapData.cs" t="Include" />
+              <e p="GameMapDataLevel.cs" t="Include" />
+              <e p="GameMapLevel.cs" t="Include" />
+            </e>
+            <e p="GameMapMgmt.cs" t="Include" />
             <e p="MapMgmt.cs" t="Include" />
             <e p="MapPathFinding.cs" t="Include" />
+            <e p="NMap.cs" t="Include" />
             <e p="PathFinding" t="Include">
               <e p="Node.cs" t="Include" />
               <e p="PathFinding.cs" t="Include" />
               <e p="PGrid.cs" t="Include" />
               <e p="PPoint.cs" t="Include" />
             </e>
-            <e p="TileMapHelper.cs" t="Include" />
+            <e p="Tilemaps" t="Include">
+              <e p="TileMapConfig16.cs" t="Include" />
+              <e p="TileMapConfig32.cs" t="Include" />
+              <e p="TileMapHelper.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Modifiers" t="Include">
+            <e p="BaseModifierCalc.cs" t="Include" />
+            <e p="Modifier.cs" t="Include" />
+            <e p="ModifierMgmt.cs" t="Include" />
+            <e p="TerrainModifierCalc.cs" t="Include" />
+          </e>
+          <e p="Mods" t="Include">
+            <e p="BackToMain.cs" t="Include" />
+          </e>
+          <e p="Nations" t="Include">
+            <e p="Nation.cs" t="Include" />
+            <e p="NationMgmt.cs" t="Include" />
           </e>
           <e p="NLib.cs" t="Include" />
           <e p="Options" t="Include">
+            <e p="AudioOptionSplitElement.cs" t="Include" />
+            <e p="DebugOptionSplitElement.cs" t="Include" />
             <e p="Feature.cs" t="Include" />
+            <e p="GameOptionSplitElement.cs" t="Include" />
+            <e p="NetworkOptionSplitElement.cs" t="Include" />
             <e p="OptionHelper.cs" t="Include" />
           </e>
           <e p="Players" t="Include">
@@ -1051,16 +1454,19 @@
             <e p="ReqTownLevel.cs" t="Include" />
             <e p="ReqUnit.cs" t="Include" />
           </e>
-          <e p="Terrain" t="Include">
-            <e p="TerrainHelper.cs" t="Include" />
+          <e p="Terrains" t="Include">
+            <e p="BTerrain.cs" t="Include" />
+            <e p="TerrainMgmt.cs" t="Include" />
           </e>
           <e p="Tools" t="Include">
             <e p="CSV.cs" t="Include" />
             <e p="ExceptionHelper.cs" t="Include" />
             <e p="NRandom.cs" t="Include" />
             <e p="TextHelper.cs" t="Include" />
+            <e p="VectorHelper.cs" t="Include" />
           </e>
           <e p="Towns" t="Include">
+            <e p="DebugTownSplitElement.cs" t="Include" />
             <e p="Town.cs" t="Include" />
             <e p="TownHelper.cs" t="Include" />
             <e p="TownMgmt.cs" t="Include" />
@@ -1068,17 +1474,22 @@
           </e>
           <e p="UI" t="Include">
             <e p="ClickableObject.cs" t="Include" />
-            <e p="GameButton.cs" t="Include" />
-            <e p="GameButtonHelper.cs" t="Include" />
             <e p="OnMapUI.cs" t="Include" />
             <e p="PanelBuilder.cs" t="Include" />
-            <e p="SplitElement.cs" t="Include" />
+            <e p="PanelBuilderSplit.cs" t="Include" />
+            <e p="Show" t="Include">
+              <e p="PanelBuilderTab.cs" t="Include" />
+              <e p="SplitElement.cs" t="Include" />
+              <e p="SplitElementTab.cs" t="Include" />
+              <e p="Tab.cs" t="Include" />
+            </e>
             <e p="SpriteHelper.cs" t="Include" />
             <e p="UIElements.cs" t="Include" />
             <e p="UIHelper.cs" t="Include" />
             <e p="WindowBuilderSplit.cs" t="Include" />
             <e p="WindowPanelBuilder.cs" t="Include" />
             <e p="WindowsMgmt.cs" t="Include" />
+            <e p="WindowTabBuilder.cs" t="Include" />
             <e p="WindowUIHelper.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
@@ -1090,7 +1501,9 @@
           </e>
         </e>
         <e p="SetTargetFrameRate.cs" t="Include" />
+        <e p="UITest.cs" t="Include" />
       </e>
+      <e p="mod.io.UnityPlugin.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp/bin" t="ExcludeRecursive" />

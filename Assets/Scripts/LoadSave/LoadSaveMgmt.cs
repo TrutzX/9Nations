@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Help;
 using Game;
+using Libraries;
 using Towns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,7 @@ namespace LoadSave
             s.file = file;
             
             ES3.Save<LoadSaveInfo>("info",s,file);
+            ES3.Save<L>("lib",L.b,file);
             ES3.Save<GameData>("game",GameMgmt.Get().data,file);
 
             return s;
@@ -68,10 +70,10 @@ namespace LoadSave
 
         public static void LoadSave(string file)
         {
-            GameMgmt.startConfig = new Dictionary<string, string>();
-            GameMgmt.startConfig["type"] = "load";
-            GameMgmt.startConfig["name"] = "save game "+file;
-            GameMgmt.startConfig["file"] = file;
+            GameMgmt.StartConfig = new Dictionary<string, string>();
+            GameMgmt.StartConfig["type"] = "load";
+            GameMgmt.StartConfig["name"] = "save game "+file;
+            GameMgmt.StartConfig["file"] = file;
             SceneManager.LoadScene(1);
         }
     }

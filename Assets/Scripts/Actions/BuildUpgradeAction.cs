@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Buildings;
 using DataTypes;
 using Game;
@@ -25,6 +26,7 @@ namespace Actions
             {
                 Building build = Data.building[key];
                 Dictionary<string, string> reqs = build.GenBuildReq();
+                Debug.Log(key+" "+String.Join("-",reqs.Values.ToArray()));
                 if (ReqHelper.CheckOnlyFinal(player, reqs, gameObject, x, y))
                 {
                     BuildSplitElement be = new BuildSplitElement(build, gameObject, x, y);

@@ -13,8 +13,8 @@ public class RoundMgmt : ScriptableObject
 
     private int _round;
 
-    private string[] season = {"spring", "summer", "autumn", "winter"};
-    private string[] day = {"morning", "afternoon", "night"};
+    public string[] season = {"spring", "summer", "autumn", "winter"};
+    public string[] day = {"morning", "afternoon", "night"};
 
     public int Round => _round;
 
@@ -32,24 +32,50 @@ public class RoundMgmt : ScriptableObject
         _round = GameMgmt.Get().data.round;
     }
     
-    public void NextRound()
+    public IEnumerator NextRound()
     {
         _round++;
         GameMgmt.Get().data.round = _round;
+        yield return GameMgmt.Get().load.ShowMessage($"Prepare {GetRoundString()}");
+
+        BuildingInfo[] b = BuildingMgmt.Get().GetAll();
+        int c = 0;
+        int m = b.Length;
+            
+        foreach (BuildingInfo e in b)
+        {
+            e.NextRound();
+            if (c % 10 == 0)
+            {
+                yield return GameMgmt.Get().load.ShowSubMessage($"Updating building ({c}/{m})");
+            }
+            c++;
+        }
         
-        foreach (BuildingInfo u in BuildingMgmt.Get().GetAll())
+        UnitInfo[] u = UnitMgmt.Get().GetAll();
+        c = 0;
+        m = b.Length;
+        
+        foreach (UnitInfo e in u)
         {
-            u.NextRound();
+            e.NextRound();
+            if (c % 10 == 0)
+            {
+                yield return GameMgmt.Get().load.ShowSubMessage($"Updating units ({c}/{m})");
+            }
+            c++;
         }
-        foreach (UnitInfo u in UnitMgmt.Get().GetAll())
-        {
-            u.NextRound();
-        }
-        PlayerMgmt.Get().NextRound();
+        
+        GameMgmt.Get().map.NextRound();
+        
+        yield return PlayerMgmt.Get().NextRound();
+        
+        
         
         //save game
         if (Data.features.autosave.Bool())
         {
+            yield return GameMgmt.Get().load.ShowSubMessage($"Save auto save");
             LoadSaveMgmt.UpdateSave("autosave.9n");
         }
         

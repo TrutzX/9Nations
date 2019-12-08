@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Buildings;
+using Game;
 using Help;
 using Maps;
 using NesScripts.Controls.PathFind;
@@ -25,11 +26,11 @@ namespace Actions
         protected override void ButtonAction(Player player, MapElementInfo mapElementInfo, int x, int y, string settings)
         {
             //get tilemap
-            if (MapMgmt.Get().activeAction == null)
+            if (GameMgmt.Get().map.activeAction == null)
             {
-                MapMgmt.Get().activeAction = MapMgmt.Get().CreateLayer("ActiveAction");
+                GameMgmt.Get().map.activeAction = GameMgmt.Get().map.CreateLayer16("ActiveAction",GameMapMgmt.SortActiveAction).GetComponent<Tilemap>();
             }
-            TileMap = MapMgmt.Get().activeAction;
+            TileMap = GameMgmt.Get().map.activeAction;
             Points = new List<PPoint>();
             
             //save caller
@@ -49,7 +50,7 @@ namespace Actions
         protected void Color(int x, int y, int tile)
         {
             Points.Add(new PPoint(x,y));
-            TilemapHelper.setTile(TileMap,x,y,MapMgmt.Get().selected[tile]);
+            TilemapHelper.SetTile(TileMap,x,y,GameMapMgmt.Get().selected[tile]);
         }
         
         public abstract void PreRun();
@@ -59,7 +60,7 @@ namespace Actions
             //clear tiles
             foreach (PPoint p in Points)
             {
-                TilemapHelper.setTile(TileMap,p.x,p.y,null);
+                TilemapHelper.SetTile(TileMap,p.x,p.y,null);
             }
             
             RemoveAfter();

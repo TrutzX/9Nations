@@ -14,10 +14,10 @@ namespace Actions
         {
             //create found window
             WindowPanelBuilder win = WindowPanelBuilder.Create("Found a new town");
-            GameObject name = win.panel.AddInput("town name",NGenTown.GetTownName(PlayerMgmt.ActPlayer().nation),s => {});
+            GameObject name = win.panel.AddInput("town name",NGenTown.GetTownName(PlayerMgmt.ActPlayer().Nation().TownNameGenerator),s => {});
             win.panel.AddButton("Generate new name", () =>
             {
-                name.GetComponent<InputField>().text = NGenTown.GetTownName(PlayerMgmt.ActPlayer().nation);
+                name.GetComponent<InputField>().text = NGenTown.GetTownName(PlayerMgmt.ActPlayer().Nation().TownNameGenerator);
                 //name.GetComponentsInChildren<Text>()[0].text = NGenTown.GetTownName(PlayerMgmt.Get().GetActPlayer().nation);
                 //name.GetComponentsInChildren<Text>()[1].text = NGenTown.GetTownName(PlayerMgmt.Get().GetActPlayer().nation);
             });

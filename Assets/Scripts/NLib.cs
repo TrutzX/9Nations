@@ -33,7 +33,7 @@ public class NLib : ScriptableObject
     {
         self = CreateInstance<NLib>();
         self.actions = new Dictionary<string,BaseAction>();
-        AddAction("destroy",CreateInstance<DestroyOldAction>());
+        AddAction("destroy",CreateInstance<DestroyAction>());
         AddAction("build",CreateInstance<BuildAction>());
         AddAction("buildUpgrade",CreateInstance<BuildUpgradeAction>());
         AddAction("foundTown",CreateInstance<FoundTownKillAction>());
@@ -48,6 +48,8 @@ public class NLib : ScriptableObject
         AddAction("cameraMove",CreateInstance<CameraMoveOldAction>());
         AddAction("gameButton",CreateInstance<GameButtonOldAction>());
         AddAction("move",CreateInstance<MoveAction>());
+        AddAction("improvement",CreateInstance<ImprovementAction>());
+        AddAction("townlevel",CreateInstance<TownLevelAction>());
         
         self.req = new Dictionary<string, BaseReq>();
         AddReq("nation", CreateInstance<ReqOldNation>());

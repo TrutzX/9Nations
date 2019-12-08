@@ -1,6 +1,7 @@
 using System;
 using Campaigns;
 using Game;
+using Libraries;
 using Players;
 using Players.Quests;
 using Units;
@@ -14,23 +15,23 @@ namespace Endless
             
             //add player
             int id = 0;
-            while (GameMgmt.startConfig.ContainsKey(id + "name"))
+            while (GameMgmt.StartConfig.ContainsKey(id + "name"))
             {
                 //add player
-                int pid = PlayerMgmt.Get().CreatePlayer(GameMgmt.startConfig[id+"name"], GameMgmt.startConfig[id+"nation"]);
+                int pid = PlayerMgmt.Get().CreatePlayer(GameMgmt.StartConfig[id+"name"], GameMgmt.StartConfig[id+"nation"]);
                 Player p = PlayerMgmt.Get(pid);
-                UnitMgmt.Get().Create(pid,Data.nation[GameMgmt.startConfig[id+"nation"]].leader, GameMgmt.Get().map.GetStartPos(GameMgmt.startConfig[id + "nation"]));
+                UnitMgmt.Get().Create(pid,L.b.nations[GameMgmt.StartConfig[id+"nation"]].Leader, GameMgmt.Get().map.GetStartPos(GameMgmt.StartConfig[id + "nation"]));
             
                 //add quests
-                if (Boolean.Parse(GameMgmt.startConfig[id+"winGold"]))
+                if (Boolean.Parse(GameMgmt.StartConfig[id+"winGold"]))
                 {
                     p.quests.Add(QuestHelper.Win().AddReq("resMin","gold,1000"));
                 }
             
                 //add quests
-                if (Boolean.Parse(GameMgmt.startConfig[id+"loseKing"]))
+                if (Boolean.Parse(GameMgmt.StartConfig[id+"loseKing"]))
                 {
-                    p.quests.Add(QuestHelper.Lose().AddReq("maxUnitPlayer",Data.nation[GameMgmt.startConfig[id+"nation"]].leader+",0"));
+                    p.quests.Add(QuestHelper.Lose().AddReq("maxUnitPlayer",L.b.nations[GameMgmt.StartConfig[id+"nation"]].Leader+",0"));
                 }
 
                 id++;

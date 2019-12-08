@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Game;
@@ -51,9 +52,16 @@ namespace Players
             return Get().actPlayer;
         }
     
-        public void NextRound()
+        public IEnumerator NextRound()
         {
-            players.ForEach(p => p.NextRound());
+            int c = 0;
+            int m = players.Count;
+            foreach (Player p in players)
+            {
+                p.NextRound();
+                yield return GameMgmt.Get().load.ShowSubMessage($"Updating players ({c}/{m})");
+                c++;
+            }
         }
     
         public void FirstRound()
@@ -72,16 +80,17 @@ namespace Players
             ActPlayer().StartRound();
         }
         
-        public void NextPlayer()
+        public IEnumerator NextPlayer()
         {
             actPlayer++;
             //next round?
             if (actPlayer >= players.Count)
             {
-                RoundMgmt.Get().NextRound();
+                yield return RoundMgmt.Get().NextRound();
                 actPlayer = 0;
             }
 
+            yield return GameMgmt.Get().load.ShowMessage($"Start turn for {ActPlayer().name}");
             ActPlayer().StartRound();
         }
     }

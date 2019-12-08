@@ -15,6 +15,7 @@ namespace UI
 
         private List<SplitElement> elements;
         private SplitElement selectedElement;
+        private bool _finish;
 
         /// <summary>
         /// Use the create method
@@ -68,17 +69,21 @@ namespace UI
             return elements.Count;
         }
 
-        public void AddElement(SplitElement ele)
+        public void AddElement(SplitElement ele, bool first = false)
         {
-            elements.Add(ele);
-            ele.button = UIHelper.CreateImageTextButton(ele.title, ele.icon, splitElementButtonPanel.transform,() =>
-                {
-                    ClickButton(ele);
-                }
-            ,null);
-            //splitElementButtonPanel.GetComponent<RectTransform>().o
+            if (first)
+                elements.Insert(0, ele);
+            else
+                elements.Add(ele);
+            
             ele.window = this;
 
+            //add button?
+            if (_finish)
+            {
+                AddSplitButton(ele);
+            }
+            
         }
 
         private void ClickButton(SplitElement ele)
@@ -133,10 +138,24 @@ namespace UI
             p.CalcSize();
             NAudio.Play(selectedElement.audioSwitch);
         }
+
+        private void AddSplitButton(SplitElement ele)
+        {
+            ele.button = UIHelper.CreateImageTextButton(ele.title, ele.icon, splitElementButtonPanel.transform,() =>
+                {
+                    ClickButton(ele);
+                }
+                ,null);
+        }
         
         public void Finish()
         {
             splitElementButtonPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(0,(elements.Count-1)*32);
+
+            foreach (SplitElement ele in elements)
+            {
+                AddSplitButton(ele);
+            }
             
             //select first element
             if (elements.Count > 0)
@@ -145,6 +164,7 @@ namespace UI
             }
             
             gameObject.SetActive(true);
+            _finish = true;
         }
     }
 }

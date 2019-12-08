@@ -21,7 +21,7 @@ MonoBehaviour:
     clauses: []
   inputPath: $BUILDPATH
   outputPath: export
-  outputFileName: $PRODUCT_NAME-$VERSION-$ARCHITECTURE-$DISTRIBUTION.zip
+  outputFileName: $PRODUCT_NAME-$VERSION-$DISTRIBUTION.zip
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     - enabled: 1
       distributionList:
         distributions:
-        - distributionName: Windowsx86
+        - distributionName: Windows32
           enabled: 1
       architectures:
       - target: 5
@@ -114,7 +114,7 @@ MonoBehaviour:
     - enabled: 1
       distributionList:
         distributions:
-        - distributionName: OSX
+        - distributionName: OS
           enabled: 1
       architectures:
       - target: 2
@@ -127,21 +127,21 @@ MonoBehaviour:
       targetGroup: 1
   _projectConfigurations:
     configSet:
-      _Buckets: ffffffffffffffffffffffffffffffffffffffff0600000003000000ffffffff070000000200000001000000ffffffff090000000800000004000000ffffffffffffffff
-      _HashCodes: faa1781b664a974ae6b77e1fd1ad7b4fec4e660609fd3477f3b78c221a68220eb3e9d104da58281700000000000000000000000000000000000000000000000000000000
-      _Next: ffffffffffffffffffffffffffffffff00000000ffffffffffffffff05000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000
+      _Buckets: 06000000ffffffffffffffffffffffffffffffffffffffff03000000ffffffff070000000200000001000000ffffffff090000000800000004000000ffffffffffffffff
+      _HashCodes: c32fb014664a974ae6b77e1fd1ad7b4fec4e660609fd34770bc591041a68220eb3e9d104da58281700000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffff0500000000000000ffffffff00000000000000000000000000000000000000000000000000000000
       _Count: 10
       _Version: 10
       _FreeList: -1
       _FreeCount: 0
       _Keys:
-      - Alpha/PC/Windows x86/Windowsx86
+      - Alpha/PC/Windows x86/Windows32
       - Alpha/PC/Windows x86
       - Alpha/PC
       - Alpha/Linux/Linux x64/Linux64
       - Alpha/Linux/Linux x64
       - Alpha/Linux
-      - Alpha/OSX/OSX/OSX
+      - Alpha/OSX/OSX/OS
       - Alpha/OSX/OSX
       - Alpha/OSX
       - Alpha
@@ -157,7 +157,7 @@ MonoBehaviour:
         childKeys: []
       - enabled: 1
         childKeys:
-        - Alpha/PC/Windows x86/Windowsx86
+        - Alpha/PC/Windows x86/Windows32
       - enabled: 1
         childKeys:
         - Alpha/PC/Windows x86
@@ -173,7 +173,7 @@ MonoBehaviour:
         childKeys: []
       - enabled: 1
         childKeys:
-        - Alpha/OSX/OSX/OSX
+        - Alpha/OSX/OSX/OS
       - enabled: 1
         childKeys:
         - Alpha/OSX/OSX

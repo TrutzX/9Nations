@@ -16,6 +16,7 @@ namespace Buildings
         public int playerId;
         public int x;
         public int y;
+        public int z;
         public string type;
         public string name;
         public string lastInfo;

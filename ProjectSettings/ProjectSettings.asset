@@ -569,7 +569,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: BUILD_TYPE_ALPHA;BUILD_PLATFORM_PC;BUILD_ARCH_WINDOWSX86;BUILD_DIST_WINDOWSX86
+    1: 
     13: 
   platformArchitecture: {}
   scriptingBackend: {}

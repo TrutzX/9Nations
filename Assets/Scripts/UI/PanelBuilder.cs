@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Buildings;
 using DataTypes;
+using Libraries;
+using Modifiers;
 using Players;
 using reqs;
 using UI;
@@ -13,13 +15,23 @@ using UnityEngine.UI;
 public class PanelBuilder : MonoBehaviour
 {
     public GameObject panel;
-    
+
     public static PanelBuilder Create(Transform transform)
     {
         GameObject p = Instantiate(UIElements.Get().panelBuilder, transform);
         return p.GetComponent<PanelBuilder>();
     }
-    
+
+    public void AddSubLabel(string title, string data)
+    {
+        if (string.IsNullOrEmpty(data))
+        {
+            return;
+        }
+
+        AddLabel($"{title}: {data}");
+    }
+
     public GameObject AddLabel(string title)
     {
         GameObject button = Instantiate(UIElements.Get().panelLabel, panel.transform);
@@ -32,6 +44,12 @@ public class PanelBuilder : MonoBehaviour
 
     public void RichText(string desc)
     {
+        //skip it?
+        if (string.IsNullOrWhiteSpace(desc))
+        {
+            return;
+        }
+        
         string[] lines = desc.Split(new string[]{";;"}, StringSplitOptions.RemoveEmptyEntries);
         foreach (string line in lines)
         {
@@ -108,6 +126,20 @@ public class PanelBuilder : MonoBehaviour
         }
     }
     
+    public void AddModi(string title, Dictionary<string, string> modi)
+    {
+        //addHeader
+        if (modi.Count > 0)
+            AddHeaderLabel(title);
+        
+        //add ress
+        foreach (KeyValuePair<string, string> p in modi)
+        {
+            Modifier m = L.b.modifiers[p.Key];
+            AddImageLabel($"{m.Name}: {m.Classes(p.Value).Desc(p.Value)}", m.Sprite());
+        }
+    }
+    
     public GameObject AddInput(string title, string def, UnityAction<string> save)
     {
         GameObject button = Instantiate(UIElements.Get().input, panel.transform);
@@ -171,8 +203,8 @@ public class PanelBuilder : MonoBehaviour
         foreach (KeyValuePair<string, string> req in reqs)
         {
             NAction n = Data.nAction[req.Key];
-            
-            AddImageLabel(n.desc,SpriteHelper.LoadIcon(n.icon));
+            Debug.Log(n+" "+req.Key);
+            AddImageLabel(n.desc,SpriteHelper.Load(n.icon));
         }
     }
 

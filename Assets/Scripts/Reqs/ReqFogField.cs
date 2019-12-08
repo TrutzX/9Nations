@@ -6,6 +6,7 @@ using Endless;
 using Game;
 using NesScripts.Controls.PathFind;
 using Players;
+using Terrains;
 using Towns;
 using UnityEngine;
 
@@ -35,9 +36,9 @@ namespace reqs
         public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
         {
             PPoint p = Point(sett);
-            NTerrain n = GameMgmt.Get().map.GetTerrain(p.x, p.y);
+            BTerrain n = GameMgmt.Get().map.GetTerrain(p.x, p.y);
             
-            return $"You need to explore a {n.name}. Status: " + (Check(player,sett) ? "Not found" : "Found");
+            return $"You need to explore a {n.Name}. Status: " + (Check(player,sett) ? "Not found" : "Found");
         }
 
         public override string Desc(string sett)

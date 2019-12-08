@@ -1,5 +1,6 @@
 using DataTypes;
 using Help;
+using Libraries;
 using Players.Infos;
 using Towns;
 using UI;
@@ -24,6 +25,8 @@ namespace Players
             }
 
             b.AddElement(new InfosSplitElement());
+            
+            b.AddElement(new LexiconSplitElement(PlayerMgmt.ActPlayer().Nation()));
             
             b.Finish();
         }

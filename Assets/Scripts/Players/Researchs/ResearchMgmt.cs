@@ -26,15 +26,20 @@ namespace Players
             finish = new Dictionary<string, bool>();
         }
 
-        public bool Finish(string id)
+        public bool IsFinish(string id)
         {
             return finish.ContainsKey(id) && finish[id];
+        }
+
+        public void Set(string id, bool value)
+        {
+            finish[id] = value;
         }
         
         public void NextRound()
         {
             lastInfo = null;
-            if (cost == 0)
+            if (cost <= 0)
             {
                 SetLastInfo("No research at the moment");
                 player.AddRessTotal("research", -player.GetRessTotal("research"));
@@ -50,6 +55,14 @@ namespace Players
                 return;
             }
 
+            //found something?
+            List<Research> av = AvailableResearch(actual);
+            if (av.Count == 0)
+            {
+                SetLastInfo("Found nothing in your areas.");
+                return;
+            }
+            
             //finish it
             Research r = NRandom<Research>.Rand(AvailableResearch(actual));
             finish.Add(r.id,true);
@@ -65,7 +78,7 @@ namespace Players
             foreach (Research r in Data.research)
             {
                     //finished?
-                    if (Finish(r.id))
+                    if (IsFinish(r.id))
                     {
                         continue;
                     }
@@ -95,7 +108,7 @@ namespace Players
         public void BeginNewResearch(List<string> ele)
         {
             actual = ele;
-            cost = (int) Math.Pow(ele.Count-Convert.ToInt32(ele.Contains(player.Nation().researchElement)), 2) + 1;
+            cost = (int) Math.Pow(ele.Count-Convert.ToInt32(ele.Contains(player.Nation().ResearchElement)), 2) + 1;
         }
 
         public void SetLastInfo(string mess)

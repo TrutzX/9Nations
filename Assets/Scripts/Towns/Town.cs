@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using DataTypes;
 using Game;
+using Libraries;
 using Players;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Nation = Nations.Nation;
 
 namespace Towns
 {
@@ -59,25 +61,12 @@ namespace Towns
         
         public string GetTownLevelName()
         {
-            Nation n = Data.nation[PlayerMgmt.Get(playerId).nation];
-            switch (level)
-            {
-                case 1:
-                    return n.townLevelName1;
-                case 2:
-                    return n.townLevelName1;
-                case 3:
-                    return n.townLevelName1;
-                case 4:
-                    return n.townLevelName1;
-                default:
-                    return $"Level {level} for {n.name} unknown";
-            }
+            return Player().Nation().TownNameLevel[level - 1];
         }
 
         public Sprite GetIcon()
         {
-            return SpriteHelper.LoadIcon("base:foundTown");
+            return SpriteHelper.Load("Icons/base:foundTown");
         }
 
         public void ShowInfo(PanelBuilder panel)

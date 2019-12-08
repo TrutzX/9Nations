@@ -67,8 +67,7 @@ namespace Buildings
                 string mess = NLib.GetAction(act.id).ButtonRun(building, building.X(), building.Y(), sett);
                 if (mess != null)
                 {
-                    SetPanelMessage(mess);
-                    NAudio.PlayBuzzer();
+                    SetPanelMessageError(mess);
                 }
             }, act.sound);
             

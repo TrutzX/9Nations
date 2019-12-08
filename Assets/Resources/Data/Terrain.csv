@@ -1,0 +1,56 @@
+id,name,icon,desc,sound,hidden,walk,fly,swim,modi,modi,tile,winter,category,base
+,Standard,,,,,,,,,,,,,
+unknown,Dark Terrain,Terrain/unknown:unknown_4,Black signals where there is no land; so it is not explorable.,,,0,0,0,,,6,,unknown,
+border,Map Border,,Not passable,,true,0,0,0,,,,,border,
+fog,Fog,,Not explored,,true,0,0,0,,,,,fog,
+,,,,,,,,,,,,,,
+,Level,,,,,,,,,,,,,
+watergrass,,,,,true,0,0,,,,,,,
+watermountain,,,,,true,0,0,,,,,,,
+cloud,Cloud,,,,true,0,,0,,,,,,
+underground border,,,,,true,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+deep,deep dirt,Terrain/deep:deep_4,,,,,,,,,40,,,
+deep_grass,deep grass,Terrain/deep_grass:deep_grass_4,,,,,,,,,41,,,
+deep_stone,deep stone,Terrain/deep_stone:deep_stone_4,,,,,,,,,44,,
+deep_unknown,deep unknown,Terrain/deep_unknown:deep_unknown_4,,,,,,,,,46,,
+deep_wall,deep wall,Terrain/deep_wall:deep_wall_4,,,,,,,,,43,,
+deep_water,deep water,Terrain/deep_water:deep_water_4,,,,,,,,,45,,
+grass,grass,Terrain/grass:grass_4,,bite-small3,,,,0,,,1,grass_snow,grass
+grass_sand,sand grass,Terrain/grass_sand:grass_sand_4,,,,,,0,,,25,grass_snow,grass
+grass_dirt,dirt grass,Terrain/grass_dirt:grass_dirt_4,,,,,,0,,,9,grass_snow,grass
+grass_snow,winter grass,Terrain/grass_snow:grass_snow_4,,,,,,0,,,49,,grass
+,,,,,,,,,,,,,,
+plain,plain,Terrain/plain:plain_4,,,,,,0,,,0,snow,flat
+rough,rough terrain,Terrain/rough:rough_4,,,,,,0,,,16,,flat
+dirt,Dirt,Terrain/dirt:dirt_4,Dirt is usually brown and is fairly generic. ,,,,,0,,,8,snow,flat
+lavarock,lavarock,Terrain/lavarock:lavarock_4,,,,,,0,,,21,,flat
+lava,lava,Terrain/lava:lava_4,,,,,,0,,,22,,flat
+sand,sand,Terrain/sand:sand_4,Sand is a yellow-brown and found only around water or in the desert. ,,,,,0,,,24,,flat
+snow,snow,Terrain/snow:snow_4,,,,,,0,,,48,,flat
+,,,,,,,,,,,,,,
+swamp,swamp,Terrain/swamp:swamp_4,,,,15,,,build:50%,view:-1,5,ice,swamp,
+water,water,Terrain/water:water_4,Water and can be found anywhere. It's a blue. In winter it can become ice.,,,0,,,,,32,ice,water,
+water_mountain,water mountain,Terrain/water_mountain:water_mountain_4,,,,20,,20,,,36,ice_mountain,mountain,
+ice,ice,Terrain/ice:ice_4,,,,,,0,,,56,,ice,
+ice_mountain,ice mountain,Terrain/ice_mountain:ice_mountain_4,,,,20,,0,build:100%,view:2,60,,mountain,
+ocean,ocean,Terrain/ocean:ocean_4,,,,0,,,,,37,,ocean,
+,,,,,,,,,,,,,,
+forest,forest,Terrain/forest:forest_4,,interface5,,,15,0,build:25%,view:-1,2,forest_snow,forest,
+forest_rough,rough forest,Terrain/forest_rough:forest_rough_4,,,,,15,0,build:25%,,18,,forest,rough
+forest_sand,sand forest,Terrain/forest_sand:forest_sand_4,,,,,15,0,build:25%,view:-1,26,,forest,sand
+forest_snow,winter forest,Terrain/forest_snow:forest_snow_4,,,,,15,0,build:25%,view:-1,50,,forest,snoq
+,,,,,,,,,,,,,,
+mountain,mountain,Terrain/mountain:mountain_4,,metalPot3,,15,,0,build:100%,view:2,4,mountain_snow,mountain,
+mountain_dirt,dirt mountain,Terrain/mountain_dirt:mountain_dirt_4,,,,15,,0,build:100%,view:2,12,mountain_snow,mountain,dirt
+mountain_rough,rough mountain,Terrain/mountain_rough:mountain_rough_4,,,,15,,0,build:100%,view:2,20,,mountain,rough
+mountain_sand,sand mountain,Terrain/mountain_sand:mountain_sand_4,,,,15,,0,build:100%,view:2,28,,mountain,sand
+mountain_snow,snow mountain,Terrain/mountain_snow:mountain_snow_4,,,,15,,0,build:100%,view:2,52,,mountain,snow
+,,,,,,,,,,,,,,
+hill,hill,Terrain/hill:hill_4,,,,,,0,build:50%,view:1,3,hill_snow,hill,
+hill_dirt,dirt hill,Terrain/hill_dirt:hill_dirt_4,,,,,,0,build:50%,view:1,11,hill_snow,hill,dirt
+hill_rough,rough hill,Terrain/hill_rough:hill_rough_4,,,,,,0,build:50%,view:1,19,,hill,rough
+hill_sand,sand hill,Terrain/hill_sand:hill_sand_4,,,,,,0,build:50%,view:1,27,,hill,sand
+hill_snow,snow hill,Terrain/hill_snow:hill_snow_4,,,,,,0,build:50%,view:1,51,,hill,snow

@@ -33,8 +33,6 @@ public class Data{
 	public static DataTypes.SheetMapAction mapAction = new DataTypes.SheetMapAction();
 	//Sheet SheetNTerrain
 	public static DataTypes.SheetNTerrain nTerrain = new DataTypes.SheetNTerrain();
-	//Sheet SheetNation
-	public static DataTypes.SheetNation nation = new DataTypes.SheetNation();
 	//Sheet SheetBuilding
 	public static DataTypes.SheetBuilding building = new DataTypes.SheetBuilding();
 	//Sheet SheetIcons
@@ -42,7 +40,7 @@ public class Data{
 	//Sheet SheetHelp
 	public static DataTypes.SheetHelp help = new DataTypes.SheetHelp();
 	static Data(){
-		ress.Init(); features.Init(); featurePlayer.Init(); gameButton.Init(); inputKey.Init(); research.Init(); element.Init(); nAction.Init(); unit.Init(); campaign.Init(); scenario.Init(); mapAction.Init(); nTerrain.Init(); nation.Init(); building.Init(); icons.Init(); help.Init(); 
+		ress.Init(); features.Init(); featurePlayer.Init(); gameButton.Init(); inputKey.Init(); research.Init(); element.Init(); nAction.Init(); unit.Init(); campaign.Init(); scenario.Init(); mapAction.Init(); nTerrain.Init(); building.Init(); icons.Init(); help.Init(); 
 	}
 }
 
@@ -70,7 +68,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetRess: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,46);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,44);
 		public readonly string[] labels = new string[]{"id","name","sound","icon","int market","float storage","int rechangeatdestroy"};
 		private Ress[] _rows = new Ress[37];
 		public void Init() {
@@ -229,7 +227,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeatures: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,47);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,44);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private Features[] _rows = new Features[7];
 		public void Init() {
@@ -328,7 +326,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeaturePlayer: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,48);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,45);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private FeaturePlayer[] _rows = new FeaturePlayer[2];
 		public void Init() {
@@ -419,27 +417,30 @@ namespace DataTypes{
 		}
 	}
 	public class SheetGameButton: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,48);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,46);
 		public readonly string[] labels = new string[]{"id","name","icon","location","sound","req1","req2"};
-		private GameButton[] _rows = new GameButton[16];
+		private GameButton[] _rows = new GameButton[19];
 		public void Init() {
 			_rows = new GameButton[]{
 					new GameButton("endless","Endless game","base:map","title","click","",""),
 					new GameButton("campaign","Campaign","base:campaign","title","click","",""),
 					new GameButton("research","Research","magic:research","top","click","featureP:research,true",""),
-					new GameButton("lexicon","Lexicon","magic:lexicon","top,title","click","",""),
+					new GameButton("lexicon","Lexicon","magic:lexicon","top,more","click","",""),
 					new GameButton("quest","Quests","base:quest","top","click","questMin:1",""),
 					new GameButton("debug","Debug","ui:debug","top","click","feature:debug,true",""),
 					new GameButton("towns","Town","base:foundTown","top","click","townMin:1",""),
 					new GameButton("nextround","Next Round","icons:NextRound","bottom","click","",""),
-					new GameButton("options","Options","base:option","game,title","click","",""),
+					new GameButton("options","Options","base:option","game,more","click","",""),
 					new GameButton("save","Save Game","ui:file","game","click","",""),
 					new GameButton("load","Load Game","ui:file","game,title","click","",""),
 					new GameButton("title","To Title menu","logo","game","click","",""),
-					new GameButton("kingdom","Kingdom Overview","logo","top","click","townMin:1",""),
+					new GameButton("kingdom","Kingdom Overview","Icons/ui:search","top","click","townMin:1",""),
+					new GameButton("nextUnit","Show next Unit","other:nextUnit","bottom","click","",""),
+					new GameButton("mod","Mods","Icons/ui:mod","more","click","",""),
+					new GameButton("back","Back","logo","more","click","",""),
 					new GameButton("mainmenu","Main menu","logo","top","click","",""),
-					new GameButton("exit","Exit game","logo","title","click","",""),
-					new GameButton("nextUnit","Show next Unit","other:nextUnit","bottom","click","","")
+					new GameButton("more","More","option","title","click","",""),
+					new GameButton("exit","Exit game","Icons/ui:exit","title","click","","")
 				};
 		}
 			
@@ -509,9 +510,12 @@ namespace DataTypes{
 		public GameButton load{	get{ return _rows[10]; } }
 		public GameButton title{	get{ return _rows[11]; } }
 		public GameButton kingdom{	get{ return _rows[12]; } }
-		public GameButton mainmenu{	get{ return _rows[13]; } }
-		public GameButton exit{	get{ return _rows[14]; } }
-		public GameButton nextUnit{	get{ return _rows[15]; } }
+		public GameButton nextUnit{	get{ return _rows[13]; } }
+		public GameButton mod{	get{ return _rows[14]; } }
+		public GameButton back{	get{ return _rows[15]; } }
+		public GameButton mainmenu{	get{ return _rows[16]; } }
+		public GameButton more{	get{ return _rows[17]; } }
+		public GameButton exit{	get{ return _rows[18]; } }
 
 	}
 }
@@ -534,7 +538,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetInputKey: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,49);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,46);
 		public readonly string[] labels = new string[]{"id","key","type","hidden","active"};
 		private InputKey[] _rows = new InputKey[33];
 		public void Init() {
@@ -709,14 +713,13 @@ namespace DataTypes{
 		}
 	}
 	public class SheetResearch: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,49);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,47);
 		public readonly string[] labels = new string[]{"id","name","icon","req-townlevel","req-nation","req3","research1","research2","research3","research4","research5","research6","research7","research8","research9","action1","action2","action3"};
-		private Research[] _rows = new Research[63];
+		private Research[] _rows = new Research[62];
 		public void Init() {
 			_rows = new Research[]{
 					new Research("nlogger2","Bigger logger","north-way:nlogger2",2,"north","","","","","","metal","wood","","","","","",""),
 					new Research("nquarry2","Bigger quarry","north-castle:nquarry2",3,"north","","fire","","","earth","","","","","","","",""),
-					new Research("nhunter","Hunter","north-farm:nhunter",1,"north","","","water","","","","","life","","","","",""),
 					new Research("ntownhall4","Bigger town hall","north-way:ntownhall4",3,"north","","","","air","","","","life","","energy","","",""),
 					new Research("ntownhall3","Town hall","north-way:ntownhall3",2,"north","","","","","","","","life","","energy","","",""),
 					new Research("ntownhall2","Bigger village hall","north-tower:ntownhall2",1,"north","","","","","","","","life","","","","",""),
@@ -728,10 +731,10 @@ namespace DataTypes{
 					new Research("nfarm2","Bigger farm","north-farm:nfarm2",3,"north","","","water","air","","","","life","","","","",""),
 					new Research("nfarm","Farm","north-farm:nfarm",2,"north","","","water","","","","","life","","","","",""),
 					new Research("nfield","Field","north-farm:nfield",2,"north","","","water","","earth","","","","","","","",""),
-					new Research("nwall","Town wall","1906",3,"north","","","","","","metal","","","death","energy","","",""),
+					new Research("nwall","Town wall","wall:wall_14",3,"north","","","","","","metal","","","death","energy","","",""),
 					new Research("ndockyard","Dockyard","addon:dock",3,"north","","","water","air","","","wood","","","","","",""),
-					new Research("nstreet2","Street","1910",3,"north","","","","air","","metal","","life","","","","",""),
-					new Research("nstreet","Way","1654",2,"north","","","","","","metal","","life","","","","",""),
+					new Research("nstreet2","Street","way:street",3,"north","","","","air","","metal","","life","","","","",""),
+					new Research("nstreet","Way","way:way",2,"north","","","","","","metal","","life","","","","",""),
 					new Research("nbrickfactory","Brick factory","788",3,"north","","fire","","","earth","","wood","","","","","",""),
 					new Research("narmoury","Armoury","1210",3,"north","","fire","","","earth","metal","","","death","energy","","",""),
 					new Research("nbarracks","Barracks","north-more:nbaracks",3,"north","","fire","","","","metal","","","death","","","",""),
@@ -835,67 +838,66 @@ namespace DataTypes{
 
 		public Research nlogger2{	get{ return _rows[0]; } }
 		public Research nquarry2{	get{ return _rows[1]; } }
-		public Research nhunter{	get{ return _rows[2]; } }
-		public Research ntownhall4{	get{ return _rows[3]; } }
-		public Research ntownhall3{	get{ return _rows[4]; } }
-		public Research ntownhall2{	get{ return _rows[5]; } }
-		public Research ntownhall{	get{ return _rows[6]; } }
-		public Research nsawmill{	get{ return _rows[7]; } }
-		public Research nmarket{	get{ return _rows[8]; } }
-		public Research nmine{	get{ return _rows[9]; } }
-		public Research nworkshop{	get{ return _rows[10]; } }
-		public Research nfarm2{	get{ return _rows[11]; } }
-		public Research nfarm{	get{ return _rows[12]; } }
-		public Research nfield{	get{ return _rows[13]; } }
-		public Research nwall{	get{ return _rows[14]; } }
-		public Research ndockyard{	get{ return _rows[15]; } }
-		public Research nstreet2{	get{ return _rows[16]; } }
-		public Research nstreet{	get{ return _rows[17]; } }
-		public Research nbrickfactory{	get{ return _rows[18]; } }
-		public Research narmoury{	get{ return _rows[19]; } }
-		public Research nbarracks{	get{ return _rows[20]; } }
-		public Research ncastle{	get{ return _rows[21]; } }
-		public Research npalace{	get{ return _rows[22]; } }
-		public Research nstorage{	get{ return _rows[23]; } }
-		public Research nresearch{	get{ return _rows[24]; } }
-		public Research nbridge{	get{ return _rows[25]; } }
-		public Research ntemple2{	get{ return _rows[26]; } }
-		public Research ntemple{	get{ return _rows[27]; } }
-		public Research ncircus{	get{ return _rows[28]; } }
-		public Research nwoodtower{	get{ return _rows[29]; } }
-		public Research nhouse2{	get{ return _rows[30]; } }
-		public Research nsettler{	get{ return _rows[31]; } }
-		public Research nworker{	get{ return _rows[32]; } }
-		public Research nship{	get{ return _rows[33]; } }
-		public Research nexplorer{	get{ return _rows[34]; } }
-		public Research nmarksman{	get{ return _rows[35]; } }
-		public Research unkown{	get{ return _rows[36]; } }
-		public Research unkown01{	get{ return _rows[37]; } }
-		public Research nsoldier{	get{ return _rows[38]; } }
-		public Research unkown02{	get{ return _rows[39]; } }
-		public Research nmonk{	get{ return _rows[40]; } }
-		public Research nking{	get{ return _rows[41]; } }
-		public Research ngeneral{	get{ return _rows[42]; } }
-		public Research nmage{	get{ return _rows[43]; } }
-		public Research unkown03{	get{ return _rows[44]; } }
-		public Research unkown04{	get{ return _rows[45]; } }
-		public Research rrope{	get{ return _rows[46]; } }
-		public Research rleaf{	get{ return _rows[47]; } }
-		public Research rsling{	get{ return _rows[48]; } }
-		public Research rplank{	get{ return _rows[49]; } }
-		public Research rwood{	get{ return _rows[50]; } }
-		public Research rberry{	get{ return _rows[51]; } }
-		public Research rwapple{	get{ return _rows[52]; } }
-		public Research rhouse{	get{ return _rows[53]; } }
-		public Research rresearch{	get{ return _rows[54]; } }
-		public Research rtrain{	get{ return _rows[55]; } }
-		public Research rpalast5{	get{ return _rows[56]; } }
-		public Research rpalast4{	get{ return _rows[57]; } }
-		public Research rpalast3{	get{ return _rows[58]; } }
-		public Research rpalast2{	get{ return _rows[59]; } }
-		public Research rpalast{	get{ return _rows[60]; } }
-		public Research ralchemy{	get{ return _rows[61]; } }
-		public Research rstreet{	get{ return _rows[62]; } }
+		public Research ntownhall4{	get{ return _rows[2]; } }
+		public Research ntownhall3{	get{ return _rows[3]; } }
+		public Research ntownhall2{	get{ return _rows[4]; } }
+		public Research ntownhall{	get{ return _rows[5]; } }
+		public Research nsawmill{	get{ return _rows[6]; } }
+		public Research nmarket{	get{ return _rows[7]; } }
+		public Research nmine{	get{ return _rows[8]; } }
+		public Research nworkshop{	get{ return _rows[9]; } }
+		public Research nfarm2{	get{ return _rows[10]; } }
+		public Research nfarm{	get{ return _rows[11]; } }
+		public Research nfield{	get{ return _rows[12]; } }
+		public Research nwall{	get{ return _rows[13]; } }
+		public Research ndockyard{	get{ return _rows[14]; } }
+		public Research nstreet2{	get{ return _rows[15]; } }
+		public Research nstreet{	get{ return _rows[16]; } }
+		public Research nbrickfactory{	get{ return _rows[17]; } }
+		public Research narmoury{	get{ return _rows[18]; } }
+		public Research nbarracks{	get{ return _rows[19]; } }
+		public Research ncastle{	get{ return _rows[20]; } }
+		public Research npalace{	get{ return _rows[21]; } }
+		public Research nstorage{	get{ return _rows[22]; } }
+		public Research nresearch{	get{ return _rows[23]; } }
+		public Research nbridge{	get{ return _rows[24]; } }
+		public Research ntemple2{	get{ return _rows[25]; } }
+		public Research ntemple{	get{ return _rows[26]; } }
+		public Research ncircus{	get{ return _rows[27]; } }
+		public Research nwoodtower{	get{ return _rows[28]; } }
+		public Research nhouse2{	get{ return _rows[29]; } }
+		public Research nsettler{	get{ return _rows[30]; } }
+		public Research nworker{	get{ return _rows[31]; } }
+		public Research nship{	get{ return _rows[32]; } }
+		public Research nexplorer{	get{ return _rows[33]; } }
+		public Research nmarksman{	get{ return _rows[34]; } }
+		public Research unkown{	get{ return _rows[35]; } }
+		public Research unkown01{	get{ return _rows[36]; } }
+		public Research nsoldier{	get{ return _rows[37]; } }
+		public Research unkown02{	get{ return _rows[38]; } }
+		public Research nmonk{	get{ return _rows[39]; } }
+		public Research nking{	get{ return _rows[40]; } }
+		public Research ngeneral{	get{ return _rows[41]; } }
+		public Research nmage{	get{ return _rows[42]; } }
+		public Research unkown03{	get{ return _rows[43]; } }
+		public Research unkown04{	get{ return _rows[44]; } }
+		public Research rrope{	get{ return _rows[45]; } }
+		public Research rleaf{	get{ return _rows[46]; } }
+		public Research rsling{	get{ return _rows[47]; } }
+		public Research rplank{	get{ return _rows[48]; } }
+		public Research rwood{	get{ return _rows[49]; } }
+		public Research rberry{	get{ return _rows[50]; } }
+		public Research rwapple{	get{ return _rows[51]; } }
+		public Research rhouse{	get{ return _rows[52]; } }
+		public Research rresearch{	get{ return _rows[53]; } }
+		public Research rtrain{	get{ return _rows[54]; } }
+		public Research rpalast5{	get{ return _rows[55]; } }
+		public Research rpalast4{	get{ return _rows[56]; } }
+		public Research rpalast3{	get{ return _rows[57]; } }
+		public Research rpalast2{	get{ return _rows[58]; } }
+		public Research rpalast{	get{ return _rows[59]; } }
+		public Research ralchemy{	get{ return _rows[60]; } }
+		public Research rstreet{	get{ return _rows[61]; } }
 
 	}
 }
@@ -914,7 +916,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetElement: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,50);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,47);
 		public readonly string[] labels = new string[]{"id","name","icon"};
 		private Element[] _rows = new Element[9];
 		public void Init() {
@@ -1029,15 +1031,15 @@ namespace DataTypes{
 		}
 	}
 	public class SheetNAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,50);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,48);
 		public readonly string[] labels = new string[]{"id","name","desc","cost","icon","activeMapElement","req1","req2","useUnderConstruction","onlyOwner","sound","persistent"};
-		private NAction[] _rows = new NAction[17];
+		private NAction[] _rows = new NAction[18];
 		public void Init() {
 			_rows = new NAction[]{
 					new NAction("destroy","Destroy it","Destroy it",0,"base:destroy",true,"","",true,true,"click",false),
 					new NAction("build","Build","Construct a new Building",5,"base:build",true,"empty:building","townMin:1",false,true,"click",false),
-					new NAction("foundTownFirst","Found your first town","Found your first town",10,"base:foundTown",true,"town:<0","",false,true,"click",false),
-					new NAction("foundTown","Found a new town","Found a new town",10,"base:foundTown",true,"","",false,true,"click",false),
+					new NAction("foundTownFirst","Found your first town","Found your first town",10,"foundTown",true,"town:<0","",false,true,"click",false),
+					new NAction("foundTown","Found a new town","Found a new town",10,"foundTown",true,"","",false,true,"click",false),
 					new NAction("train","Train","Train a new unit",0,"base:train",true,"empty:unit","",false,true,"click",false),
 					new NAction("buildUpgrade","Upgrade","Upgrade this building",0,"icons:upgrade",true,"","",false,true,"click",false),
 					new NAction("trainUpgrade","Upgrade","Upgrade this unit",5,"icons:upgrade",true,"","",false,true,"click",false),
@@ -1050,7 +1052,8 @@ namespace DataTypes{
 					new NAction("gameButton","Call Game Button","Call a special game button",0,"logo",false,"","",false,true,"click",false),
 					new NAction("move","Move","Move this unit",0,"base:move",true,"","",false,true,"click",false),
 					new NAction("moveTo","Move to point","Move the unit to a specific point",0,"logo",true,"","",false,true,"click",true),
-					new NAction("attack","Attack","Attack a unit",10,"logo",true,"","",false,true,"click",false)
+					new NAction("improvement","Convert to a map improvement\n","Convert to a map improvement\n",0,"logo",true,"","",false,true,"click",false),
+					new NAction("townlevel","Develop town","Upgrade the town to a new level",0,"foundTown",true,"","",false,true,"click",false)
 				};
 		}
 			
@@ -1123,7 +1126,8 @@ namespace DataTypes{
 		public NAction gameButton{	get{ return _rows[13]; } }
 		public NAction move{	get{ return _rows[14]; } }
 		public NAction moveTo{	get{ return _rows[15]; } }
-		public NAction attack{	get{ return _rows[16]; } }
+		public NAction improvement{	get{ return _rows[16]; } }
+		public NAction townlevel{	get{ return _rows[17]; } }
 
 	}
 }
@@ -1234,21 +1238,21 @@ namespace DataTypes{
 		}
 	}
 	public class SheetUnit: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,51);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,49);
 		public readonly string[] labels = new string[]{"id","name","file","cat","movetyp","atk","def","dam_min","dam_max","hp","ap","visible","buildtime","req-build-townlevel","req-build-nation","req-build1","req-build2","req-build3","cost1","cost2","cost3","cost4","cost5","cost6","cost7","req-produce1","req-produce2","req-produce3","produce1","produce2","produce3","research","action1","action2","action3","action4","action5","mapaction1","mapaction2","embark","act-produce","aproduce","gift","build","foundTown","req-date","actionTerrainRemove-forest","actionTerrainAdd-grass","action-alchemyA"};
 		private Unit[] _rows = new Unit[27];
 		public void Init() {
 			_rows = new Unit[]{
-					new Unit("nsettler","Settler","nsettler","prod","walk",0,5,1,3,10,10,0,9,3,"north","","","research:nsettler","wood:15","food:60","stone:8","tool:10","gold:2","worker:6","","resMin:wood,1","resMin:food,1","","wood:-1","food:-1","","","","","","foundTown","","","",0,"food-2","",0,"","1","",0,0,""),
-					new Unit("nworker","Worker","nworker","prod","walk",0,5,1,3,10,15,-4,1,0,"north","","","","wood:2","food:5","","","","worker:1","","","","","","","","","destroy","sleep","build","","move","","",0,"wood-3","stone-3",0,"1","","",1,0,""),
-					new Unit("nship","Ship","nship","explo","swim",6,5,2,3,10,20,2,6,3,"north","","","","plank:10","","tool:3","","","worker:2","","","","","","","","","","","","","","attack","",2,"","",0,"bridge","","",0,0,""),
-					new Unit("nexplorer","Explorer","nexplorer","explo","walk",6,3,2,3,10,10,3,3,1,"north","","","","wood:2","food:10","stone:1","","","worker:1","","","","","","","","","","","","","","","",0,"","",0,"","","",0,0,""),
-					new Unit("nmarksman","Marksman","","","walk",6,3,2,3,10,6,1,1,1,"north","","disabled","research:nmarksman","","","","","","","","","","","","","","","","","","","","attack","",0,"","",0,"","","",0,0,""),
+					new Unit("nsettler","Settler","nsettler","prod","walk",0,5,1,3,10,10,1,9,3,"north","","","research:nsettler","wood:15","food:60","stone:8","tool:10","gold:2","worker:6","","resMin:wood,1","resMin:food,1","","wood:-1","food:-1","","","destroy","sleep","","foundTown","move","","",0,"food-2","",0,"","1","",0,0,""),
+					new Unit("nworker","Worker","nworker","prod","walk",0,5,1,3,10,15,0,1,0,"north","","","","wood:2","food:5","","","","worker:1","","","","","","","","","destroy","sleep","build","","move","","",0,"wood-3","stone-3",0,"1","","",1,0,""),
+					new Unit("nship","Ship","nship","explo","swim",6,5,2,3,10,15,2,6,3,"north","","","","plank:10","","tool:3","","","worker:2","","","","","","","","","destroy","sleep","","","move","attack","",2,"","",0,"bridge","","",0,0,""),
+					new Unit("nexplorer","Explorer","nexplorer","explo","walk",6,3,2,3,10,20,3,3,1,"north","","","","wood:2","food:10","stone:1","","","worker:1","","","","","","","","","destroy","sleep","","","move","","",0,"","",0,"","","",0,0,""),
+					new Unit("nmarksman","Marksman","","","walk",6,3,2,3,10,6,1,1,1,"north","","disabled","research:nmarksman","","","","","","","","","","","","","","","destroy","sleep","","","move","attack","",0,"","",0,"","","",0,0,""),
 					new Unit("nsoldier","Swordsman","nsoldier","war","walk",10,12,6,9,35,10,2,6,3,"north","","","research:nsoldier","","","weapon:1","","gold:2","worker:1","","","resMin:food,1","","","food:-1","","","destroy","sleep","","","move","attack","",0,"","",0,"","","",0,0,""),
-					new Unit("nmonk","Monk","nmonk","","walk",12,7,10,12,30,10,1,1,3,"north","","","research:nmonk","","","","","","","","","","","","","","","","","","","","heal","",0,"","",0,"","","",0,0,""),
-					new Unit("nking","King","nking","general","walk",12,10,10,12,30,10,1,1,1,"north","maxUnitPlayer:nking,0","","","","","","","","","","","","","","","","","","sleep","build","foundTownFirst","move","attack","heal",0,"food-3","",0,"1","first","",0,0,""),
-					new Unit("ngeneral","General","ngeneral","","walk",15,15,15,25,100,10,1,1,4,"north","","","research:ngeneral","","","","","","","","","","","","","","","","","","","","attack","",0,"","",0,"","","",0,0,""),
-					new Unit("nmage","Mage","nmage","war","walk",16,16,20,25,100,15,2,4,4,"north","","","research:nmage","","","weapon:2","","gold:6","worker:1","","","resMin:food,2","","","food:-2","","","","","","","","attack","",0,"","",0,"","","",0,0,"gold-4"),
+					new Unit("nmonk","Monk","nmonk","","walk",12,7,10,12,30,10,1,1,3,"north","","","research:nmonk","","","","","","","","","","","","","","","destroy","sleep","trade","","move","heal","",0,"","",0,"","","",0,0,""),
+					new Unit("nking","King","nking","general","walk",12,10,10,12,30,10,1,1,1,"north","maxUnitPlayer:nking,0","","","","","","","","","","","","","","","","","","sleep","build","foundTownFirst","move","attack","",0,"food-3","",0,"1","first","",0,0,""),
+					new Unit("ngeneral","General","ngeneral","","walk",15,15,15,25,100,10,1,1,4,"north","","","research:ngeneral","","","","","","","","","","","","","","","destroy","sleep","","","move","attack","",0,"","",0,"","","",0,0,""),
+					new Unit("nmage","Mage","nmage","war","walk",16,16,20,25,100,15,2,4,4,"north","","","research:nmage","","","weapon:2","","gold:6","worker:1","","","resMin:food,2","","","food:-2","","","destroy","sleep","","","move","attack","",0,"","",0,"","","",0,0,"gold-4"),
 					new Unit("rworker","Worker","rgnom","prod","walk",0,3,2,3,8,10,0,1,1,"ranger","","disabled","","wood:2","food:5","tool:2","","","worker:1","","","","","","","","","","","","","","","",0,"wood-3","leaf-3",0,"1","","",0,1,""),
 					new Unit("rexplorer","Explorer","units1.png-4","explo","fly",6,4,2,3,10,15,3,3,1,"ranger","","disabled","","wood:2","food:10","weapon:5","","gold:1","worker:1","","","","","","","","","","","","","","","",0,"","",0,"","","",0,0,""),
 					new Unit("rnature","Nature","units1.png-4","general","walk",6,7,2,4,20,5,2,1,1,"ranger","maxUnitPlayer:rnature,0","disabled","","","","","","","","","","","","","","","","","","","","","","",0,"food-3","",0,"1","first","",0,1,""),
@@ -1373,7 +1377,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCampaign: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,52);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,50);
 		public readonly string[] labels = new string[]{"id","name","icon","desc","progress","hidden"};
 		private Campaign[] _rows = new Campaign[2];
 		public void Init() {
@@ -1464,7 +1468,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetScenario: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,52);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,50);
 		public readonly string[] labels = new string[]{"id","name","icon","desc","campaign","hidden","map"};
 		private Scenario[] _rows = new Scenario[4];
 		public void Init() {
@@ -1565,7 +1569,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetMapAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,53);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,51);
 		public readonly string[] labels = new string[]{"id","name","desc","ap","icon","reqNonSelf1","reqNonSelf2","reqSelf1","reqSelf2","sound"};
 		private MapAction[] _rows = new MapAction[3];
 		public void Init() {
@@ -1666,7 +1670,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetNTerrain: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,53);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,51);
 		public readonly string[] labels = new string[]{"id","name","desc","sound","icon","walk","fly","swim","buildtime","visible","tileid"};
 		private NTerrain[] _rows = new NTerrain[18];
 		public void Init() {
@@ -1767,141 +1771,6 @@ namespace DataTypes{
 	}
 }
 namespace DataTypes{
-	public partial class Nation{
-		public string id;
-		public string name;
-		public bool hidden;
-		public string desc;
-		public int icon;
-		public string leader;
-		public string townhall;
-		public string townlevel2;
-		public string townlevel3;
-		public string townlevel4;
-		public float townLevelChangeablefood;
-		public float townLevelChangeablegold;
-		public int terrainforrest;
-		public string origin;
-		public string ethos;
-		public string researchElement;
-		public string hometerrain;
-		public string townNameGenerator;
-		public string townLevelName1;
-		public string townLevelName2;
-		public string townLevelName3;
-		public string townLevelName4;
-
-		public Nation(){}
-
-		public Nation(string id, string name, bool hidden, string desc, int icon, string leader, string townhall, string townlevel2, string townlevel3, string townlevel4, float townLevelChangeablefood, float townLevelChangeablegold, int terrainforrest, string origin, string ethos, string researchElement, string hometerrain, string townNameGenerator, string townLevelName1, string townLevelName2, string townLevelName3, string townLevelName4){
-			this.id = id;
-			this.name = name;
-			this.hidden = hidden;
-			this.desc = desc;
-			this.icon = icon;
-			this.leader = leader;
-			this.townhall = townhall;
-			this.townlevel2 = townlevel2;
-			this.townlevel3 = townlevel3;
-			this.townlevel4 = townlevel4;
-			this.townLevelChangeablefood = townLevelChangeablefood;
-			this.townLevelChangeablegold = townLevelChangeablegold;
-			this.terrainforrest = terrainforrest;
-			this.origin = origin;
-			this.ethos = ethos;
-			this.researchElement = researchElement;
-			this.hometerrain = hometerrain;
-			this.townNameGenerator = townNameGenerator;
-			this.townLevelName1 = townLevelName1;
-			this.townLevelName2 = townLevelName2;
-			this.townLevelName3 = townLevelName3;
-			this.townLevelName4 = townLevelName4;
-		}
-	}
-	public class SheetNation: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,54);
-		public readonly string[] labels = new string[]{"id","name","hidden","desc","icon","leader","townhall","townlevel2","townlevel3","townlevel4","townLevelChangeable-food","townLevelChangeable-gold","terrain-forrest","#origin","ethos","researchElement","hometerrain","townNameGenerator","townLevelName1","townLevelName2","townLevelName3","townLevelName4"};
-		private Nation[] _rows = new Nation[9];
-		public void Init() {
-			_rows = new Nation[]{
-					new Nation("north","North",false,"Default nation",76,"nking","ntownhall","faith","safety","culture",0.2f,0.1f,0,"n","good","metal","grass","north","Village","Bigger village","Town","Bigger town"),
-					new Nation("ranger","Rangers",true,"Nation under construction. Not really usefull at the moment.",584,"rnature","rpalast","","","",0.2f,-0.1f,-5,"magic","good","life","woods","elf","","","Kingdom","Bigger kingdom"),
-					new Nation("fish","Fish people",true,"",0,"","","","","",0f,0f,0,"fight","neutral","water","ocean","underwater","","","",""),
-					new Nation("dead","Unknown",true,"",298,"dnightking","","","","",0f,0f,0,"n","bad","death","underground","ghost","Cemetery","Bigger cemetery","",""),
-					new Nation("forge","Forger",true,"",0,"","","","","",0f,0f,0,"magic","neutral","earth","mountain","dwarf","","","",""),
-					new Nation("emis","Emissaries",true,"",0,"","","","","",0f,0f,0,"magic","bad","energy","hill","steam","","","",""),
-					new Nation("harv","Harvester",true,"",0,"","","","","",0f,0f,0,"fight","good","wood","marsh","viking","","","",""),
-					new Nation("mess","Messenger",true,"",0,"","","","","",0f,0f,0,"n","neutral","air","clouds","sky","","","",""),
-					new Nation("fire","fire Worshipers",true,"",0,"ffireleader","","","","",0f,0f,0,"fight","bad","fire","lava","orc","","","","")
-				};
-		}
-			
-		public IEnumerator GetEnumerator(){
-			return new SheetEnumerator(this);
-		}
-		private class SheetEnumerator : IEnumerator{
-			private int idx = -1;
-			private SheetNation t;
-			public SheetEnumerator(SheetNation t){
-				this.t = t;
-			}
-			public bool MoveNext(){
-				if (idx < t._rows.Length - 1){
-					idx++;
-					return true;
-				}else{
-					return false;
-				}
-			}
-			public void Reset(){
-				idx = -1;
-			}
-			public object Current{
-				get{
-					return t._rows[idx];
-				}
-			}
-		}
-		public int Length{ get{ return _rows.Length; } }
-		public Nation this[int index]{
-			get{
-				return _rows[index];
-			}
-		}
-		public Nation this[string id]{
-			get{
-				for (int i = 0; i < _rows.Length; i++) {
-					if( _rows[i].id == id){ return _rows[i]; }
-				}
-				return null;
-			}
-		}
-		public bool ContainsKey(string key){
-			for (int i = 0; i < _rows.Length; i++) {
-				if( _rows[i].id == key){ return true; }
-			}
-			return false;
-		}
-		public Nation[] ToArray(){
-			return _rows;
-		}
-		public Nation Random() {
-			return _rows[ UnityEngine.Random.Range(0, _rows.Length) ];
-		}
-
-		public Nation north{	get{ return _rows[0]; } }
-		public Nation ranger{	get{ return _rows[1]; } }
-		public Nation fish{	get{ return _rows[2]; } }
-		public Nation dead{	get{ return _rows[3]; } }
-		public Nation forge{	get{ return _rows[4]; } }
-		public Nation emis{	get{ return _rows[5]; } }
-		public Nation harv{	get{ return _rows[6]; } }
-		public Nation mess{	get{ return _rows[7]; } }
-		public Nation fire{	get{ return _rows[8]; } }
-
-	}
-}
-namespace DataTypes{
 	public partial class Building{
 		public string id;
 		public string name;
@@ -1962,15 +1831,13 @@ namespace DataTypes{
 		public int passiveActionupgradeBuildingLimit;
 		public int passiveActionstorage;
 		public int passiveActionupgradeTownLimit;
-		public int passiveActionupgradeTownLevel;
-		public string passiveActionenablePlayerFeature;
 		public int passPublicwalk;
 		public int passOwnerwalk;
 		public int passOwnerswim;
 
 		public Building(){}
 
-		public Building(string id, string name, string file, int width, int height, int reqbuildtownlevel, string reqbuildnation, string reqbuild1, string reqbuild2, string reqbuild3, string reqbuild4, string cat, int atk, int def, string connected, int hp, int ap, int visible, int buildtime, string cost1, string cost2, string cost3, string cost4, string cost5, string cost6, string reqproduce1, string reqproduce2, string reqproduce3, string reqproduce4, string reqproduce5, string produce1, string produce2, string produce3, string produce4, string produce5, string action1, string action2, string action3, string action4, string action5, string produceonce1, string produceonce2, string produceonce3, string produceonce4, string produceonce5, string produceonce6, string actiononce1, string actiononce2, string actionalchemyP, int actiondestroyTown, int actionsendRess, string reqscenconf, string reqterrain, string reqmax, string reqmin, int passiveActionupgradeRangeLimit, int passiveActionupgradeBuildingLimit, int passiveActionstorage, int passiveActionupgradeTownLimit, int passiveActionupgradeTownLevel, string passiveActionenablePlayerFeature, int passPublicwalk, int passOwnerwalk, int passOwnerswim){
+		public Building(string id, string name, string file, int width, int height, int reqbuildtownlevel, string reqbuildnation, string reqbuild1, string reqbuild2, string reqbuild3, string reqbuild4, string cat, int atk, int def, string connected, int hp, int ap, int visible, int buildtime, string cost1, string cost2, string cost3, string cost4, string cost5, string cost6, string reqproduce1, string reqproduce2, string reqproduce3, string reqproduce4, string reqproduce5, string produce1, string produce2, string produce3, string produce4, string produce5, string action1, string action2, string action3, string action4, string action5, string produceonce1, string produceonce2, string produceonce3, string produceonce4, string produceonce5, string produceonce6, string actiononce1, string actiononce2, string actionalchemyP, int actiondestroyTown, int actionsendRess, string reqscenconf, string reqterrain, string reqmax, string reqmin, int passiveActionupgradeRangeLimit, int passiveActionupgradeBuildingLimit, int passiveActionstorage, int passiveActionupgradeTownLimit, int passPublicwalk, int passOwnerwalk, int passOwnerswim){
 			this.id = id;
 			this.name = name;
 			this.file = file;
@@ -2030,72 +1897,72 @@ namespace DataTypes{
 			this.passiveActionupgradeBuildingLimit = passiveActionupgradeBuildingLimit;
 			this.passiveActionstorage = passiveActionstorage;
 			this.passiveActionupgradeTownLimit = passiveActionupgradeTownLimit;
-			this.passiveActionupgradeTownLevel = passiveActionupgradeTownLevel;
-			this.passiveActionenablePlayerFeature = passiveActionenablePlayerFeature;
 			this.passPublicwalk = passPublicwalk;
 			this.passOwnerwalk = passOwnerwalk;
 			this.passOwnerswim = passOwnerswim;
 		}
 	}
 	public class SheetBuilding: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,54);
-		public readonly string[] labels = new string[]{"id","name","file","width","height","req-build-townlevel","req-build-nation","req-build1","req-build2","req-build3","req-build4","cat","atk","def","connected","hp","ap","visible","buildtime","cost1","cost2","cost3","cost4","cost5","cost6","req-produce1","req-produce2","req-produce3","req-produce4","req-produce5","produce1","produce2","produce3","produce4","produce5","action1","action2","action3","action4","action5","produceonce1","produceonce2","produceonce3","produceonce4","produceonce5","produceonce6","actiononce1","actiononce2","action-alchemyP","action-destroyTown","action-sendRess","req-scenconf","req-terrain","req-max","req-min","passiveAction-upgradeRangeLimit","passiveAction-upgradeBuildingLimit","passiveAction-storage","passiveAction-upgradeTownLimit","passiveAction-upgradeTownLevel","passiveAction-enablePlayerFeature","passPublic-walk","passOwner-walk","passOwner-swim"};
-		private Building[] _rows = new Building[53];
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,52);
+		public readonly string[] labels = new string[]{"id","name","file","width","height","req-build-townlevel","req-build-nation","req-build1","req-build2","req-build3","req-build4","cat","atk","def","connected","hp","ap","visible","buildtime","cost1","cost2","cost3","cost4","cost5","cost6","req-produce1","req-produce2","req-produce3","req-produce4","req-produce5","produce1","produce2","produce3","produce4","produce5","action1","action2","action3","action4","action5","produceonce1","produceonce2","produceonce3","produceonce4","produceonce5","produceonce6","actiononce1","actiononce2","action-alchemyP","action-destroyTown","action-sendRess","req-scenconf","req-terrain","req-max","req-min","passiveAction-upgradeRangeLimit","passiveAction-upgradeBuildingLimit","passiveAction-storage","passiveAction-upgradeTownLimit","passPublic-walk","passOwner-walk","passOwner-swim"};
+		private Building[] _rows = new Building[55];
 		public void Init() {
 			_rows = new Building[]{
-					new Building("nlogger2","Bigger logger","north-way:nlogger2",1,1,2,"north","terrain:forest","field:building,nlogger","research:nlogger2","","prod",0,0,"",20,5,2,5,"wood:10","stone:4","","worker:2","tool:2","","","","","","","wood:6","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nlogger","Logger","north-castle:nlogger",1,1,1,"north","terrain:forest","","","","prod",0,0,"",5,5,1,2,"wood:2","stone:","","worker:1","","","","","","","","wood:2","","","","","destroy","buildUpgrade:nlogger2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nquarry2","Bigger quarry","north-castle:nquarry2",1,1,3,"north","terrain:hill,mountain","field:building,nquarry","research:nquarry2","","prod",0,0,"",30,5,2,7,"wood:9","stone:6","plank:2","worker:2","tool:2","","","","","","","stone:9","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nquarry","Quarry","north-castle:nquarry",1,1,1,"north","terrain:hill,mountain","","","","prod",0,0,"",10,5,1,2,"wood:3","","","worker:1","tool:1","","","","","","","stone:3","","","","","destroy","buildUpgrade:nquarry2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nhunter","Hunter","north-farm:nhunter",1,1,1,"north","terrain:forest,grass","","","","food",0,0,"",5,5,1,3,"wood:4","stone:1","","worker:1","tool:1","","","","","","","food:3","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nfisher","Fisher","north-farm:nfisher",1,1,1,"north","terrainNear:water","","","","food",0,0,"",5,5,1,4,"wood:2","stone:2","","worker:1","tool:1","","","","","","","food:4","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("ntownhall4","Bigger town hall","north-way:ntownhall4",2,1,3,"north","field:building,ntownhall3","","research:ntownhall4","","needs",0,0,"",100,5,5,10,"","","plank:8","brick:15","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","","","","culture:10","","","","","","","","",1,1,"","","","",5,70,300,2,1,"",0,0,0),
-					new Building("ntownhall3","Town hall","north-way:ntownhall3",1,1,2,"north","field:building,ntownhall2","","research:ntownhall3","","needs",0,0,"",50,5,4,7,"wood:4","stone:24","plank:4","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","buildUpgrade:ntownhall4","","","","","","","","","","","",1,1,"","","","",5,45,200,1,1,"",0,0,0),
-					new Building("ntownhall2","Bigger village hall","north-tower:ntownhall2",1,1,1,"north","field:building,ntownhall","","research:ntownhall2","","needs",0,0,"",25,5,3,4,"wood:4","stone:6","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall3","","","","","","","","","","","",1,0,"","","","",5,25,200,0,1,"",0,0,0),
-					new Building("ntownhall","Village hall","north-tower:ntownhall",1,1,1,"north","","building:<0,ntownhall","research:ntownhall","","needs",0,0,"",10,5,2,1,"","","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall2","trade:buy,tools","","food:20","stone:8","wood:15","tool:10","worker:6","workermax:6","","","",1,0,"","","","",0,10,300,0,0,"",0,0,0),
-					new Building("nsawmill","Sawmill","north-more:nsawmill",1,1,2,"north","terrainNear:water","","research:nsawmill","","prod",0,0,"",20,5,1,5,"wood:20","stone:10","","worker:1","tool:3","","daytime:not-night","resMin:wood,2","","","","wood:-2","plank:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nmarket","Market","addon:nmarket",1,1,2,"north","townNear","","research:nmarket","","needs",0,0,"",20,5,1,7,"wood:24","stone:6","","worker:1","gold:3","","","","","","","gold:1","","","","","destroy","","trade","","","culture:10","","","","","","","","",0,1,"","","2-nmarket-false","",0,0,0,0,0,"",0,0,0),
-					new Building("nmine","Mine","north-tower:nmine",1,1,2,"north","terrain:mountain","","research:nmine","","prod",0,0,"",20,5,0,7,"wood:12","stone:8","plank:3","worker:1","gold:1","","","","","","","ore:1","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nworkshop","Workshop","1176",0,0,2,"north","townNear","","research:nworkshop","","prod",0,0,"",20,5,1,5,"wood:8","stone:20","plank:4","worker:2","","","daytime:not-night","resMin:wood,1","resMin:ore,1","","","wood:-1","ore:-1","tool:1","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nfarm2","Bigger farm","north-farm:nfarm2",2,1,3,"north","terrain:grass","field:building,nfarm","research:nfarm2","","food",0,0,"",30,5,1,7,"wood:12","stone:9","plank:5","worker:2","tool:3","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nfarm","Farm","north-farm:nfarm",1,1,2,"north","terrain:grass","","research:nfarm","","food",0,0,"",20,5,1,5,"wood:12","stone:8","","worker:1","tool:2","","season:not-winter","","","","","food:5","","","","","destroy","buildUpgrade:nfarm2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nfield","Field","north-farm:nfield",1,1,2,"north","terrain:grass","","research:nfield","","food",0,0,"",1,5,1,2,"","","plank:1","","","","season:not-winter","","","","","food:3","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","1-nfarm2-false",0,0,0,0,0,"",0,0,0),
-					new Building("nwall","Town wall","1906",0,0,3,"north","","","research:nwall","disabled","war",0,0,"wall",100,5,1,4,"","stone:3","","brick:3","","","","","","","","","","","","","destroy","","","","","culture:10","","","","","safety:3","","","",0,0,"","","","",0,1,0,0,0,"",0,0,0),
-					new Building("ndockyard","Dockyard","addon:dock",1,1,3,"north","terrainNear:water","","research:ndockyard","","explo",0,0,"",30,5,1,7,"worker:2","stone:6","plank:3","brick:1","tool:2","","","","","","","","","","","","destroy","train:nship","trade","","","","","","","","safety:10","","","",0,1,"","","","",0,0,0,0,0,"",0,0,5),
-					new Building("nstreet2","Street","1910",0,0,3,"north","townNear","field:building,nstreet","research:nstreet2","disabled","explo",0,0,"wall",30,5,1,7,"","stone:5","","brick:1","gold:2","","","","","","","","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,1,0,0,0,"",-2,2,0),
-					new Building("nstreet","Way","1654",0,0,2,"north","townNear","","research:nstreet","disabled","explo",0,0,"wall",20,5,1,4,"wood:3","","","","gold:1","","","","","","","","","","","","destroy","buildUpgrade:nstreet2","","","","","","","","","","","","",0,0,"","","","",0,1,0,0,0,"",-2,-2,0),
-					new Building("nbrickfactory","Brick factory","788",0,0,3,"north","townNear","","research:nbrickfactory","","prod",0,0,"",30,5,1,7,"worker:2","stone:36","plank:4","","tool:3","","daytime:not-night","resMin:stone,2","","","","stone:-2","brick:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("narmoury","Armoury","1210",0,0,3,"north","townNear","","research:narmoury","disabled","war",0,0,"",30,5,1,7,"worker:3","stone:13","plank:9","brick:7","tool:4","","daytime:not-night","resMin:wood,3","resMin:tool,1","resMin:ore,2","","wood:-3","tool:-1","ore:-2","weapon:1","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nbarracks","Barracks","north-more:nbaracks",1,1,3,"north","townNear","","research:nbarracks","","war",0,0,"",60,5,1,7,"worker:2","stone:7","plank:5","brick:9","tool:3","","","","","","","","","","","","destroy","train","","","","","","","","","safety:20","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("ncastle","Castle","north-tower:ncastle",2,2,4,"north","townNear","","research:ncastle","","war",5,1,"",100,5,1,9,"worker:3","stone:14","plank:5","brick:12","tool:6","","","","","","","","","","","","destroy","","","","","","","","","","safety:30","","","",0,0,"","","0-ncastle-true","",5,5,0,1,2,"",0,0,0),
-					new Building("npalace","Palace","north-more:nstorage",2,2,4,"north","townNear","building:<0,npalace","research:npalace","","deco",0,0,"",40,5,1,9,"worker:3","gold:10","plank:10","brick:10","tool:10","","","","","","","research:2","","","","","destroy","","","","","culture:40","","","","faith:10","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nstorage","Storage","north-more:nstorage",1,1,2,"north","townNear","","research:nstorage","","general",0,0,"",20,5,1,5,"wood:24","stone:10","","","worker:1","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,300,0,0,"",0,0,0),
-					new Building("nlibrary","Library","north-tower:nresearcher",1,1,1,"north","townNear","feature:research,true","","","general",0,0,"",10,5,1,4,"wood:1","stone:4","","","worker:1","","","","","","","research:1","","","","","destroy","","","","","","","","","","","featureP:research,true","","",0,0,"RESEARCH","","","",0,0,0,0,0,"RESEARCH",0,0,0),
-					new Building("nresearch","Research tower","north-tower:nrtower",1,2,3,"north","townNear","feature:research,true","research:nresearch","","general",0,0,"",30,5,1,7,"wood:9","stone:6","","brick:6","worker:2","","","resMin:gold,3","","","","research:3","gold:-1","","","","destroy","","","","","","","","","","","featureP:research,true","","",0,0,"RESEARCH","","","",0,0,0,0,0,"RESEARCH",0,0,0),
-					new Building("nbridge","Bridge","851",0,0,3,"north","","","research:nbridge","disabled","explo",0,0,"bridge",30,5,1,5,"","stone:6","plank:1","brick:4","tool:2","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","river","","",0,0,0,0,0,"",0,5,0),
-					new Building("ntemple2","Bigger circle","addon:ncircle2",1,1,4,"north","townNear","field:building,ntemple","research:ntemple2","","needs",0,0,"",40,5,1,7,"worker:2","","plank:4","brick:10","tool:3","","","","","","","","","","","","destroy","","","","","culture:10","","","","faith:30","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("ntemple","Circle","addon:ncircle",1,1,2,"north","townNear","","research:ntemple","","needs",0,0,"",20,5,1,3,"wood:4","stone:11","worker:1","","tool:1","","","","","","","","","","","","destroy","buildUpgrade:ntemple2","","","","culture:5","","","","faith:15","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("ncircus","Circus","addon:ncircus",1,1,4,"north","townNear","","research:ncircus","","needs",0,0,"",40,5,1,5,"wood:16","worker:2","plank:8","brick:2","tool:4","","","","","","","food:-1","","","","","destroy","","","","","culture:25","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nwoodtower","Wood tower","north-tower:nwoodtower",1,1,2,"north","","","research:nwoodtower","","explo",1,0,"",20,5,5,3,"wood:12","","plank:1","","","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nhouse2","House","north-more:nhouse",1,1,2,"north","townNear","field:building,nhouse","research:nhouse2","","needs",0,0,"",20,5,1,7,"wood:4","stone:15","plank:3","","tool:2","","","","","","","","","","","","destroy","","","","","worker:15","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("nhouse","Tent","north-more:ntent",1,1,1,"north","townNear","","","","needs",0,0,"",2,5,1,2,"wood:1","","","","","","","","","","","","","","","","destroy","buildUpgrade:nhouse2","","","","worker:6","","","","","","","","",0,0,"","","5-nhouse-false","",0,0,0,0,0,"",0,0,0),
-					new Building("rrope","Rope Factory","819",0,0,2,"ranger","townNear","","research:rrope","disabled","prod",0,0,"",0,5,1,5,"wood:4","","leaf:4","","","worker:2","","resMin:leaf,4","","","","leaf:-4","rope:1","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rleaf","Leaf collector","194",0,0,1,"ranger","terrain:forest","","research:rleaf","disabled","prod",0,0,"",0,5,1,2,"wood:3","food:8","","","","worker:1","season:not-winter","","","","","leaf:3","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rsling","Slingshot workshop","1114",0,0,3,"ranger","townNear","","research:rsling","disabled","prod",0,0,"",0,5,1,9,"wood:5","","leaf:6","plank:4","rope:4","worker:2","","resMin:plank,1","resMin:rope,2","","","plank:-1","rope:-2","slingshot:1","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rplank","Plank creater","743",0,0,2,"ranger","townNear","","research:rplank","disabled","prod",0,0,"",0,5,1,6,"wood:11","","leaf:7","","rope:2","worker:1","","resMin:wood,2","","","","wood:-2","plank:1","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rwood","Wood collector","1838",0,0,1,"ranger","terrain:forest","","research:rwood","disabled","prod",0,0,"",0,5,1,3,"","food:4","","","","worker:1","season:not-spring","","","","","wood:3","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rberry","Berry finder","132",0,0,1,"ranger","terrain:grass","","research:rberry","disabled","food",0,0,"",0,5,1,2,"wood:4","","leaf:3","","","worker:1","season:not-winter","","","","","food:2","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rwapple","Winter apple","958",0,0,2,"ranger","terrain:grass","","research:rwapple","disabled","food",0,0,"",0,5,1,3,"wood:1","","leaf:4","","rope:1","","season:winter","","","","","food:6","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rhouse","Tree house","1316",0,0,1,"ranger","terrain:forest","","research:rhouse","disabled","needs",0,0,"",0,5,1,3,"wood:5","","leaf:7","","","","","","","","","","","","","","","","","","","worker:6","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rresearch","Mediation","1900",0,0,1,"ranger","townNear","","research:rresearch","disabled","general",0,0,"",0,5,1,5,"wood:5","","","","gold:2","worker:1","","","","","","research:1","","","","","","","","","","","","","","","","","","",0,0,"RESEARCH","","","",0,0,0,0,0,"RESEARCH",0,0,0),
-					new Building("rtrain","Training","1871",0,0,3,"ranger","townNear","","research:rtrain","disabled","war",0,0,"",0,5,1,7,"wood:2","slingshot:1","leaf:5","plank:3","rope:3","worker:2","","","","","","","","","","","train","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rpalast5","Biggest palast","66",0,0,4,"ranger","","field:building,rpalast4","research:rpalast5","disabled","general",0,0,"",0,5,10,28,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","","trade","","","","","","","","","","","",1,0,"","","","",40,40,400,0,1,"",0,0,0),
-					new Building("rpalast4","Bigger palast","34",0,0,3,"ranger","","field:building,rpalast3","research:rpalast4","disabled","general",0,0,"",0,5,8,10,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast5","trade","","","","","","","","","","","",1,0,"","","","",20,40,300,0,1,"",0,0,0),
-					new Building("rpalast3","Big palast","34",0,0,2,"ranger","","field:building,rpalast2","research:rpalast3","disabled","general",0,0,"",0,5,6,4,"wood:4","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast4","trade","","","","","","","","","","","",1,0,"","","","",20,30,200,0,1,"",0,0,0),
-					new Building("rpalast2","Medium palast","959",0,0,1,"ranger","","field:building,rpalast1","research:rpalast2","disabled","general",0,0,"",0,5,4,2,"wood:4","","leaf:4","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast3","trade","","","","","","","","","","","",1,0,"","","","",10,20,200,0,1,"",0,0,0),
-					new Building("rpalast","Small palast","959",0,0,1,"ranger","","","research:rpalast","disabled","general",0,0,"",0,5,2,1,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast2","trade","","","worker:5","food:20","wood:10","leaf:5","","","","","",1,0,"","","","",10,20,300,0,0,"",0,0,0),
-					new Building("ralchemy","Alchemy","1462",0,0,4,"ranger","townNear","","research:ralchemy","disabled","prod",0,0,"",0,5,1,5,"wood:6","leaf:15","plank:6","rope:4","gold:2","worker:2","","","","","","","","","","","","","","","","","","","","","","","","plank-4",0,0,"","","","",0,0,0,0,0,"",0,0,0),
-					new Building("rstreet","Way","1654",0,0,2,"ranger","townNear","","research:rstreet","disabled","explo",0,0,"",0,5,0,5,"wood:1","","leaf:4","","","","","","","","","","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,"",0,0,0)
+					new Building("nlogger2","Bigger logger","north-way:nlogger2",1,1,2,"north","terrain:forest","field:building,nlogger","research:nlogger2","","prod",0,0,"",20,5,2,5,"wood:10","stone:4","","worker:2","tool:2","","","","","","","wood:6","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nlogger","Logger","north-castle:nlogger",1,1,1,"north","terrain:forest","","","","prod",0,0,"",5,5,1,2,"wood:2","stone:","","worker:1","","","","","","","","wood:2","","","","","destroy","buildUpgrade:nlogger2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nquarry2","Bigger quarry","north-castle:nquarry2",1,1,3,"north","terrain:hill,mountain","field:building,nquarry","research:nquarry2","","prod",0,0,"",30,5,2,7,"wood:9","stone:6","plank:2","worker:2","tool:2","","","","","","","stone:9","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nquarry","Quarry","north-castle:nquarry",1,1,1,"north","terrain:hill,mountain","","","","prod",0,0,"",10,5,1,2,"wood:3","","","worker:1","tool:1","","","","","","","stone:3","","","","","destroy","buildUpgrade:nquarry2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nhunter","Hunter","north-farm:nhunter",1,1,1,"north","terrain:forest,grass","","","","food",0,0,"",5,5,1,3,"wood:4","stone:1","","worker:1","tool:1","","","","","","","food:3","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nfisher","Fisher","north-farm:nfisher",1,1,1,"north","terrainNear:water","","","","food",0,0,"",5,5,1,4,"wood:2","stone:2","","worker:1","tool:1","","","","","","","food:4","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("ntownhall4","Bigger town hall","north-way:ntownhall4",2,1,3,"north","field:building,ntownhall3","","research:ntownhall4","","needs",0,0,"",100,5,5,10,"","","plank:8","brick:15","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","","","","culture:10","","","","","","townlevel","","",1,1,"","","","",5,70,300,2,0,0,0),
+					new Building("ntownhall3","Town hall","north-way:ntownhall3",1,1,2,"north","field:building,ntownhall2","","research:ntownhall3","","needs",0,0,"",50,5,4,7,"wood:4","stone:24","plank:4","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","buildUpgrade:ntownhall4","","","","","","","","","townlevel","","",1,1,"","","","",5,45,200,1,0,0,0),
+					new Building("ntownhall2","Bigger village hall","north-tower:ntownhall2",1,1,1,"north","field:building,ntownhall","","research:ntownhall2","","needs",0,0,"",25,5,3,4,"wood:4","stone:6","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall3","trade:buy,tools","","","","","","","","townlevel","","",1,0,"","","","",5,25,200,0,0,0,0),
+					new Building("ntownhall","Village hall","north-tower:ntownhall",1,1,1,"north","","building:<0,ntownhall","research:ntownhall","","needs",0,0,"",10,5,2,1,"","","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall2","trade:buy,tools","","food:20","stone:8","wood:15","tool:10","worker:6","workermax:6","","","",1,0,"","","","",0,10,300,0,0,0,0),
+					new Building("nsawmill","Sawmill","north-more:nsawmill",1,1,2,"north","terrainNear:water","","research:nsawmill","","prod",0,0,"",20,5,1,5,"wood:20","stone:10","","worker:1","tool:3","","daytime:not-night","resMin:wood,2","","","","wood:-2","plank:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nmarket","Market","addon:nmarket",1,1,2,"north","townNear","","research:nmarket","","needs",0,0,"",20,5,1,7,"wood:24","stone:6","","worker:1","gold:3","","","","","","","gold:1","","","","","destroy","","","trade","","culture:10","","","","","","","","",0,1,"","","2-nmarket-false","",0,0,0,0,0,0,0),
+					new Building("nmine","Mine","north-tower:nmine",1,1,2,"north","terrain:mountain","","research:nmine","","prod",0,0,"",20,5,0,7,"wood:12","stone:8","plank:3","worker:1","gold:1","","","","","","","ore:1","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nworkshop","Workshop","1176",0,0,2,"north","townNear","","research:nworkshop","","prod",0,0,"",20,5,1,5,"wood:8","stone:20","plank:4","worker:2","","","daytime:not-night","resMin:wood,1","resMin:ore,1","","","wood:-1","ore:-1","tool:1","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nfarm2","Bigger farm","north-farm:nfarm2",2,1,3,"north","terrain:grass","field:building,nfarm","research:nfarm2","","food",0,0,"",30,5,1,7,"wood:12","stone:9","plank:5","worker:2","tool:3","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nfarm","Farm","north-farm:nfarm",1,1,2,"north","terrain:grass","","research:nfarm","","food",0,0,"",20,5,1,5,"wood:12","stone:8","","worker:1","tool:2","","season:not-winter","","","","","food:5","","","","","destroy","buildUpgrade:nfarm2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nfield","Field","north-farm:nfield",1,1,2,"north","terrain:grass","","research:nfield","","food",0,0,"",1,5,1,2,"","","plank:1","","","","season:not-winter","","","","","food:3","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","1-nfarm2-false",0,0,0,0,0,0,0),
+					new Building("nwall","Town wall","wall:wall_14",1,1,3,"north","","","research:nwall","","war",0,2,"wall",60,5,1,4,"","stone:3","","brick:3","","","","","","","","","","","","","destroy","","buildUpgrade:nwalltower,nwallgate","","","culture:10","","","","","safety:3","","","",0,0,"","","","",0,1,0,0,0,0,0),
+					new Building("nwalltower","Wall tower","wallTower:wallTower_14",1,1,4,"north","","","research:nwall","","war",10,2,"wall",110,5,3,9,"","stone:5","plank:1","brick:3","tool:1","worker:1","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nwallgate","wall gate","wallGate:wallGate_14",1,1,3,"north","","","research:nwall","","war",0,2,"wall",40,5,1,6,"","stone:2","plank:2","","","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("ndockyard","Dockyard","addon:dock",1,1,3,"north","terrainNear:water","","research:ndockyard","","explo",0,0,"",30,5,1,7,"worker:2","stone:6","plank:3","brick:1","tool:2","","","","","","","","","","","","destroy","train:nship","","trade","","","","","","","safety:10","","","",0,1,"","","","",0,0,0,0,0,0,5),
+					new Building("nstreet2","Street","way:street",1,1,3,"north","","","research:nstreet2","","explo",0,0,"",30,5,1,7,"","stone:5","","brick:1","gold:2","","","","","","","","","","","","","","","","","","","","","","","improvement:street;kill","","",0,0,"","","","",0,1,0,0,0,0,0),
+					new Building("nstreet","Way","way:way",1,1,2,"north","","","research:nstreet","","explo",0,0,"",20,5,1,4,"wood:3","","","","gold:1","","","","","","","","","","","","destroy","buildUpgrade:nstreet2","","","","","","","","","","improvement:way;kill","","",0,0,"","","","",0,1,0,0,0,0,0),
+					new Building("nbrickfactory","Brick factory","788",0,0,3,"north","townNear","","research:nbrickfactory","","prod",0,0,"",30,5,1,7,"worker:2","stone:36","plank:4","","tool:3","","daytime:not-night","resMin:stone,2","","","","stone:-2","brick:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("narmoury","Armoury","1210",0,0,3,"north","townNear","","research:narmoury","disabled","war",0,0,"",30,5,1,7,"worker:3","stone:13","plank:9","brick:7","tool:4","","daytime:not-night","resMin:wood,3","resMin:tool,1","resMin:ore,2","","wood:-3","tool:-1","ore:-2","weapon:1","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nbarracks","Barracks","north-more:nbaracks",1,1,3,"north","townNear","","research:nbarracks","","war",0,0,"",60,5,1,7,"worker:2","stone:7","plank:5","brick:9","tool:3","","","","","","","","","","","","destroy","train","","","","","","","","","safety:20","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("ncastle","Castle","north-tower:ncastle",2,2,4,"north","townNear","","research:ncastle","","war",5,1,"",100,5,1,9,"worker:3","stone:14","plank:5","brick:12","tool:6","","","","","","","","","","","","destroy","","","","","","","","","","safety:30","townlevel:2","","",0,0,"","","0-ncastle-true","",5,5,0,1,0,0,0),
+					new Building("npalace","Palace","north-more:nstorage",2,2,4,"north","townNear","building:<0,npalace","research:npalace","","deco",0,0,"",40,5,1,9,"worker:3","gold:10","plank:10","brick:10","tool:10","","","","","","","research:2","","","","","destroy","","","","","culture:40","","","","faith:10","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nstorage","Storage","north-more:nstorage",1,1,2,"north","townNear","","research:nstorage","","general",0,0,"",20,5,1,5,"wood:24","stone:10","","","","worker:1","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,300,0,0,0,0),
+					new Building("nlibrary","Library","north-tower:nresearcher",1,1,1,"north","townNear","feature:research,true","","","general",0,0,"",10,5,1,4,"wood:1","stone:4","","","","worker:1","","","","","","research:1","","","","","destroy","","","","","","","","","","","featureP:research,true","","",0,0,"RESEARCH","","","",0,0,0,0,0,0,0),
+					new Building("nresearch","Research tower","north-tower:nrtower",1,2,3,"north","townNear","feature:research,true","research:nresearch","","general",0,0,"",30,5,1,7,"wood:9","stone:6","","brick:6","","worker:2","","resMin:gold,3","","","","research:3","gold:-1","","","","destroy","","","","","","","","","","","featureP:research,true","","",0,0,"RESEARCH","","","",0,0,0,0,0,0,0),
+					new Building("nbridge","Bridge","851",0,0,3,"north","","","research:nbridge","disabled","explo",0,0,"bridge",30,5,1,5,"","stone:6","plank:1","brick:4","tool:2","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","river","","",0,0,0,0,0,5,0),
+					new Building("ntemple2","Bigger circle","addon:ncircle2",1,1,4,"north","townNear","field:building,ntemple","research:ntemple2","","needs",0,0,"",40,5,1,7,"worker:2","","plank:4","brick:10","tool:3","","","","","","","","","","","","destroy","","","","","culture:10","","","","faith:30","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("ntemple","Circle","addon:ncircle",1,1,2,"north","townNear","","research:ntemple","","needs",0,0,"",20,5,1,3,"wood:4","stone:11","worker:1","","tool:1","","","","","","","","","","","","destroy","buildUpgrade:ntemple2","","","","culture:5","","","","faith:15","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("ncircus","Circus","addon:ncircus",1,1,4,"north","townNear","","research:ncircus","","needs",0,0,"",40,5,1,5,"wood:16","worker:2","plank:8","brick:2","tool:4","","","","","","","food:-1","","","","","destroy","","","","","culture:25","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nwoodtower","Wood tower","north-tower:nwoodtower",1,1,2,"north","","","research:nwoodtower","","explo",1,0,"",20,5,5,3,"wood:12","","plank:1","","","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nhouse2","House","north-more:nhouse",1,1,2,"north","townNear","field:building,nhouse","research:nhouse2","","needs",0,0,"",20,5,1,7,"wood:4","stone:15","plank:3","","tool:2","","","","","","","","","","","","destroy","","","","","worker:15","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nhouse","Tent","north-more:ntent",1,1,1,"north","townNear","","","","needs",0,0,"",2,5,1,2,"wood:1","","","","","","","","","","","","","","","","destroy","buildUpgrade:nhouse2","","","","worker:6","","","","","","","","",0,0,"","","5-nhouse-false","",0,0,0,0,0,0,0),
+					new Building("rrope","Rope Factory","819",0,0,2,"ranger","townNear","","research:rrope","disabled","prod",0,0,"",0,5,1,5,"wood:4","","leaf:4","","","worker:2","","resMin:leaf,4","","","","leaf:-4","rope:1","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rleaf","Leaf collector","194",0,0,1,"ranger","terrain:forest","","research:rleaf","disabled","prod",0,0,"",0,5,1,2,"wood:3","food:8","","","","worker:1","season:not-winter","","","","","leaf:3","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rsling","Slingshot workshop","1114",0,0,3,"ranger","townNear","","research:rsling","disabled","prod",0,0,"",0,5,1,9,"wood:5","","leaf:6","plank:4","rope:4","worker:2","","resMin:plank,1","resMin:rope,2","","","plank:-1","rope:-2","slingshot:1","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rplank","Plank creater","743",0,0,2,"ranger","townNear","","research:rplank","disabled","prod",0,0,"",0,5,1,6,"wood:11","","leaf:7","","rope:2","worker:1","","resMin:wood,2","","","","wood:-2","plank:1","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rwood","Wood collector","1838",0,0,1,"ranger","terrain:forest","","research:rwood","disabled","prod",0,0,"",0,5,1,3,"","food:4","","","","worker:1","season:not-spring","","","","","wood:3","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rberry","Berry finder","132",0,0,1,"ranger","terrain:grass","","research:rberry","disabled","food",0,0,"",0,5,1,2,"wood:4","","leaf:3","","","worker:1","season:not-winter","","","","","food:2","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rwapple","Winter apple","958",0,0,2,"ranger","terrain:grass","","research:rwapple","disabled","food",0,0,"",0,5,1,3,"wood:1","","leaf:4","","rope:1","","season:winter","","","","","food:6","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rhouse","Tree house","1316",0,0,1,"ranger","terrain:forest","","research:rhouse","disabled","needs",0,0,"",0,5,1,3,"wood:5","","leaf:7","","","","","","","","","","","","","","","","","","","worker:6","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rresearch","Mediation","1900",0,0,1,"ranger","townNear","","research:rresearch","disabled","general",0,0,"",0,5,1,5,"wood:5","","","","gold:2","worker:1","","","","","","research:1","","","","","","","","","","","","","","","","featureP:research,true","","",0,0,"RESEARCH","","","",0,0,0,0,0,0,0),
+					new Building("rtrain","Training","1871",0,0,3,"ranger","townNear","","research:rtrain","disabled","war",0,0,"",0,5,1,7,"wood:2","slingshot:1","leaf:5","plank:3","rope:3","worker:2","","","","","","","","","","","train","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rpalast5","Biggest palast","66",0,0,4,"ranger","","field:building,rpalast4","research:rpalast5","disabled","general",0,0,"",0,5,10,28,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","","trade","","","","","","","","","townlevel","","",1,0,"","","","",40,40,400,0,0,0,0),
+					new Building("rpalast4","Bigger palast","34",0,0,3,"ranger","","field:building,rpalast3","research:rpalast4","disabled","general",0,0,"",0,5,8,10,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast5","trade","","","","","","","","","townlevel","","",1,0,"","","","",20,40,300,0,0,0,0),
+					new Building("rpalast3","Big palast","34",0,0,2,"ranger","","field:building,rpalast2","research:rpalast3","disabled","general",0,0,"",0,5,6,4,"wood:4","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast4","trade","","","","","","","","","townlevel","","",1,0,"","","","",20,30,200,0,0,0,0),
+					new Building("rpalast2","Medium palast","959",0,0,1,"ranger","","field:building,rpalast1","research:rpalast2","disabled","general",0,0,"",0,5,4,2,"wood:4","","leaf:4","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast3","trade","","","","","","","","","townlevel","","",1,0,"","","","",10,20,200,0,0,0,0),
+					new Building("rpalast","Small palast","959",0,0,1,"ranger","","","research:rpalast","disabled","general",0,0,"",0,5,2,1,"","","","","","","","","","","","worker:1","","","","","train:rworker,rexplorer","buildUpgrade:rpalast2","trade","","","worker:5","food:20","wood:10","leaf:5","","","","","",1,0,"","","","",10,20,300,0,0,0,0),
+					new Building("ralchemy","Alchemy","1462",0,0,4,"ranger","townNear","","research:ralchemy","disabled","prod",0,0,"",0,5,1,5,"wood:6","leaf:15","plank:6","rope:4","gold:2","worker:2","","","","","","","","","","","","","","","","","","","","","","","","plank-4",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("rstreet","Way","1654",0,0,2,"ranger","townNear","","research:rstreet","disabled","explo",0,0,"",0,5,0,5,"wood:1","","leaf:4","","","","","","","","","","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0)
 				};
 		}
 			
@@ -2170,41 +2037,43 @@ namespace DataTypes{
 		public Building nfarm{	get{ return _rows[15]; } }
 		public Building nfield{	get{ return _rows[16]; } }
 		public Building nwall{	get{ return _rows[17]; } }
-		public Building ndockyard{	get{ return _rows[18]; } }
-		public Building nstreet2{	get{ return _rows[19]; } }
-		public Building nstreet{	get{ return _rows[20]; } }
-		public Building nbrickfactory{	get{ return _rows[21]; } }
-		public Building narmoury{	get{ return _rows[22]; } }
-		public Building nbarracks{	get{ return _rows[23]; } }
-		public Building ncastle{	get{ return _rows[24]; } }
-		public Building npalace{	get{ return _rows[25]; } }
-		public Building nstorage{	get{ return _rows[26]; } }
-		public Building nlibrary{	get{ return _rows[27]; } }
-		public Building nresearch{	get{ return _rows[28]; } }
-		public Building nbridge{	get{ return _rows[29]; } }
-		public Building ntemple2{	get{ return _rows[30]; } }
-		public Building ntemple{	get{ return _rows[31]; } }
-		public Building ncircus{	get{ return _rows[32]; } }
-		public Building nwoodtower{	get{ return _rows[33]; } }
-		public Building nhouse2{	get{ return _rows[34]; } }
-		public Building nhouse{	get{ return _rows[35]; } }
-		public Building rrope{	get{ return _rows[36]; } }
-		public Building rleaf{	get{ return _rows[37]; } }
-		public Building rsling{	get{ return _rows[38]; } }
-		public Building rplank{	get{ return _rows[39]; } }
-		public Building rwood{	get{ return _rows[40]; } }
-		public Building rberry{	get{ return _rows[41]; } }
-		public Building rwapple{	get{ return _rows[42]; } }
-		public Building rhouse{	get{ return _rows[43]; } }
-		public Building rresearch{	get{ return _rows[44]; } }
-		public Building rtrain{	get{ return _rows[45]; } }
-		public Building rpalast5{	get{ return _rows[46]; } }
-		public Building rpalast4{	get{ return _rows[47]; } }
-		public Building rpalast3{	get{ return _rows[48]; } }
-		public Building rpalast2{	get{ return _rows[49]; } }
-		public Building rpalast{	get{ return _rows[50]; } }
-		public Building ralchemy{	get{ return _rows[51]; } }
-		public Building rstreet{	get{ return _rows[52]; } }
+		public Building nwalltower{	get{ return _rows[18]; } }
+		public Building nwallgate{	get{ return _rows[19]; } }
+		public Building ndockyard{	get{ return _rows[20]; } }
+		public Building nstreet2{	get{ return _rows[21]; } }
+		public Building nstreet{	get{ return _rows[22]; } }
+		public Building nbrickfactory{	get{ return _rows[23]; } }
+		public Building narmoury{	get{ return _rows[24]; } }
+		public Building nbarracks{	get{ return _rows[25]; } }
+		public Building ncastle{	get{ return _rows[26]; } }
+		public Building npalace{	get{ return _rows[27]; } }
+		public Building nstorage{	get{ return _rows[28]; } }
+		public Building nlibrary{	get{ return _rows[29]; } }
+		public Building nresearch{	get{ return _rows[30]; } }
+		public Building nbridge{	get{ return _rows[31]; } }
+		public Building ntemple2{	get{ return _rows[32]; } }
+		public Building ntemple{	get{ return _rows[33]; } }
+		public Building ncircus{	get{ return _rows[34]; } }
+		public Building nwoodtower{	get{ return _rows[35]; } }
+		public Building nhouse2{	get{ return _rows[36]; } }
+		public Building nhouse{	get{ return _rows[37]; } }
+		public Building rrope{	get{ return _rows[38]; } }
+		public Building rleaf{	get{ return _rows[39]; } }
+		public Building rsling{	get{ return _rows[40]; } }
+		public Building rplank{	get{ return _rows[41]; } }
+		public Building rwood{	get{ return _rows[42]; } }
+		public Building rberry{	get{ return _rows[43]; } }
+		public Building rwapple{	get{ return _rows[44]; } }
+		public Building rhouse{	get{ return _rows[45]; } }
+		public Building rresearch{	get{ return _rows[46]; } }
+		public Building rtrain{	get{ return _rows[47]; } }
+		public Building rpalast5{	get{ return _rows[48]; } }
+		public Building rpalast4{	get{ return _rows[49]; } }
+		public Building rpalast3{	get{ return _rows[50]; } }
+		public Building rpalast2{	get{ return _rows[51]; } }
+		public Building rpalast{	get{ return _rows[52]; } }
+		public Building ralchemy{	get{ return _rows[53]; } }
+		public Building rstreet{	get{ return _rows[54]; } }
 
 	}
 }
@@ -2221,16 +2090,20 @@ namespace DataTypes{
 		}
 	}
 	public class SheetIcons: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,57);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,53);
 		public readonly string[] labels = new string[]{"id","file"};
-		private Icons[] _rows = new Icons[5];
+		private Icons[] _rows = new Icons[9];
 		public void Init() {
 			_rows = new Icons[]{
 					new Icons("logo","Icons/logo"),
 					new Icons("research","Icons/magic:research"),
 					new Icons("quest","Icons/base:quest"),
 					new Icons("move","Icons/base:move"),
-					new Icons("foundTown","Icons/base:foundTown")
+					new Icons("foundTown","Icons/base:foundTown"),
+					new Icons("help","Icons/magic:lexicon"),
+					new Icons("debug","Icons/ui:debug"),
+					new Icons("option","Icons/base:option"),
+					new Icons("map","Icons/base:map")
 				};
 		}
 			
@@ -2292,6 +2165,10 @@ namespace DataTypes{
 		public Icons quest{	get{ return _rows[2]; } }
 		public Icons move{	get{ return _rows[3]; } }
 		public Icons foundTown{	get{ return _rows[4]; } }
+		public Icons help{	get{ return _rows[5]; } }
+		public Icons debug{	get{ return _rows[6]; } }
+		public Icons option{	get{ return _rows[7]; } }
+		public Icons map{	get{ return _rows[8]; } }
 
 	}
 }
@@ -2312,7 +2189,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetHelp: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,11,9,23,17,57);
+		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,53);
 		public readonly string[] labels = new string[]{"Units are, besides buildings, essential to the game. When clicked, they can be moved with the arrow keys, which costs action points (AP). You can also perform various actions, which costs AP. At the end of each round, the AP will be refilled.","name","icon","text"};
 		private Help[] _rows = new Help[10];
 		public void Init() {

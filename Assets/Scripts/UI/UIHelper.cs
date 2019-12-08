@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -33,7 +34,16 @@ public class UIHelper : ScriptableObject
     {
         GameObject act = Instantiate(button, parent);
         act.transform.Find("Label").GetComponent<Text>().text = title;
-        act.GetComponent<Button>().onClick.AddListener(() => { action(); });
+        act.GetComponent<Button>().onClick.AddListener(() => { 
+            try
+            {
+                action();
+            }
+            catch (Exception e)
+            {
+                ExceptionHelper.ShowException(e);
+            }
+        });
         return act;
     }
     
@@ -45,6 +55,13 @@ public class UIHelper : ScriptableObject
     public static void UpdateButtonText(GameObject button, string title)
     {
         button.transform.GetChild(0).GetComponent<Text>().text = title;
+    }
+    
+    public static void UpdateButtonImage(GameObject button, Sprite sprite)
+    {
+        Debug.LogWarning(sprite);
+        Debug.LogWarning(button.transform.GetComponentInChildren<Image>());
+        button.transform.GetComponentInChildren<Image>().sprite = sprite;
     }
 
     public static GameObject CreateImageTextButton(string title, Sprite icon, Transform parent, Action action, string sound="click")

@@ -19,12 +19,11 @@ namespace Actions
             Color(X, Y, 0);
             //calc size
             int diff = MapElementInfo.data.ap / 5;
-            string nation = Player.nation;
             string moveTyp = ((UnitInfo) MapElementInfo).config.movetyp;
 
-            for (int x = Math.Max(0,X-diff); x <= Math.Min(GameMgmt.Get().data.mapwidth-1,X+diff); x++)
+            for (int x = Math.Max(0,X-diff); x <= Math.Min(GameMgmt.Get().data.map.width-1,X+diff); x++)
             {
-                for (int y = Math.Max(0,Y-diff); y < Math.Min(GameMgmt.Get().data.mapheight-1,Y+diff); y++)
+                for (int y = Math.Max(0,Y-diff); y < Math.Min(GameMgmt.Get().data.map.height-1,Y+diff); y++)
                 {
                     //check enemy and fog
                     //TODO combine with unit check
@@ -38,7 +37,6 @@ namespace Actions
                     //own unit?
                     if (x == X && y == Y)
                     {
-                        Debug.LogWarning("continue");
                         continue;
                     }
 
@@ -56,7 +54,7 @@ namespace Actions
                         continue;
                     }
 
-                    int cost = MapMgmt.Get().PathFinding.Cost(nation, moveTyp, X, Y, x, y);
+                    int cost = GameMgmt.Get().map.Levels[MapElementInfo.Pos().z].PathFinding().Cost(Player, moveTyp, MapElementInfo.Pos(), x, y);
                     if (cost>0 && MapElementInfo.data.ap >= cost)
                         Color(x,y,0);
                     
@@ -99,9 +97,8 @@ namespace Actions
                 return;
             }
             
-            string nation = Player.nation;
             string moveTyp = ((UnitInfo)MapElementInfo).config.movetyp;
-            int cost = MapMgmt.Get().PathFinding.Cost(nation, moveTyp, X, Y, LastClickX, LastClickY);
+            int cost = GameMgmt.Get().map.Levels[MapElementInfo.Pos().z].PathFinding().Cost(Player, moveTyp, MapElementInfo.Pos(), LastClickX, LastClickY);
             OnMapUI.Get().unitUI.SetPanelMessage($"You want to move to this field for {cost} AP? Click again!");
         }
 

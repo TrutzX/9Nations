@@ -6,9 +6,12 @@ using Buildings;
 using DataTypes;
 using Game;
 using Help;
+using Improvements;
+using Libraries;
 using MapActions;
 using Players;
 using reqs;
+using Tools;
 using Towns;
 using UI;
 using UnityEngine;
@@ -44,9 +47,7 @@ public class BuildingInfo : MapElementInfo
             t.AddRes(ress.Key,ress.Value);
         }
     }
-
     
-
     public void Init(int town, string configType, int x, int y)
     {
         Debug.Log($"Create building {configType} at {x},{y} for town {town}");
@@ -55,9 +56,11 @@ public class BuildingInfo : MapElementInfo
         data.x = x;
         data.y = y;
         config = Data.building[configType];
+        //TODO Vector3Int Z
+        int buildtime = L.b.modifiers["build"].CalcModi(config.buildtime, TownMgmt.Get(town).Player(), new Vector3Int(x, y, 0));
 
         gameObject.AddComponent<Construction>();
-        gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime);
+        gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,buildtime);
         
         PlayerMgmt.Get(Town().playerId).fog.Clear(x,y);
 
@@ -71,10 +74,35 @@ public class BuildingInfo : MapElementInfo
         gameObject.name = config.name;
 
         //show it
-        GetComponent<SpriteRenderer>().sprite = SpriteHelper.Load("Building/"+config.file);
         GetComponent<Transform>().position = new Vector2(data.x,data.y);
+
+        if (!string.IsNullOrEmpty(config.connected))
+        {
+            SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 0, 1))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 1, 0))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 0, -1))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), -1, 0))?.SetConnectedImage();
+            return;
+        }
+        
+        GetComponent<SpriteRenderer>().sprite = SpriteHelper.Load("Building/"+config.file);
     }
 
+    public void SetConnectedImage()
+    {
+        if (config.connected == "wall")
+        {
+            bool north = BuildingMgmt.At(VectorHelper.Add(Pos(), 0, 1))?.config.connected == config.connected;
+            bool east = BuildingMgmt.At(VectorHelper.Add(Pos(), 1, 0))?.config.connected == config.connected;
+            bool south = BuildingMgmt.At(VectorHelper.Add(Pos(), 0, -1))?.config.connected == config.connected;
+            bool west = BuildingMgmt.At(VectorHelper.Add(Pos(), -1, 0))?.config.connected == config.connected;
+
+            string f = config.file.Replace("14", ImprovementHelper.GetId(north, east, south, west)+"");
+            GetComponent<SpriteRenderer>().sprite = SpriteHelper.Load("Building/"+f);
+        }
+            
+    }
     public override void Load(BuildingUnitData data)
     {
         config = Data.building[data.type];
@@ -93,6 +121,15 @@ public class BuildingInfo : MapElementInfo
         
         //todo get ress back
         Destroy(gameObject);
+        
+        //reset images?
+        if (!string.IsNullOrEmpty(config.connected))
+        {
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 0, 1))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 1, 0))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), 0, -1))?.SetConnectedImage();
+            BuildingMgmt.At(VectorHelper.Add(Pos(), -1, 0))?.SetConnectedImage();
+        }
     }
 
     public override string UniversalImage()
@@ -110,7 +147,7 @@ public class BuildingInfo : MapElementInfo
         }
         
         //show it
-        t.Player().fog.Clear(data.x, data.y, config.visible);
+        Player().fog.Clear(data.x, data.y, L.b.modifiers["view"].CalcModiNotNull(config.visible,Player(),Pos()));
         
         //perform actions
         foreach (KeyValuePair<string,string> key in config.GetActionsOnce())
@@ -122,11 +159,9 @@ public class BuildingInfo : MapElementInfo
     public override WindowBuilderSplit ShowInfoWindow()
     {
         WindowBuilderSplit win = base.ShowInfoWindow();
-        win.AddElement(new BuildingSplitInfo(this));
-        win.AddElement(new BuildingLexiconInfo(this));
-        win.AddElement(new HelpSplitElement("building"));
-        if (Data.features.debug.Bool())
-            win.AddElement(new DebugMapElementSplitElement(this));
+        win.AddElement(new HelpSplitElement("building"), true);
+        win.AddElement(new BuildingLexiconInfo(this), true);
+        win.AddElement(new BuildingSplitInfo(this), true);
         win.Finish();
         return win;
     }

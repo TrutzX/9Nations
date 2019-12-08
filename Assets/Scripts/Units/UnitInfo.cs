@@ -6,10 +6,12 @@ using DataTypes;
 using DigitalRuby.Tween;
 using Game;
 using Help;
+using Libraries;
 using MapActions;
 using Maps;
 using Players;
 using reqs;
+using Terrains;
 using Towns;
 using UI;
 using UnityEngine;
@@ -74,14 +76,17 @@ namespace Units
             Town t = TownMgmt.Get().NearstTown(PlayerMgmt.Get(player), x, y, false);
             if (t != null)
             {
+                //TODO Vector3Int Z
+                int buildtime = L.b.modifiers["build"].CalcModi(config.buildtime, PlayerMgmt.Get(player), new Vector3Int(x, y, 0));
+                
                 data.townId = t.id;
                 gameObject.AddComponent<Construction>();
-                gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,config.buildtime);
+                gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,buildtime);
                 PlayerMgmt.Get(player).fog.Clear(x,y);
             }
             else
             {
-                PlayerMgmt.Get(player).fog.Clear(x,y,config.visible);
+                PlayerMgmt.Get(player).fog.Clear(x,y, L.b.modifiers["view"].CalcModiNotNull(config.visible,Player(),Pos()));
             }
         
 
@@ -122,47 +127,40 @@ namespace Units
             //own unit?
             if (!Owner(PlayerMgmt.ActPlayerID()))
             {
-                OnMapUI.Get().unitUI.SetPanelMessage($"{name} belongs to {Player().name}.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"{name} belongs to {Player().name}.");
                 return;
             }
 
             int dX = (int) GetComponent<Transform>().position.x + x;
             int dY = (int) GetComponent<Transform>().position.y + y;
-            NTerrain land = MapMgmt.Get().GetTerrain(dX, dY);
+            BTerrain land = GameMgmt.Get().map.GetTerrain(dX, dY);
 
             //check terrain
-            int cost = MapMgmt.Get().PathFinding.Cost(PlayerMgmt.ActPlayer().nation,config.movetyp,X(),Y(),dX,dY);
+            int cost = GameMgmt.Get().map.Levels[Pos().z].PathFinding().Cost(PlayerMgmt.ActPlayer(),config.movetyp,Pos(),dX,dY);
             if (cost == 0)
             {
-                OnMapUI.Get().unitUI.SetPanelMessage($"Can not move in {land.name}, because it is not passable.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because it is not passable.");
                 return;
             }
 
             //visible?
             if (!Player().fog.visible[dX, dY])
             {
-                OnMapUI.Get().unitUI.SetPanelMessage($"Can not move, the land is not explored.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move, the land is not explored.");
                 return;
             }
 
             //another unit?
             if (!UnitMgmt.Get().IsFree(dX,dY))
             {
-                OnMapUI.Get().unitUI
-                    .SetPanelMessage($"Can not move in {land.name}, because {UnitMgmt.At(dX, dY).name} standing their.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because {UnitMgmt.At(dX, dY).name} standing their.");
                 return;
             }
 
             //can walk
             if (cost > data.ap)
             {
-                OnMapUI.Get().unitUI
-                    .SetPanelMessage($"Can not move in {land.name}, because you need {cost - data.ap} more ap.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because you need {cost - data.ap} more ap.");
                 return;
             }
 
@@ -173,7 +171,7 @@ namespace Units
             {
                 OnMapUI.Get().UpdatePanelXY(dX, dY);
                 //show it
-                Player().fog.Clear(dX, dY, config.visible);
+                Player().fog.Clear(dX, dY, L.b.modifiers["view"].CalcModiNotNull(config.visible,Player(),new Vector3Int(X(),Y(),data.z)));
             };
 
             //rotate
@@ -214,7 +212,6 @@ namespace Units
         public override void Kill()
         {
             GameMgmt.Get().data.units.Remove(data);
-        
             Destroy(gameObject);
         }
 
@@ -231,11 +228,9 @@ namespace Units
         public override WindowBuilderSplit ShowInfoWindow()
         {
             WindowBuilderSplit win = base.ShowInfoWindow();
-            win.AddElement(new UnitSplitInfo(this));
-            win.AddElement(new UnitLexiconInfo(this));
-            win.AddElement(new HelpSplitElement("unit"));
-            if (Data.features.debug.Bool())
-                win.AddElement(new DebugMapElementSplitElement(this));
+            win.AddElement(new HelpSplitElement("unit"), true);
+            win.AddElement(new UnitLexiconInfo(this), true);
+            win.AddElement(new UnitSplitInfo(this), true);
             
             win.Finish();
             return win;
@@ -283,7 +278,7 @@ namespace Units
         {
             private readonly UnitInfo _unit;
         
-            public UnitLexiconInfo(UnitInfo unit) : base("Lexicon",SpriteHelper.LoadIcon("magic:lexicon"))
+            public UnitLexiconInfo(UnitInfo unit) : base("Lexicon",SpriteHelper.Load("magic:lexicon"))
             {
                 this._unit = unit;
             }

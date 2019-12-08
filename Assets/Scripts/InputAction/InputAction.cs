@@ -68,8 +68,7 @@ namespace InputAction
             //need a unit?
             if (key.active && aUnit == null)
             {
-                OnMapUI.Get().SetMenuMessage($"{key.id} needs a selected unit.");
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().unitUI.SetPanelMessageError($"{key.id} needs a selected unit.");
                 return;
             }
             
@@ -100,8 +99,7 @@ namespace InputAction
                     MoveCamera(0,+1);
                     break;
                 default:
-                    OnMapUI.Get().SetMenuMessage($"{key.id} is not a valid call.");
-                    NAudio.PlayBuzzer();
+                    OnMapUI.Get().SetMenuMessageError($"{key.id} is not a valid call.");
                     break;
             }
             
@@ -133,8 +131,7 @@ namespace InputAction
                     string mess = NLib.GetAction(action.id).ButtonRun(aUnit, aUnit.X(), aUnit.Y(), dataUnit.GetActions()[key.id]);
                     if (mess != null)
                     {
-                        OnMapUI.Get().unitUI.SetPanelMessage(mess);
-                        NAudio.PlayBuzzer();
+                        OnMapUI.Get().unitUI.SetPanelMessageError(mess);
                     }
                     return;
                 }
@@ -151,16 +148,14 @@ namespace InputAction
                     string mess = NLib.GetAction(action.id).ButtonRun(aBuilding, aBuilding.X(), aBuilding.Y(), dataUnit.GetActions()[key.id]);
                     if (mess != null)
                     {
-                        OnMapUI.Get().buildingUI.SetPanelMessage(mess);
-                        NAudio.PlayBuzzer();
+                        OnMapUI.Get().buildingUI.SetPanelMessageError(mess);
                     }
                     return;
                 }
             }
             
             //found nothing?
-            OnMapUI.Get().unitUI.SetPanelMessage($"Action {action.name} can not called, their is no unit or building, who can perform it.");
-            NAudio.PlayBuzzer();
+            OnMapUI.Get().unitUI.SetPanelMessageError($"Action {action.name} can not called, their is no unit or building, who can perform it.");
         }
 
         /// <summary>
@@ -174,8 +169,7 @@ namespace InputAction
             //check if possible to call
             if (!gameButton.CheckReq(PlayerMgmt.ActPlayer()))
             {
-                OnMapUI.Get().SetMenuMessage(ReqHelper.Desc(PlayerMgmt.ActPlayer(),gameButton.GenReq()));
-                NAudio.PlayBuzzer();
+                OnMapUI.Get().SetMenuMessageError(ReqHelper.Desc(PlayerMgmt.ActPlayer(),gameButton.GenReq()));
                 return;
             }
             
@@ -194,8 +188,7 @@ namespace InputAction
             //valid pos?
             if (!GameHelper.Valide((int)trans.position.x+x,(int)trans.position.y+y))
             {
-                NAudio.PlayBuzzer();
-                OnMapUI.Get().SetMenuMessage("The camera position is to far outside of the map.");
+                OnMapUI.Get().SetMenuMessageError("The camera position is to far outside of the map.");
                 return;
             }
         

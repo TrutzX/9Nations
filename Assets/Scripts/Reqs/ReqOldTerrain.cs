@@ -14,7 +14,7 @@ namespace reqs
             string[] terr = sett.Split(',');
             foreach (string terrain in terr)
             {
-                    if (MapMgmt.Get().GetTerrain(x, y).id == terrain)
+                    if (GameMapMgmt.Get().GetTerrain(x, y).Category == terrain)
                     {
                         return true;
                     }
@@ -36,7 +36,7 @@ namespace reqs
 
         public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
         {
-            return Desc(sett)+$" Here is {MapMgmt.Get().GetTerrain(x,y).name}";
+            return Desc(sett)+$" Here is {GameMapMgmt.Get().GetTerrain(x,y).Name}";
         }
 
         public override string Desc(string sett)

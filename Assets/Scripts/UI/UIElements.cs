@@ -23,7 +23,9 @@ public class UIElements : MonoBehaviour
     public GameObject imageLabel;
     public GameObject headerLabel;
     public GameObject panelWindow;
+    public GameObject tabWindow;
     public GameObject checkBox;
+    public GameObject panelSplit;
     public Dropdown dropdown;
     public Slider slider;
     
@@ -44,6 +46,7 @@ public class UIElements : MonoBehaviour
     {
         GameObject act = Instantiate(Get().imageButton, parent);
         act.transform.Find("Image").GetComponent<Image>().sprite = icon;
+        AddButtonSound(act, sound);
         if (action != null)
             act.GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -57,7 +60,6 @@ public class UIElements : MonoBehaviour
                 }
             }
         );
-        AddButtonSound(act, sound);
         return act;
     }
     

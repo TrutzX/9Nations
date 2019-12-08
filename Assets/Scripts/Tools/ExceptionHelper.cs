@@ -1,4 +1,6 @@
 using System;
+using Game;
+using Players;
 using UnityEngine;
 
 namespace Tools
@@ -19,9 +21,16 @@ namespace Tools
             w.panel.AddLabel(e.Message);
             w.panel.AddLabel(stack);
             w.panel.AddLabel("The error will sent automatically.");
+            
+            //add reset?
+            if (GameHelper.IsGame())
+            {
+                w.panel.AddButton("Reset round", PlayerMgmt.Get().ResetRound);
+            }
+            
             w.AddClose();
             w.Finish();
-            throw new Exception("Exception Hander",e);
+            throw new Exception("Exception Handler",e);
         }
     }
 }

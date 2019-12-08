@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Buildings;
+using Maps;
 using Players;
 using Units;
 
@@ -10,8 +11,7 @@ namespace Game
     public class GameData
     {
         public int round;
-        public string mapfile;
-        public int mapwidth, mapheight;
+        public GameMapData map;
 
         public PlayerMgmt players;
 
@@ -21,5 +21,8 @@ namespace Game
         public List<BuildingUnitData> buildings;
 
         public Dictionary<string, string> features;
+
+        
+        
     }
 }

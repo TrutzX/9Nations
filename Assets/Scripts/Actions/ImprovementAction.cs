@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Buildings;
+using DataTypes;
+using Game;
+using Libraries;
+using Players;
+using reqs;
+using UI;
+using Units;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Actions
+{
+    public class ImprovementAction : BaseAction
+    {
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
+        {
+            string[] i = settings.Split(';');
+            
+            //set improvement
+            L.b.improvements.Set(i[0],gameObject.Pos());
+            
+            //kill?
+            if (i.Length >= 2 && i[1] == "kill")
+            {
+                gameObject.Kill();
+            }
+        }
+
+        protected override void ButtonAction(Player player, string settings)
+        {
+            Debug.LogWarning("Not implemented");
+        }
+        
+    }
+
+}

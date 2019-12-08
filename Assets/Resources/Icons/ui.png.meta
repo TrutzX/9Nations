@@ -52,7 +52,7 @@ TextureImporter:
     second: ui_15
   - first:
       213: 4874896633046561287
-    second: ui_16
+    second: search
   - first:
       213: -7787622976490332879
     second: tutorial
@@ -94,7 +94,7 @@ TextureImporter:
     second: ui_29
   - first:
       213: -8761496183629611704
-    second: ui_30
+    second: exit
   - first:
       213: 7285970225754692813
     second: ui_31
@@ -349,7 +349,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -360,7 +360,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -371,6 +372,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -711,7 +713,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_16
+      name: search
       rect:
         serializedVersion: 2
         x: 0
@@ -1005,7 +1007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_30
+      name: exit
       rect:
         serializedVersion: 2
         x: 448

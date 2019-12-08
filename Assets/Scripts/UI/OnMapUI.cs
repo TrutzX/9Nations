@@ -38,7 +38,15 @@ namespace UI
 
         public void SetMenuMessage(string text)
         {
+            topButtonText.color = Color.white;
             topButtonText.text = text;
+        }
+        
+        public void SetMenuMessageError(string text)
+        {
+            topButtonText.color = Color.magenta;
+            topButtonText.text = text;
+            NAudio.PlayBuzzer();
         }
 
         public void UpdatePanelXY(int x, int y)
@@ -62,11 +70,11 @@ namespace UI
 
         public void UpdatePanelOnMouse()
         {
-            Vector2 p = MapMgmt.GetMouseMapXY();
+            Vector2 p = GameMapMgmt.GetMouseMapXY();
             int x = (int) p.x;
             int y = (int) p.y;
 
-            if (!MapMgmt.Valide(x,y))
+            if (!GameMapMgmt.Valide(x,y))
             {
                 NAudio.PlayBuzzer();
                 return;

@@ -7,11 +7,11 @@ namespace Help
     {
         private DataTypes.Help help;
         
-        public HelpSplitElement(string help) : base("Help", SpriteHelper.LoadIcon("magic:lexicon"))
+        public HelpSplitElement(string help) : base("Help", SpriteHelper.Load("magic:lexicon"))
         {
             this.help = Data.help[help];
         }
-        public HelpSplitElement(DataTypes.Help help) : base(help.name, SpriteHelper.LoadIcon(help.icon))
+        public HelpSplitElement(DataTypes.Help help) : base(help.name, SpriteHelper.Load(help.icon))
         {
             this.help = help;
         }

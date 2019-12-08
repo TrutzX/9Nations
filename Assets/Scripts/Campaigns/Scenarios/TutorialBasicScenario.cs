@@ -1,5 +1,6 @@
 using DataTypes;
 using Game;
+using Libraries;
 using Maps;
 using Players;
 using Players.Quests;
@@ -17,7 +18,7 @@ namespace Campaigns.Scenarios
             
             //add player
             int pid = PlayerMgmt.Get().CreatePlayer("user", "north");
-            UnitMgmt.Get().Create(pid,Data.nation.north.leader, 16,10);
+            UnitMgmt.Get().Create(pid,L.b.nations["north"].Leader, 16,10);
             Player p = PlayerMgmt.Get(pid);
             
             //win
