@@ -68,7 +68,7 @@ namespace InputAction
             //need a unit?
             if (key.active && aUnit == null)
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"{key.id} needs a selected unit.");
+                OnMapUI.Get().SetMenuMessageError($"{key.id} needs a selected unit.");
                 return;
             }
             
@@ -97,6 +97,12 @@ namespace InputAction
                     break;
                 case "moveCameraNorth":
                     MoveCamera(0,+1);
+                    break;
+                case "zoomCameraIn":
+                    ZoomCamera(-1);
+                    break;
+                case "zoomCameraOut":
+                    ZoomCamera(1);
                     break;
                 default:
                     OnMapUI.Get().SetMenuMessageError($"{key.id} is not a valid call.");
@@ -193,6 +199,27 @@ namespace InputAction
             }
         
             CameraMove.Get().MoveBy(x, y);
+        }
+
+        void ZoomCamera(float zoom)
+        {
+            //valide?
+            if (Camera.main.orthographicSize + zoom < 1)
+            {
+                OnMapUI.Get().SetMenuMessageError("The camera zoom is to minimal");
+                Camera.main.orthographicSize = 1;
+                return;
+            }
+            
+            //valide?
+            if (Camera.main.orthographicSize + zoom > 20)
+            {
+                OnMapUI.Get().SetMenuMessageError("The camera zoom is to maximal");
+                Camera.main.orthographicSize = 20;
+                return;
+            }
+
+            Camera.main.orthographicSize += zoom;
         }
     }
 }

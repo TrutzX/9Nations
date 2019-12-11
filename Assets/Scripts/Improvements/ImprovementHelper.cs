@@ -15,10 +15,10 @@ namespace Improvements
             if (east && south && west) return 8;
             
             //two rounds
-            if (north && east) return 5;
+            if (north && east) return 4;
             if (east && south) return 0;
-            if (south && west) return 4;
-            if (west && north) return 1;
+            if (south && west) return 1;
+            if (west && north) return 5;
             
             //two gerade
             if (north && south) return 15;

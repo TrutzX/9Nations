@@ -1237,6 +1237,9 @@
             <e p="files.txt" t="Include" />
           </e>
           <e p="Maps" t="Include">
+            <e p="debug" t="Include">
+              <e p="map.txt" t="Include" />
+            </e>
             <e p="field6" t="Include">
               <e p="map.txt" t="Include" />
             </e>

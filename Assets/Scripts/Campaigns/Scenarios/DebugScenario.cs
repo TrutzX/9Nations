@@ -12,7 +12,8 @@ namespace Campaigns.Scenarios
         public void Run()
         {
             int pid = PlayerMgmt.Get().CreatePlayer("userx", "north");
-            UnitMgmt.Get().Create(pid,"nking", 6,4).data.ap = 50;
+            /*
+            
             UnitMgmt.Get().Create(pid,"nsoldier", GameMgmt.Get().map.GetStartPos("north"));
             UnitMgmt.Get().Create(pid,"nworker", GameMgmt.Get().map.GetStartPos("north"));
             int tid = TownMgmt.Get().Create(NGenTown.GetTownName("north"), pid, 6, 6);
@@ -45,7 +46,9 @@ namespace Campaigns.Scenarios
             BuildingMgmt.Get().Create(tid, "nwall",12, 10);
             
             L.b.improvements.Set("way",new Vector3Int(6,5,0));
-            L.b.improvements.Set("way",new Vector3Int(6,6,0));
+            L.b.improvements.Set("way",new Vector3Int(6,6,0));*/
+            
+            UnitMgmt.Get().Create(pid,"nking", 13,10);//.data.ap = 50;
         }
     }
 }

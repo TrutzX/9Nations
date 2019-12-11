@@ -60,6 +60,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Modifiers/TerrainModifierCalc.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SpriteHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExitButtonDestroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Readers/ES3Reader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ClickableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WindowBuilderSplit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WindowsMgmt.cs" root0="FORCE_HIGHLIGHTING" />
@@ -222,10 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/Map.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Help/HelpSplitTab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Help/HelpHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Show/Tab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Show/SplitElementTab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Help/LexiconSplitTab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/IRead.cs" />
@@ -246,33 +243,37 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Players/PlayerMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/Tilemap/TileMapConfig16.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/Tilemaps/TileMapConfig16.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/RoundMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Players/PlayerFog.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Actions/ActiveAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMap/GameMapDataLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMap/GameMapData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMap/GameMapLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/MapPathFinding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Actions/MoveAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Improvements/ImprovementMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/MapMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/NMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Improvements/Improvement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Modifiers/ModifierMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Nations/NationMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Nations/Nation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LoadSave/LoadSaveMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/L.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Modifiers/Modifier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMapMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Terrains/BTerrain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Terrains/TerrainMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maps/TileMaps/TileMapConfig16.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqOldTerrain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqOldTerrainNear.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InputAction/InputAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMap/GameMapDataLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Campaigns/Scenarios/DebugScenario.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMap/GameMapLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Improvements/ImprovementHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoadSave/SaveWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/RoundMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoadSave/LoadSaveMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/MapMgmt.cs" />
       </list>
     </option>
   </component>
@@ -423,7 +424,8 @@
       <workItem from="1575216401017" duration="6042000" />
       <workItem from="1575560951118" duration="5840000" />
       <workItem from="1575758614040" duration="3627000" />
-      <workItem from="1575829036655" duration="3740000" />
+      <workItem from="1575829036655" duration="4167000" />
+      <workItem from="1576089913620" duration="3920000" />
     </task>
     <servers />
   </component>

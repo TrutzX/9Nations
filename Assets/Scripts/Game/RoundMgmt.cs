@@ -76,7 +76,7 @@ public class RoundMgmt : ScriptableObject
         if (Data.features.autosave.Bool())
         {
             yield return GameMgmt.Get().load.ShowSubMessage($"Save auto save");
-            LoadSaveMgmt.UpdateSave("autosave.9n");
+            LoadSaveMgmt.UpdateSave("autosave.9n","Auto save");
         }
         
     }

@@ -13,15 +13,16 @@ namespace LoadSave
     {
         public static LoadSaveInfo CreateNewSave()
         {
-            return UpdateSave(GetNextFreeFile());
+            //todo add name dynm
+            return UpdateSave(GetNextFreeFile(),"Endless game");
         }
 
-        public static LoadSaveInfo UpdateSave(string file)
+        public static LoadSaveInfo UpdateSave(string file, string name)
         {
             //Collect infos
             LoadSaveInfo s = new LoadSaveInfo();
             s.date = DateTime.Now;
-            s.name = "Endless game"; //TODO
+            s.name = name;
             s.round = RoundMgmt.Get().GetRoundString();
             s.version = Application.version;
             s.file = file;
@@ -54,6 +55,8 @@ namespace LoadSave
                 id++;
             }
 
+            Debug.Log(String.Join(" ", saves));
+            
             return saves;
         }
 

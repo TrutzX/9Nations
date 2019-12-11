@@ -95,7 +95,7 @@ namespace Maps.GameMap
 
         public void NextRound()
         {
-            bool winter = GameMgmt.Get().round.Round%2==0; //= GameMgmt.Get().round.IsSeason(GameMgmt.Get().round.season[1]);
+            bool winter = GameMgmt.Get().round.IsSeason(GameMgmt.Get().round.season[3]);
             //is no change
             if (map.IsWinter == winter)
             {

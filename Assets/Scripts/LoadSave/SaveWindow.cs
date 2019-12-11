@@ -39,7 +39,8 @@ namespace LoadSave
 
             public override void Perform()
             {
-                info = LoadSaveMgmt.UpdateSave(info.file);
+                //TODO dynm add name
+                info = LoadSaveMgmt.UpdateSave(info.file,"Endless game");
             }
         }
     }

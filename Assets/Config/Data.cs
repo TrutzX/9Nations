@@ -68,7 +68,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetRess: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,44);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,56);
 		public readonly string[] labels = new string[]{"id","name","sound","icon","int market","float storage","int rechangeatdestroy"};
 		private Ress[] _rows = new Ress[37];
 		public void Init() {
@@ -227,7 +227,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeatures: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,44);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,57);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private Features[] _rows = new Features[7];
 		public void Init() {
@@ -326,7 +326,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeaturePlayer: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,45);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,58);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private FeaturePlayer[] _rows = new FeaturePlayer[2];
 		public void Init() {
@@ -417,7 +417,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetGameButton: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,46);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,58);
 		public readonly string[] labels = new string[]{"id","name","icon","location","sound","req1","req2"};
 		private GameButton[] _rows = new GameButton[19];
 		public void Init() {
@@ -436,7 +436,7 @@ namespace DataTypes{
 					new GameButton("title","To Title menu","logo","game","click","",""),
 					new GameButton("kingdom","Kingdom Overview","Icons/ui:search","top","click","townMin:1",""),
 					new GameButton("nextUnit","Show next Unit","other:nextUnit","bottom","click","",""),
-					new GameButton("mod","Mods","Icons/ui:mod","more","click","",""),
+					new GameButton("mod","Mods","Icons/base:mod","more","click","",""),
 					new GameButton("back","Back","logo","more","click","",""),
 					new GameButton("mainmenu","Main menu","logo","top","click","",""),
 					new GameButton("more","More","option","title","click","",""),
@@ -538,7 +538,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetInputKey: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,46);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,59);
 		public readonly string[] labels = new string[]{"id","key","type","hidden","active"};
 		private InputKey[] _rows = new InputKey[33];
 		public void Init() {
@@ -571,8 +571,8 @@ namespace DataTypes{
 					new InputKey("moveCameraSouth","S","hidden",false,false),
 					new InputKey("moveCameraWest","D","hidden",false,false),
 					new InputKey("moveCameraNorth","W","hidden",false,false),
-					new InputKey("zoomCameraIn","E","hidden",true,false),
-					new InputKey("zoomCameraOut","Q","hidden",true,false),
+					new InputKey("zoomCameraIn","E","hidden",false,false),
+					new InputKey("zoomCameraOut","Q","hidden",false,false),
 					new InputKey("moveLayerTop","R","hidden",true,false),
 					new InputKey("moveLayerDown","F","hidden",true,false),
 					new InputKey("minimap","M","hidden",true,false)
@@ -713,7 +713,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetResearch: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,47);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,23,59);
 		public readonly string[] labels = new string[]{"id","name","icon","req-townlevel","req-nation","req3","research1","research2","research3","research4","research5","research6","research7","research8","research9","action1","action2","action3"};
 		private Research[] _rows = new Research[62];
 		public void Init() {
@@ -916,7 +916,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetElement: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,47);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,0);
 		public readonly string[] labels = new string[]{"id","name","icon"};
 		private Element[] _rows = new Element[9];
 		public void Init() {
@@ -1031,7 +1031,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetNAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,48);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,1);
 		public readonly string[] labels = new string[]{"id","name","desc","cost","icon","activeMapElement","req1","req2","useUnderConstruction","onlyOwner","sound","persistent"};
 		private NAction[] _rows = new NAction[18];
 		public void Init() {
@@ -1238,7 +1238,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetUnit: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,49);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,1);
 		public readonly string[] labels = new string[]{"id","name","file","cat","movetyp","atk","def","dam_min","dam_max","hp","ap","visible","buildtime","req-build-townlevel","req-build-nation","req-build1","req-build2","req-build3","cost1","cost2","cost3","cost4","cost5","cost6","cost7","req-produce1","req-produce2","req-produce3","produce1","produce2","produce3","research","action1","action2","action3","action4","action5","mapaction1","mapaction2","embark","act-produce","aproduce","gift","build","foundTown","req-date","actionTerrainRemove-forest","actionTerrainAdd-grass","action-alchemyA"};
 		private Unit[] _rows = new Unit[27];
 		public void Init() {
@@ -1377,7 +1377,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetCampaign: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,50);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,2);
 		public readonly string[] labels = new string[]{"id","name","icon","desc","progress","hidden"};
 		private Campaign[] _rows = new Campaign[2];
 		public void Init() {
@@ -1468,14 +1468,14 @@ namespace DataTypes{
 		}
 	}
 	public class SheetScenario: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,50);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,3);
 		public readonly string[] labels = new string[]{"id","name","icon","desc","campaign","hidden","map"};
 		private Scenario[] _rows = new Scenario[4];
 		public void Init() {
 			_rows = new Scenario[]{
 					new Scenario("tutorialbasic","Basics","ui:tutorial","You learn to move your units, found a town and build some buildings.","tutorial",false,"field6"),
 					new Scenario("single","Single Scenarios","magic:single","Please different single scenarios.","single",false,"field6"),
-					new Scenario("debug","","","","",true,"field6"),
+					new Scenario("debug","","","","",true,"debug"),
 					new Scenario("endless","","","","",true,"")
 				};
 		}
@@ -1569,7 +1569,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetMapAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,51);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,3);
 		public readonly string[] labels = new string[]{"id","name","desc","ap","icon","reqNonSelf1","reqNonSelf2","reqSelf1","reqSelf2","sound"};
 		private MapAction[] _rows = new MapAction[3];
 		public void Init() {
@@ -1670,7 +1670,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetNTerrain: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,51);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,4);
 		public readonly string[] labels = new string[]{"id","name","desc","sound","icon","walk","fly","swim","buildtime","visible","tileid"};
 		private NTerrain[] _rows = new NTerrain[18];
 		public void Init() {
@@ -1903,20 +1903,20 @@ namespace DataTypes{
 		}
 	}
 	public class SheetBuilding: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,52);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,5);
 		public readonly string[] labels = new string[]{"id","name","file","width","height","req-build-townlevel","req-build-nation","req-build1","req-build2","req-build3","req-build4","cat","atk","def","connected","hp","ap","visible","buildtime","cost1","cost2","cost3","cost4","cost5","cost6","req-produce1","req-produce2","req-produce3","req-produce4","req-produce5","produce1","produce2","produce3","produce4","produce5","action1","action2","action3","action4","action5","produceonce1","produceonce2","produceonce3","produceonce4","produceonce5","produceonce6","actiononce1","actiononce2","action-alchemyP","action-destroyTown","action-sendRess","req-scenconf","req-terrain","req-max","req-min","passiveAction-upgradeRangeLimit","passiveAction-upgradeBuildingLimit","passiveAction-storage","passiveAction-upgradeTownLimit","passPublic-walk","passOwner-walk","passOwner-swim"};
 		private Building[] _rows = new Building[55];
 		public void Init() {
 			_rows = new Building[]{
-					new Building("nlogger2","Bigger logger","north-way:nlogger2",1,1,2,"north","terrain:forest","field:building,nlogger","research:nlogger2","","prod",0,0,"",20,5,2,5,"wood:10","stone:4","","worker:2","tool:2","","","","","","","wood:6","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nlogger2","Bigger logger","north-way:nlogger2",1,1,2,"north","terrain:forest","field:building,nlogger","research:nlogger2","","prod",0,0,"",20,5,2,5,"wood:10","stone:4","","worker:2","tool:2","","","","","","","wood:6","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nlogger","Logger","north-castle:nlogger",1,1,1,"north","terrain:forest","","","","prod",0,0,"",5,5,1,2,"wood:2","stone:","","worker:1","","","","","","","","wood:2","","","","","destroy","buildUpgrade:nlogger2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
-					new Building("nquarry2","Bigger quarry","north-castle:nquarry2",1,1,3,"north","terrain:hill,mountain","field:building,nquarry","research:nquarry2","","prod",0,0,"",30,5,2,7,"wood:9","stone:6","plank:2","worker:2","tool:2","","","","","","","stone:9","","","","","","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
+					new Building("nquarry2","Bigger quarry","north-castle:nquarry2",1,1,3,"north","terrain:hill,mountain","field:building,nquarry","research:nquarry2","","prod",0,0,"",30,5,2,7,"wood:9","stone:6","plank:2","worker:2","tool:2","","","","","","","stone:9","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nquarry","Quarry","north-castle:nquarry",1,1,1,"north","terrain:hill,mountain","","","","prod",0,0,"",10,5,1,2,"wood:3","","","worker:1","tool:1","","","","","","","stone:3","","","","","destroy","buildUpgrade:nquarry2","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nhunter","Hunter","north-farm:nhunter",1,1,1,"north","terrain:forest,grass","","","","food",0,0,"",5,5,1,3,"wood:4","stone:1","","worker:1","tool:1","","","","","","","food:3","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nfisher","Fisher","north-farm:nfisher",1,1,1,"north","terrainNear:water","","","","food",0,0,"",5,5,1,4,"wood:2","stone:2","","worker:1","tool:1","","","","","","","food:4","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
-					new Building("ntownhall4","Bigger town hall","north-way:ntownhall4",2,1,3,"north","field:building,ntownhall3","","research:ntownhall4","","needs",0,0,"",100,5,5,10,"","","plank:8","brick:15","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","","","","culture:10","","","","","","townlevel","","",1,1,"","","","",5,70,300,2,0,0,0),
-					new Building("ntownhall3","Town hall","north-way:ntownhall3",1,1,2,"north","field:building,ntownhall2","","research:ntownhall3","","needs",0,0,"",50,5,4,7,"wood:4","stone:24","plank:4","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","buildUpgrade:ntownhall4","","","","","","","","","townlevel","","",1,1,"","","","",5,45,200,1,0,0,0),
-					new Building("ntownhall2","Bigger village hall","north-tower:ntownhall2",1,1,1,"north","field:building,ntownhall","","research:ntownhall2","","needs",0,0,"",25,5,3,4,"wood:4","stone:6","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall3","trade:buy,tools","","","","","","","","townlevel","","",1,0,"","","","",5,25,200,0,0,0,0),
+					new Building("ntownhall4","Bigger town hall","north-way:ntownhall4",2,1,3,"north","field:building,ntownhall3","","research:ntownhall4","","needs",0,0,"",100,20,5,10,"","","plank:8","brick:15","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","","","","culture:10","","","","","","townlevel","","",1,1,"","","","",5,70,300,2,0,0,0),
+					new Building("ntownhall3","Town hall","north-way:ntownhall3",1,1,2,"north","field:building,ntownhall2","","research:ntownhall3","","needs",0,0,"",50,15,4,7,"wood:4","stone:24","plank:4","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer,nsettler","buildUpgrade:ntownhall4","","","","","","","","","townlevel","","",1,1,"","","","",5,45,200,1,0,0,0),
+					new Building("ntownhall2","Bigger village hall","north-tower:ntownhall2",1,1,1,"north","field:building,ntownhall","","research:ntownhall2","","needs",0,0,"",25,10,3,4,"wood:4","stone:6","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall3","trade:buy,tools","","","","","","","","townlevel","","",1,0,"","","","",5,25,200,0,0,0,0),
 					new Building("ntownhall","Village hall","north-tower:ntownhall",1,1,1,"north","","building:<0,ntownhall","research:ntownhall","","needs",0,0,"",10,5,2,1,"","","","","","","","","","","","gold:1","","","","","","train:nworker,nexplorer","buildUpgrade:ntownhall2","trade:buy,tools","","food:20","stone:8","wood:15","tool:10","worker:6","workermax:6","","","",1,0,"","","","",0,10,300,0,0,0,0),
 					new Building("nsawmill","Sawmill","north-more:nsawmill",1,1,2,"north","terrainNear:water","","research:nsawmill","","prod",0,0,"",20,5,1,5,"wood:20","stone:10","","worker:1","tool:3","","daytime:not-night","resMin:wood,2","","","","wood:-2","plank:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nmarket","Market","addon:nmarket",1,1,2,"north","townNear","","research:nmarket","","needs",0,0,"",20,5,1,7,"wood:24","stone:6","","worker:1","gold:3","","","","","","","gold:1","","","","","destroy","","","trade","","culture:10","","","","","","","","",0,1,"","","2-nmarket-false","",0,0,0,0,0,0,0),
@@ -1929,7 +1929,7 @@ namespace DataTypes{
 					new Building("nwalltower","Wall tower","wallTower:wallTower_14",1,1,4,"north","","","research:nwall","","war",10,2,"wall",110,5,3,9,"","stone:5","plank:1","brick:3","tool:1","worker:1","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("nwallgate","wall gate","wallGate:wallGate_14",1,1,3,"north","","","research:nwall","","war",0,2,"wall",40,5,1,6,"","stone:2","plank:2","","","","","","","","","","","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("ndockyard","Dockyard","addon:dock",1,1,3,"north","terrainNear:water","","research:ndockyard","","explo",0,0,"",30,5,1,7,"worker:2","stone:6","plank:3","brick:1","tool:2","","","","","","","","","","","","destroy","train:nship","","trade","","","","","","","safety:10","","","",0,1,"","","","",0,0,0,0,0,0,5),
-					new Building("nstreet2","Street","way:street",1,1,3,"north","","","research:nstreet2","","explo",0,0,"",30,5,1,7,"","stone:5","","brick:1","gold:2","","","","","","","","","","","","","","","","","","","","","","","improvement:street;kill","","",0,0,"","","","",0,1,0,0,0,0,0),
+					new Building("nstreet2","Street","way:street",1,1,3,"north","","","research:nstreet2","","explo",0,0,"",30,5,1,7,"","stone:5","","brick:1","gold:2","","","","","","","","","","","","destroy","","","","","","","","","","","improvement:street;kill","","",0,0,"","","","",0,1,0,0,0,0,0),
 					new Building("nstreet","Way","way:way",1,1,2,"north","","","research:nstreet","","explo",0,0,"",20,5,1,4,"wood:3","","","","gold:1","","","","","","","","","","","","destroy","buildUpgrade:nstreet2","","","","","","","","","","improvement:way;kill","","",0,0,"","","","",0,1,0,0,0,0,0),
 					new Building("nbrickfactory","Brick factory","788",0,0,3,"north","townNear","","research:nbrickfactory","","prod",0,0,"",30,5,1,7,"worker:2","stone:36","plank:4","","tool:3","","daytime:not-night","resMin:stone,2","","","","stone:-2","brick:1","","","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
 					new Building("narmoury","Armoury","1210",0,0,3,"north","townNear","","research:narmoury","disabled","war",0,0,"",30,5,1,7,"worker:3","stone:13","plank:9","brick:7","tool:4","","daytime:not-night","resMin:wood,3","resMin:tool,1","resMin:ore,2","","wood:-3","tool:-1","ore:-2","weapon:1","","destroy","","","","","","","","","","","","","",0,0,"","","","",0,0,0,0,0,0,0),
@@ -2090,7 +2090,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetIcons: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,53);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,6);
 		public readonly string[] labels = new string[]{"id","file"};
 		private Icons[] _rows = new Icons[9];
 		public void Init() {
@@ -2189,7 +2189,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetHelp: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2019,12,5,16,15,53);
+		public System.DateTime updated = new System.DateTime(2019,12,11,20,24,7);
 		public readonly string[] labels = new string[]{"Units are, besides buildings, essential to the game. When clicked, they can be moved with the arrow keys, which costs action points (AP). You can also perform various actions, which costs AP. At the end of each round, the AP will be refilled.","name","icon","text"};
 		private Help[] _rows = new Help[10];
 		public void Init() {

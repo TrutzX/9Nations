@@ -28,15 +28,16 @@ namespace Maps
 
         public void AddLayer(int [][] data)
         {
+            int height = data.Length;
             int[,] d = new int[data[0].Length,data.Length];
-            int[,] w = new int[data[0].Length,data.Length];
-            for (int y = 0; y < data.Length; y++)
+            int[,] w = new int[data[0].Length,height];
+            for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < data[0].Length; x++)
                 {
-                    d[x, y] = data[y][x];
+                    d[x, height-1-y] = data[y][x];
                     string b = data[y][x]==-1?null:L.b.terrain.Terrain(data[y][x]).Winter;
-                    w[x, y] = string.IsNullOrEmpty(b)?data[y][x]:L.b.terrain[b].DefaultTile;
+                    w[x, height-1-y] = string.IsNullOrEmpty(b)?data[y][x]:L.b.terrain[b].DefaultTile;
                 }
             }
             

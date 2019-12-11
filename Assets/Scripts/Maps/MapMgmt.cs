@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 using Libraries;
-using UnityEngine;
-using UnityEngine.WSA;
 
 namespace Maps
 {
