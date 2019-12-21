@@ -83,7 +83,6 @@ namespace UI
             {
                 AddSplitButton(ele);
             }
-            
         }
 
         private void ClickButton(SplitElement ele)

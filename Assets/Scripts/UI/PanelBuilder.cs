@@ -93,6 +93,16 @@ public class PanelBuilder : MonoBehaviour
         return UIElements.CreateImageLabel(panel.transform, title, icon);
     }
 
+    public Image AddImage(Sprite icon)
+    {
+        Image act = Instantiate(UIElements.Get().panelImage, panel.transform).GetComponent<Image>();
+        act.sprite = icon;
+        //TODO dyn 300
+        int h = (int) (300.0 / icon.texture.width * icon.texture.height);
+        act.GetComponent<RectTransform>().sizeDelta = new Vector2(0,h);
+        return act;
+    }
+
     public GameObject AddButton(string title, Action action, string sound = "click")
     {
         GameObject g = UIHelper.CreateButton(title,panel.transform,action);
@@ -243,7 +253,7 @@ public class PanelBuilder : MonoBehaviour
     {
         //addHeader
         if (reqs.Count > 0)
-        AddHeaderLabel(title);
+            AddHeaderLabel(title);
         
         //add req
         foreach (KeyValuePair<string, string> req in reqs)

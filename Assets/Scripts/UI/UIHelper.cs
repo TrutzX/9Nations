@@ -51,13 +51,26 @@ public class UIHelper : ScriptableObject
     {
         return CreateButton(UIElements.Get().button, title,parent,action);
     }
-
+    
+    [Obsolete("Please use UpdateButtonText with Button.")]
     public static void UpdateButtonText(GameObject button, string title)
     {
         button.transform.GetChild(0).GetComponent<Text>().text = title;
     }
     
+    public static void UpdateButtonText(Button button, string title)
+    {
+        button.transform.GetChild(0).GetComponent<Text>().text = title;
+    }
+    
+    [Obsolete("Please use UpdateButtonImage with Button.")]
     public static void UpdateButtonImage(GameObject button, Sprite sprite)
+    {
+        Debug.LogWarning(sprite);
+        Debug.LogWarning(button.transform.GetComponentInChildren<Image>());
+        button.transform.GetComponentInChildren<Image>().sprite = sprite;
+    }
+    public static void UpdateButtonImage(Button button, Sprite sprite)
     {
         Debug.LogWarning(sprite);
         Debug.LogWarning(button.transform.GetComponentInChildren<Image>());

@@ -5,7 +5,9 @@ using IniParser;
 using IniParser.Model;
 using IniParser.Parser;
 using Libraries;
+using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Maps
 {
@@ -27,7 +29,7 @@ namespace Maps
         {
             IniDataParser i = new IniDataParser();
             //intern?
-            if (Folder.StartsWith("!"))
+            if (Intern())
             {
                 TextAsset t = Resources.Load<TextAsset>(Folder.Substring(1) + "/map");
                 return i.Parse(t.text);
@@ -37,26 +39,56 @@ namespace Maps
         }
         public int[][] Layer(string format,int id)
         {
-            if (Folder.StartsWith("!"))
+            if (Intern())
             {
-                TextAsset t = Resources.Load<TextAsset>(Folder.Substring(1) + Path.DirectorySeparatorChar+format+id);
+                TextAsset t = Resources.Load<TextAsset>(Dir()+format+id);
                 return CSV.Convert(CSV.Read(t.text));
             }
             
-            DirectoryInfo dir = new FileInfo(Folder).Directory;
-            Debug.Log(dir.FullName+ Path.DirectorySeparatorChar+format+id+".csv");
+            return CSV.Convert(CSV.Read(File.ReadAllText(Dir()+format+id+".csv")));
+        }
+
+        private bool Intern()
+        {
+            return Folder.StartsWith("!");
+        }
+        
+        private string Dir()
+        {
+            if (Intern())
+            {
+                return Folder.Substring(1) + Path.DirectorySeparatorChar;
+            }
             
-            return CSV.Convert(CSV.Read(File.ReadAllText(dir.FullName + Path.DirectorySeparatorChar+format+id+".csv")));
+            DirectoryInfo dir = new FileInfo(Folder).Directory;
+            return dir.FullName + Path.DirectorySeparatorChar;
         }
         
         public override void ShowDetail(PanelBuilder panel)
         {
             base.ShowDetail(panel);
+
             panel.AddSubLabel("Author",Author);
             if (!string.IsNullOrEmpty(Width) && !string.IsNullOrEmpty(Height))
                 panel.AddLabel($"Size: {Width}x{Height}");
             if (Data.features.debug.Bool())
                 panel.AddLabel("Folder: " + Folder);
+            
+            
+            if (Intern())
+            {
+                panel.AddHeaderLabel("Overview");
+                panel.AddImage(Resources.Load<Sprite>(Folder.Substring(1) + "/" + Id));
+            }
+            else
+            {
+                FileInfo img = new FileInfo(Dir() + Id + ".png");
+                if (img.Exists)
+                {
+                    panel.AddHeaderLabel("Overview");
+                    panel.AddImage(SpriteHelper.LoadExternalSprite(img.FullName));
+                }
+            }
         }
     }
 }

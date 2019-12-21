@@ -28,6 +28,7 @@ public class UIElements : MonoBehaviour
     public GameObject panelSplit;
     public Dropdown dropdown;
     public Slider slider;
+    public Image panelImage;
     
 
     public static UIElements Get()
@@ -74,7 +75,7 @@ public class UIElements : MonoBehaviour
     
     public static GameObject CreateImageLabel(Transform parent, string title, string icon)
     {
-        return CreateImageLabel(parent, title, SpriteHelper.LoadIcon(icon));
+        return CreateImageLabel(parent, title, SpriteHelper.Load(icon));
     }
     
     public static GameObject CreateHeaderLabel(Transform parent, string title)

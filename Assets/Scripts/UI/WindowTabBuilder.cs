@@ -4,8 +4,15 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class WindowTabBuilder : MonoBehaviour
+    public class WindowTabBuilder : MonoBehaviour, IWindow
     {
+        private List<Tab> _tabs;
+        private string title;
+
+        public Text header;
+        public GameObject content;
+        public GameObject tabList;
+        
         /// <summary>
         /// Use the create method
         /// </summary>
@@ -18,13 +25,7 @@ namespace UI
         
             return act.GetComponent<WindowTabBuilder>();
         }
-        
-        private List<Tab> _tabs;
-        private string title;
 
-        public Text header;
-        public GameObject content;
-        public GameObject tabList;
         
         public void Init(string title)
         {
@@ -36,6 +37,7 @@ namespace UI
         public void Add(Tab tab)
         {
             _tabs.Add(tab);
+            tab.window = this;
         }
 
         public void Finish()
@@ -55,11 +57,21 @@ namespace UI
             gameObject.SetActive(true);
         }
 
-        private void ShowTab(Tab t)
+        public void CloseWindow()
+        {
+            Destroy(gameObject);
+        }
+
+        public void ShowTab(Tab t)
         {
             header.text = $"{title} | {t.Name()}";
             UIHelper.ClearChild(content);
             t.Show(content.transform);
+        }
+
+        public void ShowTab(int t)
+        {
+            ShowTab(_tabs[t]);
         }
     }
 }

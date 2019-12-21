@@ -86,7 +86,7 @@ public class NLib : ScriptableObject
         
         self.ScenarioRuns = new Dictionary<string, IScenarioRun>();
         self.ScenarioRuns.Add("debug",new DebugScenario());
-        self.ScenarioRuns.Add("endless",new EndlessGame());
+        self.ScenarioRuns.Add("endless",new EndlessGameScenario());
         self.ScenarioRuns.Add("tutorialbasic",new TutorialBasicScenario());
     }
 

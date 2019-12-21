@@ -5,7 +5,7 @@ namespace Help
 {
     public class LexiconSplitTab<T> : SplitElementTab where T : BaseData
     {
-        public LexiconSplitTab(BaseMgmt<T> mgmt) : base(mgmt.Name(), mgmt.Name())
+        public LexiconSplitTab(BaseMgmt<T> mgmt) : base(mgmt.Name(), mgmt.Sprite())
         {
             foreach (string key in mgmt.Keys())
             {

@@ -10,6 +10,7 @@ namespace UI
         public Sprite icon;
         public GameObject button;
         public WindowBuilderSplit window;
+        public Tab tab;
         
         /// <summary>
         /// content = error message to display
@@ -25,7 +26,7 @@ namespace UI
             audioPerform = "click";
         }
             
-        protected SplitElement(string title, string icon) : this (title, SpriteHelper.LoadIcon(icon)){}
+        protected SplitElement(string title, string icon) : this (title, SpriteHelper.Load(icon)){}
 
         public abstract void ShowDetail(PanelBuilder panel);
 

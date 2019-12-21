@@ -3,7 +3,7 @@
  <editorsettings>
   <export target="../../../../Desktop/field6mono.csv" format="csv"/>
  </editorsettings>
- <tileset firstgid="1" source="palette.tsx"/>
+ <tileset firstgid="1" source="../palette.tsx"/>
  <layer id="1" name="0" width="30" height="25">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,33,1,1,1,1,1,1,1,1,1,1,1,1,1,

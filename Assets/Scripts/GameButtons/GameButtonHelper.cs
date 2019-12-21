@@ -62,7 +62,8 @@ namespace UI
                     Application.Quit();
                     return;
                 case "endless":
-                    EndlessGameWindow.Get().Show();
+                    //EndlessGameWindow.Get().Show();
+                    EndlessGameBuilder.Show();
                     return;
                 case "kingdom":
                     KingdomOverview.ShowHelpWindow();

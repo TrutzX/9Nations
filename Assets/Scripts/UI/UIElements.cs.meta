@@ -3,7 +3,27 @@ guid: 4d62e09b73bf94bc69b69ec7c257f1c9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - button: {instanceID: 0}
+  - imageTextButton: {instanceID: 0}
+  - label: {instanceID: 0}
+  - panelLabel: {instanceID: 0}
+  - panelLabelDesc: {instanceID: 0}
+  - richlabel: {instanceID: 0}
+  - input: {instanceID: 0}
+  - window: {instanceID: 0}
+  - splitWindow: {instanceID: 0}
+  - imageButton: {instanceID: 0}
+  - panelBuilder: {instanceID: 0}
+  - imageLabel: {instanceID: 0}
+  - headerLabel: {instanceID: 0}
+  - panelWindow: {instanceID: 0}
+  - tabWindow: {instanceID: 0}
+  - checkBox: {instanceID: 0}
+  - panelSplit: {instanceID: 0}
+  - dropdown: {instanceID: 0}
+  - slider: {instanceID: 0}
+  - panelImage: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

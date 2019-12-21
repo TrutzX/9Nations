@@ -8,7 +8,7 @@ using Units;
 
 namespace Endless
 {
-    public class EndlessGame : IScenarioRun
+    public class EndlessGameScenario : IScenarioRun
     {
         public void Run()
         {

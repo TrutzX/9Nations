@@ -7,6 +7,8 @@ namespace UI
 
         protected string name;
         protected Sprite icon;
+        public WindowTabBuilder window;
+        
         
         protected Tab(string name, string icon) : this(name, SpriteHelper.Load(icon))
         {

@@ -51,7 +51,7 @@ namespace Libraries
                 yield return b.LoadMods(new List<string>(Directory.GetDirectories(PlayerPrefs.GetString("mod.folder"))));
             }
             
-            Debug.Log(string.Join(",", ModManager.GetInstalledModDirectories(true)));
+            //Debug.Log(string.Join(",", ModManager.GetInstalledModDirectories(true)));
             yield return b.LoadMods(ModManager.GetInstalledModDirectories(true));
         }
         
@@ -60,7 +60,7 @@ namespace Libraries
             yield return Load.ShowMessage("Loading mods");
             foreach (string f in folder)
             {
-                Debug.Log(f);
+                //Debug.Log(f);
 
                 DirectoryInfo dir = new DirectoryInfo(f);
                 yield return Load.ShowSubMessage("Loading " + dir.Name);
