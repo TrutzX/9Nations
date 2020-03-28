@@ -16,8 +16,12 @@ namespace Endless
         {
             foreach (DataMap map in L.b.maps.Values())
             {
-                if (map.req.Check(null))
-                    Add(new MapSelectSplitElement(map, this, startConfig));
+                if (!map.req.Check(null))
+                    continue;
+                Add(new MapSelectSplitElement(map, this, startConfig));
+
+                if (!startConfig.ContainsKey("map"))
+                    startConfig["map"] = map.id;
             }
             
             Add(new MapMoreSplitElement());

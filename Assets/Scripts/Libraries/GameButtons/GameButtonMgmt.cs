@@ -8,7 +8,7 @@ namespace Libraries.GameButtons
     [Serializable]
     public class GameButtonMgmt : BaseMgmt<GameButton>
     {
-        public GameButtonMgmt() : base("gamebutton","GameButton","x") { }
+        public GameButtonMgmt() : base("gamebutton","GameButton",null) { }
 
         protected override void ParseElement(GameButtons.GameButton ele, string header, string data)
         {

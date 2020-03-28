@@ -5,7 +5,7 @@ using UI;
 using UI.Show;
 using UnityEngine;
 
-namespace Options
+namespace Help
 {
     public class StatisticSplitElement : SplitElement
     {
@@ -20,7 +20,7 @@ namespace Options
             panel.AddHeaderLabel("Library");
             foreach (var m in L.b.mgmts.Values)
             {
-                panel.AddSubLabel(m.Name(),$"{m.Length} elements",m.Sprite());
+                panel.AddImageLabel($"{m.Length}x {m.Name()}",m.Sprite());
             }
 
             panel.AddHeaderLabel("Mods");

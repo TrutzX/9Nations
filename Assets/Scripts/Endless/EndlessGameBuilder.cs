@@ -12,6 +12,7 @@ namespace Endless
         public static void Show()
         {
             Dictionary<string, string> startConfig = new Dictionary<string, string>();
+            
         
             WindowTabBuilder t = WindowTabBuilder.Create("Endless game");
             t.Add(new MapSplitTab(startConfig));

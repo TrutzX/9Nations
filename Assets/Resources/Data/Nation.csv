@@ -3,7 +3,7 @@ north,North,,Default nation,Universelles Volk,Icons/base:north,n,good,metal,gras
 ranger,Rangers,true,Nation under construction. Not really usefull at the moment.,Volk der Wälder- kennen das Prinzept der Stadt nicht wirklich- Fruchtbares + Boni von verschiedenen Essen,584,magic,good,life,forest,,elf,,,Kingdom,Bigger kingdom,move=-5;t;forest,build=-50%;t;forest,,
 fish,Fish people,true,,Wasservolk + Boote+ gebäude nur auf wasser+ stdt kann bewegt werden,,fight,neutral,water,ocean,,underwater,,,,,move=-5;t;ocean,build=-50%;t;ocean,,
 dead,Unknown,true,,Untote- bonus in der Nacht,298,n,bad,death,underground,,ghost,Cemetery,Bigger cemetery,,move=-5;t;underground,build=-50%;t;underground,,
-forger,Forger,,,Bergvolk- Zwerge- unter der Erde?,Icons/base:forger,magic,neutral,earth,mountain,,dwarf,Dwelling,,,,move=-5;t;mountain,build=-50%;t;mountain,shadow,4
+forger,Forger,,,Bergvolk- Zwerge- unter der Erde?,Icons/base:forger,magic,neutral,earth,mountain,,dwarf,Chimney,Smithy,,,move=-5;t;mountain,build=-50%;t;mountain,shadow,4
 emis,Emissaries,true,,Magisches Zaubervolk?,,magic,bad,energy,hill,,steam,,,,,move=-5;t;hill,build=-50%;t;hill,,
 harv,Harvester,true,,??,,fight,good,wood,marsh,,viking,,,,,move=-5;t;marsh,build=-50%;t;marsh,,
 mess,Messenger,true,,Luftvolk,,n,neutral,air,clouds,,sky,,,,,move=-5;t;clouds,build=-50%;t;clouds,,

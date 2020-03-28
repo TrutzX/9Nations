@@ -63,7 +63,7 @@ namespace Towns
             //add to points?
             if (type == ResType.Produce && amount > 0)
             {
-                Player().points += Data.ress[id].market * amount;
+                Player().points += (int) Math.Round(L.b.res[id].price * amount);
             }
             
             //check
@@ -89,7 +89,7 @@ namespace Towns
         
         public string GetTownLevelName()
         {
-            if (level >= Player().Nation().TownNameLevel.Count)
+            if (level > Player().Nation().TownNameLevel.Count)
             {
                 return $"Missing town level name ({level})";
             }

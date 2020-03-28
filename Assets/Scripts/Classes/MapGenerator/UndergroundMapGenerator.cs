@@ -1,11 +1,10 @@
-using System;
-using Classes.MapGenerator;
-using Game;
+using Libraries;
 using Libraries.Terrains;
 using Maps.GameMaps;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace Libraries.MapGenerations
+namespace Classes.MapGenerator
 {
     public class UndergroundMapGenerator : BaseMapGenerator
     {
@@ -15,7 +14,7 @@ namespace Libraries.MapGenerations
         {
             
             int oTerrain = std.At(new Vector3Int(x, y, layer));
-            if (oTerrain == -1)
+            if (oTerrain == -1 && Random.Range(0,2) == 0)
             {
                 layerData[height - y - 1][x] = L.b.terrain["deep_wall"].defaultTile;
                 return;

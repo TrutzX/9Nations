@@ -13,6 +13,7 @@ using Libraries.Terrains;
 using Libraries.Units;
 using Libraries.Usages;
 using Maps;
+using Options;
 using UI;
 using UnityEngine;
 
@@ -20,22 +21,6 @@ namespace Help
 {
     public class HelpHelper
     {
-        public static void ShowHelpWindow()
-        {
-            
-            //load buildings
-            WindowBuilderSplit b = WindowBuilderSplit.Create("Help window",null);
-
-            foreach(DataTypes.Help h in Data.help)
-            {
-                b.AddElement(new HelpSplitElement(h));
-            }
-            
-            b.AddElement(new InputOptionSplitElement());
-
-            b.Finish();
-        }
-
         public static void ShowLexicon()
         {
             WindowTabBuilder t = WindowTabBuilder.Create("Lexicon");

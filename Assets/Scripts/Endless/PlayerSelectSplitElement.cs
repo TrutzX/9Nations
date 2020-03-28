@@ -9,16 +9,14 @@ using UI.Show;
 
 namespace Endless
 {
-    internal class PlayerSelectSplitElement : SplitElement
+    internal class PlayerSelectSplitElement : GeneralSplitElement
     {
-        Dictionary<string, string> startConfig;
-        private int id;
         
-        public PlayerSelectSplitElement(Dictionary<string, string> startConfig, int id) : base("Player", SpriteHelper.Load("base:map"))
+        public PlayerSelectSplitElement(Dictionary<string, string> startConfig, int id) : base(startConfig, "Player")
         {
-            this.startConfig = startConfig;
             this.id = id;
-            this.icon = L.b.nations[startConfig[id + "nation"]].Sprite();
+            icon = L.b.nations[startConfig[id + "nation"]].Sprite();
+            disabled = null;
         }
 
         public override void ShowDetail(PanelBuilder panel)
@@ -59,15 +57,6 @@ namespace Endless
             {
                 startConfig[id +"loseKing"] = b.ToString();
             });
-        }
-
-        public override void Perform()
-        {
-            GameMgmt.StartConfig = startConfig;
-            GameMgmt.StartConfig["name"] = "endless game";
-            GameMgmt.StartConfig["type"] = "endless";
-            
-            GameMgmt.Init();
         }
     }
 }

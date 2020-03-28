@@ -64,6 +64,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/HelpSplitTab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/HelpHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/BaseNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/MapGenerator/UndergroundMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/MapPathFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Maps/MapMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/MapGenerator/BaseMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -146,7 +147,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Towns/TownWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options/StatisticSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/StatisticSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqBuilding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Actions/TradeAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -211,7 +212,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqTownNear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MapElementUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingUnitData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Campaigns/CampaignSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Campaigns/ScenarioRun.cs" root0="FORCE_HIGHLIGHTING" />
@@ -309,12 +309,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Options/NetworkOptionSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tools/SplitHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqFeature.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButton/BaseGameButtonRun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Elements/Element.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButton/GameButtonMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameButtons/GameButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputAction/InputKeyHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButton/GameButton.cs" />
@@ -332,26 +326,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Debug/GameButtonHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButtons/GameButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputAction/InputAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButtons/GameButtonMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WindowsMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionGameButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Elements/LightElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/ChangeMenuGameButtonRun.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUpdate.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu/StartGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/GeneralSplitTab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Endless/EndlessGameScenario.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/PlayerSelectSplitElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Maps/DataMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Maps/MapMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/MapSplitTab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Options/AudioOptionSplitElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/L.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/IRead.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PanelBuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Options/StatisticSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Options/OptionHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqFeaturePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Players/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameMgmt.cs" />
@@ -360,6 +348,18 @@
         <option value="$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/Parser/IniDataParser.cs" />
         <option value="$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/Model/SectionData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionFoundTown.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/GeneralSplitTab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PanelBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/PlayerSelectSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/EndlessGameBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/MapSplitTab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/MapGenerator/UndergroundMapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/Town.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Options/OptionHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/GameButtons/GameButtonMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Help/HelpHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Help/HelpSplitTab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Help/StatisticSplitElement.cs" />
       </list>
     </option>
   </component>
@@ -549,6 +549,7 @@
       <workItem from="1584225493650" duration="6811000" />
       <workItem from="1584563478376" duration="18199000" />
       <workItem from="1585255150953" duration="12050000" />
+      <workItem from="1585406578023" duration="4281000" />
     </task>
     <servers />
   </component>

@@ -44,7 +44,7 @@ namespace UI
                 return;
             }
 
-            AddSubLabel($"{title}: {data}", icon);
+            AddImageLabel($"{title}: {data}", icon);
         }
 
         public void AddSubLabel(string title, string data, Sprite icon)

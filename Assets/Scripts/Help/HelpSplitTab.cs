@@ -14,6 +14,7 @@ namespace Help
             }
             
             Add(new InputOptionSplitElement());
+            Add(new StatisticSplitElement());
         }
     }
 }

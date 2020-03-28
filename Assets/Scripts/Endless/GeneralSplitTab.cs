@@ -16,15 +16,15 @@ namespace Endless
         }
     }
     
-    internal class GeneralSplitElement : SplitElement
+    public class GeneralSplitElement : SplitElement
     {
-        private Dictionary<string, string> startConfig;
-        private int _id;
+        protected Dictionary<string, string> startConfig;
+        protected int id;
         
-        public GeneralSplitElement(Dictionary<string, string> startConfig) : base("General", SpriteHelper.Load("base:map"))
+        public GeneralSplitElement(Dictionary<string, string> startConfig, string name = "General", string icon = "base:map") : base(name, icon)
         {
             this.startConfig = startConfig;
-            _id = 0;
+            id = 0;
             disabled = "Add a player first";
         }
 
@@ -32,11 +32,11 @@ namespace Endless
         {
             panel.AddButton("Add a new player", () =>
             {
-                startConfig[_id + "name"] = "Player";
-                startConfig[_id + "nation"] = "north";
-                startConfig[_id + "winGold"] = "true";
-                startConfig[_id + "loseKing"] = "true";
-                PlayerSelectSplitElement psse = new PlayerSelectSplitElement(startConfig, _id++);
+                startConfig[id + "name"] = id==0?System.Environment.UserName:"Player";
+                startConfig[id + "nation"] = "north";
+                startConfig[id + "winGold"] = "true";
+                startConfig[id + "loseKing"] = "true";
+                PlayerSelectSplitElement psse = new PlayerSelectSplitElement(startConfig, id++);
                 (tab as GeneralSplitTab).Add(psse);
                 
                 disabled = null;
@@ -50,6 +50,12 @@ namespace Endless
 
         public override void Perform()
         {
+            if (!startConfig.ContainsKey("map"))
+            {
+                UIHelper.ShowOk("No map","You need to select a map to play.");
+                return;
+            }
+            
             GameMgmt.StartConfig = startConfig;
             GameMgmt.StartConfig["name"] = "endless game";
             GameMgmt.StartConfig["type"] = "endless";
