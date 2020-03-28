@@ -1,4 +1,5 @@
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Help
@@ -10,10 +11,12 @@ namespace Help
         public HelpSplitElement(string help) : base("Help", SpriteHelper.Load("magic:lexicon"))
         {
             this.help = Data.help[help];
+            disabled = "It is only the help, so it is disabled.";
         }
         public HelpSplitElement(DataTypes.Help help) : base(help.name, SpriteHelper.Load(help.icon))
         {
             this.help = help;
+            disabled = "It is only the help, so it is disabled.";
         }
 
         public override void ShowDetail(PanelBuilder panel)

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DataTypes;
 using Game;
+using Libraries.Maps;
 using Maps;
 using UI;
 using UnityEngine;
@@ -8,10 +10,11 @@ using UnityEngine.UI;
 
 namespace Endless
 {
+    [Obsolete]
     public class XXEndlessGameWindow : MonoBehaviour
     {
-        public Maps.NMap selectedMap;
-        public GameObject startButton;
+        public DataMap selectedMap;
+        public Button startButton;
         public Dictionary<string, string> startConfig;
         public WindowBuilderSplit window;
 
@@ -43,10 +46,10 @@ namespace Endless
         
         }
 
-        public void SetMap(NMap map)
+        public void SetMap(DataMap map)
         {
             selectedMap = map;
-            startConfig["map"] = map.Id;
+            startConfig["map"] = map.id;
             UpdateButtonText();
             //GeneralSplitElement gs = window.
             //UIHelper.UpdateButtonText(button,$"Play map {map.Name}");

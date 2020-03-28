@@ -1,12 +1,14 @@
+using System;
 using DataTypes;
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace InputAction
 {
     public class InputOptionSplitElement: SplitElement
     {
-        public InputOptionSplitElement() : base("Keys", SpriteHelper.LoadIcon("ui:key"))
+        public InputOptionSplitElement() : base("Keys", SpriteHelper.Load("ui:key"))
         {
         }
 
@@ -44,7 +46,18 @@ namespace InputAction
                 }
                 
                 //show key
-                key.BuildPanel(panel);
+                try
+                {
+                    key.BuildPanel(panel);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log(key);
+                    Debug.Log(key.id);
+                    Debug.Log(key.Name());
+                    Debug.LogError(e);
+                }
+                
             }
                 
         }

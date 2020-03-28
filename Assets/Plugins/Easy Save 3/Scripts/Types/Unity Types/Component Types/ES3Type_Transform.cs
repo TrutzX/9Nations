@@ -7,6 +7,7 @@ namespace ES3Types
 	[ES3PropertiesAttribute("localPosition","localRotation","localScale","parent")]
 	public class ES3Type_Transform : ES3ComponentType
 	{
+        public static int countRead = 0;
 		public static ES3Type Instance = null;
 
 		public ES3Type_Transform() : base(typeof(UnityEngine.Transform))
@@ -25,10 +26,11 @@ namespace ES3Types
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
 		{
-			var instance = (Transform)obj;
+            var instance = (Transform)obj;
+
 			foreach(string propertyName in reader.Properties)
 			{
-				switch(propertyName)
+                switch (propertyName)
 				{
 					case "parent":
 						instance.SetParent(reader.Read<Transform>());

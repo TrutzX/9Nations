@@ -7,7 +7,10 @@ using Game;
 using Help;
 using IniParser.Model;
 using IniParser.Parser;
+using JetBrains.Annotations;
 using Maps;
+using reqs;
+using Tools;
 using UI;
 using UnityEngine;
 
@@ -18,57 +21,83 @@ namespace Libraries
     {
         [SerializeField] protected Dictionary<string, T> Data;
         [SerializeField] protected string name;
+        [SerializeField] protected readonly string id;
         [SerializeField] protected string icon;
         [SerializeField] protected string lastRead;
 
-        public BaseMgmt()
+        public BaseMgmt(string id)
         {
             Data = new Dictionary<string, T>();
+            this.id = id;
+            name = TextHelper.Cap(id);
         }
 
-        protected BaseMgmt(string name, string icon) : this()
+        protected BaseMgmt(string id, string name, string icon) : this(id)
         {
             this.name = name;
             this.icon = icon;
         }
 
-        public int Length{ get{ return Data.Count; } }
-        
-        public T this[string id]{
+        public int Length => Data.Count;
+
+        public T this[string key]{
             get{
-                if (ContainsKey(id))
+                if (ContainsKey(key))
                 {
-                    return Data[id];
+                    return Data[key];
                 }
-                throw new MissingMemberException($"Can not find {id} in {name}");
+                throw new MissingMemberException($"Can not find {key} in {name}");
             }
         }
         
-        protected bool ContainsKey(string key)
+        public bool ContainsKey(string key)
         {
             return Data.ContainsKey(key);
         }
 
         protected bool Bool(string data)
         {
-            return Boolean.Parse(data);
+            if (!Boolean.TryParse(data, out var erg))
+            {
+                Debug.LogError($"Can not parse bool {data} for {id}");
+            }
+            return erg;
         }
 
         protected int Int(string data)
         {
-            return Int32.Parse(data);
+            if (!Int32.TryParse(data, out var erg))
+            {
+                Debug.LogError($"Can not parse number {data} for {id}");
+            }
+            return erg;
         }
 
-        protected void Ref(Dictionary<string,string> refs, string data)
+        protected float Float(string data)
         {
-            string[] r = data.Split(':');
-            refs.Add(r[0],r[1]);
+            if (!Double.TryParse(data, out var erg))
+            {
+                Debug.LogError($"Can not parse float {data} for {id}");
+            }
+            return (float) erg;
+        }
+
+        protected void Delimiter(Dictionary<string,string> refs, string data)
+        {
+            var d = SplitHelper.Delimiter(data);
+            refs.Add(d.key,d.value);
+        }
+
+        protected void Delimiter(Dictionary<string,int> refs, string data)
+        {
+            var d = SplitHelper.DelimiterInt(data);
+            refs.Add(d.key,d.value);
         }
 
         protected void Res(Dictionary<string,int> res, string data)
         {
-            string[] r = data.Split(':');
-            res.Add(r[0],Int32.Parse(r[1]));
+            var d = SplitHelper.SplitInt(data);
+            res.Add(d.key, d.value);
         }
         
         public IEnumerator ParseCsv(string path)
@@ -76,6 +105,7 @@ namespace Libraries
             yield return L.b.Load.ShowMessage("Loading "+Name());
             string[][] data = CSV.Read(Read(path));
             yield return L.b.Load.ShowSubMessage($"Loading 0/{data.Length}");
+            Debug.Log($"Library {id}: Reading {data.Length} elements with {data[0].Length} headers from {path}");
             for (int l = 1; l < data.Length; l++)
             {
                 if (l % 10 == 0)
@@ -84,12 +114,19 @@ namespace Libraries
                 }
                 
                 //skip?
-                if (data[l][0] == "")
+                if (string.IsNullOrEmpty(data[l][0]) || data[l][0].StartsWith("//"))
                 {
                     continue;
                 }
 
                 T ele = GetOrCreate(data[l][0]);
+                
+                //wrong size?
+                if (data[l].Length > data[0].Length)
+                {
+                    Debug.LogWarning($"{id}: {data[l][0]} has {data[l].Length} data and only {data[0].Length} header");
+                }
+                
                 for (int i = 1; i < data[l].Length; i++)
                 {
                     if (string.IsNullOrEmpty(data[l][i]) || i >= data[0].Length)
@@ -105,6 +142,7 @@ namespace Libraries
                     {
                         Debug.LogError(e);
                         Debug.Log($"{l}/{i}: {data[l].Length}/{data[0].Length}");
+                        Debug.Log(data[l][0]+": "+ele);
                         Debug.Log(data[0][i]);
                         Debug.Log(data[l][i]);
                     }
@@ -156,6 +194,11 @@ namespace Libraries
             return name;
         }
         
+        public string Id()
+        {
+            return id;
+        }
+        
         public Sprite Sprite()
         {
             if (string.IsNullOrEmpty(icon) && Data.Count > 0)
@@ -167,10 +210,12 @@ namespace Libraries
 
         protected void ParseBaseElement(T ele, string header, string data)
         {
+            if (header.StartsWith("//")) return;
+            
             switch (header)
             {
                 case "name":
-                    ele.Name = data;
+                    ele.name = data;
                     break;
                 case "icon":
                     ele.Icon = data;
@@ -183,6 +228,9 @@ namespace Libraries
                     break;
                 case "hidden":
                     ele.Hidden = Bool(data);
+                    break;
+                case "req":
+                    ele.req.Add(data);
                     break;
                 default:
                     ParseElement(ele, header, data);
@@ -200,7 +248,7 @@ namespace Libraries
             }
 
             Data[id] = Create();
-            Data[id].Id = id;
+            Data[id].id = id;
             return Data[id];
         }
 

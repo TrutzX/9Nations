@@ -1,5 +1,6 @@
 using Help;
 using UI;
+using UI.Show;
 
 namespace LoadSave
 {
@@ -12,30 +13,32 @@ namespace LoadSave
             //add files
             foreach (LoadSaveInfo info in LoadSaveMgmt.GetAllSaves())
             { 
-                w.AddElement(new LoadWindowSplitElement(info));
+                w.AddElement(new LoadWindowSplitElement(info, w));
             }
             
             w.Finish();
         }
+    }
 
-        class LoadWindowSplitElement : SplitElement
+    public class LoadWindowSplitElement : SplitElement
+    {
+        protected LoadSaveInfo info;
+        protected WindowBuilderSplit w;
+
+        public LoadWindowSplitElement(LoadSaveInfo info, WindowBuilderSplit w) : base(info.name, "ui:file")
         {
-            private LoadSaveInfo info;
+            this.info = info;
+            this.w = w;
+        }
 
-            public LoadWindowSplitElement(LoadSaveInfo info) : base(info.name, "ui:file")
-            {
-                this.info = info;
-            }
+        public override void ShowDetail(PanelBuilder panel)
+        {
+            info.ShowInfo(panel,w);
+        }
 
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                info.ShowInfo(panel);
-            }
-
-            public override void Perform()
-            {
-                LoadSaveMgmt.LoadSave(info.file);
-            }
+        public override void Perform()
+        {
+            LoadSaveMgmt.LoadSave(info.file);
         }
     }
 }

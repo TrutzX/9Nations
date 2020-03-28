@@ -1,4 +1,5 @@
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Towns
@@ -13,6 +14,7 @@ namespace Towns
 
         public override void ShowDetail(PanelBuilder panel)
         {
+            panel.AddHeaderLabel("Level");
             panel.AddInput("Level", town.level, (s => { town.level = s; }));
         }
 

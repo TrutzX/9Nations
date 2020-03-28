@@ -18,6 +18,12 @@ namespace ES3Types
 		{
 			var instance = (UnityEngine.Mesh)obj;
 
+            if(!instance.isReadable)
+            {
+                Debug.LogWarning("Easy Save cannot save the vertices for this Mesh because it is not marked as readable, so it will be stored by reference. To save the vertex data for this Mesh, check the 'Read/Write Enabled' checkbox in its Import Settings.", instance);
+                return;
+            }
+
 			#if UNITY_2017_3
 			writer.WriteProperty("indexFormat", instance.indexFormat);
 			#endif
@@ -48,10 +54,22 @@ namespace ES3Types
 		protected override void ReadUnityObject<T>(ES3Reader reader, object obj)
 		{
 			var instance = (UnityEngine.Mesh)obj;
+            if (instance == null)
+                return;
 
-			foreach(string propertyName in reader.Properties)
+            if (!instance.isReadable)
+                Debug.LogWarning("Easy Save cannot load the vertices for this Mesh because it is not marked as readable, so it will be loaded by reference. To load the vertex data for this Mesh, check the 'Read/Write Enabled' checkbox in its Import Settings.", instance);
+
+            foreach (string propertyName in reader.Properties)
 			{
-				switch(propertyName)
+                // If this Mesh isn't readable, we should skip past all of its properties.
+                if (!instance.isReadable)
+                {
+                    reader.Skip();
+                    continue;
+                }
+
+                switch (propertyName)
 				{
 					#if UNITY_2017_3
 					case "indexFormat":

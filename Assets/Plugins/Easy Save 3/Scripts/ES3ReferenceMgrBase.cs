@@ -129,7 +129,7 @@ namespace ES3Internal
 			return -1;
 		}
 
-		public long Add(UnityEngine.Object obj)
+        public long Add(UnityEngine.Object obj)
 		{
 			long id; 
 			// If it already exists in the list, do nothing.
@@ -158,27 +158,20 @@ namespace ES3Internal
 		}
 
 		public void Remove(UnityEngine.Object obj)
-		{
-			long referenceID;
-
-			// Get the reference ID, or do nothing if it doesn't exist.
-			if(refId.TryGetValue(obj, out referenceID))
-				return;
-			
+		{	
 			refId.Remove(obj);
-			idRef.Remove(referenceID);
+            // There may be multiple references with the same ID, so remove them all.
+            foreach (var item in idRef.Where(kvp => kvp.Value == obj).ToList())
+                idRef.Remove(item.Key);
 		}
 
 		public void Remove(long referenceID)
 		{
-			UnityEngine.Object obj;
-			// Get the reference ID, or do nothing if it doesn't exist.
-			if(!idRef.TryGetValue(referenceID, out obj))
-				return;
-
-			refId.Remove(obj);
 			idRef.Remove(referenceID);
-		}
+            // There may be multiple references with the same ID, so remove them all.
+            foreach (var item in refId.Where(kvp => kvp.Value == referenceID).ToList())
+                refId.Remove(item.Key);
+        }
 
 		public void RemoveNullValues()
 		{
@@ -222,7 +215,85 @@ namespace ES3Internal
 
 			return (System.Math.Abs(longRand % (long.MaxValue - 0)) + 0);
 		}
-	}
+
+#if UNITY_EDITOR
+        /*
+         * Collects all top-level dependencies of an object.
+         * For GameObjects, it will traverse all children.
+         * For Components or ScriptableObjects, it will get all serialisable UnityEngine.Object fields/properties as dependencies.
+         */
+        public static HashSet<UnityEngine.Object> CollectDependencies(UnityEngine.Object[] objs)
+        {
+            var dependencies = new HashSet<UnityEngine.Object>(objs);
+
+            foreach (var obj in objs)
+            {
+                if (obj == null)
+                    continue;
+
+                var type = obj.GetType();
+                // Skip types which don't need processing
+                if (type == typeof(ES3ReferenceMgr) || type == typeof(ES3Prefab) || type == typeof(ES3AutoSaveMgr) || type == typeof(ES3AutoSave) || type == typeof(ES3InspectorInfo))
+                    continue;
+
+                // If it's a GameObject, get the GameObject's Components and collect their dependencies.
+                if (type == typeof(GameObject))
+                {
+                    var go = (GameObject)obj;
+                    // Get the dependencies of each Component in the GameObject.
+                    dependencies.UnionWith( CollectDependencies(go.GetComponents<Component>()) );
+                    // Get the dependencies of each child in the GameObject.
+                    foreach(Transform child in go.transform)
+                        dependencies.UnionWith(CollectDependencies( child.gameObject ));
+                }
+                // Else if it's a Component or ScriptableObject, add the values of any UnityEngine.Object fields as dependencies.
+                else
+                {
+                    var so = new UnityEditor.SerializedObject(obj);
+                    if (so == null)
+                        continue;
+
+                    var property = so.GetIterator();
+                    if (property == null)
+                        continue;
+
+                    // Iterate through each of this object's properties.
+                    while (property.NextVisible(true))
+                    {
+                        try
+                        {
+                            // If it's an array which contains UnityEngine.Objects, add them as dependencies.
+                            if (property.isArray)
+                            {
+                                for (int i = 0; i < property.arraySize; i++)
+                                {
+                                    var element = property.GetArrayElementAtIndex(i);
+                                    // If the array contains UnityEngine.Object types, add them to the dependencies.
+                                    if (element.propertyType == UnityEditor.SerializedPropertyType.ObjectReference && element.objectReferenceValue != null)
+                                        dependencies.Add(element.objectReferenceValue);
+                                    // Otherwise this array does not contain UnityEngine.Object types, so we should stop.
+                                    else
+                                        break;
+                                }
+                            }
+                            // Else if it's a normal UnityEngine.Object field, add it.
+                            else if (property.propertyType == UnityEditor.SerializedPropertyType.ObjectReference && property.objectReferenceValue != null)
+                                dependencies.Add(property.objectReferenceValue);
+                        }
+                        catch { }
+                    }
+                }
+            }
+
+            return dependencies;
+        }
+
+        public static HashSet<UnityEngine.Object> CollectDependencies(UnityEngine.Object obj)
+        {
+            return CollectDependencies(new UnityEngine.Object[] { obj });
+        }
+#endif
+    }
 
 	[System.Serializable]
 	public class ES3IdRefDictionary : ES3SerializableDictionary<long, UnityEngine.Object>

@@ -12,6 +12,7 @@ namespace ES3Types
 		private const string prefabPropertyName = "es3Prefab";
 		private const string transformPropertyName = "transformID";
 		public static ES3Type Instance = null;
+		public bool saveChildren = false;
 
 		public ES3Type_GameObject() : base(typeof(UnityEngine.GameObject)){ Instance = this; }
 
@@ -42,7 +43,7 @@ namespace ES3Types
 			writer.WriteProperty("hideFlags", instance.hideFlags);
 			writer.WriteProperty("active", instance.activeSelf);
 
-			if(es3AutoSave != null && es3AutoSave.saveChildren)
+			if(saveChildren || (es3AutoSave != null && es3AutoSave.saveChildren))
 				writer.WriteProperty("children", GetChildren(instance), ES3.ReferenceMode.ByRefAndValue);
 
 			var components = new List<Component>();
@@ -81,7 +82,7 @@ namespace ES3Types
 						continue;
 					}
 
-					id = reader.Read<long>(ES3Type_long.Instance);
+					id = reader.Read_ref();
 					obj = refMgr.Get(id);
 				}
 				else if(propertyName == transformPropertyName)
@@ -93,7 +94,7 @@ namespace ES3Types
 					}
 
 					// Now load the Transform's ID and assign it to the Transform of our object.
-					long transformID = reader.Read<long>(ES3Type_long.Instance);
+					long transformID = reader.Read_ref();
 					if(obj == null)
 						obj = CreateNewGameObject(refMgr, id);
 					refMgr.Add(((GameObject)obj).transform, transformID);

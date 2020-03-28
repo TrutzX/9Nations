@@ -4,6 +4,7 @@ using IniParser.Exceptions;
 using IniParser.Model;
 using IniParser.Model.Configuration;
 using System.Collections.ObjectModel;
+#pragma warning disable 618
 
 namespace IniParser.Parser
 {

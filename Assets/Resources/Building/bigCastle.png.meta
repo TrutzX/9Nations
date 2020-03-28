@@ -1,0 +1,5206 @@
+fileFormatVersion: 2
+guid: 6a370f7412cf340dbaa2c5d5639aa8b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2955064674136507843
+    second: north-castle_0
+  - first:
+      213: -5092008883440839676
+    second: north-castle_1
+  - first:
+      213: -4895864942648791185
+    second: north-castle_2
+  - first:
+      213: -3392023793290170070
+    second: north-castle_3
+  - first:
+      213: -136178305708473233
+    second: north-castle_4
+  - first:
+      213: -6036578334015827040
+    second: north-castle_5
+  - first:
+      213: 9013429734322127701
+    second: north-castle_6
+  - first:
+      213: -1601550481173097017
+    second: north-castle_7
+  - first:
+      213: 5299330218862572611
+    second: north-castle_8
+  - first:
+      213: -8345091247818493067
+    second: north-castle_9
+  - first:
+      213: 786493144998737090
+    second: north-castle_10
+  - first:
+      213: -1714655784517401443
+    second: north-castle_11
+  - first:
+      213: 1484303991226223898
+    second: north-castle_12
+  - first:
+      213: -1929802583853361126
+    second: north-castle_13
+  - first:
+      213: -5733893402680842917
+    second: north-castle_14
+  - first:
+      213: -308165026989422231
+    second: north-castle_15
+  - first:
+      213: -472201083560672300
+    second: north-castle_16
+  - first:
+      213: 3784231569622492409
+    second: north-castle_17
+  - first:
+      213: -7997484151507002323
+    second: north-castle_18
+  - first:
+      213: -3305123963839048009
+    second: north-castle_19
+  - first:
+      213: 3576164538321079745
+    second: north-castle_20
+  - first:
+      213: 6112789570531764781
+    second: north-castle_21
+  - first:
+      213: -8871819641951754342
+    second: north-castle_22
+  - first:
+      213: 5471808428603985412
+    second: north-castle_23
+  - first:
+      213: 86118452203193569
+    second: north-castle_24
+  - first:
+      213: -3377361350138952330
+    second: north-castle_25
+  - first:
+      213: -2379437183969951758
+    second: north-castle_26
+  - first:
+      213: -6169211749383813594
+    second: north-castle_27
+  - first:
+      213: -8110450683208710564
+    second: north-castle_28
+  - first:
+      213: -7877488120204643276
+    second: north-castle_29
+  - first:
+      213: -408835141050082594
+    second: north-castle_30
+  - first:
+      213: -2123242086796832352
+    second: north-castle_31
+  - first:
+      213: 8096534748067148335
+    second: north-castle_32
+  - first:
+      213: 4377334361133970655
+    second: north-castle_33
+  - first:
+      213: 7313210485217712383
+    second: north-castle_34
+  - first:
+      213: -6107729852881373673
+    second: north-castle_35
+  - first:
+      213: -7292827586153467611
+    second: north-castle_36
+  - first:
+      213: 1263069393863463537
+    second: north-castle_37
+  - first:
+      213: 5929388661093630898
+    second: north-castle_38
+  - first:
+      213: -8970075396689187733
+    second: north-castle_39
+  - first:
+      213: 175340071747305536
+    second: north-castle_40
+  - first:
+      213: 3745709896820760625
+    second: north-castle_41
+  - first:
+      213: 5376859748500614324
+    second: north-castle_42
+  - first:
+      213: -661967978544120220
+    second: north-castle_43
+  - first:
+      213: -6404235478999518364
+    second: north-castle_44
+  - first:
+      213: 5393484209526976185
+    second: north-castle_45
+  - first:
+      213: -4357721347500403798
+    second: north-castle_46
+  - first:
+      213: 379401130284294813
+    second: north-castle_47
+  - first:
+      213: 2465306314035577564
+    second: north-castle_48
+  - first:
+      213: -5191833139565040201
+    second: north-castle_49
+  - first:
+      213: 6163152014278342834
+    second: north-castle_50
+  - first:
+      213: -6304883391967269356
+    second: north-castle_51
+  - first:
+      213: 7092681995592866024
+    second: north-castle_52
+  - first:
+      213: 4146286028702353241
+    second: north-castle_53
+  - first:
+      213: -7171948810126831531
+    second: north-castle_54
+  - first:
+      213: -1016578715794653262
+    second: north-castle_55
+  - first:
+      213: -308545777509714632
+    second: north-castle_56
+  - first:
+      213: -2916295358319763995
+    second: north-castle_57
+  - first:
+      213: -5483529381176044747
+    second: north-castle_58
+  - first:
+      213: -6899451153172159588
+    second: north-castle_59
+  - first:
+      213: 6218913347929187609
+    second: north-castle_60
+  - first:
+      213: -6707216007989845294
+    second: north-castle_61
+  - first:
+      213: -6331629734573911660
+    second: north-castle_62
+  - first:
+      213: 3557391957857947277
+    second: north-castle_63
+  - first:
+      213: -2019561549126492375
+    second: north-castle_64
+  - first:
+      213: 8416650194803756485
+    second: north-castle_65
+  - first:
+      213: 176915621283943183
+    second: north-castle_66
+  - first:
+      213: -1529947982614529231
+    second: north-castle_67
+  - first:
+      213: -5734924639082855111
+    second: north-castle_68
+  - first:
+      213: -3269716182046655779
+    second: north-castle_69
+  - first:
+      213: -8667875168242343305
+    second: north-castle_70
+  - first:
+      213: -3361574836497350200
+    second: north-castle_71
+  - first:
+      213: 6649414881541623313
+    second: north-castle_72
+  - first:
+      213: 2469103908149973348
+    second: north-castle_73
+  - first:
+      213: 1354329924301706904
+    second: north-castle_74
+  - first:
+      213: 8902981525012213846
+    second: north-castle_75
+  - first:
+      213: 8233895967370040388
+    second: north-castle_76
+  - first:
+      213: 1521321200864400742
+    second: north-castle_77
+  - first:
+      213: 1565679006969319241
+    second: north-castle_78
+  - first:
+      213: -2497154689522360894
+    second: north-castle_79
+  - first:
+      213: -2314187050324653790
+    second: north-castle_80
+  - first:
+      213: -6560153683302658788
+    second: north-castle_81
+  - first:
+      213: -1644993737548299056
+    second: north-castle_82
+  - first:
+      213: 7481953181632975519
+    second: north-castle_83
+  - first:
+      213: 7802775213635147500
+    second: north-castle_84
+  - first:
+      213: -5259282854919256734
+    second: north-castle_85
+  - first:
+      213: 4269692703071421333
+    second: north-castle_86
+  - first:
+      213: -6347822695491146851
+    second: north-castle_87
+  - first:
+      213: 3231519209675874919
+    second: north-castle_88
+  - first:
+      213: -18290779383455564
+    second: north-castle_89
+  - first:
+      213: 4166670376785789788
+    second: north-castle_90
+  - first:
+      213: 5678317255100125661
+    second: north-castle_91
+  - first:
+      213: -7074061776702456083
+    second: north-castle_92
+  - first:
+      213: 5793566730635502704
+    second: north-castle_93
+  - first:
+      213: 3438940641521963373
+    second: north-castle_94
+  - first:
+      213: -5180471563282948238
+    second: north-castle_95
+  - first:
+      213: -1164918675448481344
+    second: north-castle_96
+  - first:
+      213: -2696121143786496580
+    second: north-castle_97
+  - first:
+      213: 6889939015526549881
+    second: north-castle_98
+  - first:
+      213: 441843491986843143
+    second: north-castle_99
+  - first:
+      213: 2756010808511682135
+    second: north-castle_100
+  - first:
+      213: 9113508193363637077
+    second: north-castle_101
+  - first:
+      213: -7949584190011674606
+    second: north-castle_102
+  - first:
+      213: -2659271500916280087
+    second: north-castle_103
+  - first:
+      213: 8061007881724111523
+    second: north-castle_104
+  - first:
+      213: 4198305483420940724
+    second: north-castle_105
+  - first:
+      213: 2215815240802430473
+    second: north-castle_106
+  - first:
+      213: -4261832051211537313
+    second: north-castle_107
+  - first:
+      213: -8759241676201804458
+    second: north-castle_108
+  - first:
+      213: 5942929275039542218
+    second: north-castle_109
+  - first:
+      213: 230552915611050243
+    second: north-castle_110
+  - first:
+      213: -5488785920946394755
+    second: north-castle_111
+  - first:
+      213: -3043033391407600983
+    second: north-castle_112
+  - first:
+      213: -3099142260412534658
+    second: north-castle_113
+  - first:
+      213: -4953224496779185973
+    second: north-castle_114
+  - first:
+      213: -1233567897764559910
+    second: north-castle_115
+  - first:
+      213: -6585309513426682090
+    second: north-castle_116
+  - first:
+      213: 7238874472891635960
+    second: north-castle_117
+  - first:
+      213: -1900278933765874294
+    second: north-castle_118
+  - first:
+      213: -1083834787137398592
+    second: north-castle_119
+  - first:
+      213: 4151906850721999788
+    second: north-castle_120
+  - first:
+      213: 598403703968499865
+    second: north-castle_121
+  - first:
+      213: 6130180175681372226
+    second: north-castle_122
+  - first:
+      213: 8049141623530899797
+    second: north-castle_123
+  - first:
+      213: 1153904514170502368
+    second: north-castle_124
+  - first:
+      213: -4219218834979921212
+    second: north-castle_125
+  - first:
+      213: -5767264558589256815
+    second: north-castle_126
+  - first:
+      213: 2464738026754546142
+    second: north-castle_127
+  - first:
+      213: -2420136907390541616
+    second: north-castle_128
+  - first:
+      213: -4727879400582544899
+    second: north-castle_129
+  - first:
+      213: 3976717993210338642
+    second: north-castle_130
+  - first:
+      213: -5414017602215779375
+    second: north-castle_131
+  - first:
+      213: 1235689056412030614
+    second: north-castle_132
+  - first:
+      213: -6418064602641233985
+    second: north-castle_133
+  - first:
+      213: -3719891338657635581
+    second: north-castle_134
+  - first:
+      213: 2064622577799927705
+    second: north-castle_135
+  - first:
+      213: -7685617254717700863
+    second: north-castle_136
+  - first:
+      213: -5728393234723814464
+    second: north-castle_137
+  - first:
+      213: -6508568341383184757
+    second: north-castle_138
+  - first:
+      213: 7129705936850127354
+    second: north-castle_139
+  - first:
+      213: -8471535050169974330
+    second: north-castle_140
+  - first:
+      213: -7013098076926226863
+    second: north-castle_141
+  - first:
+      213: 2844331044173874797
+    second: north-castle_142
+  - first:
+      213: -4016353186872163818
+    second: north-castle_143
+  - first:
+      213: -2317203063985114933
+    second: north-castle_144
+  - first:
+      213: -2880815346925254930
+    second: north-castle_145
+  - first:
+      213: 5807187912737654684
+    second: north-castle_146
+  - first:
+      213: -3120627830570282377
+    second: north-castle_147
+  - first:
+      213: -7024976266437361678
+    second: north-castle_148
+  - first:
+      213: 8585679456699782526
+    second: north-castle_149
+  - first:
+      213: -4644701069255220645
+    second: north-castle_150
+  - first:
+      213: 8675078724750680524
+    second: north-castle_151
+  - first:
+      213: -5969143456352601706
+    second: north-castle_152
+  - first:
+      213: 4757498967583299588
+    second: north-castle_153
+  - first:
+      213: -253728459932445957
+    second: north-castle_154
+  - first:
+      213: -2474947279373882620
+    second: north-castle_155
+  - first:
+      213: 8033336908185118616
+    second: north-castle_156
+  - first:
+      213: 601813608995643159
+    second: north-castle_157
+  - first:
+      213: 8506256552019080175
+    second: north-castle_158
+  - first:
+      213: 4159822936896055403
+    second: north-castle_159
+  - first:
+      213: -2156334721224010548
+    second: north-castle_160
+  - first:
+      213: 8585356727784963222
+    second: north-castle_161
+  - first:
+      213: -4791244082480905048
+    second: north-castle_162
+  - first:
+      213: 8691850886018174122
+    second: north-castle_163
+  - first:
+      213: -4285307626335465445
+    second: north-castle_164
+  - first:
+      213: 8222507679991470308
+    second: north-castle_165
+  - first:
+      213: -2739521590186065728
+    second: north-castle_166
+  - first:
+      213: 8797761454586461109
+    second: north-castle_167
+  - first:
+      213: 8027588806014898442
+    second: north-castle_168
+  - first:
+      213: 2632879985901974950
+    second: north-castle_169
+  - first:
+      213: -6868166116928409079
+    second: nquarry2
+  - first:
+      213: 8289153231028135240
+    second: north-castle_171
+  - first:
+      213: -5908916026217107396
+    second: north-castle_172
+  - first:
+      213: 7055258146355536415
+    second: north-castle_173
+  - first:
+      213: -4214556667573813635
+    second: north-castle_174
+  - first:
+      213: 8050790916729432245
+    second: north-castle_175
+  - first:
+      213: 6339950738341153745
+    second: north-castle_176
+  - first:
+      213: -8427858262678327940
+    second: north-castle_177
+  - first:
+      213: 3051965174393087012
+    second: north-castle_178
+  - first:
+      213: -410454469281969162
+    second: north-castle_179
+  - first:
+      213: 1804389053389927304
+    second: north-castle_180
+  - first:
+      213: -2966044213103911445
+    second: north-castle_181
+  - first:
+      213: 5817918055638752311
+    second: north-castle_182
+  - first:
+      213: 8326296246455955132
+    second: north-castle_183
+  - first:
+      213: 6881212521060060582
+    second: north-castle_184
+  - first:
+      213: 4676360802958297834
+    second: nlogger
+  - first:
+      213: -2277579882063433167
+    second: nquarry
+  - first:
+      213: 7920264746440886727
+    second: north-castle_187
+  - first:
+      213: -1648076794888301247
+    second: north-castle_188
+  - first:
+      213: -5559755353956298097
+    second: bigCastle_0
+  - first:
+      213: -971537655533276419
+    second: bigCastle_1
+  - first:
+      213: 2740179057161758085
+    second: bigCastle_2
+  - first:
+      213: -1188068425433069585
+    second: bigCastle_3
+  - first:
+      213: -3776280344297686525
+    second: bigCastle_4
+  - first:
+      213: 7133266792258129581
+    second: bigCastle_5
+  - first:
+      213: -1289932764717360798
+    second: bigCastle_6
+  - first:
+      213: -9199068221653364777
+    second: bigCastle_7
+  - first:
+      213: 3712263276789533978
+    second: bigCastle_8
+  - first:
+      213: 560786440232213490
+    second: bigCastle_9
+  - first:
+      213: -2651591481346508533
+    second: bigCastle_10
+  - first:
+      213: -3197402342498829359
+    second: bigCastle_11
+  - first:
+      213: -6936644973735561368
+    second: bigCastle_12
+  - first:
+      213: 699638591054994939
+    second: bigCastle_13
+  - first:
+      213: 1434762399542929774
+    second: bigCastle_14
+  - first:
+      213: 267483344302124098
+    second: bigCastle_15
+  - first:
+      213: 4278787563115548003
+    second: bigCastle_16
+  - first:
+      213: 3692838528022371299
+    second: bigCastle_17
+  - first:
+      213: -5197585479437869968
+    second: bigCastle_18
+  - first:
+      213: -5135530056185114491
+    second: bigCastle_19
+  - first:
+      213: 6357135957539769219
+    second: bigCastle_20
+  - first:
+      213: 9082118452735095289
+    second: bigCastle_21
+  - first:
+      213: -1093871566974269586
+    second: bigCastle_22
+  - first:
+      213: 3764337610429771621
+    second: bigCastle_23
+  - first:
+      213: -7486527707852571859
+    second: bigCastle_24
+  - first:
+      213: 1333695450303833936
+    second: bigCastle_25
+  - first:
+      213: 8942687585041712393
+    second: bigCastle_26
+  - first:
+      213: 3561555406035500256
+    second: bigCastle_27
+  - first:
+      213: -1852326281541286431
+    second: bigCastle_28
+  - first:
+      213: -1630876134906061383
+    second: bigCastle_29
+  - first:
+      213: -7614377693522799965
+    second: bigCastle_30
+  - first:
+      213: -9218489027520788128
+    second: bigCastle_31
+  - first:
+      213: 7414009684209859749
+    second: bigCastle_32
+  - first:
+      213: -8925222438350327227
+    second: bigCastle_33
+  - first:
+      213: -1486412311069776987
+    second: bigCastle_34
+  - first:
+      213: -2495286866377707216
+    second: bigCastle_35
+  - first:
+      213: -6706249519112653750
+    second: bigCastle_36
+  - first:
+      213: -8146352643126341189
+    second: bigCastle_37
+  - first:
+      213: -1334385878790264493
+    second: bigCastle_38
+  - first:
+      213: -5527343647177189815
+    second: bigCastle_39
+  - first:
+      213: 345947860596559251
+    second: bigCastle_40
+  - first:
+      213: -5413491859306124938
+    second: bigCastle_41
+  - first:
+      213: -459591075718376074
+    second: bigCastle_42
+  - first:
+      213: -3855002036636122595
+    second: bigCastle_43
+  - first:
+      213: -474693090615069740
+    second: bigCastle_44
+  - first:
+      213: 4817157164205492903
+    second: bigCastle_45
+  - first:
+      213: -8002645236988468960
+    second: bigCastle_46
+  - first:
+      213: -3515658580422307034
+    second: bigCastle_47
+  - first:
+      213: 2794268403760009801
+    second: bigCastle_48
+  - first:
+      213: -8532546473459932241
+    second: bigCastle_49
+  - first:
+      213: 1182967368842214941
+    second: bigCastle_50
+  - first:
+      213: 2801128517236337684
+    second: bigCastle_51
+  - first:
+      213: -4920188136127240998
+    second: bigCastle_52
+  - first:
+      213: -6080554368373902228
+    second: bigCastle_53
+  - first:
+      213: -8136114496752870727
+    second: bigCastle_54
+  - first:
+      213: -328172308574154073
+    second: bigCastle_55
+  - first:
+      213: -7000146209494234223
+    second: bigCastle_56
+  - first:
+      213: 574255960567391216
+    second: bigCastle_57
+  - first:
+      213: -8682476788409185885
+    second: bigCastle_58
+  - first:
+      213: -6071448629004742292
+    second: bigCastle_59
+  - first:
+      213: 2799477782644048920
+    second: bigCastle_60
+  - first:
+      213: -4944080714895796642
+    second: bigCastle_61
+  - first:
+      213: -5512693432976963714
+    second: bigCastle_62
+  - first:
+      213: 6179281679860833262
+    second: bigCastle_63
+  - first:
+      213: 1140530778164114118
+    second: bigCastle_64
+  - first:
+      213: 3335433210052024183
+    second: bigCastle_65
+  - first:
+      213: -4214179607156018227
+    second: bigCastle_66
+  - first:
+      213: 7527663342427827178
+    second: bigCastle_67
+  - first:
+      213: -5117835227074218691
+    second: bigCastle_68
+  - first:
+      213: -5172088846916972902
+    second: bigCastle_69
+  - first:
+      213: 5115785297901662696
+    second: bigCastle_70
+  - first:
+      213: -6875189544296701801
+    second: bigCastle_71
+  - first:
+      213: 3076085534685474595
+    second: bigCastle_72
+  - first:
+      213: -1667726856400255357
+    second: bigCastle_73
+  - first:
+      213: 6041987685464536207
+    second: bigCastle_74
+  - first:
+      213: -6746726675098154304
+    second: bigCastle_75
+  - first:
+      213: 7287480123163872201
+    second: bigCastle_76
+  - first:
+      213: -2114779378860165905
+    second: bigCastle_77
+  - first:
+      213: -2404344302152649382
+    second: bigCastle_78
+  - first:
+      213: 286505620169281744
+    second: bigCastle_79
+  - first:
+      213: -4511485873426084124
+    second: bigCastle_80
+  - first:
+      213: -1607662818510206273
+    second: bigCastle_81
+  - first:
+      213: 8158605829291566901
+    second: bigCastle_82
+  - first:
+      213: 4306954242258777881
+    second: bigCastle_83
+  - first:
+      213: 7240272912927900688
+    second: bigCastle_84
+  - first:
+      213: -163630889669362523
+    second: bigCastle_85
+  - first:
+      213: -176303115771961591
+    second: bigCastle_86
+  - first:
+      213: -479061166889895169
+    second: bigCastle_87
+  - first:
+      213: -7998724013511219151
+    second: bigCastle_88
+  - first:
+      213: 4758752317149582844
+    second: bigCastle_89
+  - first:
+      213: 750522629180574474
+    second: bigCastle_90
+  - first:
+      213: 173336092395010072
+    second: bigCastle_91
+  - first:
+      213: -6361703523307670821
+    second: bigCastle_92
+  - first:
+      213: 3086830586453261641
+    second: bigCastle_93
+  - first:
+      213: -8082930221039066480
+    second: bigCastle_94
+  - first:
+      213: 3286028201387243762
+    second: bigCastle_95
+  - first:
+      213: 464433356367947136
+    second: bigCastle_96
+  - first:
+      213: -6607194886119409440
+    second: bigCastle_97
+  - first:
+      213: 3656935898692615020
+    second: bigCastle_98
+  - first:
+      213: -3783946512087189634
+    second: bigCastle_99
+  - first:
+      213: -2032251936175197707
+    second: bigCastle_100
+  - first:
+      213: -1187681611453914877
+    second: bigCastle_101
+  - first:
+      213: -1504495003658278008
+    second: bigCastle_102
+  - first:
+      213: 414358758715434818
+    second: bigCastle_103
+  - first:
+      213: 3418071135593170199
+    second: bigCastle_104
+  - first:
+      213: 8215690324201905218
+    second: bigCastle_105
+  - first:
+      213: 370282838803885485
+    second: bigCastle_106
+  - first:
+      213: -7929765397704934629
+    second: bigCastle_107
+  - first:
+      213: -449851106670814234
+    second: bigCastle_108
+  - first:
+      213: -8668479677649366621
+    second: bigCastle_109
+  - first:
+      213: 3064102307392976237
+    second: bigCastle_110
+  - first:
+      213: -7905240215462302026
+    second: bigCastle_111
+  - first:
+      213: 609973013379470520
+    second: bigCastle_112
+  - first:
+      213: -5787154974161104932
+    second: bigCastle_113
+  - first:
+      213: -4302230466568211832
+    second: bigCastle_114
+  - first:
+      213: -666179755861463316
+    second: bigCastle_115
+  - first:
+      213: -8002091208843576585
+    second: bigCastle_116
+  - first:
+      213: -341828785189360640
+    second: bigCastle_117
+  - first:
+      213: -6377595781648588030
+    second: bigCastle_118
+  - first:
+      213: -825247689818351811
+    second: bigCastle_119
+  - first:
+      213: 2941281312818672522
+    second: bigCastle_120
+  - first:
+      213: 7856365629448588110
+    second: bigCastle_121
+  - first:
+      213: -6130919847041260666
+    second: bigCastle_122
+  - first:
+      213: -5265725239865711456
+    second: bigCastle_123
+  - first:
+      213: 8295735411730490639
+    second: bigCastle_124
+  - first:
+      213: 5300127351013860019
+    second: bigCastle_125
+  - first:
+      213: -5184448525138740742
+    second: bigCastle_126
+  - first:
+      213: 8719681847769535175
+    second: bigCastle_127
+  - first:
+      213: -6488084709481600045
+    second: bigCastle_128
+  - first:
+      213: -3098027416698595321
+    second: bigCastle_129
+  - first:
+      213: 1486645259124143561
+    second: bigCastle_130
+  - first:
+      213: 6998824387214442924
+    second: bigCastle_131
+  - first:
+      213: 8172848672643607518
+    second: bigCastle_132
+  - first:
+      213: 3894631990589465259
+    second: bigCastle_133
+  - first:
+      213: -6201116315256049306
+    second: bigCastle_134
+  - first:
+      213: -7911288559397913541
+    second: bigCastle_135
+  - first:
+      213: -4432965626070345297
+    second: bigCastle_136
+  - first:
+      213: -6206252097399143579
+    second: bigCastle_137
+  - first:
+      213: -719148738406304233
+    second: bigCastle_138
+  - first:
+      213: -3514578867983510444
+    second: bigCastle_139
+  - first:
+      213: -4790974809618395476
+    second: bigCastle_140
+  - first:
+      213: 1231571975330239855
+    second: bigCastle_141
+  - first:
+      213: -7784198940027504576
+    second: bigCastle_142
+  - first:
+      213: -2122898503099666791
+    second: bigCastle_143
+  - first:
+      213: 4439758007655392745
+    second: bigCastle_144
+  - first:
+      213: 1938414393324949983
+    second: bigCastle_145
+  - first:
+      213: 3127700489765248426
+    second: bigCastle_146
+  - first:
+      213: -8186192230617842424
+    second: bigCastle_147
+  - first:
+      213: 985151030838140246
+    second: bigCastle_148
+  - first:
+      213: 7870567805695161500
+    second: bigCastle_149
+  - first:
+      213: 1656829130644902374
+    second: bigCastle_150
+  - first:
+      213: -6160375153424160276
+    second: bigCastle_151
+  - first:
+      213: 850282537274827286
+    second: bigCastle_152
+  - first:
+      213: 6075822085323741520
+    second: bigCastle_153
+  - first:
+      213: -8550945951496590254
+    second: bigCastle_154
+  - first:
+      213: 5541246174163593288
+    second: bigCastle_155
+  - first:
+      213: -596754382344252705
+    second: bigCastle_156
+  - first:
+      213: 6987939113602971495
+    second: bigCastle_157
+  - first:
+      213: -7524065337068443730
+    second: bigCastle_158
+  - first:
+      213: -6352103595808353218
+    second: bigCastle_159
+  - first:
+      213: -6315039026126870341
+    second: bigCastle_160
+  - first:
+      213: -9221030300820628112
+    second: bigCastle_161
+  - first:
+      213: -305119303240113457
+    second: bigCastle_162
+  - first:
+      213: 8415450500130303013
+    second: bigCastle_163
+  - first:
+      213: 5256626931226821255
+    second: bigCastle_164
+  - first:
+      213: -1685358942707783384
+    second: bigCastle_165
+  - first:
+      213: 6263343210389518704
+    second: bigCastle_166
+  - first:
+      213: 7215900261499733404
+    second: bigCastle_167
+  - first:
+      213: 2656904694412272102
+    second: bigCastle_168
+  - first:
+      213: 5922178144320720283
+    second: bigCastle_169
+  - first:
+      213: -3917278562986319101
+    second: cobblestone
+  - first:
+      213: 6228025059072638825
+    second: bigCastle_171
+  - first:
+      213: 7230266761521094811
+    second: bigCastle_172
+  - first:
+      213: 9052045127269838026
+    second: bigCastle_173
+  - first:
+      213: -9090507415272217733
+    second: bigCastle_174
+  - first:
+      213: -2182299650250549460
+    second: bigCastle_175
+  - first:
+      213: -7701704297874738421
+    second: bigCastle_176
+  - first:
+      213: 4421658749052725135
+    second: bigCastle_177
+  - first:
+      213: 8032427193719541066
+    second: bigCastle_178
+  - first:
+      213: -2849027658399720405
+    second: bigCastle_179
+  - first:
+      213: -6060860743771993167
+    second: bigCastle_180
+  - first:
+      213: 4538631186424102932
+    second: bigCastle_181
+  - first:
+      213: 88373224727359267
+    second: bigCastle_182
+  - first:
+      213: 2906618904184363343
+    second: bigCastle_183
+  - first:
+      213: 3532374252995160430
+    second: bigCastle_184
+  - first:
+      213: 5024954759451485870
+    second: bigCastle_185
+  - first:
+      213: 1990677642813490658
+    second: hunter
+  - first:
+      213: -1564508090786728418
+    second: bigCastle_187
+  - first:
+      213: 6377639918568330442
+    second: bigCastle_188
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bigCastle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8665d0d73db440e3b18942d87623cea
+      internalID: -5559755353956298097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f31e8f68b2c344d6baf351e8ea12d3f
+      internalID: -971537655533276419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e29906b9e7a247b191f154b3268e2fa
+      internalID: 2740179057161758085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72eaccc44232b4b96af19f6a490bbd9e
+      internalID: -1188068425433069585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33818f88041c48779439017a10e0af3
+      internalID: -3776280344297686525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db13581522324f8fb5dac72c74e1430
+      internalID: 7133266792258129581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f59bfd6fe5784afa8af337f835105d7
+      internalID: -1289932764717360798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327732b9c684d406bad85982224a0996
+      internalID: -9199068221653364777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656438aab0cd240d7bb0c07d29b75653
+      internalID: 3712263276789533978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5f0f99dbba841e4b5f5109e535b943
+      internalID: 560786440232213490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817771e1323c14e499f6b9215cf79bd8
+      internalID: -2651591481346508533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1585c1ac0c70c4a489f0dc7516cc9270
+      internalID: -3197402342498829359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353200a57b5b744449f4f35467b8fe74
+      internalID: -6936644973735561368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3deea781eb3f64ae897ae7ae8e927d7b
+      internalID: 699638591054994939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e546ed11618764d5d825b0998e60a06d
+      internalID: 1434762399542929774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb29a311237cb490682ba2e451aa2d62
+      internalID: 267483344302124098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e9b7ec21a814eb29d801ad4e19379a
+      internalID: 4278787563115548003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba9668ac43954d9cade99fa1ebf3093
+      internalID: 3692838528022371299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50ab9983293142f0b630096190b19fc
+      internalID: -5197585479437869968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1625fd1888e42a9996815903fd1fc3
+      internalID: -5135530056185114491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_20
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d76aa152d50b4acf8ff82c43a908a10
+      internalID: 6357135957539769219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09dc77c89e37d438e9b326c1df38384c
+      internalID: 9082118452735095289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd44c8a86c1744d5b3262936b019510
+      internalID: -1093871566974269586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bb4123720fe4c84a3bff7305e584dc
+      internalID: 3764337610429771621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f284004307e7d487d8f6d628c5e31d6a
+      internalID: -7486527707852571859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_25
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032cfba5bf69b40189878ed197fbec96
+      internalID: 1333695450303833936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_26
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9062a34f03cfc46a99688ce32866593c
+      internalID: 8942687585041712393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0150e67f007db45bdacae1e6e28e7887
+      internalID: 3561555406035500256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb6e4b7446e244c9af3c199a30a0e3b
+      internalID: -1852326281541286431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1716f8cbc43a4b74b6144718eeb918f
+      internalID: -1630876134906061383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1eb296a0c65d4d99812c4d317c9df0c
+      internalID: -7614377693522799965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc5f7f8fcf834854bba427c53a51b07
+      internalID: -9218489027520788128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260429d4fb1b9477489738f62d63cadc
+      internalID: 7414009684209859749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcdddd66c6f1421b90cc46e1f0ccd32
+      internalID: -8925222438350327227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_34
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7144c2fe9d24fd4ad1359ccdd38aee
+      internalID: -1486412311069776987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_35
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9c3b4f370594c989e9c464618735f1
+      internalID: -2495286866377707216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_36
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2056b30e88ffb45be817566616c3adda
+      internalID: -6706249519112653750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854cedef0071746e1951ca09fcb6a223
+      internalID: -8146352643126341189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_38
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d203e82cdcb432b9308d5171e62d7a
+      internalID: -1334385878790264493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_39
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d5f81d16dbc4936af5fc0134cd1dce
+      internalID: -5527343647177189815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_40
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10979ebfa2867459da4ada6c79616594
+      internalID: 345947860596559251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd404f01f89943a198cfece63af26a0
+      internalID: -5413491859306124938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_42
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350fea8f89a5042cb801cbe41f53ccda
+      internalID: -459591075718376074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd945bb39038467c894260164b426a7
+      internalID: -3855002036636122595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6d315840b43487bacaec9fd8080352
+      internalID: -474693090615069740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_45
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb5a95644a084e0280d49ad7705a071
+      internalID: 4817157164205492903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_46
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c920b2c997504e25a4b5ae7da3c6d1b
+      internalID: -8002645236988468960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_47
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b87c167d74ec4263b48310e56b48c9b
+      internalID: -3515658580422307034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_48
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19335bfe27b9a4223840a29543c6363c
+      internalID: 2794268403760009801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd966a15fb7644e3c8c5271e711dc3e9
+      internalID: -8532546473459932241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_50
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af294ff2f894f432aa436961d9df04a6
+      internalID: 1182967368842214941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b405f4e8b1949258e82b0919186d71
+      internalID: 2801128517236337684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a713461599d4ee993474c78cc4bcf7
+      internalID: -4920188136127240998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_53
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65500a4fae5c34d299ea23e29d89f091
+      internalID: -6080554368373902228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_54
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73cf2d66110445f0be1a13c1ea0fb82
+      internalID: -8136114496752870727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15952a5c53b348b6973e151a1342b56
+      internalID: -328172308574154073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_56
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7dc61c032adf47cdb612e887b0e9ccd
+      internalID: -7000146209494234223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ba1b51dcfec4090b427799cde18192
+      internalID: 574255960567391216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a4deedcecbc43b09a3b32fb79b712b
+      internalID: -8682476788409185885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_59
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b2ae7dc0f4c47a7a09eb7429803201
+      internalID: -6071448629004742292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_60
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bdaa1169b4e45d29e9b7b95d98d2e7
+      internalID: 2799477782644048920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ef1905d019c4d89a9aa322b9c97477
+      internalID: -4944080714895796642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_62
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107bc1415950e4dd5bd4927826e462bc
+      internalID: -5512693432976963714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_63
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae4e8ecc38eb4b91ad2594f1a09be8e
+      internalID: 6179281679860833262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_64
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0be1068058d4568b727f478597f161
+      internalID: 1140530778164114118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_65
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8504bdca2e9144902b8215168ecc5520
+      internalID: 3335433210052024183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_66
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce93852bd0994eee99ad2a0227d3b70
+      internalID: -4214179607156018227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_67
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48da90c592b1c4d31af0edf6b8693211
+      internalID: 7527663342427827178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_68
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4466c71c103754fcd849a687b0686f29
+      internalID: -5117835227074218691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_69
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a466991ad022d4e0e8940c99ac89a7ab
+      internalID: -5172088846916972902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_70
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9a28291e2034f9da5f24d1ebb0a984
+      internalID: 5115785297901662696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_71
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbde90e9029e48d58fb4f69192e39ad
+      internalID: -6875189544296701801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d844046d8b0894d60a1cd4aa9b6e4e3d
+      internalID: 3076085534685474595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_73
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fdcd375d59d944f3930b189a14e651e
+      internalID: -1667726856400255357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_74
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53021266c6c904d2698e59d44e427989
+      internalID: 6041987685464536207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_75
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40a98c249b4b46a9827983ab319de54
+      internalID: -6746726675098154304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6dc43122f0d48f3befb1f102f9cdb5
+      internalID: 7287480123163872201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_77
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cc8c7a03037457eab46d9b73e4357f
+      internalID: -2114779378860165905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_78
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8027bb8a56a749c7ba99b6028963b9d
+      internalID: -2404344302152649382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_79
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee08abc7447c74c678625ec80b5081fd
+      internalID: 286505620169281744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_80
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb5800be88ae472a9c9059904f4ad8e
+      internalID: -4511485873426084124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_81
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d634c30e4fb43559f23e770f3d80d3
+      internalID: -1607662818510206273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_82
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0921eade5076546d987684401e53d2a9
+      internalID: 8158605829291566901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_83
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b513f9c081f94420b751ff13e5cb5a0
+      internalID: 4306954242258777881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_84
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3713d9202e0947ae9ad99566573abe9
+      internalID: 7240272912927900688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_85
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4458998b4a8b54f83b9bed5f79ac1ac2
+      internalID: -163630889669362523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_86
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e362db03d413456f8474a088ab63fe5
+      internalID: -176303115771961591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c60249efb00d444c94510fe363c8682
+      internalID: -479061166889895169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_88
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ed3fe2c1880414ea885fcb54c49d0a
+      internalID: -7998724013511219151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_89
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29adcab0050cf4e6e88ab12d61ea8165
+      internalID: 4758752317149582844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_90
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1316486f55efb4d17a8fc617cc15e667
+      internalID: 750522629180574474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_91
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee26deaf34ee4bd79cf2e0c9a5744b3
+      internalID: 173336092395010072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_92
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73570b156b0884c8d882f37843dc635d
+      internalID: -6361703523307670821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_93
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7569cfd8614404693f0ca68ab37fa6
+      internalID: 3086830586453261641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_94
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b44e3116c964bd084827210f56d7b6
+      internalID: -8082930221039066480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_95
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de8baf16a154492f9b13a0ee9dd2337
+      internalID: 3286028201387243762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_96
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf52d51372b648c1ab897cac5f1b25a
+      internalID: 464433356367947136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_97
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da013ab341e5456d89ab78c53a9cd98
+      internalID: -6607194886119409440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_98
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9b586bbf8a94ddba1ffda0b54ba9b6
+      internalID: 3656935898692615020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c0875ebe16143919d8bf9135a8991c
+      internalID: -3783946512087189634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_100
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1dcd0ecec58244b39784352eb0b128a
+      internalID: -2032251936175197707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_101
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab833096ec39244d0a1db315b7eb70a9
+      internalID: -1187681611453914877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_102
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6866ee11d9f2541b89f026384708479e
+      internalID: -1504495003658278008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_103
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e11407bc52745b9b493161c241f916
+      internalID: 414358758715434818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_104
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac359065ce2224968b07996fd2a7d6d5
+      internalID: 3418071135593170199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_105
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200d865aa579543ef97ef7ebe4d13283
+      internalID: 8215690324201905218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_106
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b6700307a0be4125951e3f4dbd99426
+      internalID: 370282838803885485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_107
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb88f6d21f0014d9fb46558939997361
+      internalID: -7929765397704934629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a85f78e5d8b470f9070d015b3b28af
+      internalID: -449851106670814234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_109
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1e4dceac41743a5ad9852586914033
+      internalID: -8668479677649366621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_110
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6c63413d402434caf1688f64f2a134
+      internalID: 3064102307392976237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_111
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda03907fc2b040ce8bd7156ea96f88e
+      internalID: -7905240215462302026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_112
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d1fe191b8554646961047b47517eec
+      internalID: 609973013379470520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_113
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b290daefa1e114cbfad3744bc164d743
+      internalID: -5787154974161104932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_114
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a86a005220fc41b6bb388107a5f1d10
+      internalID: -4302230466568211832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_115
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4a2fab836e14cb9882acfe4f6abc96
+      internalID: -666179755861463316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_116
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3779c83f7578497f9533b1e9dee860c
+      internalID: -8002091208843576585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_117
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea789b868704142d5a26148d00971429
+      internalID: -341828785189360640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_118
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7f7487f8446423ea7fbd3021232125
+      internalID: -6377595781648588030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_119
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3814fe532a9743dcbff65b0c653fc6f
+      internalID: -825247689818351811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_120
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543ab4d633d124633adf1ed8e7407204
+      internalID: 2941281312818672522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_121
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18759bb2e62594037aa86272383c79ae
+      internalID: 7856365629448588110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_122
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cc78df1a90a4ecdb56782b12372150
+      internalID: -6130919847041260666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_123
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301658a0039d14bbaba4155638da913f
+      internalID: -5265725239865711456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_124
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515a9510f5fbd4e7e9a0ac0e0a3ffa3b
+      internalID: 8295735411730490639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_125
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2377a132006f849478a318bce8241901
+      internalID: 5300127351013860019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_126
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809c9319a7b8040fba54672867bed628
+      internalID: -5184448525138740742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_127
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e70b32d88db940d284ca0c46f3d1c61
+      internalID: 8719681847769535175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_128
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9d1df25d74e4ed9a7c30646c2aa2cd
+      internalID: -6488084709481600045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_129
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c153a0f851ae240dd9ab5e1375d03795
+      internalID: -3098027416698595321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_130
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b894348eae0433d9c103f9383d44fa
+      internalID: 1486645259124143561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_131
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04f02662ff6e48e2872de423735f6c3
+      internalID: 6998824387214442924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_132
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217bf894ba4de4fd3a975c4860d5c9d7
+      internalID: 8172848672643607518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_133
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea2d20c370164de9b1772e8a7951005
+      internalID: 3894631990589465259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_134
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a1c097f52194080ae91b49e9bd77e5
+      internalID: -6201116315256049306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_135
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03956fa631cb34adbbd6e31624699013
+      internalID: -7911288559397913541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_136
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1cfda9ea5154cb1a94ab304ddf206f
+      internalID: -4432965626070345297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_137
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8aab409e70f4fbe87d4b93758a7e18
+      internalID: -6206252097399143579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_138
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc53fcc9efda46ac8dfe541fb66cb32
+      internalID: -719148738406304233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_139
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e352805c77f5243e593d2064d7d57138
+      internalID: -3514578867983510444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_140
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d172625010754b2da7d59432cb1266e
+      internalID: -4790974809618395476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_141
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009946ce5511f4c4bb47c455b532823e
+      internalID: 1231571975330239855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_142
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551dbeec0a10244869b8c4966f931a15
+      internalID: -7784198940027504576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_143
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1251bc95df34bb2ac4e2b4ddfd18b2
+      internalID: -2122898503099666791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088341181d2194bcbb9d8acea71d95db
+      internalID: 4439758007655392745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_145
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107c85c908c0a49aabc05a91f5aa7254
+      internalID: 1938414393324949983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_146
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6096235601a14475a9f9caf2796414f
+      internalID: 3127700489765248426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_147
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de8cfd49bd8045cd8682313f556e111
+      internalID: -8186192230617842424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_148
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab15a7c6a44a46158c72cf6207338b2
+      internalID: 985151030838140246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_149
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768efdd6a4f414730a469f7931e6e5c3
+      internalID: 7870567805695161500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_150
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2724d1c494fd14037b2bea374eca562a
+      internalID: 1656829130644902374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_151
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1af243ac8719465d87a8ea2e2f66828
+      internalID: -6160375153424160276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_152
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a9698118e744119864825ba0d126e9
+      internalID: 850282537274827286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_153
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8979039e6895e4744b7487437229db60
+      internalID: 6075822085323741520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_154
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435d4390c289548afb7ea4226ab80918
+      internalID: -8550945951496590254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_155
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4344a60a6a08c4106a8bd059b00a6325
+      internalID: 5541246174163593288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_156
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d3bfa49293c4a5bbae7971cc9a1585
+      internalID: -596754382344252705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_157
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4c2426a31504cec852ca04ecce02ff
+      internalID: 6987939113602971495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_158
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21557b6388787466687cdee970c3b0c5
+      internalID: -7524065337068443730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_159
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848160dea5af140a897c6525eb210b0b
+      internalID: -6352103595808353218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_160
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a855721b26b541cd8a8ca87ff5427bd
+      internalID: -6315039026126870341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_161
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce35b32919f1a4a3b8d3b0ad66aef79d
+      internalID: -9221030300820628112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_162
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d50ca340b984d0d8d8eba316281278
+      internalID: -305119303240113457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_163
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f443910a05894fa38c684825ca4b7ac
+      internalID: 8415450500130303013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_164
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74258a125f4b4e2680ed194c5b19a6b
+      internalID: 5256626931226821255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_165
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7086f8f3856345ab83b59f8979270c5
+      internalID: -1685358942707783384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_166
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbfc3da91d6f4d40a75b16f7419ef90
+      internalID: 6263343210389518704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_167
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d554ae4e7f04d4aa55e6d027246098
+      internalID: 7215900261499733404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_168
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc0d9f999274493f9fdc8dfb0d0806d
+      internalID: 2656904694412272102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_169
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7f4c96acd6e47b2bb8b7ed98c90440
+      internalID: 5922178144320720283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cobblestone
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4a843c4c53a4b47b770d5f965b25ef
+      internalID: -3917278562986319101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_171
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e3218c345124c419d1d65ea8c57c30
+      internalID: 6228025059072638825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_172
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a6eb3b731e7428c9aca8b46cf15471
+      internalID: 7230266761521094811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_173
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c153f961705b24a5ebed36e4a19d5119
+      internalID: 9052045127269838026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_174
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16e90d0c2b974dffb9238e1181b1013
+      internalID: -9090507415272217733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_175
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbab8dfbc80c49128a5252d7f7bf087
+      internalID: -2182299650250549460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_176
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b688c5bb0a8245b190c85920e2236a3
+      internalID: -7701704297874738421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_177
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c7fe0a557354865924d0c278d7e97b
+      internalID: 4421658749052725135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_178
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d35e70a38774e7b8767e239ff890fd
+      internalID: 8032427193719541066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_179
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa3602b50ab4a447e9e33163e326cb48
+      internalID: -2849027658399720405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_180
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7977a0bfcc2c459883ef8ec1a5442f9
+      internalID: -6060860743771993167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_181
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3140f3ac25764483080e3b7c0d3f67bc
+      internalID: 4538631186424102932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_182
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354cd65ba4fbe4ea58d9c00239785551
+      internalID: 88373224727359267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_183
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ccef521e63e47ab95c0fa453c52224
+      internalID: 2906618904184363343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_184
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e404962c681f4de394c308bb0c8c7d4
+      internalID: 3532374252995160430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_185
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a07cbe3464a24b139c6316c5d5aec92
+      internalID: 5024954759451485870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunter
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f18acdfd4c67434a96fe8412d05009a
+      internalID: 1990677642813490658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_187
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260c46829f2a94c9ebe318f5d3b0b8ac
+      internalID: -1564508090786728418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bigCastle_188
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4536a4c3cea74448e967cbefd54f4e0b
+      internalID: 6377639918568330442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8e2d9617540354acf920adc7919e6fbd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

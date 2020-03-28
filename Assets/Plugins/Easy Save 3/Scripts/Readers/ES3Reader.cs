@@ -29,6 +29,7 @@ public abstract class ES3Reader : System.IDisposable
 	internal abstract uint 		Read_uint();
 	internal abstract string 	Read_string();
 	internal abstract byte[]	Read_byteArray();
+    internal abstract long      Read_ref();
 
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public abstract string ReadPropertyName();
@@ -119,7 +120,14 @@ public abstract class ES3Reader : System.IDisposable
 		return Read<T>(type);
 	}
 
-	internal Type ReadType()
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    public long ReadRefProperty()
+    {
+        ReadPropertyName();
+        return Read_ref();
+    }
+
+    internal Type ReadType()
 	{
 		return Type.GetType(Read<string>(ES3Type_string.Instance));
 	}

@@ -6,6 +6,8 @@ namespace ES3Internal
 {
 	public static class ES3IO
 	{
+        public static readonly string persistentDataPath = Application.persistentDataPath;
+
 		public enum ES3FileMode {Read, Write, Append}
 
 		public static DateTime GetTimestamp(string filePath)
@@ -59,6 +61,14 @@ namespace ES3Internal
 			if(path.Contains("/"))
 				return true;
 			return false;
+		}
+		
+		// Takes a directory path and a file or directory name and combines them into a single path.
+		public static string CombinePathAndFilename(string directoryPath, string fileOrDirectoryName)
+		{
+			if(directoryPath[directoryPath.Length-1] != '/' && directoryPath[directoryPath.Length-1] != '\\')
+				directoryPath += '/';
+			return directoryPath + fileOrDirectoryName;
 		}
 			
 		public static string[] GetDirectories(string path, bool getFullPaths = true)

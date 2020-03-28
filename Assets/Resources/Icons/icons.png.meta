@@ -1138,7 +1138,7 @@ TextureImporter:
     second: Icons_132
   - first:
       213: -1727509603783142218
-    second: NextRound
+    second: nextRound
   - first:
       213: 1029011405913485410
     second: Icons_134
@@ -1276,10 +1276,10 @@ TextureImporter:
     second: Icons_178
   - first:
       213: 2859120658382864617
-    second: Icons_179
+    second: random
   - first:
       213: 716232749300783011
-    second: Icons_180
+    second: custom
   - first:
       213: 2189078973585233020
     second: Icons_181
@@ -1426,7 +1426,7 @@ TextureImporter:
     second: Icons_228
   - first:
       213: -3781490126459729985
-    second: Icons_229
+    second: stone
   - first:
       213: -3269020322086863288
     second: Icons_230
@@ -1528,7 +1528,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -1539,7 +1539,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -1550,6 +1551,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -4347,7 +4349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NextRound
+      name: nextRound
       rect:
         serializedVersion: 2
         x: 480
@@ -5313,7 +5315,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_179
+      name: random
       rect:
         serializedVersion: 2
         x: 416
@@ -5334,7 +5336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_180
+      name: custom
       rect:
         serializedVersion: 2
         x: 448
@@ -6363,7 +6365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_229
+      name: stone
       rect:
         serializedVersion: 2
         x: 32

@@ -1,4 +1,9 @@
 using System;
+using Classes;
+using Classes.Actions;
+using Libraries;
+using Libraries.FActions;
+using Libraries.FActions.General;
 using UI;
 
 namespace Players.Infos
@@ -9,10 +14,16 @@ namespace Players.Infos
         public string icon;
         public string title;
         public string desc;
-        public string action;
-        public string sett;
+        public ActionHolder action;
         public int round;
         public bool read;
+
+        /// <summary>
+        /// For Loading only
+        /// </summary>
+        public Info()
+        {
+        }
 
         public Info(string title, string icon)
         {
@@ -28,8 +39,7 @@ namespace Players.Infos
         /// <returns></returns>
         public Info AddAction(string action, string sett)
         {
-            this.action = action;
-            this.sett = sett;
+            this.action = LClass.s.GetNewAction(action).Create(sett);
             return this;
         }
 
@@ -54,7 +64,7 @@ namespace Players.Infos
 
         public void CallAction()
         {
-            NLib.GetAction(action).QuestRun(PlayerMgmt.ActPlayer(), sett);
+            action.Perform(ActionEvent.Direct, PlayerMgmt.ActPlayer());
         }
         
         public void AddToPanel(PanelBuilder panel)
@@ -70,13 +80,6 @@ namespace Players.Infos
             {
                 panel.AddImageTextButton(title, SpriteHelper.Load(icon), CallAction);
             }
-        }
-
-        /// <summary>
-        /// For Loading only
-        /// </summary>
-        public Info()
-        {
         }
     }
 }

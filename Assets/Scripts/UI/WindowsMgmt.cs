@@ -1,64 +1,55 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DataTypes;
-using Help;
-using Game;
-using LoadSave;
-using Options;
+﻿using GameButtons;
+using Libraries;
 using Players;
-using Towns;
-using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class WindowsMgmt : MonoBehaviour
+namespace UI
 {
-    private static WindowsMgmt self;
+    public class WindowsMgmt : MonoBehaviour
+    {
+        private static WindowsMgmt self;
     
-    /// <summary>
-    /// Get it
-    /// </summary>
-    /// <returns></returns>
-    public static WindowsMgmt Get()
-    {
-        //return GameObject.Find("WindowsMgmt").GetComponentInChildren<WindowsMgmt>();
-        return self;
-    }
-
-    private void Start()
-    {
-        self = this;
-    }
-
-    public static void GameMainMenu()
-    {
-        
-        //create it
-        WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
-        GameButtonHelper.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
-        win.Finish();
-    }
-
-    private bool IsOpen(string text)
-    {
-        return GameObject.Find(text) != null;
-    }
-    
-    public GameObject GetOpenWindow()
-    {
-        foreach(DestroyGameObject d in transform.GetComponentsInChildren<DestroyGameObject>())
+        /// <summary>
+        /// Get it
+        /// </summary>
+        /// <returns></returns>
+        public static WindowsMgmt Get()
         {
-            if (d.IsWindow)
-                return d.gameObject;
+            //return GameObject.Find("WindowsMgmt").GetComponentInChildren<WindowsMgmt>();
+            return self;
         }
-        return null;
-    }
+
+        private void Start()
+        {
+            self = this;
+        }
+
+        public static void GameMainMenu()
+        {
+            //create it
+            WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
+            L.b.gameButtons.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
+            win.Finish();
+        }
+
+        private bool IsOpen(string text)
+        {
+            return GameObject.Find(text) != null;
+        }
     
-    public bool AnyOpenWindow()
-    {
-        return GetOpenWindow()!=null;
+        public GameObject GetOpenWindow()
+        {
+            foreach(DestroyGameObject d in transform.GetComponentsInChildren<DestroyGameObject>())
+            {
+                if (d.IsWindow)
+                    return d.gameObject;
+            }
+            return null;
+        }
+    
+        public bool AnyOpenWindow()
+        {
+            return GetOpenWindow()!=null;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using Buildings;
+using Tools;
 using Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,24 +8,14 @@ namespace Game
 {
     public class GameHelper
     {
-        public static MapElementInfo GetMapElement(GameObject game)
-        {
-            if (game.GetComponent<BuildingInfo>())
-            {
-                return game.GetComponent<BuildingInfo>();
-            }
-
-            return game.GetComponent<UnitInfo>();
-        }
-
-        public static bool Valide(int x, int y)
+        public static bool Valid(int x, int y)
         {
             return !(y < 0 || x < 0 || y >= GameMgmt.Get().data.map.height || x >= GameMgmt.Get().data.map.width);
         }
 
-        public static bool Valide(Vector3Int pos)
+        public static bool Valid(NVector pos)
         {
-            return Valide(pos.x, pos.y);
+            return Valid(pos.x, pos.y);
         }
 
         public static bool IsGame()

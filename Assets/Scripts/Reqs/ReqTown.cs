@@ -1,16 +1,13 @@
 using System;
 using Buildings;
+using Game;
 using Players;
-using UnityEngine;
+using Tools;
 
 namespace reqs
 {
-    public class ReqTown : ReqMinMax
+    public class ReqTown : ReqMinMaxPlayer
     {
-        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
-        {
-            return ValueMax(player, element, sett);
-        }
 
         protected override int ValueMax(Player player, string element, string sett)
         {
@@ -18,14 +15,9 @@ namespace reqs
             return 10;
         }
 
-        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
-        {
-            return ValueAct(player, element, sett);
-        }
-
         protected override int ValueAct(Player player, string element, string sett)
         {
-            return TownMgmt.Get().GetByPlayer(player.id).Count;
+            return S.Towns().GetByPlayer(player.id).Count;
         }
 
         protected override string Name(string element, string sett)
@@ -34,60 +26,40 @@ namespace reqs
         }
     }
     
-    public class ReqOldTownMin : BaseReqOld
+    public class ReqOldTownMin : BaseReqOnlyPlayer
     {
-        public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
-        {
-            return Check(player, sett);
-        }
-
         public override bool Check(Player player, string sett)
         {
-            return TownMgmt.Get().GetByPlayer(player.id).Count >= Int32.Parse(sett);
+            return S.Towns().GetByPlayer(player.id).Count >= Int32.Parse(sett);
         }
 
-        public override bool Final(Player player, GameObject onMap, string sett, int x, int y)
+        public override bool Final(Player player, string sett)
         {
             return false;
         }
 
-        public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
+        public override string Desc(Player player, string sett)
         {
-            return Desc(sett)+$" You have only {TownMgmt.Get().GetByPlayer(player.id).Count} town.";
-        }
-
-        public override string Desc(string sett)
-        {
-            return $"Need at least {sett} town.";
+            return $"Need at least {sett} town."+(player==null?"":$" You have only {S.Towns().GetByPlayer(player.id).Count} town.");
         }
     }
     
     
-    public class ReqOldTownMax : BaseReqOld
+    public class ReqOldTownMax : BaseReqOnlyPlayer
     {
-        public override bool Check(Player player, GameObject onMap, string sett, int x, int y)
-        {
-            return Check(player, sett);
-        }
-
         public override bool Check(Player player, string sett)
         {
-            return TownMgmt.Get().GetByPlayer(player.id).Count <= Int32.Parse(sett);
+            return S.Towns().GetByPlayer(player.id).Count <= Int32.Parse(sett);
         }
 
-        public override bool Final(Player player, GameObject onMap, string sett, int x, int y)
+        public override bool Final(Player player, string sett)
         {
             return false;
         }
 
-        public override string Desc(Player player, GameObject onMap, string sett, int x, int y)
+        public override string Desc(Player player, string sett)
         {
-            return Desc(sett)+$" You have already {TownMgmt.Get().GetByPlayer(player.id).Count} town.";
-        }
-
-        public override string Desc(string sett)
-        {
-            return $"Need maximal {sett} town.";
+            return $"Need maximal {sett} town."+(player==null?"":$" You have already {S.Towns().GetByPlayer(player.id).Count} town.");
         }
     }
 }

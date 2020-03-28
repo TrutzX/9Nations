@@ -1,53 +1,52 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Actions;
-using Buildings;
-using DataTypes;
-using Game;
+using Classes.Actions;
+using Libraries.FActions;
 using Players;
 using reqs;
-using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class BuildingUI : MapElementUI<BuildingInfo>
+namespace Buildings
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BuildingUI : MapElementUI<BuildingInfo>
     {
-        UpdatePanel(null);
-    }
-    
-    /// <summary>
-    /// Show this unit
-    /// </summary>
-    /// <param name="building"></param>
-    public override void UpdatePanel(BuildingInfo building)
-    {
-        GameObject.Find("InputAction").GetComponent<InputAction.InputAction>().aBuilding = building;
-        active = building;
-        
-        //no unit?
-        if (building == null)
+        // Start is called before the first frame update
+        void Start()
         {
-            //hide it
-            gameObject.SetActive(false);
-            return;
+            UpdatePanel(null);
         }
-
-        UpdateInfoButton();
-        AddButtons();
-    }
     
-    public override void AddAllActionButtons()
-    {
-        //add actions
-        foreach (KeyValuePair<string, string> action in active.config.GetActions())
+        /// <summary>
+        /// Show this unit
+        /// </summary>
+        /// <param name="building"></param>
+        public override void UpdatePanel(BuildingInfo building)
         {
-            //can add?
-            if (ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(),ActionHelper.GenReq(Data.nAction[action.Key]), active,active.data.x, active.data.y))
-                AddActionButton(action.Key, action.Value, active, actions);
+            GameObject.Find("InputAction").GetComponent<InputAction.InputAction>().aBuilding = building;
+            active = building;
+        
+            //no unit?
+            if (building == null)
+            {
+                //hide it
+                gameObject.SetActive(false);
+                return;
+            }
+
+            UpdateInfoButton();
+            AddButtons();
+        }
+    
+        public override void AddAllActionButtons()
+        {
+            
+            //add new actions
+            foreach (var act in active.data.action.Is(ActionEvent.Direct))
+            {
+                BasePerformAction ba = act.PerformAction();
+                if (act.req.Check(PlayerMgmt.ActPlayer(),active,active.Pos(), true))
+                    AddNewActionButton(active.data.action, act, active, actions);
+            }
         }
     }
 }

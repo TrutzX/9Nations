@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using Buildings;
 using Game;
+using Libraries;
 using Maps;
 using NesScripts.Controls.PathFind;
 using Players;
+using Players.Infos;
+using Tools;
 using UI;
 using UnityEngine;
 
@@ -13,114 +17,109 @@ namespace Units
 {
     public class UnitMgmt : MonoBehaviour
     {
-        public GameObject unitPrefab;
-    
-        public static UnitMgmt Get()
-        {
-            return GameMgmt.Get().unit;
-        }
+        public UnitInfo unitPrefab;
+        public List<UnitInfo> units = new List<UnitInfo>();
     
         /// <summary>
-        /// Return the unit, if exist, at this postion
+        /// Return the building, if exist, at this postion
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <returns>the unit or null</returns>
-        public static UnitInfo At(int x, int y)
+        public UnitInfo At(NVector pos)
         {
-            UnitInfo go = Get().GetAll().SingleOrDefault(g => g.X() == x && g.Y() == y);
-            return go == null ? null : go;
+            return GameMgmt.Get().unit.GetAll().SingleOrDefault(g => g.Pos().Equals(pos));
         }
 
         public UnitInfo[] GetAll()
         {
-            return GetComponentsInChildren<UnitInfo>(true);
+            return units.ToArray();
         }
 
         /// <summary>
         /// Returns true, if no unit is on the field
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <returns></returns>
-        public bool IsFree(int x, int y)
+        public bool Free(NVector pos)
         {
-            return At(x, y) == null;
+            return At(pos) == null;
         }
     
-        public UnitInfo[] GetUnitPlayer(int pid)
+        public UnitInfo[] GetByPlayer(int pid)
         {
             return GetAll().Where(g => g.data.playerId == pid).ToArray();
         }
     
-        public UnitInfo[] GetUnitPlayerType(int pid, string type)
+        public UnitInfo[] GetByPlayerType(int pid, string type)
         {
-            return GetUnitPlayer(pid).Where(g => g.data.type == type).ToArray();
+            return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
         }
 
-        public UnitInfo Create(int player, string type, int x, int y)
+        public UnitInfo Create(int player, string type, NVector pos)
         {
             //exist?
-            if (!Data.unit.ContainsKey(type))
+            if (!L.b.units.ContainsKey(type))
             {
                 throw new MissingComponentException("Unit "+type+ "not exist");
             }
 
-            if (!GameHelper.Valide(x, y))
+            if (!pos.Valid())
             {
                 throw new MissingComponentException("not a valid position");
             }
         
-            UnitInfo unit = Instantiate(unitPrefab, GetComponent<Transform>()).GetComponent<UnitInfo>();
-            unit.Init(type,player,x,y);
-            GameMgmt.Get().data.units.Add(unit.data);
-            return unit;
+            UnitInfo ui = Instantiate(unitPrefab, GameMgmt.Get().newMap.levels[pos.level].units.transform);
+            ui.Init(type,player, pos);
+            units.Add(ui);
+            GameMgmt.Get().data.units.Add(ui.data);
+            return ui;
         }
 
-        public UnitInfo Create(int player, string type, PPoint p)
-        {
-            return Create(player, type, p.x, p.y);
-        }
-
-        public GameObject Load(BuildingUnitData data)
+        public UnitInfo Load(BuildingUnitData data)
         {
             //exist?
-            if (!Data.unit.ContainsKey(data.type))
+            if (!L.b.units.ContainsKey(data.type))
             {
-                throw new MissingComponentException("Unit "+data.type+ "not exist");
+                Debug.LogError($"Unit {data.type} ({data.pos}) not exist");
+                PlayerMgmt.Get(data.playerId).info.Add(new Info($"Unit {data.type} ({data.pos}) not exist","no"));
+                return null;
             }
         
-            GameObject unit = Instantiate(unitPrefab, GetComponent<Transform>());
-            unit.GetComponent<UnitInfo>().Load(data);
-            return unit;
+            UnitInfo ui = Instantiate(unitPrefab, GameMgmt.Get().newMap.levels[data.pos.level].units.transform);
+            ui.Load(data);
+            units.Add(ui);
+            return ui;
         }
 
-        public void ShowNextAvaibleUnitForPlayer()
+        public void ShowNextAvailableUnitForPlayer()
         {
             //has an active unit?
             //Debug.LogWarning(FindObjectOfType<OnMapUI>());
             UnitInfo u = FindObjectOfType<OnMapUI>().unitUI.active;
-            UnitInfo[] units = GetUnitPlayer(PlayerMgmt.ActPlayer().id);
+            UnitInfo[] unitP = GetByPlayer(PlayerMgmt.ActPlayer().id);
+            
+            //has units?
+            if (unitP.Length == 0) return;
             
             //get startpos?
-            int s = u==null?0:Array.IndexOf(units, u.gameObject);
+            int s = u==null?0:Array.IndexOf(unitP, u);
             
             //find next
-            for (int i = 0; i < units.Length; i++)
+            for (int i = 0; i < unitP.Length; i++)
             {
-                UnitInfo ui = units[(i+s+1)%units.Length];
+                UnitInfo ui = unitP[(i+s+1)%unitP.Length];
                 
                 //right unit?
-                if (ui.GetData().ap > 0)
+                if (!ui.IsUnderConstruction() && ui.data.ap > 0)
                 {
-                    FindObjectOfType<OnMapUI>().UpdatePanelXY(ui.GetData().x, ui.GetData().y);
-                    CameraMove.Get().MoveTo(ui.GetData().x, ui.GetData().y);
+                    FindObjectOfType<OnMapUI>().UpdatePanel(ui.GetData().pos);
+                    CameraMove.Get().MoveTo(ui.GetData().pos);
                     return;
                 }
             }
             
             //nothing found?
-            NAudio.PlayBuzzer();
+            OnMapUI.Get().SetMenuMessageError("No available unit found.");
         }
     }
 }

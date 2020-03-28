@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ES3Internal;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -13,13 +14,8 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase, ISerializationCallbackReceiv
 {
 	public void OnBeforeSerialize()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		// This is called before building or when things are being serialised before pressing play.
-		if(BuildPipeline.isBuildingPlayer || (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying))
-		{
-			AddPrefabsToManager();
-			RemoveNullValues();
-		}
 		#endif
 	}
 
@@ -29,37 +25,64 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase, ISerializationCallbackReceiv
 
 	public void RefreshDependencies()
 	{
-		var gos = EditorSceneManager.GetActiveScene().GetRootGameObjects();
-		// Remove Easy Save 3 Manager from dependency list
-		AddDependencies(gos);
-	}
+        // This will get the dependencies for all GameObjects and Components from the active scene.
+        AddDependencies(SceneManager.GetActiveScene().GetRootGameObjects());
+        AddPrefabsToManager();
+        RemoveNullValues();
+    }
 
-	public void AddDependencies(UnityEngine.Object[] objs, float timeoutSecs=2)
+    public void Optimize()
+    {
+        var dependencies = CollectDependencies(SceneManager.GetActiveScene().GetRootGameObjects());
+        var notDependenciesOfScene = new HashSet<UnityEngine.Object>();
+
+        foreach (var kvp in idRef)
+            if (!dependencies.Contains(kvp.Value))
+                notDependenciesOfScene.Add(kvp.Value);
+
+        foreach (var obj in notDependenciesOfScene)
+            Remove(obj);
+    }
+
+	public void AddDependencies(UnityEngine.Object[] objs, float timeoutSecs=1f)
 	{
 		var startTime = Time.realtimeSinceStartup;
-        
-        foreach(var obj in objs)
+
+        for(int i=0; i<objs.Length; i++)
         {
-        	if(Time.realtimeSinceStartup - startTime > timeoutSecs)
-        		break;
+            var obj = objs[i];
+
+            // If it's longer than the timeout period, show a progress bar so people can cancel if necessary.
+            if (Time.realtimeSinceStartup - startTime > timeoutSecs)
+            {
+                if (EditorUtility.DisplayCancelableProgressBar("Updating references", "Easy Save is updating references for this scene.", i / objs.Length))
+                {
+                    EditorUtility.ClearProgressBar();
+                    EditorUtility.DisplayDialog("Reference updating cancelled", "Reference updating was cancelled.\nTo continue updating references, go to Window > Easy Save 3 > References, and press Refresh references", "Ok");
+                    return;
+                }
+            }
         	
         	if(obj.name == "Easy Save 3 Manager")
         		 continue;
         	
-    	    var dependencies = EditorUtility.CollectDependencies(new UnityEngine.Object[]{obj});
+    	    var dependencies = CollectDependencies(obj);
     
     		foreach(var dependency in dependencies)
-    		{
-    			if(dependency == null || !CanBeSaved(dependency))
-    				continue;
-    
-    			Add(dependency);
-    		}
+    			if(dependency != null && CanBeSaved(dependency))
+    			    Add(dependency);
         }
+        EditorUtility.ClearProgressBar();
         Undo.RecordObject(this, "Update Easy Save 3 Reference List");
 	}
 
-	public void GeneratePrefabReferences()
+    public void AddDependencies(UnityEngine.Object obj, float timeoutSecs = 1f)
+    {
+        AddDependencies(new UnityEngine.Object[] { obj }, timeoutSecs);
+    }
+
+
+    public void GeneratePrefabReferences()
 	{
 		AddPrefabsToManager();
 		foreach(var es3Prefab in prefabs)

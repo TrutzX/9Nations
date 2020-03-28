@@ -1,4 +1,10 @@
+[Underground]
+generate=underground
+
 [Ground]
 layer=2
 format=
 standard=true
+
+[Overground]
+generate=mountain

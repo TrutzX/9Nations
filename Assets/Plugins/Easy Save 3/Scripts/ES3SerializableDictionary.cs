@@ -34,7 +34,7 @@ namespace ES3Internal
 			this.Clear();
 
 			if(_Keys.Count != _Values.Count)
-				throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+				throw new System.Exception(string.Format("Key count is different to value count after deserialising dictionary."));
 
 			for(int i = 0; i < _Keys.Count; i++)
 			{

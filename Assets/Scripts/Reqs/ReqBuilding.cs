@@ -1,7 +1,9 @@
 using System;
 using Buildings;
 using Game;
+using Libraries;
 using Players;
+using Tools;
 using Towns;
 using Units;
 using UnityEngine;
@@ -12,7 +14,7 @@ namespace reqs
     public class ReqBuilding : ReqMinMax
     {
 
-        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             throw new NotImplementedException();
         }
@@ -21,7 +23,7 @@ namespace reqs
         {
             throw new NotImplementedException();
         }
-        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             
             Town t = onMap.Town();
@@ -30,17 +32,17 @@ namespace reqs
                 return ValueAct(player, element, sett);
             }
             
-            return BuildingMgmt.Get().GetByTownType(t.id, element).Length;
+            return S.Building().GetByTownType(t.id, element).Length;
         }
 
         protected override int ValueAct(Player player, string element, string sett)
         {
-            return BuildingMgmt.Get().GetByPlayerType(player.id, element).Length;
+            return S.Building().GetByPlayerType(player.id, element).Length;
         }
 
         protected override string Name(string element, string sett)
         {
-            return Data.building[element].name;
+            return L.b.buildings[element].name;
         }
     }
 }

@@ -13,9 +13,14 @@ namespace ES3Internal
 	public class ES3Prefab : MonoBehaviour 
 	{
 		public long prefabId = GetNewRefID();
+        /*
+         * We need to store references to all dependencies of the prefab because only supported scripts will be serialised.
+         * This means that although supported scripts have their dependencies added to the reference manager when we load the prefab, 
+         * there will not be any dependencies in the reference manager for scripts which are not supported.  So it will not be possible to save any reference to these.
+         */
 		public ES3RefIdDictionary localRefs = new ES3RefIdDictionary();
 
-		public void Awake()
+        public void Awake()
 		{
 			// Add the references to the reference list when this prefab is instantiated.
 			var mgr = ES3ReferenceMgrBase.Current;
@@ -46,9 +51,9 @@ namespace ES3Internal
 			return id;
 		}
 
-		public Dictionary<long, long> GetReferences()
+		public Dictionary<string, string> GetReferences()
 		{
-			var localToGlobal = new Dictionary<long,long>();
+			var localToGlobal = new Dictionary<string,string>();
 
 			var refMgr = ES3ReferenceMgrBase.Current;
 
@@ -58,7 +63,7 @@ namespace ES3Internal
 			foreach(var kvp in localRefs)
 			{
 				long id = refMgr.Add(kvp.Key);
-				localToGlobal.Add(kvp.Value, id);
+				localToGlobal.Add(kvp.Value.ToString(), id.ToString());
 			}
 			return localToGlobal;
 		}
@@ -87,26 +92,32 @@ namespace ES3Internal
 			var prefabType = PrefabUtility.GetPrefabInstanceStatus(this.gameObject);
 			if(prefabType != PrefabInstanceStatus.NotAPrefab && prefabType != PrefabInstanceStatus.MissingAsset)
 				return;
-			#else
+#else
 				var prefabType = PrefabUtility.GetPrefabType(this.gameObject);
 				if(prefabType != PrefabType.Prefab && prefabType != PrefabType.MissingPrefabInstance)
 					return;
-			#endif
+#endif
+            // Create a new reference list so that any objects which are no longer dependencies are removed.
+            var tempLocalRefs = new ES3RefIdDictionary();
 
-	
-			// Get GameObject and it's children and add them to the reference list.
-			foreach(var obj in EditorUtility.CollectDependencies(new UnityEngine.Object[]{this}))
+            // Add the GameObject's dependencies to the reference list.
+            foreach (var obj in ES3ReferenceMgr.CollectDependencies(this.gameObject))
 			{
-				if(obj == null || !ES3ReferenceMgr.CanBeSaved(obj))
+                var dependency = (UnityEngine.Object)obj;
+				if(obj == null || !ES3ReferenceMgr.CanBeSaved(dependency))
 					continue;
-	
-				if(this.Get(obj) == -1)
-				{
-					Undo.RecordObject(this, "Update Easy Save 3 Prefab");
-					EditorUtility.SetDirty(this);
-					Add(obj);
-				}
+
+                var id = Get(dependency);
+                // If we're adding a new reference, do an Undo.RecordObject to ensure it persists.
+                if (id == -1)
+                {
+                    Undo.RecordObject(this, "Update Easy Save 3 Prefab");
+                    EditorUtility.SetDirty(this);
+                }
+                tempLocalRefs.Add(dependency, id == -1 ? GetNewRefID() : id);
 			}
+
+            localRefs = tempLocalRefs;
 	    }
 #endif
 	}
@@ -147,16 +158,20 @@ namespace ES3Types
 		{
 			ES3Prefab es3Prefab = (ES3Prefab)obj;
 
-			writer.WriteProperty("prefabId", es3Prefab.prefabId, ES3Type_long.Instance);
+			writer.WriteProperty("prefabId", es3Prefab.prefabId.ToString(), ES3Type_string.Instance);
 			writer.WriteProperty("refs", es3Prefab.GetReferences());
 		}
 
 		public override object Read<T>(ES3Reader reader)
 		{
-			var prefabId = reader.ReadProperty<long>(ES3Type_long.Instance);
-			var localToGlobal = reader.ReadProperty<Dictionary<long,long>>();
+			var prefabId = reader.ReadRefProperty();
+            // Load as ES3Refs and convert to longs.
+            var localToGlobal_refs = reader.ReadProperty<Dictionary<ES3Ref,ES3Ref>>();
+            var localToGlobal = new Dictionary<long, long>();
+            foreach (var kvp in localToGlobal_refs)
+                localToGlobal.Add(kvp.Key.id, kvp.Value.id);
 
-			if(ES3ReferenceMgrBase.Current == null)
+            if (ES3ReferenceMgrBase.Current == null)
 				return null;
 
 			var es3Prefab = ES3ReferenceMgrBase.Current.GetPrefab(prefabId);

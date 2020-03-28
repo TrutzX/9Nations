@@ -95,6 +95,7 @@ public abstract class ES3Writer : IDisposable
 		WriteType(type);
 		WriteRawProperty("value", value);
 		EndWriteObject(null);
+		MarkKeyForDeletion(key);
 	}
 
 	/// <summary>Writes a value to the writer with the given key, using the given type rather than the generic parameter.</summary>
@@ -152,6 +153,9 @@ public abstract class ES3Writer : IDisposable
 			((ES3DictionaryType)type).Write(value, this, memberReferenceMode);
 		else
 		{
+			if(type.type == typeof(GameObject))
+				((ES3Type_GameObject)type).saveChildren = settings.saveChildren;
+
 			StartWriteObject(null);
 
 			if(type.isES3TypeUnityObject)
@@ -173,7 +177,7 @@ public abstract class ES3Writer : IDisposable
 		// If reference ID doesn't exist, create reference.
 		if(id == -1)
 			id = ES3ReferenceMgrBase.Current.Add(obj);
-		WriteProperty(ES3ReferenceMgrBase.referencePropertyName, id);
+		WriteProperty(ES3ReferenceMgrBase.referencePropertyName, id.ToString());
 	}
 
 	#endregion
@@ -184,7 +188,6 @@ public abstract class ES3Writer : IDisposable
 	/// <summary>Writes a field or property to the writer. Note that this should only be called within an ES3Type.</summary>
 	/// <param name="name">The name of the field or property.</param>
 	/// <param name="value">The value we want to write.</param>
-	/// <param name="memberReferenceMode">Whether we want to write UnityEngine.Object fields and properties by reference, by value, or both.</param>
 	public virtual void WriteProperty(string name, object value)
 	{ 
 		StartWriteProperty(name); Write(value, settings.memberReferenceMode);
@@ -248,7 +251,7 @@ public abstract class ES3Writer : IDisposable
 
 	/// <summary>Writes a private field to the writer. Note that this should only be called within an ES3Type.</summary>
 	/// <param name="name">The name of the field.</param>
-	/// <param name="objectContainingProperty">The object containing the property we want to write.</param>
+	/// <param name="objectContainingField">The object containing the property we want to write.</param>
 	public void WritePrivateField(string name, object objectContainingField)
 	{
 		var field = ES3Reflection.GetES3ReflectedMember(objectContainingField.GetType(), name);

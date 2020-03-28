@@ -1,0 +1,4 @@
+id,name,icon,desc,rate,req,
+food,Food,Icons/base:food,,-0.2,,
+water,Water,Icons/magic:water,,-0.3,element=light,
+gold,Gold,Icons/other:gold,,0.1,,

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Players.Infos;
+using Game;
+using Libraries.Rounds;
+using UnityEngine;
 
-namespace Players
+namespace Players.Infos
 {
     [Serializable]
     public class InfoMgmt
@@ -16,7 +18,8 @@ namespace Players
         
         public void Add(Info noti)
         {
-            noti.round = RoundMgmt.Get().Round;
+            //Debug.Log($"Add Note: {noti.title}");
+            noti.round = S.Round().Round;
             infos.Insert(0,noti);
         }
 

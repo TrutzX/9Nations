@@ -1,0 +1,20 @@
+id,name,icon,category,atk,def,dammin,dammax,hp,ap,visible,buildtime,req,req,req,winter,connected,cost,cost,cost,worker,action,actionreq,action,action,action
+,light,,,,,,,,,,,,,,,,,,,,,,,,
+lhall1,village hall,Building/e:lhall1,light,1,,1,3,10,10,2,1,element=light,,disabled,Building/e:lhall1winter,,,,,6,produce=once;wood:10;gold:8;food:20;water:30;cobblestone:5,,train=lworker;lexplorer,upgrade=lhall2,
+lhall2,bigger village hall,Building/c:lhall2,light,1,,2,4,20,10,2,7,element=light,research=lhall2,,Building/c:lhall2winter,,wood:10,cobblestone:7,gold:5,10,,,train=lworker;lexplorer,townLevel,
+logger,logger,Building/tower:logger,light,,,,,,,,2,element=light,,terrainCategory=forest,,,,,gold:2,-2,produce=turn;wood:2,daytime=morning;afternoon,,destroy,
+cobblestone,cobblestone collector,Building/bigCastle:cobblestone,light,,,,,,,,3,element=light,,terrainCategory=hill;mountain,,,wood:4,,,-3,produce=turn;cobblestone:1,daytime=morning;afternoon,,destroy,
+library,library,Building/e:library,light,,,,,,,,5,element=light,feature=research:true,townNear,Building/e:librarywinter,,wood:7,cobblestone:5,gold:1,-3,produce=turn;research:1,,featurePlayer=research:true,destroy,
+hunter,hunter,Building/bigCastle:hunter,light,,,,,,,,2,element=light,,,,,wood:3,,,-1,produce=turn;food:4,daytime=morning;afternoon,,destroy,
+fisher,fisher,Building/t:fisher,light;shadow,,,,,,,,3,,terrainNear=water,,Building/t:fisherwinter,,,,gold:3,-2,produce=turn;food:3,,,destroy,
+barrack,barrack,Building/tower:barrack,light,,,,,,5,,5,element=light,research=barrack,townNear,Building/tower:barrackwinter,,wood:5,cobblestone:8,gold:6,-5,,,train=lwarrior,destroy,
+tent,tent,Building/c:tent,light;shadow,,,,,,,,2,,,townNear,,,,food:3,gold:1,8,,,,destroy,
+samplingpoint,sampling point,Building/farm:samplingpoint,light,,,,,,,,1,element=light,terrainNear=water,,,,wood:2,cobblestone:1,,-1,produce=turn;food:2;water:5,,,destroy,
+,shadow,,,,,,,,,,,,,,,,,,,,,,,,
+shall1,village hall,Building/tower:shall1,shadow,1,,1,3,,10,2,1,element=shadow,,,,,,,,6,produce=once;dirt:10;gold:8;food:30;stone:5,,train=sworker;sexplorer;swarrior,upgrade=shall2,
+shall2,bigger village hall,Building/e:shall2,shadow,1,,2,4,,10,2,7,element=shadow,,,,,sand:4,stone:10,gold:4,10,,,,townLevel,
+sfarm,mushroom farm,Building/farm:sfarm,shadow,,,,,,,,4,element=shadow,,terrain=deep_grass,,,sand:3,stone:5,,-2,produce=turn;dirt:-2;food:8,,,destroy,
+dirt,dirt collector,logo,shadow,,,,,,,,2,element=shadow,,,,,sand:1,,gold:2,-1,produce=turn;dirt:1,,,destroy
+quarry,quarry,Building/d:quarry,shadow,,,,,,,,3,element=shadow,,terrain=deep_stone,,,sand:2,,gold:1,-2,produce=turn;stone:2,,,destroy
+sand,sand gather,Building/d:sand,shadow,,,,,,,,2,element=shadow,,,,,,,gold:2,-1,produce=turn;sand:1,,,destroy
+stair,stair,Building/modern:stair,shadow,,,,,,,,1,element=shadow,,,,,,stone:7,,,,,moveLevel=Building/modern:stairDown,destroy

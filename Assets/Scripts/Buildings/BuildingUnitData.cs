@@ -1,6 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Game;
+using Libraries;
+using Libraries.Buildings;
+using Libraries.FActions;
+using Libraries.Units;
 using Players;
+using Tools;
 using Towns;
 
 namespace Buildings
@@ -14,40 +20,50 @@ namespace Buildings
         public int hpMax;
         public int townId;
         public int playerId;
-        public int x;
-        public int y;
-        public int z;
+        public NVector pos;
         public string type;
         public string name;
+        public string sprite;
         public string lastInfo;
+        public Dictionary<string, string> data;
         public Dictionary<string, int> construction;
+        public ActionHolders action;
+        public int ActionWaitingAp, actionWaitingPos;
+        
         public int buildTime;
         
         public void BuildingInit(string type, int town)
         {
             this.type = type;
-            name = Data.building[type].name;
-            hp = Data.building[type].hp;
-            hpMax = Data.building[type].hp;
-            ap = Data.building[type].ap;
-            apMax = Data.building[type].ap;
-            this.townId = town;
+            DataBuilding b = L.b.buildings[type];
+            BaseInit(b);
+            townId = town;
             BuildingUpdate();
         }
         
         public void BuildingUpdate()
         {
-            playerId = TownMgmt.Get(townId).playerId;
+            playerId = S.Towns().Get(townId).playerId;
+        }
+
+        private void BaseInit(BaseDataBuildingUnit d)
+        {
+            action = new ActionHolders(d.action);
+            sprite = d.Icon;
+            name = d.name;
+            hp = d.hp;
+            hpMax = d.hp;
+            ap = d.ap;
+            apMax = d.ap;
+            actionWaitingPos = -1;
+            data = new Dictionary<string, string>();
         }
         
         public void UnitInit(string type, int town, int player)
         {
             this.type = type;
-            name = Data.unit[type].name;
-            hp = Data.unit[type].hp;
-            hpMax = Data.unit[type].hp;
-            ap = Data.unit[type].ap;
-            apMax = Data.unit[type].ap;
+            DataUnit u = L.b.units[type];
+            BaseInit(u);
             townId = town;
             playerId = player;
         }
@@ -55,7 +71,7 @@ namespace Buildings
         public void UnitUpdate()
         {
             //has a town?
-            Town t = TownMgmt.Get().NearstTown(PlayerMgmt.Get(playerId), x, y, false);
+            Town t = S.Towns().NearstTown(PlayerMgmt.Get(playerId), pos, false);
             townId = t?.id ?? -1;
         }
     }

@@ -2,110 +2,87 @@
 using System.Collections.Generic;
 using System.Linq;
 using Buildings;
+using Classes;
 using DataTypes;
 using DigitalRuby.Tween;
 using Game;
 using Help;
 using Libraries;
+using Libraries.Terrains;
+using Libraries.Units;
 using MapActions;
 using Maps;
 using Players;
 using reqs;
-using Terrains;
+using Tools;
 using Towns;
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Units
 {
     public class UnitInfo : MapElementInfo
     {
-        public Unit config;
+        public DataUnit dataUnit;
 
-        public void NextRound()
+        public override bool NextRound()
         {
             data.lastInfo = null;
             data.UnitUpdate();
-        
-            //under construction?
-            if (IsUnderConstrution() && GetComponent<Construction>().RoundConstruct())
+            data.ap = dataUnit.ap;
+
+            if (!base.NextRound())
             {
-                return;
-            }
-        
-            //has a town?
-            if (data.townId == -1)
-            {
-                data.ap = config.ap;
-                return;
+                return false;
             }
             
+            //has a town?
+            return data.townId != -1;
 
-            int x = X();
-            int y = Y();
-            Town t = Town();
-        
-            //produce?
-            if (!ReqHelper.Check(PlayerMgmt.Get(t.playerId),config.GenProduceReq(),this,x,y))
-            {
-                SetLastInfo(ReqHelper.Desc(PlayerMgmt.Get(t.playerId), config.GenProduceReq(), this, x, y));
-                return;
-            }
-        
-            foreach (KeyValuePair<string, int> ress in config.GenProduce())
-            {
-                //give ressources
-                t.AddRes(ress.Key,ress.Value);
-            }
-        
-            data.ap = config.ap;
-        
         }
 
-        public void Init(string configType, int player, int x, int y)
+        public void Init(string configType, int player, NVector pos)
         {
-            Debug.Log($"Create unit {configType} at {x},{y}");
+            Debug.Log($"{player}: Create unit {configType} at {pos}");
         
+            baseData = dataUnit = L.b.units[configType];
             data = new BuildingUnitData();
             data.UnitInit(configType, -1, player);
-            data.x = x;
-            data.y = y;
-            config = Data.unit[configType];
+            data.pos = pos.Clone();
         
             //has a town?
-            Town t = TownMgmt.Get().NearstTown(PlayerMgmt.Get(player), x, y, false);
+            Town t = S.Towns().NearstTown(PlayerMgmt.Get(player), pos, false);
             if (t != null)
             {
-                //TODO Vector3Int Z
-                int buildtime = L.b.modifiers["build"].CalcModi(config.buildtime, PlayerMgmt.Get(player), new Vector3Int(x, y, 0));
+                int buildtime = L.b.modifiers["build"].CalcModi(dataUnit.buildTime, PlayerMgmt.Get(player), pos);
                 
                 data.townId = t.id;
                 gameObject.AddComponent<Construction>();
-                gameObject.GetComponent<Construction>().Init(data,config.GenCost(),this,buildtime);
-                PlayerMgmt.Get(player).fog.Clear(x,y);
+                gameObject.GetComponent<Construction>().Init(data,dataUnit.cost,this,buildtime);
+                PlayerMgmt.Get(player).fog.Clear(pos);
             }
             else
             {
-                PlayerMgmt.Get(player).fog.Clear(x,y, L.b.modifiers["view"].CalcModiNotNull(config.visible,Player(),Pos()));
+                Clear(pos);
             }
         
-
+            NextRound();
             FinishInit();
         }
 
         private void FinishInit()
         {
-            NextRound();
-            gameObject.name = config.name;
+            name = dataUnit.name;
 
             //show it
-            GetComponent<SpriteRenderer>().sprite = config.GetIcon();
-            GetComponent<Transform>().position = new Vector2(data.x+0.5f,data.y);
+            SetSprite(dataUnit.Icon);
+            transform.position = new Vector2(Pos().x+0.5f,Pos().y);
         }
 
         public override void Load(BuildingUnitData data)
         {
-            config = Data.unit[data.type];
+            baseData = dataUnit = L.b.units[data.type];
             base.Load(data);
         
             FinishInit();
@@ -114,53 +91,54 @@ namespace Units
         public override void Upgrade(string type)
         {
             GameMgmt.Get().data.units.Remove(data);
-            Init(type,data.playerId,X(),Y());
+            Init(type,data.playerId,Pos());
             GameMgmt.Get().data.units.Add(GetComponent<UnitInfo>().data);
         }
 
         public void MoveTo(int x, int y)
         {
-            MoveBy(x-X(),y-Y());
+            MoveBy(x-Pos().x,y-Pos().y);
         }
         public void MoveBy(int x, int y)
         {
             //own unit?
             if (!Owner(PlayerMgmt.ActPlayerID()))
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"{name} belongs to {Player().name}.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"{name} belongs to {Player().name}.");
                 return;
             }
 
             int dX = (int) GetComponent<Transform>().position.x + x;
             int dY = (int) GetComponent<Transform>().position.y + y;
-            BTerrain land = GameMgmt.Get().map.GetTerrain(dX, dY);
+            NVector dPos = new NVector(dX, dY, Pos().level);
+            DataTerrain land = GameMgmt.Get().newMap.Terrain(dPos);
 
             //check terrain
-            int cost = GameMgmt.Get().map.Levels[Pos().z].PathFinding().Cost(PlayerMgmt.ActPlayer(),config.movetyp,Pos(),dX,dY);
+            int cost = GameMgmt.Get().newMap.PathFinding(Pos().level).Cost(PlayerMgmt.ActPlayer(),dataUnit.movement,Pos(),dPos);
             if (cost == 0)
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because it is not passable.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because it is not passable.");
                 return;
             }
 
             //visible?
-            if (!Player().fog.visible[dX, dY])
+            if (!Player().fog.Visible(dPos))
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move, the land is not explored.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move, the land is not explored.");
                 return;
             }
 
             //another unit?
-            if (!UnitMgmt.Get().IsFree(dX,dY))
+            if (!S.Unit().Free(dPos))
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because {UnitMgmt.At(dX, dY).name} standing their.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because {S.Unit().At(dPos).name} standing their.");
                 return;
             }
 
             //can walk
             if (cost > data.ap)
             {
-                OnMapUI.Get().unitUI.SetPanelMessageError($"Can not move in {land.Name}, because you need {cost - data.ap} more ap.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because you need {cost - data.ap} more ap.");
                 return;
             }
 
@@ -169,41 +147,56 @@ namespace Units
 
             Action<ITween<Vector3>> completed = (t) =>
             {
-                OnMapUI.Get().UpdatePanelXY(dX, dY);
+                OnMapUI.Get().UpdatePanel(dPos);
                 //show it
-                Player().fog.Clear(dX, dY, L.b.modifiers["view"].CalcModiNotNull(config.visible,Player(),new Vector3Int(X(),Y(),data.z)));
+                Clear(dPos);
             };
 
             //rotate
             if (x > 0)
             {
-                GetComponent<SpriteRenderer>().sprite = config.GetIcon(7);
+                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(7);
             }
             else if (x < 0)
             {
-                GetComponent<SpriteRenderer>().sprite = config.GetIcon(4);
+                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(4);
             } 
             else if (y < 0)
             {
-                GetComponent<SpriteRenderer>().sprite = config.GetIcon();
+                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite();
             } 
             else 
             {
-                GetComponent<SpriteRenderer>().sprite = config.GetIcon(11);
+                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(11);
             }
-    
 
             // completion defaults to null if not passed in
             gameObject.Tween("MoveUnit", gameObject.transform.position, new Vector2(dX+0.5f,dY), 1, TweenScaleFunctions.Linear, update, completed);
             data.ap -= cost;
-            data.x += x;
-            data.y += y;
+            data.pos.x += x;
+            data.pos.y += y;
             NAudio.Play("moveUnit");
         }
 
-        public override string UniversalImage()
+        public void Teleport(NVector pos, bool moveCamera=true)
         {
-            return "u:" + config.id;
+            //change level?
+            if (data.pos.level != pos.level)
+            {
+                transform.SetParent(GameMgmt.Get().newMap[pos.level].units.transform);
+            }
+            
+            data.pos = pos;
+            transform.position = new Vector2(Pos().x+0.5f,Pos().y);
+            
+            Clear(pos);
+
+            if (moveCamera)
+            {
+                CameraMove.Get().MoveTo(pos);
+                OnMapUI.Get().UpdatePanel(pos);
+            }
+            
         }
 
         /// <summary>
@@ -212,12 +205,9 @@ namespace Units
         public override void Kill()
         {
             GameMgmt.Get().data.units.Remove(data);
+            GameMgmt.Get().unit.units.Remove(this);
             Destroy(gameObject);
-        }
-
-        public override void FinishConstruct()
-        {
-        
+            Debug.Log($"Kill unit {name} at {Pos()}");
         }
 
         public BuildingUnitData GetData()
@@ -236,44 +226,6 @@ namespace Units
             return win;
         }
 
-        class UnitSplitInfo : SplitElement
-        {
-            private readonly UnitInfo _unit;
-        
-            public UnitSplitInfo(UnitInfo unit) : base(unit.gameObject.name,unit.config.GetIcon())
-            {
-                this._unit = unit;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                panel.AddHeaderLabel("Information");
-            
-                //diff unit?
-                if (!_unit.Owner(PlayerMgmt.ActPlayerID()))
-                {
-                    panel.AddLabel($"Owner: {_unit.Player().name}");
-                    panel.AddImageLabel($"HP: ??/{_unit.config.hp}","stats:hp");
-                    panel.AddImageLabel($"AP: ??/{_unit.config.ap}","stats:ap");
-                    return;
-                }
-            
-                panel.AddImageLabel($"HP: {_unit.data.hp}/{_unit.data.hpMax}","stats:hp");
-                panel.AddImageLabel($"AP: {_unit.data.ap}/{_unit.data.apMax}","stats:ap");
-            
-                Construction con = _unit.GetComponent<Construction>();
-                if (con != null)
-                {
-                    panel.AddRess("Under Construction",_unit.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
-                    panel.AddLabel("Missing resources");
-                }
-            }
-
-            public override void Perform()
-            {
-            }
-        }
-
         class UnitLexiconInfo : SplitElement
         {
             private readonly UnitInfo _unit;
@@ -285,12 +237,55 @@ namespace Units
 
             public override void ShowDetail(PanelBuilder panel)
             {
-                _unit.config.ShowInfo(panel);
+                _unit.dataUnit.ShowOwn(panel, _unit);
             }
 
             public override void Perform()
             {
             }
+        }
+    }
+
+    class UnitSplitInfo : SplitElement
+    {
+        private readonly UnitInfo _unit;
+        
+        public UnitSplitInfo(UnitInfo unit) : base(unit.gameObject.name,unit.dataUnit.Sprite())
+        {
+            this._unit = unit;
+        }
+
+        public override void ShowDetail(PanelBuilder panel)
+        {
+            //diff unit?
+            if (!_unit.Owner(PlayerMgmt.ActPlayerID()))
+            {
+                _unit.dataUnit.AddImageLabel(panel);
+                panel.AddHeaderLabel("Information");
+                panel.AddImageLabel($"Owner: {_unit.Player().name}",_unit.Player().icon);
+                panel.AddImageLabel($"HP: ??/{_unit.dataUnit.hp}","hp");
+                panel.AddImageLabel($"AP: ??/{_unit.dataUnit.ap}","ap");
+                return;
+            }
+
+            panel.AddInputRandom("name", _unit.name,
+                val => _unit.name = val,
+                () => LClass.s.nameGenerators["unit"].Gen()+" "+_unit.dataUnit.name);
+            
+            panel.AddHeaderLabel("Information");
+            panel.AddImageLabel($"HP: {_unit.data.hp}/{_unit.data.hpMax}","hp");
+            panel.AddImageLabel($"AP: {_unit.data.ap}/{_unit.data.apMax}","ap");
+            
+            Construction con = _unit.GetComponent<Construction>();
+            if (con != null)
+            {
+                panel.AddRes("Under Construction",_unit.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
+                panel.AddLabel("Missing resources");
+            }
+        }
+
+        public override void Perform()
+        {
         }
     }
 }

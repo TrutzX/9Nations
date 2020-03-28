@@ -36,7 +36,15 @@ namespace ES3Editor
 			window.SetCurrentWindow(typeof(AutoSaveWindow));
 		}
 
-		public void InitSubWindows()
+        public static void InitAndShowReferences()
+        {
+            // Get existing open window or if none, make a new one:
+            ES3Window window = (ES3Window)EditorWindow.GetWindow(typeof(ES3Window));
+            window.Show();
+            window.SetCurrentWindow(typeof(ReferencesWindow));
+        }
+
+        public void InitSubWindows()
 		{
 			windows = new SubWindow[]{
 				new HomeWindow(this),
@@ -44,6 +52,7 @@ namespace ES3Editor
 				new ToolsWindow(this),
 				new TypesWindow(this),
 				new AutoSaveWindow(this)
+				//, new ReferencesWindow(this)
 			};
 		}
 

@@ -211,7 +211,7 @@ namespace ES3PlayMaker
 		}
 	}
 
-	[ActionCategory("Easy Save 3")]
+    [ActionCategory("Easy Save 3")]
 	[Tooltip("Saves a byte array as a file, overwriting any existing files.")]
 	public class SaveRaw : SettingsAction
 	{
@@ -678,6 +678,27 @@ namespace ES3PlayMaker
 			ES3.CopyFile(oldFilePath.Value, newFilePath.Value, GetSettings(), GetSettings());
 		}
 	}
+	
+	[ActionCategory("Easy Save 3")]
+	[Tooltip("Copies a directory.")]
+	public class CopyDirectory : SettingsAction
+	{
+		[Tooltip("The relative or absolute path of the directory we want to copy.")]
+		public FsmString oldDirectoryPath;
+		[Tooltip("The relative or absolute path of the directory we want to create.")]
+		public FsmString newDirectoryPath;
+
+		public override void OnReset()
+		{
+			oldDirectoryPath = "";
+			newDirectoryPath = "";
+		}
+
+		public override void Enter()
+		{
+			ES3.CopyDirectory(oldDirectoryPath.Value, newDirectoryPath.Value, GetSettings(), GetSettings());
+		}
+	}
 
 	[ActionCategory("Easy Save 3")]
 	[Tooltip("Gets an array of key names from a file.")]
@@ -813,6 +834,30 @@ namespace ES3PlayMaker
 			es3Spreadsheet.SetCell<object>(col.Value, row.Value, value.GetValue());
 		}
 	}
+
+	[ActionCategory("Easy Save 3")]
+	[Tooltip("Gets a given cell of the ES3Spreadsheet and loads it into the value field.")]
+	public class ES3SpreadsheetGetCell : ES3SpreadsheetAction
+	{
+		[Tooltip("The column of the cell we want to set the value of.")]
+		public FsmInt col;
+		[Tooltip("The row of the cell we want to set the value of.")]
+		public FsmInt row;
+		
+		[Tooltip("The value we want to save.")]
+		[UIHint(UIHint.Variable)]
+		public FsmVar value;
+
+		public override void OnReset()
+		{
+			value = null;
+		}
+
+		public override void Enter()
+		{
+			value.SetValue(es3Spreadsheet.GetCell<object>(col.Value, row.Value));
+		}
+	}
 	
 	[ActionCategory("Easy Save 3")]
 	[Tooltip("Saves the ES3Spreadsheet to file.")]
@@ -845,6 +890,7 @@ namespace ES3PlayMaker
 		public override void OnReset()
 		{
 			filePath = "ES3.csv";
+
 		}
 
 		public override void Enter()
@@ -852,7 +898,6 @@ namespace ES3PlayMaker
 			es3Spreadsheet.Load(filePath.Value, GetSettings());
 		}
 	}
-	
 	#endregion
 
 	#region ES3File Actions
@@ -1116,6 +1161,14 @@ namespace ES3PlayMaker
 		[RequiredField]
 		public FsmString apiKey;
 
+		[Tooltip("The ES3File variable we're using.")]
+		[ObjectType(typeof(FsmES3File))]
+		[Title("ES3 File")]
+		[RequiredField]
+		public FsmObject fsmES3File;
+
+		public ES3File es3File { get{ return ((FsmES3File)fsmES3File.Value).file; } }
+
 		[Tooltip("An error code if an error occurred.")]
 		public FsmInt errorCode;
 
@@ -1126,6 +1179,7 @@ namespace ES3PlayMaker
 			url = "http://www.myserver.com/ES3Cloud.php";
 			errorCode = 0;
 			cloud = null;
+			fsmES3File = null;
 		}
 
 		public override void OnEnter()
@@ -1293,6 +1347,30 @@ namespace ES3PlayMaker
 	}
 
 #endif
+	#endregion
+
+	#region ES3AutoSave actions
+
+	[ActionCategory("Easy Save 3")]
+	[Tooltip("Triggers Auto Save's Save method.")]
+	public class ES3AutoSaveSave : FsmStateAction
+	{
+		public override void OnEnter()
+		{
+			GameObject.Find("Easy Save 3 Manager").GetComponent<ES3AutoSaveMgr>().Save();
+		}
+	}
+
+	[ActionCategory("Easy Save 3")]
+	[Tooltip("Triggers Auto Save's Load method.")]
+	public class ES3AutoSaveLoad : FsmStateAction
+	{
+		public override void OnEnter()
+		{
+			GameObject.Find("Easy Save 3 Manager").GetComponent<ES3AutoSaveMgr>().Load();
+		}
+	}
+
 	#endregion
 }
 

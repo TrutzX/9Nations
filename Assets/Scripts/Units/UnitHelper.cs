@@ -8,17 +8,6 @@ namespace Game
 {
     public static class UnitHelper
     {
-        public static string[] GetIDs()
-        {
-            List<string> ids = new List<string>();
-            foreach (Unit b in Data.unit)
-            {
-                ids.Add(b.id);
-            }
-
-            return ids.ToArray();
-        }
-
         public static Sprite GetIcon(string file, int id = 1)
         {
             Sprite[] s = Resources.LoadAll<Sprite>("Units/" + file);

@@ -1,0 +1,74 @@
+using System.Linq;
+using DataTypes;
+using Game;
+using Libraries;
+using Libraries.Researches;
+using Maps.TileMaps;
+using Players;
+using Towns;
+using UI;
+
+namespace GameButtons
+{
+    public class DebugHelper
+    {
+        public static void DebugMenu()
+        {
+            //create it
+            WindowPanelBuilder p = WindowPanelBuilder.Create("Debug Window");
+            p.panel.AddButton("Give 500 gold", () =>
+            {
+                Town t = S.Towns().GetByActPlayer().First();
+            
+                t.AddRes("gold",500, ResType.Gift);
+            });
+            p.panel.AddButton("Trade", () =>
+            {
+                Town t = S.Towns().GetByActPlayer()[0];
+
+                OLib.GetOldAction("trade").QuestRun(PlayerMgmt.ActPlayer(), null);
+            });
+            p.panel.AddButton("Give research", () =>
+            {
+                Town t = S.Towns().GetByActPlayer()[0];
+            
+                t.AddRes("research",100, ResType.Gift);
+            });
+            p.panel.AddButton("Finish all research", () =>
+            {
+                foreach (Research r in L.b.researches.Values())
+                {
+                    PlayerMgmt.ActPlayer().research.Set(r.id, true);
+                }
+            });
+            p.panel.AddButton("Unfinish all research", () =>
+            {
+                foreach (Research r in L.b.researches.Values())
+                {
+                    PlayerMgmt.ActPlayer().research.Set(r.id, false);
+                }
+            });
+            p.panel.AddButton("Switch Fog", () =>
+            {
+                foreach (TileMapConfig16 t in PlayerMgmt.ActPlayer().fog.tileMap)
+                {
+                    t.gameObject.SetActive(!t.gameObject.activeSelf);
+                }
+            });
+            p.panel.AddButton("Player features", () =>
+            {
+                WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
+                foreach (FeaturePlayer fp in Data.featurePlayer)
+                {
+                    wp.panel.AddLabel(fp.name+": "+PlayerMgmt.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
+                }
+                wp.Finish();
+            });
+            p.panel.AddButton("Reset round", () =>
+            {
+                PlayerMgmt.Get().ResetRound();
+            });
+            p.Finish();
+        }
+    }
+}

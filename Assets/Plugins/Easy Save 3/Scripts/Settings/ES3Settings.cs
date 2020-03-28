@@ -5,6 +5,8 @@ public class ES3Settings : System.ICloneable
 {
 	private static ES3Settings _defaults = null;
 
+    private static readonly string[] resourcesExtensions = new string[]{".txt", ".htm", ".html", ".xml", ".bytes", ".json", ".csv", ".yaml", ".fnt" };
+
 	[SerializeField]
 	private ES3.Location _location;
 	/// <summary>The location where we wish to store data. As it's not possible to save/load from File in WebGL, if the default location is File it will use PlayerPrefs instead.</summary>
@@ -12,7 +14,7 @@ public class ES3Settings : System.ICloneable
 	{
 		get
 		{
-			if(_location == ES3.Location.File && Application.platform == RuntimePlatform.WebGLPlayer)
+			if(_location == ES3.Location.File && (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.tvOS))
 				return ES3.Location.PlayerPrefs;
 			return _location;
 		}
@@ -33,7 +35,9 @@ public class ES3Settings : System.ICloneable
 	public int bufferSize;
 	/// <summary>The text encoding to use for text-based format. Note that changing this may invalidate previous save data.</summary>
 	public System.Text.Encoding encoding = System.Text.Encoding.UTF8;
-
+	// <summary>Whether we should serialise children when serialising a GameObject.</summary>
+	public bool saveChildren = false;
+	
 	/// <summary>Whether we should check that the data we are loading from a file matches the method we are using to load it.</summary>
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public bool typeChecking;
@@ -66,6 +70,7 @@ public class ES3Settings : System.ICloneable
 		newSettings.safeReflection = safeReflection;
 		newSettings.memberReferenceMode = memberReferenceMode;
 		newSettings.assemblyNames = assemblyNames;
+		newSettings.saveChildren = saveChildren;
 	}
 
 	/// <summary>Creates a new ES3Settings object.</summary>
@@ -137,25 +142,19 @@ public class ES3Settings : System.ICloneable
 		if(_defaults != null)
 			_defaults.CopyInto(this);
 	}
-
+	
 	internal static void LoadDefaults()
 	{
 		#if !UNITY_EDITOR
-		var go = Resources.Load<GameObject>("ES3/ES3 Default Settings");
+		//var go = Resources.Load<GameObject>("ES3/ES3 Default Settings");
+        var go = GameObject.Find("ES3 Default Settings");
 		if(go == null)
 		{
-			Debug.LogError("Default settings were not found in Resources folder 'ES3'.");
+			Debug.LogError("Default settings were not found in scene. Please drag the ES3 Default Settings prefab found in Plugins/Easy Save 3/Resources/ES3/ into this scene.");
 			return;
 		}
 		#else
-		var guids = UnityEditor.AssetDatabase.FindAssets("ES3 Default Settings t:gameobject");
-		if(guids.Length != 1)
-		{
-			Debug.LogError("Default settings were not found, or more than one default settings GameObject was found. Number of settings objects found: "+guids.Length);
-			return;
-		}
-		var path = UnityEditor.AssetDatabase.GUIDToAssetPath(guids[0]);
-		var go = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
+		var go = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(UnityEditor.AssetDatabase.GetAssetPath(Resources.Load<GameObject>("ES3/ES3 Default Settings")));
 		#endif	
 		var component = go.GetComponent<ES3DefaultSettings>();
 		if(component == null)
@@ -168,22 +167,39 @@ public class ES3Settings : System.ICloneable
 	{
 		get
 		{
+            if (path == null)
+                throw new System.NullReferenceException("The 'path' field of this ES3Settings is null, indicating that it was not possible to load the default settings from Resources. Please check that the ES3 Default Settings.prefab exists in Assets/Plugins/Resources/ES3/");
+
 			if(IsAbsolute(path))
 				return path;
 
 			if(location == ES3.Location.File)
 			{
 				if(directory == ES3.Directory.PersistentDataPath)
-					return Application.persistentDataPath + "/" + path;
+					return ES3IO.persistentDataPath + "/" + path;
 				if(directory == ES3.Directory.DataPath)
 					return Application.dataPath + "/" + path;
 				throw new System.NotImplementedException("File directory \""+directory+"\" has not been implemented.");
 			}
 			if(location == ES3.Location.Resources)
 			{
-				string resourcesPath = path.Replace(".bytes","");
-				if(resourcesPath == path)
-					throw new System.ArgumentException("Extension of file in Resources must be .bytes, but path given was \""+path+"\"");
+                // Check that it has valid extension
+                var extension = System.IO.Path.GetExtension(path);
+                bool hasValidExtension = false;
+                foreach (var ext in resourcesExtensions)
+                {
+                    if (extension == ext)
+                    {
+                        hasValidExtension = true;
+                        break;
+                    }
+                }
+
+                if(!hasValidExtension)
+                    throw new System.ArgumentException("Extension of file in Resources must be .json, .bytes, .txt, .csv, .htm, .html, .xml, .yaml or .fnt, but path given was \"" + path + "\"");
+
+                // Remove extension
+                string resourcesPath = path.Replace(extension, "");
 				return resourcesPath;
 			}
 			return path;

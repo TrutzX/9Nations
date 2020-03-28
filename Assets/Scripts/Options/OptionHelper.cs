@@ -22,6 +22,7 @@ namespace Options
             {
                 b.AddElement(new DebugOptionSplitElement());
             }
+            b.AddElement(new StatisticSplitElement());
 
             b.Finish();
         }

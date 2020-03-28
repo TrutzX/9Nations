@@ -21,7 +21,7 @@ MonoBehaviour:
     clauses: []
   inputPath: $BUILDPATH
   outputPath: export
-  outputFileName: $PRODUCT_NAME-$VERSION-$DISTRIBUTION.zip
+  outputFileName: $PRODUCT_NAME-$VERSION-$ARCHITECTURE.zip
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,19 +36,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicSettings:
     baseBuildFolder: export
-    buildPath: $VERSION/$PLATFORM
+    buildPath: $VERSION/$ARCHITECTURE
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 8
-    lastGeneratedVersion: 0.2e
-    version: 0.2e
+    buildCounter: 11
+    lastGeneratedVersion: 0.2
+    version: 0.2
     autoGenerate: 0
   _releaseTypeList:
     releaseTypes:
     - typeName: Alpha
       bundleIndentifier: 
       companyName: 9nations.de
-      productName: 9Nations
+      productName: 9 Nations
       developmentBuild: 0
       allowDebugging: 0
       enableHeadlessMode: 0
@@ -58,15 +58,12 @@ MonoBehaviour:
         - fileGUID: c164bb71546ec43dcb4d4a20e485d411
         - fileGUID: 86d3761fb1b064494b7045f1a38cb07e
         - fileGUID: fff433dcecc44404a9d96d25ce04a654
-        - fileGUID: b57c1fa8d665e456a92239888f6aef93
-        - fileGUID: 23bbed4fe3267423ebe6201a1b6778ab
+        - fileGUID: edf4b04b694ce487e98251fd3014b91a
   _platformList:
     platforms:
     - enabled: 1
       distributionList:
-        distributions:
-        - distributionName: Windows32
-          enabled: 1
+        distributions: []
       architectures:
       - target: 5
         name: Windows x86
@@ -93,9 +90,7 @@ MonoBehaviour:
       targetGroup: 1
     - enabled: 1
       distributionList:
-        distributions:
-        - distributionName: Linux64
-          enabled: 1
+        distributions: []
       architectures:
       - target: 25
         name: Linux Universal
@@ -113,9 +108,7 @@ MonoBehaviour:
       targetGroup: 1
     - enabled: 1
       distributionList:
-        distributions:
-        - distributionName: OS
-          enabled: 1
+        distributions: []
       architectures:
       - target: 2
         name: OSX
@@ -127,37 +120,24 @@ MonoBehaviour:
       targetGroup: 1
   _projectConfigurations:
     configSet:
-      _Buckets: 06000000ffffffffffffffffffffffffffffffffffffffff03000000ffffffff070000000200000001000000ffffffff090000000800000004000000ffffffffffffffff
-      _HashCodes: c32fb014664a974ae6b77e1fd1ad7b4fec4e660609fd34770bc591041a68220eb3e9d104da58281700000000000000000000000000000000000000000000000000000000
-      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffff0500000000000000ffffffff00000000000000000000000000000000000000000000000000000000
-      _Count: 10
-      _Version: 10
+      _Buckets: 050000000600000002000000ffffffff000000000300000004000000
+      _HashCodes: 664a974ae6b77e1fec4e660609fd34771a68220eb3e9d104da582817
+      _Next: ffffffffffffffffffffffffffffffff01000000ffffffffffffffff
+      _Count: 7
+      _Version: 7
       _FreeList: -1
       _FreeCount: 0
       _Keys:
-      - Alpha/PC/Windows x86/Windows32
       - Alpha/PC/Windows x86
       - Alpha/PC
-      - Alpha/Linux/Linux x64/Linux64
       - Alpha/Linux/Linux x64
       - Alpha/Linux
-      - Alpha/OSX/OSX/OS
       - Alpha/OSX/OSX
       - Alpha/OSX
       - Alpha
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
       _Values:
       - enabled: 1
         childKeys: []
-      - enabled: 1
-        childKeys:
-        - Alpha/PC/Windows x86/Windows32
       - enabled: 1
         childKeys:
         - Alpha/PC/Windows x86
@@ -165,15 +145,9 @@ MonoBehaviour:
         childKeys: []
       - enabled: 1
         childKeys:
-        - Alpha/Linux/Linux x64/Linux64
-      - enabled: 1
-        childKeys:
         - Alpha/Linux/Linux x64
       - enabled: 1
         childKeys: []
-      - enabled: 1
-        childKeys:
-        - Alpha/OSX/OSX/OS
       - enabled: 1
         childKeys:
         - Alpha/OSX/OSX
@@ -182,20 +156,6 @@ MonoBehaviour:
         - Alpha/PC
         - Alpha/Linux
         - Alpha/OSX
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys: []
     showViewOptions: 0
     showConfigs: 0
     showBuildInfo: 0

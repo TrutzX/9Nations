@@ -3,10 +3,13 @@ using Actions;
 using Buildings;
 using DataTypes;
 using Help;
+using Libraries;
+using Libraries.Units;
 using Players;
 using reqs;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MapActions
 {
@@ -17,21 +20,22 @@ namespace MapActions
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Interaction","Perform");
 
-            Unit unit = Data.unit[self.data.type];
+            DataUnit unit = L.b.units[self.data.type];
             
             foreach(MapAction m in Data.mapAction)
             {
                 //can perform?
-                if (!unit.GetMapActions().ContainsKey(m.id))
+                //TODO exist?
+                //if (!unit.action.actions.Exists(m.id))
                 {
-                    continue;
+                    //continue;
                 }
 
                 Dictionary<string, string> reqs = m.GenSelfReq();
-                if (ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(), reqs, self, self.X(), self.Y()) && ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(), m.GenNonSelfReq(), nonSelf, nonSelf.X(), nonSelf.Y()))
+                if (ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(), reqs, self, self.Pos()) && ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(), m.GenNonSelfReq(), nonSelf, nonSelf.Pos()))
                 {
                     MapActionSplitElement be = new MapActionSplitElement(m, self, nonSelf);
-                    be.disabled = ReqHelper.Desc(PlayerMgmt.ActPlayer(), reqs, self, self.X(), self.Y()) ?? ReqHelper.Desc(PlayerMgmt.ActPlayer(), m.GenNonSelfReq(), nonSelf, nonSelf.X(), nonSelf.Y());
+                    be.disabled = ReqHelper.Desc(PlayerMgmt.ActPlayer(), reqs, self, self.Pos()) ?? ReqHelper.Desc(PlayerMgmt.ActPlayer(), m.GenNonSelfReq(), nonSelf, nonSelf.Pos());
                     be.audioPerform = m.sound;
                     b.AddElement(be);
                     //win.AddBuilding(build.id);

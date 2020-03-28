@@ -1,10 +1,6 @@
 ﻿using System;
 
 
-/**
- * @author sven
- *
- */
 namespace Tools
 {
     public static class TextHelper {
@@ -31,6 +27,11 @@ namespace Tools
         public static string RichText(params string[] d)
         {
             return String.Join(";;", d);
+        }
+
+        public static string Proc(int act, int max)
+        {
+            return Math.Round(act * 100d / max) + "%";
         }
 
         public static string Header(string h)

@@ -73,7 +73,7 @@ namespace ES3Types
 			// If we're loading a reference, load it. Else, create an instance.
 			if(propertyName == ES3ReferenceMgrBase.referencePropertyName)
 			{
-				long id = reader.Read<long>(ES3Type_long.Instance);
+				long id = reader.Read_ref();
 				obj = ES3ReferenceMgrBase.Current.Get(id);
 				if(obj == null)
 				{

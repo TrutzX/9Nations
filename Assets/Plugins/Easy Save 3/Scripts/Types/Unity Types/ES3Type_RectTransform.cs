@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace ES3Types
 {
@@ -33,7 +34,10 @@ namespace ES3Types
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
 		{
-			var instance = (UnityEngine.RectTransform)obj;
+            if (obj.GetType() == typeof(UnityEngine.Transform))
+                obj = ((Transform)obj).gameObject.AddComponent<RectTransform>();
+
+                var instance = (UnityEngine.RectTransform)obj;
 			foreach(string propertyName in reader.Properties)
 			{
 				switch(propertyName)

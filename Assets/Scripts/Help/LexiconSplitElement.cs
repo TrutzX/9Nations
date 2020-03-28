@@ -1,21 +1,23 @@
 using Libraries;
+using Tools;
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Help
 {
     public class LexiconSplitElement : SplitElement
     {
-        private BaseData data;
+        private readonly BaseData _data;
         
-        public LexiconSplitElement(BaseData data) : base(data.Name, data.Sprite())
+        public LexiconSplitElement(BaseData data) : base(data.name, data.Sprite())
         {
-            this.data = data;
+            _data = data;
         }
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            data.ShowDetail(panel);
+            _data.ShowLexicon(panel);
         }
 
         public override void Perform()

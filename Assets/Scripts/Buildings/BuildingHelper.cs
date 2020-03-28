@@ -32,16 +32,5 @@ namespace Game
         {
             return SpriteHelper.Load("Building/" + file);
         }
-        
-        public static string[] GetIDs()
-        {
-            List<string> ids = new List<string>();
-            foreach (Building b in Data.building)
-            {
-                ids.Add(b.id);
-            }
-
-            return ids.ToArray();
-        }
     }
 }

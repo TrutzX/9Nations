@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using Buildings;
 using Players;
+using Players.Quests;
+using Tools;
 using Towns;
 using UnityEngine;
 
@@ -26,20 +28,17 @@ namespace reqs
             return true;
         }
 
-        public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
+        public override string Desc(Player player, string sett)
         {
-            if (player.quests.quests.Count(q =>q.id == sett) > 0)
+            string e = "Finish the quest " + sett;
+            
+            if (player != null && player.quests.quests.Count(q =>q.id == sett) > 0)
             {
                 Quest qu = player.quests.quests.Single(q => q.id == sett);
-                return "Finish the quest " + qu.name + ". Status: " + (qu.IsFinish() ? "Finished" : "In Progress");
+                return $"Finish the quest {qu.name}. Status: " + (qu.IsFinish() ? "Finished" : "In Progress");
             }
 
-            return Desc(sett);
-        }
-
-        public override string Desc(string sett)
-        {
-            return "Finish the quest " + sett;
+            return e;
         }
     }
 }

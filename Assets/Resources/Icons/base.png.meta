@@ -172,7 +172,7 @@ TextureImporter:
     second: base_55
   - first:
       213: 3095236755683765352
-    second: base_56
+    second: fly
   - first:
       213: 8721774553999707436
     second: base_57
@@ -184,19 +184,19 @@ TextureImporter:
     second: base_59
   - first:
       213: -1374837828944451254
-    second: base_60
+    second: swim
   - first:
       213: -70672017809998637
     second: base_61
   - first:
       213: -38201150927560466
-    second: base_62
+    second: flyxxxxx
   - first:
       213: -8685949630574794714
     second: new
   - first:
       213: -8272591032279928132
-    second: base_64
+    second: float
   - first:
       213: -2705345357837823691
     second: base_65
@@ -223,13 +223,13 @@ TextureImporter:
     second: base_72
   - first:
       213: -1200435870911722467
-    second: base_73
+    second: audio2
   - first:
       213: -2324172138169272378
     second: base_74
   - first:
       213: -4074180349224066764
-    second: qqqq
+    second: walk
   - first:
       213: 90457772778482900
     second: option2
@@ -373,7 +373,7 @@ TextureImporter:
     second: base_122
   - first:
       213: 6318154722340154267
-    second: qqqq
+    second: walk
   - first:
       213: -6536896949903021249
     second: base_124
@@ -538,7 +538,7 @@ TextureImporter:
     second: base_177
   - first:
       213: 8847513860228937832
-    second: audio
+    second: audio2
   - first:
       213: 2229214286069376844
     second: base_179
@@ -559,7 +559,7 @@ TextureImporter:
     second: base_184
   - first:
       213: -4127562704583658822
-    second: base_185
+    second: statistic
   - first:
       213: -9180037560339489195
     second: base_186
@@ -568,7 +568,7 @@ TextureImporter:
     second: base_187
   - first:
       213: -8042480437656319716
-    second: base_188
+    second: res
   - first:
       213: -4568775746167380416
     second: base_189
@@ -586,7 +586,7 @@ TextureImporter:
     second: base_193
   - first:
       213: -5471416823656989197
-    second: base_194
+    second: forger
   - first:
       213: -5726023469846795666
     second: base_195
@@ -715,7 +715,7 @@ TextureImporter:
     second: food
   - first:
       213: 783552694327738963
-    second: base_237
+    second: bread
   - first:
       213: 1917399486275282631
     second: base_238
@@ -811,7 +811,7 @@ TextureImporter:
     second: base_268
   - first:
       213: 5000811392000726325
-    second: stone
+    second: cobblestone
   - first:
       213: 3373387500430688349
     second: base_270
@@ -2114,7 +2114,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_56
+      name: fly
       rect:
         serializedVersion: 2
         x: 480
@@ -2198,7 +2198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_60
+      name: swim
       rect:
         serializedVersion: 2
         x: 96
@@ -2240,7 +2240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_62
+      name: flyxxxxx
       rect:
         serializedVersion: 2
         x: 160
@@ -2282,7 +2282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_64
+      name: float
       rect:
         serializedVersion: 2
         x: 224
@@ -2471,7 +2471,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_73
+      name: audio
       rect:
         serializedVersion: 2
         x: 0
@@ -3521,7 +3521,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: qqqq
+      name: walk
       rect:
         serializedVersion: 2
         x: 384
@@ -4676,7 +4676,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: audio
+      name: audio2
       rect:
         serializedVersion: 2
         x: 256
@@ -4823,7 +4823,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_185
+      name: statistic
       rect:
         serializedVersion: 2
         x: 480
@@ -4886,7 +4886,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_188
+      name: res
       rect:
         serializedVersion: 2
         x: 64
@@ -5012,7 +5012,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_194
+      name: forger
       rect:
         serializedVersion: 2
         x: 256
@@ -5915,7 +5915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_237
+      name: bread
       rect:
         serializedVersion: 2
         x: 320
@@ -6587,7 +6587,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stone
+      name: cobblestone
       rect:
         serializedVersion: 2
         x: 32

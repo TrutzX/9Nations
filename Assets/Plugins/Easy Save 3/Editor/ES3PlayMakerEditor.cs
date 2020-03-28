@@ -286,6 +286,16 @@ namespace ES3PlayMaker
 			EditField("newFilePath");
 		}
 	}
+	
+	[CustomActionEditor(typeof(ES3PlayMaker.CopyDirectory))]
+	public class CopyDirectoryEditor : SettingsEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("oldDirectoryPath");
+			EditField("newDirectoryPath");
+		}
+	}
 
 	[CustomActionEditor(typeof(ES3PlayMaker.GetKeys))]
 	public class GetKeysEditor : SettingsEditor
@@ -528,6 +538,62 @@ namespace ES3PlayMaker
 	}
 
 	#endif
+	#endregion
+
+	#region ES3SpreadsheetActions
+
+	[CustomActionEditor(typeof(ES3PlayMaker.ES3SpreadsheetCreate))]
+	public class ES3SpreadsheetCreateEditor : BaseEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("fsmES3Spreadsheet");
+		}
+	}
+
+	[CustomActionEditor(typeof(ES3PlayMaker.ES3SpreadsheetSetCell))]
+	public class ES3SpreadsheetSetCellEditor : BaseEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("fsmES3Spreadsheet");
+			EditField("col");
+			EditField("row");
+			EditField("value");
+		}
+	}
+
+	[CustomActionEditor(typeof(ES3PlayMaker.ES3SpreadsheetGetCell))]
+	public class ES3SpreadsheetGetCellEditor : BaseEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("fsmES3Spreadsheet");
+			EditField("col");
+			EditField("row");
+			EditField("value");
+		}
+	}
+
+	[CustomActionEditor(typeof(ES3PlayMaker.ES3SpreadsheetSave))]
+	public class ES3SpreadsheetSaveEditor : SettingsEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("filePath");
+			EditField("append");
+		}
+	}
+
+	[CustomActionEditor(typeof(ES3PlayMaker.ES3SpreadsheetLoad))]
+	public class ES3SpreadsheetLoadEditor : SettingsEditor
+	{
+		public override void DrawGUI()
+		{
+			EditField("filePath");
+		}
+	}
+
 	#endregion
 }
 #endif

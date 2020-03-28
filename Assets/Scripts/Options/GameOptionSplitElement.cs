@@ -1,11 +1,12 @@
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Options
 {
     public class GameOptionSplitElement : SplitElement
     {
-        public GameOptionSplitElement() : base("Game", SpriteHelper.LoadIcon("logo"))
+        public GameOptionSplitElement() : base("Game", SpriteHelper.Load("logo"))
         {
         }
 
@@ -14,6 +15,7 @@ namespace Options
             Data.features.autosave.AddOption(panel);
             Data.features.centermouse.AddOption(panel);
             Data.features.debug.AddOption(panel);
+            Data.features.showAction.AddOption(panel);
                 
         }
 

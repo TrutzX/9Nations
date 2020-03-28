@@ -10,9 +10,13 @@ namespace Libraries
         IEnumerator ParseIni(string path);
 
         string Name();
+
+        string Id();
         
         Sprite Sprite();
 
         void AfterLoad();
+
+        int Length{ get; }
     }
 }

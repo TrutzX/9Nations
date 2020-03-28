@@ -1,61 +1,41 @@
 using System;
-using System.Linq;
 using Buildings;
+using Game;
+using Libraries;
 using Players;
+using Tools;
 using Towns;
+using Units;
 using UnityEngine;
 
 namespace reqs
 {
     
-    public class ReqUnit : BaseReq
+    public class ReqUnit : ReqMinMax
     {
-        public override bool Check(Player player, MapElementInfo onMap, string sett, int x, int y)
-        {
-            switch (sett)
-            {
-                case "own":
-                    return onMap.Player() == player;
-                case "enemy":
-                    return onMap.Player() != player;
-                default:
-                    throw new ArgumentException(sett +" is unknown.");
-            }
-        }
 
-        public override bool Check(Player player, string sett)
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             throw new NotImplementedException();
         }
 
-        public override bool Final(Player player, MapElementInfo onMap, string sett, int x, int y)
-        {
-            return false;
-        }
-
-        public override bool Final(Player player, string sett)
+        protected override int ValueMax(Player player, string element, string sett)
         {
             throw new NotImplementedException();
         }
-
-        public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
-            string mess = $"{Desc(sett)} {onMap.data.name} is "+(player == onMap.Player() ? "" : "not") +
-                          " your own unit";
-            return mess;
+            return S.Unit().GetByPlayerType(player.id, element).Length;
         }
 
-        public override string Desc(string sett)
+        protected override int ValueAct(Player player, string element, string sett)
         {
-            switch (sett)
-            {
-                case "own":
-                    return "The unit muss be your own unit.";
-                case "enemy":
-                    return "The unit muss not be your own unit.";
-                default:
-                    throw new ArgumentException(sett +" is unknown.");
-            }
+            return S.Unit().GetByPlayerType(player.id, element).Length;
+        }
+
+        protected override string Name(string element, string sett)
+        {
+            return L.b.units[element].name;
         }
     }
 }

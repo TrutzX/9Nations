@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using Buildings;
 using DataTypes;
 using Players;
+using Tools;
 using UnityEngine;
 
 namespace reqs
 {
+    [Obsolete]
     public class ReqHelper
     {
-        public static bool Check(Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        public static bool Check(Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
-            return Check(PlayerMgmt.ActPlayer(), reqs, onMap, x, y);
+            return Check(PlayerMgmt.ActPlayer(), reqs, onMap, pos);
         }
-        
+
         /// <summary>
         /// Check if the req allow it
         /// </summary>
         /// <param name="player"></param>
         /// <param name="reqs"></param>
         /// <param name="onMap"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <returns>true=can use it, false=not possible</returns>
-        public static bool Check(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        public static bool Check(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 //can use it?
-                if (!NLib.GetReq(req.Key).Check(player, onMap, req.Value, x, y))
+                if (!OLib.GetReq(req.Key).Check(player, onMap, req.Value, pos))
                 {
                     return false;
                 }
@@ -48,7 +49,7 @@ namespace reqs
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 //can use it?
-                if (!NLib.GetReq(req.Key).Check(player, req.Value))
+                if (!OLib.GetReq(req.Key).Check(player, req.Value))
                 {
                     return false;
                 }
@@ -68,7 +69,7 @@ namespace reqs
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 //can use it?
-                BaseReq r = NLib.GetReq(req.Key);
+                BaseReq r = OLib.GetReq(req.Key);
                 if (!r.Check(player, req.Value) && r.Final(player, req.Value))
                 {
                     return false;
@@ -77,23 +78,22 @@ namespace reqs
 
             return true;
         }
-        
+
         /// <summary>
         /// Check if the req allow it
         /// </summary>
         /// <param name="player"></param>
         /// <param name="reqs"></param>
         /// <param name="onMap"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <returns>true=can use it, false=not possible</returns>
-        public static bool CheckOnlyFinal(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        public static bool CheckOnlyFinal(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 //can use it?
-                BaseReq r = NLib.GetReq(req.Key);
-                if (!r.Check(player, onMap, req.Value, x, y) && r.Final(player, onMap, req.Value, x, y))
+                BaseReq r = OLib.GetReq(req.Key);
+                if (!r.Check(player, onMap, req.Value, pos) && r.Final(player, onMap, req.Value, pos))
                 {
                     return false;
                 }
@@ -102,9 +102,9 @@ namespace reqs
             return true;
         }
 
-        public static string Desc(Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        public static string Desc(Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
-            return Desc(PlayerMgmt.ActPlayer(), reqs, onMap, x, y);
+            return Desc(PlayerMgmt.ActPlayer(), reqs, onMap, pos);
         }
 
         /// <summary>
@@ -113,19 +113,18 @@ namespace reqs
         /// <param name="player"></param>
         /// <param name="reqs"></param>
         /// <param name="onMap"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <returns>the error message or null</returns>
-        public static string Desc(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, int x, int y)
+        public static string Desc(Player player, Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
-                BaseReq br = NLib.GetReq(req.Key);
+                BaseReq br = OLib.GetReq(req.Key);
                 
                 //can use it?
-                if (!br.Check(player, onMap, req.Value, x, y))
+                if (!br.Check(player, onMap, req.Value, pos))
                 {
-                    return br.Desc(player, onMap, req.Value, x, y);
+                    return br.Desc(player, onMap, req.Value, pos);
                 }
             }
 
@@ -146,12 +145,12 @@ namespace reqs
         {
             foreach (KeyValuePair<string, string> req in reqs)
             {
-                BaseReq br = NLib.GetReq(req.Key);
+                BaseReq br = OLib.GetReq(req.Key);
                 
                 //can use it?
                 if (!br.Check(player, req.Value))
                 {
-                    return br.Desc(req.Value);
+                    return br.Desc(player, req.Value);
                 }
             }
 
@@ -185,6 +184,26 @@ namespace reqs
                     continue;
                 }
                 r.Add(re[0],re[1]);
+            }
+
+            return r;
+        }
+        
+        public static Dictionary<string, string> BuildNewReq(Dictionary<string, string> o)
+        {
+            Dictionary<string, string> r = new Dictionary<string, string>();
+            int id = 0;
+            while (o.ContainsKey("req" + id))
+            {
+                var re = SplitHelper.Delimiter(o["req" + id]);
+                id++;
+                if (string.IsNullOrEmpty(re.value))
+                {
+                    o.Add(re.key,"");
+                    continue;
+                }
+                r.Add(re.key,re.value);
+                
             }
 
             return r;

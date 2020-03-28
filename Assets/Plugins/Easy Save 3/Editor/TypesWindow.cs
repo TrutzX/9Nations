@@ -69,7 +69,7 @@ namespace ES3Editor
 		{
 			var style = EditorStyle.Get;
 
-			GUILayout.Label("*Enter a type name in the field below*", style.subheading2);
+			GUILayout.Label("Enter a type name in the field below\n* Type names are case-sensitive *", style.subheading2);
 
 			EditorGUILayout.BeginHorizontal();
 
@@ -597,14 +597,16 @@ namespace ES3Editor
 
 				string writeByRef = ES3Reflection.IsAssignableFrom(typeof(UnityEngine.Object), field.MemberType) ? "ByRef" : "";
 				string es3TypeParam = HasExplicitES3Type(es3Type) && writeByRef == "" ? ", "+es3Type.GetType().Name+".Instance" : "";
+				// If this is static, access the field through the class name rather than through an instance.
+				string instance = (field.IsStatic) ? GetFullTypeName(field.MemberType) : "instance";
 
 				if(!field.IsPublic)
 				{
 					string memberType = field.isProperty ? "Property" : "Field";
-					writes += String.Format("\n\t\t\twriter.WritePrivate{3}{1}(\"{0}\", instance);", field.Name, writeByRef, es3TypeParam, memberType);
+					writes += String.Format("\n\t\t\twriter.WritePrivate{2}{1}(\"{0}\", instance);", field.Name, writeByRef, memberType);
 				}
 				else
-					writes += String.Format("\n\t\t\twriter.WriteProperty{1}(\"{0}\", instance.{0}{2});", field.Name, writeByRef, es3TypeParam);
+					writes += String.Format("\n\t\t\twriter.WriteProperty{1}(\"{0}\", {3}.{0}{2});", field.Name, writeByRef, es3TypeParam, instance);
 			}
 			return writes;
 		}
@@ -625,6 +627,8 @@ namespace ES3Editor
 
 				string fieldTypeName = GetFullTypeName(field.MemberType);
 				string es3TypeParam = HasExplicitES3Type(field.MemberType) ? ES3TypeMgr.GetES3Type(field.MemberType).GetType().Name+".Instance" : "";
+				// If this is static, access the field through the class name rather than through an instance.
+				string instance = (field.IsStatic) ? GetFullTypeName(field.MemberType) : "instance";
 
 				// If we're writing a private field or property, we need to write it using a different method.
 				if(!field.IsPublic)
@@ -636,7 +640,7 @@ namespace ES3Editor
 						reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\treader.SetPrivateField(\"{0}\", reader.Read<{1}>(), instance);\n\t\t\t\t\tbreak;", field.Name, fieldTypeName);
 				}
 				else
-					reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\t\tinstance.{0} = reader.Read<{1}>({2});\n\t\t\t\t\t\tbreak;", field.Name, fieldTypeName, es3TypeParam);
+					reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\t\t{3}.{0} = reader.Read<{1}>({2});\n\t\t\t\t\t\tbreak;", field.Name, fieldTypeName, es3TypeParam, instance);
 			}
 			return reads;
 		}

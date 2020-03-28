@@ -16,9 +16,9 @@ namespace ES3Internal
 		// Gets a temporary path if necessary.
 		protected static string GetPath(string path, ES3FileMode fileMode)
 		{
-			// Attempt to create the directory incase it does not exist.
 			string directoryPath = ES3IO.GetDirectoryPath(path);
-			if(directoryPath != UnityEngine.Application.persistentDataPath)
+            // Attempt to create the directory incase it does not exist if we are storing data.
+            if (fileMode != ES3FileMode.Read && directoryPath != ES3IO.persistentDataPath)
 				ES3IO.CreateDirectory(directoryPath);
 			if(fileMode != ES3FileMode.Write || fileMode == ES3FileMode.Append)
 				return path;

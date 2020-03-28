@@ -2,6 +2,7 @@ using System;
 using Buildings;
 using Game;
 using Players;
+using Tools;
 using Towns;
 using Units;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace reqs
     
     public class ReqHp : ReqMinMax
     {
-        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             return onMap.data.hpMax;
         }
@@ -21,7 +22,7 @@ namespace reqs
             throw new NotImplementedException();
         }
 
-        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, int x, int y)
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             return onMap.data.hp;
         }

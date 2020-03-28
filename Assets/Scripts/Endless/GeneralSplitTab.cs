@@ -42,6 +42,10 @@ namespace Endless
                 disabled = null;
                 //UpdateButtonText();
             });
+
+            //panel.AddHeaderLabel("Options");
+            //todo Data.features.fog.AddOption(panel);
+            //todo Data.features.research.AddOption(panel);
         }
 
         public override void Perform()

@@ -60,7 +60,7 @@ namespace ES3Editor
 			if(so.ApplyModifiedProperties())
 			{
 				#if UNITY_2018_3_OR_NEWER
-				PrefabUtility.SaveAsPrefabAsset(defaultSettingsGo, "Assets/Plugins/Easy Save 3/Resources/ES3/ES3 Default Settings.prefab");
+				PrefabUtility.SaveAsPrefabAsset(defaultSettingsGo, ES3EditorUtility.PathToDefaultSettings());
 				#endif
 			}
 
@@ -69,28 +69,30 @@ namespace ES3Editor
 			EditorGUILayout.EndVertical();
 
 
-			if(EditorGUI.EndChangeCheck())
-				EditorUtility.SetDirty(editorSettings);
+            if (EditorGUI.EndChangeCheck())
+            {
+#if UNITY_2018_3_OR_NEWER
+                PrefabUtility.SavePrefabAsset(defaultSettingsGo);
+#else
+                EditorUtility.SetDirty(editorSettings);
+#endif
+            }
 		}
 
 		public void Init()
 		{
-			#if UNITY_2018_3_OR_NEWER
-			defaultSettingsGo = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Plugins/Easy Save 3/Resources/ES3/ES3 Default Settings.prefab");
+#if UNITY_2018_3_OR_NEWER
+            defaultSettingsGo = (GameObject)AssetDatabase.LoadMainAssetAtPath(ES3EditorUtility.PathToDefaultSettings());
 			editorSettings = defaultSettingsGo.GetComponent<ES3DefaultSettings>();
-			#else
+#else
 			editorSettings = ES3Settings.GetDefaultSettings();
-			#endif
+#endif
 
 			settings = editorSettings.settings;
 			so = new SerializedObject(editorSettings);
 			var settingsProperty = so.FindProperty("settings");
 			assemblyNamesProperty = settingsProperty.FindPropertyRelative("assemblyNames");
 			
-			
-			#if UNITY_2018_3_OR_NEWER
-			PrefabUtility.SavePrefabAsset(defaultSettingsGo);
-			#endif
 		}
 	}
 

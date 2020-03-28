@@ -25,10 +25,8 @@ namespace ES3Types
 
 			if(refMgr != null)
 			{
-				// If this object is in the instance manager, store it's instance ID with it.
-				writer.WriteRef(instance);
 				// Write the reference of the GameObject so we know what one to attach it to.
-				writer.WriteProperty(gameObjectPropertyName, refMgr.Add(instance.gameObject), ES3Type_long.Instance); 
+				writer.WriteProperty(gameObjectPropertyName, refMgr.Add(instance.gameObject).ToString(), ES3Type_string.Instance); 
 			}
 			WriteComponent(instance, writer);
 		}
@@ -48,7 +46,7 @@ namespace ES3Types
 			{
 				if(propertyName == ES3ReferenceMgrBase.referencePropertyName && refMgr != null)
 				{
-					id = reader.Read<long>(ES3Type_long.Instance);
+					id = reader.Read_ref();
 					instance = refMgr.Get(id);
 
 					if(instance != null)
@@ -56,7 +54,7 @@ namespace ES3Types
 				}
 				else if(propertyName == gameObjectPropertyName && refMgr != null)
 				{
-					long goID = reader.Read<long>(ES3Type_long.Instance);
+					long goID = reader.Read_ref();
 					var go = (GameObject)refMgr.Get(goID);
 
 					if(go == null)

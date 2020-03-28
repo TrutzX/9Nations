@@ -1,4 +1,8 @@
-[Ground]
+[underground]
+layer=1
+format=debug_underground_
+
+[ground]
 layer=2
-format=debug_
+format=debug_ground_
 standard=true

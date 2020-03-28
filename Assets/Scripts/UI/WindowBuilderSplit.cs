@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UI.Show;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ namespace UI
         public GameObject infoPanel;
         public GameObject buttonPanel;
         public string selectButtonText;
-        public GameObject selectButton;
+        public Button selectButton;
 
         private List<SplitElement> elements;
         private SplitElement selectedElement;

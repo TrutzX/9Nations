@@ -41,11 +41,11 @@ namespace ES3Types
 			{
 				if(propertyName == ES3ReferenceMgrBase.referencePropertyName && refMgr != null)
 				{
-					id = reader.Read<long>(ES3Type_long.Instance);
+					id = reader.Read_ref();
 					instance = refMgr.Get(id);
 
-					if(instance != null)
-						break;
+                    if (instance != null)
+                        break;
 				}
 				else
 				{
@@ -54,7 +54,7 @@ namespace ES3Types
 					{
 						instance = ScriptableObject.CreateInstance(type);
 						refMgr.Add(instance, id);
-					}
+                    }
 					break;
 				}
 			}

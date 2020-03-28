@@ -1,13 +1,13 @@
-﻿using Actions;
-using Maps;
+﻿using Buildings;
+using Libraries.FActions;
 using Players;
 using Players.Infos;
-using TMPro;
+using Tools;
 using Units;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Game
 {
     public class OnMapUI : MonoBehaviour
     {
@@ -49,32 +49,31 @@ namespace UI
             NAudio.PlayBuzzer();
         }
 
-        public void UpdatePanelXY(int x, int y)
+        public void UpdatePanel(NVector pos)
         {
             //remove old action?
             if (_action != null)
                 SetActiveAction(null,false);
-            
-            
+
             //can view?
-            if (Data.features.fog.Bool() && !PlayerMgmt.ActPlayer().fog.visible[x,y])
+            if (Data.features.fog.Bool() && !PlayerMgmt.ActPlayer().fog.Visible(pos))
             {
                 unitUI.UpdatePanel(null);
                 buildingUI.UpdatePanel(null);
                 return;
             }
             
-            unitUI.UpdatePanel(UnitMgmt.At(x,y));
-            buildingUI.UpdatePanel(BuildingMgmt.At(x,y));
+            unitUI.UpdatePanel(S.Unit().At(pos));
+            buildingUI.UpdatePanel(BuildingMgmt.At(pos));
         }
 
         public void UpdatePanelOnMouse()
         {
-            Vector2 p = GameMapMgmt.GetMouseMapXY();
-            int x = (int) p.x;
-            int y = (int) p.y;
+            Vector2 p = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+            NVector pos = new NVector((int) p.x, (int) p.y, GameMgmt.Get().newMap.view.ActiveLevel);
+            Debug.Log($"Click on {pos}");
 
-            if (!GameMapMgmt.Valide(x,y))
+            if (!pos.Valid())
             {
                 NAudio.PlayBuzzer();
                 return;
@@ -83,14 +82,14 @@ namespace UI
             //active action?
             if (_action != null)
             {
-                _action.Click(x,y);
+                _action.Click(pos);
             } else 
-                UpdatePanelXY(x, y);
+                UpdatePanel(pos);
         
             //center mouse?
             if (Data.features.centermouse.Bool())
             {
-                CameraMove.Get().MoveTo(x, y);
+                CameraMove.Get().MoveTo(pos);
             }
         }
 

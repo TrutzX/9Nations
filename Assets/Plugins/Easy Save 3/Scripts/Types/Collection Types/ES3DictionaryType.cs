@@ -28,7 +28,19 @@ namespace ES3Types
 			isDictionary = true;
 		}
 
-		public override void Write(object obj, ES3Writer writer)
+        public ES3DictionaryType(Type type, ES3Type keyType, ES3Type valueType) : base(type)
+        {
+            this.keyType = keyType;
+            this.valueType = valueType;
+
+            // If either the key or value type is unsupported, make this type NULL.
+            if (keyType == null || valueType == null)
+                isUnsupported = true; ;
+
+            isDictionary = true;
+        }
+
+        public override void Write(object obj, ES3Writer writer)
 		{
 			Write(obj, writer, writer.settings.memberReferenceMode);
 		}

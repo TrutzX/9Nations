@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game;
+using GameMapLevels;
+using Tools;
 using UnityEditor;
 using UnityEngine;
 
@@ -26,10 +29,10 @@ public class CameraMove : MonoBehaviour
         return GameObject.FindObjectOfType<Camera>().GetComponent<CameraMove>();
     }
 
-    public void MoveTo(int x, int y)
+    public void MoveTo(NVector pos)
     {
         startPosition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
-        endPosition = new Vector3(x,y,transform.position.z);
+        endPosition = new Vector3(pos.x,pos.y,transform.position.z);
         
         // Keep a note of the time the movement started.
         startTime = Time.time;
@@ -37,11 +40,14 @@ public class CameraMove : MonoBehaviour
 
         // Calculate the journey length.
         journeyLength = Vector3.Distance(startPosition, endPosition);
+        
+        //change level?
+        GameMgmt.Get().newMap.view.View(pos.level);
     }
 
     public void MoveBy(int x, int y)
     {
-        MoveTo((int)transform.position.x+x,(int)transform.position.y+y);
+        MoveTo(new NVector((int)transform.position.x+x,(int)transform.position.y+y, GameMgmt.Get().newMap.view.ActiveLevel));
     }
 
     // Follows the target position like with a spring

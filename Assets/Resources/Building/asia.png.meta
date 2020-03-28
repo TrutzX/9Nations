@@ -1,0 +1,3316 @@
+fileFormatVersion: 2
+guid: 71fe7eddad9ae48adb0d9cb02dc5a1b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8412876936145347841
+    second: north-D_0
+  - first:
+      213: 1370374866965263476
+    second: north-D_1
+  - first:
+      213: 8581270658227555668
+    second: north-D_2
+  - first:
+      213: -4332960338509404545
+    second: north-D_3
+  - first:
+      213: -1340208425740475252
+    second: north-D_4
+  - first:
+      213: -1076481555308078373
+    second: north-D_5
+  - first:
+      213: 8007195788092135267
+    second: north-D_6
+  - first:
+      213: -2742207409313930242
+    second: north-D_7
+  - first:
+      213: -251102203595581916
+    second: north-D_8
+  - first:
+      213: -1519015152780065414
+    second: north-D_9
+  - first:
+      213: -6773051681453418161
+    second: north-D_10
+  - first:
+      213: -1752052901277505498
+    second: north-D_11
+  - first:
+      213: -7722506103540172039
+    second: north-D_12
+  - first:
+      213: 3816510711784631054
+    second: north-D_13
+  - first:
+      213: -626848879947768343
+    second: north-D_14
+  - first:
+      213: -6051833972810377363
+    second: north-D_15
+  - first:
+      213: -5204445885005125923
+    second: north-D_16
+  - first:
+      213: 8509402572270203290
+    second: north-D_17
+  - first:
+      213: -799321500156889382
+    second: north-D_18
+  - first:
+      213: -8912998954357758704
+    second: north-D_19
+  - first:
+      213: -7844511880831207816
+    second: north-D_20
+  - first:
+      213: -3576003937428919875
+    second: north-D_21
+  - first:
+      213: -2524334475008682104
+    second: north-D_22
+  - first:
+      213: -4777286986182212424
+    second: north-D_23
+  - first:
+      213: -8730758604579289968
+    second: north-D_24
+  - first:
+      213: -8421435957890630406
+    second: north-D_25
+  - first:
+      213: 3578019573686777906
+    second: north-D_26
+  - first:
+      213: -1258493289646074441
+    second: north-D_27
+  - first:
+      213: 8625522914760181261
+    second: north-D_28
+  - first:
+      213: 8776509152466463919
+    second: north-D_29
+  - first:
+      213: 8027509155005355045
+    second: north-D_30
+  - first:
+      213: -5909534135567088285
+    second: north-D_31
+  - first:
+      213: 6260671589548126210
+    second: north-D_32
+  - first:
+      213: -2212019280832420631
+    second: north-D_33
+  - first:
+      213: -734154274428933075
+    second: north-D_34
+  - first:
+      213: 8885312823298263541
+    second: north-D_35
+  - first:
+      213: -1196643229428906763
+    second: north-D_36
+  - first:
+      213: -162176923060612097
+    second: north-D_37
+  - first:
+      213: -5048764968978564340
+    second: north-D_38
+  - first:
+      213: 1989418656563603160
+    second: north-D_39
+  - first:
+      213: -18089950043557840
+    second: north-D_40
+  - first:
+      213: -5019132443933847048
+    second: north-D_41
+  - first:
+      213: 2970727733580956445
+    second: north-D_42
+  - first:
+      213: 8798835540325393738
+    second: north-D_43
+  - first:
+      213: -2059164370821264777
+    second: north-D_44
+  - first:
+      213: 4525848235689924283
+    second: north-D_45
+  - first:
+      213: -1021556869796555418
+    second: north-D_46
+  - first:
+      213: 5076346100094356913
+    second: north-D_47
+  - first:
+      213: -8881180227638924621
+    second: north-D_48
+  - first:
+      213: 8382137122522680572
+    second: north-D_49
+  - first:
+      213: 5565810054850330652
+    second: north-D_50
+  - first:
+      213: 7307701346431117550
+    second: north-D_51
+  - first:
+      213: 4431776083939537687
+    second: north-D_52
+  - first:
+      213: -2269496477033606598
+    second: north-D_53
+  - first:
+      213: -7669793834816525836
+    second: north-D_54
+  - first:
+      213: 4801004465492276787
+    second: north-D_55
+  - first:
+      213: -7291830048940889854
+    second: north-D_56
+  - first:
+      213: -7703415821264676295
+    second: north-D_57
+  - first:
+      213: -2044868346234515160
+    second: north-D_58
+  - first:
+      213: 2812235876853937653
+    second: north-D_59
+  - first:
+      213: 4793606584991919763
+    second: north-D_60
+  - first:
+      213: -5543972010357122977
+    second: north-D_61
+  - first:
+      213: -2694216337270801166
+    second: north-D_62
+  - first:
+      213: -2604114221395541920
+    second: north-D_63
+  - first:
+      213: 3553996828920530911
+    second: north-D_64
+  - first:
+      213: 1850142105549090287
+    second: north-D_65
+  - first:
+      213: 1235142492982294728
+    second: north-D_66
+  - first:
+      213: 9108809720728584866
+    second: north-D_67
+  - first:
+      213: 7331343798047237481
+    second: north-D_68
+  - first:
+      213: -6278392546094748635
+    second: north-D_69
+  - first:
+      213: -1355998392420971686
+    second: north-D_70
+  - first:
+      213: -7783624382663863110
+    second: north-D_71
+  - first:
+      213: 6762044556080492994
+    second: north-D_72
+  - first:
+      213: -7206190116858936754
+    second: north-D_73
+  - first:
+      213: -4460934283224147670
+    second: north-D_74
+  - first:
+      213: 250931683067724962
+    second: north-D_75
+  - first:
+      213: -2672497701174395276
+    second: north-D_76
+  - first:
+      213: -744583589026686173
+    second: north-D_77
+  - first:
+      213: -6149522073318259178
+    second: north-D_78
+  - first:
+      213: 591028533424880690
+    second: north-D_79
+  - first:
+      213: 3885208893120858414
+    second: north-D_80
+  - first:
+      213: 5686538840281824486
+    second: north-D_81
+  - first:
+      213: -5787026957221899194
+    second: north-D_82
+  - first:
+      213: -4541432013903134089
+    second: north-D_83
+  - first:
+      213: 1687266515935924307
+    second: north-D_84
+  - first:
+      213: -1142539920075610247
+    second: north-D_85
+  - first:
+      213: -2077799712915433918
+    second: north-D_86
+  - first:
+      213: 8833504647361366279
+    second: north-D_87
+  - first:
+      213: -1196230258015943600
+    second: north-D_88
+  - first:
+      213: 1402153234863855654
+    second: north-D_89
+  - first:
+      213: 5452420293349158441
+    second: north-D_90
+  - first:
+      213: -7490485302402723705
+    second: north-D_91
+  - first:
+      213: -5327254869437469411
+    second: north-D_92
+  - first:
+      213: 6475069806908038625
+    second: north-D_93
+  - first:
+      213: 7948711085620966692
+    second: north-D_94
+  - first:
+      213: -2838039104745693540
+    second: north-D_95
+  - first:
+      213: 6978594522092217583
+    second: north-D_96
+  - first:
+      213: -5310323305620624564
+    second: north-D_97
+  - first:
+      213: -8842660415012076041
+    second: north-D_98
+  - first:
+      213: 809126642537213282
+    second: north-D_99
+  - first:
+      213: 5960264526969220729
+    second: north-D_100
+  - first:
+      213: -1483024939416532797
+    second: north-D_101
+  - first:
+      213: 6977514479929122366
+    second: north-D_102
+  - first:
+      213: 2896786579280613085
+    second: north-D_103
+  - first:
+      213: 4242913263973007913
+    second: north-D_104
+  - first:
+      213: -8956148810684394616
+    second: north-D_105
+  - first:
+      213: 3170472411401661915
+    second: north-D_106
+  - first:
+      213: -157750447997450024
+    second: north-D_107
+  - first:
+      213: 4910036238253481987
+    second: north-D_108
+  - first:
+      213: 9177654779310545828
+    second: north-D_109
+  - first:
+      213: -1497765020887779134
+    second: north-D_110
+  - first:
+      213: -618261998152365570
+    second: north-D_111
+  - first:
+      213: -5567063284079016409
+    second: north-D_112
+  - first:
+      213: -4690134955808580064
+    second: north-D_113
+  - first:
+      213: -170269858384391008
+    second: north-D_114
+  - first:
+      213: 2172329553614033543
+    second: north-D_115
+  - first:
+      213: 5564050959134880539
+    second: north-D_116
+  - first:
+      213: -3019930942725139754
+    second: north-D_117
+  - first:
+      213: -6273188553643162329
+    second: north-D_118
+  - first:
+      213: 7480137766501875882
+    second: asia_0
+  - first:
+      213: -8965863020067159389
+    second: asia_1
+  - first:
+      213: -2266371635248035427
+    second: asia_2
+  - first:
+      213: 3680399816191310098
+    second: asia_3
+  - first:
+      213: 8797435859417990357
+    second: asia_4
+  - first:
+      213: 7473681809063981921
+    second: asia_5
+  - first:
+      213: -7563809935558555404
+    second: asia_6
+  - first:
+      213: -4723749678447120541
+    second: asia_7
+  - first:
+      213: -3172746871239125436
+    second: asia_8
+  - first:
+      213: 2844995165419340542
+    second: asia_9
+  - first:
+      213: 7411398735135006868
+    second: asia_10
+  - first:
+      213: 4168728035419343723
+    second: asia_11
+  - first:
+      213: 6015211151804198378
+    second: asia_12
+  - first:
+      213: -4836450359182014092
+    second: asia_13
+  - first:
+      213: 8613054102084956648
+    second: asia_14
+  - first:
+      213: -3047756163013821871
+    second: asia_15
+  - first:
+      213: -5622930944549182749
+    second: asia_16
+  - first:
+      213: -7080742360899424473
+    second: asia_17
+  - first:
+      213: -2240175150033662788
+    second: asia_18
+  - first:
+      213: 6386419594207382673
+    second: asia_19
+  - first:
+      213: -2319559257449360002
+    second: asia_20
+  - first:
+      213: -3533830676803865795
+    second: asia_21
+  - first:
+      213: 5489530178467276329
+    second: asia_22
+  - first:
+      213: -7702252562294970864
+    second: asia_23
+  - first:
+      213: 7054506195652893689
+    second: asia_24
+  - first:
+      213: 2106770068417501321
+    second: asia_25
+  - first:
+      213: 4309339527557873909
+    second: asia_26
+  - first:
+      213: -2612599578976029185
+    second: asia_27
+  - first:
+      213: -6642498122601331960
+    second: asia_28
+  - first:
+      213: -2573122170683742773
+    second: asia_29
+  - first:
+      213: -4791528846815409044
+    second: asia_30
+  - first:
+      213: 8847554463372032632
+    second: asia_31
+  - first:
+      213: 9006614962259720639
+    second: asia_32
+  - first:
+      213: -3818663916663723285
+    second: asia_33
+  - first:
+      213: 4344432491504591094
+    second: asia_34
+  - first:
+      213: 8744029515412807739
+    second: asia_35
+  - first:
+      213: -9043510667977387450
+    second: asia_36
+  - first:
+      213: 4788756707340446526
+    second: asia_37
+  - first:
+      213: 1381472802189301994
+    second: asia_38
+  - first:
+      213: 6442451048056229184
+    second: asia_39
+  - first:
+      213: 1719961637966043838
+    second: asia_40
+  - first:
+      213: -7747706715411411917
+    second: asia_41
+  - first:
+      213: -6429450240426258582
+    second: asia_42
+  - first:
+      213: 1257471648716127813
+    second: asia_43
+  - first:
+      213: -5920406541379295902
+    second: asia_44
+  - first:
+      213: 3822894750048667510
+    second: asia_45
+  - first:
+      213: 3333813054245618909
+    second: asia_46
+  - first:
+      213: -1853719588314061030
+    second: asia_47
+  - first:
+      213: -155802879851992919
+    second: asia_48
+  - first:
+      213: 4497208811739898916
+    second: asia_49
+  - first:
+      213: -158250885762622954
+    second: asia_50
+  - first:
+      213: 4544796376851212850
+    second: asia_51
+  - first:
+      213: 2146405289403781848
+    second: asia_52
+  - first:
+      213: -1174472127431189326
+    second: asia_53
+  - first:
+      213: -5717584183725968674
+    second: asia_54
+  - first:
+      213: -9150108021278101832
+    second: asia_55
+  - first:
+      213: -1947409522954237920
+    second: asia_56
+  - first:
+      213: -7430175336420281928
+    second: asia_57
+  - first:
+      213: 6982436892345647394
+    second: asia_58
+  - first:
+      213: -5308319453232200019
+    second: asia_59
+  - first:
+      213: 4889430745231805435
+    second: asia_60
+  - first:
+      213: 1467937199735535971
+    second: asia_61
+  - first:
+      213: 2651965762177276136
+    second: asia_62
+  - first:
+      213: -3046238889080592624
+    second: asia_63
+  - first:
+      213: -1098170171244581539
+    second: asia_64
+  - first:
+      213: -962548228700157746
+    second: asia_65
+  - first:
+      213: -8186558210730687388
+    second: asia_66
+  - first:
+      213: 2651046999242078658
+    second: asia_67
+  - first:
+      213: 6462909598600785972
+    second: asia_68
+  - first:
+      213: -9116047617348723601
+    second: asia_69
+  - first:
+      213: -8473784655603193674
+    second: asia_70
+  - first:
+      213: 3784345933082097949
+    second: asia_71
+  - first:
+      213: 7838311784607762433
+    second: asia_72
+  - first:
+      213: -2072116397610093077
+    second: asia_73
+  - first:
+      213: -7574368805754837139
+    second: asia_74
+  - first:
+      213: 8664183985904265093
+    second: asia_75
+  - first:
+      213: 8675986805766976786
+    second: asia_76
+  - first:
+      213: 774065480524773805
+    second: asia_77
+  - first:
+      213: 3805336365983022374
+    second: asia_78
+  - first:
+      213: 1757004298888797444
+    second: asia_79
+  - first:
+      213: 255884962974828411
+    second: asia_80
+  - first:
+      213: -4387322557656225797
+    second: asia_81
+  - first:
+      213: 6580727702517478603
+    second: asia_82
+  - first:
+      213: 1472161010364082432
+    second: asia_83
+  - first:
+      213: 2473405490173508222
+    second: asia_84
+  - first:
+      213: 6791751489125186965
+    second: asia_85
+  - first:
+      213: -733962111556564862
+    second: asia_86
+  - first:
+      213: -6608915672919710435
+    second: asia_87
+  - first:
+      213: 7183176416865079711
+    second: asia_88
+  - first:
+      213: 4100241119145380067
+    second: asia_89
+  - first:
+      213: 8937864747782692911
+    second: asia_90
+  - first:
+      213: 4031407427167005566
+    second: asia_91
+  - first:
+      213: -3731197055960038287
+    second: asia_92
+  - first:
+      213: 1884861845504218054
+    second: asia_93
+  - first:
+      213: 4752835314335852938
+    second: asia_94
+  - first:
+      213: 7641691925299314428
+    second: asia_95
+  - first:
+      213: 205028662135654997
+    second: asia_96
+  - first:
+      213: -1311776572909265380
+    second: asia_97
+  - first:
+      213: 60321922646237365
+    second: asia_98
+  - first:
+      213: 126800183897253666
+    second: asia_99
+  - first:
+      213: 655013620413756729
+    second: asia_100
+  - first:
+      213: -5652557507982335418
+    second: asia_101
+  - first:
+      213: 2079056289797639990
+    second: asia_102
+  - first:
+      213: -4363274410648377520
+    second: asia_103
+  - first:
+      213: 2814961951748668073
+    second: asia_104
+  - first:
+      213: 2810736977968229774
+    second: asia_105
+  - first:
+      213: 2699847530387741898
+    second: asia_106
+  - first:
+      213: -6511801396547733741
+    second: asia_107
+  - first:
+      213: 7589608914049344202
+    second: asia_108
+  - first:
+      213: -2831439750123330751
+    second: asia_109
+  - first:
+      213: -5242097715778174130
+    second: asia_110
+  - first:
+      213: -4584004047056822529
+    second: asia_111
+  - first:
+      213: -2246649269599611784
+    second: asia_112
+  - first:
+      213: 5049814563555573344
+    second: asia_113
+  - first:
+      213: 4308806419347809504
+    second: asia_114
+  - first:
+      213: 6755602017528662216
+    second: asia_115
+  - first:
+      213: -1906937419224379785
+    second: asia_116
+  - first:
+      213: -240595023263474562
+    second: asia_117
+  - first:
+      213: 1517985838120080507
+    second: asia_118
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: asia_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e1a97e6a25d480b9fd4da4e3438b64
+      internalID: 7480137766501875882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd884f901cc454287beb98844d33de74
+      internalID: -8965863020067159389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5871d097af4a047c6a8e1f64524b3130
+      internalID: -2266371635248035427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3fb3dbab2494557b6d579b231c5d18
+      internalID: 3680399816191310098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fb1d80519924f7eb1b8094d80eb73e
+      internalID: 8797435859417990357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c7e9841351747d4bc932d8a243beaa
+      internalID: 7473681809063981921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7458774103a204317a20a3661cfde5c7
+      internalID: -7563809935558555404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96899c5537d5d48f8b04f1c0e26e844e
+      internalID: -4723749678447120541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de1cb1868a414b7f99d7780faaba259
+      internalID: -3172746871239125436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a738445298b4e019899630010d6d44
+      internalID: 2844995165419340542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f02e65aaa6654b4d9aba1189bcf4234
+      internalID: 7411398735135006868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0a0695a2547407e8bbb0b46c03b0ff
+      internalID: 4168728035419343723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe63e32f55a14908bc8e9c7438bd1a8
+      internalID: 6015211151804198378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af35c1c3d5eaa4814bcae312e6eaf586
+      internalID: -4836450359182014092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218ae88b5522b4ba889c2af5719576fc
+      internalID: 8613054102084956648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c1331b53f8d48f1852bd3e8229eb16
+      internalID: -3047756163013821871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90deebeadc7047a2af2f9892a01b046
+      internalID: -5622930944549182749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d222922aea1746de97ff2b59eeadc69
+      internalID: -7080742360899424473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0c21ec1ea134d2aa82960a8e953ced
+      internalID: -2240175150033662788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b80f0b4ee684f309f406b8ffad92f3
+      internalID: 6386419594207382673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfb5734051b448188381dca369f3c3f
+      internalID: -2319559257449360002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c92285db32c4a0e880b331e579a10c
+      internalID: -3533830676803865795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0141001d60ac4bae888b8cd2be592f9
+      internalID: 5489530178467276329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e63bfef3e6b7454b857576acb0d85fd
+      internalID: -7702252562294970864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330815b3b370f416686047e438c5c8ca
+      internalID: 7054506195652893689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af277df3414049ddb789fbab1e1e4a8
+      internalID: 2106770068417501321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_26
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394b81ebc49cc46419ae1e21cbb3a623
+      internalID: 4309339527557873909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0c54449ea864f128ae2a770d819967
+      internalID: -2612599578976029185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a431038b1d04271a44d4c3fcbfdd72
+      internalID: -6642498122601331960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fa478807350470fbea7913d4552f29
+      internalID: -2573122170683742773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d34a8ea9afa4cf1b6fc55f659c8709
+      internalID: -4791528846815409044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a77a4980fbd5436faa0fc792e182364
+      internalID: 8847554463372032632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79593206bc0b5450f87b9b8848a7b2ba
+      internalID: 9006614962259720639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c379834427d45ca91261d179937973
+      internalID: -3818663916663723285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_34
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a95329aadc04084b56d6f72ff95181
+      internalID: 4344432491504591094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f764f155a04043e9a50c0fd23df1912
+      internalID: 8744029515412807739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_36
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e168e37267b634c55b2de11c783791d6
+      internalID: -9043510667977387450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1564d780ae4e44268e27a23cbe6917e
+      internalID: 4788756707340446526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50610a56d6284c579d5eb2fb405defa
+      internalID: 1381472802189301994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a85ded72fb1b4e9ab5bc949667c2a40
+      internalID: 6442451048056229184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0977ab04099ab4edebae89dbd7fd99d3
+      internalID: 1719961637966043838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0cb93a307bc24acfa1d69dfcf5f6faf
+      internalID: -7747706715411411917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_42
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e71ce4566b946158c305d751edafaf
+      internalID: -6429450240426258582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c574a0b5c9ffd4cc8a5fcf24699ed3d3
+      internalID: 1257471648716127813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3a3046a03e04be299f58cb8e15f50d
+      internalID: -5920406541379295902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca9540d0b2a5420987984a2cd08d716
+      internalID: 3822894750048667510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4879cfd141641539822baa18375268
+      internalID: 3333813054245618909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76064f15f49d42b192b44557d1b4ba4
+      internalID: -1853719588314061030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_48
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30702b61d52f845d5b8f16d3b2a71628
+      internalID: -155802879851992919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a8927a31db844efb4a57b36a9d00c0
+      internalID: 4497208811739898916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_50
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc9fc63fab8942d6885ac526bcdc27d
+      internalID: -158250885762622954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172380acbbe3147379bf38a0d894d931
+      internalID: 4544796376851212850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8049244dd39f4e498aa0333eb6457fc
+      internalID: 2146405289403781848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_53
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b9cc6677ee549f0aad1265169ea86f
+      internalID: -1174472127431189326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_54
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8601ecb2b87d8418fa359043f7fdae16
+      internalID: -5717584183725968674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862c8216dbea04cdcbb5a2d63a7be8f6
+      internalID: -9150108021278101832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_56
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9139862fd556c4b369b46345e0c3411b
+      internalID: -1947409522954237920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8d2ee18ee964e1d865c1b27f6a0210
+      internalID: -7430175336420281928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_58
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da092883a97834d369ba2ac6237526b8
+      internalID: 6982436892345647394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b764dbc2ba09848afbeddd9e71449eaa
+      internalID: -5308319453232200019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96724e8a3f1974bd0a7c9d11fd78359a
+      internalID: 4889430745231805435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c195025b482c146ffb945046f25b14fc
+      internalID: 1467937199735535971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376c010e28bd848e58c6e3c90bdfb401
+      internalID: 2651965762177276136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f390ec8390f14b43898f325f8140bfc
+      internalID: -3046238889080592624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_64
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0451a1f6d6684d25a9516606b1d0ac4
+      internalID: -1098170171244581539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_65
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05176a28bbe1445a990fca99e769ada1
+      internalID: -962548228700157746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_66
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a66919a05e142fead15be8558e8c22
+      internalID: -8186558210730687388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd63288e91b745bfa9c581130e769d9
+      internalID: 2651046999242078658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_68
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4edd1a7719b4e37ab001ad0ed79332
+      internalID: 6462909598600785972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_69
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bb23fe6f23042e28e8c81c9ba24d2c
+      internalID: -9116047617348723601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_70
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ceafa5f9c7440aa82ecd24812375e9
+      internalID: -8473784655603193674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_71
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf07703704dd74ea58b0017182ed1433
+      internalID: 3784345933082097949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_72
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cf7af2a8543494aa32d92dfb36fe6f
+      internalID: 7838311784607762433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_73
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96edca230f59e44aba7cd3539bac14cc
+      internalID: -2072116397610093077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_74
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0012ada46f2c64d24bc8c1214680fd05
+      internalID: -7574368805754837139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a6d7262035c43aaa7c975c008b78cb
+      internalID: 8664183985904265093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_76
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7dd946e20abd465d821121a55b4a09c
+      internalID: 8675986805766976786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc03d17a1935a40a29c9c007c6d6d197
+      internalID: 774065480524773805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_78
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9ac54b2d54c451a84cb28cc652b0fd
+      internalID: 3805336365983022374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_79
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4478f76766d24a4eb0928ee88c4f0f0
+      internalID: 1757004298888797444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_80
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac866c8622bf4e48870e206ff462ae9
+      internalID: 255884962974828411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_81
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e28b48d1145c473f8edee4047c3e344
+      internalID: -4387322557656225797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_82
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3438a413eb6644b528ca61295bd1dd9e
+      internalID: 6580727702517478603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b297e6c9dc1448f6a2ee234443b3b95
+      internalID: 1472161010364082432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_84
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9dd7dc440c84991bf65bc5b9aeabfe
+      internalID: 2473405490173508222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac8bd6e40bff4e87b49c57420224d59
+      internalID: 6791751489125186965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_86
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b51b1994e024ccba5844b145fc9053
+      internalID: -733962111556564862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_87
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a48b872abb924067a074417ef826ffa
+      internalID: -6608915672919710435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_88
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3db654cafd4c4024835a3da52146852
+      internalID: 7183176416865079711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_89
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ec92cc4677748988423075e1b054c6
+      internalID: 4100241119145380067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_90
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8caa7867ea8de4800999356657318368
+      internalID: 8937864747782692911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f023a3b09844cfb81798b3d2321b94
+      internalID: 4031407427167005566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_92
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d3b89ac9b304530a08938683b6fccc
+      internalID: -3731197055960038287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_93
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e769cc505be49c6aa93c2b7f43f528
+      internalID: 1884861845504218054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_94
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137aae1c6b1144801b6929e2e4b64ecd
+      internalID: 4752835314335852938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_95
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7398bf11c3c7a4b2fb151418facac2b8
+      internalID: 7641691925299314428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_96
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a14098cacee145fcb1f93b7a6d401d0
+      internalID: 205028662135654997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_97
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1820196c16f545ce8ccc25d69b88431
+      internalID: -1311776572909265380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_98
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3d517525642403c82c09c67fa28d00
+      internalID: 60321922646237365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_99
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237b9917ec5b1476082a0ec87111d1db
+      internalID: 126800183897253666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_100
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fe99a8288a64bb49c989588f37c0ba
+      internalID: 655013620413756729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_101
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9c8b1629ead4989b7902b0aec07960
+      internalID: -5652557507982335418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_102
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e980c9cf4f5e40e6811f9061a7ac788
+      internalID: 2079056289797639990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_103
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfda9b9504634651b346ee2b15a963a
+      internalID: -4363274410648377520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_104
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5743300a92e4868a313e76fda9668e
+      internalID: 2814961951748668073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2458dbed7cac47de8bd6b7eea577c55
+      internalID: 2810736977968229774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_106
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7eca757fa214a5c9b7d9e7586e365a
+      internalID: 2699847530387741898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_107
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b4b117b50b94d90a8c8884d7f20203
+      internalID: -6511801396547733741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_108
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad5b2f91327f452c80c22bc8c07884b
+      internalID: 7589608914049344202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_109
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c94f6eca95e4c878626b457e8f4c35
+      internalID: -2831439750123330751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_110
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916abb00e15674605b96fa0cd88272c7
+      internalID: -5242097715778174130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_111
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff511f27133545a9a0c4cea59328118
+      internalID: -4584004047056822529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebabb8cc068714177b88687ec88d496a
+      internalID: -2246649269599611784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_113
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f5c6022fb41491f891b08163f4ee69
+      internalID: 5049814563555573344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_114
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd639dbf5f5714776a2262ab05438ad9
+      internalID: 4308806419347809504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_115
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964ce92d3062b4b4487a3da4d052f2ab
+      internalID: 6755602017528662216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_116
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8045b8544bab44ff5a0d055bcfe987a7
+      internalID: -1906937419224379785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_117
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f03e888d3b8a4384a12d3c9afb9aa35
+      internalID: -240595023263474562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asia_118
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b87e896fe3f4e8a8f52ee8794b20aa
+      internalID: 1517985838120080507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ee1158ff13915406ea3efee80e6785e8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

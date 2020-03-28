@@ -1,5 +1,8 @@
 using DataTypes;
+using Game;
+using Libraries.Rounds;
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Players.Infos
@@ -20,7 +23,7 @@ namespace Players.Infos
                 if (key.round != lastRound)
                 {
                     lastRound = key.round;
-                    panel.AddHeaderLabel(RoundMgmt.Get().GetRoundString(key.round));
+                    panel.AddHeaderLabel(S.Round().GetRoundString(key.round));
                 }
                 
                 key.AddToPanel(panel);

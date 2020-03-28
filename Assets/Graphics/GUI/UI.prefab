@@ -74,6 +74,8 @@ MonoBehaviour:
   richlabel: {fileID: 6535159070551223911, guid: 3a52d208df5b642aba7b1186d3458333,
     type: 3}
   input: {fileID: 2211671767768322347, guid: 949aa88a73a9c4ebfa46e0e998f05c9d, type: 3}
+  inputRandom: {fileID: 965258338012794595, guid: 08694991beb554ed091a6a2c9c582fd5,
+    type: 3}
   window: {fileID: 6682967817187489416, guid: 62ddbca19f5c84f909420172ae721af1, type: 3}
   splitWindow: {fileID: 3827550852429096437, guid: 624e3086212294f2bbfe21608b42a0be,
     type: 3}

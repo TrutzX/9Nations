@@ -1,5 +1,6 @@
 using Game;
-using Terrains;
+using Libraries.Terrains;
+using Maps.GameMaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,9 +11,9 @@ namespace Maps.TileMaps
         private bool _winter;
         private GameMapDataLevel _data;
         private Tilemap _tileMap;
-        private BTerrain _terrain;
+        private DataTerrain _terrain;
         
-        public void SetTile(GameMapDataLevel data, int layer, int x, int y, BTerrain terrain, bool winter)
+        public void SetTile(GameMapDataLevel data, Vector3Int pos, DataTerrain terrain, bool winter)
         {
             //set it
             _data = data;
@@ -23,26 +24,26 @@ namespace Maps.TileMaps
             //remove it?
             if (terrain == null)
             {
-                RemoveTile(x, y);
+                RemoveTile(pos.x, pos.y);
                 return;
             }
             
             //top left
-            _tileMap.SetTile(new Vector3Int(x * 2, y * 2 + 1, 0), Tile(TopLeft(layer, x, y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2 + 1, 0), Tile(TopLeft(pos.z, pos.x, pos.y)));
             
             //top right
-            _tileMap.SetTile(new Vector3Int(x * 2 + 1, y * 2 + 1, 0), Tile(TopRight(layer, x, y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2 + 1, 0), Tile(TopRight(pos.z, pos.x, pos.y)));
             
             //down left
-            _tileMap.SetTile(new Vector3Int(x * 2, y * 2, 0), Tile(DownLeft(layer, x, y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2, 0), Tile(DownLeft(pos.z, pos.x, pos.y)));
             
             //down right
-            _tileMap.SetTile(new Vector3Int(x * 2 + 1, y * 2, 0), Tile(DownRight(layer, x, y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2, 0), Tile(DownRight(pos.z, pos.x, pos.y)));
         }
 
         private Tile Tile(int id)
         {
-            return GameMgmt.Get().map.GetTile(_terrain.Icon.Replace("4",id.ToString()));
+            return GameMgmt.Get().newMap.tools.GetTile(_terrain.Icon.Replace("4",id.ToString()));
         }
 
         public void RemoveTile(int x, int y)
@@ -174,7 +175,7 @@ namespace Maps.TileMaps
 
         private bool Def(int layer, int self, int x, int y)
         {
-            if (!GameHelper.Valide(x, y))
+            if (!GameHelper.Valid(x, y))
             {
                 return true;
             }

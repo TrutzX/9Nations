@@ -1,5 +1,6 @@
 using System;
 using Game;
+using UI;
 using UnityEngine;
 
 namespace DataTypes

@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using GameButtons;
 using Libraries;
+using Libraries.Maps;
 using Maps;
 using UI;
 using UI.Show;
@@ -11,9 +14,10 @@ namespace Endless
     {
         public MapSplitTab(Dictionary<string, string> startConfig) : base("Map", "map", "Next & set")
         {
-            foreach (NMap map in L.b.maps.Values())
+            foreach (DataMap map in L.b.maps.Values())
             {
-                Add(new MapSelectSplitElement(map, this, startConfig));
+                if (map.req.Check(null))
+                    Add(new MapSelectSplitElement(map, this, startConfig));
             }
             
             Add(new MapMoreSplitElement());
@@ -22,11 +26,11 @@ namespace Endless
     
     public class MapSelectSplitElement : SplitElement
     {
-        private NMap _map;
-        private Dictionary<string, string> _startConfig;
-        private MapSplitTab _tab;
+        private readonly DataMap _map;
+        private readonly Dictionary<string, string> _startConfig;
+        private readonly MapSplitTab _tab;
         
-        public MapSelectSplitElement(NMap map, MapSplitTab tab, Dictionary<string, string> startConfig) : base(map.Name, map.Sprite())
+        public MapSelectSplitElement(DataMap map, MapSplitTab tab, Dictionary<string, string> startConfig) : base(map.name, map.Sprite())
         {
             _map = map;
             _startConfig = startConfig;
@@ -35,21 +39,19 @@ namespace Endless
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _map.ShowDetail(panel);
+            _map.ShowLexicon(panel);
         }
 
         public override void Perform()
         {
-            _startConfig["map"] = _map.Id;
+            _startConfig["map"] = _map.id;
             _tab.window.ShowTab(1);
         }
     }
     
     public class MapMoreSplitElement : SplitElement
     {
-        public MapMoreSplitElement() : base("More maps...", "map")
-        {
-        }
+        public MapMoreSplitElement() : base("More maps...", "map") { }
 
         public override void ShowDetail(PanelBuilder panel)
         {
@@ -59,7 +61,7 @@ namespace Endless
 
         public override void Perform()
         {
-            GameButtonHelper.Call(Data.gameButton.mod.id,null);
+            L.b.gameButtons["mod"].Call(null);
         }
     }
 }

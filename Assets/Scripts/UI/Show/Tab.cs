@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI
+namespace UI.Show
 {
     public abstract class Tab
     {

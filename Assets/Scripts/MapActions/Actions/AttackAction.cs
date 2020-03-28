@@ -1,5 +1,6 @@
 using Buildings;
 using DataTypes;
+using Game;
 using UI;
 using Units;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace MapActions.Actions
             
             // check it
             if (damage == 0) {
-                OnMapUI.Get().unitUI.SetPanelMessage($"{self.name} and {d} are equal, nothing to win.");
+                OnMapUI.Get().unitUI.ShowPanelMessage($"{self.name} and {d} are equal, nothing to win.");
                 NAudio.Play("defend");
                 //inform another player
                 nonSelf.SetLastInfo($"Defended against {a}");
@@ -31,13 +32,13 @@ namespace MapActions.Actions
             // counter fight
             if (damage < 0) {
                 Perform(nonSelf, self);
-                OnMapUI.Get().unitUI.SetPanelMessage($"{d} fight back.");
+                OnMapUI.Get().unitUI.ShowPanelMessage($"{d} fight back.");
                 return;
             }
 
             // win
             nonSelf.AddHp(-damage);
-            OnMapUI.Get().unitUI.SetPanelMessage($"You won. {d} lose {damage} HP.");
+            OnMapUI.Get().unitUI.ShowPanelMessage($"You won. {d} lose {damage} HP.");
             nonSelf.SetLastInfo($"{a} attacked you. {nonSelf.name} lose {damage} HP.");
             //int oX = defensor.getX();
             //int oY = defensor.getY();
@@ -61,8 +62,8 @@ namespace MapActions.Actions
             UnitInfo uSelf = (UnitInfo) self;
             UnitInfo unSelf = (UnitInfo) nonSelf;
             
-            float dam = Random.Range(uSelf.config.dam_min, uSelf.config.dam_max + 1);
-            int atk = uSelf.config.atk, def = unSelf.config.def;
+            float dam = Random.Range(uSelf.baseData.damMin, uSelf.baseData.damMax + 1);
+            int atk = uSelf.baseData.atk, def = unSelf.baseData.def;
 
             // add ethos
             string ae = self.Player().Nation().Ethos, de = nonSelf.Player().Nation().Ethos;

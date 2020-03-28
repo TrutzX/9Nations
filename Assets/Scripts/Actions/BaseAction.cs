@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Buildings;
 using DataTypes;
+using JetBrains.Annotations;
 using Players;
 using reqs;
+using Tools;
 using UI;
 using Units;
 using UnityEngine;
@@ -15,16 +17,15 @@ namespace Actions
     public abstract class BaseAction : ScriptableObject
     {
         public string id;
-        
+
         /// <summary>
         /// Run on a object
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="gameObject"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="info"></param>
+        /// <param name="pos"></param>
         /// <param name="settings"></param>
-        protected abstract void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings);
+        protected abstract void ButtonAction(Player player, [CanBeNull] MapElementInfo info, NVector pos, string settings);
         
         /// <summary>
         /// Run for the player
@@ -37,24 +38,22 @@ namespace Actions
         /// Perform the action for the unit
         /// </summary>
         /// <param name="info"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <param name="settings"></param>
-        public string ButtonRun(MapElementInfo info, int x, int y, string settings)
+        public string ButtonRun(MapElementInfo info, NVector pos, string settings)
         {
-            return ActionRun(PlayerMgmt.ActPlayer(), info, x, y, settings);
+            return ActionRun(PlayerMgmt.ActPlayer(), info, pos, settings);
         }
 
         /// <summary>
         /// Perform the action for the unit
         /// </summary>
         /// <param name="info"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <param name="settings"></param>
-        public void BackgroundRun(MapElementInfo info, int x, int y, string settings)
+        public void BackgroundRun(MapElementInfo info, NVector pos, string settings)
         {
-            string mess = ActionRun(info.Player(),info, x, y, settings);
+            string mess = ActionRun(info.Player(),info, pos, settings);
             if (mess != null)
             {
                 info.SetLastInfo(mess);
@@ -66,10 +65,9 @@ namespace Actions
         /// </summary>
         /// <param name="player"></param>
         /// <param name="info"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos"></param>
         /// <param name="settings"></param>
-        private string ActionRun(Player player, MapElementInfo info, int x, int y, string settings)
+        private string ActionRun(Player player, [CanBeNull] MapElementInfo info, NVector pos, string settings)
         {
             NAction action = Data.nAction[id];
             
@@ -85,13 +83,13 @@ namespace Actions
             //check pref
             Debug.Log($"call {action.id}");
             //can use?
-            if (!ReqHelper.Check(player, ActionHelper.GenReq(action), info, x, y))
+            if (!ReqHelper.Check(player, ActionHelper.GenReq(action), info, pos))
             {
-                return ReqHelper.Desc(player, ActionHelper.GenReq(action), info, x, y);
+                return ReqHelper.Desc(player, ActionHelper.GenReq(action), info, pos);
             }
 
             info.data.ap -= action.cost;
-            ButtonAction(player, info, x, y, settings);
+            ButtonAction(player, info, pos, settings);
             return null;
         }
 

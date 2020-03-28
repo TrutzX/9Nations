@@ -10,6 +10,7 @@ using ES3Internal;
 public class ES3PrefabEditor : Editor
 {
 	bool showAdvanced = false;
+    bool openLocalRefs = false;
 
 	public override void OnInspectorGUI()
 	{
@@ -25,5 +26,28 @@ public class ES3PrefabEditor : Editor
 			EditorGUILayout.LabelField("Reference count", es3Prefab.localRefs.Count.ToString());
 			EditorGUI.indentLevel--;
 		}
-	}
+
+        if (Application.productName == "ES3 Development")
+        {
+            EditorGUILayout.LabelField("Local refs foldout is only shown");
+            EditorGUILayout.LabelField("in the ES3 Development project");
+            openLocalRefs = EditorGUILayout.Foldout(openLocalRefs, "localRefs");
+            if (openLocalRefs)
+            {
+                EditorGUI.indentLevel++;
+
+                foreach (var kvp in es3Prefab.localRefs)
+                {
+                    EditorGUILayout.BeginHorizontal();
+
+                    EditorGUILayout.ObjectField(kvp.Key, typeof(UnityEngine.Object), false);
+                    EditorGUILayout.LongField(kvp.Value);
+
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                EditorGUI.indentLevel--;
+            }
+        }
+    }
 }

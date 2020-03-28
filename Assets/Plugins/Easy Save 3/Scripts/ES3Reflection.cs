@@ -67,7 +67,7 @@ namespace ES3Internal
 
 		public static List<FieldInfo> GetSerializableFields(Type type, bool safe=true, string[] memberNames=null)
 		{
-			var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+			var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 			var serializableFields = new List<FieldInfo>();
 
 			foreach(var field in fields)
@@ -508,6 +508,7 @@ namespace ES3Internal
 			public Type MemberType { get{ return (isProperty ? propertyInfo.PropertyType : fieldInfo.FieldType); } }
 			public bool IsPublic { get{ return (isProperty ? (propertyInfo.GetGetMethod(true).IsPublic && propertyInfo.GetSetMethod(true).IsPublic) : fieldInfo.IsPublic); } }
 			public bool IsProtected { get{ return (isProperty ? (propertyInfo.GetGetMethod(true).IsFamily) : fieldInfo.IsFamily); } }
+			public bool IsStatic { get{ return (isProperty ? (propertyInfo.GetGetMethod(true).IsStatic) : fieldInfo.IsStatic); } }
 
 			public ES3ReflectedMember(System.Object fieldPropertyInfo)
 			{

@@ -1,4 +1,7 @@
 using DataTypes;
+using Libraries.FActions;
+using Libraries.FActions.General;
+using Libraries.GameButtons;
 
 namespace InputAction
 {
@@ -9,7 +12,7 @@ namespace InputAction
         /// </summary>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static string ActionName(NAction action)
+        public static string ActionName(FDataAction action)
         {
             //has the action an input?
             if (!Data.inputKey.ContainsKey(action.id))
@@ -24,7 +27,7 @@ namespace InputAction
         /// Show the gameButton with the key, if possible
         /// </summary>
         /// <param name="action"></param>
-        /// <returns></returns>
+        /// <returns></returns> 
         public static string GameButtonName(GameButton button)
         {
             //has the action an input?

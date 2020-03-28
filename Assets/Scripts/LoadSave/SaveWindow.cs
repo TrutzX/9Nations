@@ -1,3 +1,4 @@
+using Game;
 using Help;
 using UI;
 
@@ -10,38 +11,30 @@ namespace LoadSave
             WindowBuilderSplit w = WindowBuilderSplit.Create("Save the game", "Overwrite");
             UIHelper.CreateButton("Create new save", w.buttonPanel.transform, () =>
             {
-                w.AddElement(new SaveWindowSplitElement(LoadSaveMgmt.CreateNewSave()));
+                w.AddElement(new SaveWindowSplitElement(LoadSaveMgmt.CreateNewSave(), w));
                 
             });
             
             //add files
             foreach (LoadSaveInfo info in LoadSaveMgmt.GetAllSaves())
             { 
-                w.AddElement(new SaveWindowSplitElement(info));
+                w.AddElement(new SaveWindowSplitElement(info, w));
             }
             
             w.Finish();
         }
+    }
 
-        class SaveWindowSplitElement : SplitElement
+    public class SaveWindowSplitElement : LoadWindowSplitElement
+    {
+
+        public SaveWindowSplitElement(LoadSaveInfo info, WindowBuilderSplit w) : base(info, w)
         {
-            private LoadSaveInfo info;
+        }
 
-            public SaveWindowSplitElement(LoadSaveInfo info) : base(info.name, "ui:file")
-            {
-                this.info = info;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                info.ShowInfo(panel);
-            }
-
-            public override void Perform()
-            {
-                //TODO dynm add name
-                info = LoadSaveMgmt.UpdateSave(info.file,"Endless game");
-            }
+        public override void Perform()
+        {
+            info = LoadSaveMgmt.UpdateSave(info.file,GameMgmt.Get().data.name);
         }
     }
 }

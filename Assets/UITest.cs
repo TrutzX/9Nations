@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Help;
 using Libraries;
+using Libraries.Terrains;
 using Loading;
 using PixelsoftGames.PixelUI;
-using Terrains;
 using UI;
+using UI.Show;
 using UnityEngine;
 
 public class UITest : MonoBehaviour
@@ -23,7 +24,7 @@ public class UITest : MonoBehaviour
         L.b.Load.FinishLoading();
         
         WindowTabBuilder t = WindowTabBuilder.Create("Tab test");
-        t.Add(new LexiconSplitTab<BTerrain>(L.b.terrain));
+        t.Add(new LexiconSplitTab<DataTerrain>(L.b.terrain));
         t.Add(new T1("la","logo"));
         t.Add(new T1("lssassaasf dsddssda","debug"));
         

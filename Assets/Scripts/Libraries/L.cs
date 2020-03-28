@@ -3,15 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Classes;
 using Help;
 using Improvements;
+using Libraries.Buildings;
+using Libraries.Campaigns;
+using Libraries.Elements;
+using Libraries.FActions;
+using Libraries.FActions.General;
+using Libraries.GameButtons;
+using Libraries.MapGenerations;
+using Libraries.Maps;
+using Libraries.Movements;
+using Libraries.Nations;
+using Libraries.Res;
+using Libraries.Researches;
+using Libraries.Rounds;
+using Libraries.Terrains;
+using Libraries.Units;
+using Libraries.Usages;
 using Loading;
 using Maps;
 using Modifiers;
 using ModIO;
-using Nations;
 using Newtonsoft.Json.Utilities;
-using Terrains;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -30,18 +45,28 @@ namespace Libraries
         public MapMgmt maps;
         public NationMgmt nations;
         public ImprovementMgmt improvements;
+        public ElementMgmt elements;
+        public RoundMgmt rounds;
+        public MapGenerationMgmt mapGeneration;
+        public DataBuildingMgmt buildings;
+        public DataUnitMgmt units;
+        public UsageMgmt usages;
+        public ResourceMgmt res;
+        public FActionMgmt actions;
+        public ResearchMgmt researches;
+        public MovementMgmt movements;
+        public CampaignMgmt campaigns;
+        public ScenarioMgmt scenarios;
+        public GameButtonMgmt gameButtons;
+        
 
+        public Dictionary<string, IRead> mgmts;
         public static IEnumerator Init(LoadingScreen load)
         {
             b = new L();
             b.Load = load;
             yield return b.Load.ShowMessage("Loading data");
-            b.terrain = new TerrainMgmt();
-            b.maps = new MapMgmt();
-            b.modifiers = new ModifierMgmt();
-            b.nations = new NationMgmt();
-            b.improvements = new ImprovementMgmt();
-
+            b.Init();
             
             yield return b.ReadData();
 
@@ -53,6 +78,35 @@ namespace Libraries
             
             //Debug.Log(string.Join(",", ModManager.GetInstalledModDirectories(true)));
             yield return b.LoadMods(ModManager.GetInstalledModDirectories(true));
+        }
+
+        private void Init()
+        {
+            mgmts = new Dictionary<string, IRead>();
+            terrain = (TerrainMgmt) Add(new TerrainMgmt());
+            maps = (MapMgmt) Add(new MapMgmt());
+            modifiers = (ModifierMgmt) Add(new ModifierMgmt());
+            nations = (NationMgmt) Add(new NationMgmt());
+            improvements = (ImprovementMgmt) Add(new ImprovementMgmt());
+            elements = (ElementMgmt) Add(new ElementMgmt());
+            rounds = (RoundMgmt) Add(new RoundMgmt());
+            mapGeneration = (MapGenerationMgmt) Add(new MapGenerationMgmt());
+            buildings = (DataBuildingMgmt) Add(new DataBuildingMgmt());
+            units = (DataUnitMgmt) Add(new DataUnitMgmt());
+            usages = (UsageMgmt) Add(new UsageMgmt());
+            res = (ResourceMgmt) Add(new ResourceMgmt());
+            actions = (FActionMgmt) Add(new FActionMgmt());
+            researches = (ResearchMgmt) Add(new ResearchMgmt());
+            movements = (MovementMgmt) Add(new MovementMgmt());
+            campaigns = (CampaignMgmt) Add(new CampaignMgmt());
+            scenarios = (ScenarioMgmt) Add(new ScenarioMgmt());
+            gameButtons = (GameButtonMgmt) Add(new GameButtonMgmt());
+        }
+        
+        private IRead Add(IRead mgmt)
+        {
+            mgmts.Add(mgmt.Id(),mgmt);
+            return mgmt;
         }
         
         public IEnumerator LoadMods(List<string> folder)
@@ -102,21 +156,11 @@ namespace Libraries
 
         private IRead GetMgmt(string typ)
         {
-            switch (typ)
+            if (mgmts.ContainsKey(typ))
             {
-                case "terrain":
-                    return terrain;
-                case "map":
-                    return maps;
-                case "modifier":
-                    return modifiers;
-                case "nation":
-                    return nations;
-                case "improvement":
-                    return improvements;
-                default:
-                    throw new MissingMemberException($"Mgmt {typ} is missing");
+                return mgmts[typ];
             }
+            throw new MissingMemberException($"Mgmt {typ} is missing");
         }
     }
 }

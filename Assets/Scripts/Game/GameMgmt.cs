@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using Buildings;
+using Classes;
+using GameMapLevels;
 using Libraries;
+using Libraries.Rounds;
 using Loading;
 using LoadSave;
 using Maps;
@@ -22,11 +25,14 @@ namespace Game
 {
     public class GameMgmt : MonoBehaviour
     {
-        public RoundMgmt round;
+        public GameRoundMgmt gameRound;
         public UnitMgmt unit;
         public BuildingMgmt building;
-        public GameMapMgmt map;
+        
+        [Obsolete("ss",true)] public XXGameMapMgmt map;
+        
         public GameData data;
+        public GameMap newMap;
 
         private static GameMgmt self;
 
@@ -56,13 +62,14 @@ namespace Game
         IEnumerator NextPlayerCo()
         {
             yield return load.ShowMessage("Finish turn");
-            PlayerMgmt.ActPlayer().FinishRound();
+            yield return PlayerMgmt.ActPlayer().FinishRound();
             yield return data.players.NextPlayer();
             load.FinishLoading();
         }
         
         void Start()
         {
+            LClass.Init();
             load = GameObject.Find("UICanvas").GetComponentInChildren<LoadingScreen>(true);
             if (StartConfig != null && StartConfig["type"] == "load")
             {
@@ -101,21 +108,21 @@ namespace Game
 
             if (StartConfig["type"] == "endless")
             {
-                yield return (StartScenario(Data.scenario.endless.id,StartConfig["map"]));
+                yield return (StartScenario("endless",StartConfig["map"]));
             } 
             else
             {
-                yield return (StartScenario(StartConfig["scenario"],Data.scenario[StartConfig["scenario"]].map));
+                yield return (StartScenario(StartConfig["scenario"],L.b.scenarios[StartConfig["scenario"]].map));
             }
 
         }
 
         private void ConnectGameObjs()
         {
-            round = ScriptableObject.CreateInstance<RoundMgmt>();
+            gameRound = ScriptableObject.CreateInstance<GameRoundMgmt>();
             unit = GameObject.Find("UnitMgmt").GetComponent<UnitMgmt>();
             building = GameObject.Find("BuildingMgmt").GetComponent<BuildingMgmt>();
-            map = GameObject.Find("MapMgmt").GetComponent<GameMapMgmt>();
+            newMap = FindObjectOfType<GameMap>();
             self = this;
         }
 
@@ -123,13 +130,13 @@ namespace Game
         {
             //load Map
             data.map.id = _map;
-            yield return map.CreateMap();
+            data.name = L.b.scenarios[id].name;
+            yield return newMap.CreateMap();
             
             yield return load.ShowSubMessage($"Loading players");
             try
             {
-                NLib.Get().ScenarioRuns[id].Run();
-                
+                LClass.s.scenarioRuns[id].Run();
             }
             catch (Exception e)
             {
@@ -137,6 +144,7 @@ namespace Game
                 throw e;
             }
             
+            yield return PlayerMgmt.Get().CreatingFog();
             PlayerMgmt.Get().FirstRound();
             yield return PlayerMgmt.Get().NextPlayer();
             NAudio.Play("startgame");
@@ -147,22 +155,22 @@ namespace Game
         {
             yield return load.ShowMessage("Loading game");
             yield return load.ShowSubMessage($"Loading library");
-            L.b = ES3.Load<L>("lib",StartConfig["file"]);
+            L.b = ES3.Load<L>("lib",StartConfig["file"]+"lib.9n");
             yield return load.ShowSubMessage($"Loading game");
-            data = ES3.Load<GameData>("game",StartConfig["file"]);
+            data = ES3.Load<GameData>("game",StartConfig["file"]+"game.9n");
             
             ConnectGameObjs();
             
-            data.players.AfterLoad();
-            
             //load Map
-            yield return map.LoadMap();
+            yield return newMap.LoadMap();
+            data.players.AfterLoad();
+            yield return PlayerMgmt.Get().CreatingFog();
 
             //load buildings
             yield return load.ShowSubMessage($"Loading Buildings");
             foreach (BuildingUnitData bdata in data.buildings.ToArray())
             {
-                BuildingMgmt.Get().Load(bdata);
+                building.Load(bdata);
             }
             
 
@@ -170,13 +178,14 @@ namespace Game
             yield return load.ShowSubMessage($"Loading Units");
             foreach (BuildingUnitData udata in data.units)
             {
-                UnitMgmt.Get().Load(udata);
+                unit.Load(udata);
             }
             
             //init data
-            round.Load();
+            gameRound.Load();
             
             //init players
+            Debug.Log(PlayerMgmt.ActPlayerID());
             PlayerMgmt.ActPlayer().StartRound();
             NAudio.Play("startgame");
             load.FinishLoading();

@@ -1,27 +1,26 @@
 using System;
 using System.Collections.Generic;
 using Actions;
+using Classes.Actions;
+using Libraries;
+using Libraries.FActions;
+using Libraries.FActions.General;
 using Players.Infos;
 using reqs;
 using UI;
 using UnityEngine;
 
-namespace Players
+namespace Players.Quests
 {
     [Serializable]
-    public class Quest
+    public class Quest : BaseData
     {
-        private Dictionary<string, string> reqs;
-        private Dictionary<string, string> actions;
-
-        public string id;
-        public string name;
-        public string icon;
-        public string desc;
+        [SerializeField] private ReqHolder reqs;
+        [SerializeField] private ActionHolders actions;
 
         public bool main;
         
-        private int status;
+        [SerializeField] private int status;
 
         /// <summary>
         /// For loading only
@@ -34,10 +33,10 @@ namespace Players
         {
             this.id = id;
             this.name = name;
-            this.icon = icon;
+            Icon = icon;
             
-            reqs = new Dictionary<string, string>();
-            actions = new Dictionary<string, string>();
+            reqs = new ReqHolder();
+            actions = new ActionHolders();
         }
 
         public bool IsFinish()
@@ -72,13 +71,13 @@ namespace Players
             if (!InProgress())
             {
                 //can be started?
-                if (ReqHelper.CheckOnlyFinal(player, reqs))
+                if (reqs.Check(player, true))
                 {
                     status = 1;
                     //inform player
-                    Info i = new Info(name, icon);
+                    Info i = new Info(name, Icon);
                     if (main)
-                        i.Important(desc);
+                        i.Important(Desc);
                     player.info.Add(i);
                 }
                 else
@@ -89,26 +88,21 @@ namespace Players
             
             //fullfilled?
             //Debug.Log(name+" "+ReqHelper.Check(player, reqs));
-            if (ReqHelper.Check(player, reqs))
+            
+            if (reqs.Check(player))
             {
-                foreach (KeyValuePair<string, string> action in actions)
-                {
-                    BaseAction b = NLib.GetAction(action.Key);
-                    b.QuestRun(player, action.Value);
-                }
-
                 status = 2;
+                actions.Performs(ActionEvent.Quest, player);
             }
         }
         
-        public void ShowInfo(PanelBuilder panel)
+        public void ShowInfo(PanelBuilder panel, Player player = null)
         {
-            panel.AddImageLabel(name,SpriteHelper.Load(icon));
-            panel.AddLabel("Status: "+ (IsFinish() ? "Finish":"In Progress"));
-            if (desc != null)
-                panel.RichText(desc);
-            panel.AddReqCheck("Requirement",reqs);
-            panel.AddAction("Result",actions);
+            ShowLexicon(panel);
+            panel.AddSubLabel("Status", (IsFinish() ? "Finish":"In Progress"),IsFinish() ?"yes":"round");
+            
+            reqs.BuildPanel(panel, "Requirement", player);
+            actions.BuildPanel(panel, "Actions", new ActionDisplaySettings(panel,null));
         }
     }
 }

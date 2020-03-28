@@ -1,6 +1,7 @@
 using System;
+using UI;
 
-namespace Help
+namespace LoadSave
 {
     [Serializable]
     public class LoadSaveInfo
@@ -12,12 +13,15 @@ namespace Help
         public string file;
         
         
-        public void ShowInfo(PanelBuilder panel)
+        public void ShowInfo(PanelBuilder panel, WindowBuilderSplit wbs)
         {
             panel.AddHeaderLabel(name);
-            panel.AddLabel($"Round: {round}");
-            panel.AddLabel($"Date: {date}");
-            panel.AddLabel($"Game version: {version}");
+            panel.AddSubLabel("Round",round, "round");
+            panel.AddSubLabel("Date",date.ToLongDateString(),"Icons/magic:date");
+            panel.AddSubLabel("Game version",version,"logo");
+            if (Data.features.debug.Bool())
+                panel.AddSubLabel("File",file, "ui:file");
+            panel.AddImageTextButton($"Delete {name}", SpriteHelper.Load("no"), () => { ES3.DeleteFile(file); wbs.CloseWindow();});
         }
     }
 }

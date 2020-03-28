@@ -46,7 +46,6 @@ namespace ES3Types
 		public override void ReadInto<T>(ES3Reader reader, object obj)
 		{
 			string propertyName;
-
 			while(true)
 			{
 				propertyName = ReadPropertyName(reader);
@@ -56,7 +55,8 @@ namespace ES3Types
 					ES3TypeMgr.GetOrCreateES3Type(reader.ReadType()).ReadInto<T>(reader, obj);
 					return;
 				}
-				else if(propertyName == null)
+                // This is important we return if the enumerator returns null, otherwise we will encounter an endless cycle.
+                else if (propertyName == null)
 					return;
 				else
 				{

@@ -16,76 +16,104 @@ public class ES3ReferenceMgrEditor : Editor
 
         var mgr = (ES3ReferenceMgr)serializedObject.targetObject;
 
-        mgr.openReferences = EditorGUILayout.Foldout(mgr.openReferences, "References");
-        // Make foldout drag-and-drop enabled for objects.
-        if (GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
+
+        if (Application.productName == "ES3 Development")
         {
-            Event evt = Event.current;
-
-            switch (evt.type) 
+            EditorGUILayout.LabelField("References foldout is only shown");
+            EditorGUILayout.LabelField("in the ES3 Development project");
+            mgr.openReferences = EditorGUILayout.Foldout(mgr.openReferences, "References");
+            // Make foldout drag-and-drop enabled for objects.
+            if (GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
             {
-                case EventType.DragUpdated:
-                case EventType.DragPerform:
-                    isDraggingOver = true;
-                    break;
-                case EventType.DragExited:
-                    isDraggingOver = false;
-                    break;
-            }
+                Event evt = Event.current;
 
-            if(isDraggingOver)
-            {
-                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
-
-                if (evt.type == EventType.DragPerform)
+                switch (evt.type)
                 {
-                    DragAndDrop.AcceptDrag();
-                    Undo.RecordObject(mgr, "Add References to Easy Save 3 Reference List");
-                    foreach (UnityEngine.Object obj in DragAndDrop.objectReferences)
-                        mgr.Add(obj);
-                    // Return now because otherwise we'll change the GUI during an event which doesn't allow it.
-                    return;
+                    case EventType.DragUpdated:
+                    case EventType.DragPerform:
+                        isDraggingOver = true;
+                        break;
+                    case EventType.DragExited:
+                        isDraggingOver = false;
+                        break;
                 }
-            }
-        }
-            
-        if(mgr.openReferences)
-        {
-            EditorGUI.indentLevel++;
 
-            var keys = mgr.idRef.Keys;
-            var values = mgr.idRef.Values;
-
-            foreach(var kvp in mgr.idRef)
-            {
-                EditorGUILayout.BeginHorizontal();
-
-                var value = EditorGUILayout.ObjectField(kvp.Value, typeof(UnityEngine.Object), true);
-                var key = EditorGUILayout.LongField(kvp.Key);
-
-                EditorGUILayout.EndHorizontal();
-
-                if(value != kvp.Value || key != kvp.Key)
+                if (isDraggingOver)
                 {
-                    Undo.RecordObject(mgr, "Change Easy Save 3 References");
-                    // If we're deleting a value, delete it.
-                    if(value == null)
-                        mgr.Remove(key);
-                    // Else, update the ID.
-                    else
-                        mgr.ChangeId(kvp.Key, key);
-                    // Break, as removing or changing Dictionary items will make the foreach out of sync.
-                    break;
+                    DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
+                    if (evt.type == EventType.DragPerform)
+                    {
+                        DragAndDrop.AcceptDrag();
+                        Undo.RecordObject(mgr, "Add References to Easy Save 3 Reference List");
+                        foreach (UnityEngine.Object obj in DragAndDrop.objectReferences)
+                            mgr.Add(obj);
+                        // Return now because otherwise we'll change the GUI during an event which doesn't allow it.
+                        return;
+                    }
                 }
             }
 
-            EditorGUI.indentLevel--;
+            if (mgr.openReferences)
+            {
+                EditorGUI.indentLevel++;
+
+                var keys = mgr.idRef.Keys;
+                var values = mgr.idRef.Values;
+
+                foreach (var kvp in mgr.idRef)
+                {
+                    EditorGUILayout.BeginHorizontal();
+
+                    var value = EditorGUILayout.ObjectField(kvp.Value, typeof(UnityEngine.Object), true);
+                    var key = EditorGUILayout.LongField(kvp.Key);
+
+                    EditorGUILayout.EndHorizontal();
+
+                    if (value != kvp.Value || key != kvp.Key)
+                    {
+                        Undo.RecordObject(mgr, "Change Easy Save 3 References");
+                        // If we're deleting a value, delete it.
+                        if (value == null)
+                            mgr.Remove(key);
+                        // Else, update the ID.
+                        else
+                            mgr.ChangeId(kvp.Key, key);
+                        // Break, as removing or changing Dictionary items will make the foreach out of sync.
+                        break;
+                    }
+                }
+
+                EditorGUI.indentLevel--;
+            }
+
+            mgr.openPrefabs = EditorGUILayout.Foldout(mgr.openPrefabs, "ES3Prefabs");
+            if (mgr.openPrefabs)
+            {
+                EditorGUI.indentLevel++;
+
+                foreach (var prefab in mgr.prefabs)
+                {
+                    EditorGUILayout.BeginHorizontal();
+
+                    EditorGUILayout.ObjectField(prefab, typeof(UnityEngine.Object), true);
+
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                EditorGUI.indentLevel--;
+            }
         }
 
         if(GUILayout.Button("Refresh References"))
         {
             mgr.RefreshDependencies();
             mgr.GeneratePrefabReferences();
+        }
+
+        if (GUILayout.Button("Optimize References"))
+        {
+            mgr.Optimize();
         }
     }
 

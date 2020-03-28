@@ -1,13 +1,12 @@
 using UI;
+using UI.Show;
 using UnityEngine;
 
 namespace Options
 {
     public class AudioOptionSplitElement : SplitElement
     {
-        public AudioOptionSplitElement() : base("Audio", SpriteHelper.Load("base:audio"))
-        {
-        }
+        public AudioOptionSplitElement() : base("Audio", "base:audio") { }
 
         public override void ShowDetail(PanelBuilder panel)
         {

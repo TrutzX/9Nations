@@ -1,16 +1,14 @@
 using System.Collections.Generic;
-using DataTypes;
 using Game;
-using Help;
+using GameMapLevels;
 using Libraries;
-using Maps;
-using Maps.GameMap;
+using Maps.GameMaps;
 using NesScripts.Controls.PathFind;
 using Players;
-using Terrains;
+using Tools;
 using UnityEngine;
 
-namespace Map
+namespace Maps
 {
     public class MapPathFinding
     {
@@ -31,7 +29,7 @@ namespace Map
         private void CalcGrid(Player player, string moveType)
         {
             GameMapData gmap = GameMgmt.Get().data.map;
-            GameMapLevel level = GameMgmt.Get().map.Levels[_id];
+            GameMapDataLevel level = GameMgmt.Get().newMap[_id].dataLevel;
             float[,] costMap = new float[gmap.width, gmap.height];
 
             for (int x = 0; x < gmap.width; x++)
@@ -39,7 +37,7 @@ namespace Map
                 for (int y = 0; y < gmap.height; y++)
                 {
                     costMap[x, y] = L.b.modifiers["move"].CalcModi(level.Terrain(x, y).MoveCost(moveType), player,
-                        new Vector3Int(x, y, _id));// level.Terrain(x, y).MoveCost(moveType, nation);
+                        new NVector(x, y, _id));// level.Terrain(x, y).MoveCost(moveType, nation);
                     //Debug.LogWarning($"Cost for {X},{Y} for {nation}-{moveType} is {costMap[x,y]}");
                 }
             }
@@ -68,14 +66,30 @@ namespace Map
             _grids.Remove(Key(player, moveType));
         }
 
-        public List<PPoint> Path(Player player, string moveType, int startX, int startY, int endX, int endY)
+        /// <summary>
+        /// Calc the route for moving, ignore the level vector, only 2d
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="moveType"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public List<PPoint> Path(Player player, string moveType, NVector start, NVector end)
         {
-            return Pathfinding.FindPath(Get(player,moveType), new PPoint(startX, startY), new PPoint(endX, endY));
+            return Pathfinding.FindPath(Get(player,moveType), new PPoint(start.x, start.y), new PPoint(end.x, end.y));
         }
 
-        public int Cost(Player player, string moveType, Vector3Int start, int endX, int endY)
+        /// <summary>
+        /// Calc the points for moving, ignore the level vector, only 2d
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="moveType"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public int Cost(Player player, string moveType, NVector start, NVector end)
         {
-            List<PPoint> points = Path(player,moveType, start.x,start.y,endX,endY);
+            List<PPoint> points = Path(player,moveType, start, end);
             PGrid grid = Get(player, moveType);
             int price = 0;
 

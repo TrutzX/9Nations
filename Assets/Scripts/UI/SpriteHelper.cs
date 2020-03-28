@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Libraries;
 using UnityEngine;
 
 namespace UI
@@ -11,12 +12,12 @@ namespace UI
         {
             if (path.StartsWith("b:"))
             {
-                return Data.building[path.Substring(2)].GetIcon();
+                return L.b.buildings[path.Substring(2)].Sprite();
             }
             
             if (path.StartsWith("u:"))
             {
-                return Data.unit[path.Substring(2)].GetIcon();
+                return L.b.units[path.Substring(2)].Sprite();
             }
 
             if (Data.icons.ContainsKey(path))
@@ -33,7 +34,7 @@ namespace UI
                     {
                         return Resources.LoadAll<Sprite>(prepath[0]).Single(s => s.name == prepath[1]);
                     }
-                    catch (InvalidOperationException e)
+                    catch (InvalidOperationException)
                     {
                         //TODO übergang
                         return Resources.LoadAll<Sprite>("Icons/" + prepath[0]).Single(s => s.name == prepath[1]);

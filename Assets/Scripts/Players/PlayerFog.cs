@@ -1,10 +1,15 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using Buildings;
 using Help;
 using Game;
 using Libraries;
 using Maps;
-using Terrains;
+using Maps.GameMaps;
+using Maps.TileMaps;
+using Tools;
 using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,148 +19,163 @@ namespace Players
     [Serializable]
     public class PlayerFog
     {
-        public bool[,] visible;
-        [NonSerialized] public Tilemap tilemap;
+        [SerializeField] private List<bool[,]> visible;
+        [NonSerialized] public List<TileMapConfig16> tileMap;
+        [SerializeField] private bool noFog;
 
         /// <summary>
         /// Create all 
         /// </summary>
-        /// <param name="pid"></param>
-        public void Init(int pid)
+        public PlayerFog()
         {
-            visible = new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height];
+            noFog = !Data.features.fog.Bool();
+            if (noFog) return;
+            
+            visible = new List<bool[,]>();
 
-            if (!Data.features.fog.Bool())
-                for (int x = 0; x < visible.GetLength(0); x++)
-                    for (int y = 0; y < visible.GetLength(1); y++)
-                        visible[x, y] = true;
-
-            AfterLoad(pid);
+            foreach (GameMapDataLevel l in GameMgmt.Get().data.map.levels)
+            {
+                visible.Add(new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height]);
+            }
         }
 
-        public void AfterLoad(int pid)
+        public IEnumerator CreatingFog(int pid)
         {
-            tilemap = GameMapMgmt.Get().CreateLayer16($"Fog of war {pid}",GameMapMgmt.SortFog).GetComponent<Tilemap>();
             
-            //paint everything
-            for (int x = 0; x < visible.GetLength(0); x++)
+            if (noFog) yield break;
+            
+            tileMap = new List<TileMapConfig16>();
+            TileBase fTile = GameMgmt.Get().newMap.prototypeFog;
+
+            int width = visible[0].GetLength(0);
+            int height = visible[0].GetLength(1);
+            string max = "/" + width + "/" + GameMgmt.Get().data.map.levels.Count;
+
+            for(int level=0;level<GameMgmt.Get().data.map.levels.Count;level++)
             {
-                for (int y = 0; y < visible.GetLength(1); y++)
+                tileMap.Add(GameMgmt.Get().newMap[level].CreateNewLayer($"Fog of war {pid}",10));
+                bool[,] v = visible[level];
+                //paint everything?
+                for (int x = 0; x < width; x++)
                 {
-                    bool d = visible[x,y];
-                    //skip?
-                    if (d)
+                    for (int y = 0; y < height; y++)
                     {
-                        continue;
-                    }
+                        bool d = v[x,y];
+                        //skip?
+                        if (d) continue;
+                        
+                        NVector pos = new NVector(x,y,level);
+                        
+                        //set it
+                        SetTile(pos,fTile);
                     
-                    //set it
-                    setTile(x,y,GameMapMgmt.Get().fog);
-                    
-                    //set border
-                    if (x == 0)
-                    {
-                        setTile(-1,y,GameMapMgmt.Get().fog);
+                        //set border
+                        if (x == 0)
+                        {
+                            SetTile(pos.DiffX(-1),fTile);
+                        }
+                        if (x == width-1)
+                        {
+                            SetTile(pos.DiffX(1),fTile);
+                        }
+                        if (y == 0)
+                        {
+                            SetTile(pos.DiffY(-1),fTile);
+                        }
+                        if (y == height-1)
+                        {
+                            SetTile(pos.DiffY(1),fTile);
+                        }
                     }
-                    if (x == visible.GetLength(0)-1)
-                    {
-                        setTile(visible.GetLength(0),y,GameMapMgmt.Get().fog);
-                    }
-                    if (y == 0)
-                    {
-                        setTile(x,-1,GameMapMgmt.Get().fog);
-                    }
-                    if (y == visible.GetLength(1)-1)
-                    {
-                        setTile(x,visible.GetLength(1),GameMapMgmt.Get().fog);
-                    }
+                    yield return GameMgmt.Get().load.ShowSubMessage($"Create player fog {x}{max}");
                 }
+            
+                //add points
+                SetTile(new NVector(-1,-1,level),fTile);
+                SetTile(new NVector(-1,height,level),fTile);
+                SetTile(new NVector(width,-1,level),fTile);
+                SetTile(new NVector(width,height,level),fTile);
             }
-            
-            //add points
-            setTile(-1,-1,GameMapMgmt.Get().fog);
-            setTile(-1,visible.GetLength(1),GameMapMgmt.Get().fog);
-            setTile(visible.GetLength(0),-1,GameMapMgmt.Get().fog);
-            setTile(visible.GetLength(0),visible.GetLength(1),GameMapMgmt.Get().fog);
-            
+
             FinishRound();
         }
 
-        public void Clear(int x, int y)
+        public void Clear(NVector pos)
         {
             //check koor
-            if (!GameMapMgmt.Valide(x, y))
-            {
-                return;
-            }
-
-            if (visible[x, y])
-            {
-                return;
-            }
+            if (noFog) return;
+            if (!pos.Valid()) return;
+            if (Visible(pos)) return;
             
-            setTile(x, y);
+            SetTile(pos);
 
-            visible[x, y] = true;
+            visible[pos.level][pos.x, pos.y] = true;
         }
 
-        private void setTile(int x, int y, TileBase tile = null)
+        public bool Visible(NVector pos)
         {
-            //set it
-            TilemapHelper.SetTile(tilemap,x,y,tile);
+            return noFog || visible[pos.level][pos.x, pos.y];
+        }
+        
+        private void SetTile(NVector pos, TileBase tile = null)
+        {
+            //set it?
+            if (tileMap == null) return;
+            
+            TilemapHelper.SetTile(tileMap[pos.level].GetComponent<Tilemap>(),pos.x,pos.y,tile);
         }
 
-        public void Clear(int x, int y, int radius)
+        public void Clear(NVector pos, int radius)
         {
             //Debug.Log($"Clear {x},{y} for {radius}");
             
             if (radius >= 0)
             {
-                Clear(x,y);
+                Clear(pos);
             }
             
             if (radius >= 1)
             {
-                Clear(x-1,y);
-                Clear(x+1,y);
-                Clear(x,y-1);
-                Clear(x,y+1);
+                Clear(pos.DiffX(-1));
+                Clear(pos.DiffX(1));
+                Clear(pos.DiffY(-1));
+                Clear(pos.DiffY(1));
             }
             
             if (radius >= 2)
             {
-                Clear(x-1,y-1);
-                Clear(x+1,y-1);
-                Clear(x-1,y+1);
-                Clear(x+1,y+1);
+                Clear(pos.Diff(-1,-1));
+                Clear(pos.Diff(1,-1));
+                Clear(pos.Diff(-1,1));
+                Clear(pos.Diff(1,1));
             }
             
             if (radius >= 3)
             {
-                Clear(x-2,y);
-                Clear(x+2,y);
-                Clear(x,y-2);
-                Clear(x,y+2);
+                Clear(pos.DiffX(-2));
+                Clear(pos.DiffX(2));
+                Clear(pos.DiffY(-2));
+                Clear(pos.DiffY(2));
             }
             
             if (radius >= 4)
             {
-                Clear(x-2,y-1);
-                Clear(x-2,y+1);
-                Clear(x+2,y-1);
-                Clear(x+2,y+1);
-                Clear(x-1,y+2);
-                Clear(x+1,y+2);
-                Clear(x-1,y-2);
-                Clear(x+1,y-2);
+                Clear(pos.Diff(-2,-1));
+                Clear(pos.Diff(2,-1));
+                Clear(pos.Diff(-2,1));
+                Clear(pos.Diff(2,1));
+                Clear(pos.Diff(-1,-2));
+                Clear(pos.Diff(1,-2));
+                Clear(pos.Diff(-1,2));
+                Clear(pos.Diff(1,2));
             }
             
             if (radius >= 5)
             {
-                Clear(x-3,y);
-                Clear(x+3,y);
-                Clear(x,y-3);
-                Clear(x,y+3);
+                Clear(pos.DiffX(-3));
+                Clear(pos.DiffX(3));
+                Clear(pos.DiffY(-3));
+                Clear(pos.DiffY(3));
             }
             
         }
@@ -163,10 +183,12 @@ namespace Players
         public void StartRound()
         {
             //has fog?
-            if (!Data.features.fog.Bool())
-                return;
+            if (noFog) return;
             
-            tilemap.gameObject.SetActive(true);
+            foreach (TileMapConfig16 t in tileMap)
+            {
+                t.gameObject.SetActive(true);
+            }
 
             ShowHideBuilding();
             ShowHideUnits();
@@ -175,31 +197,30 @@ namespace Players
         private void ShowHideBuilding()
         {
             //hide / show all objects
-            foreach (BuildingInfo b in BuildingMgmt.Get().GetAll())
+            foreach (BuildingInfo b in GameMgmt.Get().building.GetAll())
             {
-                int x = b.data.x;
-                int y = b.data.y;
-
-                b.gameObject.SetActive(visible[x, y]);
+                b.gameObject.SetActive(Visible(b.Pos()));
             }
         }
 
         private void ShowHideUnits()
         {
             //hide / show all objects
-            foreach (UnitInfo u in UnitMgmt.Get().GetAll())
+            foreach (UnitInfo u in GameMgmt.Get().unit.GetAll())
             {
-                int x = u.data.x;
-                int y = u.data.y;
-                
-                u.gameObject.SetActive(visible[x, y]);
-                
+                u.gameObject.SetActive(Visible(u.Pos()));
             }
         }
 
         public void FinishRound()
         {
-            tilemap.gameObject.SetActive(false);
+            //has fog?
+            if (noFog) return;
+            
+            foreach (TileMapConfig16 t in tileMap)
+            {
+                t.gameObject.SetActive(false);
+            }
         }
     }
 }

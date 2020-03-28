@@ -218,7 +218,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="es3File">An ES3File containing the data we want to upload.</param>
 	public IEnumerator UploadFile(ES3File es3File)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, "", "");
+		return UploadFile(es3File.LoadRawBytes(), es3File.settings, "", "", DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>
@@ -226,7 +226,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="user">The unique name of the user this file belongs to, if the file isn't globally accessible.</param>
 	public IEnumerator UploadFile(ES3File es3File, string user)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, "");
+		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, "", DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>
@@ -235,7 +235,7 @@ public class ES3Cloud : ES3WebClass
 	/// <param name="password">The password of the user this file belongs to.</param>
 	public IEnumerator UploadFile(ES3File es3File, string user, string password)
 	{
-		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, password);
+		return UploadFile(es3File.LoadRawBytes(), es3File.settings, user, password, DateTimeToUnixTimestamp(DateTime.Now));
 	}
 
 	/// <summary>Uploads a local file to the server, overwriting any existing file.</summary>
@@ -246,15 +246,20 @@ public class ES3Cloud : ES3WebClass
 	{
 		return UploadFile(ES3.LoadRawBytes(settings), settings, user, password);
 	}
-
+	
 	private IEnumerator UploadFile(byte[] bytes, ES3Settings settings, string user, string password)
+	{
+		return UploadFile(bytes, settings, user, password, DateTimeToUnixTimestamp(ES3.GetTimestamp(settings)));
+	}
+	
+	private IEnumerator UploadFile(byte[] bytes, ES3Settings settings, string user, string password, long fileTimestamp)
 	{
 		Reset();
 
 		var form = CreateWWWForm();
 		form.AddField("apiKey",  apiKey);
 		form.AddField("putFile", settings.path);
-		form.AddField("timestamp", DateTimeToUnixTimestamp(ES3.GetTimestamp(settings)).ToString());
+		form.AddField("timestamp", fileTimestamp.ToString());
 		form.AddField("user", GetUser(user, password));
 		form.AddBinaryData("data", bytes, "data.dat", "multipart/form-data");
 

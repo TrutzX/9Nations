@@ -4,9 +4,10 @@ using Buildings;
 using DataTypes;
 using Endless;
 using Game;
+using Libraries.Terrains;
 using NesScripts.Controls.PathFind;
 using Players;
-using Terrains;
+using Tools;
 using Towns;
 using UnityEngine;
 
@@ -15,17 +16,10 @@ namespace reqs
     
     public class ReqFogField : BaseReqOnlyPlayer
     {
-
-        private PPoint Point(string sett)
-        {
-            string[] s = sett.Split(',');
-            return new PPoint(Int32.Parse(s[0]),Int32.Parse(s[1]));
-        }
         
         public override bool Check(Player player, string sett)
         {
-            PPoint p = Point(sett);
-            return player.fog.visible[p.x, p.y];
+            return player.fog.Visible(new NVector(sett));
         }
 
         public override bool Final(Player player, string sett)
@@ -33,17 +27,17 @@ namespace reqs
             return false;
         }
 
-        public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
+        public override string Desc(Player player, string sett)
         {
-            PPoint p = Point(sett);
-            BTerrain n = GameMgmt.Get().map.GetTerrain(p.x, p.y);
-            
-            return $"You need to explore a {n.Name}. Status: " + (Check(player,sett) ? "Not found" : "Found");
-        }
+            string e = "Explore a field";
 
-        public override string Desc(string sett)
-        {
-            return "Explore a field";
+            if (player == null)
+            {
+                return e;
+            }
+            
+            DataTerrain n = GameMgmt.Get().newMap.Terrain(new NVector(sett));
+            return $"You need to explore a {n.name}. Status: " + (Check(player,sett) ? "Not found" : "Found");
         }
     }
 }

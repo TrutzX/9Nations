@@ -123,7 +123,6 @@ namespace ES3Internal
 		protected IEnumerator SendWebRequest(UnityWebRequest webRequest)
 		{
 			_webRequest = webRequest;
-			_webRequest.chunkedTransfer = false;
 			#if !UNITY_2017_2_OR_NEWER
 			yield return webRequest.Send();
 			#else

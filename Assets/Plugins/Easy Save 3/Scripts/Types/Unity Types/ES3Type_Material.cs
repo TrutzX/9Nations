@@ -15,6 +15,7 @@ namespace ES3Types
 		{
 			var instance = (UnityEngine.Material)obj;
 
+			writer.WriteProperty("name", instance.name);
 			writer.WriteProperty("shader", instance.shader);
 			writer.WriteProperty("renderQueue", instance.renderQueue, ES3Type_int.Instance);
 			writer.WriteProperty("shaderKeywords", instance.shaderKeywords);
@@ -26,7 +27,10 @@ namespace ES3Types
 			if(instance.HasProperty("_Shininess"))
 				writer.WriteProperty("_Shininess", instance.GetFloat("_Shininess"));
 			if(instance.HasProperty("_MainTex"))
+			{
 				writer.WriteProperty<Texture>("_MainTex", instance.GetTexture("_MainTex"));
+				writer.WriteProperty<Vector2>("_MainTex_Scale", instance.GetTextureScale("_MainTex"));
+			}
 			if(instance.HasProperty("_MainTex_TextureOffset"))
 				writer.WriteProperty("_MainTex_TextureOffset", instance.GetTextureOffset("_MainTex_TextureOffset"));
 			if(instance.HasProperty("_MainTex_TextureScale"))
@@ -618,6 +622,9 @@ namespace ES3Types
 					break;
 				case "_Tex_TextureScale":
 					instance.SetTextureScale("_Tex_TextureScale", reader.Read<Vector2>());
+					break;
+				case "_MainTex_Scale":
+					instance.SetTextureScale("_MainTex", reader.Read<Vector2>());
 					break;
 				case "_Control":
 					instance.SetTexture("_Control", reader.Read<Texture>());

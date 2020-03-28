@@ -24,11 +24,11 @@ namespace Loading
         public IEnumerator ShowMessage(string text)
         {
             _loadScene = 1;
-            Debug.Log(text);
+            //Debug.Log(text);
             gameObject.SetActive(true);
             mainText.text = text;
             subText.text = "";
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForFixedUpdate();
         }
 
         public IEnumerator ShowSubMessage(string text)

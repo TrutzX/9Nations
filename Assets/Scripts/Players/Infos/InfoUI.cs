@@ -1,5 +1,7 @@
 using System;
 using DataTypes;
+using Game;
+using Libraries.Rounds;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +23,7 @@ namespace Players.Infos
             //add new
             foreach (Info info in PlayerMgmt.ActPlayer().info.infos)
             {
-                if (info.round != RoundMgmt.Get().Round)
+                if (info.round != GameMgmt.Get().gameRound.Round)
                 {
                     break;
                 }

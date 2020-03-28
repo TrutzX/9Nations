@@ -1,4 +1,6 @@
 using System;
+using Libraries;
+using UI;
 using UnityEngine;
 
 namespace DataTypes
@@ -10,13 +12,13 @@ namespace DataTypes
         {
             if (IsGameButton())
             {
-                panel.AddImageLabel(Name(), Data.gameButton[id].icon);
+                panel.AddImageLabel(Name(), L.b.gameButtons[id].Icon);
                 return;
             }
             
             if (IsAction())
             {
-                panel.AddImageLabel(Name(), Data.nAction[id].icon);
+                panel.AddImageLabel(Name(), L.b.actions[id].Icon);
                 return;
             }
             
@@ -28,10 +30,10 @@ namespace DataTypes
             string name = id;
             if (IsGameButton())
             {
-                name = Data.gameButton[id].name;
+                name = L.b.gameButtons[id].name;
             } else if (IsAction())
             {
-                name = Data.nAction[id].name;
+                name = L.b.actions[id].name;
             }
 
             return $"{name} ({key})";

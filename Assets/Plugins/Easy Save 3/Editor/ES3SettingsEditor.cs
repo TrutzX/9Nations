@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using ES3Internal;
 
 namespace ES3Editor
 {
@@ -25,6 +26,10 @@ namespace ES3Editor
 			settings.encryptionPassword = EditorGUILayout.TextField("Encryption Password", settings.encryptionPassword);
 
 			EditorGUILayout.Space();
+			
+			settings.saveChildren = EditorGUILayout.Toggle("Save GameObject Children", settings.saveChildren);
+			
+			EditorGUILayout.Space();
 
 			if(settings.showAdvancedSettings = EditorGUILayout.Foldout(settings.showAdvancedSettings, "Advanced Runtime Settings"))
 			{
@@ -32,11 +37,12 @@ namespace ES3Editor
 
 				settings.format = (ES3.Format)EditorGUILayout.EnumPopup("Format", settings.format);
 				settings.bufferSize = EditorGUILayout.IntField("Buffer Size", settings.bufferSize);
+				settings.memberReferenceMode = (ES3.ReferenceMode)EditorGUILayout.EnumPopup("Serialise Unity Object fields", settings.memberReferenceMode);
 
 				EditorGUILayout.Space();
 
 				EditorGUILayout.EndVertical();
 			}
 		}
-	}
+    }
 }

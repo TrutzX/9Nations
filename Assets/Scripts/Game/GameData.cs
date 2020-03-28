@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Buildings;
 using Maps;
 using Players;
+using Towns;
 using Units;
 
 namespace Game
@@ -11,6 +12,7 @@ namespace Game
     public class GameData
     {
         public int round;
+        public string name;
         public GameMapData map;
 
         public PlayerMgmt players;

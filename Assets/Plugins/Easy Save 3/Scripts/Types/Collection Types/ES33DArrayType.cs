@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using ES3Internal;
 
 namespace ES3Types
-{
-	[UnityEngine.Scripting.Preserve]
+	{
 	public class ES33DArrayType : ES3CollectionType
 	{
 		public ES33DArrayType(Type type) : base(type){}
@@ -144,6 +143,63 @@ namespace ES3Types
 						array.SetValue(items[i * (length2*length3) + (j * length3) + k], i, j, k);
 
 			return array;
+		}
+
+		public override void ReadInto<T>(ES3Reader reader, object obj)
+		{
+			var array = (Array)obj;
+
+			if(reader.StartReadCollection())
+				throw new NullReferenceException("The Collection we are trying to load is stored as null, which is not allowed when using ReadInto methods.");
+
+			bool iHasBeenRead = false;
+
+			for(int i=0; i < array.GetLength(0); i++)
+			{
+				bool jHasBeenRead = false;
+
+				if(!reader.StartReadCollectionItem())
+					throw new IndexOutOfRangeException("The collection we are loading is smaller than the collection provided as a parameter.");
+
+				reader.StartReadCollection();
+
+				for(int j=0; j < array.GetLength(1); j++)
+				{
+					bool kHasBeenRead = false;
+
+					if(!reader.StartReadCollectionItem())
+						throw new IndexOutOfRangeException("The collection we are loading is smaller than the collection provided as a parameter.");
+
+					reader.StartReadCollection();
+
+					for(int k=0; k < array.GetLength(2); k++)
+					{
+						if(!reader.StartReadCollectionItem())
+							throw new IndexOutOfRangeException("The collection we are loading is smaller than the collection provided as a parameter.");
+						reader.ReadInto<object>(array.GetValue(i,j,k), elementType);
+						kHasBeenRead = reader.EndReadCollectionItem();
+					}
+
+					if(!kHasBeenRead)
+						throw new IndexOutOfRangeException("The collection we are loading is larger than the collection provided as a parameter.");
+
+					reader.EndReadCollection();
+
+					jHasBeenRead = reader.EndReadCollectionItem();
+				}
+
+				if(!jHasBeenRead)
+					throw new IndexOutOfRangeException("The collection we are loading is larger than the collection provided as a parameter.");
+
+				reader.EndReadCollection();
+
+				iHasBeenRead = reader.EndReadCollectionItem();
+			}
+
+			if(!iHasBeenRead)
+					throw new IndexOutOfRangeException("The collection we are loading is larger than the collection provided as a parameter.");
+
+			reader.EndReadCollection();
 		}
 	}
 }

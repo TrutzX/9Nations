@@ -491,7 +491,7 @@ public static class ES3
 									ES3Settings settings)
 	{
 		if(Application.platform == RuntimePlatform.WebGLPlayer)
-			Debug.LogError("You cannot use ES3.LoadAudio with Unity Web Player");
+			Debug.LogError("You cannot use ES3.LoadAudio with WebGL");
 
 		string extension = ES3IO.GetExtension(audioFilePath).ToLower();
 
@@ -663,6 +663,47 @@ public static class ES3
 		}
 		else if(oldSettings.location == Location.Resources)
 			throw new System.NotSupportedException("Modifying files from Resources is not allowed.");
+	}
+	
+	/// <summary>Copies a file from one path to another.</summary>
+	/// <param name="oldDirectoryPath">The relative or absolute path of the directory we want to copy.</param>
+	/// <param name="newDirectoryPath">The relative or absolute path of the copy we want to create.</param>
+	public static void CopyDirectory(string oldDirectoryPath, string newDirectoryPath)
+	{
+		CopyDirectory(new ES3Settings(oldDirectoryPath), new ES3Settings(newDirectoryPath));
+	}
+
+	/// <summary>Copies a file from one location to another, using the ES3Settings provided to override any default settings.</summary>
+	/// <param name="oldDirectoryPath">The relative or absolute path of the directory we want to copy.</param>
+	/// <param name="newDirectoryPath">The relative or absolute path of the copy we want to create.</param>
+	/// <param name="oldSettings">The settings we want to use when copying the old directory.</param>
+	/// <param name="newSettings">The settings we want to use when creating the new directory.</param>
+	public static void CopyDirectory(string oldDirectoryPath, string newDirectoryPath, ES3Settings oldSettings, ES3Settings newSettings)
+	{
+		CopyDirectory(new ES3Settings(oldDirectoryPath, oldSettings), new ES3Settings(newDirectoryPath, newSettings));
+	}
+
+	/// <summary>Copies a file from one location to another, using the ES3Settings provided to determine the locations.</summary>
+	/// <param name="oldSettings">The settings we want to use when copying the old file.</param>
+	/// <param name="newSettings">The settings we want to use when creating the new file.</param>
+	public static void CopyDirectory(ES3Settings oldSettings, ES3Settings newSettings)
+	{
+		if(oldSettings.location != Location.File)
+			throw new InvalidOperationException("ES3.CopyDirectory can only be used when the save location is 'File'");
+		
+		if(!DirectoryExists(oldSettings))
+			throw new System.IO.DirectoryNotFoundException("Directory " + oldSettings.FullPath + " not found");
+			
+		if(!DirectoryExists(newSettings))
+			ES3IO.CreateDirectory(newSettings.FullPath);
+			
+		foreach(var fileName in ES3.GetFiles(oldSettings))
+			CopyFile(	ES3IO.CombinePathAndFilename(oldSettings.path, fileName),
+						ES3IO.CombinePathAndFilename(newSettings.path, fileName));
+		
+		foreach(var directoryName in GetDirectories(oldSettings))
+			CopyDirectory(	ES3IO.CombinePathAndFilename(oldSettings.path, directoryName),
+							ES3IO.CombinePathAndFilename(newSettings.path, directoryName));
 	}
 
 	/// <summary>Renames a file.</summary>

@@ -351,7 +351,7 @@ namespace ES3Internal
 		/*
 		 * 	Reads a char from the stream and ignores leading and trailing whitespace.
 		 */
-		private char ReadCharIgnoreWhitespace()
+		private char ReadCharIgnoreWhitespace(bool ignoreTrailingWhitespace=true)
 		{
 			char c;
 			// Skip leading whitespace and read char.
@@ -359,8 +359,9 @@ namespace ES3Internal
 			{}
 
 			// Skip trailing whitespace.
-			while(IsWhiteSpace((char)baseReader.Peek()))
-				baseReader.Read();
+            if(ignoreTrailingWhitespace)
+			    while(IsWhiteSpace((char)baseReader.Peek()))
+				    baseReader.Read();
 
 			return c;
 		}
@@ -411,7 +412,7 @@ namespace ES3Internal
 
 		private bool ReadQuotationMarkOrNullIgnoreWhitespace()
 		{
-			char c = ReadCharIgnoreWhitespace();
+			char c = ReadCharIgnoreWhitespace(false); // Don't read trailing whitespace as this is the value.
 
 			if(c == 'n')
 			{
@@ -567,8 +568,15 @@ namespace ES3Internal
 			}
 			return sb.ToString();
 		}
-			
-		internal override char		Read_char()		{ return char.Parse(		Read_string()); 	}
+
+        internal override long Read_ref()
+        {
+            if (IsQuotationMark(PeekCharIgnoreWhitespace()))
+                return long.Parse(Read_string());
+            return Read_long();
+        }
+
+        internal override char		Read_char()		{ return char.Parse(		Read_string()); 	}
 		internal override float		Read_float()	{ return float.Parse(		GetValueString(), CultureInfo.InvariantCulture); 	}
 		internal override int 		Read_int()		{ return int.Parse(			GetValueString()); 	}
 		internal override bool 		Read_bool()		{ return bool.Parse(		GetValueString()); 	}
@@ -583,7 +591,6 @@ namespace ES3Internal
 		internal override ushort 	Read_ushort()	{ return (ushort)int.Parse(	GetValueString()); 	}
 
 		internal override byte[] 	Read_byteArray(){ return System.Convert.FromBase64String(Read_string()); }
-
 
 		#endregion
 

@@ -16,10 +16,10 @@ TextureImporter:
     second: magic_3
   - first:
       213: -4024692783875801349
-    second: magic_4
+    second: water
   - first:
       213: 4640800853956266320
-    second: water
+    second: eWater
   - first:
       213: -6482081916739643334
     second: magic_6
@@ -583,7 +583,7 @@ TextureImporter:
     second: single
   - first:
       213: -682378376695613611
-    second: magic_193
+    second: internet
   - first:
       213: 311342857789697342
     second: privacy
@@ -643,10 +643,10 @@ TextureImporter:
     second: magic_212
   - first:
       213: -3573419023489314408
-    second: magic_213
+    second: date
   - first:
       213: -2592646840180563128
-    second: magic_214
+    second: xxxxx
   - first:
       213: 7714516692918988869
     second: magic_215
@@ -827,7 +827,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_4
+      name: water
       rect:
         serializedVersion: 2
         x: 128
@@ -848,7 +848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water
+      name: eWater
       rect:
         serializedVersion: 2
         x: 160
@@ -4796,7 +4796,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_193
+      name: internet
       rect:
         serializedVersion: 2
         x: 32
@@ -5216,10 +5216,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_213
+      name: date
       rect:
         serializedVersion: 2
-        x: 320
+        x: 319
         y: 32
         width: 32
         height: 32
@@ -5237,11 +5237,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_214
+      name: xxxxx
       rect:
         serializedVersion: 2
         x: 352
-        y: 32
+        y: 31
         width: 32
         height: 32
       alignment: 0

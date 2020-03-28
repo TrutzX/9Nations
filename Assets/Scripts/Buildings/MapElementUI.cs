@@ -1,10 +1,16 @@
 using System;
 using System.Collections.Generic;
 using Actions;
+using Classes.Actions;
 using DataTypes;
+using Game;
 using InputAction;
+using Libraries;
+using Libraries.FActions;
+using Libraries.FActions.General;
 using Players;
 using reqs;
+using Tools;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,60 +26,90 @@ namespace Buildings
         public T active;
         
         
-        public void SetPanelMessage(string text)
+        public void ShowPanelMessage(string text)
         {
             infotext.color = Color.white;
             infotext.text = text;
         }
         
-        public void SetPanelMessageError(string text)
+        public void ShowPanelMessageError(string text)
         {
+            if (text == null)
+            {
+                ShowPanelMessage("");
+                return;
+            }
+            
             infotext.color = Color.magenta;
             infotext.text = text;
             NAudio.PlayBuzzer();
         }
         
-        public void AddActionButton(string action, string sett, MapElementInfo building, GameObject actionPanel)
+        public void AddNewActionButton(ActionHolders holder, ActionHolder action, MapElementInfo info, GameObject actionPanel)
         {
-        
-            NAction act = Data.nAction[action];
 
-            if (act == null)
+            if (action == null)
             {
-                throw new MissingMemberException($"Action {action} with setting {sett} is missing.");
+                throw new MissingMemberException($"Action for {info} is missing.");
             }
+
+            BasePerformAction ba = action.PerformAction();
+            FDataAction da = action.DataAction();
         
             //can add under construction?
-            if (building.IsUnderConstrution() && !act.useUnderConstruction)
+            if (info.IsUnderConstruction() && !da.useUnderConstruction)
             {
                 return;
             }
         
             //can add from diff player?
-            if (act.onlyOwner && !building.Owner(PlayerMgmt.ActPlayerID()))
+            if (da.onlyOwner && !info.Owner(PlayerMgmt.ActPlayerID()))
             {
                 return;
             }
         
             //can add final?
-            if (!ReqHelper.CheckOnlyFinal(PlayerMgmt.ActPlayer(), ActionHelper.GenReq(act), building,
-                building.X(), building.Y()))
+            if (!action.req.Check(PlayerMgmt.ActPlayer(), info, info.Pos(), true))
             {
                 return;
             }
 
-            GameObject button = UIElements.CreateImageButton(act.icon, actionPanel.transform, () =>
+            GameObject button = UIElements.CreateImageButton(da.Sprite(), actionPanel.transform, () =>
             {
-                string mess = NLib.GetAction(act.id).ButtonRun(building, building.X(), building.Y(), sett);
+                //can use?
+                if (!action.req.Check(info.Player(), info, info.Pos()))
+                {
+                    ShowPanelMessageError(action.req.Desc(info.Player(), info, info.Pos()));
+                    return;
+                }
+                
+                //check ap
+                if (da.cost > info.data.ap)
+                {
+                    int round = 1 + (da.cost - info.data.ap) / info.data.apMax;
+                
+                    WindowPanelBuilder wpb = WindowPanelBuilder.Create("Do you want to wait?");
+                    wpb.panel.AddImageLabel($"Action {da.name} need {da.cost - info.data.ap} AP more. You can wait {round} rounds.", "round");
+                    wpb.panel.AddButton($"Wait {round} rounds",() =>
+                    {
+                        info.SetWaitingAction(holder.actions.IndexOf(action));
+                        OnMapUI.Get().UpdatePanel(info.Pos());
+                        wpb.Close();
+                    });
+                    wpb.AddClose();
+                    wpb.Finish();
+                    return;
+                }
+
+                string mess = holder.Perform(action, ActionEvent.Direct, PlayerMgmt.ActPlayer(), info, info.Pos());
                 if (mess != null)
                 {
-                    SetPanelMessageError(mess);
+                    ShowPanelMessageError(mess);
                 }
-            }, act.sound);
+            }, da.sound);
             
-            
-            UIHelper.HoverEnter(infotext,$"{InputKeyHelper.ActionName(act)}, Cost:{act.cost}/{building.data.ap} AP",button,
-                () => { SetPanelMessage(building.Status(PlayerMgmt.ActPlayerID())); });
+            UIHelper.HoverEnter(infotext,$"{InputKeyHelper.ActionName(da)}, Cost:{da.cost}/{info.data.ap} AP",button,
+                () => { ShowPanelMessage(info.Status(PlayerMgmt.ActPlayerID())); });
         }
 
         protected void UpdateInfoButton()
@@ -83,7 +119,7 @@ namespace Buildings
         
             //show icon
             info.GetComponentsInChildren<Image>()[1].sprite = active.GetComponent<SpriteRenderer>().sprite;
-            SetPanelMessage(active.Status(PlayerMgmt.ActPlayerID()));
+            ShowPanelMessage(active.Status(PlayerMgmt.ActPlayerID()));
         
             info.GetComponent<Button>().onClick.RemoveAllListeners();
             info.GetComponent<Button>().onClick.AddListener(() =>
@@ -102,13 +138,27 @@ namespace Buildings
             //has active action?
             if (ActiveAction != null)
             {
-                SetPanelMessage(ActiveAction.PanelMessage());
+                ShowPanelMessage(ActiveAction.PanelMessage());
                 NAction action = Data.nAction[ActiveAction.id];
-                UIHelper.CreateImageTextButton("Cancel " + action.name, SpriteHelper.LoadIcon(action.icon), actions.transform,
+                UIHelper.CreateImageTextButton("Cancel " + action.name, SpriteHelper.Load(action.icon), actions.transform,
                     () => { OnMapUI.Get().SetActiveAction(null, active.GetComponent<BuildingInfo>() != null); }, "cancel");
                 return;
             }
 
+            //has waiting action?
+            if (active.data.actionWaitingPos != -1)
+            {
+                ActionHolder a = active.data.action.actions[active.data.actionWaitingPos];
+                UIHelper.CreateImageTextButton($"Cancel preparation", a.DataAction().Sprite(), actions.transform,
+                    () =>
+                    {
+                        active.data.ap = Math.Min(active.data.ActionWaitingAp, active.data.apMax); 
+                        active.SetWaitingAction(-1); 
+                        OnMapUI.Get().UpdatePanel(active.Pos()); 
+                    }, "cancel");
+                return;
+            }
+            
             AddAllActionButtons();
             
         }

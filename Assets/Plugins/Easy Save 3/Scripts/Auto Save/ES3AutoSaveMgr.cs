@@ -23,6 +23,7 @@ public class ES3AutoSaveMgr : MonoBehaviour, ISerializationCallbackReceiver
 	public LoadEvent loadEvent = LoadEvent.Awake;
 	public ES3SerializableSettings settings = null;
 
+
 	public List<ES3AutoSave> autoSaves = null;
 
 	public void Save()

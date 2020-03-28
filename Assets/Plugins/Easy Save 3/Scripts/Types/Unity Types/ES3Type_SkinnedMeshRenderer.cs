@@ -40,6 +40,16 @@ namespace ES3Types
 			writer.WriteProperty("sortingLayerName", instance.sortingLayerName, ES3Type_string.Instance);
 			writer.WriteProperty("sortingLayerID", instance.sortingLayerID, ES3Type_int.Instance);
 			writer.WriteProperty("sortingOrder", instance.sortingOrder, ES3Type_int.Instance);
+
+            // Get BlendShapeWeights
+            if (instance.sharedMesh != null)
+            {
+                var blendShapeWeights = new float[instance.sharedMesh.blendShapeCount];
+                for (int i = 0; i < blendShapeWeights.Length; i++)
+                    blendShapeWeights[i] = instance.GetBlendShapeWeight(i);
+                writer.WriteProperty("blendShapeWeights", blendShapeWeights, ES3Type_floatArray.Instance);
+            }
+
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -119,7 +129,15 @@ namespace ES3Types
 					case "sortingOrder":
 						instance.sortingOrder = reader.Read<System.Int32>(ES3Type_int.Instance);
 						break;
-					default:
+                    case "blendShapeWeights":
+                        var blendShapeWeights = reader.Read<System.Single[]>(ES3Type_floatArray.Instance);
+                        if (instance.sharedMesh == null) break;
+                        if (blendShapeWeights.Length != instance.sharedMesh.blendShapeCount)
+                            UnityEngine.Debug.LogError("The number of blend shape weights we are loading does not match the number of blend shapes in this SkinnedMeshRenderer's Mesh");
+                        for (int i = 0; i < blendShapeWeights.Length; i++)
+                            instance.SetBlendShapeWeight(i, blendShapeWeights[i]);
+                        break;
+                    default:
 						reader.Skip();
 						break;
 				}

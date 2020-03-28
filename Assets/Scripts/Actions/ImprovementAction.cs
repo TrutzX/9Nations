@@ -7,6 +7,7 @@ using Game;
 using Libraries;
 using Players;
 using reqs;
+using Tools;
 using UI;
 using Units;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Actions
 {
     public class ImprovementAction : BaseAction
     {
-        protected override void ButtonAction(Player player, MapElementInfo gameObject, int x, int y, string settings)
+        protected override void ButtonAction(Player player, MapElementInfo gameObject, NVector pos, string settings)
         {
             string[] i = settings.Split(';');
             

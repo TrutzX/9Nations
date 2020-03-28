@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Game;
+using Libraries.Rounds;
 using UnityEngine;
 
 namespace Players
@@ -34,6 +35,7 @@ namespace Players
         public int CreatePlayer(string name, string nation)
         {
             players.Add(new Player(++createPlayerCounter,name,nation));
+            Debug.Log($"Create Player {name} ({createPlayerCounter}) for nation {nation}");
             return createPlayerCounter;
         }
 
@@ -71,6 +73,7 @@ namespace Players
 
         public void AfterLoad()
         {
+            Debug.Log("players "+players.Count);
             players.ForEach(p => p.AfterLoad());
         }
 
@@ -86,12 +89,20 @@ namespace Players
             //next round?
             if (actPlayer >= players.Count)
             {
-                yield return RoundMgmt.Get().NextRound();
+                yield return S.Round().NextRound();
                 actPlayer = 0;
             }
 
             yield return GameMgmt.Get().load.ShowMessage($"Start turn for {ActPlayer().name}");
             ActPlayer().StartRound();
+        }
+
+        public IEnumerator CreatingFog()
+        {
+            foreach (Player p in players)
+            {
+                yield return p.fog.CreatingFog(p.id);
+            }
         }
     }
 }

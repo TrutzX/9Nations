@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Classes;
 using Game;
 using Libraries;
-using Nations;
+using Libraries.Nations;
 using UI;
+using UI.Show;
 
 namespace Endless
 {
@@ -22,10 +24,10 @@ namespace Endless
         public override void ShowDetail(PanelBuilder panel)
         {
             panel.AddHeaderLabel("Name");
-            panel.AddInput("Name",startConfig[id + "name"], s => { 
+            panel.AddInputRandom("Name",startConfig[id + "name"], s => { 
                 startConfig[id + "name"] = s;
                 UIHelper.UpdateButtonText(button,s);
-            });
+            }, () => LClass.s.nameGenerators["unit"].Gen());
 
             List<string> ids = new List<string>();
             List<string> titles = new List<string>();
@@ -34,8 +36,8 @@ namespace Endless
                 if (nation.Hidden)
                     continue;
                 
-                ids.Add(nation.Id);
-                titles.Add(nation.Name);
+                ids.Add(nation.id);
+                titles.Add(nation.name);
             }
             
             panel.AddHeaderLabel("Nation");
@@ -53,7 +55,7 @@ namespace Endless
             });
             
             panel.AddHeaderLabel("How to lose");
-            panel.AddCheckbox(Boolean.Parse(startConfig[id +"loseKing"]), "Lose your king", b =>
+            panel.AddCheckbox(Boolean.Parse(startConfig[id +"loseKing"]), "Lose all units", b =>
             {
                 startConfig[id +"loseKing"] = b.ToString();
             });

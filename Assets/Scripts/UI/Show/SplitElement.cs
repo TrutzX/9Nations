@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace UI
+namespace UI.Show
 {
     public abstract class SplitElement
     {
@@ -8,7 +9,7 @@ namespace UI
         public string audioSwitch;
         public string audioPerform;
         public Sprite icon;
-        public GameObject button;
+        public Button button;
         public WindowBuilderSplit window;
         public Tab tab;
         

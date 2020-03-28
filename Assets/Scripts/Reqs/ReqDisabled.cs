@@ -6,6 +6,7 @@ using Endless;
 using Game;
 using NesScripts.Controls.PathFind;
 using Players;
+using Tools;
 using Towns;
 using UnityEngine;
 
@@ -25,12 +26,7 @@ namespace reqs
             return true;
         }
 
-        public override string Desc(Player player, MapElementInfo onMap, string sett, int x, int y)
-        {
-            return Desc(sett);
-        }
-
-        public override string Desc(string sett)
+        public override string Desc(Player player, string sett)
         {
             return "This element is disabled";
         }

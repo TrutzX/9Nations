@@ -1,7 +1,15 @@
 ﻿using System;
 using Actions;
+using Buildings;
+using Classes.Actions;
 using DataTypes;
 using Game;
+using GameButtons;
+using Libraries;
+using Libraries.Buildings;
+using Libraries.FActions;
+using Libraries.FActions.General;
+using Libraries.GameButtons;
 using Players;
 using reqs;
 using Tools;
@@ -104,6 +112,12 @@ namespace InputAction
                 case "zoomCameraOut":
                     ZoomCamera(1);
                     break;
+                case "moveLevelTop":
+                    GameMgmt.Get().newMap.view.ViewAdd(1);
+                    break;
+                case "moveLevelDown":
+                    GameMgmt.Get().newMap.view.ViewAdd(-1);
+                    break;
                 default:
                     OnMapUI.Get().SetMenuMessageError($"{key.id} is not a valid call.");
                     break;
@@ -120,48 +134,43 @@ namespace InputAction
             //has an unit or building?
             if (aUnit == null && aBuilding == null)
             {
+                OnMapUI.Get().SetMenuMessageError($"Action {L.b.actions[key.id].name} can not called, their is no unit or building, who can perform it.");
                 return;
             }
-            
-            NAction action = Data.nAction[key.id];
             
             //which has this action?
             if (aUnit != null)
             {
-                Unit dataUnit = aUnit.config;
+                BaseDataBuildingUnit data = aUnit.baseData;
                 //unit contains action?
-                if (dataUnit.GetActions().ContainsKey(key.id))
+                if (data.action.Contains(key.id))
                 {
                     //TODO check more settings
                     //can perform action?
-                    string mess = NLib.GetAction(action.id).ButtonRun(aUnit, aUnit.X(), aUnit.Y(), dataUnit.GetActions()[key.id]);
-                    if (mess != null)
-                    {
-                        OnMapUI.Get().unitUI.SetPanelMessageError(mess);
-                    }
+                    ActionHolder action = data.action.Get(key.id);
+                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, aUnit.Player(), aUnit, aUnit.Pos()));
+                    
                     return;
                 }
             }
             
             if (aBuilding != null)
             {
-                Building dataUnit = aBuilding.config;
+                BaseDataBuildingUnit data = aBuilding.baseData;
                 //unit contains action?
-                if (dataUnit.GetActions().ContainsKey(key.id))
+                if (data.action.Contains(key.id))
                 {
                     //TODO check more settings
                     //can perform action?
-                    string mess = NLib.GetAction(action.id).ButtonRun(aBuilding, aBuilding.X(), aBuilding.Y(), dataUnit.GetActions()[key.id]);
-                    if (mess != null)
-                    {
-                        OnMapUI.Get().buildingUI.SetPanelMessageError(mess);
-                    }
+                    ActionHolder action = data.action.Get(key.id);
+                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, aBuilding.Player(), aBuilding, aBuilding.Pos()));
+
                     return;
                 }
             }
             
             //found nothing?
-            OnMapUI.Get().unitUI.SetPanelMessageError($"Action {action.name} can not called, their is no unit or building, who can perform it.");
+            OnMapUI.Get().unitUI.ShowPanelMessageError($"Action {L.b.actions[key.id].name} can not called, their is no unit or building, who can perform it.");
         }
 
         /// <summary>
@@ -170,18 +179,18 @@ namespace InputAction
         /// <param name="key"></param>
         private void PressGameButton(InputKey key)
         {
-            GameButton gameButton = Data.gameButton[key.id];
+            GameButton gameButton = L.b.gameButtons[key.id];
             
             //check if possible to call
-            if (!gameButton.CheckReq(PlayerMgmt.ActPlayer()))
+            if (!gameButton.req.Check(PlayerMgmt.ActPlayer()))
             {
-                OnMapUI.Get().SetMenuMessageError(ReqHelper.Desc(PlayerMgmt.ActPlayer(),gameButton.GenReq()));
+                OnMapUI.Get().SetMenuMessageError(gameButton.req.Desc(PlayerMgmt.ActPlayer()));
                 return;
             }
             
             //call it
-            NAudio.Play(gameButton.sound);
-            GameButtonHelper.Call(gameButton.id, PlayerMgmt.ActPlayer());
+            NAudio.Play(gameButton.Sound);
+            gameButton.Call(PlayerMgmt.ActPlayer());
         }
 
         void MoveCamera(int x, int y)
@@ -192,7 +201,7 @@ namespace InputAction
             Transform trans = Camera.main.GetComponent<Transform>();
             
             //valid pos?
-            if (!GameHelper.Valide((int)trans.position.x+x,(int)trans.position.y+y))
+            if (!GameHelper.Valid((int)trans.position.x+x,(int)trans.position.y+y))
             {
                 OnMapUI.Get().SetMenuMessageError("The camera position is to far outside of the map.");
                 return;

@@ -1,95 +1,100 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using Buildings;
-using DataTypes;
 using Game;
-using UI;
+using Libraries;
+using Players;
+using Players.Infos;
+using Tools;
 using UnityEngine;
 
-public class BuildingMgmt : MonoBehaviour
+namespace Buildings
 {
-    public GameObject buildPrefab;
-
-    public static BuildingMgmt Get()
+    public class BuildingMgmt : MonoBehaviour
     {
-        return GameMgmt.Get().building;
-    }
-    
-    /// <summary>
-    /// Return the building, if exist, at this postion
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns>the unit or null</returns>
-    public static BuildingInfo At(int x, int y)
-    {
-        BuildingInfo b = Get().GetAll().SingleOrDefault(g => g.X() == x && g.Y() == y);
-        return b;
-    }
-    
-    /// <summary>
-    /// Return the building, if exist, at this postion
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns>the unit or null</returns>
-    public static BuildingInfo At(Vector3Int pos)
-    {
-        return GameHelper.Valide(pos)?At(pos.x, pos.y):null;
-    }
-
-    public BuildingInfo[] GetAll()
-    {
-        return GetComponentsInChildren<BuildingInfo>(true);
-    }
-
-    public BuildingInfo[] GetByTown(int tid)
-    {
-        return GetAll().Where(g => g.data.townId == tid).ToArray();
-    }
-
-    public BuildingInfo[] GetByTownType(int tid, string type)
-    {
-        return GetByTown(tid).Where(g => g.data.type == type).ToArray();
-    }
-
-    public BuildingInfo[] GetByPlayer(int pid)
-    {
-        return GetAll().Where(g => g.data.playerId == pid).ToArray();
-    }
-
-    public BuildingInfo[] GetByPlayerType(int pid, string type)
-    {
-        return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
-    }
-
-    public BuildingInfo Create(int town, string type, int x, int y)
-    {
-        //exist?
-        if (!Data.building.ContainsKey(type))
-        {
-            throw new MissingComponentException($"Building {type} not exist");
-        }
+        public BuildingInfo buildPrefab;
+        public List<BuildingInfo> buildings = new List<BuildingInfo>();
         
-        GameObject building = Instantiate(buildPrefab, GetComponent<Transform>());
-        BuildingInfo bi = building.GetComponent<BuildingInfo>();
-        bi.Init(town,type,x,y);
-        GameMgmt.Get().data.buildings.Add(bi.data);
-        return bi;
-    }
-
-    public GameObject Load(BuildingUnitData data)
-    {
-        //exist?
-        if (!Data.building.ContainsKey(data.type))
+        [Obsolete]
+        public static BuildingMgmt Get()
         {
-            throw new MissingComponentException("Building "+data.type+ "not exist");
+            return GameMgmt.Get().building;
         }
+    
+        /// <summary>
+        /// Return the building, if exist, at this postion
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns>the unit or null</returns>
+        public static BuildingInfo At(NVector pos)
+        {
+            return GameMgmt.Get().building.GetAll().SingleOrDefault(g => g.Pos().Equals(pos));
+        }
+
+        /// <summary>
+        /// Returns true, if no building is on the field
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public static bool Free(NVector pos)
+        {
+            return At(pos) == null;
+        }
+
+        public BuildingInfo[] GetAll()
+        {
+            return buildings.ToArray();
+        }
+
+        public BuildingInfo[] GetByTown(int tid)
+        {
+            return GetAll().Where(g => g.data.townId == tid).ToArray();
+        }
+
+        public BuildingInfo[] GetByTownType(int tid, string type)
+        {
+            return GetByTown(tid).Where(g => g.data.type == type).ToArray();
+        }
+
+        public BuildingInfo[] GetByPlayer(int pid)
+        {
+            return GetAll().Where(g => g.data.playerId == pid).ToArray();
+        }
+
+        public BuildingInfo[] GetByPlayerType(int pid, string type)
+        {
+            return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
+        }
+
+        public BuildingInfo Create(int town, string type, NVector pos)
+        {
+            //exist?
+            if (!L.b.buildings.ContainsKey(type))
+            {
+                throw new MissingComponentException($"Building {type} not exist");
+            }
         
-        GameObject building = Instantiate(buildPrefab, GetComponent<Transform>());
-        building.GetComponent<BuildingInfo>().Load(data);
-        return building;
+            BuildingInfo bi = Instantiate(buildPrefab, GameMgmt.Get().newMap.levels[pos.level].buildings.transform);
+            bi.Init(town,type,pos);
+            GameMgmt.Get().data.buildings.Add(bi.data);
+            buildings.Add(bi);
+            return bi;
+        }
+
+        public BuildingInfo Load(BuildingUnitData data)
+        {
+            //exist?
+            if (!L.b.buildings.ContainsKey(data.type))
+            {
+                Debug.LogError($"Building {data.type} ({data.pos}) not exist");
+                PlayerMgmt.Get(data.playerId).info.Add(new Info($"Building {data.type} ({data.pos}) not exist","no"));
+                return null;
+            }
+        
+            BuildingInfo bi = Instantiate(buildPrefab, GameMgmt.Get().newMap.levels[data.pos.level].buildings.transform);
+            bi.Load(data);
+            buildings.Add(bi);
+            return bi;
+        }
     }
 }
