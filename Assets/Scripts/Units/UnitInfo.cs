@@ -10,7 +10,6 @@ using Help;
 using Libraries;
 using Libraries.Terrains;
 using Libraries.Units;
-using MapActions;
 using Maps;
 using Players;
 using reqs;
@@ -95,10 +94,26 @@ namespace Units
             GameMgmt.Get().data.units.Add(GetComponent<UnitInfo>().data);
         }
 
-        public void MoveTo(int x, int y)
+        public void MoveTo(NVector pos, bool moveCamera=true)
         {
-            MoveBy(x-Pos().x,y-Pos().y);
+            //change level?
+            if (data.pos.level != pos.level)
+            {
+                transform.SetParent(GameMgmt.Get().newMap[pos.level].units.transform);
+                
+            }
+
+            if (moveCamera)
+            {
+                MoveBy(pos.x-Pos().x,pos.y-Pos().y);
+                return;
+            }
+            data.pos = pos;
+            transform.position = new Vector2(Pos().x+0.5f,Pos().y);
+            Clear(pos);
+            
         }
+        
         public void MoveBy(int x, int y)
         {
             //own unit?
@@ -175,28 +190,8 @@ namespace Units
             data.ap -= cost;
             data.pos.x += x;
             data.pos.y += y;
+            CameraMove.Get().MoveTo(dPos);
             NAudio.Play("moveUnit");
-        }
-
-        public void Teleport(NVector pos, bool moveCamera=true)
-        {
-            //change level?
-            if (data.pos.level != pos.level)
-            {
-                transform.SetParent(GameMgmt.Get().newMap[pos.level].units.transform);
-            }
-            
-            data.pos = pos;
-            transform.position = new Vector2(Pos().x+0.5f,Pos().y);
-            
-            Clear(pos);
-
-            if (moveCamera)
-            {
-                CameraMove.Get().MoveTo(pos);
-                OnMapUI.Get().UpdatePanel(pos);
-            }
-            
         }
 
         /// <summary>

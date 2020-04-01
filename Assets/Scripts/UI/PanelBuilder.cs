@@ -250,23 +250,6 @@ namespace UI
             return button;
         }
 
-        public void AddAction(string title, Dictionary<string, string> reqs)
-        {
-            //addHeader
-            if (reqs.Count == 0)
-                return;
-            
-            AddHeaderLabel(title);
-        
-            //add req
-            foreach (KeyValuePair<string, string> req in reqs)
-            {
-                NAction n = Data.nAction[req.Key];
-                Debug.Log(n+" "+req.Key);
-                AddImageLabel(n.desc,SpriteHelper.Load(n.icon));
-            }
-        }
-
         public void AddReq(string title, Dictionary<string, string> reqs)
         {
             //addHeader

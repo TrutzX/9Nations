@@ -1,9 +1,9 @@
 id,name,hidden,icon,desc,req,req,townhall
-light,Light,false,Units/light:light_1,This is the basic element; if you are interested in the overworld. You will get a light to explore the area and develop your first town.,,,lhall1
-shadow,Shadow,false,Units/shadow:shadow_1,This is the basic element; if you are interested in the underworld. You will get a shadow to explore the area and develop your first town.,,,shall1
+light,Light,false,Units/light:light_1,This is the basic element; if you are interested in the overworld. You will get a light to explore the area and develop your first town.,elementCount=0,,lhall1
+shadow,Shadow,false,Units/shadow:shadow_1,This is the basic element; if you are interested in the underworld. You will get a shadow to explore the area and develop your first town.,elementCount=0,,shall1
 fire,Fire,true,Icons/magic:fire,No useful features at the moment.,element=shadow;light,disabled,
 air,Air,true,Icons/magic:air,No useful features at the moment.,element=light,disabled,
-earth,Earth,true,Icons/magic:earth,No useful features at the moment.,element=shadow,disabled,
+earth,Earth,true,Icons/magic:earth,Deep under the stone lies great options.,element=shadow,,
 water,Water,true,Icons/magic:eWater,No useful features at the moment.,element=shadow;light,disabled,
 death,Death,true,Icons/base:destroy,No useful features at the moment.,,disabled,
 energy,Energy,true,Icons/magic:energy,No useful features at the moment.,,disabled,

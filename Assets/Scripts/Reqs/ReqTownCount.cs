@@ -3,10 +3,11 @@ using Buildings;
 using Game;
 using Players;
 using Tools;
+using UnityEngine;
 
 namespace reqs
 {
-    public class ReqTown : ReqMinMaxPlayer
+    public class ReqTownCount : ReqMinMaxPlayer
     {
 
         protected override int ValueMax(Player player, string element, string sett)
@@ -22,14 +23,16 @@ namespace reqs
 
         protected override string Name(string element, string sett)
         {
-            return "Town";
+            return "town";
         }
     }
     
+    [Obsolete]
     public class ReqOldTownMin : BaseReqOnlyPlayer
     {
         public override bool Check(Player player, string sett)
         {
+            Debug.LogError("Obsolete ReqOldTownMin");
             return S.Towns().GetByPlayer(player.id).Count >= Int32.Parse(sett);
         }
 
@@ -44,11 +47,12 @@ namespace reqs
         }
     }
     
-    
+    [Obsolete]
     public class ReqOldTownMax : BaseReqOnlyPlayer
     {
         public override bool Check(Player player, string sett)
         {
+            Debug.LogError("Obsolete ReqOldTownMax");
             return S.Towns().GetByPlayer(player.id).Count <= Int32.Parse(sett);
         }
 

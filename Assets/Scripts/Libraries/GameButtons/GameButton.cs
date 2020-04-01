@@ -1,4 +1,5 @@
 ﻿using System;
+using Buildings;
 using Classes;
 using GameButtons;
 using InputAction;
@@ -18,22 +19,20 @@ namespace Libraries.GameButtons
         {
             base.ShowLexicon(panel);
             req.BuildPanel(panel, "Requirements");
-            
         }
 
         public void Call(Player player)
         {
             LClass.s.gameButtonRuns[id].Call(player);
         }
-        
-        
-        public Button CreateImageButton(Transform transform, Player player, Text text)
+
+
+        public Button CreateImageButton(Transform transform, Player player, IMapUI text)
         {
-            GameObject button = UIElements.CreateImageButton(Icon, transform, () =>
-            {
-                Call(player);
-            }, Sound);
-            UIHelper.HoverEnter(text,InputKeyHelper.GameButtonName(this),button, () => { text.text = ""; });
+            GameObject button = UIElements.CreateImageButton(Icon, transform, () => { Call(player); }, Sound);
+
+            UIHelper.HoverEnter(button, () => text.ShowPanelMessage(InputKeyHelper.GameButtonName(this)),
+                () => text.ShowPanelMessage(""));
 
             return button.GetComponent<Button>();
         }

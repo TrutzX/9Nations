@@ -26,7 +26,7 @@ namespace Classes.Actions
             MoveBuilding(info ,pos, holder);
         }
 
-        private void MoveBuilding(MapElementInfo info, NVector pos, ActionHolder holder)
+        private void MoveBuilding(Buildings.MapElementInfo info, NVector pos, ActionHolder holder)
         {
             BuildingInfo ui = (BuildingInfo) info;
             //check status
@@ -71,7 +71,7 @@ namespace Classes.Actions
             TryMoveUnit(S.Unit().At(pos), pos.DiffLevel(diff));
         }
 
-        private void Build(bool up, MapElementInfo info, NVector pos, ActionHolder holder)
+        private void Build(bool up, Buildings.MapElementInfo info, NVector pos, ActionHolder holder)
         {
             Debug.Log($"Old {pos}");
             Debug.Log($"Old {info.Pos()}");
@@ -115,10 +115,10 @@ namespace Classes.Actions
                 return;
             }
             
-            info.Teleport(pos);
+            info.MoveTo(pos);
         }
         
-        private void MoveUnit(MapElementInfo info, NVector pos)
+        private void MoveUnit(Buildings.MapElementInfo info, NVector pos)
         {
             UnitInfo ui = (UnitInfo) info;
             int l = GameMgmt.Get().data.map.levels.Count;

@@ -1,4 +1,5 @@
 ﻿using Buildings;
+using Classes.Actions;
 using Libraries.FActions;
 using Players;
 using Players.Infos;
@@ -9,21 +10,22 @@ using UnityEngine.UI;
 
 namespace Game
 {
-    public class OnMapUI : MonoBehaviour
+    public class OnMapUI : MonoBehaviour, IMapUI
     {
         private static OnMapUI self;
 
         public UnitUI unitUI;
         public BuildingUI buildingUI;
         public InfoUI InfoUi;
+        public BottomUI bottomUI;
 
-        public GameObject topButton;
-        public Text topButtonText;
+        public GameObject menuButton;
+        public Text menuButtonText;
         
         public GameObject bottomButton;
         public Text bottomButtonText;
 
-        private ActiveAction _action;
+        private BaseActiveAction _action;
         
         public static OnMapUI Get()
         {
@@ -34,19 +36,7 @@ namespace Game
         void Start()
         {
             self = this;
-        }
-
-        public void SetMenuMessage(string text)
-        {
-            topButtonText.color = Color.white;
-            topButtonText.text = text;
-        }
-        
-        public void SetMenuMessageError(string text)
-        {
-            topButtonText.color = Color.magenta;
-            topButtonText.text = text;
-            NAudio.PlayBuzzer();
+            bottomUI = new BottomUI();
         }
 
         public void UpdatePanel(NVector pos)
@@ -93,7 +83,7 @@ namespace Game
             }
         }
 
-        public void SetActiveAction(ActiveAction activeAction, bool building)
+        public void SetActiveAction(BaseActiveAction activeAction, bool building)
         {
             //has an old action?
             if (_action != null)
@@ -110,6 +100,19 @@ namespace Game
             }
             
             unitUI.SetActiveAction(activeAction);
+        }
+
+        public void ShowPanelMessage(string text)
+        {
+            menuButtonText.color = Color.white;
+            menuButtonText.text = text;
+        }
+        
+        public void ShowPanelMessageError(string text)
+        {
+            menuButtonText.color = Color.magenta;
+            menuButtonText.text = text;
+            NAudio.PlayBuzzer();
         }
     }
 }

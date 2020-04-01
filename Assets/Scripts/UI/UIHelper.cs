@@ -1,4 +1,5 @@
 ﻿using System;
+using Buildings;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,16 +11,13 @@ namespace UI
     {
     
 
-        public static void HoverEnter(Text text, string title, GameObject button, Action exit)
+        public static void HoverEnter(GameObject button, Action enter, Action exit)
         {
             //hoverenter
             EventTrigger.Entry eventtype = new EventTrigger.Entry();
             eventtype.eventID = EventTriggerType.PointerEnter;
             eventtype.callback = new EventTrigger.TriggerEvent();
-            eventtype.callback.AddListener((eventData) =>
-            {
-                text.text = title;
-            });
+            eventtype.callback.AddListener((eventData) => enter());
             button.GetComponent<EventTrigger>().triggers.Add(eventtype);
         
             //hoverexit

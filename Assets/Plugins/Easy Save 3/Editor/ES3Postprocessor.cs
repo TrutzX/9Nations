@@ -124,7 +124,7 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     {
         if (refMgr != null)
         {
-            foreach (var obj in ES3EditorUtility.CollectDeepHierarchy(SceneManager.GetActiveScene().GetRootGameObjects()))
+            foreach (var obj in EditorUtility.CollectDeepHierarchy(SceneManager.GetActiveScene().GetRootGameObjects()))
                 // If this object can be saved, add it to the reference manager.
                 if (ES3ReferenceMgr.CanBeSaved(obj))
                     refMgr.Add(obj);

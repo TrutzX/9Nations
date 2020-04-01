@@ -1,7 +1,10 @@
 using System.Linq;
+using Classes;
+using Classes.Actions;
 using DataTypes;
 using Game;
 using Libraries;
+using Libraries.FActions;
 using Libraries.Researches;
 using Maps.TileMaps;
 using Players;
@@ -24,9 +27,9 @@ namespace GameButtons
             });
             p.panel.AddButton("Trade", () =>
             {
-                Town t = S.Towns().GetByActPlayer()[0];
-
-                OLib.GetOldAction("trade").QuestRun(PlayerMgmt.ActPlayer(), null);
+                ActionHolder ah = new ActionHolder();
+                ah.data["trade"] = null;
+                LClass.s.GetNewAction("trade").PerformCheck(ActionEvent.Direct, PlayerMgmt.ActPlayer(), ah);
             });
             p.panel.AddButton("Give research", () =>
             {

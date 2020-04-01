@@ -18,7 +18,6 @@ namespace Libraries.FActions
     public class ActionHolders
     {
 
-
         public List<ActionHolder> actions;
 
         public ActionHolders()
@@ -64,6 +63,15 @@ namespace Libraries.FActions
             return mess;
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="evt"></param>
+        /// <param name="player"></param>
+        /// <param name="info"></param>
+        /// <param name="pos"></param>
+        /// <returns>null or error message</returns>
         public string Perform(ActionHolder action, ActionEvent evt, Player player, [CanBeNull] MapElementInfo info, NVector pos)
         {
             var erg = action.Perform(evt, player, info, pos);

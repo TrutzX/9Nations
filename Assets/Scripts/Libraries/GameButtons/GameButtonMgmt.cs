@@ -1,4 +1,5 @@
 using System;
+using Buildings;
 using Players;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace Libraries.GameButtons
             return new GameButton();
         }
         
-        public void BuildMenu(Player player, string location, Text text, bool button, Transform transform)
+        public void BuildMenu(Player player, string location, IMapUI text, bool button, Transform transform)
         {
             foreach (GameButton b in L.b.gameButtons.Values())
             {

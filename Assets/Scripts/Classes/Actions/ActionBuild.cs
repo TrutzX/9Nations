@@ -9,6 +9,7 @@ using Players;
 using Tools;
 using UI;
 using UI.Show;
+using Units;
 
 namespace Classes.Actions
 {
@@ -71,9 +72,9 @@ namespace Classes.Actions
     public class BuildSplitElement : SplitElement
     {
         protected BaseDataBuildingUnit build;
-        protected MapElementInfo go;
+        protected Buildings.MapElementInfo go;
         protected NVector pos;
-        public BuildSplitElement(BaseDataBuildingUnit build, MapElementInfo go, NVector pos) : base(build.name, build.Sprite())
+        public BuildSplitElement(BaseDataBuildingUnit build, Buildings.MapElementInfo go, NVector pos) : base(build.name, build.Sprite())
         {
             this.build = build;
             this.pos = pos;

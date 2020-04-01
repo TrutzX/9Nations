@@ -1,4 +1,5 @@
 using System;
+using Buildings;
 using DataTypes;
 using Game;
 using Libraries.Rounds;
@@ -10,7 +11,7 @@ using Button = UnityEngine.UI.Button;
 
 namespace Players.Infos
 {
-    public class InfoUI : MonoBehaviour
+    public class InfoUI : MonoBehaviour, IMapUI
     {
         public GameObject infoButtons;
         public Text infoText;
@@ -56,13 +57,26 @@ namespace Players.Infos
             button.AddComponent<ClickableObject>();
             button.GetComponent<ClickableObject>().right = del;
             
-            UIHelper.HoverEnter(infoText,info.title,button,() => { infoText.text = ""; });
+            UIHelper.HoverEnter(button,() => ShowPanelMessage(info.title),() => ShowPanelMessage(""));
             
             //show?
             if (info.desc != null)
             {
                 info.ShowImportant();
             }
+        }
+
+        public void ShowPanelMessage(string text)
+        {
+            infoText.color = Color.white;
+            infoText.text = text;
+        }
+
+        public void ShowPanelMessageError(string text)
+        {
+            infoText.color = Color.magenta;
+            infoText.text = text;
+            NAudio.PlayBuzzer();
         }
     }
 }

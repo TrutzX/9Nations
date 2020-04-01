@@ -96,7 +96,7 @@ namespace Players
             fog.StartRound();
 
             //update buttons
-            UpdateButtonTop();
+            UpdateButtonMenu();
             UpdateButtonBottom();
 
             //clear panels
@@ -126,14 +126,14 @@ namespace Players
         public void UpdateButtonBottom()
         {
             UIHelper.ClearChild(OnMapUI.Get().bottomButton);
-            L.b.gameButtons.BuildMenu(this, "bottom", OnMapUI.Get().bottomButtonText, false,
+            L.b.gameButtons.BuildMenu(this, "bottom", OnMapUI.Get().bottomUI, false,
                 OnMapUI.Get().bottomButton.transform);
         }
 
-        public void UpdateButtonTop()
+        public void UpdateButtonMenu()
         {
-            UIHelper.ClearChild(OnMapUI.Get().topButton);
-            L.b.gameButtons.BuildMenu(this, "top", OnMapUI.Get().topButtonText, false, OnMapUI.Get().topButton.transform);
+            UIHelper.ClearChild(OnMapUI.Get().menuButton);
+            L.b.gameButtons.BuildMenu(this, "top", OnMapUI.Get(), false, OnMapUI.Get().menuButton.transform);
         }
 
         private bool WinLose()

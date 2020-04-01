@@ -6,6 +6,7 @@ using Libraries.FActions.General;
 using Players;
 using Tools;
 using UI;
+using Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,11 +37,11 @@ namespace Classes.Actions
             win.Finish(400);
         }
 
-        protected virtual void FoundTown(MapElementInfo info, NVector pos, string townName)
+        protected void FoundTown(MapElementInfo info, NVector pos, string townName)
         {
             S.Towns().Create(townName, pos);
             OnMapUI.Get().UpdatePanel(pos);
-            PlayerMgmt.ActPlayer().UpdateButtonTop();
+            PlayerMgmt.ActPlayer().UpdateButtonMenu();
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)

@@ -12,6 +12,7 @@ using UI;
 using Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MapElementInfo = Buildings.MapElementInfo;
 
 namespace Actions
 {

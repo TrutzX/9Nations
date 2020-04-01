@@ -7,16 +7,12 @@ using System.Collections.Generic;
 public class Data{
 	//Document URL: https://spreadsheets.google.com/feeds/worksheets/1U663Qd5fqg1MNDhFQ6uvzYjlmshHd7Yyk8YIkib1CbQ/public/basic?alt=json-in-script
 
-	//Sheet SheetRess
-	public static DataTypes.SheetRess ress = new DataTypes.SheetRess();
 	//Sheet SheetFeatures
 	public static DataTypes.SheetFeatures features = new DataTypes.SheetFeatures();
 	//Sheet SheetFeaturePlayer
 	public static DataTypes.SheetFeaturePlayer featurePlayer = new DataTypes.SheetFeaturePlayer();
 	//Sheet SheetInputKey
 	public static DataTypes.SheetInputKey inputKey = new DataTypes.SheetInputKey();
-	//Sheet SheetNAction
-	public static DataTypes.SheetNAction nAction = new DataTypes.SheetNAction();
 	//Sheet SheetMapAction
 	public static DataTypes.SheetMapAction mapAction = new DataTypes.SheetMapAction();
 	//Sheet SheetIcons
@@ -24,172 +20,11 @@ public class Data{
 	//Sheet SheetHelp
 	public static DataTypes.SheetHelp help = new DataTypes.SheetHelp();
 	static Data(){
-		ress.Init(); features.Init(); featurePlayer.Init(); inputKey.Init(); nAction.Init(); mapAction.Init(); icons.Init(); help.Init(); 
+		features.Init(); featurePlayer.Init(); inputKey.Init(); mapAction.Init(); icons.Init(); help.Init(); 
 	}
 }
 
 
-namespace DataTypes{
-	public partial class Ress{
-		public string id;
-		public string name;
-		public string sound;
-		public string icon;
-		public int market;
-		public float storage;
-		public int rechangeatdestroy;
-
-		public Ress(){}
-
-		public Ress(string id, string name, string sound, string icon, int market, float storage, int rechangeatdestroy){
-			this.id = id;
-			this.name = name;
-			this.sound = sound;
-			this.icon = icon;
-			this.market = market;
-			this.storage = storage;
-			this.rechangeatdestroy = rechangeatdestroy;
-		}
-	}
-	public class SheetRess: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,25);
-		public readonly string[] labels = new string[]{"id","name","sound","icon","int market","float storage","int rechangeatdestroy"};
-		private Ress[] _rows = new Ress[37];
-		public void Init() {
-			_rows = new Ress[]{
-					new Ress("wood","Wood","interface5","base:wood",4,1f,50),
-					new Ress("plank","Plank","","base:plank",12,1f,50),
-					new Ress("stone","Stone","metalPot3","base:stone",6,1f,50),
-					new Ress("brick","Brick","","base:brick",18,1f,50),
-					new Ress("ore","Ore","","base:ore",5,1f,50),
-					new Ress("tool","Tool","","base:tool",14,1f,50),
-					new Ress("weapon","Weapon","","base:weapon",54,1f,50),
-					new Ress("food","Food","bite-small3","base:food",1,0.5f,50),
-					new Ress("gold","Gold","","other:gold",5,0.25f,50),
-					new Ress("worker","Worker","","ui:worker",0,0f,100),
-					new Ress("workermax","Worker","","ui:workermax",0,0f,100),
-					new Ress("research","Research","","magic:research",0,0f,50),
-					new Ress("faith","Faith","","528",0,0f,50),
-					new Ress("safety","Safety","","329",0,0f,50),
-					new Ress("culture","Culture","","80",0,0f,50),
-					new Ress("wealth","Wealth","","147",0,1f,50),
-					new Ress("leaf","Leaf","","181",2,0.5f,50),
-					new Ress("rope","Rope","","215",12,1f,50),
-					new Ress("slingshot","Slingshot","","114",54,1f,50),
-					new Ress("turnip","Turnip","","718",0,1f,50),
-					new Ress("carrot","Carrot","","734",0,1f,50),
-					new Ress("cabbage","Cabbage","","750",0,1f,50),
-					new Ress("potato","Potato","","766",0,1f,50),
-					new Ress("onion","Onion","","782",0,1f,50),
-					new Ress("corn","Corn","","798",0,1f,50),
-					new Ress("tomato","Tomato","","814",0,1f,50),
-					new Ress("wheat","Wheat","","830",0,1f,50),
-					new Ress("bellpepper","Bell pepper","","719",0,1f,50),
-					new Ress("eggplant","Eggplant","","735",0,1f,50),
-					new Ress("cauliflower","Cauliflower","","751",0,1f,50),
-					new Ress("broccoli","Broccoli","","767",0,1f,50),
-					new Ress("pumpkin","Pumpkin","","783",0,1f,50),
-					new Ress("cucumber","Cucumber","","799",0,1f,50),
-					new Ress("strawberry","Strawberry","","815",0,1f,50),
-					new Ress("peanut","Peanut","","831",0,1f,50),
-					new Ress("seed","Seed","","247",15,1f,50),
-					new Ress("buildtime","Buildtime","","base:build",0,0f,0)
-				};
-		}
-			
-		public IEnumerator GetEnumerator(){
-			return new SheetEnumerator(this);
-		}
-		private class SheetEnumerator : IEnumerator{
-			private int idx = -1;
-			private SheetRess t;
-			public SheetEnumerator(SheetRess t){
-				this.t = t;
-			}
-			public bool MoveNext(){
-				if (idx < t._rows.Length - 1){
-					idx++;
-					return true;
-				}else{
-					return false;
-				}
-			}
-			public void Reset(){
-				idx = -1;
-			}
-			public object Current{
-				get{
-					return t._rows[idx];
-				}
-			}
-		}
-		public int Length{ get{ return _rows.Length; } }
-		public Ress this[int index]{
-			get{
-				return _rows[index];
-			}
-		}
-		public Ress this[string id]{
-			get{
-				for (int i = 0; i < _rows.Length; i++) {
-					if( _rows[i].id == id){ return _rows[i]; }
-				}
-				return null;
-			}
-		}
-		public bool ContainsKey(string key){
-			for (int i = 0; i < _rows.Length; i++) {
-				if( _rows[i].id == key){ return true; }
-			}
-			return false;
-		}
-		public Ress[] ToArray(){
-			return _rows;
-		}
-		public Ress Random() {
-			return _rows[ UnityEngine.Random.Range(0, _rows.Length) ];
-		}
-
-		public Ress wood{	get{ return _rows[0]; } }
-		public Ress plank{	get{ return _rows[1]; } }
-		public Ress stone{	get{ return _rows[2]; } }
-		public Ress brick{	get{ return _rows[3]; } }
-		public Ress ore{	get{ return _rows[4]; } }
-		public Ress tool{	get{ return _rows[5]; } }
-		public Ress weapon{	get{ return _rows[6]; } }
-		public Ress food{	get{ return _rows[7]; } }
-		public Ress gold{	get{ return _rows[8]; } }
-		public Ress worker{	get{ return _rows[9]; } }
-		public Ress workermax{	get{ return _rows[10]; } }
-		public Ress research{	get{ return _rows[11]; } }
-		public Ress faith{	get{ return _rows[12]; } }
-		public Ress safety{	get{ return _rows[13]; } }
-		public Ress culture{	get{ return _rows[14]; } }
-		public Ress wealth{	get{ return _rows[15]; } }
-		public Ress leaf{	get{ return _rows[16]; } }
-		public Ress rope{	get{ return _rows[17]; } }
-		public Ress slingshot{	get{ return _rows[18]; } }
-		public Ress turnip{	get{ return _rows[19]; } }
-		public Ress carrot{	get{ return _rows[20]; } }
-		public Ress cabbage{	get{ return _rows[21]; } }
-		public Ress potato{	get{ return _rows[22]; } }
-		public Ress onion{	get{ return _rows[23]; } }
-		public Ress corn{	get{ return _rows[24]; } }
-		public Ress tomato{	get{ return _rows[25]; } }
-		public Ress wheat{	get{ return _rows[26]; } }
-		public Ress bellpepper{	get{ return _rows[27]; } }
-		public Ress eggplant{	get{ return _rows[28]; } }
-		public Ress cauliflower{	get{ return _rows[29]; } }
-		public Ress broccoli{	get{ return _rows[30]; } }
-		public Ress pumpkin{	get{ return _rows[31]; } }
-		public Ress cucumber{	get{ return _rows[32]; } }
-		public Ress strawberry{	get{ return _rows[33]; } }
-		public Ress peanut{	get{ return _rows[34]; } }
-		public Ress seed{	get{ return _rows[35]; } }
-		public Ress buildtime{	get{ return _rows[36]; } }
-
-	}
-}
 namespace DataTypes{
 	public partial class Features{
 		public string id;
@@ -211,7 +46,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeatures: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,26);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,19);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private Features[] _rows = new Features[9];
 		public void Init() {
@@ -314,7 +149,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetFeaturePlayer: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,27);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,20);
 		public readonly string[] labels = new string[]{"id","name","icon","scope","standard","type"};
 		private FeaturePlayer[] _rows = new FeaturePlayer[2];
 		public void Init() {
@@ -401,7 +236,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetInputKey: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,27);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,20);
 		public readonly string[] labels = new string[]{"id","key","type","hidden","active"};
 		private InputKey[] _rows = new InputKey[33];
 		public void Init() {
@@ -532,141 +367,6 @@ namespace DataTypes{
 	}
 }
 namespace DataTypes{
-	public partial class NAction{
-		public string id;
-		public string name;
-		public string desc;
-		public int cost;
-		public string icon;
-		public bool activeMapElement;
-		public string req1;
-		public string req2;
-		public bool useUnderConstruction;
-		public bool onlyOwner;
-		public string sound;
-		public bool persistent;
-
-		public NAction(){}
-
-		public NAction(string id, string name, string desc, int cost, string icon, bool activeMapElement, string req1, string req2, bool useUnderConstruction, bool onlyOwner, string sound, bool persistent){
-			this.id = id;
-			this.name = name;
-			this.desc = desc;
-			this.cost = cost;
-			this.icon = icon;
-			this.activeMapElement = activeMapElement;
-			this.req1 = req1;
-			this.req2 = req2;
-			this.useUnderConstruction = useUnderConstruction;
-			this.onlyOwner = onlyOwner;
-			this.sound = sound;
-			this.persistent = persistent;
-		}
-	}
-	public class SheetNAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,28);
-		public readonly string[] labels = new string[]{"id","name","desc","cost","icon","activeMapElement","req1","req2","useUnderConstruction","onlyOwner","sound","persistent"};
-		private NAction[] _rows = new NAction[19];
-		public void Init() {
-			_rows = new NAction[]{
-					new NAction("destroy","Destroy it","Destroy it",0,"base:destroy",true,"","",true,true,"click",false),
-					new NAction("build","Build","Construct a new Building",5,"base:build",true,"empty:building","townMin:1",false,true,"click",false),
-					new NAction("foundTownFirst","Found your first town","Found your first town",10,"foundTown",true,"town:<0","",false,true,"click",false),
-					new NAction("foundTown","Found a new town","Found a new town",10,"foundTown",true,"","",false,true,"click",false),
-					new NAction("train","Train","Train a new unit",0,"base:train",true,"empty:unit","",false,true,"click",false),
-					new NAction("buildUpgrade","Upgrade","Upgrade this building",0,"icons:upgrade",true,"","",false,true,"click",false),
-					new NAction("trainUpgrade","Upgrade","Upgrade this unit",5,"icons:upgrade",true,"","",false,true,"click",false),
-					new NAction("endGameLose","Lose","Lose the game",0,"base:destroy",true,"","",true,true,"click",false),
-					new NAction("endGameWin","Win","Win the game",0,"other:win",true,"","",true,true,"click",false),
-					new NAction("trade","Trade","Trade your ressources",2,"icons:trade",true,"townMin:1","",false,true,"click",false),
-					new NAction("sleep","Sleep","Wait for the next round",1,"base:sleep",true,"","",false,true,"click",true),
-					new NAction("featureP","Feature for player","Set the feature",0,"logo",false,"","",false,true,"click",false),
-					new NAction("cameraMove","Move Camera","Move the camera",0,"logo",false,"","",false,true,"click",false),
-					new NAction("gameButton","Call Game Button","Call a special game button",0,"logo",false,"","",false,true,"click",false),
-					new NAction("move","Go","Move this unit",0,"base:move",true,"","",false,true,"click",false),
-					new NAction("moveTo","Move to point","Move the unit to a specific point",0,"logo",true,"","",false,true,"click",true),
-					new NAction("improvement","Convert to a map improvement\n","Convert to a map improvement\n",0,"logo",true,"","",false,true,"click",false),
-					new NAction("townlevel","Develop town","Upgrade the town to a new level",0,"foundTown",true,"","",false,true,"click",false),
-					new NAction("moveLevel","Move level","Move between the different level, like underground or overworld",15,"moveLevel",true,"","",false,true,"click",false)
-				};
-		}
-			
-		public IEnumerator GetEnumerator(){
-			return new SheetEnumerator(this);
-		}
-		private class SheetEnumerator : IEnumerator{
-			private int idx = -1;
-			private SheetNAction t;
-			public SheetEnumerator(SheetNAction t){
-				this.t = t;
-			}
-			public bool MoveNext(){
-				if (idx < t._rows.Length - 1){
-					idx++;
-					return true;
-				}else{
-					return false;
-				}
-			}
-			public void Reset(){
-				idx = -1;
-			}
-			public object Current{
-				get{
-					return t._rows[idx];
-				}
-			}
-		}
-		public int Length{ get{ return _rows.Length; } }
-		public NAction this[int index]{
-			get{
-				return _rows[index];
-			}
-		}
-		public NAction this[string id]{
-			get{
-				for (int i = 0; i < _rows.Length; i++) {
-					if( _rows[i].id == id){ return _rows[i]; }
-				}
-				return null;
-			}
-		}
-		public bool ContainsKey(string key){
-			for (int i = 0; i < _rows.Length; i++) {
-				if( _rows[i].id == key){ return true; }
-			}
-			return false;
-		}
-		public NAction[] ToArray(){
-			return _rows;
-		}
-		public NAction Random() {
-			return _rows[ UnityEngine.Random.Range(0, _rows.Length) ];
-		}
-
-		public NAction destroy{	get{ return _rows[0]; } }
-		public NAction build{	get{ return _rows[1]; } }
-		public NAction foundTownFirst{	get{ return _rows[2]; } }
-		public NAction foundTown{	get{ return _rows[3]; } }
-		public NAction train{	get{ return _rows[4]; } }
-		public NAction buildUpgrade{	get{ return _rows[5]; } }
-		public NAction trainUpgrade{	get{ return _rows[6]; } }
-		public NAction endGameLose{	get{ return _rows[7]; } }
-		public NAction endGameWin{	get{ return _rows[8]; } }
-		public NAction trade{	get{ return _rows[9]; } }
-		public NAction sleep{	get{ return _rows[10]; } }
-		public NAction featureP{	get{ return _rows[11]; } }
-		public NAction cameraMove{	get{ return _rows[12]; } }
-		public NAction gameButton{	get{ return _rows[13]; } }
-		public NAction move{	get{ return _rows[14]; } }
-		public NAction moveTo{	get{ return _rows[15]; } }
-		public NAction improvement{	get{ return _rows[16]; } }
-		public NAction townlevel{	get{ return _rows[17]; } }
-		public NAction moveLevel{	get{ return _rows[18]; } }
-
-	}
-}
-namespace DataTypes{
 	public partial class MapAction{
 		public string id;
 		public string name;
@@ -695,7 +395,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetMapAction: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,28);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,21);
 		public readonly string[] labels = new string[]{"id","name","desc","ap","icon","reqNonSelf1","reqNonSelf2","reqSelf1","reqSelf2","sound"};
 		private MapAction[] _rows = new MapAction[3];
 		public void Init() {
@@ -778,7 +478,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetIcons: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,29);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,22);
 		public readonly string[] labels = new string[]{"id","file"};
 		private Icons[] _rows = new Icons[30];
 		public void Init() {
@@ -919,7 +619,7 @@ namespace DataTypes{
 		}
 	}
 	public class SheetHelp: IEnumerable{
-		public System.DateTime updated = new System.DateTime(2020,3,28,14,4,30);
+		public System.DateTime updated = new System.DateTime(2020,3,30,21,14,22);
 		public readonly string[] labels = new string[]{"Units are, besides buildings, essential to the game. When clicked, they can be moved with the arrow keys, which costs action points (AP). You can also perform various actions, which costs AP. At the end of each round, the AP will be refilled.","name","icon","text"};
 		private Help[] _rows = new Help[11];
 		public void Init() {

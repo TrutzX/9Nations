@@ -69,7 +69,7 @@ namespace Tools
 
         public bool Equals(NVector other)
         {
-            return x == other.x && y == other.y && level == other.level;
+            return other != null && x == other.x && y == other.y && level == other.level;
         }
 
         public NVector Clone()

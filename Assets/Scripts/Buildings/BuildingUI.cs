@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Buildings
 {
-    public class BuildingUI : MapElementUI<BuildingInfo>
+    public class BuildingUI : MapElementUI<BuildingInfo>, IMapUI
     {
         // Start is called before the first frame update
         void Start()

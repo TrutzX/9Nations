@@ -1253,18 +1253,40 @@ namespace ES3PlayMaker
 		}
 	}
 
-	[ActionCategory("Easy Save 3")]
+    [ActionCategory("Easy Save 3")]
+    [Tooltip("Uploads a file in storage to the server, overwriting any existing files.")]
+    public class ES3CloudUploadES3File : ES3CloudUserAction
+    {
+        public override void Enter()
+        {
+            var settings = GetSettings();
+            StartCoroutine(cloud.UploadFile(es3File, user.Value, password.Value));
+        }
+    }
+
+    [ActionCategory("Easy Save 3")]
 	[Tooltip("Downloads a file from the server, overwriting any existing files, or returning error code 3 if no file exists on the server.")]
-	public class ES3CloudDownloadFile : ES3CloudUserAction
+	public class ES3CloudDownloadES3File : ES3CloudUserAction
 	{
 		public override void Enter()
 		{
 			var settings = GetSettings();
-			StartCoroutine(cloud.DownloadFile(path.Value, user.Value, password.Value, settings));
+			StartCoroutine(cloud.DownloadFile(es3File, user.Value, password.Value));
 		}
 	}
 
-	[ActionCategory("Easy Save 3")]
+    [ActionCategory("Easy Save 3")]
+    [Tooltip("Downloads a file from the server into an ES3File, or returning error code 3 if no file exists on the server.")]
+    public class ES3CloudDownloadFile : ES3CloudUserAction
+    {
+        public override void Enter()
+        {
+            var settings = GetSettings();
+            StartCoroutine(cloud.DownloadFile(path.Value, user.Value, password.Value, settings));
+        }
+    }
+
+    [ActionCategory("Easy Save 3")]
 	[Tooltip("Downloads a file from the server, overwriting any existing files, or returning error code 3 if no file exists on the server.")]
 	public class ES3CloudDeleteFile : ES3CloudUserAction
 	{

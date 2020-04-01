@@ -21,6 +21,10 @@
 * by Mack from vxresource.wordpress.com/category/resources/tilesets
 * by Idril from idrilart.wordpress.com/2016/04
 * by TerraVX from rpgdreams.forumotion.com/t171p25-rpg-dreams-unique-tile-style
+* by NotteEterna from rpgdreams.forumotion.com/t171p25-rpg-dreams-unique-tile-style
+* by PixelMister from forums.rpgmakerweb.com/index.php?threads/pixelmisters-rmmv-tile-resources.62367
+* by XxJapoZeroxX from rpgtileset.com/tileset/fantasy-world-tileset-for-rpg-maker-mv
+* by Meph from bay12forums.com/smf/index.php?topic=161047.0
 
 #Icons
 * by Avy from forums.rpgmakerweb.com/index.php?threads/avys-icon-workshop-back-to-buisness.21623

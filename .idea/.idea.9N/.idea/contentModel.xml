@@ -1255,10 +1255,8 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Actions" t="Include">
-            <e p="ActionHelper.cs" t="Include" />
             <e p="BaseAction.cs" t="Include" />
             <e p="ImprovementAction.cs" t="Include" />
-            <e p="TradeAction.cs" t="Include" />
           </e>
           <e p="Buildings" t="Include">
             <e p="BuildingInfo.cs" t="Include" />
@@ -1266,11 +1264,14 @@
             <e p="BuildingUI.cs" t="Include" />
             <e p="BuildingUnitData.cs" t="Include" />
             <e p="Construction.cs" t="Include" />
+            <e p="IMapUI.cs" t="Include" />
             <e p="MapElementInfo.cs" t="Include" />
             <e p="MapElementUI.cs" t="Include" />
           </e>
           <e p="Classes" t="Include">
             <e p="Actions" t="Include">
+              <e p="ActionAttackBuilding.cs" t="Include" />
+              <e p="ActionAttackUnit.cs" t="Include" />
               <e p="ActionBuild.cs" t="Include" />
               <e p="ActionCameraMove.cs" t="Include" />
               <e p="ActionDestroy.cs" t="Include" />
@@ -1279,14 +1280,23 @@
               <e p="ActionGameButton.cs" t="Include" />
               <e p="ActionGameLose.cs" t="Include" />
               <e p="ActionGameWin.cs" t="Include" />
+              <e p="ActionHeal.cs" t="Include" />
+              <e p="ActionInteract.cs" t="Include" />
               <e p="ActionMove.cs" t="Include" />
               <e p="ActionMoveLevel.cs" t="Include" />
               <e p="ActionProduce.cs" t="Include" />
               <e p="ActionSleep.cs" t="Include" />
               <e p="ActionTerraform.cs" t="Include" />
               <e p="ActionTownLevel.cs" t="Include" />
+              <e p="ActionTrade.cs" t="Include" />
               <e p="ActionTrain.cs" t="Include" />
               <e p="ActionUpgrade.cs" t="Include" />
+              <e p="Addons" t="Include">
+                <e p="ActionHelper.cs" t="Include" />
+                <e p="ActionInteractSplitElement.cs" t="Include" />
+                <e p="ActionTradeWindow.cs" t="Include" />
+              </e>
+              <e p="BaseActiveAction.cs" t="Include" />
               <e p="BasePerformAction.cs" t="Include" />
               <e p="BasePlayerPerformAction.cs" t="Include" />
             </e>
@@ -1339,6 +1349,7 @@
             <e p="XXEndlessGameWindow.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
+            <e p="BottomUI.cs" t="Include" />
             <e p="GameData.cs" t="Include" />
             <e p="GameHelper.cs" t="Include" />
             <e p="GameMgmt.cs" t="Include" />
@@ -1393,9 +1404,12 @@
               <e p="ActionDisplaySplitElement.cs" t="Include" />
               <e p="ActionHolder.cs" t="Include" />
               <e p="ActionHolders.cs" t="Include" />
-              <e p="ActiveAction.cs" t="Include" />
               <e p="FActionMgmt.cs" t="Include" />
               <e p="FDataAction.cs" t="Include" />
+            </e>
+            <e p="FightModis" t="Include">
+              <e p="FightModi.cs" t="Include" />
+              <e p="FightModiMgmt.cs" t="Include" />
             </e>
             <e p="GameButtons" t="Include">
               <e p="GameButton.cs" t="Include" />
@@ -1470,17 +1484,6 @@
           <e p="MainMenu" t="Include">
             <e p="Startgame.cs" t="Include" />
           </e>
-          <e p="Mapactions" t="Include">
-            <e p="Actions" t="Include">
-              <e p="AttackAction.cs" t="Include" />
-              <e p="BaseMapAction.cs" t="Include" />
-              <e p="HealAction.cs" t="Include" />
-              <e p="LeaveAction.cs" t="Include" />
-            </e>
-            <e p="InteractionHelper.cs" t="Include" />
-            <e p="MapAction.cs" t="Include" />
-            <e p="MapActionSplitElement.cs" t="Include" />
-          </e>
           <e p="Maps" t="Include">
             <e p="GameMaps" t="Include">
               <e p="GameMapData.cs" t="Include" />
@@ -1540,6 +1543,8 @@
           </e>
           <e p="reqs" t="Include">
             <e p="BaseReq.cs" t="Include" />
+            <e p="BaseReqArgument.cs" t="Include" />
+            <e p="BaseReqNeg.cs" t="Include" />
             <e p="BaseReqOnlyMapElement.cs" t="Include" />
             <e p="BaseReqOnlyPlayer.cs" t="Include" />
             <e p="ReqAp.cs" t="Include" />
@@ -1547,6 +1552,7 @@
             <e p="ReqDayTime.cs" t="Include" />
             <e p="ReqDisabled.cs" t="Include" />
             <e p="ReqElement.cs" t="Include" />
+            <e p="ReqElementCount.cs" t="Include" />
             <e p="ReqEmpty.cs" t="Include" />
             <e p="ReqFeature.cs" t="Include" />
             <e p="ReqFeaturePlayer.cs" t="Include" />
@@ -1557,7 +1563,7 @@
             <e p="ReqMinMax.cs" t="Include" />
             <e p="ReqMinMaxPlayer.cs" t="Include" />
             <e p="ReqNation.cs" t="Include" />
-            <e p="ReqQuest.cs" t="Include" />
+            <e p="ReqQuestCount.cs" t="Include" />
             <e p="ReqQuestFinish.cs" t="Include" />
             <e p="ReqRes.cs" t="Include" />
             <e p="ReqResearch.cs" t="Include" />
@@ -1569,11 +1575,12 @@
             <e p="ReqTerrain.cs" t="Include" />
             <e p="ReqTerrainCategory.cs" t="Include" />
             <e p="ReqTerrainNear.cs" t="Include" />
-            <e p="ReqTown.cs" t="Include" />
+            <e p="ReqTownCount.cs" t="Include" />
             <e p="ReqTownLevel.cs" t="Include" />
             <e p="ReqTownNear.cs" t="Include" />
             <e p="ReqUnit.cs" t="Include" />
             <e p="ReqUnitCount.cs" t="Include" />
+            <e p="ReqUnitDest.cs" t="Include" />
             <e p="ReqUnitMaxPlayer.cs" t="Include" />
             <e p="ReqUnitOwn.cs" t="Include" />
             <e p="ReqUpdate.cs" t="Include" />

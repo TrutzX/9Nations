@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Libraries.FActions.General
+namespace Libraries.FActions
 {
     [Serializable]
     public class FActionMgmt : BaseMgmt<FDataAction>
@@ -23,6 +23,12 @@ namespace Libraries.FActions.General
                     break;
                 case "sound":
                     ele.sound = data;
+                    break;
+                case "mapelement":
+                    ele.mapElement = Bool(data);
+                    break;
+                case "field":
+                    ele.field = data;
                     break;
                 default:
                     Debug.LogWarning($"{name} missing {header} for data {data}");

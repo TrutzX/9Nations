@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Units
 {
-    public class UnitUI : MapElementUI<UnitInfo>
+    public class UnitUI : MapElementUI<UnitInfo>, IMapUI
     {
 
         // Start is called before the first frame update

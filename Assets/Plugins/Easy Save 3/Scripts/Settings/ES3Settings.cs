@@ -146,8 +146,7 @@ public class ES3Settings : System.ICloneable
 	internal static void LoadDefaults()
 	{
 		#if !UNITY_EDITOR
-		//var go = Resources.Load<GameObject>("ES3/ES3 Default Settings");
-        var go = GameObject.Find("ES3 Default Settings");
+		var go = Resources.Load<GameObject>("ES3/ES3 Default Settings");
 		if(go == null)
 		{
 			Debug.LogError("Default settings were not found in scene. Please drag the ES3 Default Settings prefab found in Plugins/Easy Save 3/Resources/ES3/ into this scene.");

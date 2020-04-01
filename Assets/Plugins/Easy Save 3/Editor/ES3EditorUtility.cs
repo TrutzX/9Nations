@@ -28,7 +28,7 @@ public class ES3EditorUtility : Editor
 
     public static string PathToDefaultSettings()
     {
-        return ES3EditorUtility.PathToEasySaveFolder() + "/Resources/ES3/ES3 Default Settings.prefab";
+        return ES3EditorUtility.PathToEasySaveFolder() + "Resources/ES3/ES3 Default Settings.prefab";
     }
 
 	public static void DisplayLink(string label, string url)

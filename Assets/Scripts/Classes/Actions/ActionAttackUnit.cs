@@ -1,19 +1,30 @@
 using Buildings;
-using DataTypes;
 using Game;
-using UI;
+using Libraries.FActions;
+using Libraries.FActions.General;
+using Players;
+using Tools;
 using Units;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace MapActions.Actions
+namespace Classes.Actions
 {
-    public class AttackAction : BaseMapAction
+    public class ActionAttackUnit : BasePerformAction
     {
-        public override void Perform(MapElementInfo self, MapElementInfo nonSelf)
+        public ActionAttackUnit() : this("attackUnit"){}
+        
+        public ActionAttackUnit(string id) : base(id){}
+
+        protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
+            ActionHolder holder)
+        {
+            Perform(info, S.Unit().At(pos));
+        }
+        
+        public virtual void Perform(MapElementInfo self, MapElementInfo nonSelf)
         {
             // calc damage
-            int damage = calcDamage(self, nonSelf);
+            int damage = CalcDamage(self, nonSelf);
 
             string a = $"{self.name} ({self.Player().name})";
             string d = $"{nonSelf.name} ({nonSelf.Player().name})";
@@ -57,7 +68,7 @@ namespace MapActions.Actions
         /// <param name="self"></param>
         /// <param name="nonSelf"></param>
         /// <returns></returns>
-        private int calcDamage(MapElementInfo self, MapElementInfo nonSelf)
+        private int CalcDamage(MapElementInfo self, MapElementInfo nonSelf)
         {
             UnitInfo uSelf = (UnitInfo) self;
             UnitInfo unSelf = (UnitInfo) nonSelf;
@@ -82,6 +93,18 @@ namespace MapActions.Actions
             }
 
             return (int) dam;
+        }
+
+        protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override ActionHolder Create(string setting)
+        {
+            ActionHolder conf = base.Create(setting);
+            conf.trigger = ActionEvent.Direct;
+            return conf;
         }
     }
 }

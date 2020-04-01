@@ -11,6 +11,7 @@ using Libraries.Campaigns;
 using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using Libraries.FightModis;
 using Libraries.GameButtons;
 using Libraries.MapGenerations;
 using Libraries.Maps;
@@ -58,6 +59,7 @@ namespace Libraries
         public CampaignMgmt campaigns;
         public ScenarioMgmt scenarios;
         public GameButtonMgmt gameButtons;
+        public FightModiMgmt fightModis;
         
 
         public Dictionary<string, IRead> mgmts;
@@ -101,6 +103,7 @@ namespace Libraries
             campaigns = (CampaignMgmt) Add(new CampaignMgmt());
             scenarios = (ScenarioMgmt) Add(new ScenarioMgmt());
             gameButtons = (GameButtonMgmt) Add(new GameButtonMgmt());
+            fightModis = (FightModiMgmt) Add(new FightModiMgmt());
         }
         
         private IRead Add(IRead mgmt)

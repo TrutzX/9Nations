@@ -10,7 +10,6 @@ using Libraries.Buildings;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Terrains;
-using MapActions;
 using Players;
 using Players.Infos;
 using reqs;
@@ -71,9 +70,9 @@ namespace Buildings
                 return $"{gameObject.name} under construction ({(int) (GetComponent<Construction>().GetConstructionProcent()*100)}%) {data.lastInfo}";
             }
 
-            if (data.actionWaitingPos != -1)
+            if (data.actionWaitingActionPos != -1)
             {
-                ActionHolder a = data.action.actions[data.actionWaitingPos];
+                ActionHolder a = data.action.actions[data.actionWaitingActionPos];
                 FDataAction da = a.DataAction();
                 text += $"Prepare {da.name} ({TextHelper.Proc(data.ActionWaitingAp, da.cost)}).";
             }
@@ -196,22 +195,30 @@ namespace Buildings
             CameraMove.Get().MoveTo(Pos());
         }
 
-        public void SetWaitingAction(int actionPos)
+        public IMapUI UI()
         {
-            data.actionWaitingPos = actionPos;
+            if (IsBuilding())
+                return OnMapUI.Get().buildingUI;
+            return OnMapUI.Get().unitUI;
+        }
+
+        public void SetWaitingAction(int actionPos, NVector pos)
+        {
+            data.actionWaitingActionPos = actionPos;
             if (actionPos == -1) return;
             
             data.ActionWaitingAp = data.ap;
             data.ap = 0;
-            
+            data.actionWaitingPos = pos;
+
         }
 
         public void StartPlayerRound()
         {
             //has a waiting round?
-            if (data.actionWaitingPos == -1) return;
+            if (data.actionWaitingActionPos == -1) return;
 
-            ActionHolder a = data.action.actions[data.actionWaitingPos];
+            ActionHolder a = data.action.actions[data.actionWaitingActionPos];
             FDataAction da = a.DataAction();
             if (da.cost > data.ap + data.ActionWaitingAp)
             {
@@ -221,10 +228,11 @@ namespace Buildings
             }
 
             data.ap = da.cost - data.ActionWaitingAp;
-            data.actionWaitingPos = -1;
+            data.actionWaitingActionPos = -1;
             data.ap += data.ActionWaitingAp;
-            data.action.Perform(a, ActionEvent.Direct, Player(), this, Pos());
+            string erg = data.action.Perform(a, ActionEvent.Direct, Player(), this, data.actionWaitingPos);
             data.ap = da.cost - data.ActionWaitingAp;
+            SetLastInfo($"Performs {da.name}. {erg}");
         }
     }
 }

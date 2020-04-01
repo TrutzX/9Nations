@@ -8,6 +8,7 @@ using Libraries.FActions.General;
 using Players;
 using Tools;
 using UI;
+using Units;
 
 namespace Classes.Actions
 {
@@ -79,7 +80,7 @@ namespace Classes.Actions
     
     public class BuildUpgradeSplitElement : BuildSplitElement
     {
-        public BuildUpgradeSplitElement(BaseDataBuildingUnit build, MapElementInfo go, NVector pos) : base(build, go, pos)
+        public BuildUpgradeSplitElement(BaseDataBuildingUnit build, Buildings.MapElementInfo go, NVector pos) : base(build, go, pos)
         {
         }
 

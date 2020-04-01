@@ -76,7 +76,7 @@ namespace InputAction
             //need a unit?
             if (key.active && aUnit == null)
             {
-                OnMapUI.Get().SetMenuMessageError($"{key.id} needs a selected unit.");
+                OnMapUI.Get().ShowPanelMessageError($"{key.id} needs a selected unit.");
                 return;
             }
             
@@ -119,7 +119,7 @@ namespace InputAction
                     GameMgmt.Get().newMap.view.ViewAdd(-1);
                     break;
                 default:
-                    OnMapUI.Get().SetMenuMessageError($"{key.id} is not a valid call.");
+                    OnMapUI.Get().ShowPanelMessageError($"{key.id} is not a valid call.");
                     break;
             }
             
@@ -134,7 +134,7 @@ namespace InputAction
             //has an unit or building?
             if (aUnit == null && aBuilding == null)
             {
-                OnMapUI.Get().SetMenuMessageError($"Action {L.b.actions[key.id].name} can not called, their is no unit or building, who can perform it.");
+                OnMapUI.Get().ShowPanelMessageError($"Action {L.b.actions[key.id].name} can not called, their is no unit or building, who can perform it.");
                 return;
             }
             
@@ -184,7 +184,7 @@ namespace InputAction
             //check if possible to call
             if (!gameButton.req.Check(PlayerMgmt.ActPlayer()))
             {
-                OnMapUI.Get().SetMenuMessageError(gameButton.req.Desc(PlayerMgmt.ActPlayer()));
+                OnMapUI.Get().ShowPanelMessageError(gameButton.req.Desc(PlayerMgmt.ActPlayer()));
                 return;
             }
             
@@ -203,7 +203,7 @@ namespace InputAction
             //valid pos?
             if (!GameHelper.Valid((int)trans.position.x+x,(int)trans.position.y+y))
             {
-                OnMapUI.Get().SetMenuMessageError("The camera position is to far outside of the map.");
+                OnMapUI.Get().ShowPanelMessageError("The camera position is to far outside of the map.");
                 return;
             }
         
@@ -215,7 +215,7 @@ namespace InputAction
             //valide?
             if (Camera.main.orthographicSize + zoom < 1)
             {
-                OnMapUI.Get().SetMenuMessageError("The camera zoom is to minimal");
+                OnMapUI.Get().ShowPanelMessageError("The camera zoom is to minimal");
                 Camera.main.orthographicSize = 1;
                 return;
             }
@@ -223,7 +223,7 @@ namespace InputAction
             //valide?
             if (Camera.main.orthographicSize + zoom > 20)
             {
-                OnMapUI.Get().SetMenuMessageError("The camera zoom is to maximal");
+                OnMapUI.Get().ShowPanelMessageError("The camera zoom is to maximal");
                 Camera.main.orthographicSize = 20;
                 return;
             }

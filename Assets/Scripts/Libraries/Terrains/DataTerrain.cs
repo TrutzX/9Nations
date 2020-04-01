@@ -53,7 +53,7 @@ namespace Libraries.Terrains
                 panel.AddHeaderLabel("Resources");
                 foreach (string key in GameMgmt.Get().data.map.levels[pos.level].ResGenKey(pos.x, pos.y))
                 {
-                    panel.AddImageLabel($"{L.b.terrain.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key))}x {Data.ress[key].name}", L.b.res[key].Icon);
+                    panel.AddImageLabel($"{L.b.terrain.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key))}x {L.b.res[key].name}", L.b.res[key].Icon);
                 }
                 
             } else if (Res.Count > 0)
@@ -62,7 +62,7 @@ namespace Libraries.Terrains
                 foreach (KeyValuePair<string, string> r in Res)
                 {
                     string[] c = r.Value.Split('-');
-                    panel.AddImageLabel($"{L.b.terrain.GenDesc(Int32.Parse(c[0]))}-{L.b.terrain.GenDesc(Int32.Parse(c[1]))}x {Data.ress[r.Key].name}", L.b.res[r.Key].Icon);
+                    panel.AddImageLabel($"{L.b.terrain.GenDesc(Int32.Parse(c[0]))}-{L.b.terrain.GenDesc(Int32.Parse(c[1]))}x {L.b.res[r.Key].name}", L.b.res[r.Key].Icon);
                 }
             }
         }

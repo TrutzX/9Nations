@@ -1,52 +1,44 @@
-﻿using System;
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Buildings;
 using DataTypes;
-using Game;
-using Players;
-using reqs;
-using Tools;
+using Libraries;
+using Libraries.Res;
 using Towns;
 using UI;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Actions
+namespace Classes.Actions.Addons
 {
-    public class TradeAction : BaseAction
+    public class ActionTradeWindow
     {
         private string _sell;
         private string _buy;
-        private Town _town;
+        private readonly Town _town;
 
         private Button shop1, shop10, shop100, shop1000;
-        protected override void ButtonAction(Player player, MapElementInfo info, NVector pos, string settings)
+        
+        public ActionTradeWindow(Town town, string sett)
         {
-            _town = info.Town();
-            BuildWindow(settings);
+            _town = town;
         }
-
+        
         private void BuildWindow(string settings)
         {
-            WindowPanelBuilder w = WindowPanelBuilder.Create(Data.nAction[id].desc);
+            WindowPanelBuilder w = WindowPanelBuilder.Create("Trade");
 
             //build ress list
             List<string> values = new List<string>();
             List<string> titles = new List<string>();
 
             //sell
-            foreach (Ress r in Data.ress)
+            foreach (Resource r in L.b.res.Values())
             {
                 if (settings!= null && settings.StartsWith("sell") && !settings.Contains(r.id))
                 {
                     continue;
                 }
 
-                if (r.market > 0 && _town.GetRes(r.id) > 0)
+                if (r.price > 0 && _town.GetRes(r.id) > 0)
                 {
                     values.Add(r.id);
                     titles.Add($"{_town.GetRes(r.id)}x {r.name}");
@@ -73,14 +65,14 @@ namespace Actions
             titles = new List<string>();
 
             //buy
-            foreach (Ress r in Data.ress)
+            foreach (Resource r in L.b.res.Values())
             {
                 if (settings!= null && settings.StartsWith("buy") && !settings.Contains(r.id))
                 {
                     continue;
                 }
 
-                if (r.market > 0)
+                if (r.price > 0)
                 {
                     values.Add(r.id);
                     titles.Add(r.name);
@@ -137,10 +129,10 @@ namespace Actions
 
         private void UpdateButton()
         {
-            string bT = Data.ress[_buy].name;
-            int bP = Data.ress[_buy].market;
-            string sT = Data.ress[_sell].name;
-            int sP = Data.ress[_sell].market;
+            string bT = L.b.res[_buy].name;
+            float bP = L.b.res[_buy].price;
+            string sT = L.b.res[_sell].name;
+            float sP = L.b.res[_sell].price;
             
             //1
             //Debug.LogWarning($"Kosten {sT}:{sP}");
@@ -168,16 +160,9 @@ namespace Actions
         
         private void Shop(int count)
         {
-            int b = Convert.ToInt32(Math.Ceiling(count * 1d * Data.ress[_buy].market / Data.ress[_buy].market));
+            int b = Convert.ToInt32(Math.Ceiling(count * 1d * L.b.res[_buy].price / L.b.res[_buy].price));
             _town.AddRes(_sell,-b, ResType.Trade);
             _town.AddRes(_buy,count, ResType.Trade);
         }
-
-        protected override void ButtonAction(Player player, string settings)
-        {
-            _town = S.Towns().GetByPlayer(player.id).First();
-            BuildWindow(settings);
-        }
     }
-
 }

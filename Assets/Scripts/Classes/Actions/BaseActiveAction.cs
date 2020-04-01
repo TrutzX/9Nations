@@ -1,32 +1,33 @@
+using System;
 using System.Collections.Generic;
 using Buildings;
-using Classes.Actions;
 using Game;
 using Help;
-using Libraries.FActions.General;
+using Libraries.FActions;
 using NesScripts.Controls.PathFind;
 using Players;
 using Tools;
-using UI;
+using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Libraries.FActions
+namespace Classes.Actions
 {
-    public abstract class ActiveAction : BasePerformAction
+    public abstract class BaseActiveAction : BasePerformAction
     {
         protected MapElementInfo mapElementInfo;
-        protected NVector Pos;
-        protected Player Player;
+        protected NVector initPos;
+        protected Player player;
         protected ActionHolder action;
         protected List<PPoint> Points;
 
-        protected int LastClickX, LastClickY;
+        [Obsolete] protected int LastClickX, LastClickY;
+        
         protected NVector LastClickPos;
         
         protected Tilemap tileMap;
 
-        protected ActiveAction(string id) : base(id) { }
+        protected BaseActiveAction(string id) : base(id) { }
         
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos, ActionHolder holder)
         {
@@ -35,15 +36,15 @@ namespace Libraries.FActions
             Points = new List<PPoint>();
             
             //save caller
-            Player = player;
+            this.player = player;
             mapElementInfo = info;
-            Pos = pos;
+            this.initPos = pos;
             action = holder;
 
             LastClickX = -1;
             
             //set as active action
-            OnMapUI.Get().SetActiveAction(this,mapElementInfo.GetComponent<BuildingInfo>()!=null);
+            OnMapUI.Get().SetActiveAction(this,mapElementInfo.IsBuilding());
             PreRun();
         }
 
@@ -77,7 +78,7 @@ namespace Libraries.FActions
         public void Click(NVector pos)
         {
             //known click?
-            if (LastClickX == pos.x && LastClickY == pos.y)
+            if (pos.Equals(LastClickPos))
             {
                 ClickSecond();
                 OnMapUI.Get().SetActiveAction(null,false);

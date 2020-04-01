@@ -1,7 +1,6 @@
 ﻿using System;
-using reqs;
 
-namespace Libraries.FActions.General
+namespace Libraries.FActions
 {
     [Serializable]
     public class FDataAction : BaseData
@@ -10,6 +9,8 @@ namespace Libraries.FActions.General
         public bool useUnderConstruction;
         public bool onlyOwner;
         public string sound;
+        public bool mapElement;
+        public string field;
 
         public FDataAction()
         {

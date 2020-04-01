@@ -486,7 +486,27 @@ namespace ES3PlayMaker
 		}
 	}
 
-	[CustomActionEditor(typeof(ES3PlayMaker.ES3CloudUploadFile))]
+    [CustomActionEditor(typeof(ES3PlayMaker.ES3CloudDownloadES3File))]
+    public class ES3CloudDownloadES3FileEditor : BaseEditor
+    {
+        public bool showUser = false;
+        public override void DrawGUI()
+        {
+            EditField("fsmES3File");
+            EditField("url");
+            EditField("apiKey");
+            EditField("errorCode");
+            if ((showUser = EditorGUILayout.Foldout(showUser, "User (optional)")))
+            {
+                EditorGUI.indentLevel++;
+                EditField("user");
+                EditField("password");
+                EditorGUI.indentLevel--;
+            }
+        }
+    }
+
+    [CustomActionEditor(typeof(ES3PlayMaker.ES3CloudUploadFile))]
 	public class ES3CloudUploadFileEditor : ES3CloudUserEditor
 	{
 		protected override void DrawChildGUI()
@@ -496,7 +516,27 @@ namespace ES3PlayMaker
 		}
 	}
 
-	[CustomActionEditor(typeof(ES3PlayMaker.ES3CloudDeleteFile))]
+    [CustomActionEditor(typeof(ES3PlayMaker.ES3CloudUploadES3File))]
+    public class ES3CloudUploadES3FileEditor : BaseEditor
+    {
+        public bool showUser = false;
+        public override void DrawGUI()
+        {
+            EditField("fsmES3File");
+            EditField("url");
+            EditField("apiKey");
+            EditField("errorCode");
+            if((showUser = EditorGUILayout.Foldout(showUser, "User (optional)")))
+			{
+				EditorGUI.indentLevel++;
+				EditField("user");
+				EditField("password");
+				EditorGUI.indentLevel--;
+			}
+        }
+    }
+
+    [CustomActionEditor(typeof(ES3PlayMaker.ES3CloudDeleteFile))]
 	public class ES3CloudDeleteFileEditor : ES3CloudUserEditor
 	{
 		protected override void DrawChildGUI()

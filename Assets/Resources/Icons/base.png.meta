@@ -214,7 +214,7 @@ TextureImporter:
     second: fight
   - first:
       213: 1775142770807614477
-    second: base_70
+    second: interact
   - first:
       213: 7784485915180032204
     second: base_71
@@ -2408,7 +2408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_70
+      name: interact
       rect:
         serializedVersion: 2
         x: 416

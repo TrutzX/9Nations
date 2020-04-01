@@ -18,7 +18,7 @@ namespace GameMapLevels
         {
             if (level < 0 || level >= _map.levels.Count)
             {
-                OnMapUI.Get().SetMenuMessageError("This level does not exist.");
+                OnMapUI.Get().ShowPanelMessageError("This level does not exist.");
                 return false;
             }
 

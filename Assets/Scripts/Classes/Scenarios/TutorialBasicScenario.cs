@@ -75,7 +75,7 @@ namespace Classes.Scenarios
             q = new Quest(lworker.id,"Train your first unit",lworker.Icon);
             q.Desc = TextHelper.RichText(
                 "At the same time the town hall was built, which manages all resources of your settlement.",
-                "Move the shadow away from the town hall and train a worker.",
+                $"Move the {light.name} away from the town hall and train a worker.",
                 "To build your empire you need units to perform the basic actions. The main task of workers is to construct buildings and collect resources.",
                 TextHelper.Header("Tasks"), TextHelper.IconLabel(light.Icon,$"Move the {light.name} away"), TextHelper.IconLabel("train",$"Call in the {lhall.name} the train action"), TextHelper.IconLabel(lworker.Icon,$"Train a {lworker.name}"));
             q.AddReq("unit", $">1:{lworker.id}");

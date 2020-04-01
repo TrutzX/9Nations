@@ -28,7 +28,8 @@ namespace Buildings
         public Dictionary<string, string> data;
         public Dictionary<string, int> construction;
         public ActionHolders action;
-        public int ActionWaitingAp, actionWaitingPos;
+        public int ActionWaitingAp, actionWaitingActionPos;
+        public NVector actionWaitingPos;
         
         public int buildTime;
         
@@ -55,7 +56,7 @@ namespace Buildings
             hpMax = d.hp;
             ap = d.ap;
             apMax = d.ap;
-            actionWaitingPos = -1;
+            actionWaitingActionPos = -1;
             data = new Dictionary<string, string>();
         }
         

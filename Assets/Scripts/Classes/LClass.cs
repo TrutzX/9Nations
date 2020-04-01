@@ -43,22 +43,25 @@ namespace Classes
             Add(CreateInstance<ShadowElement>());
             
             _actions = new Dictionary<string, BasePerformAction>();
-            Add(CreateInstance<ActionDestroy>());
-            Add(CreateInstance<ActionFoundTown>());
-            Add(CreateInstance<ActionProduce>());
+            Add(CreateInstance<ActionAttackUnit>());
+            Add(CreateInstance<ActionAttackBuilding>());
             Add(CreateInstance<ActionBuild>());
-            Add(CreateInstance<ActionTrain>());
-            Add(CreateInstance<ActionUpgrade>());
-            Add(CreateInstance<ActionTownLevel>());
-            Add(CreateInstance<ActionMove>());
-            Add(CreateInstance<ActionMoveLevel>());
-            Add(CreateInstance<ActionGameButton>());
-            Add(CreateInstance<ActionSleep>());
-            Add(CreateInstance<ActionTerraform>());
-            Add(CreateInstance<ActionFeaturePlayer>());
             Add(CreateInstance<ActionCameraMove>());
+            Add(CreateInstance<ActionDestroy>());
+            Add(CreateInstance<ActionFeaturePlayer>());
+            Add(CreateInstance<ActionFoundTown>());
+            Add(CreateInstance<ActionInteract>());
+            Add(CreateInstance<ActionGameButton>());
             Add(CreateInstance<ActionGameLose>());
             Add(CreateInstance<ActionGameWin>());
+            Add(CreateInstance<ActionMove>());
+            Add(CreateInstance<ActionMoveLevel>());
+            Add(CreateInstance<ActionProduce>());
+            Add(CreateInstance<ActionSleep>());
+            Add(CreateInstance<ActionTerraform>());
+            Add(CreateInstance<ActionTownLevel>());
+            Add(CreateInstance<ActionTrain>());
+            Add(CreateInstance<ActionUpgrade>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());

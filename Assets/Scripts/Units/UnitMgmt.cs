@@ -119,7 +119,7 @@ namespace Units
             }
             
             //nothing found?
-            OnMapUI.Get().SetMenuMessageError("No available unit found.");
+            OnMapUI.Get().ShowPanelMessageError("No available unit found.");
         }
     }
 }
