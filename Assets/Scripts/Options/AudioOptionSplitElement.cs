@@ -1,3 +1,4 @@
+using Libraries;
 using UI;
 using UI.Show;
 using UnityEngine;
@@ -10,21 +11,7 @@ namespace Options
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            panel.AddHeaderLabel("Background music");
-            panel.AddSlider(0, 100, PlayerPrefs.GetInt("audio.music",50), s =>
-            {
-                PlayerPrefs.SetInt("audio.music", s); 
-                PlayerPrefs.Save(); 
-                NAudio.Get().UpdateAudio(); 
-            });
-                
-            panel.AddHeaderLabel("Sounds");
-            panel.AddSlider(0, 100, PlayerPrefs.GetInt("audio.sound",75), s =>
-            {
-                PlayerPrefs.SetInt("audio.sound", s); 
-                PlayerPrefs.Save();
-                NAudio.Get().UpdateAudio(); 
-            });
+            LSys.tem.options.GetAllByCategory("audio").ForEach(o => o.AddOption(panel));
         }
 
         public override void Perform()

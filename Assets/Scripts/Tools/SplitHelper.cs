@@ -69,10 +69,20 @@ namespace Tools
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static string[] Seperator(string data)
+        public static string[] Separator(string data)
         {
             string[] split = data.Split(Sep);
             return split;
+        }
+
+        /// <summary>
+        /// Split with ; for sub points
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static int[] SeparatorInt(string data)
+        {
+            return Array.ConvertAll(Separator(data), int.Parse);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Linq;
 using Classes;
 using Classes.Actions;
-using DataTypes;
+
 using Game;
 using Libraries;
 using Libraries.FActions;
@@ -61,9 +61,18 @@ namespace GameButtons
             p.panel.AddButton("Player features", () =>
             {
                 WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
-                foreach (FeaturePlayer fp in Data.featurePlayer)
+                foreach (var fp in L.b.playerOptions.Values())
                 {
                     wp.panel.AddLabel(fp.name+": "+PlayerMgmt.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
+                }
+                wp.Finish();
+            });
+            p.panel.AddButton("game features", () =>
+            {
+                WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
+                foreach (var fp in L.b.gameOptions.Values())
+                {
+                    wp.panel.AddLabel(fp.name+": "+fp.Value()+" ("+fp.standard+")");
                 }
                 wp.Finish();
             });

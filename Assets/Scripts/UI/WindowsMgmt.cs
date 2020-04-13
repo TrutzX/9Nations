@@ -1,4 +1,6 @@
-﻿using GameButtons;
+﻿using System.Collections.Generic;
+using System.Linq;
+using GameButtons;
 using Libraries;
 using Players;
 using UnityEngine;
@@ -23,33 +25,15 @@ namespace UI
         {
             self = this;
         }
-
-        public static void GameMainMenu()
-        {
-            //create it
-            WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
-            L.b.gameButtons.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
-            win.Finish();
-        }
-
-        private bool IsOpen(string text)
-        {
-            return GameObject.Find(text) != null;
-        }
     
-        public GameObject GetOpenWindow()
+        public List<DestroyGameObject> GetAllOpenWindow()
         {
-            foreach(DestroyGameObject d in transform.GetComponentsInChildren<DestroyGameObject>())
-            {
-                if (d.IsWindow)
-                    return d.gameObject;
-            }
-            return null;
+            return transform.GetComponentsInChildren<DestroyGameObject>().Where(d => d.IsWindow).ToList();
         }
     
         public bool AnyOpenWindow()
         {
-            return GetOpenWindow()!=null;
+            return GetAllOpenWindow().Count > 0;
         }
     }
 }

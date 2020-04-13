@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataTypes;
+
 using Tools;
 using UI;
 using UnityEngine;
@@ -26,7 +26,7 @@ namespace Libraries.Campaigns
 
         public List<Scenario> Scenarios()
         {
-            return L.b.scenarios.Values().Where(s => s.campaign == id).ToList();
+            return LSys.tem.scenarios.Values().Where(s => s.campaign == id).ToList();
         }
     }
 }

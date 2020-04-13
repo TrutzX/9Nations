@@ -9,11 +9,7 @@ namespace Libraries.Units
     public class DataUnit : BaseDataBuildingUnit
     {
         public string movement;
-
-        public DataUnit()
-        {
-            oActions.Add("move","");
-        }
+        public string type;
         
         public Sprite Sprite(int sprite = 1)
         {

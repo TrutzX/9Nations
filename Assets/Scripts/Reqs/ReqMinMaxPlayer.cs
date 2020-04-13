@@ -5,7 +5,7 @@ using Tools;
 
 namespace reqs
 {
-    public abstract class ReqMinMaxPlayer : ReqMinMax
+    public abstract class ReqMinMaxPlayer : BaseReqMinMax
     {
         protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UI.Show;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public partial class PanelBuilderSplit : MonoBehaviour
+    public class PanelBuilderSplit : MonoBehaviour
     {
         public GameObject splitElementButtonPanel;
         public GameObject infoPanel;

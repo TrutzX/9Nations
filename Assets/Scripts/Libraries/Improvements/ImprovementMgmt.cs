@@ -26,7 +26,7 @@ namespace Improvements
                     ele.file = data;
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
         }
@@ -93,11 +93,6 @@ namespace Improvements
             
             //reset pathfinding
             GameMgmt.Get().newMap.levels[pos.level].ResetPathFinding();
-        }
-
-        protected override Improvement Create()
-        {
-            return new Improvement();
         }
     }
 }

@@ -61,7 +61,7 @@ TextureImporter:
     second: a_1
   - first:
       213: 2530395009782480059
-    second: a_2
+    second: temple
   - first:
       213: 425005124838576428
     second: a_3
@@ -79,7 +79,7 @@ TextureImporter:
     second: a_7
   - first:
       213: 4792070522841023865
-    second: a_8
+    second: market
   - first:
       213: -3645673616070736820
     second: a_9
@@ -97,7 +97,7 @@ TextureImporter:
     second: a_13
   - first:
       213: -1778085326239240435
-    second: a_14
+    second: shrine
   - first:
       213: -126454015571342814
     second: a_15
@@ -227,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_2
+      name: temple
       rect:
         serializedVersion: 2
         x: 64
@@ -353,7 +353,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_8
+      name: market
       rect:
         serializedVersion: 2
         x: 0
@@ -479,7 +479,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: a_14
+      name: shrine
       rect:
         serializedVersion: 2
         x: 64

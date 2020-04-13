@@ -21,7 +21,7 @@ namespace Libraries.Campaigns
         {
             Debug.Log("start2 "+campaign.name);
             Debug.Log(campaign.Scenarios());
-            L.b.campaigns.ShowScenarios(campaign);
+            LSys.tem.campaigns.ShowScenarios(campaign);
         }
     }
 }

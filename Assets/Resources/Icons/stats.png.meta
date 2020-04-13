@@ -7,16 +7,16 @@ TextureImporter:
     second: hp
   - first:
       213: 2932870459879108448
-    second: stats_1
+    second: damage
   - first:
       213: 5554822113819907966
     second: stats_2
   - first:
       213: -5041731482566381095
-    second: stats_3
+    second: atk
   - first:
       213: 2142538684588207836
-    second: stats_4
+    second: def
   - first:
       213: -7143285674167009320
     second: stats_5
@@ -247,7 +247,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -258,7 +258,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -269,6 +270,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -294,7 +296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stats_1
+      name: damage
       rect:
         serializedVersion: 2
         x: 32
@@ -336,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stats_3
+      name: atk
       rect:
         serializedVersion: 2
         x: 96
@@ -357,7 +359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stats_4
+      name: def
       rect:
         serializedVersion: 2
         x: 128

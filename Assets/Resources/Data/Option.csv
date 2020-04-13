@@ -1,0 +1,9 @@
+id,name,category,standard,type
+debug,Debug,game,false,bool
+centermouse,Center map on mouse click,game,false,bool
+uiScale,Scale the Ui,,1,scale=0.5;3
+autosave,Save the game automatical,game,true,bool
+update,Check for updates,network,true,bool
+showaction,Show every action,game,false,bool
+audio.music,Background music,audio,50,scale=0;100
+audio.sound,Sounds,audio,75,scale=0;100

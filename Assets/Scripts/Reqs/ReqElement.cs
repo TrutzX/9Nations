@@ -8,6 +8,7 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
+
             foreach (var e in sett.Split(';'))
             {
                 if (player.elements.Contains(e))

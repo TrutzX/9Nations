@@ -13,7 +13,7 @@ namespace Classes.Actions
 {
     public class ActionTrade : BasePerformAction
     {
-        public ActionTrade() : base("sleep"){}
+        public ActionTrade() : base("trade"){}
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)

@@ -22,14 +22,9 @@ namespace Libraries.Res
                     ele.special = Bool(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override Resource Create()
-        {
-            return new Resource();
         }
     }
 }

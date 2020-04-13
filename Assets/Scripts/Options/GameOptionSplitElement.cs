@@ -1,3 +1,4 @@
+using Libraries;
 using UI;
 using UI.Show;
 using UnityEngine;
@@ -6,17 +7,13 @@ namespace Options
 {
     public class GameOptionSplitElement : SplitElement
     {
-        public GameOptionSplitElement() : base("Game", SpriteHelper.Load("logo"))
+        public GameOptionSplitElement() : base("Game", "logo")
         {
         }
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            Data.features.autosave.AddOption(panel);
-            Data.features.centermouse.AddOption(panel);
-            Data.features.debug.AddOption(panel);
-            Data.features.showAction.AddOption(panel);
-                
+            LSys.tem.options.GetAllByCategory("game").ForEach(o => o.AddOption(panel));
         }
 
         public override void Perform()

@@ -19,14 +19,9 @@ namespace Libraries.FightModis
                     ele.modi = Int(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override FightModi Create()
-        {
-            return new FightModi();
         }
         
     }

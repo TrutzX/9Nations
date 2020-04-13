@@ -11,6 +11,8 @@ using Libraries.Campaigns;
 using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.MapGenerations;
+using Players;
+using Players.Kingdoms;
 using UnityEngine;
 
 namespace Classes
@@ -48,8 +50,10 @@ namespace Classes
             Add(CreateInstance<ActionBuild>());
             Add(CreateInstance<ActionCameraMove>());
             Add(CreateInstance<ActionDestroy>());
+            Add(CreateInstance<ActionEvolve>());
             Add(CreateInstance<ActionFeaturePlayer>());
             Add(CreateInstance<ActionFoundTown>());
+            Add(CreateInstance<ActionHeal>());
             Add(CreateInstance<ActionInteract>());
             Add(CreateInstance<ActionGameButton>());
             Add(CreateInstance<ActionGameLose>());
@@ -59,7 +63,8 @@ namespace Classes
             Add(CreateInstance<ActionProduce>());
             Add(CreateInstance<ActionSleep>());
             Add(CreateInstance<ActionTerraform>());
-            Add(CreateInstance<ActionTownLevel>());
+            Add(CreateInstance<ActionTownEvolve>());
+            Add(CreateInstance<ActionTrade>());
             Add(CreateInstance<ActionTrain>());
             Add(CreateInstance<ActionUpgrade>());
             

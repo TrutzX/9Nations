@@ -26,7 +26,7 @@ namespace Buildings
         /// </summary>
         /// <param name="pos"></param>
         /// <returns>the unit or null</returns>
-        public static BuildingInfo At(NVector pos)
+        public BuildingInfo At(NVector pos)
         {
             return GameMgmt.Get().building.GetAll().SingleOrDefault(g => g.Pos().Equals(pos));
         }
@@ -36,7 +36,7 @@ namespace Buildings
         /// </summary>
         /// <param name="pos"></param>
         /// <returns></returns>
-        public static bool Free(NVector pos)
+        public bool Free(NVector pos)
         {
             return At(pos) == null;
         }

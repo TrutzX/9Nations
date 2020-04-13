@@ -18,15 +18,16 @@ namespace Libraries.MapGenerations
                 ele.generator = data;
                 return;
             }
-            
+
+            if (header == "name")
+            {
+                base.ParseElement(ele, header, data);
+                return;
+            }
+
             //add it
             if (!string.IsNullOrEmpty(data))
                 ele.terrains.Add(header, data);
-        }
-
-        protected override MapGeneration Create()
-        {
-            return new MapGeneration();
         }
     }
 }

@@ -1138,7 +1138,7 @@ TextureImporter:
     second: Icons_132
   - first:
       213: -1727509603783142218
-    second: nextRound
+    second: round
   - first:
       213: 1029011405913485410
     second: Icons_134
@@ -4349,7 +4349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nextRound
+      name: round
       rect:
         serializedVersion: 2
         x: 480

@@ -34,14 +34,9 @@ namespace Libraries.Nations
                     ele.maxElement = Int(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-        
-        protected override Nation Create()
-        {
-            return new Nation();
         }
     }
 }

@@ -1,55 +1,55 @@
-id,name,icon,desc,sound,hidden,movement,movement,movement,movement,modi,modi,tile,winter,category,//base,res
-,Standard,,,,,,,,,,,,,,,
-unknown,Dark Terrain,Terrain/unknown:unknown_4,Black signals where there is no land; so it is not explorable.,,,walk=0,fly=0,,float=0,,,6,,unknown,,
-border,Map Border,,Not passable,,true,walk=0,fly=0,,float=0,,,,,border,,
-fog,Fog,,Not explored,,true,walk=0,fly=0,,float=0,,,,,fog,,
-invisible,Invisble,Terrain/invisible:invisible_4,Unknown land; but not visible,,true,walk=0,fly=0,,float=0,,,7,,unknown,,
-,,,,,,,,,,,,,,,,
-deep,deep dirt,Terrain/deep:deep_4,,,,,,,,,view=-1,40,,flat,,
-deep_grass,deep grass,Terrain/deep_grass:deep_grass_4,,,,,fly=0,,,,view=-1,41,,grass,,
-deep_stone,deep stone,Terrain/deep_stone:deep_stone_4,,,,,fly=0,,,,view=-1,44,,mountain,,
-deep_unknown,deep unknown,Terrain/deep_unknown:deep_unknown_4,,,,walk=0,fly=0,,float=0,,view=-1,46,,unknown,,
-deep_wall,deep wall,Terrain/deep_wall:deep_wall_4,,,,walk=0,fly=0,,,,view=-1,43,,wall,,
-deep_water,deep water,Terrain/deep_water:deep_water_4,,,,walk=0,,swim=10,,,view=-1,45,,water,,
-,,,,,,,,,,,,,,,,
-grass,grass,Terrain/grass:grass_4,,bite-small3,,,,,,,,1,grass_snow,grass,,
-grass_sand,sand grass,Terrain/grass_sand:grass_sand_4,,,,,,,,,,25,grass_snow,grass,,
-grass_dirt,dirt grass,Terrain/grass_dirt:grass_dirt_4,,,,,,,,,,9,grass_snow,grass
-grass_snow,winter grass,Terrain/grass_snow:grass_snow_4,,,,,,,,,,49,,grass
-,,,,,,,,,,,,,,,,
-plain,plain,Terrain/plain:plain_4,,,,,,,,,,0,snow,flat
-rough,rough terrain,Terrain/rough:rough_4,,,,,,,,,,16,,flat
-dirt,Dirt,Terrain/dirt:dirt_4,Dirt is usually brown and is fairly generic. ,,,,,,,,,8,snow,flat
-lavarock,lavarock,Terrain/lavarock:lavarock_4,,,,,,,,,,21,,flat
-lava,lava,Terrain/lava:lava_4,,,,,,,,,,22,,flat
-sand,sand,Terrain/sand:sand_4,Sand is a yellow-brown and found only around water or in the desert. ,,,,,,,,,24,,flat
-snow,snow,Terrain/snow:snow_4,,,,,,,,,,48,,flat
+id,name,icon,desc,sound,hidden,movement,movement,movement,movement,modi,modi,tile,winter,category,//base,res,res,res,res
+,Standard,,,,,,,,,,,,,,,,,,
+unknown,Dark Terrain,!Terrain/unknown:unknown_4,Black signals where there is no land; so it is not explorable.,,,walk=0,fly=0,,float=0,,,6,,unknown,,,,,
+border,Map Border,,Not passable,,true,walk=0,fly=0,,float=0,,,,,border,,,,,
+fog,Fog,,Not explored,,true,walk=0,fly=0,,float=0,,,,,fog,,,,,
+invisible,Invisble,!Terrain/invisible:invisible_4,Unknown land; but not visible,,true,walk=0,fly=0,,float=0,,,7,,unknown,,,,,
+,,,,,,,,,,,,,,,,,,,
+deep,deep dirt,!Terrain/deep:deep_4,,,,,,,,,view=-1,40,,flat,,,,,
+deep_grass,deep grass,!Terrain/deep_grass:deep_grass_4,,,,,fly=0,,,,view=-1,41,,grass,,,,,
+deep_stone,deep stone,!Terrain/deep_stone:deep_stone_4,,,,,fly=0,,,,view=-1,44,,mountain,,stone=100-1000,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+deep_unknown,deep unknown,!Terrain/deep_unknown:deep_unknown_4,,,,walk=0,fly=0,,float=0,,view=-1,46,,unknown,,,,,
+deep_wall,deep wall,!Terrain/deep_wall:deep_wall_4,,,,walk=0,fly=0,,,,view=-1,43,,wall,,,,,
+deep_water,deep water,!Terrain/deep_water:deep_water_4,,,,walk=0,,swim=10,,,view=-1,45,,water,,,,,
+,,,,,,,,,,,,,,,,,,,
+grass,grass,!Terrain/grass:grass_4,,bite-small3,,,,,,,,1,grass_snow,grass,,,,,
+grass_sand,sand grass,!Terrain/grass_sand:grass_sand_4,,,,,,,,,,25,grass_snow,grass,,,,,
+grass_dirt,dirt grass,!Terrain/grass_dirt:grass_dirt_4,,,,,,,,,,9,grass_snow,grass
+grass_snow,winter grass,!Terrain/grass_snow:grass_snow_4,,,,,,,,,,49,,grass
 ,,,,,,,,,,,,,,
-swamp,swamp,Terrain/swamp:swamp_4,,,,walk=15,,,,build=+50%,view=-1,5,ice,swamp
-water,water,Terrain/water:water_4,Water and can be found anywhere. It's a blue. In winter it can become ice.,,,walk=0,,swim=10,,,,32,ice,water
-water_mountain,water mountain,Terrain/water_mountain:water_mountain_4,,,,walk=20,,swim=20,,,,36,ice_mountain,mountain
-ice,ice,Terrain/ice:ice_4,,,,,,swim=30,,,,56,,ice
-ice_mountain,ice mountain,Terrain/ice_mountain:ice_mountain_4,,,,walk=20,,,float=0,build=+100%,view=+2,60,,mountain
-ocean,ocean,Terrain/ocean:ocean_4,,,,walk=0,,swim=15,float=0,,,37,,ocean,,
-,,,,,,,,,,,,,,,,
-forest,forest,Terrain/forest:forest_4,,interface5,,,fly=15,,,build=+25%,view=-1,2,forest_snow,forest,,wood=50-500
-forest_rough,rough forest,Terrain/forest_rough:forest_rough_4,,,,,fly=15,,,build=+25%,,18,,forest,rough,wood=20-200
-forest_sand,sand forest,Terrain/forest_sand:forest_sand_4,,,,,fly=15,,,build=+25%,view=-3,26,,forest,sand,wood=50-500
-forest_snow,winter forest,Terrain/forest_snow:forest_snow_4,,,,,fly=15,,,build=+25%,view=-4,50,,forest,snoq,wood=30-300
-,,,,,,,,,,,,,,,,
-mountain,mountain,Terrain/mountain:mountain_4,,metalPot3,,walk=15,,,float=0,build=+100%,view=+2,4,mountain_snow,mountain,,stone=100-1000
-mountain_dirt,dirt mountain,Terrain/mountain_dirt:mountain_dirt_4,,,,walk=15,,,float=0,build=+100%,view=+2,12,mountain_snow,mountain,dirt,stone=100-1000
-mountain_rough,rough mountain,Terrain/mountain_rough:mountain_rough_4,,,,walk=15,,,float=0,build=+100%,view=+2,20,,mountain,rough,stone=100-1000
-mountain_sand,sand mountain,Terrain/mountain_sand:mountain_sand_4,,,,walk=15,,,float=0,build=+100%,view=+2,28,,mountain,sand,stone=60-600
-mountain_snow,snow mountain,Terrain/mountain_snow:mountain_snow_4,,,,walk=15,,,float=0,build=+100%,view=+2,52,,mountain,snow,stone=100-1000
-,,,,,,,,,,,,,,,,
-hill,hill,Terrain/hill:hill_4,,,,,,,,build=+50%,view=+1,3,hill_snow,hill,,stone=50-500
-hill_dirt,dirt hill,Terrain/hill_dirt:hill_dirt_4,,,,,,,,build=+50%,view=+1,11,hill_snow,hill,dirt,stone=50-500
-hill_rough,rough hill,Terrain/hill_rough:hill_rough_4,,,,,,,,build=+50%,view=+1,19,,hill,rough,stone=50-500
-hill_sand,sand hill,Terrain/hill_sand:hill_sand_4,,,,,,,,build=+50%,view=+1,27,,hill,sand,stone=30-300
-hill_snow,snow hill,Terrain/hill_snow:hill_snow_4,,,,,,,,build=+50%,view=+1,51,,hill,snow,stone=50-500
-,,,,,,,,,,,,,,,,
-underwatermounain,,,,,true,,,,,,,,,,,
-watergrass,,,,,true,walk=0,fly=0,swim=10,,,,,,,,
-watermountain,,,,,true,walk=0,fly=0,swim=10,,,,,,,,
-cloud,Cloud,,,,true,walk=0,,,,,,,,,,
+plain,plain,!Terrain/plain:plain_4,,,,,,,,,,0,snow,flat
+rough,rough terrain,!Terrain/rough:rough_4,,,,,,,,,,16,,flat
+dirt,Dirt,!Terrain/dirt:dirt_4,Dirt is usually brown and is fairly generic. ,,,,,,,,,8,snow,flat
+lavarock,lavarock,!Terrain/lavarock:lavarock_4,,,,,,,,,,21,,flat
+lava,lava,!Terrain/lava:lava_4,,,,,,,,,,22,,flat
+sand,sand,!Terrain/sand:sand_4,Sand is a yellow-brown and found only around water or in the desert. ,,,,,,,,,24,,flat
+snow,snow,!Terrain/snow:snow_4,,,,,,,,,,48,,flat
+,,,,,,,,,,,,,,
+swamp,swamp,!Terrain/swamp:swamp_4,,,,walk=15,,,,build=+50%,view=-1,5,ice,swamp
+water,water,!Terrain/water:water_4,Water and can be found anywhere. It's a blue. In winter it can become ice.,,,walk=0,,swim=10,,,,32,ice,water
+water_mountain,water mountain,!Terrain/water_mountain:water_mountain_4,,,,walk=20,,swim=20,,,,36,ice_mountain,mountain
+ice,ice,!Terrain/ice:ice_4,,,,,,swim=30,,,,56,,ice
+ice_mountain,ice mountain,!Terrain/ice_mountain:ice_mountain_4,,,,walk=20,,,float=0,build=+100%,view=+2,60,,mountain
+ocean,ocean,!Terrain/ocean:ocean_4,,,,walk=0,,swim=15,float=0,,,37,,ocean,,,,,
+,,,,,,,,,,,,,,,,,,,
+forest,forest,!Terrain/forest:forest_4,,interface5,,,fly=15,,,build=+25%,view=-1,2,forest_snow,forest,,wood=50-500,,,
+forest_rough,rough forest,!Terrain/forest_rough:forest_rough_4,,,,,fly=15,,,build=+25%,,18,,forest,rough,wood=20-200,,,
+forest_sand,sand forest,!Terrain/forest_sand:forest_sand_4,,,,,fly=15,,,build=+25%,view=-3,26,,forest,sand,wood=50-500,,,
+forest_snow,winter forest,!Terrain/forest_snow:forest_snow_4,,,,,fly=15,,,build=+25%,view=-4,50,,forest,snoq,wood=30-300,,,
+,,,,,,,,,,,,,,,,,,,
+mountain,mountain,!Terrain/mountain:mountain_4,,metalPot3,,walk=15,,,float=0,build=+100%,view=+2,4,mountain_snow,mountain,,stone=100-1000,copper=200-2000;50%,ironore=100-1000;35%,goldore=50-500;15%
+mountain_dirt,dirt mountain,!Terrain/mountain_dirt:mountain_dirt_4,,,,walk=15,,,float=0,build=+100%,view=+2,12,mountain_snow,mountain,dirt,stone=100-1000,copper=200-2000;50%,ironore=100-1000;35%,goldore=50-500;15%
+mountain_rough,rough mountain,!Terrain/mountain_rough:mountain_rough_4,,,,walk=15,,,float=0,build=+100%,view=+2,20,,mountain,rough,stone=100-1000,copper=200-2000;50%,ironore=100-1000;35%,goldore=50-500;15%
+mountain_sand,sand mountain,!Terrain/mountain_sand:mountain_sand_4,,,,walk=15,,,float=0,build=+100%,view=+2,28,,mountain,sand,stone=60-600,copper=200-2000;50%,ironore=100-1000;35%,goldore=50-500;15%
+mountain_snow,snow mountain,!Terrain/mountain_snow:mountain_snow_4,,,,walk=15,,,float=0,build=+100%,view=+2,52,,mountain,snow,stone=100-1000,copper=200-2000;50%,ironore=100-1000;35%,goldore=50-500;15%
+,,,,,,,,,,,,,,,,,,,
+hill,hill,!Terrain/hill:hill_4,,,,,,,,build=+50%,view=+1,3,hill_snow,hill,,stone=50-500,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+hill_dirt,dirt hill,!Terrain/hill_dirt:hill_dirt_4,,,,,,,,build=+50%,view=+1,11,hill_snow,hill,dirt,stone=50-500,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+hill_rough,rough hill,!Terrain/hill_rough:hill_rough_4,,,,,,,,build=+50%,view=+1,19,,hill,rough,stone=50-500,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+hill_sand,sand hill,!Terrain/hill_sand:hill_sand_4,,,,,,,,build=+50%,view=+1,27,,hill,sand,stone=30-300,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+hill_snow,snow hill,!Terrain/hill_snow:hill_snow_4,,,,,,,,build=+50%,view=+1,51,,hill,snow,stone=50-500,copper=100-1000;25%,ironore=50-500;15%,goldore=50-250;5%
+,,,,,,,,,,,,,,,,,,,
+underwatermounain,,,,,true,,,,,,,,,,,,,,
+watergrass,,,,,true,walk=0,fly=0,swim=10,,,,,,,,,,,
+watermountain,,,,,true,walk=0,fly=0,swim=10,,,,,,,,,,,
+cloud,Cloud,,,,true,walk=0,,,,,,,,,,,,,

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
-using Actions;
+
 using Classes.Actions;
+using Game;
+using InputActions;
 using Libraries.FActions;
 using Players;
 using reqs;
@@ -22,7 +24,7 @@ namespace Buildings
         /// <param name="building"></param>
         public override void UpdatePanel(BuildingInfo building)
         {
-            GameObject.Find("InputAction").GetComponent<InputAction.InputAction>().aBuilding = building;
+            S.InputAction().SetActive(building);
             active = building;
         
             //no unit?

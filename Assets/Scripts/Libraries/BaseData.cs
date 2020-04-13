@@ -1,4 +1,5 @@
 using System;
+using Game;
 using Players;
 using reqs;
 using Tools;
@@ -16,6 +17,7 @@ namespace Libraries
         public string Desc;
         public string Sound;
         public bool Hidden;
+        public string category;
         public ReqHolder req;
 
         public BaseData()
@@ -27,7 +29,7 @@ namespace Libraries
         
         public void AddImageLabel(PanelBuilder panel)
         {
-            panel.AddImageLabel(Data.features.debug.Bool()?$"{name} ({id})":name, Sprite());
+            panel.AddImageLabel(S.Debug()?$"{name} ({id})":name, Sprite());
         }
 
         [Obsolete]

@@ -25,7 +25,7 @@ namespace Endless
                 //add quests
                 if (Boolean.Parse(GameMgmt.StartConfig[id+"winGold"]))
                 {
-                    p.quests.Add(QuestHelper.Win().AddReq("resMin","gold:1000"));
+                    p.quests.Add(QuestHelper.Win().AddReq("res",">1000:gold"));
                 }
             
                 //add quests

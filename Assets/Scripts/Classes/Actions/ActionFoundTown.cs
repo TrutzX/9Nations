@@ -32,8 +32,12 @@ namespace Classes.Actions
             InputField townName = win.panel.AddInputRandom("town name",
                 LClass.s.nameGenerators[PlayerMgmt.ActPlayer().Nation().TownNameGenerator].Gen(), s => { },
                 () => LClass.s.nameGenerators[PlayerMgmt.ActPlayer().Nation().TownNameGenerator].Gen());
-            
-            win.panel.AddButton("Found the town", () => { win.Close();FoundTown(info, pos, townName.text); }, DataAction().sound, DataAction().Icon);
+
+            win.panel.AddImageTextButton("Found the town", DataAction().Icon, () =>
+            {
+                win.Close();
+                FoundTown(info, pos, townName.text);
+            }, DataAction().sound);
             win.Finish(400);
         }
 

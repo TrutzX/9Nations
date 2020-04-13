@@ -26,44 +26,4 @@ namespace reqs
             return "town";
         }
     }
-    
-    [Obsolete]
-    public class ReqOldTownMin : BaseReqOnlyPlayer
-    {
-        public override bool Check(Player player, string sett)
-        {
-            Debug.LogError("Obsolete ReqOldTownMin");
-            return S.Towns().GetByPlayer(player.id).Count >= Int32.Parse(sett);
-        }
-
-        public override bool Final(Player player, string sett)
-        {
-            return false;
-        }
-
-        public override string Desc(Player player, string sett)
-        {
-            return $"Need at least {sett} town."+(player==null?"":$" You have only {S.Towns().GetByPlayer(player.id).Count} town.");
-        }
-    }
-    
-    [Obsolete]
-    public class ReqOldTownMax : BaseReqOnlyPlayer
-    {
-        public override bool Check(Player player, string sett)
-        {
-            Debug.LogError("Obsolete ReqOldTownMax");
-            return S.Towns().GetByPlayer(player.id).Count <= Int32.Parse(sett);
-        }
-
-        public override bool Final(Player player, string sett)
-        {
-            return false;
-        }
-
-        public override string Desc(Player player, string sett)
-        {
-            return $"Need maximal {sett} town."+(player==null?"":$" You have already {S.Towns().GetByPlayer(player.id).Count} town.");
-        }
-    }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
+using Audio;
 using Buildings;
 using Classes;
 using GameButtons;
-using InputAction;
 using Players;
 using UI;
 using UnityEngine;
@@ -13,7 +13,6 @@ namespace Libraries.GameButtons
     [Serializable]
     public class GameButton : BaseData
     {
-        public string location;
 
         public override void ShowLexicon(PanelBuilder panel)
         {
@@ -31,7 +30,7 @@ namespace Libraries.GameButtons
         {
             GameObject button = UIElements.CreateImageButton(Icon, transform, () => { Call(player); }, Sound);
 
-            UIHelper.HoverEnter(button, () => text.ShowPanelMessage(InputKeyHelper.GameButtonName(this)),
+            UIHelper.HoverEnter(button, () => text.ShowPanelMessage(LSys.tem.inputs.GameButtonName(this)),
                 () => text.ShowPanelMessage(""));
 
             return button.GetComponent<Button>();

@@ -10,19 +10,21 @@ namespace UI
     {
         public static Sprite Load(string path)
         {
-            if (path.StartsWith("b:"))
-            {
-                return L.b.buildings[path.Substring(2)].Sprite();
-            }
             
-            if (path.StartsWith("u:"))
+            if (L.b != null && LSys.tem.icons.ContainsKey(path))
             {
-                return L.b.units[path.Substring(2)].Sprite();
+                path = LSys.tem.icons[path].Icon;
             }
 
-            if (Data.icons.ContainsKey(path))
+            if (path.StartsWith("!"))
             {
-                path = Data.icons[path].file;
+                path = path.Substring(1);
+                
+            }
+            else
+            {
+                //TODO load extern
+                Debug.LogWarning($"Path {path} is wrong formatted");
             }
             
             if (path.Contains(":"))
@@ -32,23 +34,28 @@ namespace UI
                 {
                     try
                     {
-                        return Resources.LoadAll<Sprite>(prepath[0]).Single(s => s.name == prepath[1]);
+                        return UnityEngine.Resources.LoadAll<Sprite>(prepath[0]).Single(s => s.name == prepath[1]);
                     }
                     catch (InvalidOperationException)
                     {
                         //TODO übergang
-                        return Resources.LoadAll<Sprite>("Icons/" + prepath[0]).Single(s => s.name == prepath[1]);
+                        return UnityEngine.Resources.LoadAll<Sprite>("Icons/" + prepath[0]).Single(s => s.name == prepath[1]);
                     }
                 }
                 catch (InvalidOperationException e)
                 {
                     Debug.LogWarning($"icon {path} is missing");
                     Debug.LogException(e);
-                    return Resources.Load<Sprite>(prepath[0]);
+                    return UnityEngine.Resources.Load<Sprite>(prepath[0]);
                 }
             }
+            
+            if (!path.EndsWith("logo"))
+            {
+                Debug.LogWarning($"icon {path} looks broken");
+            }
 
-            return Resources.Load<Sprite>(path);
+            return UnityEngine.Resources.Load<Sprite>(path);
         }
 
         [ObsoleteAttribute("This method is obsolete. Call Load instead.", false)] 

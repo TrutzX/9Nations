@@ -1,10 +1,14 @@
+using System;
 using Buildings;
+using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
 using Tools;
 using Towns;
 using Units;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Classes.Actions
 {
@@ -21,7 +25,35 @@ namespace Classes.Actions
 
                 ResType r = evt == ActionEvent.NextRound ? ResType.Produce :
                     evt == ActionEvent.FinishConstruct ? ResType.Construction : ResType.Gift;
-                info.Town().AddRes(data.Key.Substring(4),ConvertHelper.Int(data.Value),r);
+
+                string res = data.Key.Substring(4);
+                int val = ConvertHelper.Int(data.Value);
+                
+                //Debug.Log(res+" "+val+" "+GameMgmt.Get().data.map.ResGenContains(pos, res));
+                
+                //remove?
+                if (val > 0 && GameMgmt.Get().data.map.ResGenContains(pos, res))
+                {
+                    int rval = GameMgmt.Get().data.map.ResGen(pos, res);
+                    if (rval < 200 && Random.Range(0,200) > rval)
+                    {
+                        val = 1;
+                    }
+                    
+                    if (rval <= 0)
+                    {
+                        info.SetLastInfo($"The deposit of {res} is empty.");
+                        return;
+                    }
+                    
+                    if (rval < 20)
+                    {
+                        info.SetLastInfo($"The deposit of {res} is nearly empty.");
+                    }
+                    GameMgmt.Get().data.map.ResGenAdd(pos, res, -val);
+                }
+                
+                info.Town().AddRes(res, val, r);
             }
         }
 
@@ -72,7 +104,7 @@ namespace Classes.Actions
             ActionHolder conf = base.Create(setting);
 
             //add res
-            string[] type = SplitHelper.Seperator(setting);
+            string[] type = SplitHelper.Separator(setting);
             if (type[0] == "once")
             {
                 conf.trigger = ActionEvent.FinishConstruct;
@@ -87,7 +119,7 @@ namespace Classes.Actions
                 var d = SplitHelper.SplitInt(type[i]);
                 if (d.value < 0)
                 {
-                    conf.req.Add("res",$">{d.value}:{d.key}");
+                    conf.req.Add("res",$">{d.value*-1}:{d.key}");
                 }
                 conf.data.Add("res-"+d.key,d.value.ToString());
             }

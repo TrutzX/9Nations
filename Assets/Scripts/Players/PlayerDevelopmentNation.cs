@@ -8,7 +8,6 @@ using Libraries.Elements;
 using Players.Infos;
 using reqs;
 using UI;
-using UI.Show;
 using UnityEngine;
 
 namespace Players
@@ -65,7 +64,7 @@ namespace Players
                 }
             }
                 
-            wbs.AddElement(new HelpSplitElement("developElement"));
+            LSys.tem.helps.AddHelp("element", wbs);
             wbs.Finish();
         }
 
@@ -88,28 +87,6 @@ namespace Players
             
             if (LClass.s.elementRuns.ContainsKey(element))
                 LClass.s.elementRuns[element].Develop(player);
-        }
-    }
-
-    class PlayerDevelopmentSplitElement : SplitElement
-    {
-        private readonly Element _element;
-        private readonly PlayerDevelopmentNation _pdn;
-        
-        public PlayerDevelopmentSplitElement(Element element, PlayerDevelopmentNation pdn) : base(element.name, element.Icon)
-        {
-            _element = element;
-            _pdn = pdn;
-        }
-
-        public override void ShowDetail(PanelBuilder panel)
-        {
-            _element.ShowLexicon(panel);
-        }
-
-        public override void Perform()
-        {
-            _pdn.Develop(_element.id);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Audio;
 using Game;
 using Libraries.FActions;
 using Players;
@@ -79,7 +80,7 @@ namespace Classes.Actions
             }
             
             string moveTyp = ((UnitInfo)mapElementInfo).dataUnit.movement;
-            int cost = GameMgmt.Get().newMap.PathFinding(mapElementInfo.Pos().level).Cost(player, moveTyp, mapElementInfo.Pos(), new NVector(LastClickX, LastClickY, mapElementInfo.Pos().level));
+            int cost = GameMgmt.Get().newMap.PathFinding(mapElementInfo.Pos().level).Cost(player, moveTyp, mapElementInfo.Pos(), new NVector(LastClickPos.x, LastClickPos.y, mapElementInfo.Pos().level));
             OnMapUI.Get().unitUI.ShowPanelMessage($"You want to move to this field for {cost} AP? Click again!");
         }
 

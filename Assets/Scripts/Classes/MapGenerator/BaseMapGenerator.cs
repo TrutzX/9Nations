@@ -15,7 +15,7 @@ namespace Classes.MapGenerator
         public void Generate(GameMapDataLevel gmdl)
         {
             int height = GameMgmt.Get().data.map.height;
-            DataTerrain invisible = L.b.terrain["invisible"];
+            DataTerrain invisible = L.b.terrains["invisible"];
             GameMapDataLevel std = GameMgmt.Get().data.map.levels[GameMgmt.Get().data.map.standard];
             
             Debug.Log($"Generate layer {mapGeneration.name}:{GameMgmt.Get().data.map.width}/{height}");
@@ -45,14 +45,14 @@ namespace Classes.MapGenerator
                 return;
             }
 
-            DataTerrain org = L.b.terrain[oTerrain];
+            DataTerrain org = L.b.terrains[oTerrain];
 
             //has element?
             try
             {
                 if (mapGeneration.terrains.ContainsKey(org.id))
                 {
-                    layerData[height - y - 1][x] = L.b.terrain[mapGeneration.terrains[org.id]].defaultTile;
+                    layerData[height - y - 1][x] = L.b.terrains[mapGeneration.terrains[org.id]].defaultTile;
                 }
                 else if (layer == 0)
                 {

@@ -165,7 +165,13 @@ namespace reqs
                 foreach (var req in reqs)
                 {
                     BaseReq r = OLib.GetReq(req[0]);
-                    panel.AddImageLabel(r.Desc(player, req[1]), r.Check(player, req[1]));
+                    if (player == null)
+                        panel.AddLabel(r.Desc(null, req[1]));
+                    else
+                    {
+                        panel.AddImageLabel(r.Desc(player, req[1]), r.Check(player, req[1]));
+                    }
+                    
                 }
             }
             catch (Exception e)

@@ -1,4 +1,5 @@
 using System;
+using Game;
 using UI;
 
 namespace LoadSave
@@ -19,7 +20,7 @@ namespace LoadSave
             panel.AddSubLabel("Round",round, "round");
             panel.AddSubLabel("Date",date.ToLongDateString(),"Icons/magic:date");
             panel.AddSubLabel("Game version",version,"logo");
-            if (Data.features.debug.Bool())
+            if (S.Debug())
                 panel.AddSubLabel("File",file, "ui:file");
             panel.AddImageTextButton($"Delete {name}", SpriteHelper.Load("no"), () => { ES3.DeleteFile(file); wbs.CloseWindow();});
         }

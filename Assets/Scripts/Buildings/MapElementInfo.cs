@@ -4,6 +4,7 @@ using Classes.Actions;
 using Game;
 using GameButtons;
 using Help;
+using InputActions;
 using JetBrains.Annotations;
 using Libraries;
 using Libraries.Buildings;
@@ -12,6 +13,7 @@ using Libraries.FActions.General;
 using Libraries.Terrains;
 using Players;
 using Players.Infos;
+using Players.Kingdoms;
 using reqs;
 using Tools;
 using Towns;
@@ -75,6 +77,8 @@ namespace Buildings
                 ActionHolder a = data.action.actions[data.actionWaitingActionPos];
                 FDataAction da = a.DataAction();
                 text += $"Prepare {da.name} ({TextHelper.Proc(data.ActionWaitingAp, da.cost)}).";
+                if (S.Debug())
+                    text += data.ap+"/"+data.ActionWaitingAp + "/" + da.cost;
             }
 
             //add hp?
@@ -108,7 +112,7 @@ namespace Buildings
             //perform actions
             SetLastInfo(data.action.Performs(ActionEvent.NextRound, Player(), this, Pos()));
 
-            return true;
+            return data.lastInfo == null;
         }
         
         public virtual void FinishConstruct()
@@ -131,8 +135,8 @@ namespace Buildings
             win.AddElement(new ActionDisplaySplitElement(this));
             win.AddElement(new TerrainSplitElement(GameMgmt.Get().newMap.Terrain(Pos()), Pos()));
             if (data.townId != -1)
-                win.AddElement(new KingdomOverview.CameraTownSplitElement(win, Town()));
-            if (Data.features.debug.Bool())
+                win.AddElement(new CameraTownSplitElement(win, Town()));
+            if (S.Debug())
                 win.AddElement(new DebugMapElementSplitElement(this));
             if (L.b.improvements.Has(Pos()))
                 win.AddElement(new LexiconSplitElement(L.b.improvements.At(Pos())));

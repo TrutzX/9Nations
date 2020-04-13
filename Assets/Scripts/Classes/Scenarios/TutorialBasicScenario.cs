@@ -15,9 +15,9 @@ namespace Classes.Scenarios
     {
         public void Run()
         {
-            DataTerrain grass = L.b.terrain["grass"];
-            DataTerrain forest = L.b.terrain["forest"];
-            DataTerrain hill = L.b.terrain["hill"];
+            DataTerrain grass = L.b.terrains["grass"];
+            DataTerrain forest = L.b.terrains["forest"];
+            DataTerrain hill = L.b.terrains["hill"];
             
             //rebuild map
             //TODO GameMgmt.Get().map.SetTile(0,15,9,Data.nTerrain.hill.id);
@@ -60,10 +60,10 @@ namespace Classes.Scenarios
             p.quests.Add(q);
 
             //found town
-            q = new Quest("found","Found your first town",Data.icons.foundTown.id);
+            q = new Quest("found","Found your first town","foundTown");
             q.Desc = TextHelper.RichText(
                 "This is a perfect spot for a new town. Click on the icon and found it.", "Your Kingdom is based on different towns. Every town has his own building and resources. Finish your round.", "The goal of this scenario will be to upgrade the town hall.",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(Data.icons.foundTown.id,"Found your town."), round);
+                TextHelper.Header("Tasks"), TextHelper.IconLabel("foundTown","Found your town."), round);
             q.AddReq("town", ">1");
             q.AddReq("questFinish", "move");
             q.main = true;

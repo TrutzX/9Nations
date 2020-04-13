@@ -166,7 +166,7 @@ TextureImporter:
     second: timeFantasy_ui_53
   - first:
       213: 4981555219997280578
-    second: timeFantasy_ui_54
+    second: zoom
   - first:
       213: 7166611885132646920
     second: timeFantasy_ui_55
@@ -193,16 +193,16 @@ TextureImporter:
     second: timeFantasy_ui_62
   - first:
       213: 4368373848469253320
-    second: timeFantasy_ui_63
+    second: north1
   - first:
       213: 1868204309667174816
-    second: timeFantasy_ui_64
+    second: south2
   - first:
       213: -8484973604591659055
-    second: timeFantasy_ui_65
+    second: east2
   - first:
       213: -560901786762003822
-    second: timeFantasy_ui_66
+    second: west2
   - first:
       213: -7510067698504686584
     second: timeFantasy_ui_67
@@ -241,16 +241,16 @@ TextureImporter:
     second: timeFantasy_ui_78
   - first:
       213: -7233619012196170598
-    second: timeFantasy_ui_79
+    second: north1
   - first:
       213: -1789530207275439038
-    second: timeFantasy_ui_80
+    second: east2
   - first:
       213: 6729066195977767091
-    second: timeFantasy_ui_81
+    second: west2
   - first:
       213: -940562196476111805
-    second: timeFantasy_ui_82
+    second: south2
   - first:
       213: 2083750300268850571
     second: timeFantasy_ui_83
@@ -1613,7 +1613,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_54
+      name: zoom
       rect:
         serializedVersion: 2
         x: 224
@@ -1802,7 +1802,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_63
+      name: north
       rect:
         serializedVersion: 2
         x: 0
@@ -1823,7 +1823,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_64
+      name: south
       rect:
         serializedVersion: 2
         x: 32
@@ -1844,7 +1844,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_65
+      name: east
       rect:
         serializedVersion: 2
         x: 64
@@ -1865,7 +1865,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_66
+      name: west
       rect:
         serializedVersion: 2
         x: 96
@@ -2138,7 +2138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_79
+      name: north1
       rect:
         serializedVersion: 2
         x: 0
@@ -2159,11 +2159,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_80
+      name: east2
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 63
         width: 32
         height: 32
       alignment: 0
@@ -2180,7 +2180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_81
+      name: west2
       rect:
         serializedVersion: 2
         x: 64
@@ -2201,7 +2201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_82
+      name: south2
       rect:
         serializedVersion: 2
         x: 96

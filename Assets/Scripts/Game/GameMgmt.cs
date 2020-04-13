@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using Audio;
 using Buildings;
 using Classes;
 using GameMapLevels;
@@ -83,8 +84,12 @@ namespace Game
         {
             yield return load.ShowMessage("Loading");
 
+            if (LSys.tem == null)
+                yield return LSys.Init(load);
+            else
+                LSys.tem.Load = load;
             //Loading data
-            yield return L.Init(load);
+            yield return L.Init();
             data = new GameData();
             data.players = new PlayerMgmt();
             data.towns = new TownMgmt();
@@ -112,9 +117,15 @@ namespace Game
             } 
             else
             {
-                yield return (StartScenario(StartConfig["scenario"],L.b.scenarios[StartConfig["scenario"]].map));
+                yield return (StartScenario(StartConfig["scenario"],LSys.tem.scenarios[StartConfig["scenario"]].map));
             }
 
+        }
+
+        public MapElementInfo At(NVector pos)
+        {
+            MapElementInfo info = S.Unit().At(pos);
+            return info != null ? info : S.Building().At(pos);
         }
 
         private void ConnectGameObjs()
@@ -130,7 +141,7 @@ namespace Game
         {
             //load Map
             data.map.id = _map;
-            data.name = L.b.scenarios[id].name;
+            data.name = LSys.tem.scenarios[id].name;
             yield return newMap.CreateMap();
             
             yield return load.ShowSubMessage($"Loading players");

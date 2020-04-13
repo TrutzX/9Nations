@@ -12,7 +12,7 @@ using MapElementInfo = Buildings.MapElementInfo;
 namespace reqs
 {
     
-    public class ReqUnit : ReqMinMax
+    public class ReqUnit : BaseReqMinMax
     {
 
         protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)

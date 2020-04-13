@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Game;
 using Help;
 using IniParser.Model;
 using IniParser.Parser;
@@ -29,7 +30,7 @@ namespace Libraries.Maps
             //intern?
             if (Intern())
             {
-                TextAsset t = Resources.Load<TextAsset>(folder.Substring(1) + "/map");
+                TextAsset t = UnityEngine.Resources.Load<TextAsset>(folder.Substring(1) + "/map");
                 return i.Parse(t.text);
             }
             
@@ -39,7 +40,7 @@ namespace Libraries.Maps
         {
             if (Intern())
             {
-                TextAsset t = Resources.Load<TextAsset>(Dir()+format+id);
+                TextAsset t = UnityEngine.Resources.Load<TextAsset>(Dir()+format+id);
                 return CSV.Convert(CSV.Read(t.text));
             }
             
@@ -69,14 +70,14 @@ namespace Libraries.Maps
             panel.AddSubLabel("Author",author);
             panel.AddSubLabel("Level",level);
             panel.AddSubLabel("Size",$"{width}x{height}");
-            if (Data.features.debug.Bool())
+            if (S.Debug())
                 panel.AddLabel("Folder: " + folder);
             req.BuildPanel(panel, null);
             
             if (Intern())
             {
                 panel.AddHeaderLabel("Overview");
-                panel.AddImage(Resources.Load<Sprite>(folder.Substring(1) + "/" + id));
+                panel.AddImage(UnityEngine.Resources.Load<Sprite>(folder.Substring(1) + "/" + id));
             }
             else
             {

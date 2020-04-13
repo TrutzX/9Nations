@@ -4,6 +4,7 @@ using System.Linq;
 using Game;
 using Libraries;
 using Libraries.Terrains;
+using Tools;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
@@ -49,8 +50,8 @@ namespace Maps.GameMaps
                 for (int x = 0; x < data[0].Length; x++)
                 {
                     d[x, height-1-y] = data[y][x];
-                    string b = data[y][x]==-1?null:L.b.terrain[data[y][x]].winter;
-                    w[x, height-1-y] = string.IsNullOrEmpty(b)?data[y][x]:L.b.terrain[b].defaultTile;
+                    string b = data[y][x]==-1?null:L.b.terrains[data[y][x]].winter;
+                    w[x, height-1-y] = string.IsNullOrEmpty(b)?data[y][x]:L.b.terrains[b].defaultTile;
                 }
             }
             
@@ -96,10 +97,10 @@ namespace Maps.GameMaps
                     continue;
                 }
                 
-                return L.b.terrain[d];
+                return L.b.terrains[d];
             }
             
-            return L.b.terrain[DefaultTerrain];
+            return L.b.terrains[DefaultTerrain];
         }
 
         public bool TerrainNear(int x, int y, string terrain, int radius)
@@ -148,16 +149,24 @@ namespace Maps.GameMaps
             //remove terrain?
             if (resGenerate[x, y][res] > 0) return;
             resGenerate[x, y][res] = 0;
+
+            foreach (string key in resGenerate[x, y].Keys)
+            {
+                //found some res?
+                if (resGenerate[x, y][key] > 0)
+                {
+                    return;
+                }
+            }
             
             //find highest layer
-            for (int layer = LayerCount()-1; layer >= 0; layer++)
+            for (int layer = LayerCount()-1; layer >= 0; layer--)
             {
                 Vector3Int v = new Vector3Int(x,y,layer);
                 if (At(v)==-1) continue;
-                Set(v, -1);
-                Set(v, -1, true);
                 //rebuild
-                
+                S.Map()[level].SetTile(v, null);
+                return;
             }
         }
         
@@ -172,7 +181,7 @@ namespace Maps.GameMaps
             if (terrains.Count == 0)
             {
                 Assert.IsNotNull(generate,$"Data and generate for level {name} is missing.");
-                L.b.mapGeneration[generate].Generator().Generate(this);
+                LSys.tem.mapGeneration[generate].Generator().Generate(this);
             }
             
             //set res
@@ -189,8 +198,16 @@ namespace Maps.GameMaps
                     resGenerate[x,y] = new Dictionary<string, int>();
                     foreach (KeyValuePair<string, string> r in bt.Res)
                     {
-                        string[] c = r.Value.Split('-');
-                        resGenerate[x,y].Add(r.Key,Random.Range(Int32.Parse(c[0]), Int32.Parse(c[1])));
+                        string[] s = SplitHelper.Separator(r.Value);
+                        
+                        //has chance?
+                        if (s.Length >= 2 && Random.Range(0, 100) < ConvertHelper.Proc(s[1]))
+                        {
+                            continue;
+                        }
+
+                        var c = bt.ResRange(r.Key);
+                        resGenerate[x,y].Add(r.Key,Random.Range(c.min, c.max));
                     }
                 }
                 

@@ -21,7 +21,7 @@ namespace Endless
         protected Dictionary<string, string> startConfig;
         protected int id;
         
-        public GeneralSplitElement(Dictionary<string, string> startConfig, string name = "General", string icon = "base:map") : base(name, icon)
+        public GeneralSplitElement(Dictionary<string, string> startConfig, string name = "General", string icon = "map") : base(name, icon)
         {
             this.startConfig = startConfig;
             id = 0;
@@ -43,9 +43,8 @@ namespace Endless
                 //UpdateButtonText();
             });
 
-            //panel.AddHeaderLabel("Options");
-            //todo Data.features.fog.AddOption(panel);
-            //todo Data.features.research.AddOption(panel);
+            panel.AddHeaderLabel("Options");
+            L.b.gameOptions.GetAllByCategory("general").ForEach(o => o.AddOption(panel));
         }
 
         public override void Perform()

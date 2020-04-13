@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace reqs
 {
-    public class ReqRes : ReqMinMax
+    public class ReqRes : BaseReqMinMax
     {
         protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {

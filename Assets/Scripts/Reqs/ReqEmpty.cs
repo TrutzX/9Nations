@@ -1,5 +1,5 @@
 using Buildings;
-using DataTypes;
+
 using Game;
 using Players;
 using Tools;
@@ -16,7 +16,7 @@ namespace reqs
         {
             if (sett == "building")
             {
-                return BuildingMgmt.At(pos) == null;
+                return S.Building().Free(pos);
             }
 
             return S.Unit().Free(pos);
@@ -42,9 +42,9 @@ namespace reqs
         {
             if (sett == "building")
             {
-                if (BuildingMgmt.At(pos) == null) return Desc(player, sett);
+                if (S.Building().Free(pos)) return Desc(player, sett);
                 
-                return Desc(player, sett)+$" Here is {BuildingMgmt.At(pos).name}";
+                return Desc(player, sett)+$" Here is {S.Building().At(pos).name}";
             }
             if (S.Unit().Free(pos)) return Desc(player, sett);
             return Desc(player, sett)+$" Here is {S.Unit().At(pos).name}";

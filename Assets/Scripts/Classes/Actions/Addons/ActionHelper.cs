@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Buildings;
-using DataTypes;
+
 using Game;
 using Libraries.FActions;
 using reqs;
@@ -18,7 +18,8 @@ namespace Classes.Actions.Addons
             FDataAction da = action.DataAction();
             int round = (int) Math.Ceiling((1f * da.cost - info.data.ap) / info.data.apMax);
 
-            WindowPanelBuilder wpb = WindowPanelBuilder.Create("Do you want to wait?");
+            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Wait for {da.name}?");
+            wpb.panel.AddLabel(da.Desc);
             wpb.panel.AddImageLabel($"Action {da.name} need {da.cost - info.data.ap} AP more. You can wait {round} rounds.",
                 "round");
             wpb.panel.AddButton($"Wait {round} rounds", () =>

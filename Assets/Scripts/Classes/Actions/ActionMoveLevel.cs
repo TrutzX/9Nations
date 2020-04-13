@@ -35,8 +35,8 @@ namespace Classes.Actions
                 //build stairs
                 int l = GameMgmt.Get().data.map.levels.Count;
                 //blocked by buildings?
-                bool up = pos.level+1 < l && BuildingMgmt.Free(pos.DiffLevel(1));
-                bool down = pos.level > 0 && BuildingMgmt.Free(pos.DiffLevel(-1));
+                bool up = pos.level+1 < l && S.Building().Free(pos.DiffLevel(1));
+                bool down = pos.level > 0 && S.Building().Free(pos.DiffLevel(-1));
 
                 if (!up && !down)
                 {

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Net;
 using Buildings;
 using Classes;
-using DataTypes;
+
 using Game;
+using Help;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.Res;
 using Libraries.Usages;
 using Players;
 using Players.Infos;
+using Players.Kingdoms;
 using Tools;
 using UI;
 using UnityEngine;
@@ -84,7 +86,6 @@ namespace Towns
             
             //inform
             Player().info.Add(new Info($"Develop {name} to {GetTownLevelName()}","foundtown"));
-            Player().elements.points += level;
         }
         
         public string GetTownLevelName()
@@ -98,7 +99,7 @@ namespace Towns
 
         public Sprite GetIcon()
         {
-            return SpriteHelper.Load("Icons/base:foundTown");
+            return SpriteHelper.Load("foundTown");
         }
 
         public void ShowInfo(PanelBuilder panel)
@@ -239,6 +240,22 @@ namespace Towns
         public bool ActPlayerIsOwner()
         {
             return playerId == PlayerMgmt.ActPlayerID();
+        }
+        
+        public void ShowDetails()
+        {
+            WindowBuilderSplit wbs = WindowBuilderSplit.Create($"Details about {name}",null);
+            wbs.AddElement(new TownGeneralSplitElement(this));
+            if (S.Debug())
+            {
+                wbs.AddElement(new DebugTownSplitElement(this));
+            }
+            
+            wbs.AddElement(new TownResSplitElement(this));
+            wbs.AddElement(new CameraUnitSplitElement(wbs,this));
+            wbs.AddElement(new CameraBuildingSplitElement(wbs,this));
+            LSys.tem.helps.AddHelp("town", wbs);
+            wbs.Finish();
         }
     }
 

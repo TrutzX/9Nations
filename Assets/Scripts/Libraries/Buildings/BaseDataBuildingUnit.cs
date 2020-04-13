@@ -15,7 +15,6 @@ namespace Libraries.Buildings
     {
         public int buildTime;
         public int visibilityRange;
-        public string category;
         public int hp;
         public int ap;
         public int atk;
@@ -24,7 +23,6 @@ namespace Libraries.Buildings
         public int damMax;
         public Dictionary<string, int> cost;
         public Dictionary<string, string> modi;
-        [Obsolete] public Dictionary<string, string> oActions;
         public ActionHolders action;
 
         public BaseDataBuildingUnit()
@@ -32,11 +30,10 @@ namespace Libraries.Buildings
             cost = new Dictionary<string, int>();
             modi = new Dictionary<string, string>();
             action = new ActionHolders();
-            
-            oActions = new Dictionary<string, string>();
 
             visibilityRange = 1;
             hp = 5;
+            ap = 5;
         }
 
         public override void ShowLexicon(PanelBuilder panel)

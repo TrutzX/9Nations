@@ -24,14 +24,9 @@ namespace Libraries.Rounds
                     ele.daytime = data;
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override Round Create()
-        {
-            return new Round();
         }
     }
 }

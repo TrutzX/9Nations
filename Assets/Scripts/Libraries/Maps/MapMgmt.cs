@@ -31,14 +31,9 @@ namespace Libraries.Maps
                     ele.height = Int(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override DataMap Create()
-        {
-            return new DataMap();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataTypes;
+
 using Game;
 using Help;
 using Improvements;
@@ -26,6 +26,7 @@ namespace Buildings
         public override bool NextRound()
         {
             data.lastInfo = null;
+            data.ap = dataBuilding.ap;
             data.BuildingUpdate();
             Town t = Town();
 
@@ -91,10 +92,10 @@ namespace Buildings
             if (!string.IsNullOrEmpty(dataBuilding.connected))
             {
                 SetConnectedImage();
-                BuildingMgmt.At(Pos().DiffY(1))?.SetConnectedImage();
-                BuildingMgmt.At(Pos().DiffY(-1))?.SetConnectedImage();
-                BuildingMgmt.At(Pos().DiffX(1))?.SetConnectedImage();
-                BuildingMgmt.At(Pos().DiffX(-1))?.SetConnectedImage();
+                S.Building().At(Pos().DiffY(1))?.SetConnectedImage();
+                S.Building().At(Pos().DiffY(-1))?.SetConnectedImage();
+                S.Building().At(Pos().DiffX(1))?.SetConnectedImage();
+                S.Building().At(Pos().DiffX(-1))?.SetConnectedImage();
                 
                 return;
             }
@@ -107,10 +108,10 @@ namespace Buildings
             //TODO dynmaic
             if (dataBuilding.connected == "wall")
             {
-                bool north = BuildingMgmt.At(Pos().DiffY(1))?.dataBuilding.connected == dataBuilding.connected;
-                bool east = BuildingMgmt.At(Pos().DiffX(1))?.dataBuilding.connected == dataBuilding.connected;
-                bool south = BuildingMgmt.At(Pos().DiffY(-1))?.dataBuilding.connected == dataBuilding.connected;
-                bool west = BuildingMgmt.At(Pos().DiffX(-1))?.dataBuilding.connected == dataBuilding.connected;
+                bool north = S.Building().At(Pos().DiffY(1))?.dataBuilding.connected == dataBuilding.connected;
+                bool east = S.Building().At(Pos().DiffX(1))?.dataBuilding.connected == dataBuilding.connected;
+                bool south = S.Building().At(Pos().DiffY(-1))?.dataBuilding.connected == dataBuilding.connected;
+                bool west = S.Building().At(Pos().DiffX(-1))?.dataBuilding.connected == dataBuilding.connected;
 
                 string f = dataBuilding.Icon.Replace("14", ImprovementHelper.GetId(north, east, south, west)+"");
                 SetSprite("Building/"+f);
@@ -158,12 +159,12 @@ namespace Buildings
 
         public override WindowBuilderSplit ShowInfoWindow()
         {
-            WindowBuilderSplit win = base.ShowInfoWindow();
-            win.AddElement(new HelpSplitElement("building"), true);
-            win.AddElement(new BuildingLexiconInfo(this), true);
-            win.AddElement(new BuildingSplitInfo(this), true);
-            win.Finish();
-            return win;
+            WindowBuilderSplit wbs = base.ShowInfoWindow();
+            wbs.AddElement(new BuildingLexiconInfo(this), true);
+            wbs.AddElement(new BuildingSplitInfo(this), true);
+            LSys.tem.helps.AddHelp("building", wbs);
+            wbs.Finish();
+            return wbs;
         }
 
         public override void Upgrade(string type)
@@ -190,18 +191,18 @@ namespace Buildings
                 if (_building.Town().playerId != PlayerMgmt.ActPlayerID())
                 {
                     panel.AddLabel($"Owner: {_building.Town().Player().name}");
-                    panel.AddImageLabel($"HP: ??/{_building.dataBuilding.hp}","stats:hp");
-                    panel.AddImageLabel($"AP: ??/{_building.dataBuilding.ap}","stats:ap");
+                    panel.AddImageLabel($"HP: ??/{_building.dataBuilding.hp}","hp");
+                    panel.AddImageLabel($"AP: ??/{_building.dataBuilding.ap}","ap");
                     return;
                 }
             
-                panel.AddImageLabel($"HP: {_building.data.hp}/{_building.data.hpMax}","stats:hp");
-                panel.AddImageLabel($"AP: {_building.data.ap}/{_building.data.apMax}","stats:ap");
+                panel.AddImageLabel($"HP: {_building.data.hp}/{_building.data.hpMax}","hp");
+                panel.AddImageLabel($"AP: {_building.data.ap}/{_building.data.apMax}","ap");
             
                 Construction con = _building.GetComponent<Construction>();
                 if (con != null)
                 {
-                    panel.AddRes("Under Construction",_building.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
+                    panel.AddRes("Under construction",_building.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
                     panel.AddLabel("Missing resources");
                 }
             }
@@ -215,7 +216,7 @@ namespace Buildings
         {
             private readonly BuildingInfo _unit;
         
-            public BuildingLexiconInfo(BuildingInfo unit) : base("Lexicon",SpriteHelper.Load("magic:lexicon"))
+            public BuildingLexiconInfo(BuildingInfo unit) : base("Lexicon","lexicon")
             {
                 this._unit = unit;
             }

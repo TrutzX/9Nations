@@ -18,20 +18,5 @@ namespace Modifiers
             Classes.Add("base",new BaseModifierCalc());
             Classes.Add("t",new TerrainModifierCalc());
         }
-        
-        protected override void ParseElement(Modifier ele, string header, string data)
-        {
-            switch (header)
-            {
-                default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
-                    break;
-            }
-        }
-        
-        protected override Modifier Create()
-        {
-            return new Modifier();
-        }
     }
 }

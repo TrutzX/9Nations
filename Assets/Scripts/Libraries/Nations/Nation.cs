@@ -25,7 +25,7 @@ namespace Libraries.Nations
         
         public override void ShowLexicon(PanelBuilder panel)
         {
-            DataTerrain terr = L.b.terrain[Terrain];
+            DataTerrain terr = L.b.terrains[Terrain];
             base.ShowLexicon(panel);
             panel.AddHeaderLabel("General");
             panel.AddImageLabel($"Home terrain: {terr.name}", terr.Sprite());

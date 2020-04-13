@@ -25,7 +25,7 @@ namespace reqs
             }
             
             //check building
-            BuildingInfo build = BuildingMgmt.At(pos);
+            BuildingInfo build = S.Building().At(pos);
             return build != null && build.baseData.id == id;
         }
 
@@ -53,7 +53,7 @@ namespace reqs
             }
             
             //check building
-            BuildingInfo build = BuildingMgmt.At(pos);
+            BuildingInfo build = S.Building().At(pos);
             return Desc(player, sett)+" Here is "+(build == null?"nothing":build.name);
         }
 

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Actions;
+
+using Audio;
 using Classes.Actions;
 using Classes.Actions.Addons;
-using DataTypes;
+
 using Game;
-using InputAction;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
@@ -81,7 +81,7 @@ namespace Buildings
             }, da.sound);
 
             UIHelper.HoverEnter(button,
-                () => { ShowPanelMessage($"{InputKeyHelper.ActionName(da)}, Cost:{da.cost}/{info.data.ap} AP"); },
+                () => { ShowPanelMessage($"{LSys.tem.inputs.ActionName(da)}, Cost:{da.cost}/{info.data.ap} AP"); },
                 () => { ShowPanelMessage(info.Status(PlayerMgmt.ActPlayerID())); });
         }
 

@@ -97,13 +97,13 @@ namespace GameMapLevels
                     
                     try
                     {
-                        t.SetTile(dataLevel, v,L.b.terrain[d], false);
+                        t.SetTile(dataLevel, v,L.b.terrains[d], false);
                         int q = dataLevel.At(v, true);
-                        w.SetTile(dataLevel, v,L.b.terrain[q], true);
+                        w.SetTile(dataLevel, v,L.b.terrains[q], true);
                     }
                     catch (Exception e)
                     {
-                        Debug.Log(d+" "+L.b.terrain.Values().Count(terr => terr.defaultTile == d));
+                        Debug.Log(d+" "+L.b.terrains.Values().Count(terr => terr.defaultTile == d));
                         Debug.Log($"{x}/{dataLevel.Width()}/{mapData.width},{y}/{dataLevel.Height()}/{mapData.height}");
                         Debug.LogException(new InvalidDataException($"Field type {d} does not exist", e));
                         break;
@@ -129,7 +129,7 @@ namespace GameMapLevels
             {
                 dataLevel.Set(pos, terrain.defaultTile, false);
 
-                DataTerrain winter = string.IsNullOrEmpty(terrain.winter) ? terrain : L.b.terrain[terrain.winter];
+                DataTerrain winter = string.IsNullOrEmpty(terrain.winter) ? terrain : L.b.terrains[terrain.winter];
                 dataLevel.Set(pos, winter.defaultTile, true);
             }
 
@@ -153,10 +153,10 @@ namespace GameMapLevels
             if (!GameHelper.Valid(pos.x, pos.y)) return;
             
             int tId = dataLevel.At(pos, false);
-            layers[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrain[tId], false);
+            layers[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], false);
             
             tId = dataLevel.At(pos, true);
-            layersWinter[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrain[tId], true);
+            layersWinter[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], true);
         }
         
         private IEnumerator AddBorder()

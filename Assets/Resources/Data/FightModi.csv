@@ -1,29 +1,30 @@
 id,name,//base,//dest,icon,desc,modi,req,req
-magewarrior,mage > warrior,mage,warrior,,Unit from type mage > warrior get a 50% attack bonus on units from type mage.,50,unitType=mage;warrior,
-warriorskill,warrior > skill,warrior,skill,,Unit from type warrior > skill get a 50% attack bonus on units from type warrior.,50,unitType=warrior;skill,
-skillmage,skill > mage,skill,mage,,Unit from type skill > mage get a 50% attack bonus on units from type skill.,50,unitType=skill;mage,
-warriormage,warrior > mage,warrior,mage,,Unit from type warrior > mage get a 25% attack bonus on units from type warrior in the night.,25,unitType=warrior;mage,daytime=night
-skillwarrior,skill > warrior,skill,warrior,,Unit from type skill > warrior get a 25% attack bonus on units from type skill in the night.,25,unitType=skill;warrior,daytime=night
-mageskill,mage > skill,mage,skill,Icons/magic:mage > skill,Unit from type mage > skill get a 25% attack bonus on units from type mage in the night.,25,unitType=mage;skill,daytime=night
-fireearth,fire > earth,fire,earth,Icons/magic:fire > earth,Unit from element fire > earth get a 25% attack bonus on units from element fire.,25,element=fire;earth,
-earthwater,earth > water,earth,water,Icons/magic:earth > water,Unit from element earth > water get a 25% attack bonus on units from element earth.,25,element=earth;water,
-waterair,water > air,water,air,Icons/magic:water > air,Unit from element water > air get a 25% attack bonus on units from element water.,25,element=water;air,
-airfire,air > fire,air,fire,Icons/magic:air > fire,Unit from element air > fire get a 25% attack bonus on units from element air.,25,element=air;fire,
-earthfire,earth > fire,earth,fire,Icons/magic:earth > fire,Unit from element earth > fire get a 15% attack bonus on units from element earth in the morning.,15,element=earth;fire,daytime=morning
-waterearth,water > earth,water,earth,Icons/magic:water > earth,Unit from element water > earth get a 15% attack bonus on units from element water in the morning.,15,element=water;earth,daytime=morning
-airwater,air > water,air,water,Icons/magic:air > water,Unit from element air > water get a 15% attack bonus on units from element air in the morning.,15,element=air;water,daytime=morning
-fireair,fire > air,fire,air,Icons/magic:fire > air,Unit from element fire > air get a 15% attack bonus on units from element fire in the morning.,15,element=fire;air,daytime=morning
-swimfloat,swim > float,swim,float,Icons/base:swim,Unit from movement type swim > float get a 30% attack bonus on units from the movement type swim.,30,movementType=swim;float,
-floatwalk,float > walk,float,walk,Icons/base:float,Unit from movement type float > walk get a 30% attack bonus on units from the movement type float.,30,movementType=float;walk,
-walkfly,walk > fly,walk,fly,Icons/base:walk,Unit from movement type walk > fly get a 30% attack bonus on units from the movement type walk.,30,movementType=walk;fly,
-flyswim,fly > swim,fly,swim,Icons/base:fly,Unit from movement type fly > swim get a 30% attack bonus on units from the movement type fly.,30,movementType=fly;swim,
-swimfly,swim > fly,swim,fly,Icons/base:swim,Unit from movement type swim > fly get a 15% attack bonus on units from the movement type swim in the afternoon.,15,movementType=swim;fly,daytime=afternoon
-floatswim,float > swim,float,swim,Icons/base:float,Unit from movement type float > swim get a 15% attack bonus on units from the movement type float in the afternoon.,15,movementType=float;swim,daytime=afternoon
-walkfloat,walk > float,walk,float,Icons/base:walk,Unit from movement type walk > float get a 15% attack bonus on units from the movement type walk in the afternoon.,15,movementType=walk;float,daytime=afternoon
-flywalk,fly > walk,fly,walk,Icons/base:fly,Unit from movement type fly > walk get a 15% attack bonus on units from the movement type fly in the afternoon.,15,movementType=fly;walk,daytime=afternoon
-goodbad,good > bad,good,bad,Icons/base:good,Unit with the ethos good > bad get a 25% attack bonus on units from the ethos good.,25,nationEthos=good;bad,
-badneutral,bad > neutral,bad,neutral,Icons/base:bad,Unit with the ethos bad > neutral get a 25% attack bonus on units from the ethos bad.,25,nationEthos=bad;neutral,
-neutralgood,neutral > good,neutral,good,Icons/base:neutral,Unit with the ethos neutral > good get a 25% attack bonus on units from the ethos neutral.,25,nationEthos=neutral;good,
-badgood,bad > good,bad,good,Icons/base:bad,Unit with the ethos bad > good get a -25% attack malus on units from the ethos bad.,-25,nationEthos=bad;good,
-neutralbad,neutral > bad,neutral,bad,Icons/base:neutral,Unit with the ethos neutral > bad get a -25% attack malus on units from the ethos neutral.,-25,nationEthos=neutral;bad,
-goodneutral,good > neutral,good,neutral,Icons/base:good,Unit with the ethos good > neutral get a -25% attack malus on units from the ethos good.,-25,nationEthos=good;neutral,
+magewarrior,mage > warrior,mage,warrior,logo,mage get a 50% attack bonus over warrior.,50,fightUnitType=mage:warrior,
+warriorskill,warrior > skill,warrior,skill,logo,warrior get a 50% attack bonus over skill.,50,fightUnitType=warrior:skill,
+skillmage,skill > mage,skill,mage,logo,skill get a 50% attack bonus over mage.,50,fightUnitType=skill:mage,
+warriormage,warrior > mage,warrior,mage,logo,warrior get a 25% attack bonus over mage.,25,fightUnitType=warrior:mage,daytime=night
+skillwarrior,skill > warrior,skill,warrior,logo,skill get a 25% attack bonus over warrior.,25,fightUnitType=skill:warrior,daytime=night
+mageskill,mage > skill,mage,skill,logo,mage get a 25% attack bonus over skill.,25,fightUnitType=mage:skill,daytime=night
+fireearth,fire > earth,fire,earth,Icons/magic:fire,fire unit get a 25% attack bonus on earth unit.,25,fightElement=fire:earth,
+earthwater,earth > water,earth,water,Icons/magic:earth,earth unit get a 25% attack bonus on water unit.,25,fightElement=earth:water,
+waterair,water > air,water,air,Icons/magic:water,water unit get a 25% attack bonus on air unit.,25,fightElement=water:air,
+airfire,air > fire,air,fire,Icons/magic:air,air unit get a 25% attack bonus on fire unit.,25,fightElement=air:fire,
+earthfire,earth > fire,earth,fire,Icons/magic:earth,earth unit get a 15% attack bonus on fire unit.,15,fightElement=earth:fire,daytime=morning
+waterearth,water > earth,water,earth,Icons/magic:water,water unit get a 15% attack bonus on earth unit.,15,fightElement=water:earth,daytime=morning
+airwater,air > water,air,water,Icons/magic:air,air unit get a 15% attack bonus on water unit.,15,fightElement=air:water,daytime=morning
+fireair,fire > air,fire,air,Icons/magic:fire,fire unit get a 15% attack bonus on air unit.,15,fightElement=fire:air,daytime=morning
+shadowlight,shadow > light,shadow,light,logo,shadow unit get a 11% attack bonus on light unit.,11,fightElement=shadow:light,
+swimfloat,swim > float,swim,float,Icons/base:swim,Unit from movement type swim > float get a 30% attack bonus on units from the movement type swim.,30,fightMovementType=swim:float,
+floatwalk,float > walk,float,walk,Icons/base:float,Unit from movement type float > walk get a 30% attack bonus on units from the movement type float.,30,fightMovementType=float:walk,
+walkfly,walk > fly,walk,fly,Icons/base:walk,Unit from movement type walk > fly get a 30% attack bonus on units from the movement type walk.,30,fightMovementType=walk:fly,
+flyswim,fly > swim,fly,swim,Icons/base:fly,Unit from movement type fly > swim get a 30% attack bonus on units from the movement type fly.,30,fightMovementType=fly:swim,
+swimfly,swim > fly,swim,fly,Icons/base:swim,Unit from movement type swim > fly get a 15% attack bonus on units from the movement type swim in the afternoon.,15,fightMovementType=swim:fly,daytime=afternoon
+floatswim,float > swim,float,swim,Icons/base:float,Unit from movement type float > swim get a 15% attack bonus on units from the movement type float in the afternoon.,15,fightMovementType=float:swim,daytime=afternoon
+walkfloat,walk > float,walk,float,Icons/base:walk,Unit from movement type walk > float get a 15% attack bonus on units from the movement type walk in the afternoon.,15,fightMovementType=walk:float,daytime=afternoon
+flywalk,fly > walk,fly,walk,Icons/base:fly,Unit from movement type fly > walk get a 15% attack bonus on units from the movement type fly in the afternoon.,15,fightMovementType=fly:walk,daytime=afternoon
+goodbad,good > bad,good,bad,Icons/base:good,Unit with the ethos good > bad get a 25% attack bonus on units from the ethos good.,25,fightNationEthos=good:bad,
+badneutral,bad > neutral,bad,neutral,Icons/base:bad,Unit with the ethos bad > neutral get a 25% attack bonus on units from the ethos bad.,25,fightNationEthos=bad:neutral,
+neutralgood,neutral > good,neutral,good,Icons/base:neutral,Unit with the ethos neutral > good get a 25% attack bonus on units from the ethos neutral.,25,fightNationEthos=neutral:good,
+badgood,bad > good,bad,good,Icons/base:bad,Unit with the ethos bad > good get a -25% attack malus on units from the ethos bad.,-25,fightNationEthos=bad:good,
+neutralbad,neutral > bad,neutral,bad,Icons/base:neutral,Unit with the ethos neutral > bad get a -25% attack malus on units from the ethos neutral.,-25,fightNationEthos=neutral:bad,
+goodneutral,good > neutral,good,neutral,Icons/base:good,Unit with the ethos good > neutral get a -25% attack malus on units from the ethos good.,-25,fightNationEthos=good:neutral,

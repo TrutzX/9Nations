@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Actions;
-using DataTypes;
+
 using Endless;
 using Libraries.Elements;
 using Libraries.FActions;
@@ -14,7 +13,6 @@ public class OLib : ScriptableObject
 {
     
     private static OLib self;
-    private Dictionary<string,BaseAction> _oActions;
     private Dictionary<string,BaseReq> _req;
 
     public static OLib Get()
@@ -28,55 +26,52 @@ public class OLib : ScriptableObject
     private static void Init()
     {
         self = CreateInstance<OLib>();
-        self._oActions = new Dictionary<string,BaseAction>();
-        AddOldAction("improvement",CreateInstance<ImprovementAction>());
         
         self._req = new Dictionary<string, BaseReq>();
+        AddReq("ap", CreateInstance<ReqAp>());
+        AddReq("building", CreateInstance<ReqBuilding>());
+        AddReq("daytime", CreateInstance<ReqDayTime>());
+        AddReq("disabled", CreateInstance<ReqDisabled>());
+        AddReq("dummy", CreateInstance<ReqDummy>());
+        AddReq("element", CreateInstance<ReqElement>());
+        AddReq("elementCount", CreateInstance<ReqElementCount>());
+        AddReq("empty", CreateInstance<ReqEmpty>());
+        AddReq("gameOption", CreateInstance<ReqGameOption>());
+        AddReq("option", CreateInstance<ReqOption>());
+        AddReq("featureP", CreateInstance<ReqFeaturePlayer>());
+        AddReq("field", CreateInstance<ReqSameField>());
+        AddReq("fightElement", CreateInstance<ReqFightElement>());
+        AddReq("fightMovementType", CreateInstance<ReqFightMovementType>());
+        AddReq("fightNationEthos", CreateInstance<ReqFightNationEthos>());
+        AddReq("fightUnitType", CreateInstance<ReqFightUnitType>());
+        AddReq("fogField", CreateInstance<ReqFogField>());
+        AddReq("hp", CreateInstance<ReqHp>());
+        AddReq("game", CreateInstance<ReqGame>());
+        AddReq("windowOpen", CreateInstance<ReqWindowOpen>());
+        AddReq("gameActiveElement", CreateInstance<ReqGameActiveElement>());
+        AddReq("maxUnitPlayer", CreateInstance<ReqUnitMaxPlayer>());
         AddReq("nation", CreateInstance<ReqNation>());
+        AddReq("notEmpty", CreateInstance<ReqNotEmpty>());
+        AddReq("questCount", CreateInstance<ReqQuestCount>());
+        AddReq("questFinish", CreateInstance<ReqQuestFinish>());
+        AddReq("res", CreateInstance<ReqRes>());
+        AddReq("research", CreateInstance<ReqResearch>());
+        AddReq("round", CreateInstance<ReqRoundCount>());
+        AddReq("saveFileCount", CreateInstance<ReqSaveFileCount>());
+        AddReq("season", CreateInstance<ReqSeason>());
         AddReq("terrain", CreateInstance<ReqTerrain>());
         AddReq("terrainCategory", CreateInstance<ReqTerrainCategory>());
         AddReq("terrainNear", CreateInstance<ReqTerrainNear>());
-        AddReq("season", CreateInstance<ReqSeason>());
-        AddReq("daytime", CreateInstance<ReqDayTime>());
-        AddReq("empty", CreateInstance<ReqEmpty>());
-        AddReq("notEmpty", CreateInstance<ReqNotEmpty>());
+        AddReq("terrainRes", CreateInstance<ReqTerrainRes>());
+        AddReq("townCount", CreateInstance<ReqTownCount>());
         AddReq("townLevel", CreateInstance<ReqTownLevel>());
-        AddReq("townMin", CreateInstance<ReqOldTownMin>());
-        AddReq("townMax", CreateInstance<ReqOldTownMax>());
         AddReq("townNear", CreateInstance<ReqTownNear>());
-        AddReq("questCount", CreateInstance<ReqQuestCount>());
-        AddReq("questMin", CreateInstance<ReqOldQuestMin>());
-        AddReq("questMax", CreateInstance<ReqOldQuestMax>());
-        AddReq("resMin", CreateInstance<ReqResMin>());
-        AddReq("maxUnitPlayer", CreateInstance<ReqUnitMaxPlayer>());
-        AddReq("field", CreateInstance<ReqSameField>());
-        AddReq("research", CreateInstance<ReqResearch>());
-        AddReq("feature", CreateInstance<ReqFeature>());
-        AddReq("featureP", CreateInstance<ReqFeaturePlayer>());
-        AddReq("building", CreateInstance<ReqBuilding>());
-        AddReq("hp", CreateInstance<ReqHp>());
-        AddReq("ap", CreateInstance<ReqAp>());
-        AddReq("round", CreateInstance<ReqRoundCount>());
-        AddReq("unitOwn", CreateInstance<ReqUnitOwn>());
-        AddReq("unitDest", CreateInstance<ReqUnitDest>());
         AddReq("unit", CreateInstance<ReqUnit>());
         AddReq("unitCount", CreateInstance<ReqUnitCount>());
-        AddReq("townCount", CreateInstance<ReqTownCount>());
-        AddReq("questFinish", CreateInstance<ReqQuestFinish>());
-        AddReq("fogField", CreateInstance<ReqFogField>());
-        AddReq("disabled", CreateInstance<ReqDisabled>());
-        AddReq("element", CreateInstance<ReqElement>());
-        AddReq("elementCount", CreateInstance<ReqElementCount>());
-        AddReq("res", CreateInstance<ReqRes>());
+        AddReq("unitDest", CreateInstance<ReqUnitDest>());
+        AddReq("unitOwn", CreateInstance<ReqUnitOwn>());
+        AddReq("update", CreateInstance<ReqUpdate>());        
         AddReq("upgrade", CreateInstance<ReqUpgradeCan>());
-        AddReq("saveFileCount", CreateInstance<ReqSaveFileCount>());
-        AddReq("update", CreateInstance<ReqUpdate>());
-    }
-    
-    public static void AddOldAction(string id, BaseAction action)
-    {
-        self._oActions[id] = action;
-        action.id = id;
     }
 
     private static void AddReq(string id, BaseReq action)
@@ -89,7 +84,8 @@ public class OLib : ScriptableObject
     {
         if (!Get()._req.ContainsKey(key))
         {
-            throw new MissingMemberException($"Req {key} is missing");
+            Debug.LogError($"Req {key} is missing");
+            return self._req["dummy"];
         }
 
         return self._req[key];

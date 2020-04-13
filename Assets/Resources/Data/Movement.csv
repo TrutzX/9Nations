@@ -1,5 +1,5 @@
 id,name,icon,desc,def
-walk,walk,Icons/base:walk,,10
-fly,fly,Icons/base:fly,,10
-swim,swim,Icons/base:swim,,0
-float,float,Icons/base:float,,10
+walk,walk,!Icons/base:walk,,10
+fly,fly,!Icons/base:fly,,10
+swim,swim,!Icons/base:swim,,0
+float,float,!Icons/base:float,,10

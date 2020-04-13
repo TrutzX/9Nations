@@ -796,7 +796,7 @@ TextureImporter:
     second: e_32
   - first:
       213: -329101189915672922
-    second: e_33
+    second: mine
   - first:
       213: 4299895703597473804
     second: e_34
@@ -2237,7 +2237,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: e_33
+      name: mine
       rect:
         serializedVersion: 2
         x: 64

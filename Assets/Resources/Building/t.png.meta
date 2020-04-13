@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5860470177254374992
-    second: t_0
+    second: mint
   - first:
       213: 6983501290316935211
     second: t_1
   - first:
       213: 3034741463602328472
-    second: t_2
+    second: forge
   - first:
       213: -1260565817776138774
     second: t_3
@@ -115,10 +115,10 @@ TextureImporter:
     second: t_36
   - first:
       213: 4193297876169519839
-    second: t_37
+    second: armoury
   - first:
       213: -5398802310772358694
-    second: t_38
+    second: toolshop
   - first:
       213: -2824098905963302075
     second: t_39
@@ -145,10 +145,10 @@ TextureImporter:
     second: t_46
   - first:
       213: 6825003850176411929
-    second: t_47
+    second: armourywinter
   - first:
       213: 8998380029671944850
-    second: t_48
+    second: toolshopwinter
   - first:
       213: -8035516345854702719
     second: t_49
@@ -338,7 +338,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: t_0
+      name: mint
       rect:
         serializedVersion: 2
         x: 0
@@ -380,7 +380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_2
+      name: forge
       rect:
         serializedVersion: 2
         x: 64
@@ -1115,7 +1115,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_37
+      name: armoury
       rect:
         serializedVersion: 2
         x: 0
@@ -1136,7 +1136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_38
+      name: toolshop
       rect:
         serializedVersion: 2
         x: 32
@@ -1325,7 +1325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_47
+      name: armourywinter
       rect:
         serializedVersion: 2
         x: 0
@@ -1346,7 +1346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_48
+      name: toolshopwinter
       rect:
         serializedVersion: 2
         x: 32

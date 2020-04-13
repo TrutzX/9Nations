@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Buildings;
+using Libraries;
 using Players;
 using Players.Quests;
 using Tools;
@@ -16,9 +17,9 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
-            if (!Data.features.update.Bool()) return false;
+            if (!LSys.tem.options["update"].Bool()) return false;
             
-            string[] s = SplitHelper.Seperator(PlayerPrefs.GetString("update.txt", "false"));
+            string[] s = SplitHelper.Separator(PlayerPrefs.GetString("update.txt", "false"));
             return !(s[0].Equals("false"));
         }
 

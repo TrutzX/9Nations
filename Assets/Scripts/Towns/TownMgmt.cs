@@ -77,11 +77,11 @@ namespace Towns
             int y = pos.y;
         
             // on the next field and part of the player?
-            foreach (BuildingInfo b in new [] { BuildingMgmt.At(pos), 
-                BuildingMgmt.At(pos.DiffX(-1)),
-                BuildingMgmt.At(pos.DiffY(-1)), 
-                BuildingMgmt.At(pos.DiffX(1)),
-                BuildingMgmt.At(pos.DiffY(1)) }) {
+            foreach (BuildingInfo b in new [] { S.Building().At(pos), 
+                S.Building().At(pos.DiffX(-1)),
+                S.Building().At(pos.DiffY(-1)), 
+                S.Building().At(pos.DiffX(1)),
+                S.Building().At(pos.DiffY(1)) }) {
                 if (b != null && b.Town().playerId == player.id) {
                     return b.Town();
                 }

@@ -6,7 +6,7 @@ using Tools;
 
 namespace reqs
 {
-    public class ReqRoundCount : ReqMinMax
+    public class ReqRoundCount : BaseReqMinMax
     {
         protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {

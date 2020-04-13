@@ -1,16 +1,17 @@
-using InputAction;
 using Libraries;
+using Libraries.Helps;
+using Libraries.Inputs;
 using UI.Show;
 
 namespace Help
 {
     public class HelpSplitTab : SplitElementTab
     {
-        public HelpSplitTab() : base("Help", "magic:lexicon")
+        public HelpSplitTab() : base("Help", "help")
         {
-            foreach(DataTypes.Help h in Data.help)
+            foreach(NHelp h in LSys.tem.helps.Values())
             {
-                Add(new HelpSplitElement(h));
+                Add(new LexiconSplitElement(h));
             }
             
             Add(new InputOptionSplitElement());

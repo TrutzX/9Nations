@@ -46,7 +46,7 @@ namespace Classes.Actions
             if (opts.Count == 1)
             {
                 GameMgmt.Get().newMap.levels[pos.level]
-                    .SetTile(v3, opts[0].value == "remove" ? null : L.b.terrain[opts[0].value]);
+                    .SetTile(v3, opts[0].value == "remove" ? null : L.b.terrains[opts[0].value]);
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace Classes.Actions
                 wpb.panel.AddImageTextButton(CreateTitle(opt), terrain.Sprite(), () =>
                 {
                     GameMgmt.Get().newMap.levels[pos.level]
-                        .SetTile(v3, opt.value == "remove" ? null : L.b.terrain[opt.value]);
+                        .SetTile(v3, opt.value == "remove" ? null : L.b.terrains[opt.value]);
                     wpb.Close();
                 });
             }
@@ -80,7 +80,7 @@ namespace Classes.Actions
             while (sett.holder.data.ContainsKey(i.ToString()))
             {
                 var d = SplitHelper.Split(sett.holder.data[i.ToString()]);
-                DataTerrain terr = L.b.terrain[d.key];
+                DataTerrain terr = L.b.terrains[d.key];
                 sett.panel.AddImageLabel(CreateTitle(d), terr.Icon);
                 i++;
             }
@@ -89,8 +89,8 @@ namespace Classes.Actions
         private static string CreateTitle((string key, string value) d)
         {
             return d.value == "remove"
-                ? $"Remove terrain {L.b.terrain[d.key].name}"
-                : $"Convert {L.b.terrain[d.key].name} to {L.b.terrain[d.value].name}";
+                ? $"Remove terrain {L.b.terrains[d.key].name}"
+                : $"Convert {L.b.terrains[d.key].name} to {L.b.terrains[d.value].name}";
         }
 
         public override ActionHolder Create(string setting)
@@ -100,7 +100,7 @@ namespace Classes.Actions
 
             string req = "";
             int i = 0;
-            foreach (var e in SplitHelper.Seperator(setting))
+            foreach (var e in SplitHelper.Separator(setting))
             {
                 conf.data[(i++).ToString()] = e;
                 req += req.Length > 0 ? ";" : "";

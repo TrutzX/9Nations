@@ -14,7 +14,7 @@ namespace Endless
     {
         public MapSplitTab(Dictionary<string, string> startConfig) : base("Map", "map", "Next & set")
         {
-            foreach (DataMap map in L.b.maps.Values())
+            foreach (DataMap map in LSys.tem.maps.Values())
             {
                 if (!map.req.Check(null))
                     continue;

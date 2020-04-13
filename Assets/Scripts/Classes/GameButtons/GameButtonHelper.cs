@@ -1,4 +1,3 @@
-using Endless;
 using Game;
 using GameButtons;
 using Help;
@@ -6,7 +5,6 @@ using Libraries;
 using LoadSave;
 using Options;
 using Players;
-using Players.PlayerResearches;
 using Players.Quests;
 using UI;
 using UnityEngine;
@@ -20,20 +18,13 @@ namespace Classes.GameButtons
 
         protected override void Run(Player player)
         {
-            WindowsMgmt.GameMainMenu();
+            //create it
+            WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
+            L.b.gameButtons.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
+            win.Finish();
         }
     }
-    
-    public class ResearchGameButtonRun : BaseGameButtonRun
-    {
-        public ResearchGameButtonRun() : base ("research") { }
 
-        protected override void Run(Player player)
-        {
-            ResearchWindow.ShowResearchWindow();
-        }
-    }
-    
     public class LexiconGameButtonRun : BaseGameButtonRun
     {
         public LexiconGameButtonRun() : base ("lexicon") { }
@@ -133,27 +124,7 @@ namespace Classes.GameButtons
             Application.Quit();
         }
     }
-    
-    public class EndlessGameButtonRun : BaseGameButtonRun
-    {
-        public EndlessGameButtonRun() : base ("endless") { }
 
-        protected override void Run(Player player)
-        {
-            EndlessGameBuilder.Show();
-        }
-    }
-    
-    public class KingdomGameButtonRun : BaseGameButtonRun
-    {
-        public KingdomGameButtonRun() : base ("kingdom") { }
-
-        protected override void Run(Player player)
-        {
-            KingdomOverview.ShowHelpWindow();
-        }
-    }
-    
     public class NextUnitGameButtonRun : BaseGameButtonRun
     {
         public NextUnitGameButtonRun() : base ("nextUnit") { }
@@ -170,7 +141,7 @@ namespace Classes.GameButtons
 
         protected override void Run(Player player)
         {
-            L.b.campaigns.ShowCampaigns();
+            LSys.tem.campaigns.ShowCampaigns();
         }
     }
     

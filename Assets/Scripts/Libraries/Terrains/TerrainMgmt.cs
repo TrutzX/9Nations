@@ -1,4 +1,5 @@
 using System;
+using Game;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -36,9 +37,6 @@ namespace Libraries.Terrains
                 case "winter":
                     ele.winter = data;
                     break;
-                case "category":
-                    ele.category = data;
-                    break;
                 case "modi":
                     Delimiter(ele.modi, data);
                     break;
@@ -46,7 +44,7 @@ namespace Libraries.Terrains
                     Delimiter(ele.Res, data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
         }
@@ -56,15 +54,10 @@ namespace Libraries.Terrains
         {
             return ids[id];
         }
-        
-        protected override DataTerrain Create()
-        {
-            return new DataTerrain();
-        }
 
         public string GenDesc(int count)
         {
-            string b = global::Data.features.debug.Bool() ? $" ({count})" : "";
+            string b = S.Debug() ? $" ({count})" : "";
 
             if (count == 0) return "none"+b;
             if (count < 10) return "some"+b;
@@ -72,7 +65,7 @@ namespace Libraries.Terrains
             if (count < 60) return "multiple"+b;
             if (count < 100) return "more"+b;
             if (count < 500) return "much"+b;
-            if (count < 1000) return "more"+b;
+            if (count < 1000) return "much more"+b;
             return "numerous"+b;
         }
 

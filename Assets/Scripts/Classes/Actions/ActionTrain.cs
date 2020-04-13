@@ -23,7 +23,7 @@ namespace Classes.Actions
             string[] keys;
             if (holder.data.ContainsKey("unit"))
             {
-                keys = SplitHelper.Seperator(holder.data["unit"]);
+                keys = SplitHelper.Separator(holder.data["unit"]);
             }
             else
             {

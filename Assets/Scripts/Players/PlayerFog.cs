@@ -28,7 +28,7 @@ namespace Players
         /// </summary>
         public PlayerFog()
         {
-            noFog = !Data.features.fog.Bool();
+            noFog = !S.Fog();
             if (noFog) return;
             
             visible = new List<bool[,]>();

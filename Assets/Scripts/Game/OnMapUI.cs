@@ -1,5 +1,8 @@
-﻿using Buildings;
+﻿using Audio;
+using Buildings;
 using Classes.Actions;
+using InputActions;
+using Libraries;
 using Libraries.FActions;
 using Players;
 using Players.Infos;
@@ -46,7 +49,7 @@ namespace Game
                 SetActiveAction(null,false);
 
             //can view?
-            if (Data.features.fog.Bool() && !PlayerMgmt.ActPlayer().fog.Visible(pos))
+            if (S.Fog() && !PlayerMgmt.ActPlayer().fog.Visible(pos))
             {
                 unitUI.UpdatePanel(null);
                 buildingUI.UpdatePanel(null);
@@ -54,7 +57,7 @@ namespace Game
             }
             
             unitUI.UpdatePanel(S.Unit().At(pos));
-            buildingUI.UpdatePanel(BuildingMgmt.At(pos));
+            buildingUI.UpdatePanel(S.Building().At(pos));
         }
 
         public void UpdatePanelOnMouse()
@@ -77,7 +80,7 @@ namespace Game
                 UpdatePanel(pos);
         
             //center mouse?
-            if (Data.features.centermouse.Bool())
+            if (LSys.tem.options["centermouse"].Bool())
             {
                 CameraMove.Get().MoveTo(pos);
             }

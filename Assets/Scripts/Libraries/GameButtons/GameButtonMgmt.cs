@@ -10,36 +10,13 @@ namespace Libraries.GameButtons
     public class GameButtonMgmt : BaseMgmt<GameButton>
     {
         public GameButtonMgmt() : base("gamebutton","GameButton",null) { }
-
-        protected override void ParseElement(GameButtons.GameButton ele, string header, string data)
-        {
-            switch (header)
-            {
-                case "location":
-                    ele.location = data;
-                    break;
-                default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
-                    break;
-            }
-        }
-
-        protected override GameButton Create()
-        {
-            return new GameButton();
-        }
         
-        public void BuildMenu(Player player, string location, IMapUI text, bool button, Transform transform)
+        public void BuildMenu(Player player, string category, IMapUI text, bool button, Transform transform)
         {
-            foreach (GameButton b in L.b.gameButtons.Values())
+            foreach (GameButton b in GetAllByCategory(category))
             {
-                if (!b.location.Contains(location))
-                {
-                    continue;
-                }
-                
                 //can use?
-                if (!b.req.Check(player) && !global::Data.features.showAction.Bool())
+                if (!b.req.Check(player) && !LSys.tem.options["showaction"].Bool())
                 {
                     continue;
                 }

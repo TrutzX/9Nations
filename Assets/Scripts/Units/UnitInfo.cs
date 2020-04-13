@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using Audio;
 using Buildings;
-using Classes;
-using DataTypes;
 using DigitalRuby.Tween;
 using Game;
 using Help;
+using InputActions;
 using Libraries;
 using Libraries.Terrains;
 using Libraries.Units;
@@ -16,7 +15,6 @@ using reqs;
 using Tools;
 using Towns;
 using UI;
-using UI.Show;
 using UnityEngine;
 
 namespace Units
@@ -29,12 +27,18 @@ namespace Units
         {
             data.lastInfo = null;
             data.UnitUpdate();
-            data.ap = dataUnit.ap;
+            
+            //no town?
+            if (data.townId == -1)
+                data.ap = dataUnit.ap;
 
             if (!base.NextRound())
             {
                 return false;
             }
+            
+            //reload if only have enough res
+            data.ap = dataUnit.ap;
             
             //has a town?
             return data.townId != -1;
@@ -212,75 +216,14 @@ namespace Units
 
         public override WindowBuilderSplit ShowInfoWindow()
         {
-            WindowBuilderSplit win = base.ShowInfoWindow();
-            win.AddElement(new HelpSplitElement("unit"), true);
-            win.AddElement(new UnitLexiconInfo(this), true);
-            win.AddElement(new UnitSplitInfo(this), true);
+            WindowBuilderSplit wbs = base.ShowInfoWindow();
+            wbs.AddElement(new UnitLexiconInfo(this), true);
+            wbs.AddElement(new UnitSplitInfo(this), true);
             
-            win.Finish();
-            return win;
-        }
-
-        class UnitLexiconInfo : SplitElement
-        {
-            private readonly UnitInfo _unit;
-        
-            public UnitLexiconInfo(UnitInfo unit) : base("Lexicon",SpriteHelper.Load("magic:lexicon"))
-            {
-                this._unit = unit;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                _unit.dataUnit.ShowOwn(panel, _unit);
-            }
-
-            public override void Perform()
-            {
-            }
-        }
-    }
-
-    class UnitSplitInfo : SplitElement
-    {
-        private readonly UnitInfo _unit;
-        
-        public UnitSplitInfo(UnitInfo unit) : base(unit.gameObject.name,unit.dataUnit.Sprite())
-        {
-            this._unit = unit;
-        }
-
-        public override void ShowDetail(PanelBuilder panel)
-        {
-            //diff unit?
-            if (!_unit.Owner(PlayerMgmt.ActPlayerID()))
-            {
-                _unit.dataUnit.AddImageLabel(panel);
-                panel.AddHeaderLabel("Information");
-                panel.AddImageLabel($"Owner: {_unit.Player().name}",_unit.Player().icon);
-                panel.AddImageLabel($"HP: ??/{_unit.dataUnit.hp}","hp");
-                panel.AddImageLabel($"AP: ??/{_unit.dataUnit.ap}","ap");
-                return;
-            }
-
-            panel.AddInputRandom("name", _unit.name,
-                val => _unit.name = val,
-                () => LClass.s.nameGenerators["unit"].Gen()+" "+_unit.dataUnit.name);
+            LSys.tem.helps.AddHelp("unit", wbs);
             
-            panel.AddHeaderLabel("Information");
-            panel.AddImageLabel($"HP: {_unit.data.hp}/{_unit.data.hpMax}","hp");
-            panel.AddImageLabel($"AP: {_unit.data.ap}/{_unit.data.apMax}","ap");
-            
-            Construction con = _unit.GetComponent<Construction>();
-            if (con != null)
-            {
-                panel.AddRes("Under Construction",_unit.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
-                panel.AddLabel("Missing resources");
-            }
-        }
-
-        public override void Perform()
-        {
+            wbs.Finish();
+            return wbs;
         }
     }
 }

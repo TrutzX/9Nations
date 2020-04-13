@@ -3,7 +3,7 @@ using UI.Show;
 
 namespace Help
 {
-    public class LexiconSplitTab<T> : SplitElementTab where T : BaseData
+    public class LexiconSplitTab<T> : SplitElementTab where T : BaseData, new ()
     {
         public LexiconSplitTab(BaseMgmt<T> mgmt) : base(mgmt.Name(), mgmt.Sprite())
         {

@@ -1,5 +1,6 @@
 using System;
 using Buildings;
+using Game;
 using JetBrains.Annotations;
 using Libraries;
 using Libraries.FActions;
@@ -37,9 +38,8 @@ namespace Classes.Actions
         
         public virtual void BuildPanel(ActionDisplaySettings sett)
         {
-            bool d = Data.features.debug.Bool();
             FDataAction da = L.b.actions[id];
-            string h = sett.header ?? (d ? $"{da.name} ({id})" : da.name);
+            string h = sett.header ?? (S.Debug() ? $"{da.name} ({id})" : da.name);
 
             if (sett.compact)
             {
@@ -49,7 +49,7 @@ namespace Classes.Actions
             
             sett.panel.AddHeaderLabel(h);
 
-            if (d)
+            if (S.Debug())
             {
                 sett.panel.AddSubLabel("triggerWait",sett.holder.triggerWait.ToString());
             }
@@ -122,6 +122,7 @@ namespace Classes.Actions
             holder.triggerWait = wait;
         }
         
+        [Obsolete]
         protected void CreateTrigger(ActionHolder holder, ActionEvent type)
         {
             holder.trigger = type;

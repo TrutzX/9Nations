@@ -1,3 +1,4 @@
+using Libraries;
 using UI;
 using UI.Show;
 using UnityEngine;
@@ -18,8 +19,8 @@ namespace Options
                 "If you do not want, to send the infos, please disable the network");
             panel.AddLabel(
                 "or use a firewall. See also the privacy statement in the help menu");
-            Data.features.update.AddOption(panel);
-
+            
+            LSys.tem.options.GetAllByCategory("network").ForEach(o => o.AddOption(panel));
         }
 
         public override void Perform()

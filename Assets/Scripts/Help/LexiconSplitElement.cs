@@ -10,9 +10,14 @@ namespace Help
     {
         private readonly BaseData _data;
         
-        public LexiconSplitElement(BaseData data) : base(data.name, data.Sprite())
+        public LexiconSplitElement(BaseData data) : this(data, data.name, data.Sprite())
+        {
+        }
+        
+        public LexiconSplitElement(BaseData data, string name, Sprite icon) : base(name, icon)
         {
             _data = data;
+            disabled = "It is only the help, so it is disabled.";
         }
 
         public override void ShowDetail(PanelBuilder panel)

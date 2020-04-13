@@ -1,4 +1,5 @@
-id,name,icon,desc,rate,req,
-food,Food,Icons/base:food,,-0.2,,
-water,Water,Icons/magic:water,,-0.3,element=light,
-gold,Gold,Icons/other:gold,,0.1,,
+id,name,icon,desc,rate,req,req
+food,food,!Icons/base:food,,-0.2,,
+water,water,!Icons/magic:water,,-0.3,element=light,
+gold,gold,gold,,0.1,,
+religion,religion,religion,,1,,townLevel=>2

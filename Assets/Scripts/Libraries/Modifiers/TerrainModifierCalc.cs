@@ -15,7 +15,7 @@ namespace Modifiers
         {
             string[] d = data.Split(';');
 
-            return base.Desc(d[0]) + " on " + L.b.terrain[d[2]].name;
+            return base.Desc(d[0]) + " on " + L.b.terrains[d[2]].name;
         }
 
         public override bool Check(string data, Player player, NVector pos)

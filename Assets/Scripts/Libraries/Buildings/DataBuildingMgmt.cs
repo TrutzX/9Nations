@@ -31,10 +31,5 @@ namespace Libraries.Buildings
                     break;
             }
         }
-
-        protected override DataBuilding Create()
-        {
-            return new DataBuilding();
-        }
     }
 }

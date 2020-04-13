@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using IniParser.Model.Configuration;
+#pragma warning disable 618
 
 namespace IniParser.Model.Formatting
 {

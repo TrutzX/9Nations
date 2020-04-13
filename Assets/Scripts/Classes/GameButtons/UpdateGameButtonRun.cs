@@ -11,7 +11,7 @@ namespace Classes.GameButtons
 
         protected override void Run(Player player)
         {
-            string[] s = SplitHelper.Seperator(PlayerPrefs.GetString("update.txt", "false"));
+            string[] s = SplitHelper.Separator(PlayerPrefs.GetString("update.txt", "false"));
 
             if (s[0].Equals("false")) return;
             

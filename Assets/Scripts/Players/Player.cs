@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Schema;
+using Audio;
 using Buildings;
-using DataTypes;
+
 using Game;
 using GameButtons;
 using Libraries;
@@ -79,7 +80,7 @@ namespace Players
         public string GetFeature(string key)
         {
             if (!features.ContainsKey(key))
-                return Data.featurePlayer[key].standard;
+                return L.b.playerOptions[key].standard;
             return features[key];
         }
 
@@ -170,7 +171,7 @@ namespace Players
         {
             //TODO Autosave only for human player
             //save
-            if (Data.features.autosave.Bool())
+            if (LSys.tem.options["autosave"].Bool())
             {
                 yield return GameMgmt.Get().load.ShowSubMessage($"Save auto save");
                 LoadSaveMgmt.UpdateSave($"autosave{id}",$"Auto save {name}");

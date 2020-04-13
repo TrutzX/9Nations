@@ -50,7 +50,7 @@ namespace GameMapLevels
             yield return GameMgmt.Get().load.ShowSubMessage($"Create Map data");
 
             //read data
-            DataMap map = L.b.maps[GameMgmt.Get().data.map.id];
+            DataMap map = LSys.tem.maps[GameMgmt.Get().data.map.id];
             GameMapData gmap = GameMgmt.Get().data.map;
             IniData data = map.Config();
             

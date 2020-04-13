@@ -65,7 +65,7 @@ namespace Players.PlayerResearches
             start = panel.AddButton("??", () => { mgmt.BeginNewResearch(elements); window.CloseWindow(); });
             UpdateDesc();
 
-            if (Data.features.debug.Bool())
+            if (S.Debug())
             {
                 panel.AddLabel($"Act cost: {PlayerMgmt.ActPlayer().research.cost}");
                 panel.AddLabel($"Act possible: {String.Join(",",PlayerMgmt.ActPlayer().research.AvailableResearch())}");

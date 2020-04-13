@@ -1,5 +1,7 @@
+using Audio;
 using Buildings;
 using Game;
+using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
@@ -19,6 +21,49 @@ namespace Classes.Actions
             ActionHolder holder)
         {
             Perform(info, S.Unit().At(pos));
+        }
+
+        public override void BuildPanel(ActionDisplaySettings sett)
+        {
+            //found dest?
+            MapElementInfo info = S.Game().At(sett.pos);
+            if (info == null)
+            {
+                base.BuildPanel(sett);
+                return;
+            }
+
+            sett.header = $"Attack {info.name}";
+            base.BuildPanel(sett);
+            
+            if (sett.compact)
+                return;
+
+            sett.panel.AddHeaderLabel($"{sett.mapElement.name} attacks");
+            sett.panel.AddSubLabel("Attack",sett.mapElement.baseData.atk.ToString(),"atk");
+            sett.panel.AddSubLabel("Damage",$"{sett.mapElement.baseData.damMin}-{sett.mapElement.baseData.damMax}","damage");
+
+            sett.panel.AddHeaderLabel($"{info.name} defends");
+            sett.panel.AddSubLabel("Defense",info.baseData.def.ToString(),"def");
+            
+            //both units?
+            if (!sett.mapElement.IsBuilding() && !info.IsBuilding())
+            {
+                bool found = false;
+                foreach (var fm in L.b.fightModis.Values())
+                {
+                    if (!fm.req.Check(sett.mapElement, sett.pos))
+                        continue;
+
+                    if (!found)
+                    {
+                        sett.panel.AddHeaderLabel("Fight modificator");
+                        found = true;
+                    }
+                    
+                    sett.panel.AddImageLabel(fm.Desc, fm.Icon);
+                }
+            }
         }
         
         public virtual void Perform(MapElementInfo self, MapElementInfo nonSelf)
@@ -70,19 +115,16 @@ namespace Classes.Actions
         /// <returns></returns>
         private int CalcDamage(MapElementInfo self, MapElementInfo nonSelf)
         {
-            UnitInfo uSelf = (UnitInfo) self;
-            UnitInfo unSelf = (UnitInfo) nonSelf;
             
-            float dam = Random.Range(uSelf.baseData.damMin, uSelf.baseData.damMax + 1);
-            int atk = uSelf.baseData.atk, def = unSelf.baseData.def;
+            float dam = Random.Range(self.baseData.damMin, self.baseData.damMax + 1);
+            int atk = self.baseData.atk, def = nonSelf.baseData.def;
 
-            // add ethos
-            string ae = self.Player().Nation().Ethos, de = nonSelf.Player().Nation().Ethos;
-            // good>bad, bad>neutral, neutral>good
-            if (ae == "good" && de == "bad" || ae == "bad" && de == "neutral" || ae == "neutral" && de == "good") {
-                dam *= 1.25f;
-            } else if (ae == de) {
-                dam *= 0.75f;
+            foreach (var fm in L.b.fightModis.Values())
+            {
+                if (!fm.req.Check(self, nonSelf.Pos()))
+                    continue;
+
+                dam *= (1 + fm.modi / 100f);
             }
 
             // check multi

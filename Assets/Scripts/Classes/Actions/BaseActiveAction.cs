@@ -20,8 +20,6 @@ namespace Classes.Actions
         protected Player player;
         protected ActionHolder action;
         protected List<PPoint> Points;
-
-        [Obsolete] protected int LastClickX, LastClickY;
         
         protected NVector LastClickPos;
         
@@ -40,8 +38,6 @@ namespace Classes.Actions
             mapElementInfo = info;
             this.initPos = pos;
             action = holder;
-
-            LastClickX = -1;
             
             //set as active action
             OnMapUI.Get().SetActiveAction(this,mapElementInfo.IsBuilding());
@@ -86,8 +82,6 @@ namespace Classes.Actions
             }
             
             //new Click?
-            LastClickX = pos.x;
-            LastClickY = pos.y;
             LastClickPos = pos;
             ClickFirst();
         }

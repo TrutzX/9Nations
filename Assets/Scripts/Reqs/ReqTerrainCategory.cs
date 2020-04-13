@@ -14,7 +14,7 @@ namespace reqs
         public override bool Check(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
 
-            string[] terr = SplitHelper.Seperator(sett);
+            string[] terr = SplitHelper.Separator(sett);
             foreach (string terrain in terr)
             {
                     if (GameMgmt.Get().newMap.Terrain(pos).category == terrain)

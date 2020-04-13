@@ -9,7 +9,7 @@ namespace Tools
         {
             if (!Int32.TryParse(data, out var erg))
             {
-                Debug.LogError($"Can not parse number {data}");
+                Debug.LogError($"Can not parse number {data}.");
             }
 
             return erg;

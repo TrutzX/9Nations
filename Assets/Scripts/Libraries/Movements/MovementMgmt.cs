@@ -19,14 +19,9 @@ namespace Libraries.Movements
                     ele.def = Int(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override Movement Create()
-        {
-            return new Movement();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Tools
 
         public NVector(string pos)
         {
-            string[] sett = SplitHelper.Seperator(pos);
+            string[] sett = SplitHelper.Separator(pos);
             
             this.x = ConvertHelper.Int(sett[1]);
             this.y = ConvertHelper.Int(sett[2]);

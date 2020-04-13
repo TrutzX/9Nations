@@ -15,15 +15,13 @@ namespace Libraries.Units
                 case "movement":
                     ele.movement = data;
                     break;
+                case "type":
+                    ele.type = data;
+                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;
             }
-        }
-
-        protected override DataUnit Create()
-        {
-            return new DataUnit();
         }
     }
 }

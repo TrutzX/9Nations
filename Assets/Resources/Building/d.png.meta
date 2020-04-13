@@ -829,10 +829,10 @@ TextureImporter:
     second: d_19
   - first:
       213: 3117040474522476962
-    second: d_20
+    second: charcoal
   - first:
       213: -7819465369084464311
-    second: d_21
+    second: charcoalwinter
   - first:
       213: -7574805910514347262
     second: d_22
@@ -2036,7 +2036,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d_20
+      name: charcoal
       rect:
         serializedVersion: 2
         x: 160
@@ -2057,7 +2057,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d_21
+      name: charcoalwinter
       rect:
         serializedVersion: 2
         x: 192

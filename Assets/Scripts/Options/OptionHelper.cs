@@ -1,6 +1,7 @@
 using System;
-using DataTypes;
-using InputAction;
+
+using Game;
+using Libraries.Inputs;
 using UI;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ namespace Options
             b.AddElement(new GameOptionSplitElement());
             b.AddElement(new NetworkOptionSplitElement());
             b.AddElement(new InputOptionSplitElement());
-            if (Data.features.debug.Bool())
+            if (S.Debug())
             {
                 b.AddElement(new DebugOptionSplitElement());
             }

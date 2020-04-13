@@ -22,7 +22,7 @@ namespace Classes.Actions
             string[] keys;
             if (holder.data.ContainsKey("upgrade"))
             {
-                keys = SplitHelper.Seperator(holder.data["upgrade"]);
+                keys = SplitHelper.Separator(holder.data["upgrade"]);
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Classes.Actions
             if (!string.IsNullOrEmpty(setting))
             {
                 conf.data["upgrade"] = setting;
-                string[] keys = SplitHelper.Seperator(setting);
+                string[] keys = SplitHelper.Separator(setting);
                 
                 //add req
                 foreach (string key in keys)

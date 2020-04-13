@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Libraries.Buildings
 {
     [Serializable]
-    public abstract class BaseDataBuildingUnitMgmt<T> : BaseMgmt<T> where T : BaseDataBuildingUnit
+    public abstract class BaseDataBuildingUnitMgmt<T> : BaseMgmt<T> where T : BaseDataBuildingUnit, new()
     {
         protected ActionHolder lastAction;
         protected BaseDataBuildingUnitMgmt(string id) : base(id) { }
@@ -41,9 +41,6 @@ namespace Libraries.Buildings
                 case "visible":
                     ele.visibilityRange = Int(data);
                     break;
-                case "category":
-                    ele.category = data;
-                    break;
                 case "hp":
                     ele.hp = Int(data);
                     break;
@@ -63,7 +60,7 @@ namespace Libraries.Buildings
                     ele.damMax = Int(data);
                     break;
                 default:
-                    Debug.LogWarning($"{name} missing {header} for data {data}");
+                    base.ParseElement(ele, header, data);
                     break;
             }
         }

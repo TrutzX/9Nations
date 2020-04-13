@@ -17,7 +17,7 @@ using UnityEngine;
 namespace Libraries
 {
     [Serializable]
-    public abstract class BaseMgmt<T> : IRead where T : BaseData
+    public class BaseMgmt<T> : IRead where T : BaseData, new()
     {
         [SerializeField] protected Dictionary<string, T> Data;
         [SerializeField] protected string name;
@@ -102,15 +102,15 @@ namespace Libraries
         
         public IEnumerator ParseCsv(string path)
         {
-            yield return L.b.Load.ShowMessage("Loading "+Name());
+            yield return LSys.tem.Load.ShowMessage("Loading "+Name());
             string[][] data = CSV.Read(Read(path));
-            yield return L.b.Load.ShowSubMessage($"Loading 0/{data.Length}");
+            yield return LSys.tem.Load.ShowSubMessage($"Loading 0/{data.Length}");
             Debug.Log($"Library {id}: Reading {data.Length} elements with {data[0].Length} headers from {path}");
             for (int l = 1; l < data.Length; l++)
             {
                 if (l % 10 == 0)
                 {
-                    yield return L.b.Load.ShowSubMessage($"Loading {l}/{data.Length}");
+                    yield return LSys.tem.Load.ShowSubMessage($"Loading {l}/{data.Length}");
                 }
                 
                 //skip?
@@ -133,10 +133,12 @@ namespace Libraries
                     {
                         continue;
                     }
+                    
+                    if (data[0][i].StartsWith("//")) continue;
 
                     try
                     {
-                        ParseBaseElement(ele, data[0][i], data[l][i]);
+                        ParseElement(ele, data[0][i], data[l][i]);
                     }
                     catch (Exception e)
                     {
@@ -151,7 +153,7 @@ namespace Libraries
                 }
                 
             }
-            yield return L.b.Load.ShowSubMessage("Tidy up "+Name());
+            yield return LSys.tem.Load.ShowSubMessage("Tidy up "+Name());
             AfterLoad();
         }
 
@@ -161,7 +163,7 @@ namespace Libraries
             //intern?
             if (path.StartsWith("!"))
             {
-                TextAsset t = Resources.Load<TextAsset>(path.Substring(1));
+                TextAsset t = UnityEngine.Resources.Load<TextAsset>(path.Substring(1));
                 return t.text;
             }
 
@@ -170,7 +172,7 @@ namespace Libraries
         
         public IEnumerator ParseIni(string path)
         {
-            yield return L.b.Load.ShowMessage("Loading "+Name());
+            yield return LSys.tem.Load.ShowMessage("Loading "+Name());
             
             IniData data = new IniDataParser().Parse(Read(path));
             
@@ -184,7 +186,8 @@ namespace Libraries
                     {
                         continue;
                     }
-                    ParseBaseElement(ele, key.KeyName, key.Value);
+                    if (key.KeyName.StartsWith("//")) continue;
+                    ParseElement(ele, key.KeyName, key.Value);
                 }
             }
         }
@@ -208,9 +211,8 @@ namespace Libraries
             return SpriteHelper.Load(icon);
         }
 
-        protected void ParseBaseElement(T ele, string header, string data)
+        protected virtual void ParseElement(T ele, string header, string data)
         {
-            if (header.StartsWith("//")) return;
             
             switch (header)
             {
@@ -229,16 +231,17 @@ namespace Libraries
                 case "hidden":
                     ele.Hidden = Bool(data);
                     break;
+                case "category":
+                    ele.category = data;
+                    break;
                 case "req":
                     ele.req.Add(data);
                     break;
                 default:
-                    ParseElement(ele, header, data);
+                    Debug.LogWarning($"{id} "+(ele==null?"??":ele.id)+$" missing {header} for data {data}");
                     break;
             }
         }
-
-        protected abstract void ParseElement(T ele, string header, string data);
         
         protected T GetOrCreate(string id)
         {
@@ -247,7 +250,7 @@ namespace Libraries
                 return this[id];
             }
 
-            Data[id] = Create();
+            Data[id] = new T();
             Data[id].id = id;
             return Data[id];
         }
@@ -262,11 +265,14 @@ namespace Libraries
             return Data.Values;
         }
 
-        protected abstract T Create();
-
         /// <summary>
         /// This method will called after loading a file
         /// </summary>
         public virtual void AfterLoad(){}
+
+        public List<T> GetAllByCategory(string category)
+        {
+            return Values().Where(i => !i.Hidden && !string.IsNullOrEmpty(i.category) && i.category.Contains(category)).ToList();
+        }
     }
 }

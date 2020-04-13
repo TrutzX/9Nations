@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Audio;
 using Buildings;
-using DataTypes;
+
 using Libraries;
 using Libraries.Modifiers;
 using Players;
@@ -59,6 +60,11 @@ namespace UI
 
         public Text AddLabel(string title)
         {
+            if (string.IsNullOrEmpty(title))
+            {
+                return null;
+            }
+            
             GameObject button = Instantiate(UIElements.Get().panelLabel, panel.transform);
             button.name = title.Substring(0,Math.Min(title.Length,20));
             button.GetComponent<Text>().text = title;
@@ -128,14 +134,19 @@ namespace UI
             return act;
         }
 
-        public Button AddButton(string title, Action action, string sound = "click", string icon = null)
+        public Button AddButton(string title, Action action, string sound = "click")
         {
-            Button g = icon == null ? UIHelper.CreateButton(title,panel.transform,action) : UIHelper.CreateImageTextButton(title, SpriteHelper.Load(icon), panel.transform, action);
+            Button g = UIHelper.CreateButton(title,panel.transform,action);
             if (sound != null)
                 g.onClick.AddListener(() => { NAudio.Play(sound); });
             return g;
         }
 
+
+        public Button AddImageTextButton(string title, string icon, Action action, string sound = "click")
+        {
+            return AddImageTextButton(title, SpriteHelper.Load(icon), action, sound);
+        }
         public Button AddImageTextButton(string title, Sprite icon, Action action, string sound = "click")
         {
             Button g = UIHelper.CreateImageTextButton(title, icon, panel.transform, action, sound);
