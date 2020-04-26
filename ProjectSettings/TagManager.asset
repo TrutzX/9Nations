@@ -23,7 +23,7 @@ TagManager:
   - 
   - Units
   - 
-  - 
+  - Effects
   - 
   - 
   - 
@@ -43,11 +43,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 633278299
+    locked: 0
   - name: Building
     uniqueID: 3094949289
     locked: 0
   - name: Units
     uniqueID: 2923379127
+    locked: 0
+  - name: Effects
+    uniqueID: 4091182143
     locked: 0
   - name: UI
     uniqueID: 2887904581
