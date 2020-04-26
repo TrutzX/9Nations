@@ -1,4 +1,5 @@
 using System;
+using Classes;
 using Game;
 using Tools;
 using UI;
@@ -32,11 +33,21 @@ namespace Libraries.Options
                 return;
             }
 
+            if (type == "text")
+            {
+                panel.AddInput(name, Value(), SetValue);
+            }
+
         }
 
         public bool Bool()
         {
             return Convert.ToBoolean(Value());
+        }
+
+        public int Int()
+        {
+            return ConvertHelper.Int(Value());
         }
 
         public virtual string Value()
@@ -53,6 +64,12 @@ namespace Libraries.Options
         {
             PlayerPrefs.SetString(id,value);
             PlayerPrefs.Save();
+            
+            //inform?
+            if (LClass.s.optionRuns.ContainsKey(id))
+            {
+                LClass.s.optionRuns[id].Run();
+            }
         }
     }
     

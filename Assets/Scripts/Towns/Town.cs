@@ -112,7 +112,7 @@ namespace Towns
             }
             
             panel.AddInputRandom("town name", name, val => name = val,
-                () => LClass.s.nameGenerators[Player().Nation().TownNameGenerator].Gen());
+                () => LClass.s.NameGenerator(Player().Nation().TownNameGenerator));
 
             panel.AddLabel(GetTownLevelName());
             panel.AddRes("inhabitant",$"{GetRes("inhabitant")}/{MaxInhabitantsAndWorker().maxInhabitants}");
@@ -245,15 +245,15 @@ namespace Towns
         public void ShowDetails()
         {
             WindowBuilderSplit wbs = WindowBuilderSplit.Create($"Details about {name}",null);
-            wbs.AddElement(new TownGeneralSplitElement(this));
+            wbs.Add(new TownGeneralSplitElement(this));
             if (S.Debug())
             {
-                wbs.AddElement(new DebugTownSplitElement(this));
+                wbs.Add(new DebugTownSplitElement(this));
             }
             
-            wbs.AddElement(new TownResSplitElement(this));
-            wbs.AddElement(new CameraUnitSplitElement(wbs,this));
-            wbs.AddElement(new CameraBuildingSplitElement(wbs,this));
+            wbs.Add(new TownResSplitElement(this));
+            wbs.Add(new CameraUnitSplitElement(wbs,this));
+            wbs.Add(new CameraBuildingSplitElement(wbs,this));
             LSys.tem.helps.AddHelp("town", wbs);
             wbs.Finish();
         }

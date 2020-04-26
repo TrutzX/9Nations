@@ -169,14 +169,14 @@ public abstract class ES3Writer : IDisposable
 	internal virtual void WriteRef(UnityEngine.Object obj)
 	{
 		var refMgr = ES3ReferenceMgrBase.Current;
-		if(refMgr == null)
-			return;
-		
+        if (refMgr == null)
+            throw new InvalidOperationException("An Easy Save 3 Manager is required to load references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
+        		
 		// Get the reference ID, if it exists, and store it.
-		long id = ES3ReferenceMgrBase.Current.Get(obj);
+		long id = refMgr.Get(obj);
 		// If reference ID doesn't exist, create reference.
 		if(id == -1)
-			id = ES3ReferenceMgrBase.Current.Add(obj);
+			id = refMgr.Add(obj);
 		WriteProperty(ES3ReferenceMgrBase.referencePropertyName, id.ToString());
 	}
 

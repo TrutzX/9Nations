@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game;
 using Maps;
 using UnityEngine;
 
@@ -39,7 +40,7 @@ namespace Tools
 
         public bool Valid()
         {
-            return XXGameMapMgmt.Valid(this);
+            return 0 <= x && x < GameMgmt.Get().data.map.width && 0 <= y && y < GameMgmt.Get().data.map.height;
         }
 
         public NVector Diff(int x, int y, int level=0)
@@ -64,7 +65,7 @@ namespace Tools
 
         public override string ToString()
         {
-            return $"{level}:{x},{y}";
+            return $"{level};{x};{y}";
         }
 
         public bool Equals(NVector other)

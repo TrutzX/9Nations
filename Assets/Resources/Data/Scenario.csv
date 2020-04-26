@@ -1,13 +1,12 @@
-id,name,hidden,icon,desc,campaign,map
-tutorialbasic,Basics,false,!Icons/ui:tutorial,You learn to move your units and found a town and build some buildings.,tutorial,field6
-single,Single Scenarios,false,!Icons/magic:single,Please different single scenarios.,single,field6
-debug,debug,true,debug,,,field6mono
-endless,endless,true,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
+id,name,hidden,icon,desc,category,map,req
+tutorialbasic,Basics,,!Icons/ui:tutorial,You learn to move your units and found a town and build some buildings.,tutorial,field6,
+debug,debug,,debug,,single,field6mono,option=debug:true
+endless,endless,true,,,single,,
+pantheon,pantheon,,!Building/a:temple,Found your own religion,single,field6mono,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,

@@ -8,8 +8,7 @@ namespace ES3Editor
 {
 	public class SettingsWindow : SubWindow
 	{
-		public GameObject defaultSettingsGo = null;
-		public ES3DefaultSettings editorSettings = null;
+		public ES3Defaults editorSettings = null;
 		public ES3SerializableSettings settings = null;
 		public SerializedObject so = null;
 		public SerializedProperty assemblyNamesProperty = null;
@@ -35,12 +34,24 @@ namespace ES3Editor
 
 			EditorGUILayout.EndVertical();
 
-			GUILayout.Label("Editor Settings", style.heading);
+            var wideLabel = new GUIStyle();
+            wideLabel.fixedWidth = 400;
+
+            GUILayout.Label("Debug Settings", style.heading);
+
+            EditorGUILayout.BeginVertical(style.area);
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PrefixLabel("Log Warnings", wideLabel);
+            editorSettings.logWarnings = EditorGUILayout.Toggle(editorSettings.logWarnings);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.Space();
+            EditorGUILayout.EndVertical();
+
+            GUILayout.Label("Editor Settings", style.heading);
 
 			EditorGUILayout.BeginVertical(style.area);
-
-			var wideLabel = new GUIStyle();
-			wideLabel.fixedWidth = 400;
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.PrefixLabel("Auto Add Manager to Scene", wideLabel);
@@ -56,13 +67,13 @@ namespace ES3Editor
 
 
 			// Show Assembly names array.
-			EditorGUILayout.PropertyField(assemblyNamesProperty, new GUIContent("Assemblies containing ES3Types", "The names of assemblies we want to load ES3Types from."), true); // True means show children
-			if(so.ApplyModifiedProperties())
+			//EditorGUILayout.PropertyField(assemblyNamesProperty, new GUIContent("Assemblies containing ES3Types", "The names of assemblies we want to load ES3Types from."), true); // True means show children
+			/*if(so.ApplyModifiedProperties())
 			{
 				#if UNITY_2018_3_OR_NEWER
-				PrefabUtility.SaveAsPrefabAsset(defaultSettingsGo, ES3EditorUtility.PathToDefaultSettings());
+				PrefabUtility.SaveAsPrefabAsset(defaultSettingsGo,ES3Settings.PathToDefaultSettings());
 				#endif
-			}
+			}*/
 
 			EditorGUILayout.EndVertical();
 
@@ -71,27 +82,19 @@ namespace ES3Editor
 
             if (EditorGUI.EndChangeCheck())
             {
-#if UNITY_2018_3_OR_NEWER
-                PrefabUtility.SavePrefabAsset(defaultSettingsGo);
-#else
+
                 EditorUtility.SetDirty(editorSettings);
-#endif
             }
 		}
 
 		public void Init()
 		{
-#if UNITY_2018_3_OR_NEWER
-            defaultSettingsGo = (GameObject)AssetDatabase.LoadMainAssetAtPath(ES3EditorUtility.PathToDefaultSettings());
-			editorSettings = defaultSettingsGo.GetComponent<ES3DefaultSettings>();
-#else
-			editorSettings = ES3Settings.GetDefaultSettings();
-#endif
+            editorSettings = ES3Settings.defaultSettingsScriptableObject;
 
 			settings = editorSettings.settings;
-			so = new SerializedObject(editorSettings);
+			/*so = new SerializedObject(editorSettings);
 			var settingsProperty = so.FindProperty("settings");
-			assemblyNamesProperty = settingsProperty.FindPropertyRelative("assemblyNames");
+			assemblyNamesProperty = settingsProperty.FindPropertyRelative("assemblyNames");*/
 			
 		}
 	}

@@ -5,8 +5,10 @@ using Classes.Elements;
 using Classes.GameButtons;
 using Classes.MapGenerator;
 using Classes.NameGenerator;
+using Classes.Options;
 using Classes.Scenarios;
 using Endless;
+using Game;
 using Libraries.Campaigns;
 using Libraries.Elements;
 using Libraries.FActions;
@@ -19,11 +21,12 @@ namespace Classes
 {
     public class LClass : ScriptableObject
     {
-        public Dictionary<string,IScenarioRun> scenarioRuns;
+        public Dictionary<string,IRun> scenarioRuns;
+        public Dictionary<string,IRun> optionRuns;
         public Dictionary<string,BaseElementRun> elementRuns;
         public Dictionary<string,BaseGameButtonRun> gameButtonRuns;
         public Dictionary<string,BaseMapGenerator> mapGenerators;
-        public Dictionary<string,BaseNameGenerator> nameGenerators;
+        private Dictionary<string,BaseNameGenerator> _nameGenerators;
         private Dictionary<string,BasePerformAction> _actions;
 
         public static LClass s;
@@ -35,11 +38,20 @@ namespace Classes
         
         private void Init2()
         {
-            scenarioRuns = new Dictionary<string, IScenarioRun>();
-            scenarioRuns.Add("debug",new DebugScenario());
-            scenarioRuns.Add("endless",new EndlessGameScenario());
-            scenarioRuns.Add("tutorialbasic",new TutorialBasicScenario());
+            scenarioRuns = new Dictionary<string, IRun>();
+            Add(scenarioRuns, new DebugScenario());
+            Add(scenarioRuns, new EndlessGameScenario());
+            Add(scenarioRuns, new TutorialBasicScenario());
+            Add(scenarioRuns, new PantheonScenario());
         
+            optionRuns = new Dictionary<string, IRun>();
+            Add(optionRuns, CreateInstance<OptionAudioMusic>());
+            Add(optionRuns, CreateInstance<OptionAudioSound>());
+            Add(optionRuns, CreateInstance<OptionFullscreen>());
+            Add(optionRuns, CreateInstance<OptionShowLog>());
+            Add(optionRuns, CreateInstance<OptionUiScale>());
+            Add(optionRuns, CreateInstance<OptionNight>());
+            
             elementRuns = new Dictionary<string, BaseElementRun>();
             Add(CreateInstance<LightElement>());
             Add(CreateInstance<ShadowElement>());
@@ -49,8 +61,10 @@ namespace Classes
             Add(CreateInstance<ActionAttackBuilding>());
             Add(CreateInstance<ActionBuild>());
             Add(CreateInstance<ActionCameraMove>());
+            Add(CreateInstance<ActionCraft>());
             Add(CreateInstance<ActionDestroy>());
             Add(CreateInstance<ActionEvolve>());
+            Add(CreateInstance<ActionExplore>());
             Add(CreateInstance<ActionFeaturePlayer>());
             Add(CreateInstance<ActionFoundTown>());
             Add(CreateInstance<ActionHeal>());
@@ -60,6 +74,7 @@ namespace Classes
             Add(CreateInstance<ActionGameWin>());
             Add(CreateInstance<ActionMove>());
             Add(CreateInstance<ActionMoveLevel>());
+            Add(CreateInstance<ActionMoveTo>());
             Add(CreateInstance<ActionProduce>());
             Add(CreateInstance<ActionSleep>());
             Add(CreateInstance<ActionTerraform>());
@@ -72,18 +87,18 @@ namespace Classes
             mapGenerators.Add("underground",new UndergroundMapGenerator());
             mapGenerators.Add("mountain",new BaseMapGenerator());
             
-            nameGenerators = new Dictionary<string, BaseNameGenerator>();
-            Add("underwater", new UnderWaterTownNameGenerator());
-            Add("ghost", new GhostTownNameGenerator());
-            Add("dwarf", new DwarfTownNameGenerator());
-            Add("elf", new ElfTownNameGenerator());
-            Add("sky", new SkyTownNameGenerator());
-            Add("orc", new OrcTownNameGenerator());
-            Add("steam", new SteamTownNameGenerator());
-            Add("fantasy", new FantasyTownNameGenerator());
-            Add("viking", new VikingTownNameGenerator());
-            Add("town", new TownNameGenerator());
-            Add("unit", new UnitNameGenerator());
+            _nameGenerators = new Dictionary<string, BaseNameGenerator>();
+            Add(new UnderWaterTownNameGenerator());
+            Add(new GhostTownNameGenerator());
+            Add(new DwarfTownNameGenerator());
+            Add(new ElfTownNameGenerator());
+            Add(new SkyTownNameGenerator());
+            Add(new OrcTownNameGenerator());
+            Add(new SteamTownNameGenerator());
+            Add(new FantasyTownNameGenerator());
+            Add(new VikingTownNameGenerator());
+            Add(new TownNameGenerator());
+            Add(new UnitNameGenerator());
             
             gameButtonRuns = new Dictionary<string, BaseGameButtonRun>();
             Add(CreateInstance<MainMenuGameButtonRun>());
@@ -105,16 +120,16 @@ namespace Classes
             Add(CreateInstance<UpdateGameButtonRun>());
             Add(CreateInstance<BackMenuGameButtonRun>());
             Add(CreateInstance<MoreMenuGameButtonRun>());
-
+            
         }
 
-        public BaseNameGenerator GetNameGenerator(string id)
+        public string NameGenerator(string id, string include = null)
         {
-            if (!nameGenerators.ContainsKey(id))
+            if (!_nameGenerators.ContainsKey(id))
             {
                 throw new MissingMemberException("nameGenerators " + id +" is missing.");
             }
-            return nameGenerators[id];
+            return _nameGenerators[id].Gen(include);
         }
         
         private void Add(BaseElementRun element)
@@ -122,10 +137,14 @@ namespace Classes
             elementRuns[element.id] = element;
         }
         
-        private void Add(string id, BaseNameGenerator name)
+        private void Add(Dictionary<string,IRun> holder, IRun run)
         {
-            nameGenerators[id] = name;
-            name.id = id;
+            holder[run.ID()] = run;
+        }
+        
+        private void Add(BaseNameGenerator name)
+        {
+            _nameGenerators[name.id] = name;
         }
 
         private void Add(BasePerformAction performAction)

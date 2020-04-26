@@ -58,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -68,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1371588169
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5371487250077298216, guid: 4982af08bd8ca4a9b9425a3fda43b0d8,
     type: 3}
@@ -115,6 +116,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b4a4c5f97744efa36ac21d674de02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  ap: 0
-  unitType: ghost
+  data:
+    ap: 0
+    apMax: 0
+    hp: 0
+    hpMax: 0
+    townId: 0
+    playerId: 0
+    pos:
+      x: 0
+      y: 0
+      level: 0
+    type: 
+    name: 
+    sprite: 
+    lastInfo: 
+    action:
+      actions: []
+    ActionWaitingAp: 0
+    actionWaitingActionPos: 0
+    actionWaitingPos:
+      x: 0
+      y: 0
+      level: 0
+    buildTime: 0
+  baseData:
+    id: 
+    name: 
+    Icon: logo
+    Desc: 
+    Sound: click
+    Hidden: 0
+    category: 
+    buildTime: 0
+    visibilityRange: 1
+    hp: 5
+    ap: 5
+    atk: 0
+    def: 0
+    damMin: 0
+    damMax: 0
+    action:
+      actions: []
+  dataUnit:
+    id: 
+    name: 
+    Icon: logo
+    Desc: 
+    Sound: click
+    Hidden: 0
+    category: 
+    buildTime: 0
+    visibilityRange: 1
+    hp: 5
+    ap: 5
+    atk: 0
+    def: 0
+    damMin: 0
+    damMax: 0
+    action:
+      actions: []
+    movement: 
+    type: 

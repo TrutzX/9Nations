@@ -2,6 +2,10 @@ namespace Classes.NameGenerator
 {
     public class DwarfTownNameGenerator : BaseNameGenerator
     {
+
+	    public DwarfTownNameGenerator() : base("dwarf")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/dwarfTowns.js
 	    /// </summary>

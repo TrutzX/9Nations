@@ -76,7 +76,13 @@ namespace InputActions
                 }
                 return;
             }
-            
+
+            if (LSys.tem == null || LSys.tem.inputs == null)
+            {
+                Debug.Log("LSys.tem is not loaded, can not perform key check.");
+                return;
+            }
+
             //check all buttons
             foreach (InputKey key in LSys.tem.inputs.Values())
             {
@@ -164,10 +170,10 @@ namespace InputActions
                 case "zoomCameraOut":
                     ZoomCamera(1);
                     break;
-                case "moveLevelTop":
+                case "moveCameraLevelTop":
                     GameMgmt.Get().newMap.view.ViewAdd(1);
                     break;
-                case "moveLevelDown":
+                case "moveCameraLevelDown":
                     GameMgmt.Get().newMap.view.ViewAdd(-1);
                     break;
                 case "closeWindow":
@@ -248,7 +254,7 @@ namespace InputActions
 
         void MoveCamera(int x, int y)
         {
-            if (CameraMove.Get().IsMoving())
+            if (S.CameraMove().IsMoving())
                 return;
             
             Transform trans = Camera.main.GetComponent<Transform>();
@@ -260,7 +266,7 @@ namespace InputActions
                 return;
             }
         
-            CameraMove.Get().MoveBy(x, y);
+            S.CameraMove().MoveBy(x, y);
         }
 
         void ZoomCamera(float zoom)

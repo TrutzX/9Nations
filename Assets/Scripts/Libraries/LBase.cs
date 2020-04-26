@@ -65,15 +65,15 @@ namespace Libraries
             yield return ReadDataIntern();
 
             //load debug mods?
-            if (!string.IsNullOrWhiteSpace(PlayerPrefs.GetString("mod.folder", "")))
+            if (!string.IsNullOrWhiteSpace(LSys.tem.options["modFolder"].Value()))
             {
-                yield return LoadMods(new List<string>(Directory.GetDirectories(PlayerPrefs.GetString("mod.folder"))));
+                yield return LoadMods(new List<string>(Directory.GetDirectories(LSys.tem.options["modFolder"].Value())));
             }
             
             //Debug.Log(string.Join(",", ModManager.GetInstalledModDirectories(true)));
             yield return LoadMods(ModManager.GetInstalledModDirectories(true));
         }
-        
+
         public IEnumerator ReadDataIntern()
         { 
             string fs = Resources.Load<TextAsset>("Data/"+file).text;

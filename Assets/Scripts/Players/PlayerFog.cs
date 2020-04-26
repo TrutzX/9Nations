@@ -10,6 +10,7 @@ using Maps;
 using Maps.GameMaps;
 using Maps.TileMaps;
 using Tools;
+using UI;
 using Units;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -128,54 +129,10 @@ namespace Players
         public void Clear(NVector pos, int radius)
         {
             //Debug.Log($"Clear {x},{y} for {radius}");
-            
-            if (radius >= 0)
+
+            foreach (var p in CircleGenerator.Gen(pos, radius))
             {
-                Clear(pos);
-            }
-            
-            if (radius >= 1)
-            {
-                Clear(pos.DiffX(-1));
-                Clear(pos.DiffX(1));
-                Clear(pos.DiffY(-1));
-                Clear(pos.DiffY(1));
-            }
-            
-            if (radius >= 2)
-            {
-                Clear(pos.Diff(-1,-1));
-                Clear(pos.Diff(1,-1));
-                Clear(pos.Diff(-1,1));
-                Clear(pos.Diff(1,1));
-            }
-            
-            if (radius >= 3)
-            {
-                Clear(pos.DiffX(-2));
-                Clear(pos.DiffX(2));
-                Clear(pos.DiffY(-2));
-                Clear(pos.DiffY(2));
-            }
-            
-            if (radius >= 4)
-            {
-                Clear(pos.Diff(-2,-1));
-                Clear(pos.Diff(2,-1));
-                Clear(pos.Diff(-2,1));
-                Clear(pos.Diff(2,1));
-                Clear(pos.Diff(-1,-2));
-                Clear(pos.Diff(1,-2));
-                Clear(pos.Diff(-1,2));
-                Clear(pos.Diff(1,2));
-            }
-            
-            if (radius >= 5)
-            {
-                Clear(pos.DiffX(-3));
-                Clear(pos.DiffX(3));
-                Clear(pos.DiffY(-3));
-                Clear(pos.DiffY(3));
+                Clear(p);
             }
             
         }

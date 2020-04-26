@@ -30,7 +30,7 @@ namespace Libraries.Campaigns
             foreach(Campaign c in Data.Values)
             {
                 if (!c.Hidden)
-                    b.AddElement(new CampaignSplitElement(c));
+                    b.Add(new CampaignSplitElement(c));
             }
             
             b.Finish();
@@ -41,12 +41,10 @@ namespace Libraries.Campaigns
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Select your scenario","Play");
 
-            Debug.Log("s "+campaign.Scenarios());
-            Debug.Log("s "+campaign.Scenarios().Count);
             foreach(Scenario s in campaign.Scenarios())
             {
-                Debug.Log("add "+s);
-                b.AddElement(new ScenarioSplitElement(s));
+                if (s.req.Check(null))
+                    b.Add(new ScenarioSplitElement(s));
             }
             
             b.Finish();

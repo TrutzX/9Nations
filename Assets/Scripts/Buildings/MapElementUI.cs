@@ -123,7 +123,7 @@ namespace Buildings
             gameObject.SetActive(true);
 
             //show icon
-            info.GetComponentsInChildren<Image>()[1].sprite = active.GetComponent<SpriteRenderer>().sprite;
+            info.GetComponentsInChildren<Image>()[1].sprite = active.Sprite();
             ShowPanelMessage(active.Status(PlayerMgmt.ActPlayerID()));
 
             info.GetComponent<Button>().onClick.RemoveAllListeners();
@@ -155,7 +155,7 @@ namespace Buildings
                 UIHelper.CreateImageTextButton($"Cancel preparation", a.DataAction().Sprite(), actions.transform,
                     () =>
                     {
-                        active.data.ap = Math.Min(active.data.ActionWaitingAp, active.data.apMax);
+                        active.data.ap = Math.Max(0,Math.Min(active.data.ActionWaitingAp, active.data.apMax));
                         active.SetWaitingAction(-1, null);
                         OnMapUI.Get().UpdatePanel(active.Pos());
                     }, "cancel");

@@ -1,10 +1,12 @@
 using System;
 using Buildings;
+using Game;
 using InputActions;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
 using Tools;
+using UnityEngine;
 
 namespace Classes.Actions
 {
@@ -14,7 +16,7 @@ namespace Classes.Actions
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)
         {
-            CameraMove.Get().MoveTo(new NVector(holder.data["pos"]));
+            S.CameraMove().MoveTo(new NVector(holder.data["pos"]));
         }
 
         public override ActionHolder Create(string setting)

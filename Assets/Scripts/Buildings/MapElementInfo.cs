@@ -76,7 +76,11 @@ namespace Buildings
             {
                 ActionHolder a = data.action.actions[data.actionWaitingActionPos];
                 FDataAction da = a.DataAction();
-                text += $"Prepare {da.name} ({TextHelper.Proc(data.ActionWaitingAp, da.cost)}).";
+                text += $"Prepare {da.name}";
+
+                if (data.ActionWaitingAp != -1)
+                    text += $" ({TextHelper.Proc(data.ActionWaitingAp, da.cost)}).";
+                
                 if (S.Debug())
                     text += data.ap+"/"+data.ActionWaitingAp + "/" + da.cost;
             }
@@ -132,14 +136,14 @@ namespace Buildings
         public virtual WindowBuilderSplit ShowInfoWindow()
         {
             WindowBuilderSplit win =  WindowBuilderSplit.Create(gameObject.name,null);
-            win.AddElement(new ActionDisplaySplitElement(this));
-            win.AddElement(new TerrainSplitElement(GameMgmt.Get().newMap.Terrain(Pos()), Pos()));
+            win.Add(new ActionDisplaySplitElement(this));
+            win.Add(new TerrainSplitElement(GameMgmt.Get().newMap.Terrain(Pos()), Pos()));
             if (data.townId != -1)
-                win.AddElement(new CameraTownSplitElement(win, Town()));
+                win.Add(new CameraTownSplitElement(win, Town()));
             if (S.Debug())
-                win.AddElement(new DebugMapElementSplitElement(this));
+                win.Add(new DebugMapElementSplitElement(this));
             if (L.b.improvements.Has(Pos()))
-                win.AddElement(new LexiconSplitElement(L.b.improvements.At(Pos())));
+                win.Add(new LexiconSplitElement(L.b.improvements.At(Pos())));
             return win;
         }
 
@@ -147,6 +151,11 @@ namespace Buildings
         {
             GetComponent<SpriteRenderer>().sprite = SpriteHelper.Load(sprite);
             data.sprite = sprite;
+        }
+
+        public Sprite Sprite()
+        {
+            return GetComponent<SpriteRenderer>().sprite;
         }
 
         public virtual void Load(BuildingUnitData data)
@@ -196,7 +205,7 @@ namespace Buildings
         public void SetActive()
         {
             FindObjectOfType<OnMapUI>().UpdatePanel(Pos());
-            CameraMove.Get().MoveTo(Pos());
+            S.CameraMove().MoveTo(Pos());
         }
 
         public IMapUI UI()
@@ -210,20 +219,45 @@ namespace Buildings
         {
             data.actionWaitingActionPos = actionPos;
             if (actionPos == -1) return;
-            
+
             data.ActionWaitingAp = data.ap;
             data.ap = 0;
             data.actionWaitingPos = pos;
+        }
 
+        public void SetRepeatAction(int actionPos, NVector pos)
+        {
+            data.actionWaitingActionPos = actionPos;
+            if (actionPos == -1) return;
+
+            data.ActionWaitingAp = -1;
+            data.actionWaitingPos = pos;
+            
+            //perform first
+            ActionHolder a = data.action.actions[data.actionWaitingActionPos];
+            string erg = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
+            if (!string.IsNullOrEmpty(erg))
+                SetLastInfo($"Performs {a.DataAction().name}. {erg}");
         }
 
         public void StartPlayerRound()
         {
             //has a waiting round?
             if (data.actionWaitingActionPos == -1) return;
-
+            
             ActionHolder a = data.action.actions[data.actionWaitingActionPos];
             FDataAction da = a.DataAction();
+
+            //perform every turn?
+            if (data.ActionWaitingAp == -1)
+            {
+                string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
+                if (!string.IsNullOrEmpty(erg2))
+                    SetLastInfo($"Performs {da.name}. {erg2}");
+                return;
+            }
+
+            //wait more?
             if (da.cost > data.ap + data.ActionWaitingAp)
             {
                 data.ActionWaitingAp += data.ap;
@@ -237,6 +271,33 @@ namespace Buildings
             string erg = data.action.Perform(a, ActionEvent.Direct, Player(), this, data.actionWaitingPos);
             data.ap = da.cost - data.ActionWaitingAp;
             SetLastInfo($"Performs {da.name}. {erg}");
+        }
+
+        protected void CalcUpgradeCost(BaseDataBuildingUnit build, BaseDataBuildingUnit old)
+        {
+            //calc new cost
+            foreach (var cost in build.cost)
+            {
+                if (!old.cost.ContainsKey(cost.Key))
+                {
+                    continue;
+                }
+
+                if (cost.Value > old.cost[cost.Key])
+                {
+                    data.construction[cost.Key] -= old.cost[cost.Key];
+                }
+                else
+                {
+                    data.construction.Remove(cost.Key);
+                }
+            }
+
+            //TODO dyn add buildtime?
+            if (!data.construction.ContainsKey("buildtime"))
+            {
+                data.construction["buildtime"] = 1;
+            }
         }
     }
 }

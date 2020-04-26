@@ -1,4 +1,5 @@
 using System;
+using Classes;
 using Game;
 using Libraries;
 using Libraries.Campaigns;
@@ -8,7 +9,7 @@ using Units;
 
 namespace Endless
 {
-    public class EndlessGameScenario : IScenarioRun
+    public class EndlessGameScenario : IRun
     {
         public void Run()
         {
@@ -36,6 +37,11 @@ namespace Endless
 
                 id++;
             }
+        }
+
+        public string ID()
+        {
+            return "endless";
         }
     }
 }

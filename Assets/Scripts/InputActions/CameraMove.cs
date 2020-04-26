@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using System;
+using Game;
 using Tools;
 using UnityEngine;
 
@@ -21,11 +22,6 @@ namespace InputActions
         private float journeyLength;
 
         private float counter;
-    
-        public static CameraMove Get()
-        {
-            return GameObject.FindObjectOfType<Camera>().GetComponent<CameraMove>();
-        }
 
         public void MoveTo(NVector pos)
         {

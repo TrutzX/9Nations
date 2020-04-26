@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Options
 {
-    public class NetworkOptionSplitElement : SplitElement
+    public class NetworkOptionSplitElement : BaseOptionSplitElement
     {
-        public NetworkOptionSplitElement() : base("Network", SpriteHelper.Load("internet"))
+        public NetworkOptionSplitElement() : base("network","network", "internet")
         {
         }
 
@@ -20,7 +20,7 @@ namespace Options
             panel.AddLabel(
                 "or use a firewall. See also the privacy statement in the help menu");
             
-            LSys.tem.options.GetAllByCategory("network").ForEach(o => o.AddOption(panel));
+            base.ShowDetail(panel);
         }
 
         public override void Perform()

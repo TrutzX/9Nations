@@ -173,7 +173,7 @@ namespace UI
             //add ress
             foreach (KeyValuePair<string, int> r in res)
             {
-                AddRes(r.Key, r.Value.ToString());
+                AddRes(r.Key, r.Value);
             }
         }
     

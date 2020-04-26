@@ -1,7 +1,7 @@
-id,name,icon,category,atk,def,dammin,dammax,hp,ap,visible,buildtime,req,req,req,winter,connected,cost,cost,cost,cost,worker,action,actionreq,action,action,action
+id,name,icon,category,atk,//def,dammin,dammax,hp,ap,visible,buildtime,req,req,req,winter,connected,cost,cost,cost,cost,worker,action,actionreq,action,action,action
 ,light,,,,,,,,,,,,,,,,,,,,,,,,,
-lhall1,village hall,!Building/e:lhall1,light,1,,1,3,10,10,2,1,element=light,,disabled,!Building/e:lhall1winter,,,,,,6,produce=once;wood:10;gold:8;food:20;water:30;cobblestone:5;tool:20,,train=lworker;lexplorer,upgrade=lhall2,trade=buy:tools
-lhall2,bigger village hall,!Building/c:lhall2,light,1,,2,4,20,10,2,7,element=light,research=lhall2,,!Building/c:lhall2winter,,wood:10,cobblestone:7,gold:3,tool:2,10,,,train=lworker;lexplorer,townEvolve,trade=buy:tools
+lhall1,village hall,!Building/e:lhall1,light,1,,1,3,10,10,2,1,element=light,,disabled,!Building/e:lhall1winter,,,,,,6,produce=once;wood:10;gold:8;food:20;water:30;cobblestone:5;tool:20,,train=lworker;lexplorer,upgrade=lhall2,trade=buy:tool
+lhall2,bigger village hall,!Building/c:lhall2,light,1,,2,4,20,10,2,7,element=light,research=lhall2,,!Building/c:lhall2winter,,wood:10,cobblestone:7,gold:3,tool:2,10,,,train=lworker;lexplorer,townEvolve,trade=buy:tool
 logger,logger,!Building/tower:logger,light,,,,,,,,2,element=light,,terrainCategory=forest,,,,,gold:1,tool:1,-2,produce=turn;wood:2,daytime=morning;afternoon,,destroy,
 cobblestone,cobblestone collector,!Building/bigCastle:cobblestone,light,,,,,,,,3,element=light,,terrainCategory=hill;mountain,,,wood:4,,,tool:1,-3,produce=turn;cobblestone:1,daytime=morning;afternoon,,destroy,
 library,library,!Building/e:library,light,,,,,,,,5,element=light,gameOption=research:true,townNear,!Building/e:librarywinter,,wood:7,cobblestone:5,gold:1,tool:2,-3,produce=turn;research:1,,featurePlayer=research:true,destroy,
@@ -12,25 +12,31 @@ tent,tent,!Building/c:tent,light;shadow,,,,,,,,2,,,townNear,,,,food:3,gold:1,,8,
 samplingpoint,sampling point,!Building/farm:samplingpoint,light,,,,,,,,1,element=light,terrainNear=water,,,,wood:2,cobblestone:1,,,-1,produce=turn;food:2;water:5,,,destroy,
 lshrine,shrine,!Building/a:shrine,light,,,,,,10,,4,element=light,townLevel=>2,townNear,,,,cobblestone:6,,tool:1,-1,produce=turn;religion:20,,heal,destroy,evolve
 ,shadow,,,,,,,,,,,,,,,,,,,,,,,,,
-shall1,village hall,!Building/tower:shall1,shadow,1,,1,3,,10,2,1,element=shadow,,disabled,,,,,,,6,produce=once;dirt:10;gold:8;food:30;stone:5;tool:20,,train=sworker;sexplorer;swarrior,upgrade=shall2,trade=buy:tools
-shall2,bigger village hall,!Building/e:shall2,shadow,1,,2,4,,10,2,7,element=shadow,,,,,sand:4,stone:10,gold:4,tool:3,10,,,,townEvolve,trade=buy:tools
+shall1,village hall,!Building/tower:shall1,shadow,1,,1,3,,10,2,1,element=shadow,,disabled,,,,,,,6,produce=once;dirt:10;gold:8;food:30;stone:5;tool:20,,train=sworker;sexplorer;swarrior,upgrade=shall2,trade=buy:tool
+shall2,bigger village hall,!Building/e:shall2,shadow,1,,2,4,,10,2,7,element=shadow,,,,,sand:4,stone:10,gold:4,tool:3,10,,,,townEvolve,trade=buy:tool
 sfarm,mushroom farm,!Building/farm:sfarm,shadow,,,,,,,,4,element=shadow,,terrain=deep_grass,,,sand:3,stone:5,,tool:1,-2,produce=turn;dirt:-2;food:8,,,destroy,
-dirt,dirt collector,!Building/c:dirt,shadow,,,,,,,,2,element=shadow,,,,,sand:1,,,tool:1,-1,produce=turn;dirt:1,,,destroy,
-quarry,quarry,!Building/d:quarry,shadow,,,,,,,,3,element=shadow,,terrain=deep_stone,,,sand:2,,,tool:1,-2,produce=turn;stone:2,,,destroy,
-sand,sand gather,!Building/d:sand,shadow,,,,,,,,2,element=shadow,,,,,,,gold:2,,-1,produce=turn;sand:1,,,destroy,
+dirt,dirt collector,!Building/c:dirt,shadow,,,,,,,,2,element=shadow,,,,,sand:1,,,tool:1,-1,produce=turn;dirt:1,,upgrade=dirt2,destroy,
+quarry,quarry,!Building/d:quarry,shadow,,,,,,,,3,element=shadow,,terrainCategory=hill;mountain,,,sand:2,,,tool:1,-2,produce=turn;stone:2,,,destroy,
+sand,sand gather,!Building/d:sand,shadow,,,,,,,,2,element=shadow,,terrain=deep,,,,,gold:2,,-1,produce=turn;sand:1,,,destroy,
 stair,stair,!Building/modern:stair,shadow,,,,,,,,1,element=shadow,,,,,,stone:7,,tool:2,,,,moveLevel=Building/modern:stairDown,destroy,
 sshrine,shrine,!Building/a:shrine,shadow,,,,,,10,,4,element=shadow,townLevel=>2,townNear,,,,stone:6,,tool:1,-1,produce=turn;religion:20,,heal,destroy,evolve
 ,earth,,,,,,,,,,,,,,,,,,,,,,,,,
-cmine,copper mine,!Building/e:mine,earth,,,,,,,,2,element=earth,terrainCategory=mountain;hill,terrainRes=>1:copper,,,sand:4,stone:2,,tool:2,-1,produce=turn;copper:3,,,destroy,
-charcoal,charcoal,!Building/d:charcoal,earth,,,,,,,,,element=earth,,disabled,!Building/d:charcoalwinter,,wood:10,,,,,produce=turn;wood:-2;charcoal:1,,,destroy,
-forge,forge,!Building/t:forge,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,destroy,
-toolshop,tool shop,!Building/t:toolshop,earth,,,,,,,,,element=earth,,,!Building/t:toolshopwinter,,,,,,,produce=turn;copper:-7;tool:1,,,destroy,
-armoury,armoury,!Building/t:armoury,earth,,,,,,,,,element=earth,,disabled,!Building/t:armourywinter,,,,,,,,,,destroy,
-mint,mint,!Building/t:mint,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,destroy,
-market,market,!Building/a:market,earth,,,,,,,,,element=earth,,,,,,,,,,,,,destroy,trade
-ehall1,earth town hall,logo,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,,
-temple,earth temple,!Building/a:temple,earth,,,,,,15,,,element=earth,,,,,,,,,,produce=turn;religion:40,,heal,destroy,evolve
-claypit,clay pit,logo,earth,,,,,,,,,,,disabled
-pottery,pottery,logo,earth,,,,,,,,,,,disabled
-brickworks,brickworks,logo,earth,,,,,,,,,,,disabled
-tracks,tracks,logo,earth,,,,,,,,,,,disabled
+mine,mine,!Building/e:mine,earth;fire,,,,,,,,4,element=earth;fire,terrainCategory=mountain;hill,,,,sand:4,stone:2,brick:1,tool:2,-1,craft=mine,,,destroy,
+athenaeum,athenaeum,!Building/e:athenaeum,earth,,,,,,,,3,element=earth,,townNear,,,,stone:8,,tool:3,-1,produce=turn;research:2,,featurePlayer=research:true,destroy,
+forge,forge,!Building/t:forge,earth;fire,,,,,,,,6,element=earth;fire,research=goldore;ironore,,,,coal:4,,,tool:3,-2,craft=forge,,,destroy,
+toolshop,tool shop,!Building/t:toolshop,earth;fire,,,,,,,,5,element=earth;fire,research=coppertool;irontool,,!Building/t:toolshopwinter,,,,,,-2,craft=toolshop,,,destroy,
+armoury,armoury,!Building/t:armoury,earth;fire,,,,,,,,11,element=earth;fire,,disabled,!Building/t:armourywinter,,clay:1,stone:4,brick:7,tool:4,-3,craft=armoury,,,destroy,
+mint,mint,!Building/t:mint,earth,,,,,,,,7,element=earth,research=mint,,,,sand:2,stone:6,brick:3,tool:3,-2,produce=goldignot:-1;coal:-2;gold:8,,,destroy,
+market,market,!Building/a:market,earth,,,,,,,,5,element=earth,research=market,,,,food:5,stone:4,,tool:6,-2,,,,destroy,trade
+ehall1,earth town hall,logo,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,destroy,trade=buy:tool;buy:brick
+temple,earth temple,!Building/a:temple,earth,,,,,,15,,,element=earth,,,,,,,,,-3,produce=turn;religion:40,,heal,destroy,evolve
+claypit,clay pit,logo,earth,,,,,,,,3,element=earth,research=claypit,terrain=deep,,,sand:1,stone:2,,tool:1,-1,produce=turn;clay:1,,,destroy
+pottery,pottery,logo,earth,,,,,,,,,element=earth,research=pottery,,,,,,,,,produce=turn;dirt:-1;clay:-1;pottery:2,,,destroy
+brickworks,brickworks,logo,earth,,,,,,,,,element=earth,research=brickworks,,,,sand:3,stone:5,clay:5,tool:2,-2,produce=turn;sand:-1;clay:-2;brick:3,daytime=night,,destroy
+tracks,tracks,logo,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,destroy
+ehouse,,logo,earth,,,,,,,,,element=earth,,disabled,,,sand:2,stone:2,brick:5,tool:2,20,,,,destroy
+earthwall,earth wall,logo,earth,,,,,,,,,element=earth,,disabled,,,,,,,,,,,destroy
+rootplantation,root plantation,!Building/farm:rootplantation,earth,,,,,,,,,element=earth,building=>1;sfarm,terrain=deep_grass,,,sand:5,,dirt:8,tool:2,,produce=turn;dirt:-1;food:6,,,
+dirt2,bigger dirt collector,!Building/c:dirt,earth,,,,,,,,,element=earth,,,,,sand:6,,dirt:2,tool:3,-1,produce=turn;dirt:3,,,
+,fire,,,,,,,,,,,,,,,,,,,,,,,,
+charcoal,charcoal,!Building/d:charcoal,fire,,,,,,,,,element=fire,,disabled,!Building/d:charcoalwinter,,wood:10,,,,,produce=turn;wood:-2;charcoal:1,,,destroy

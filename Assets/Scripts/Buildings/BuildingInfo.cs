@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
 using Game;
 using Help;
 using Improvements;
@@ -13,7 +11,6 @@ using reqs;
 using Tools;
 using Towns;
 using UI;
-using UI.Show;
 using UnityEngine;
 
 namespace Buildings
@@ -160,8 +157,8 @@ namespace Buildings
         public override WindowBuilderSplit ShowInfoWindow()
         {
             WindowBuilderSplit wbs = base.ShowInfoWindow();
-            wbs.AddElement(new BuildingLexiconInfo(this), true);
-            wbs.AddElement(new BuildingSplitInfo(this), true);
+            wbs.Add(new BuildingLexiconInfo(this), true);
+            wbs.Add(new MapElementSplitInfo(this), true);
             LSys.tem.helps.AddHelp("building", wbs);
             wbs.Finish();
             return wbs;
@@ -169,67 +166,13 @@ namespace Buildings
 
         public override void Upgrade(string type)
         {
+            BaseDataBuildingUnit old = baseData;
+            
             GameMgmt.Get().data.buildings.Remove(data);
             Init(data.townId,type,Pos());
             GameMgmt.Get().data.buildings.Add(GetComponent<BuildingInfo>().data);
-        }
-
-        class BuildingSplitInfo : SplitElement
-        {
-            private readonly BuildingInfo _building;
-        
-            public BuildingSplitInfo(BuildingInfo unit) : base(unit.gameObject.name,unit.baseData.Sprite())
-            {
-                this._building = unit;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                panel.AddHeaderLabel("Information");
             
-                //diff unit?
-                if (_building.Town().playerId != PlayerMgmt.ActPlayerID())
-                {
-                    panel.AddLabel($"Owner: {_building.Town().Player().name}");
-                    panel.AddImageLabel($"HP: ??/{_building.dataBuilding.hp}","hp");
-                    panel.AddImageLabel($"AP: ??/{_building.dataBuilding.ap}","ap");
-                    return;
-                }
-            
-                panel.AddImageLabel($"HP: {_building.data.hp}/{_building.data.hpMax}","hp");
-                panel.AddImageLabel($"AP: {_building.data.ap}/{_building.data.apMax}","ap");
-            
-                Construction con = _building.GetComponent<Construction>();
-                if (con != null)
-                {
-                    panel.AddRes("Under construction",_building.data.construction.ToDictionary(entry => entry.Key,entry => entry.Value));
-                    panel.AddLabel("Missing resources");
-                }
-            }
-
-            public override void Perform()
-            {
-            }
-        }
-
-        class BuildingLexiconInfo : SplitElement
-        {
-            private readonly BuildingInfo _unit;
-        
-            public BuildingLexiconInfo(BuildingInfo unit) : base("Lexicon","lexicon")
-            {
-                this._unit = unit;
-            }
-
-            public override void ShowDetail(PanelBuilder panel)
-            {
-                _unit.baseData.ShowOwn(panel, _unit);
-            
-            }
-
-            public override void Perform()
-            {
-            }
+            CalcUpgradeCost(L.b.buildings[type], old);
         }
     }
 }

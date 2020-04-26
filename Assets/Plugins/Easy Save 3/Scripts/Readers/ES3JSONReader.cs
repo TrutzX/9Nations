@@ -571,6 +571,8 @@ namespace ES3Internal
 
         internal override long Read_ref()
         {
+            if (ES3ReferenceMgr.Current == null)
+                throw new InvalidOperationException("An Easy Save 3 Manager is required to load references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
             if (IsQuotationMark(PeekCharIgnoreWhitespace()))
                 return long.Parse(Read_string());
             return Read_long();

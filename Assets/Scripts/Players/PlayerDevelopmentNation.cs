@@ -60,7 +60,7 @@ namespace Players
                 //can use it?
                 if (ele.req.Check(player))
                 {
-                    wbs.AddElement(new PlayerDevelopmentSplitElement(ele, this));
+                    wbs.Add(new PlayerDevelopmentSplitElement(ele, this));
                 }
             }
                 

@@ -616,7 +616,7 @@ TextureImporter:
     second: mod
   - first:
       213: -6994205082485593949
-    second: base_204
+    second: ceramic
   - first:
       213: 1993210051163459605
     second: base_205
@@ -673,7 +673,7 @@ TextureImporter:
     second: base_222
   - first:
       213: -8488632777491734762
-    second: base_223
+    second: graphics
   - first:
       213: 5877503454891669257
     second: base_224
@@ -5222,7 +5222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_204
+      name: ceramic
       rect:
         serializedVersion: 2
         x: 64
@@ -5621,7 +5621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_223
+      name: graphics
       rect:
         serializedVersion: 2
         x: 160

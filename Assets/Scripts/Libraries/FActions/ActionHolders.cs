@@ -45,7 +45,7 @@ namespace Libraries.FActions
             List<ActionHolder> act = new List<ActionHolder>();
             foreach (var holder in actions)
             {
-                if (holder.trigger == type)
+                if (holder.PerformAction().Is(holder, type))
                     act.Add(holder);
             }
 

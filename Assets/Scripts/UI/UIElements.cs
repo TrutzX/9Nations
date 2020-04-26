@@ -17,7 +17,6 @@ namespace UI
         public GameObject richlabel;
         public GameObject input;
         public InputField inputRandom;
-        public GameObject window;
         public GameObject splitWindow;
         public GameObject imageButton;
         public GameObject panelBuilder;

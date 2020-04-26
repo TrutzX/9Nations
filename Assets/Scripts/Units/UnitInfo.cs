@@ -7,6 +7,7 @@ using Game;
 using Help;
 using InputActions;
 using Libraries;
+using Libraries.Buildings;
 using Libraries.Terrains;
 using Libraries.Units;
 using Maps;
@@ -93,9 +94,13 @@ namespace Units
 
         public override void Upgrade(string type)
         {
+            BaseDataBuildingUnit old = baseData;
+            
             GameMgmt.Get().data.units.Remove(data);
             Init(type,data.playerId,Pos());
             GameMgmt.Get().data.units.Add(GetComponent<UnitInfo>().data);
+            
+            CalcUpgradeCost(L.b.units[type], old);
         }
 
         public void MoveTo(NVector pos, bool moveCamera=true)
@@ -167,6 +172,7 @@ namespace Units
             Action<ITween<Vector3>> completed = (t) =>
             {
                 OnMapUI.Get().UpdatePanel(dPos);
+                transform.position = new Vector2(Pos().x+0.5f,Pos().y);
                 //show it
                 Clear(dPos);
             };
@@ -194,7 +200,7 @@ namespace Units
             data.ap -= cost;
             data.pos.x += x;
             data.pos.y += y;
-            CameraMove.Get().MoveTo(dPos);
+            S.CameraMove().MoveTo(dPos);
             NAudio.Play("moveUnit");
         }
 
@@ -217,8 +223,8 @@ namespace Units
         public override WindowBuilderSplit ShowInfoWindow()
         {
             WindowBuilderSplit wbs = base.ShowInfoWindow();
-            wbs.AddElement(new UnitLexiconInfo(this), true);
-            wbs.AddElement(new UnitSplitInfo(this), true);
+            wbs.Add(new UnitLexiconInfo(this), true);
+            wbs.Add(new MapElementSplitInfo(this), true);
             
             LSys.tem.helps.AddHelp("unit", wbs);
             

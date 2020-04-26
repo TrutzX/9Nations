@@ -1,2 +1,4 @@
-id,name,category,standard,type
-research,Research,general,false,bool
+id,name,icon,category,standard,type
+research,Research,,general,false,bool
+lastBuild,last builds,build,,,text
+lastTrain,last train,train,,,text

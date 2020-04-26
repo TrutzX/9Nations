@@ -13,7 +13,7 @@ namespace Libraries.Helps
         {
             foreach (NHelp h in GetAllByCategory(category))
             {
-                wbs.AddElement(new LexiconSplitElement(h, $"About {h.name}", SpriteHelper.Load("lexicon")));
+                wbs.Add(new LexiconSplitElement(h, $"About {h.name}", SpriteHelper.Load("lexicon")));
             }
         }
     }

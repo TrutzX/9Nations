@@ -157,11 +157,11 @@ namespace Classes.Actions
                 ActionInteractSplitElement be = new ActionInteractSplitElement(mapElementInfo.data.action, action, mapElementInfo, LastClickPos);
                 be.disabled = action.req.Desc(PlayerMgmt.ActPlayer(), mapElementInfo, LastClickPos);
                 be.audioPerform = data.sound;
-                b.AddElement(be);
+                b.Add(be);
             }
 
             //is empty?
-            if (b.ElementCount() == 0)
+            if (b.Count() == 0)
             {
                 mapElementInfo.UI().ShowPanelMessageError("No interaction with neighbors found.");
                 b.CloseWindow();

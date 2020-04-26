@@ -16,8 +16,8 @@ namespace ES3Types
             var instance = (UnityEngine.Texture2D)obj;
 
             if (!IsReadable(instance))
-            { 
-                Debug.LogWarning("Easy Save cannot save the pixels or properties of this Texture because it is not read/write enabled, so Easy Save will store it by reference instead. To save the pixel data, check the 'Read/Write Enabled' checkbox in the Texture's import settings. Clicking this warning will take you to the Texture, assuming it is not generated at runtime.", instance);
+            {
+                ES3Internal.ES3Debug.LogWarning("Easy Save cannot save the pixels or properties of this Texture because it is not read/write enabled, so Easy Save will store it by reference instead. To save the pixel data, check the 'Read/Write Enabled' checkbox in the Texture's import settings. Clicking this warning will take you to the Texture, assuming it is not generated at runtime.", instance);
                 return;
             }
 
@@ -37,7 +37,7 @@ namespace ES3Types
 			var instance = (UnityEngine.Texture2D)obj;
 
             if (!IsReadable(instance))
-                Debug.LogWarning("Easy Save cannot load the properties or pixels for this Texture because it is not read/write enabled, so it will be loaded by reference. To load the properties and pixels for this Texture, check the 'Read/Write Enabled' checkbox in its Import Settings.", instance);
+                ES3Internal.ES3Debug.LogWarning("Easy Save cannot load the properties or pixels for this Texture because it is not read/write enabled, so it will be loaded by reference. To load the properties and pixels for this Texture, check the 'Read/Write Enabled' checkbox in its Import Settings.", instance);
 
             foreach (string propertyName in reader.Properties)
 			{
@@ -68,7 +68,7 @@ namespace ES3Types
                         // In this case, LoadInto should be avoided and Load should be used instead.
                         if (!IsReadable(instance))
                         {
-                            Debug.LogWarning("Easy Save cannot load the pixels of this Texture because it is not read/write enabled, so Easy Save will ignore the pixel data. To load the pixel data, check the 'Read/Write Enabled' checkbox in the Texture's import settings. Clicking this warning will take you to the Texture, assuming it is not generated at runtime.", instance);
+                            ES3Internal.ES3Debug.LogWarning("Easy Save cannot load the pixels of this Texture because it is not read/write enabled, so Easy Save will ignore the pixel data. To load the pixel data, check the 'Read/Write Enabled' checkbox in the Texture's import settings. Clicking this warning will take you to the Texture, assuming it is not generated at runtime.", instance);
                             reader.Skip();
                         }
                         else

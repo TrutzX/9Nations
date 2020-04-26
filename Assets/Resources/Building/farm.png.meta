@@ -595,7 +595,7 @@ TextureImporter:
     second: farm_49
   - first:
       213: -5769665316701892735
-    second: farm_50
+    second: ssss
   - first:
       213: 7588439322459243919
     second: farm_51
@@ -694,7 +694,7 @@ TextureImporter:
     second: farm_82
   - first:
       213: 8773606780005133285
-    second: sfarm
+    second: rootplantation
   - first:
       213: -2128347430872823820
     second: farm_84
@@ -733,7 +733,7 @@ TextureImporter:
     second: farm_95
   - first:
       213: 1126542997302682565
-    second: farm_96
+    second: sfarm
   - first:
       213: 1624539344510284823
     second: farm_97
@@ -2018,7 +2018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: farm_50
+      name: ssss
       rect:
         serializedVersion: 2
         x: 64
@@ -2711,7 +2711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sfarm
+      name: rootplantation
       rect:
         serializedVersion: 2
         x: 96
@@ -2984,7 +2984,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: farm_96
+      name: sfarm
       rect:
         serializedVersion: 2
         x: 0

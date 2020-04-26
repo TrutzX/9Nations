@@ -2,11 +2,13 @@
 using System.Collections;
 using Audio;
 using Classes;
+using Game;
 using GameButtons;
 using Libraries;
 using Libraries.Helps;
 using Loading;
 using ModIO;
+using Options;
 using Tools;
 using UI;
 using UnityEngine;
@@ -17,6 +19,7 @@ namespace MainMenu
 {
     public class StartGame : MonoBehaviour
     {
+        
         public Text warning;
         public Text version;
         public GameObject panel;
@@ -43,6 +46,9 @@ namespace MainMenu
             L.b.gameButtons.BuildMenu(null, "title", null, true, panel.transform);
         
             LSys.tem.Load.FinishLoading();
+            
+            //show it
+            OptionHelper.RunStartOptions();
         
             //show message?
             if (PlayerPrefs.GetString("lastVersion", "x") != Application.version)

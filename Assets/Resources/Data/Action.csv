@@ -21,10 +21,14 @@ trade,trade,!Icons/icons:trade,Trade your ressources,,true,,,townCount=>1,,
 train,train,train,Train a new unit,,true,own,empty=unit,,,
 upgrade,upgrade,!Icons/icons:upgrade,Upgrade this,10,,,,,,
 evolve,evolve,religion,Try to evolve a new element,150,,,,,,
+explore,explore,!Icons/magic:explore,Automatical explore the world,5,true,own,gameOption=fog:true,,,
+moveTo,Move to point,!Icons/timeFantasy_stats:moveTo,Move the unit to a specific point,0,true,own,,,,
+craft,Craft Resources,!Icons/icons:craft,Can craft from recipts different resources,0,true,own,,,,
 ,,,,,,,,,,,,
-,id,name,icon,desc,cost,mapelement,req,req,,
-,,,,,,activeMapElement,req1,useUnderConstruction,,persistent
-,moveTo,Move to point,Move the unit to a specific point,0,logo,bool,,bool,,bool
+,id,name,icon,desc,cost,activeMapElement,req1,useUnderConstruction,,persistent
 ,improvement,Convert to a map improvement
 ,Convert to a map improvement
 ,0,logo,bool,,bool,,bool
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,timeFantasy_stats,,,,,,,

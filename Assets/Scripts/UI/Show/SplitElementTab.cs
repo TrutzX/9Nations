@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace UI.Show
 {
-    public class SplitElementTab : Tab
+    public class SplitElementTab : Tab, ISplitManager
     {
         private List<SplitElement> elements;
         public string selectButtonText;
@@ -22,11 +22,25 @@ namespace UI.Show
             selectButtonText = button;
         }
 
-        public void Add(SplitElement ele)
+        public void Add(SplitElement ele, bool first = false)
         {
-            elements.Add(ele);
+            if (first)
+                elements.Insert(0, ele);
+            else
+                elements.Add(ele);
+            
             ele.tab = this;
             if (pbs != null) pbs.AddElement(ele);
+        }
+
+        public int Count()
+        {
+            return elements.Count;
+        }
+
+        public void Close()
+        {
+            window.CloseWindow();
         }
 
         public override void Show(Transform parent)

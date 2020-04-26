@@ -2,6 +2,10 @@ namespace Classes.NameGenerator
 {
     public class OrcTownNameGenerator : BaseNameGenerator
     {
+
+	    public OrcTownNameGenerator() : base("orc")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/elfTowns.js
 	    /// </summary>

@@ -1,0 +1,138 @@
+﻿### Beta 1.1.1 - 10.02.2020
+ [ADDED] HDR Support
+ [ADDED] Super Tilemap Editor: sprite mask type
+ [FIXED] STE Support did not work after isometric tilemap update
+ [FIXED] Lights flicker when loading blur sprites in real time
+ [CHANGED] Improved Performance when using OnRender mode
+
+
+### Beta 1.1.0 - 24.01.2020
+ [ADDED] Isometric Tilemap Support
+ [ADDED] Multiple Camera Support
+ [ADDED] New LightingTextureRenderer Component
+ [ADDED] New LightingParticleRenderer Component
+ [ADDED] New profile settings using scriptable objects
+
+
+### Beta 1.0.9 - 04.11.2019
+ [ADDED] Event Handling demo scene
+ [FIXED] Lighting Sprite Renderer: Additive mode for spritesheet
+ [FIXED] Lighting Sprite Renderer: Additive mode offset
+ [FIXED] Lighting Sprite Renderer: Little offset with additive mode when blur is applied
+ [CHANGED] Event Handling: Improved perfomance
+ [CHANGED] Lighting Collider: Improved performance when drawing mask and shadows
+
+
+### Beta 1.0.8 - 28.10.2019
+ [ADDED] Lighting Collider: Skinned Mesh Support
+ [ADDED] Lighting Collider: Standard Mesh Support
+ [FIXED] Tilemap Scale & Grid Size issues
+ [FIXED] Issues when reloading scene asynchronously
+ [CHANGED] Improved Room component performance
+ [CHANGED] Cleaned up most of the code
+
+
+### Beta 1.0.7 - 15.03.2019
+ [ADDED] FlipX and FlipY for Lighting Souce Texture
+ [FIXED] Material Leak
+ [FIXED] Super Tilemap Shadows Offset
+ [FIXED] Issues when creating object with no scene view
+ [FIXED] Tilemap Shape Masking
+ [CHANGED] Improved lighting atlas initialization time
+ [CHANGED] Improved performance for day lighting 
+ [CHANGED] Improved performance for collider Shape
+
+
+### Beta 1.0.6 - 28.02.2019
+ [ADDED] Lighting Manager: Lighting Atlas (improves performance)
+ [ADDED] Lighting Manager: Custom Camera Field
+ [ADDED] Lighting Manager: Preload Lighting Buffers
+ [ADDED] Lighting Manager: Preload Lighting Atlas Sprites
+ [ADDED] Lighting Source: Layer Sorting Mode Support for Tilemaps
+ [ADDED] Lighting Source: Layer Effects (Invisible Bellow)
+ [ADDED] Lighting Source: Sorting Layer for additive shader
+ [ADDED] Lighting Sprite Renderer: Sorting Layer for additive shader
+ [ADDED] Lighting Collider: Invisible Masking Mode For Light Sources
+ [ADDED] LightingTilemapRoom2D Component
+ [ADDED] Tilemap Tiles Supports Multiple Custom Physics Shapes 
+ [ADDED] Mesh2D: Update Mesh button
+ [ADDED] ColliderLineRenderer2D: Update Renderer button
+ [CHANGED] Rendering Mode from "Mesh Renderer" to "OnRender"
+ [CHANGED] Optimized Custom Physics Shape (loads once per sprite)
+ [CHANGED] Improved Lighting Performance in General (200-500%)
+
+
+### Beta 1.0.5 - 24.01.2019
+ [ADDED] Game Object Context Menu to add lighting game objects into the scene
+ [ADDED] Multiple Lighting Component Editing at the same time
+ [ADDED] Sprite Animation Support
+ [ADDED] Tilemap Batching (optimization)
+ [ADDED] Lighting Engine Rendering Mode (OnRender) with Sorting Order
+ [ADDED] Lighting Engine "Fixed Light Buffer Size" option for optimization
+ [ADDED] Lighting Engine Resolution option for optimization
+ [ADDED] Lighting Engine "Disable" option
+ [ADDED] Lighting Engine Display Options (Rooms/Day Lighting/Occlusion/Main Buffer/Scene View)
+ [ADDED] Lighting Source Rendering Order (Defaut, Depth and Y axis)
+ [ADDED] Lighting Source Layers
+ [ADDED] Lighting Source Additive Mode option
+ [ADDED] Lighting Source "Draw Inside Collider" option
+ [ADDED] Lighting Sprite Renderer Black Masking Mode
+ [ADDED] Lighting Sprite Renderer Rotation option
+ [ADDED] Lighting Sprite Renderer Blur/Glow option
+ [ADDED] Lighting Sprite Renderer Additive option
+ [ADDED] Lighting Collider "Apply Day Mask" option
+ [FIXED] Custom camera far clipping option broke the lighting
+ [FIXED] 1 frame delay in lighting buffer
+ [FIXED] Pre-Render Lighting Engine mode camera rotation did not worked
+ [CHANGED] Reworked Lighting Buffer System from the scratch
+ [CHANGED] Additional optimizations to make lighting mobile friendly!
+
+ [INFO] Unity 2019 Support
+ [INFO] Android demo is now available
+ [INFO] Demo video is now available
+ [INFO] Updated Documentation
+
+
+### Beta 1.0.4 - 07.01.2019
+ [ADDED] Lighting Manager Rendering Mode (OnPreRender / OnPostRender)
+ [ADDED] Light collision event handling
+ [ADDED] Sprite pivot support
+ [FIXED] Tilemaps now supports gridsize and anchor
+ [FIXED] "SceneView" class did not allowed to build properly
+ [CHANGED] Performance improvements with tilemaps
+
+
+### Beta 1.0.3 - 20.12.2018
+ [ADDED] Sprite Sheet Support
+ [ADDED] Custom Physics Shape Support
+ [ADDED] Various lighting collider masking options
+ [ADDED] "Update Collider" button for lighting collider components
+ [CHANGED] Imporived editor behaviour
+
+
+### Beta 1.0.2 - 07.12.2018
+ [ADDED] Tilemap support (2018.1 or higher)
+ [ADDED] Lighting renderer component
+ [ADDED] Flicker effect component
+ [ADDED] Color blending effect component
+ [ADDED] Light "alpha" parameter
+ [ADDED] Lighting collider masking modes
+ [ADDED] 5 new demo scenes
+ [FIXED] Screen artifacts
+ [CHANGED] Imporved lighting performance
+ [CHANGED] Imporived editor run-time editing
+
+ [SUPPORT] Unity 2018.3 Support
+
+
+### Beta 1.0.1 - 23.11.2018
+ [ADDED] LightingSprite component
+ [FIXED] Camera rotation issues
+ [CHANGED] Improved occlusion
+ [CHANGED] Improved day shadows
+
+ [INFO] Asset is no longer free
+
+
+### Beta 1.0.0 - 05.11.2018
+ [INFO] Initial beta release 

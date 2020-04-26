@@ -15,9 +15,6 @@ namespace Libraries.Campaigns
                 case "map":
                     ele.map = data;
                     break;
-                case "campaign":
-                    ele.campaign = data;
-                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;

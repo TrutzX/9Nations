@@ -26,7 +26,7 @@ namespace Players.Kingdoms
             {
                 panel.AddImageTextButton(info.name, info.baseData.Sprite(), () =>
                 {
-                    CameraMove.Get().MoveTo(info.Pos());
+                    S.CameraMove().MoveTo(info.Pos());
                     OnMapUI.Get().UpdatePanel(info.Pos());
                     b.CloseWindow();
                 });

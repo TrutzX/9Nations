@@ -5,6 +5,10 @@ namespace Classes.NameGenerator
 {
     public class SteamTownNameGenerator : BaseNameGenerator
     {
+
+	    public SteamTownNameGenerator() : base("steam")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/orcTowns.js
 	    /// </summary>

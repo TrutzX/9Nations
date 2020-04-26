@@ -103,30 +103,35 @@ namespace ES3Internal
 			return id;
 		}
 
-		public UnityEngine.Object Get(long id)
+		public UnityEngine.Object Get(long id, bool suppressWarnings=false)
 		{
 			if(id == -1)
 				return null;
 			UnityEngine.Object obj;
-			if(!idRef.TryGetValue(id, out obj))
-				return null;
+            if (!idRef.TryGetValue(id, out obj))
+            {
+                if(!suppressWarnings) ES3Internal.ES3Debug.LogWarning("Reference with ID "+id+" could not be found in Easy Save's reference manager. Try pressing the Refresh References button on the ES3ReferenceMgr Component of the Easy Save 3 Manager in your scene.", this);
+                return null;
+            }
 			return obj;
 		}
 
-		public ES3Prefab GetPrefab(long id)
+		public ES3Prefab GetPrefab(long id, bool suppressWarnings = false)
 		{
 			for(int i=0; i<prefabs.Count; i++)
 				if(prefabs[i] != null && prefabs[i].prefabId == id)
 					return prefabs[i];
-			return null;
+            if (!suppressWarnings) ES3Internal.ES3Debug.LogWarning("Prefab with ID " + id + " could not be found in Easy Save's reference manager. Try pressing the Refresh References button on the ES3ReferenceMgr Component of the Easy Save 3 Manager in your scene.", this);
+            return null;
 		}
 
-		public long GetPrefab(ES3Prefab prefab)
+		public long GetPrefab(ES3Prefab prefab, bool suppressWarnings = false)
 		{
 			for(int i=0; i<prefabs.Count; i++)
 				if(prefabs[i] == prefab)
 					return prefabs[i].prefabId;
-			return -1;
+            if (!suppressWarnings) ES3Internal.ES3Debug.LogWarning("Prefab with name " + prefab.name + " could not be found in Easy Save's reference manager. Try pressing the Refresh References button on the ES3ReferenceMgr Component of the Easy Save 3 Manager in your scene.", prefab);
+            return -1;
 		}
 
         public long Add(UnityEngine.Object obj)

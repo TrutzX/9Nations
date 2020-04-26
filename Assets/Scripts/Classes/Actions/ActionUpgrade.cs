@@ -1,6 +1,6 @@
 using System.Linq;
 using Buildings;
-using Game;
+using Classes.Actions.Addons;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.FActions;
@@ -38,9 +38,9 @@ namespace Classes.Actions
                     BaseDataBuildingUnit build = info.IsBuilding()?(BaseDataBuildingUnit) L.b.buildings[key]:L.b.units[key];
                     if (build.req.Check(player, info, pos,true))
                     {
-                        BuildUpgradeSplitElement be = new BuildUpgradeSplitElement(build, info, pos);
+                        BuildUpgradeSplitElement be = new BuildUpgradeSplitElement(build, info, pos, b);
                         be.disabled = build.req.Desc(player, info, pos);
-                        b.AddElement(be);
+                        b.Add(be);
                         //win.AddBuilding(build.id);
                     }
                 
@@ -59,7 +59,8 @@ namespace Classes.Actions
         public override ActionHolder Create(string setting)
         {
             ActionHolder conf = base.Create(setting);
-            CreateTrigger(conf, ActionEvent.Direct);
+            conf.trigger = ActionEvent.Direct;
+            
             if (!string.IsNullOrEmpty(setting))
             {
                 conf.data["upgrade"] = setting;
@@ -76,18 +77,5 @@ namespace Classes.Actions
         }
         
         
-    }
-    
-    public class BuildUpgradeSplitElement : BuildSplitElement
-    {
-        public BuildUpgradeSplitElement(BaseDataBuildingUnit build, Buildings.MapElementInfo go, NVector pos) : base(build, go, pos)
-        {
-        }
-
-        public override void Perform()
-        {
-            go.Upgrade(build.id);
-            OnMapUI.Get().UpdatePanel(pos);
-        }
     }
 }

@@ -35,6 +35,16 @@ namespace Tools
             var v = Split(data);
             return (v.key, ConvertHelper.Int(v.value));
         }
+        
+        /// <summary>
+        /// Split with :
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static string BuildSplit(string key, object value)
+        {
+            return key + SplitK + value;
+        }
 
         /// <summary>
         /// Split with =

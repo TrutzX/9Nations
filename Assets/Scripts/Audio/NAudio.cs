@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Libraries;
+using UnityEngine;
 
 namespace Audio
 {
@@ -58,8 +59,8 @@ namespace Audio
 
         public void UpdateAudio()
         {
-            GetComponents<AudioSource>()[0].volume = PlayerPrefs.GetInt("audio.music",50) / 100.0f;
-            GetComponents<AudioSource>()[1].volume = PlayerPrefs.GetInt("audio.sound",75) / 100.0f;
+            GetComponents<AudioSource>()[0].volume = LSys.tem.options["audioMusic"].Int()/100f;
+            GetComponents<AudioSource>()[1].volume = LSys.tem.options["audioSound"].Int()/100f;
         }
     }
 }

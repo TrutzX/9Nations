@@ -11,6 +11,44 @@ namespace IngameDebugConsole
 {
 	public class DebugLogItem : MonoBehaviour, IPointerClickHandler
 	{
+		#region Platform Specific Elements
+#if !UNITY_2018_1_OR_NEWER
+#if !UNITY_EDITOR && UNITY_ANDROID
+		private static AndroidJavaClass m_ajc = null;
+		private static AndroidJavaClass AJC
+		{
+			get
+			{
+				if( m_ajc == null )
+					m_ajc = new AndroidJavaClass( "com.yasirkula.unity.DebugConsole" );
+
+				return m_ajc;
+			}
+		}
+
+		private static AndroidJavaObject m_context = null;
+		private static AndroidJavaObject Context
+		{
+			get
+			{
+				if( m_context == null )
+				{
+					using( AndroidJavaObject unityClass = new AndroidJavaClass( "com.unity3d.player.UnityPlayer" ) )
+					{
+						m_context = unityClass.GetStatic<AndroidJavaObject>( "currentActivity" );
+					}
+				}
+
+				return m_context;
+			}
+		}
+#elif !UNITY_EDITOR && UNITY_IOS
+		[System.Runtime.InteropServices.DllImport( "__Internal" )]
+		private static extern void _DebugConsole_CopyText( string text );
+#endif
+#endif
+		#endregion
+
 #pragma warning disable 0649
 		// Cached components
 		[SerializeField]
@@ -31,6 +69,9 @@ namespace IngameDebugConsole
 		private GameObject logCountParent;
 		[SerializeField]
 		private Text logCountText;
+
+		[SerializeField]
+		private RectTransform copyLogButton;
 #pragma warning restore 0649
 
 		// Debug entry to show with this log item
@@ -40,11 +81,19 @@ namespace IngameDebugConsole
 		private int entryIndex;
 		public int Index { get { return entryIndex; } }
 
+		private Vector2 logTextOriginalPosition;
+		private Vector2 logTextOriginalSize;
+		private float copyLogButtonHeight;
+
 		private DebugLogRecycledListView manager;
 
 		public void Initialize( DebugLogRecycledListView manager )
 		{
 			this.manager = manager;
+
+			logTextOriginalPosition = logText.rectTransform.anchoredPosition;
+			logTextOriginalSize = logText.rectTransform.sizeDelta;
+			copyLogButtonHeight = copyLogButton.anchoredPosition.y + copyLogButton.sizeDelta.y + 2f; // 2f: space between text and button
 		}
 
 		public void SetContent( DebugLogEntry logEntry, int entryIndex, bool isExpanded )
@@ -57,11 +106,27 @@ namespace IngameDebugConsole
 			{
 				logText.horizontalOverflow = HorizontalWrapMode.Wrap;
 				size.y = manager.SelectedItemHeight;
+
+				if( !copyLogButton.gameObject.activeSelf )
+				{
+					copyLogButton.gameObject.SetActive( true );
+
+					logText.rectTransform.anchoredPosition = new Vector2( logTextOriginalPosition.x, logTextOriginalPosition.y + copyLogButtonHeight * 0.5f );
+					logText.rectTransform.sizeDelta = logTextOriginalSize - new Vector2( 0f, copyLogButtonHeight );
+				}
 			}
 			else
 			{
 				logText.horizontalOverflow = HorizontalWrapMode.Overflow;
 				size.y = manager.ItemHeight;
+
+				if( copyLogButton.gameObject.activeSelf )
+				{
+					copyLogButton.gameObject.SetActive( false );
+
+					logText.rectTransform.anchoredPosition = logTextOriginalPosition;
+					logText.rectTransform.sizeDelta = logTextOriginalSize;
+				}
 			}
 			transformComponent.sizeDelta = size;
 
@@ -73,13 +138,16 @@ namespace IngameDebugConsole
 		public void ShowCount()
 		{
 			logCountText.text = logEntry.count.ToString();
-			logCountParent.SetActive( true );
+
+			if( !logCountParent.activeSelf )
+				logCountParent.SetActive( true );
 		}
 
 		// Hide the collapsed count of the debug entry
 		public void HideCount()
 		{
-			logCountParent.SetActive( false );
+			if( logCountParent.activeSelf )
+				logCountParent.SetActive( false );
 		}
 
 		// This log item is clicked, show the debug entry's stack trace
@@ -105,6 +173,21 @@ namespace IngameDebugConsole
 #endif
 		}
 
+		public void CopyLog()
+		{
+			string log = logEntry.ToString();
+			if( string.IsNullOrEmpty( log ) )
+				return;
+
+#if UNITY_EDITOR || UNITY_2018_1_OR_NEWER || ( !UNITY_ANDROID && !UNITY_IOS )
+			GUIUtility.systemCopyBuffer = log;
+#elif UNITY_ANDROID
+			AJC.CallStatic( "CopyText", Context, log );
+#elif UNITY_IOS
+			_DebugConsole_CopyText( log );
+#endif
+		}
+
 		public float CalculateExpandedHeight( string content )
 		{
 			string text = logText.text;
@@ -113,7 +196,7 @@ namespace IngameDebugConsole
 			logText.text = content;
 			logText.horizontalOverflow = HorizontalWrapMode.Wrap;
 
-			float result = logText.preferredHeight;
+			float result = logText.preferredHeight + copyLogButtonHeight;
 
 			logText.text = text;
 			logText.horizontalOverflow = wrapMode;

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Classes.Scenarios
 {
-    public class TutorialBasicScenario : IScenarioRun
+    public class TutorialBasicScenario : IRun
     {
         public void Run()
         {
@@ -120,6 +120,11 @@ namespace Classes.Scenarios
             q.AddReq("questFinish", "library");
             q.main = true;
             p.quests.Add(q);
+        }
+
+        public string ID()
+        {
+            return "tutorialbasic";
         }
 
         private Quest Build(DataBuilding b)

@@ -55,7 +55,7 @@ namespace ES3Internal
 		{
 			var localToGlobal = new Dictionary<string,string>();
 
-			var refMgr = ES3ReferenceMgrBase.Current;
+			var refMgr = ES3ReferenceMgr.Current;
 
 			if(refMgr == null)
 				return localToGlobal;

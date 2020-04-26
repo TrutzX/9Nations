@@ -1118,7 +1118,7 @@ public static class ES3
 	/// <summary>Initialises Easy Save. This happens automatically when any ES3 methods are called, but is useful if you want to perform initialisation before calling an ES3 method.</summary>
 	public static void Init()
 	{
-		ES3Settings.LoadDefaults();
+		var settings = ES3Settings.defaultSettings;
 		ES3TypeMgr.Init();
 	}
 

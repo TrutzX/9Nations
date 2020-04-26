@@ -73,7 +73,7 @@ namespace ES3Editor
 			if(windows == null)
 				InitSubWindows();
 			// Set the window name and icon.
-			var icon = AssetDatabase.LoadAssetAtPath<Texture2D>(ES3EditorUtility.PathToEasySaveFolder()+"Editor/es3Logo16x16.png");
+			var icon = AssetDatabase.LoadAssetAtPath<Texture2D>(ES3Settings.PathToEasySaveFolder()+"Editor/es3Logo16x16.png");
 			titleContent = new GUIContent("Easy Save", icon);
 
 			// Get the last opened window and open it.

@@ -33,7 +33,7 @@ namespace Players.Quests
             foreach (Quest q in PlayerMgmt.ActPlayer().quests.quests)
             {
                 if (q.IsFinish() || q.InProgress())
-                    b.AddElement(new QuestSplitElement(q));
+                    b.Add(new QuestSplitElement(q));
             }
             b.Finish();
         }

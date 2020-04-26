@@ -15,6 +15,8 @@ namespace Classes.Actions
     public class ActionProduce : BasePerformAction
     {
         public ActionProduce() : base("produce"){}
+        
+        public ActionProduce(string id) : base(id){}
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
@@ -23,38 +25,44 @@ namespace Classes.Actions
             {
                 if (!data.Key.StartsWith("res-")) continue;
 
-                ResType r = evt == ActionEvent.NextRound ? ResType.Produce :
-                    evt == ActionEvent.FinishConstruct ? ResType.Construction : ResType.Gift;
-
                 string res = data.Key.Substring(4);
-                int val = ConvertHelper.Int(data.Value);
                 
-                //Debug.Log(res+" "+val+" "+GameMgmt.Get().data.map.ResGenContains(pos, res));
                 
-                //remove?
-                if (val > 0 && GameMgmt.Get().data.map.ResGenContains(pos, res))
-                {
-                    int rval = GameMgmt.Get().data.map.ResGen(pos, res);
-                    if (rval < 200 && Random.Range(0,200) > rval)
-                    {
-                        val = 1;
-                    }
-                    
-                    if (rval <= 0)
-                    {
-                        info.SetLastInfo($"The deposit of {res} is empty.");
-                        return;
-                    }
-                    
-                    if (rval < 20)
-                    {
-                        info.SetLastInfo($"The deposit of {res} is nearly empty.");
-                    }
-                    GameMgmt.Get().data.map.ResGenAdd(pos, res, -val);
-                }
-                
-                info.Town().AddRes(res, val, r);
+                if (!ProduceOneRes(evt, info, pos, ConvertHelper.Int(data.Value), res)) return;
             }
+        }
+
+        protected bool ProduceOneRes(ActionEvent evt, MapElementInfo info, NVector pos, int val, string res)
+        {
+            //Debug.Log(res+" "+val+" "+GameMgmt.Get().data.map.ResGenContains(pos, res));
+            
+            //remove?
+            if (val > 0 && GameMgmt.Get().data.map.ResGenContains(pos, res))
+            {
+                int rval = GameMgmt.Get().data.map.ResGen(pos, res);
+                if (rval < 200 && Random.Range(0, 200) > rval)
+                {
+                    val = 1;
+                }
+
+                if (rval <= 0)
+                {
+                    info.SetLastInfo($"The deposit of {res} is empty.");
+                    return false;
+                }
+
+                if (rval < 20)
+                {
+                    info.SetLastInfo($"The deposit of {res} is nearly empty.");
+                }
+
+                GameMgmt.Get().data.map.ResGenAdd(pos, res, -val);
+            }
+
+            ResType r = evt == ActionEvent.NextRound ? ResType.Produce :
+                evt == ActionEvent.FinishConstruct ? ResType.Construction : ResType.Gift;
+            info.Town().AddRes(res, val, r);
+            return true;
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)

@@ -17,11 +17,6 @@ namespace Endless
         public Button startButton;
         public Dictionary<string, string> startConfig;
         public WindowBuilderSplit window;
-
-        public static XXEndlessGameWindow Get()
-        {
-            return GameObject.Find("EndlessGame").GetComponent<XXEndlessGameWindow>();
-        }
     
         // Start is called before the first frame update
         public void Show()

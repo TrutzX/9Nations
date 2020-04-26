@@ -2,6 +2,10 @@ namespace Classes.NameGenerator
 {
     public class VikingTownNameGenerator : BaseNameGenerator
     {
+
+	    public VikingTownNameGenerator() : base("viking")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/underwaterTowns.js
 	    /// </summary>

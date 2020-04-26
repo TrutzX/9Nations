@@ -1,9 +1,13 @@
-id,name,category,standard,type
-debug,Debug,game,false,bool
-centermouse,Center map on mouse click,game,false,bool
-uiScale,Scale the Ui,,1,scale=0.5;3
-autosave,Save the game automatical,game,true,bool
-update,Check for updates,network,true,bool
-showaction,Show every action,game,false,bool
-audio.music,Background music,audio,50,scale=0;100
-audio.sound,Sounds,audio,75,scale=0;100
+id,name,category,standard,type,req
+debug,Debug,game,false,bool,
+centermouse,Center map on mouse click,game,false,bool,
+fullscreen,Play fullscreen,graphics;start,true,bool,
+uiScale,Scale the Ui,graphics;start,10,scale=5;30,
+autosave,Save the game automatical,game,true,bool,
+update,Check for updates,network,true,bool,
+showaction,Show every action,game,false,bool,
+audioMusic,Background music,audio,50,scale=0;100,
+audioSound,Sounds,audio,75,scale=0;100,
+showLog,Show logs,game;start,false,bool,option=debug:true
+modFolder,Additional mod folder,debug,,text,
+night,Show night,graphics;start,true,bool,disabled

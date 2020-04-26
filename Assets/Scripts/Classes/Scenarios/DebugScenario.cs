@@ -9,8 +9,9 @@ using UnityEngine;
 
 namespace Classes.Scenarios
 {
-    public class DebugScenario : IScenarioRun
+    public class DebugScenario : IRun
     {
+
         public void Run()
         {
             //L.b.gameOptions["fog"].SetValue("false");
@@ -21,9 +22,9 @@ namespace Classes.Scenarios
             //GameMgmt.Get().NextPlayer();
 
             NVector pos = new NVector(6, 6, 0);
-            NVector p1 = new NVector(9, 9, 0);
+            NVector p1 = new NVector(7, 7, 0);
             
-            int tid = S.Towns().Create(LClass.s.nameGenerators["town"].Gen(), pid, pos);
+            int tid = S.Towns().Create(LClass.s.NameGenerator("town"), pid, pos);
             //S.Towns().Get(tid).level++;
 
             S.Towns().Get(tid).AddRes("wood",60, ResType.Gift);
@@ -42,7 +43,6 @@ namespace Classes.Scenarios
             //UnitMgmt.Get().Create(pid, "light", GameMgmt.Get().newMap.tools.GetStartPos("north"));
             S.Unit().Create(pid, "shadow", pos);
             S.Unit().Create(pid, "sworker", p1).FinishConstruct();
-            S.Building().Create(tid, "cmine", p1).FinishConstruct();
             GameMgmt.Get().data.map.ResGenAdd(p1, "copper", 1-GameMgmt.Get().data.map.ResGen(p1, "copper"));
             S.Unit().Create(pid, "swarrior", pos.DiffX(2)).FinishConstruct();
             
@@ -52,9 +52,13 @@ namespace Classes.Scenarios
             
             //GameMgmt.Get().newMap.levels[0].SetTile(new Vector3Int(7,7,0), L.b.terrains["grass"]);
             
-            pid = PlayerMgmt.Get().CreatePlayer("usery", "north");
-            PlayerMgmt.Get(pid).elements.elements.Add("light");
-            S.Unit().Create(pid, "lworker", pos.DiffX(3));
+            p1 = pos.Diff(3, 3);
+            
+            //pid = PlayerMgmt.Get().CreatePlayer("usery", "north");
+            //PlayerMgmt.Get(pid).elements.elements.Add("light");
+            //S.Unit().Create(pid, "lworker", pos.DiffX(3));
+            S.Unit().Create(pid, "sexplorer", p1).FinishConstruct();
+            S.Building().Create(tid, "mine", p1).FinishConstruct();
 
             /*UnitMgmt.Get().Create(pid,"nking", new NVector(13,10,GameMgmt.Get().data.map.standard));
             UnitMgmt.Get().Create(pid,"nsoldier", GameMgmt.Get().newMap.tools.GetStartPos("north"));
@@ -86,6 +90,11 @@ namespace Classes.Scenarios
             //L.b.improvements.Set("way",new NVector(6,5,0));
             //L.b.improvements.Set("way",new NVector(6,6,0));
 
+        }
+
+        public string ID()
+        {
+            return "debug";
         }
     }
 }

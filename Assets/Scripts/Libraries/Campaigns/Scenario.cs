@@ -11,7 +11,6 @@ namespace Libraries.Campaigns
     [Serializable]
     public class Scenario : BaseData
     {
-        public string campaign;
         public string map;
 
         public void ShowDetail(PanelBuilder panel)
@@ -29,7 +28,7 @@ namespace Libraries.Campaigns
             GameMgmt.Init();
         }
 
-        public IScenarioRun ScenarioRun()
+        public IRun ScenarioRun()
         {
             return LClass.s.scenarioRuns[id];
         }

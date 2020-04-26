@@ -30,8 +30,8 @@ namespace Classes.Actions
             }, "random", "random");*/
 
             InputField townName = win.panel.AddInputRandom("town name",
-                LClass.s.nameGenerators[PlayerMgmt.ActPlayer().Nation().TownNameGenerator].Gen(), s => { },
-                () => LClass.s.nameGenerators[PlayerMgmt.ActPlayer().Nation().TownNameGenerator].Gen());
+                LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator), s => { },
+                () => LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator));
 
             win.panel.AddImageTextButton("Found the town", DataAction().Icon, () =>
             {

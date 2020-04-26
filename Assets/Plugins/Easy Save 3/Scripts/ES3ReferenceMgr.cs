@@ -63,9 +63,6 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase, ISerializationCallbackReceiv
                 }
             }
         	
-        	if(obj.name == "Easy Save 3 Manager")
-        		 continue;
-        	
     	    var dependencies = CollectDependencies(obj);
     
     		foreach(var dependency in dependencies)
@@ -96,28 +93,41 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase, ISerializationCallbackReceiv
 			
 		foreach(var es3Prefab in Resources.FindObjectsOfTypeAll<ES3Prefab>())
 		{
-			if(GetPrefab(es3Prefab) == -1)
-			{
-				AddPrefab(es3Prefab);
-				Undo.RecordObject(this, "Update Easy Save 3 Reference List");
-			}
+            try
+            {
+                if (GetPrefab(es3Prefab) == -1)
+                {
+                    AddPrefab(es3Prefab);
+                    Undo.RecordObject(this, "Update Easy Save 3 Reference List");
+                }
+            }
+            catch { }
 		}
 	}
 
     public static bool CanBeSaved(UnityEngine.Object obj)
 	{
-		// Check if any of the hide flags determine that it should not be saved.
-		if(	(((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) || 
+        if (obj == null)
+            return true;
+
+        var type = obj.GetType();
+
+        // Check if any of the hide flags determine that it should not be saved.
+        if ((((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) || 
 		     ((obj.hideFlags & HideFlags.DontSaveInBuild) == HideFlags.DontSaveInBuild) ||
 		     ((obj.hideFlags & HideFlags.DontSaveInEditor) == HideFlags.DontSaveInEditor) ||
 		     ((obj.hideFlags & HideFlags.HideAndDontSave) == HideFlags.HideAndDontSave)))
 		{
-			var type = obj.GetType();
 			// Meshes are marked with HideAndDontSave, but shouldn't be ignored.
-			if(type != typeof(Mesh) && type != typeof(Material))
-				return false;
-		}
-		return true;
+			if(type == typeof(Mesh) || type == typeof(Material))
+				return true;
+        }
+
+        // Exclude the Easy Save 3 Manager, and all components attached to it.
+        if (obj.name == "Easy Save 3 Manager")
+            return false;
+
+        return true;
 	}
 
 	#endif

@@ -5,6 +5,10 @@ namespace Classes.NameGenerator
 {
     public class ElfTownNameGenerator : BaseNameGenerator
     {
+
+	    public ElfTownNameGenerator() : base("elf")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/steampunkCities.js
 	    /// </summary>

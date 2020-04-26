@@ -31,7 +31,7 @@ namespace ES3Editor
 			
 			EditorGUILayout.Space();
 
-			if(settings.showAdvancedSettings = EditorGUILayout.Foldout(settings.showAdvancedSettings, "Advanced Runtime Settings"))
+			if(settings.showAdvancedSettings = EditorGUILayout.Foldout(settings.showAdvancedSettings, "Advanced Settings"))
 			{
 				EditorGUILayout.BeginVertical(style.area);
 

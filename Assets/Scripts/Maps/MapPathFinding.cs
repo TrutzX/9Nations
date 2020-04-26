@@ -79,6 +79,11 @@ namespace Maps
             return Pathfinding.FindPath(Get(player,moveType), new PPoint(start.x, start.y), new PPoint(end.x, end.y));
         }
 
+        public int CostNode(Player player, string moveType, NVector point)
+        {
+            return (int) Get(player, moveType).nodes[point.x, point.y].price;
+        }
+
         /// <summary>
         /// Calc the points for moving, ignore the level vector, only 2d
         /// </summary>

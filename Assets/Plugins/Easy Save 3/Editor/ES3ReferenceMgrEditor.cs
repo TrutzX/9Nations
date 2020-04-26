@@ -117,54 +117,24 @@ public class ES3ReferenceMgrEditor : Editor
         }
     }
 
-    [MenuItem("GameObject/Easy Save 3/Enable Easy Save for Scene", false, 1002)]
-    [MenuItem("Assets/Easy Save 3/Enable Easy Save for Scene", false, 1002)]
+    [MenuItem("GameObject/Easy Save 3/Add Manager to Scene", false, 1002)]
+    [MenuItem("Assets/Easy Save 3/Add Manager to Scene", false, 1002)]
     public static void EnableForScene()
     {
         var scene = SceneManager.GetActiveScene();
         if(!scene.isLoaded)
-            EditorUtility.DisplayDialog("Could not enable Easy Save", "Could not enable Easy Save because there is not currently a scene open.", "Ok");
+            EditorUtility.DisplayDialog("Could not add manager to scene", "Could not add Easy Save 3 Manager to scene because there is not currently a scene open.", "Ok");
         Selection.activeObject = ES3Postprocessor.AddManagerToScene();
     }
 
-    [MenuItem("GameObject/Easy Save 3/Enable Easy Save for Scene", true, 1002)]
-    [MenuItem("Assets/Easy Save 3/Enable Easy Save for Scene", true, 1002)]
+    [MenuItem("GameObject/Easy Save 3/Add Manager to Scene", true, 1002)]
+    [MenuItem("Assets/Easy Save 3/Add Manager to Scene", true, 1002)]
     private static bool CanEnableForScene()
     {
         var scene = SceneManager.GetActiveScene();
         if(!scene.isLoaded)
             return false;
         if(UnityEngine.Object.FindObjectOfType<ES3ReferenceMgr>() != null)
-            return false;
-        return true;
-    }
-
-    [MenuItem("GameObject/Easy Save 3/Generate New Reference IDs for Scene", false, 1002)]
-    [MenuItem("Assets/Easy Save 3/Generate New Reference IDs for Scene", false, 1002)]
-    public static void GenerateNewReferences()
-    {
-        var scene = SceneManager.GetActiveScene();
-        if(!scene.isLoaded)
-            EditorUtility.DisplayDialog("Could not enable Easy Save", "Could not enable Easy Save because there is not currently a scene open.", "Ok");
-
-
-        var refMgr = UnityEngine.Object.FindObjectOfType<ES3ReferenceMgr>();
-        if(refMgr != null)
-        {
-            if(!EditorUtility.DisplayDialog("Are you sure you wish to generate new references?", "By doing this, any save files created using these references will no longer work with references in this scene.", "Generate New Reference IDs", "Cancel"))
-                return;
-            DestroyImmediate(refMgr);
-        }
-            
-        Selection.activeObject = ES3Postprocessor.AddManagerToScene();
-    }
-
-    [MenuItem("GameObject/Easy Save 3/Generate New Reference IDs for Scene", true, 1002)]
-    [MenuItem("Assets/Easy Save 3/Generate New Reference IDs for Scene", true, 1002)]
-    private static bool CanGenerateNewReferences()
-    {
-        var scene = SceneManager.GetActiveScene();
-        if(!scene.isLoaded)
             return false;
         return true;
     }

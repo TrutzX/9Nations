@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ES3AutoSaveMgr : MonoBehaviour, ISerializationCallbackReceiver 
 {
@@ -23,19 +24,20 @@ public class ES3AutoSaveMgr : MonoBehaviour, ISerializationCallbackReceiver
 	public LoadEvent loadEvent = LoadEvent.Awake;
 	public ES3SerializableSettings settings = null;
 
-
-	public List<ES3AutoSave> autoSaves = null;
+	public HashSet<ES3AutoSave> autoSaves = null;
 
 	public void Save()
 	{
 		if(autoSaves == null || autoSaves.Count == 0)
 			return;
 
-		var gameObjects = new GameObject[autoSaves.Count];
-		for (int i = 0; i < autoSaves.Count; i++) 
-			gameObjects [i] = autoSaves [i].gameObject;
+        var gameObjects = new List<GameObject>();
+        foreach (var autoSave in autoSaves)
+            // If the ES3AutoSave component is disabled, don't save it.
+            if (autoSave.enabled)
+                gameObjects.Add(autoSave.gameObject);
 
-		ES3.Save<GameObject[]>(key, gameObjects, settings);
+		ES3.Save<GameObject[]>(key, gameObjects.ToArray(), settings);
 	}
 
 	public void Load()
@@ -49,15 +51,20 @@ public class ES3AutoSaveMgr : MonoBehaviour, ISerializationCallbackReceiver
 			Load();
 	}
 
-	public void Awake()
-	{
-		_instance = this;
+    public void Awake()
+    {
+        autoSaves = new HashSet<ES3AutoSave>();
 
-		if(loadEvent == LoadEvent.Awake)
-			Load();
-	}
+        foreach (var go in SceneManager.GetActiveScene().GetRootGameObjects())
+            autoSaves.UnionWith(go.GetComponentsInChildren<ES3AutoSave>(true));
 
-	void OnApplicationQuit()
+        _instance = this;
+
+        if (loadEvent == LoadEvent.Awake)
+            Load();
+    }
+
+    void OnApplicationQuit()
 	{
 		if(saveEvent == SaveEvent.OnApplicationQuit)
 			Save();

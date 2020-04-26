@@ -114,7 +114,7 @@ namespace Units
                 if (!ui.IsUnderConstruction() && ui.data.ap > 0)
                 {
                     FindObjectOfType<OnMapUI>().UpdatePanel(ui.GetData().pos);
-                    CameraMove.Get().MoveTo(ui.GetData().pos);
+                    S.CameraMove().MoveTo(ui.GetData().pos);
                     return;
                 }
             }

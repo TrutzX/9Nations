@@ -22,7 +22,7 @@ namespace ES3Types
 				return;
 			var instance = (UnityEngine.GameObject)obj;
 
-			if(ES3ReferenceMgrBase.Current != null && mode != ES3.ReferenceMode.ByValue)
+            if (mode != ES3.ReferenceMode.ByValue)
 			{
 				writer.WriteRef(instance);
 
@@ -83,7 +83,7 @@ namespace ES3Types
 					}
 
 					id = reader.Read_ref();
-					obj = refMgr.Get(id);
+					obj = refMgr.Get(id, true);
 				}
 				else if(propertyName == transformPropertyName)
 				{

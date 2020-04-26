@@ -44,7 +44,7 @@ namespace ES3Types
 
 			foreach(string propertyName in reader.Properties)
 			{
-				if(propertyName == ES3ReferenceMgrBase.referencePropertyName && refMgr != null)
+				if(propertyName == ES3ReferenceMgrBase.referencePropertyName)
 				{
 					id = reader.Read_ref();
 					instance = refMgr.Get(id);
@@ -52,7 +52,7 @@ namespace ES3Types
 					if(instance != null)
 						break;
 				}
-				else if(propertyName == gameObjectPropertyName && refMgr != null)
+				else if(propertyName == gameObjectPropertyName)
 				{
 					long goID = reader.Read_ref();
 					var go = (GameObject)refMgr.Get(goID);
@@ -97,8 +97,7 @@ namespace ES3Types
 			if(type == typeof(Transform))
 				return go.GetComponent(type);
 			// Manage types which can only have a single Component attached.
-
-			else if (type == typeof(MeshFilter) || type == typeof(MeshRenderer))
+			else if (type == typeof(MeshFilter) || type.Name.ToString().Contains("Renderer") || ES3Reflection.AttributeIsDefined(type, typeof(DisallowMultipleComponent)))
 				return GetOrCreateComponentIfNotExists (go, type);
 			return go.AddComponent(type);
 		}

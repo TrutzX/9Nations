@@ -8,6 +8,7 @@ using Help;
 using Improvements;
 using Libraries.Buildings;
 using Libraries.Campaigns;
+using Libraries.Crafts;
 using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
@@ -61,6 +62,7 @@ namespace Libraries
         public FightModiMgmt fightModis;
         public GameOptionMgmt gameOptions;
         public PlayerOptionMgmt playerOptions;
+        public CraftMgmt crafts;
         
         /// <summary>
         /// For save only
@@ -77,6 +79,12 @@ namespace Libraries
         {
             b = new L("game");
             yield return b.Loading();
+        }
+        
+        public IEnumerator Reload()
+        {
+            yield return base.Loading();
+            LSys.tem.Load.FinishLoading();
         }
 
         protected override IEnumerator Loading()
@@ -99,6 +107,7 @@ namespace Libraries
             fightModis = (FightModiMgmt) Add(new FightModiMgmt());
             gameOptions = (GameOptionMgmt) Add(new GameOptionMgmt());
             playerOptions = (PlayerOptionMgmt) Add(new PlayerOptionMgmt());
+            crafts = (CraftMgmt) Add(new CraftMgmt());
             
             yield return base.Loading();
         }

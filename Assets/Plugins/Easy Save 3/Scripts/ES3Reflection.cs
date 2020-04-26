@@ -42,7 +42,7 @@ namespace ES3Internal
 						}
 						catch
 						{
-							Debug.LogWarning("Assembly \""+assemblyNames[i]+"\" could not be found. If you are using Assembly Definition Files, you should delete this assembly from the \"Assemblies containing ES3Types\" list in Window > Easy Save 3 > Settings, and add the names of the Assemblies you are using instead.");
+							//Debug.LogWarning("Assembly \""+assemblyNames[i]+"\" could not be found. If you are using Assembly Definition Files, you should delete this assembly from the \"Assemblies containing ES3Types\" list in Window > Easy Save 3 > Settings, and add the names of the Assemblies you are using instead.");
 						}
 					}
 					_assemblies = assemblyList.ToArray();

@@ -49,10 +49,11 @@ namespace Classes.Actions
             if (!string.IsNullOrEmpty(setting))
             {
                 CreateAddCount(conf, ActionEvent.NextRound, setting, true);
+                conf.cost = 0;
             }
             else
             {
-                CreateTrigger(conf, ActionEvent.Direct);
+                conf.trigger = ActionEvent.Direct;
             }
 
             return conf;

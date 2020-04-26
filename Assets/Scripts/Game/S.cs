@@ -42,7 +42,12 @@ namespace Game
 
         public static InputAction InputAction()
         {
-            return GameObject.Find("InputAction").GetComponent<InputAction>();
+            return GameMgmt.Get().inputAction;
+        }
+
+        public static CameraMove CameraMove()
+        {
+            return GameMgmt.Get().cameraMove;
         }
 
         public static bool Debug()

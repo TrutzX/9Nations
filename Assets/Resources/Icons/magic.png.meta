@@ -580,13 +580,13 @@ TextureImporter:
     second: magic_191
   - first:
       213: -6795748235694283160
-    second: single
+    second: explore
   - first:
       213: -682378376695613611
     second: internet
   - first:
       213: 311342857789697342
-    second: privacy
+    second: explore
   - first:
       213: 2625007522426315190
     second: magic_195
@@ -643,7 +643,7 @@ TextureImporter:
     second: magic_212
   - first:
       213: -3573419023489314408
-    second: date
+    second: single
   - first:
       213: -2592646840180563128
     second: xxxxx
@@ -4775,7 +4775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: single
+      name: privacy
       rect:
         serializedVersion: 2
         x: 0
@@ -4817,7 +4817,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: privacy
+      name: explore
       rect:
         serializedVersion: 2
         x: 64
@@ -5216,7 +5216,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: date
+      name: single
       rect:
         serializedVersion: 2
         x: 319

@@ -4,6 +4,10 @@ namespace Classes.NameGenerator
 {
     public class FantasyTownNameGenerator : BaseNameGenerator
     {
+
+	    public FantasyTownNameGenerator() : base("fantasy")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/fantasyTowns.js
 	    /// </summary>

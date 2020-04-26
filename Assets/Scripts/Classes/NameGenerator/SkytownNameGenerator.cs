@@ -5,6 +5,10 @@ namespace Classes.NameGenerator
 {
     public class SkyTownNameGenerator : BaseNameGenerator
     {
+
+	    public SkyTownNameGenerator() : base("sky")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: https://www.fantasynamegenerators.com/scripts/skyCities.js
 	    /// </summary>

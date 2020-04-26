@@ -1,84 +1,69 @@
 using System.Linq;
 using Buildings;
-using Game;
+using Classes.Actions.Addons;
 using Libraries;
 using Libraries.Buildings;
+using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Units;
 using Players;
 using Tools;
 using UI;
+using UI.Show;
 using Units;
 
 namespace Classes.Actions
 {
-    public class ActionTrain : BasePerformAction
+    public class ActionTrain : ActionBuild
     {
         public ActionTrain() : base("train"){}
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
         {
-            string[] keys;
-            if (holder.data.ContainsKey("unit"))
-            {
-                keys = SplitHelper.Separator(holder.data["unit"]);
-            }
-            else
-            {
-                keys = L.b.units.Keys().ToArray();
-            }
-            
-            //load buildings
-            WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc,holder.DataAction().name);
+            if (BuildAllowed(player, info, pos, holder)) return;
 
-            foreach (string key in keys)
+            WindowTabBuilder wtb = WindowTabBuilder.Create(holder.DataAction().Desc);
+
+            BuildLast(player, info, pos, holder, wtb, "lastTrain");
+
+            foreach (string e in player.elements.elements)
             {
-                DataUnit build = L.b.units[key];
-                if (build.req.Check(player, info, pos,true))
+                Element ele = L.b.elements[e];
+                SplitElementTab set = new SplitElementTab(ele.name, ele.Icon, holder.DataAction().name);
+
+                var b = L.b.units.GetAllByCategory(ele.id).OrderBy(o=>o.name).ToList();
+                foreach (DataUnit build in b)
                 {
-                    BuildSplitElement be = new TrainSplitElement(build, info, pos);
-                    be.disabled = build.req.Desc(player, info, pos);
-                    b.AddElement(be);
-                    //win.AddBuilding(build.id);
+                    AddBuild(player, info, pos, build.id, set);
                 }
-                
+
+                if (set.Count() > 0)
+                {
+                    wtb.Add(set);
+                }
             }
 
-            b.Finish();
+            wtb.Finish();
         }
 
-        protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)
+        protected override BaseDataBuildingUnit Get(string key)
         {
-            throw new System.NotImplementedException();
+            return L.b.units[key];
         }
-
-        public override ActionHolder Create(string setting)
+        
+        protected override void AddBuild(Player player, MapElementInfo info, NVector pos, string key, ISplitManager set)
         {
-            ActionHolder conf = base.Create(setting);
-            CreateTrigger(conf, ActionEvent.Direct);
-            if (!string.IsNullOrEmpty(setting))
+            BaseDataBuildingUnit build = Get(key);
+            
+            if (build.req.Check(player, info, pos, true))
             {
-                conf.data["unit"] = setting;
+                TrainSplitElement be = new TrainSplitElement(build, info, pos, set);
+                be.disabled = build.req.Desc(player, info, pos);
+                set.Add(be);
+                //win.AddBuilding(build.id);
             }
-
-            return conf;
-        }
-        
-        
-    }
-    
-    public class TrainSplitElement : BuildSplitElement
-    {
-        public TrainSplitElement(BaseDataBuildingUnit build, Buildings.MapElementInfo go, NVector pos) : base(build, go, pos)
-        {
-        }
-
-        public override void Perform()
-        {
-            GameMgmt.Get().unit.Create(S.Towns().NearstTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
-            OnMapUI.Get().UpdatePanel(pos);
         }
     }
 }

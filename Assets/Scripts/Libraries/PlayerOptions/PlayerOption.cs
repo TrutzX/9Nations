@@ -1,6 +1,7 @@
 using System;
 using Game;
 using Libraries.Options;
+using Players;
 using UnityEngine;
 
 namespace Libraries.PlayerOptions
@@ -8,14 +9,14 @@ namespace Libraries.PlayerOptions
     [Serializable]
     public class PlayerOption : Option
     {
-        public override string ToString()
+        public override string Value()
         {
-            return standard;
+            return PlayerMgmt.ActPlayer().GetFeature(id);
         }
 
         public override void SetValue(string value)
         {
-            Debug.LogWarning("Not implemented");
+            PlayerMgmt.ActPlayer().SetFeature(id, value);
         }
     }
 }

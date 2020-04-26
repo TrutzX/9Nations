@@ -20,13 +20,14 @@ namespace Libraries.Campaigns
             panel.AddHeaderLabel("Scenarios");
             foreach (Scenario s in Scenarios())
             {
-                panel.AddImageTextButton(s.name, SpriteHelper.Load(s.Icon), (() => s.Start()));
+                if (s.req.Check(null))
+                    panel.AddImageTextButton(s.name, SpriteHelper.Load(s.Icon), (() => s.Start()));
             }
         }
 
         public List<Scenario> Scenarios()
         {
-            return LSys.tem.scenarios.Values().Where(s => s.campaign == id).ToList();
+            return LSys.tem.scenarios.GetAllByCategory(id);
         }
     }
 }

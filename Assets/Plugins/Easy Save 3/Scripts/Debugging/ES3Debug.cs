@@ -1,70 +1,40 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal static class ES3Debug
+namespace ES3Internal
 {
-	public enum Category {GameObject, Component, Member, IO, Reflection, Other}
-	public static Category[] categories = new Category[]{Category.GameObject, Category.Component, Category.IO, Category.Member, Category.Other, Category.Reflection};
-	public static bool enabled = true;
+    internal static class ES3Debug
+    {
+        private const string disableWarningMsg = "\n<i>To disable warnings from Easy Save, go to Window > Easy Save 3 > Settings, and uncheck 'Log Warnings'</i>";
+        public static void Log(string msg, Object context = null)
+        {
+            if (!ES3Settings.defaultSettingsScriptableObject.logInfo)
+                return;
+            else if (context != null)
+                Debug.LogFormat(context, msg);
+            else
+                Debug.LogFormat(context, msg);
+        }
 
-	public static int indentLevel = 0;
-	private static string indentStr = "-";
+        public static void LogWarning(string msg, Object context=null)
+        {
+            if (!ES3Settings.defaultSettingsScriptableObject.logWarnings)
+                return;
+            else if (context != null)
+                Debug.LogWarningFormat(context, msg + disableWarningMsg);
+            else
+                Debug.LogWarningFormat(context, msg + disableWarningMsg);
+        }
 
-
-	public static void Log(string msg, Category category, int indent=0)
-	{
-		#if DEBUG
-
-		if(!enabled || !CategoryIsEnabled(category))
-			return;
-		
-		Debug.Log(GetIndent() + msg);
-		indentLevel += indent;
-
-		#endif
-	}
-		
-	public static void LogError(string msg, Category category)
-	{
-		#if DEBUG
-		if(!enabled || ! CategoryIsEnabled(category))
-			return;
-
-		Debug.LogError(GetIndent() + msg);
-
-		#endif
-	}
-
-	public static void LogWarning(string msg, Category category)
-	{
-		#if DEBUG
-		if(!enabled || ! CategoryIsEnabled(category))
-			return;
-
-		Debug.LogWarning(GetIndent() + msg);
-
-		#endif
-	}
-
-	public static void ResetIndent()
-	{
-		indentLevel = 0;
-	}
-
-	private static string GetIndent()
-	{
-		string str = "";
-		for(int i = 0; i < indentLevel; i++)
-			str += indentStr;
-		return str;
-	}
-
-	private static bool CategoryIsEnabled(Category category)
-	{
-		for(int i = 0; i < categories.Length; i++)
-			if(categories[i] == category)
-				return true;
-		return false;
-	}
-}*/
+        public static void LogError(string msg, Object context = null)
+        {
+            if (!ES3Settings.defaultSettingsScriptableObject.logErrors)
+                return;
+            else if (context != null)
+                Debug.LogErrorFormat(context, msg);
+            else
+                Debug.LogErrorFormat(context, msg);
+        }
+    }
+}

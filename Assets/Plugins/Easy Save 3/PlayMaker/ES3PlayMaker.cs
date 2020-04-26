@@ -459,11 +459,8 @@ namespace ES3PlayMaker
 		{
 			exists.Value = ES3.KeyExists(key.Value, GetSettings());
 
-			if(exists.Value && existsEvent != null)
-				Fsm.Event(existsEvent);
-			else if(doesNotExistEvent != null)
-				Fsm.Event(doesNotExistEvent);
-		}
+            Fsm.Event(exists.Value ? existsEvent : doesNotExistEvent);
+        }
 	}
 
 	[ActionCategory("Easy Save 3")]
@@ -492,11 +489,8 @@ namespace ES3PlayMaker
 		{
 			exists.Value = ES3.FileExists(filePath.Value, GetSettings());
 
-			if(exists.Value && existsEvent != null)
-				Fsm.Event(existsEvent);
-			else if(doesNotExistEvent != null)
-				Fsm.Event(doesNotExistEvent);
-		}
+            Fsm.Event(exists.Value ? existsEvent : doesNotExistEvent);
+        }
 	}
 
 	[ActionCategory("Easy Save 3")]
@@ -525,11 +519,8 @@ namespace ES3PlayMaker
 		{
 			exists.Value = ES3.DirectoryExists(directoryPath.Value, GetSettings());
 
-			if(exists.Value && existsEvent != null)
-				Fsm.Event(existsEvent);
-			else if(doesNotExistEvent != null)
-				Fsm.Event(doesNotExistEvent);
-		}
+            Fsm.Event(exists.Value ? existsEvent : doesNotExistEvent);
+        }
 	}
 
 	#endregion
@@ -1319,14 +1310,18 @@ namespace ES3PlayMaker
 		[ArrayEditor(VariableType.String)]
 		public FsmArray filenames;
 
-		public override void OnReset()
+        [Tooltip("An optional search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character. See https://www.w3schools.com/sql/sql_like.asp for more info.")]
+        public FsmString searchPattern;
+
+        public override void OnReset()
 		{
 			filenames = null;
+            searchPattern = "";
 		}
 
 		public override void Enter()
 		{
-			StartCoroutine(cloud.DownloadFilenames(user.Value, password.Value));
+			StartCoroutine(cloud.DownloadFilenames(user.Value, password.Value, searchPattern.Value));
 		}
 
 		public override void OnUpdate()

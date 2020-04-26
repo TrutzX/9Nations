@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public partial class WindowBuilderSplit : MonoBehaviour
+    public partial class WindowBuilderSplit : MonoBehaviour, ISplitManager
     {
         public GameObject splitElementButtonPanel;
         public GameObject infoPanel;
@@ -66,18 +66,23 @@ namespace UI
             Destroy(gameObject);
         }
 
-        public int ElementCount()
+        public int Count()
         {
             return elements.Count;
         }
 
-        public void AddElement(SplitElement ele, bool first = false)
+        public void Close()
+        {
+            CloseWindow();
+        }
+
+        public void Add(SplitElement ele, bool first = false)
         {
             if (first)
                 elements.Insert(0, ele);
             else
                 elements.Add(ele);
-            
+
             ele.window = this;
 
             //add button?
@@ -130,7 +135,7 @@ namespace UI
             if (infoPanel.transform.childCount > 0)
             {
                 foreach (Transform child in infoPanel.transform) {
-                    GameObject.Destroy(child.gameObject);
+                    Destroy(child.gameObject);
                 };
             }
 
@@ -138,6 +143,11 @@ namespace UI
             selectedElement.ShowDetail(p);
             p.CalcSize();
             NAudio.Play(selectedElement.audioSwitch);
+        }
+
+        public void Reload()
+        {
+            ShowDetail();
         }
 
         private void AddSplitButton(SplitElement ele)

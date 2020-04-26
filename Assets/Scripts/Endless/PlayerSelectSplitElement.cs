@@ -25,7 +25,7 @@ namespace Endless
             panel.AddInputRandom("Name",startConfig[id + "name"], s => { 
                 startConfig[id + "name"] = s;
                 UIHelper.UpdateButtonText(button,s);
-            }, () => LClass.s.nameGenerators["unit"].Gen());
+            }, () => LClass.s.NameGenerator("unit"));
 
             List<string> ids = new List<string>();
             List<string> titles = new List<string>();

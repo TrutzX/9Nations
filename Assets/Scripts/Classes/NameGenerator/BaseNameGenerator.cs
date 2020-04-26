@@ -5,7 +5,12 @@ namespace Classes.NameGenerator
     public abstract class BaseNameGenerator
     {
         public string id;
-        
+
+        protected BaseNameGenerator(string id)
+        {
+            this.id = id;
+        }
+
         public abstract string Gen(string include = null);
 
         /// <summary>

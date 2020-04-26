@@ -484,7 +484,7 @@ namespace ES3Editor
 			PerformSearch(searchFieldValue);
 
 			// Init Assets.
-			string es3FolderPath = ES3EditorUtility.PathToEasySaveFolder();
+			string es3FolderPath = ES3Settings.PathToEasySaveFolder();
 			checkmark = AssetDatabase.LoadAssetAtPath<Texture2D>(es3FolderPath + "Editor/checkmark.png");
 			//checkmarkSmall = AssetDatabase.LoadAssetAtPath<Texture2D>(es3FolderPath + "Editor/checkmarkSmall.png");
 
@@ -552,7 +552,7 @@ namespace ES3Editor
 				propertyNames += "\"" + fields[i].Name + "\"";
 			}
 
-			var easySaveEditorPath = ES3EditorUtility.PathToEasySaveFolder()+"Editor/";
+			var easySaveEditorPath = ES3Settings.PathToEasySaveFolder()+"Editor/";
 
 			// Insert the relevant strings into the template.
 			string template;

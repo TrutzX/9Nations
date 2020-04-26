@@ -25,7 +25,7 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
 	{
 		get
 		{
-			if(defaultSettings.addMgrToSceneAutomatically && _refMgr == null)
+			if(ES3Settings.defaultSettingsScriptableObject.addMgrToSceneAutomatically && _refMgr == null)
 				AddManagerToScene();
 			return _refMgr;
 		}
@@ -36,23 +36,6 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
 	{
 		get{ if(_autoSaveMgr != null) return _autoSaveMgr; if(refMgr == null) return null; return refMgr.gameObject.GetComponent<ES3AutoSaveMgr>(); }
 	}
-	
-	public static ES3DefaultSettings _defaultSettings;
-	public static ES3DefaultSettings defaultSettings
-	{
-		get
-		{
-            if (_defaultSettings == null)
-            {
-                //CreateDefaultSettingsIfNotExist();
-                _defaultSettings = ES3Settings.GetDefaultSettings();
-            }
-			return _defaultSettings;
-		}
-	}
-	
-	public static bool didGenerateReferences = false;
-	public static ES3DefaultSettings settings;
 
 	public static GameObject lastSelected = null;
 	
@@ -102,7 +85,8 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
     public static string[] OnWillSaveAssets(string[] paths)
     {
         // Add all GameObjects and Components to the reference manager whenever we save the scene.
-        AddGameObjectsAndComponentsToManager();
+        if (ES3Settings.defaultSettingsScriptableObject.autoUpdateReferences)
+            AddGameObjectsAndComponentsToManager();
         return paths;
     }
 
@@ -125,10 +109,18 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
         if (refMgr != null)
         {
             foreach (var obj in EditorUtility.CollectDeepHierarchy(SceneManager.GetActiveScene().GetRootGameObjects()))
-                // If this object can be saved, add it to the reference manager.
-                if (ES3ReferenceMgr.CanBeSaved(obj))
-                    refMgr.Add(obj);
+            {
+                try
+                {
+                    // If this object can be saved, add it to the reference manager.
+                    if (obj != null && ES3ReferenceMgr.CanBeSaved(obj))
+                        refMgr.Add(obj);
+                }
+                catch { }
+            }
+
             refMgr.AddPrefabsToManager();
+            refMgr.RemoveNullValues();
         }
     }
 
@@ -143,6 +135,9 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
 		if(EditorApplication.isPlaying || EditorApplication.isCompiling || EditorApplication.isPaused || EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isUpdating)
 			return;
 
+        if (!ES3Settings.defaultSettingsScriptableObject.autoUpdateReferences)
+            return;
+
         try
         {
             var selected = Selection.activeGameObject;
@@ -150,10 +145,6 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
             // If we just deselected a prefab, process its references.
             if (lastSelected != null && ES3EditorUtility.IsPrefabInAssets(selected))
                 ProcessGameObject(lastSelected);
-
-            // If the previously selected object isn't same GameObject, process previously selected GO.
-            //if (lastSelected != null)
-                //ProcessGameObject(lastSelected);
 
             lastSelected = selected;
         }
@@ -250,12 +241,4 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
 		}
 		return mgr;
 	}
-
-    public static void CreateDefaultSettingsIfNotExist()
-    {
-        // Duplicate ES3Settings if it's not already been duplicated so that updating Easy Save doesn't overwrite settings.
-        if (string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID(ES3EditorUtility.PathToDefaultSettings())) // If default settings do not exist ...
-        && string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID("Assets/ES3Internal.prefab"))) // ... and this isn't an internal project.
-            AssetDatabase.CopyAsset(ES3EditorUtility.PathToDefaultSettings().Replace("ES3 Default Settings", "ES3 Settings Template"), ES3EditorUtility.PathToDefaultSettings());
-    }
 }

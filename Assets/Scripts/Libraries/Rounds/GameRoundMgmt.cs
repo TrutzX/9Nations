@@ -82,11 +82,23 @@ namespace Libraries.Rounds
             }
         
             GameMgmt.Get().newMap.NextRound();
+            SwitchNight();
         
             yield return PlayerMgmt.Get().NextRound();
         
         }
 
+        private void SwitchNight()
+        {
+            if (!LSys.tem.options["night"].Bool())
+            {
+                return;
+            }
+            
+            FindObjectOfType<LightingManager2D>().disableEngine = !IsDayTime("night");
+            LightingMainBuffer2D.ForceUpdate();
+        }
+        
         public string Icon()
         {
             return Icon(_round);

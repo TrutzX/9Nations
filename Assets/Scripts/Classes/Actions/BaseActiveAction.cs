@@ -29,6 +29,7 @@ namespace Classes.Actions
         
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos, ActionHolder holder)
         {
+            
             //get tilemap
             tileMap = GameMgmt.Get().newMap[pos.level].border.GetComponent<Tilemap>();
             Points = new List<PPoint>();

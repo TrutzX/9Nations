@@ -6,6 +6,10 @@ namespace Classes.NameGenerator
 {
     public class UnitNameGenerator : BaseNameGenerator
     {
+
+	    public UnitNameGenerator() : base("unit")
+	    {
+	    }
 	    /// <summary>
 	    /// Author: view-source:https://www.fantasynamegenerators.com/scripts/titleNames.js
 	    /// </summary>
@@ -20,7 +24,7 @@ namespace Classes.NameGenerator
 	        string[] nm5 = {"Priestess", "High Priestess", "Abbot", "Angelic", "Apostle", "Archbishop", "Archdeacon", "Archpriest", "Bishop", "Cardinal", "Chancellor", "Chaplain", "Cleric", "Counselor", "Deacon", "Divine", "Doctor", "Elder", "Exalted", "Father", "Guru", "High Priest", "Imam", "Lama", "Mage", "Magi", "Matriarch", "Minister", "Missionary", "Monk", "Mother", "Novice", "Nun", "Paladin", "Pastor", "Patriarch", "Preacher", "Priest", "Rabbi", "Reverend", "Sage", "Saint", "Seer", "Sensei", "Shaman", "Templar", "Warlock", "Witch"};
 	        string[] nm6 = {"Birth", "Bliss", "Blood", "Bones", "Darkness", "Death", "Devotion", "Divinity", "Dreams", "Eternity", "Faith", "Freedom", "Genesis", "Gold", "Gracy", "Healing", "Life", "Light", "Mercy", "Misery", "Nature", "Nightmares", "Peace", "Pestinence", "Piety", "Pure Hearts", "Purity", "Rebirth", "Sanctity", "Shadow", "Silence", "Silver", "Solitude", "Spirits", "Time", "Virtue", "Worship", "the Arcane", "the Blue", "the Dead", "the Earth", "the East", "the Flame", "the Gardens", "the King", "the Light", "the Living", "the Moon", "the Night", "the North", "the Phoenix", "the Realm", "the Red", "the Sands", "the Sea", "the South", "the Stars", "the Sun", "the Undead", "the Undying", "the Veil", "the Voice", "the Void", "the West", "the White", "the World"};
 
-	        string name = null;
+	        string name;
 	        int i = Random.Range(0, 9);
 	        if (i < 3) {
 	            name = getRndA(nm1) + " of " + getRndA(nm2);
@@ -29,8 +33,8 @@ namespace Classes.NameGenerator
 	        } else {
 	            name = getRndA(nm5) + " of " + getRndA(nm6);
 	        }
-
-	        return name;
+	        
+	        return string.IsNullOrEmpty(include)?name:$"{name} {include}";
         }
     }
 }

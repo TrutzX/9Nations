@@ -13,7 +13,7 @@ namespace LoadSave
             //add files
             foreach (LoadSaveInfo info in LoadSaveMgmt.GetAllSaves())
             { 
-                w.AddElement(new LoadWindowSplitElement(info, w));
+                w.Add(new LoadWindowSplitElement(info, w));
             }
             
             w.Finish();

@@ -1,4 +1,5 @@
 using Buildings;
+using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
@@ -15,6 +16,12 @@ namespace Classes.Actions
             ActionHolder holder)
         {
             info.data.ap = 0;
+            
+            if (evt == ActionEvent.Direct)
+            {
+                info.SetRepeatAction(info.data.action.actions.IndexOf(holder), pos);
+                OnMapUI.Get().UpdatePanel(info.Pos());
+            }
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)

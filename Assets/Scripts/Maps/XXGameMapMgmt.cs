@@ -25,6 +25,7 @@ using Random = UnityEngine.Random;
 
 namespace Maps
 {
+    [Obsolete]
     public class XXGameMapMgmt : MonoBehaviour
     {
         public const int SortFog = 13, SortImpro = 12, SortBorder = 15, SortActiveAction=14;
@@ -166,11 +167,6 @@ namespace Maps
                 t.SetTile(GameMgmt.Get().data.map.width,y,border);
             }
             
-        }
-
-        public static bool Valid(NVector pos)
-        {
-            return 0 <= pos.x && pos.x < GameMgmt.Get().data.map.width && 0 <= pos.y && pos.y < GameMgmt.Get().data.map.height;
         }
     }
 }

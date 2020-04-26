@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_9N.-1159244708.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_9N.-1159244708.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="9N.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -41,6 +42,223 @@
           </e>
         </e>
         <e p="ExitButtonDestroy.cs" t="Include" />
+        <e p="FunkyCode" t="Include">
+          <e p="Demos - SmartLighting2D" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DemoCollisionEvents.cs" t="Include" />
+              <e p="DemoFollowMouse.cs" t="Include" />
+              <e p="DemoFpsHelper.cs" t="Include" />
+              <e p="DemoLightColorChange.cs" t="Include" />
+              <e p="DemoLightFlicker.cs" t="Include" />
+              <e p="DemoLightSpriteInstance.cs" t="Include" />
+              <e p="DemoLightSpriteSpawner.cs" t="Include" />
+              <e p="DemoMainManager.cs" t="Include" />
+              <e p="DemoPlayerController.cs" t="Include" />
+              <e p="DemoTabs.cs" t="Include" />
+              <e p="LightingDemoScene.cs" t="Include" />
+            </e>
+          </e>
+          <e p="SmartLighting2D" t="Include">
+            <e p="Changelog.txt" t="Include" />
+            <e p="Components" t="Include">
+              <e p="Lighting2DSettings.cs" t="Include" />
+              <e p="LightingCollider2D.cs" t="Include" />
+              <e p="LightingManager2D.cs" t="Include" />
+              <e p="LightingRoom2D.cs" t="Include" />
+              <e p="LightingSource2D.cs" t="Include" />
+              <e p="LightingSpriteRenderer2D.cs" t="Include" />
+              <e p="LightingTextureRenderer2D.cs" t="Include" />
+              <e p="LightingTilemapCollider2D.cs" t="Include" />
+              <e p="LightingTilemapRoom2D.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="Lighting2DBufferEditor.cs" t="Include" />
+              <e p="Lighting2DMainBufferEditor.cs" t="Include" />
+              <e p="Lighting2DSettingsEditor.cs" t="Include" />
+              <e p="Lighting2DSettingsWindowEditor.cs" t="Include" />
+              <e p="LightingCollider2DEditor.cs" t="Include" />
+              <e p="LightingManager2DEditor.cs" t="Include" />
+              <e p="LightingRoom2DEditor.cs" t="Include" />
+              <e p="LightingSource2DEditor.cs" t="Include" />
+              <e p="LightingTilemapCollider2DEditor.cs" t="Include" />
+            </e>
+            <e p="Resources" t="Include">
+              <e p="Shaders" t="Include">
+                <e p="Multiply_HDR.shader" t="Include" />
+                <e p="SpriteBlack.shader" t="Include" />
+                <e p="SpriteWhite.shader" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="AtlasSystem" t="Include">
+                <e p="SpriteAtlasManager.cs" t="Include" />
+                <e p="SpriteAtlasTexture.cs" t="Include" />
+              </e>
+              <e p="Batching" t="Include">
+                <e p="PartiallyBatched.cs" t="Include" />
+              </e>
+              <e p="Blur" t="Include">
+                <e p="BlurManager.cs" t="Include" />
+                <e p="BlurObject.cs" t="Include" />
+                <e p="LinearBlur.cs" t="Include" />
+              </e>
+              <e p="CustomPhysicsShape" t="Include">
+                <e p="CustomPhysicsShape.cs" t="Include" />
+                <e p="CustomPhysicsShapeManager.cs" t="Include" />
+              </e>
+              <e p="DayLighting" t="Include">
+                <e p="DayLighting.cs" t="Include" />
+                <e p="DayLightingCollider.cs" t="Include" />
+                <e p="DayLightingTilemap.cs" t="Include" />
+              </e>
+              <e p="debug" t="Include">
+                <e p="LightingDebug.cs" t="Include" />
+              </e>
+              <e p="Enums" t="Include">
+                <e p="ColliderDepth.cs" t="Include" />
+                <e p="LightCollision.cs" t="Include" />
+              </e>
+              <e p="Graphics" t="Include">
+                <e p="GraphicsLighting.cs" t="Include" />
+                <e p="Max2D.cs" t="Include" />
+              </e>
+              <e p="LightingBuffer" t="Include">
+                <e p="FBOManager.cs" t="Include" />
+                <e p="LightingBuffer2D.cs" t="Include" />
+                <e p="LightingBufferDefault.cs" t="Include" />
+                <e p="LightingBufferShadow.cs" t="Include" />
+                <e p="LightingBufferSorted.cs" t="Include" />
+                <e p="LightingMainBuffer2D.cs" t="Include" />
+                <e p="Objects" t="Include">
+                  <e p="LightingBufferBase.cs" t="Include" />
+                  <e p="LightingBufferCollider.cs" t="Include" />
+                  <e p="LightingBufferMesh.cs" t="Include" />
+                  <e p="LightingBufferSkinnedMesh.cs" t="Include" />
+                  <e p="LightingBufferSprite.cs" t="Include" />
+                  <e p="LightingBufferSTE.cs" t="Include" />
+                  <e p="LightingBufferTile.cs" t="Include" />
+                  <e p="LightingBufferTilemapComponent.cs" t="Include" />
+                  <e p="LightingBufferTilemapIsometric.cs" t="Include" />
+                  <e p="LightingBufferTilemapRectangle.cs" t="Include" />
+                </e>
+              </e>
+              <e p="LightingCollider" t="Include">
+                <e p="DayLightingShadowCollider.cs" t="Include" />
+                <e p="LightingColliderMovement.cs" t="Include" />
+                <e p="LightingShadowCollider.cs" t="Include" />
+              </e>
+              <e p="LightingOcclusion" t="Include">
+                <e p="LightingOcclusionCollider.cs" t="Include" />
+                <e p="LightingOcclussion.cs" t="Include" />
+                <e p="LightingOcclussionShape.cs" t="Include" />
+              </e>
+              <e p="LightingRoom" t="Include">
+                <e p="LightingRoomCollider.cs" t="Include" />
+                <e p="LightingRoomColliderMovement.cs" t="Include" />
+                <e p="LightingRoomTilemap.cs" t="Include" />
+              </e>
+              <e p="LightingSource" t="Include">
+                <e p="LayerSetting.cs" t="Include" />
+                <e p="LightingSource2DMovement.cs" t="Include" />
+                <e p="LightingSourceTexture.cs" t="Include" />
+              </e>
+              <e p="LightingSprite" t="Include">
+                <e p="LightingSpriteBuffer.cs" t="Include" />
+                <e p="LightingTextureBuffer.cs" t="Include" />
+              </e>
+              <e p="LightingTilemap" t="Include">
+                <e p="LightingTile.cs" t="Include" />
+              </e>
+              <e p="LWRP" t="Include">
+                <e p="BufferLightingSourceRenderer.cs" t="Include" />
+                <e p="BufferLightTextureRenderer.cs" t="Include" />
+                <e p="BufferShadowRenderer.cs" t="Include" />
+              </e>
+              <e p="Material" t="Include">
+                <e p="LightingManager2DMaterials.cs" t="Include" />
+                <e p="LightingMaterial.cs" t="Include" />
+              </e>
+              <e p="MeshRenderer" t="Include">
+                <e p="LightingMeshRenderer.cs" t="Include" />
+                <e p="MeshRendererManager.cs" t="Include" />
+              </e>
+              <e p="OnRender" t="Include">
+                <e p="OnRenderMode.cs" t="Include" />
+              </e>
+              <e p="Settings" t="Include">
+                <e p="Lighting2D.cs" t="Include" />
+                <e p="Lighting2DProfiler.cs" t="Include" />
+                <e p="Lighting2DSettingsProfile.cs" t="Include" />
+              </e>
+              <e p="SpriteMesh" t="Include">
+                <e p="SpriteMesh.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="SmartUtilities2D" t="Include">
+            <e p="Components" t="Include">
+              <e p="ColliderBevelRenderer2D.cs" t="Include" />
+              <e p="ColliderLineRenderer2D.cs" t="Include" />
+              <e p="JointLineRenderer2D.cs" t="Include" />
+              <e p="Mesh2D.cs" t="Include" />
+              <e p="Mesh3D.cs" t="Include" />
+            </e>
+            <e p="Graphics" t="Include">
+              <e p="MaterialManager.cs" t="Include" />
+              <e p="Max2DMesh.cs" t="Include" />
+              <e p="SmartMaterial.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ColliderLineRenderer2DEditor.cs" t="Include" />
+                <e p="Mesh2DEditor.cs" t="Include" />
+              </e>
+              <e p="Graphics" t="Include">
+                <e p="Max2D.cs" t="Include" />
+                <e p="Max2DMatrix.cs" t="Include" />
+              </e>
+              <e p="Triangulation" t="Include">
+                <e p="Advanced Triangulator" t="Include">
+                  <e p="DelaunayTriangle.cs" t="Include" />
+                  <e p="DTSweepUtility.cs" t="Include" />
+                  <e p="PolygonUtility.cs" t="Include" />
+                  <e p="TriangulationAlgorithm.cs" t="Include" />
+                  <e p="TriangulationAlgorithmUtility.cs" t="Include" />
+                  <e p="TriangulationSets.cs" t="Include" />
+                  <e p="TriangulationUtility.cs" t="Include" />
+                  <e p="TriangulationWrapper.cs" t="Include" />
+                </e>
+                <e p="DefaultTriagulator" t="Include">
+                  <e p="UnityDefaultTriangulator.cs" t="Include" />
+                </e>
+                <e p="PolygonTriangulator2D.cs" t="Include" />
+              </e>
+              <e p="Utilities" t="Include">
+                <e p="DoublePair2D.cs" t="Include" />
+                <e p="Joint2D.cs" t="Include" />
+                <e p="Math2D.cs" t="Include" />
+                <e p="Mathd.cs" t="Include" />
+                <e p="Misc" t="Include">
+                  <e p="DestroyTimer.cs" t="Include" />
+                  <e p="TimerHelper.cs" t="Include" />
+                </e>
+                <e p="Pair2D.cs" t="Include" />
+                <e p="Particle2D.cs" t="Include" />
+                <e p="Physics2DHelper.cs" t="Include" />
+                <e p="Polygon2D.cs" t="Include" />
+                <e p="Polygon2DList.cs" t="Include" />
+                <e p="Vector2D.cs" t="Include" />
+                <e p="Vector2DList.cs" t="Include" />
+                <e p="VirtualSpriteRenderer.cs" t="Include" />
+                <e p="VirtualTransform.cs" t="Include" />
+              </e>
+            </e>
+            <e p="UI" t="Include">
+              <e p="UICanvasScale.cs" t="Include" />
+              <e p="UITextScale.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Graphics" t="Include">
           <e p="GUI" t="Include">
             <e p="GUIWindow.cs" t="Include" />
@@ -430,6 +648,7 @@
                 <e p="ES3Reader.cs" t="Include" />
               </e>
               <e p="Settings" t="Include">
+                <e p="ES3Defaults.cs" t="Include" />
                 <e p="ES3DefaultSettings.cs" t="Include" />
                 <e p="ES3Settings.cs" t="Include" />
               </e>
@@ -1220,12 +1439,14 @@
           </e>
           <e p="Buildings" t="Include">
             <e p="BuildingInfo.cs" t="Include" />
+            <e p="BuildingLexiconInfo.cs" t="Include" />
             <e p="BuildingMgmt.cs" t="Include" />
             <e p="BuildingUI.cs" t="Include" />
             <e p="BuildingUnitData.cs" t="Include" />
             <e p="Construction.cs" t="Include" />
             <e p="IMapUI.cs" t="Include" />
             <e p="MapElementInfo.cs" t="Include" />
+            <e p="MapElementSplitInfo.cs" t="Include" />
             <e p="MapElementUI.cs" t="Include" />
           </e>
           <e p="Classes" t="Include">
@@ -1234,8 +1455,10 @@
               <e p="ActionAttackUnit.cs" t="Include" />
               <e p="ActionBuild.cs" t="Include" />
               <e p="ActionCameraMove.cs" t="Include" />
+              <e p="ActionCraft.cs" t="Include" />
               <e p="ActionDestroy.cs" t="Include" />
               <e p="ActionEvolve.cs" t="Include" />
+              <e p="ActionExplore.cs" t="Include" />
               <e p="ActionFeaturePlayer.cs" t="Include" />
               <e p="ActionFoundTown.cs" t="Include" />
               <e p="ActionGameButton.cs" t="Include" />
@@ -1245,6 +1468,7 @@
               <e p="ActionInteract.cs" t="Include" />
               <e p="ActionMove.cs" t="Include" />
               <e p="ActionMoveLevel.cs" t="Include" />
+              <e p="ActionMoveTo.cs" t="Include" />
               <e p="ActionProduce.cs" t="Include" />
               <e p="ActionSleep.cs" t="Include" />
               <e p="ActionTerraform.cs" t="Include" />
@@ -1256,6 +1480,9 @@
                 <e p="ActionHelper.cs" t="Include" />
                 <e p="ActionInteractSplitElement.cs" t="Include" />
                 <e p="ActionTradeWindow.cs" t="Include" />
+                <e p="BuildSplitElement.cs" t="Include" />
+                <e p="BuildUpgradeSplitElement.cs" t="Include" />
+                <e p="TrainSplitElement.cs" t="Include" />
               </e>
               <e p="BaseActiveAction.cs" t="Include" />
               <e p="BasePerformAction.cs" t="Include" />
@@ -1275,6 +1502,7 @@
             <e p="Inputs" t="Include">
               <e p="BaseInputAction.cs" t="Include" />
             </e>
+            <e p="IRun.cs" t="Include" />
             <e p="LClass.cs" t="Include" />
             <e p="MapGenerator" t="Include">
               <e p="BaseMapGenerator.cs" t="Include" />
@@ -1294,12 +1522,25 @@
               <e p="UnitNameGenerator.cs" t="Include" />
               <e p="VikingTownNameGenerator.cs" t="Include" />
             </e>
+            <e p="Options" t="Include">
+              <e p="OptionAudioMusic.cs" t="Include" />
+              <e p="OptionAudioSound.cs" t="Include" />
+              <e p="OptionFullscreen.cs" t="Include" />
+              <e p="OptionNight.cs" t="Include" />
+              <e p="OptionShowLog.cs" t="Include" />
+              <e p="OptionUiScale.cs" t="Include" />
+            </e>
             <e p="Scenarios" t="Include">
               <e p="DebugScenario.cs" t="Include" />
+              <e p="PantheonScenario.cs" t="Include" />
               <e p="TutorialBasicScenario.cs" t="Include" />
             </e>
           </e>
-          <e p="debug" t="Include">
+          <e p="Crafts" t="Include">
+            <e p="CraftSplitElement.cs" t="Include" />
+            <e p="CraftStatusSplitElement.cs" t="Include" />
+          </e>
+          <e p="Debugs" t="Include">
             <e p="DebugHelper.cs" t="Include" />
             <e p="DebugMapElementSplitElement.cs" t="Include" />
           </e>
@@ -1351,8 +1592,11 @@
               <e p="CampaignSplitElement.cs" t="Include" />
               <e p="Scenario.cs" t="Include" />
               <e p="ScenarioMgmt.cs" t="Include" />
-              <e p="ScenarioRun.cs" t="Include" />
               <e p="ScenarioSplitElement.cs" t="Include" />
+            </e>
+            <e p="Crafts" t="Include">
+              <e p="Craft.cs" t="Include" />
+              <e p="CraftMgmt.cs" t="Include" />
             </e>
             <e p="Elements" t="Include">
               <e p="Element.cs" t="Include" />
@@ -1494,9 +1738,7 @@
           </e>
           <e p="OLib.cs" t="Include" />
           <e p="Options" t="Include">
-            <e p="AudioOptionSplitElement.cs" t="Include" />
-            <e p="DebugOptionSplitElement.cs" t="Include" />
-            <e p="GameOptionSplitElement.cs" t="Include" />
+            <e p="BaseOptionSplitElement.cs" t="Include" />
             <e p="NetworkOptionSplitElement.cs" t="Include" />
             <e p="OptionHelper.cs" t="Include" />
           </e>
@@ -1591,6 +1833,8 @@
             <e p="ConvertHelper.cs" t="Include" />
             <e p="CSV.cs" t="Include" />
             <e p="ExceptionHelper.cs" t="Include" />
+            <e p="IRomanNumerals.cs" t="Include" />
+            <e p="Mittel.cs" t="Include" />
             <e p="NRandom.cs" t="Include" />
             <e p="NVector.cs" t="Include" />
             <e p="SplitHelper.cs" t="Include" />
@@ -1604,7 +1848,9 @@
             <e p="TownResSplitElement.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="CircleGenerator.cs" t="Include" />
             <e p="ClickableObject.cs" t="Include" />
+            <e p="ISplitManager.cs" t="Include" />
             <e p="IWindow.cs" t="Include" />
             <e p="PanelBuilder.cs" t="Include" />
             <e p="PanelBuilderSplit.cs" t="Include" />
@@ -1628,7 +1874,6 @@
             <e p="UnitInfo.cs" t="Include" />
             <e p="UnitLexiconInfo.cs" t="Include" />
             <e p="UnitMgmt.cs" t="Include" />
-            <e p="UnitSplitInfo.cs" t="Include" />
             <e p="UnitUI.cs" t="Include" />
           </e>
         </e>

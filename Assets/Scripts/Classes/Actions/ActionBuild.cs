@@ -1,8 +1,9 @@
 using System.Linq;
 using Buildings;
-using Game;
+using Classes.Actions.Addons;
 using Libraries;
 using Libraries.Buildings;
+using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
@@ -15,38 +16,91 @@ namespace Classes.Actions
 {
     public class ActionBuild : BasePerformAction
     {
-        public ActionBuild() : base("build"){}
+        public ActionBuild() : this("build"){}
+        public ActionBuild(string id) : base(id){}
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
         {
-            string[] keys;
-            if (holder.data.ContainsKey("building"))
-            {
-                keys = SplitHelper.Separator(holder.data["building"]);
-            }
-            else
-            {
-                keys = L.b.buildings.Keys().ToArray();
-            }
-            
-            //load buildings
-            WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc,holder.DataAction().name);
+            if (BuildAllowed(player, info, pos, holder)) return;
 
-            foreach (string key in keys)
+            WindowTabBuilder wtb = WindowTabBuilder.Create(holder.DataAction().Desc);
+
+            BuildLast(player, info, pos, holder, wtb, "lastBuild");
+
+            foreach (string e in player.elements.elements)
             {
-                DataBuilding build = L.b.buildings[key];
-                if (build.req.Check(player, info, pos,true))
+                Element ele = L.b.elements[e];
+                SplitElementTab set = new SplitElementTab(ele.name, ele.Icon, holder.DataAction().name);
+
+                var b = L.b.buildings.GetAllByCategory(ele.id).OrderBy(o=>o.name).ToList();
+                foreach (DataBuilding build in b)
                 {
-                    BuildSplitElement be = new BuildSplitElement(build, info, pos);
-                    be.disabled = build.req.Desc(player, info, pos);
-                    b.AddElement(be);
-                    //win.AddBuilding(build.id);
+                    AddBuild(player, info, pos, build.id, set);
                 }
-                
+
+                if (set.Count() > 0)
+                {
+                    wtb.Add(set);
+                }
             }
 
-            b.Finish();
+            wtb.Finish();
+        }
+
+        protected bool BuildAllowed(Player player, MapElementInfo info, NVector pos, ActionHolder holder)
+        {
+            if (holder.data.ContainsKey("allowed"))
+            {
+                //load buildings
+                WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc, holder.DataAction().name);
+
+                foreach (string key in SplitHelper.Separator(holder.data["allowed"]))
+                {
+                    AddBuild(player, info, pos, key, b);
+                }
+
+                b.Finish();
+                return true;
+            }
+
+            return false;
+        }
+
+        protected void BuildLast(Player player, MapElementInfo info, NVector pos, ActionHolder holder, WindowTabBuilder wtb, string id)
+        {
+            var last = L.b.playerOptions[id];
+            //add last used?
+            if (!string.IsNullOrEmpty(last.Value()))
+            {
+                SplitElementTab set = new SplitElementTab(last.name, last.Icon, holder.DataAction().name);
+                foreach (string key in SplitHelper.Separator(last.Value()))
+                {
+                    if (string.IsNullOrEmpty(key)) continue;
+                    
+                    AddBuild(player, info, pos, key, set);
+                }
+
+                wtb.Add(set);
+            }
+        }
+
+        protected virtual BaseDataBuildingUnit Get(string key)
+        {
+            return L.b.buildings[key];
+        }
+        
+        protected virtual void AddBuild(Player player, MapElementInfo info, NVector pos, string key, ISplitManager set)
+        {
+            BaseDataBuildingUnit build = Get(key);
+            
+            if (build.req.Check(player, info, pos, true))
+            {
+                BuildSplitElement be = new BuildSplitElement(build, info, pos, set);
+                be.disabled = build.req.Desc(player, info, pos);
+                set.Add(be);
+                //win.AddBuilding(build.id);
+            }
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)
@@ -57,38 +111,15 @@ namespace Classes.Actions
         public override ActionHolder Create(string setting)
         {
             ActionHolder conf = base.Create(setting);
-            CreateTrigger(conf, ActionEvent.Direct);
+            conf.trigger = ActionEvent.Direct;
             if (!string.IsNullOrEmpty(setting))
             {
-                conf.data["building"] = setting;
+                conf.data["allowed"] = setting;
             }
 
             return conf;
         }
         
         
-    }
-    
-    public class BuildSplitElement : SplitElement
-    {
-        protected BaseDataBuildingUnit build;
-        protected Buildings.MapElementInfo go;
-        protected NVector pos;
-        public BuildSplitElement(BaseDataBuildingUnit build, Buildings.MapElementInfo go, NVector pos) : base(build.name, build.Sprite())
-        {
-            this.build = build;
-            this.pos = pos;
-        }
-
-        public override void ShowDetail(PanelBuilder panel)
-        {
-            build.ShowBuild(panel, pos);
-        }
-
-        public override void Perform()
-        {
-            GameMgmt.Get().building.Create(S.Towns().NearstTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
-            OnMapUI.Get().UpdatePanel(pos);
-        }
     }
 }

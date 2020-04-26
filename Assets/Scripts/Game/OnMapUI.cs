@@ -82,7 +82,7 @@ namespace Game
             //center mouse?
             if (LSys.tem.options["centermouse"].Bool())
             {
-                CameraMove.Get().MoveTo(pos);
+                S.CameraMove().MoveTo(pos);
             }
         }
 

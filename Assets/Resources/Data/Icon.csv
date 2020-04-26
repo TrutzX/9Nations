@@ -1,4 +1,5 @@
 id,icon
+audio,!Icons/base:audio
 ap,!Icons/stats:ap
 atk,!Icons/stats:atk
 build,!Icons/base:build
@@ -19,6 +20,7 @@ file,!Icons/ui:file
 foundTown,!Icons/base:foundTown
 hp,!Icons/stats:hp
 internet,!Icons/magic:internet
+graphics,!Icons/base:graphics
 key,!Icons/ui:key
 lexicon,!Icons/magic:lexicon
 logo,!Icons/logo
@@ -31,7 +33,7 @@ option,!Icons/base:option
 quest,!Icons/base:quest
 random,!Icons/base:random
 res,!Icons/base:res
-research,!Icons/base:research
+research,!Icons/magic:research
 round,!Icons/icons:round
 south,!Icons/timeFantasy_ui:south
 train,!Icons/base:train
@@ -41,3 +43,4 @@ yes,!Icons/ui:yes
 zoom,!Icons/timeFantasy_ui:zoom
 religion,!Icons/magic:religion
 gold,!Icons/other:gold
+tool,!Icons/mining:tool

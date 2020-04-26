@@ -19,6 +19,7 @@ namespace Libraries.FActions
         public ActionEvent trigger;
         public bool triggerWait;
         public int triggerCount;
+        public int cost;
         public string id;
         public ReqHolder req;
         public Dictionary<string, string> data;
@@ -48,13 +49,13 @@ namespace Libraries.FActions
             Assert.IsNotNull(info,$"MapElementInfo is missing.");
             
             //has ap?
-            if (action.cost > info.data.ap)
+            if (cost > info.data.ap)
             {
-                return (false, $"Action {action.name} need {action.cost - info.data.ap} AP more. Please wait a round to refill your AP.");
+                return (false, $"Action {action.name} need {cost - info.data.ap} AP more. Please wait a round to refill your AP.");
             }
 
             //check pref
-            Debug.Log($"call {action.id} with {req.reqs.Count} reqs");
+            Debug.Log($"call {evt} {action.id} with {req.reqs.Count} reqs");
             //can use?
             if (!req.Check(player, info, pos))
             {
@@ -79,7 +80,7 @@ namespace Libraries.FActions
                 }
             }
 
-            info.data.ap -= action.cost;
+            info.data.ap -= cost;
             PerformAction().PerformCheck(evt, player, info, pos, this);
             return (remove, null);
         }

@@ -1,3 +1,21 @@
 id,name,icon,desc,req,req,element,element,element
 lhall2,bigger village hall,!Building/c:lhall2,,element=light,,light,light,
 barrack,barrack,!Building/tower:barrack,,element=light,,light,,
+copper,copper,,,element=earth;fire,,shadow,shadow,
+market,market,!Building/a:market,,element=earth,,earth,,
+ironore,iron ore,!Icons/mining:ironore,,element=fire,,fire,fire,
+irontool,tool,tool,,element=fire,research=ironore,fire,fire,fire
+goldore,gold ore,!Icons/mining:goldore,,element=earth,,shadow,earth,
+coppertool,tool,tool,,element=earth;fire,research=copper,shadow,shadow,shadow
+mint,mint,!Building/t:mint,,element=earth,research=goldore,shadow,earth,earth
+claypit,clay pit,logo,,element=earth,,earth,earth,
+pottery,pottery,logo,,element=earth,research=claypit,earth,earth,earth
+brickworks,brickworks,logo,,element=earth,research=claypit,earth,earth,earth
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,
+,,
+,,
+,,
+,,

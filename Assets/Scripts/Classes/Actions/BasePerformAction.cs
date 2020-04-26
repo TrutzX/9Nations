@@ -20,6 +20,11 @@ namespace Classes.Actions
         {
             this.id = id;
         }
+
+        public virtual bool Is(ActionHolder holder, ActionEvent type)
+        {
+            return holder.trigger == type;
+        }
         
         public void PerformCheck(ActionEvent evt, Player player, [CanBeNull] MapElementInfo info, NVector pos, ActionHolder holder)
         {
@@ -105,6 +110,7 @@ namespace Classes.Actions
         {
             ActionHolder dic = new ActionHolder();
             dic.id = id;
+            dic.cost = dic.DataAction().cost;
             
             //copy req
             foreach (var data in dic.DataAction().req.reqs)
@@ -117,15 +123,9 @@ namespace Classes.Actions
 
         protected void CreateAddCount(ActionHolder holder, ActionEvent type, string count, bool wait)
         {
-            CreateTrigger(holder, type);
+            holder.trigger = type;
             holder.triggerCount = ConvertHelper.Int(count);
             holder.triggerWait = wait;
-        }
-        
-        [Obsolete]
-        protected void CreateTrigger(ActionHolder holder, ActionEvent type)
-        {
-            holder.trigger = type;
         }
     }
 

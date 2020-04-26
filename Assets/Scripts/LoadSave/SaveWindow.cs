@@ -11,14 +11,14 @@ namespace LoadSave
             WindowBuilderSplit w = WindowBuilderSplit.Create("Save the game", "Overwrite");
             UIHelper.CreateButton("Create new save", w.buttonPanel.transform, () =>
             {
-                w.AddElement(new SaveWindowSplitElement(LoadSaveMgmt.CreateNewSave(), w));
+                w.Add(new SaveWindowSplitElement(LoadSaveMgmt.CreateNewSave(), w));
                 
             });
             
             //add files
             foreach (LoadSaveInfo info in LoadSaveMgmt.GetAllSaves())
             { 
-                w.AddElement(new SaveWindowSplitElement(info, w));
+                w.Add(new SaveWindowSplitElement(info, w));
             }
             
             w.Finish();

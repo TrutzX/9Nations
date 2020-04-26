@@ -7,11 +7,13 @@ using Audio;
 using Buildings;
 using Classes;
 using GameMapLevels;
+using InputActions;
 using Libraries;
 using Libraries.Rounds;
 using Loading;
 using LoadSave;
 using Maps;
+using Options;
 using Players;
 using Tools;
 using Towns;
@@ -30,7 +32,8 @@ namespace Game
         public UnitMgmt unit;
         public BuildingMgmt building;
         
-        [Obsolete("ss",true)] public XXGameMapMgmt map;
+        public CameraMove cameraMove;
+        public InputAction inputAction;
         
         public GameData data;
         public GameMap newMap;
@@ -79,6 +82,11 @@ namespace Game
             }
             StartCoroutine(BeginNewGame());
         }
+
+        public void ReloadGameLib()
+        {
+            StartCoroutine(L.b.Reload());
+        }
         
         IEnumerator BeginNewGame()
         {
@@ -98,7 +106,9 @@ namespace Game
             data.features = new Dictionary<string, string>();
             data.map = new GameMapData();
             
+            //show it
             ConnectGameObjs();
+            OptionHelper.RunStartOptions();
 
             if (StartConfig == null)
             {
@@ -106,7 +116,7 @@ namespace Game
                 StartConfig["name"] = "debug";
                 StartConfig["type"] = "scenario";
                 StartConfig["scenario"] = "debug";
-                //StartConfig["scenario"] = "tutorialbasic";
+                //StartConfig["scenario"] = "pantheon";
             }
             
             yield return load.ShowMessage("Loading "+StartConfig["name"]);
@@ -131,9 +141,10 @@ namespace Game
         private void ConnectGameObjs()
         {
             gameRound = ScriptableObject.CreateInstance<GameRoundMgmt>();
-            unit = GameObject.Find("UnitMgmt").GetComponent<UnitMgmt>();
-            building = GameObject.Find("BuildingMgmt").GetComponent<BuildingMgmt>();
-            newMap = FindObjectOfType<GameMap>();
+            //unit = GameObject.Find("UnitMgmt").GetComponent<UnitMgmt>();
+            //building = GameObject.Find("BuildingMgmt").GetComponent<BuildingMgmt>();
+            //newMap = FindObjectOfType<GameMap>();
+            //cameraMove = FindObjectOfType<CameraMove>();
             self = this;
         }
 
