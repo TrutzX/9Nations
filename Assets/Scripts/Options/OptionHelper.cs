@@ -4,6 +4,7 @@ using Game;
 using Libraries;
 using Libraries.Inputs;
 using UI;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Options
@@ -20,7 +21,11 @@ namespace Options
             b.Add(new BaseOptionSplitElement("audio", "audio", "audio"));
             b.Add(new BaseOptionSplitElement("graphics", "graphics", "graphics"));
             b.Add(new NetworkOptionSplitElement());
-            b.Add(new InputOptionSplitElement());
+            
+            //todo dyn
+            if (Application.platform != RuntimePlatform.Android)
+                b.Add(new InputOptionSplitElement());
+            
             if (S.Debug())
             {
                 b.Add(new BaseOptionSplitElement("debug","debug", "debug"));

@@ -36,6 +36,13 @@ namespace LoadSave
             return s;
         }
 
+        public static void DeleteFile(string file)
+        {
+            ES3.DeleteFile(file+"info.9n");
+            ES3.DeleteFile(file+"lib.9n");
+            ES3.DeleteFile(file+"game.9n");
+        }
+
         public static LoadSaveInfo LoadInfo(string file)
         {
             return ES3.Load<LoadSaveInfo>("info", file+"info.9n");

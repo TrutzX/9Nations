@@ -136,9 +136,7 @@ namespace UI
 
         public Button AddButton(string title, Action action, string sound = "click")
         {
-            Button g = UIHelper.CreateButton(title,panel.transform,action);
-            if (sound != null)
-                g.onClick.AddListener(() => { NAudio.Play(sound); });
+            Button g = UIHelper.CreateButton(title,panel.transform,action, sound);
             return g;
         }
 

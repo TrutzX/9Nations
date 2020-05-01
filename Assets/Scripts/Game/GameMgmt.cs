@@ -207,7 +207,6 @@ namespace Game
             gameRound.Load();
             
             //init players
-            Debug.Log(PlayerMgmt.ActPlayerID());
             PlayerMgmt.ActPlayer().StartRound();
             NAudio.Play("startgame");
             load.FinishLoading();

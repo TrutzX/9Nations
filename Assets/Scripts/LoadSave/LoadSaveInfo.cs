@@ -14,15 +14,14 @@ namespace LoadSave
         public string file;
         
         
-        public void ShowInfo(PanelBuilder panel, WindowBuilderSplit wbs)
+        public void ShowInfo(PanelBuilder panel)
         {
             panel.AddHeaderLabel(name);
             panel.AddSubLabel("Round",round, "round");
-            panel.AddSubLabel("Date",date.ToLongDateString(),"Icons/magic:date");
-            panel.AddSubLabel("Game version",version,"logo");
+            panel.AddSubLabel("Date",date.ToLongDateString(),"!Icons/fugue:date");
+            panel.AddSubLabel("Game",version,"logo");
             if (S.Debug())
-                panel.AddSubLabel("File",file, "ui:file");
-            panel.AddImageTextButton($"Delete {name}", SpriteHelper.Load("no"), () => { ES3.DeleteFile(file); wbs.CloseWindow();});
+                panel.AddSubLabel("File",file, "file");
         }
     }
 }

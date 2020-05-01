@@ -75,7 +75,7 @@ namespace Buildings
                 return;
             }
 
-            GameObject button = UIElements.CreateImageButton(da.Sprite(), actionPanel.transform, () =>
+            Button button = UIElements.CreateImageButton(da.Sprite(), actionPanel.transform, () =>
             {
                 PerformAction(holder, action, info);
             }, da.sound);

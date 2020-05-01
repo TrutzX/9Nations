@@ -49,9 +49,11 @@ public class OLib : ScriptableObject
         AddReq("game", CreateInstance<ReqGame>());
         AddReq("windowOpen", CreateInstance<ReqWindowOpen>());
         AddReq("gameActiveElement", CreateInstance<ReqGameActiveElement>());
+        AddReq("mapLevel", CreateInstance<ReqMapLevelCount>());
         AddReq("maxUnitPlayer", CreateInstance<ReqUnitMaxPlayer>());
         AddReq("nation", CreateInstance<ReqNation>());
         AddReq("notEmpty", CreateInstance<ReqNotEmpty>());
+        AddReq("platform", CreateInstance<ReqPlatform>());
         AddReq("questCount", CreateInstance<ReqQuestCount>());
         AddReq("questFinish", CreateInstance<ReqQuestFinish>());
         AddReq("res", CreateInstance<ReqRes>());

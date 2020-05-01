@@ -29,21 +29,23 @@ namespace Players
         /// </summary>
         public PlayerFog()
         {
-            noFog = !S.Fog();
-            if (noFog) return;
             
-            visible = new List<bool[,]>();
-
-            foreach (GameMapDataLevel l in GameMgmt.Get().data.map.levels)
-            {
-                visible.Add(new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height]);
-            }
         }
 
         public IEnumerator CreatingFog(int pid)
         {
-            
+            noFog = !S.Fog();
             if (noFog) yield break;
+
+            if (visible == null)
+            {
+                visible = new List<bool[,]>();
+
+                foreach (GameMapDataLevel l in GameMgmt.Get().data.map.levels)
+                {
+                    visible.Add(new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height]);
+                }
+            }
             
             tileMap = new List<TileMapConfig16>();
             TileBase fTile = GameMgmt.Get().newMap.prototypeFog;

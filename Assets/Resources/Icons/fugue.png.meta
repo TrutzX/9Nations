@@ -1,304 +1,241 @@
 fileFormatVersion: 2
-guid: ae68fb2648ce140509b012d90d12344b
+guid: 3a02cd105a7b549baa6762a91fc2876f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5707218116961789024
-    second: ui_0
+      213: 6438907360324770146
+    second: fugue_0
   - first:
-      213: 3556181715638617739
-    second: ui_1
+      213: 7927958579316098911
+    second: fugue_1
   - first:
-      213: -8816031292267695619
-    second: ui_2
+      213: 4655031198363675445
+    second: fugue_2
   - first:
-      213: 7263181891274304025
-    second: ui_3
+      213: 6929091008011918143
+    second: fugue_3
   - first:
-      213: -7975249404588759376
-    second: ui_4
+      213: 8007273823423672201
+    second: fugue_4
   - first:
-      213: -9005941153719796207
-    second: ui_5
+      213: 2592804155391145237
+    second: fugue_5
   - first:
-      213: 2163036573998151787
-    second: ui_6
+      213: -4378820814558879884
+    second: fugue_6
   - first:
-      213: 8599436577718238185
-    second: key
+      213: 6812340652981860659
+    second: fugue_7
   - first:
-      213: -9080700020481880845
-    second: ui_8
+      213: -115566347383643236
+    second: fugue_8
   - first:
-      213: -6774437969098921397
-    second: ui_9
+      213: -3820677540588614617
+    second: fugue_9
   - first:
-      213: -7334886338573059942
-    second: ui_10
+      213: 371636208932928569
+    second: fugue_10
   - first:
-      213: 8852797563311604980
-    second: ui_11
+      213: 3692286616538294662
+    second: fugue_11
   - first:
-      213: -7420991742971661633
-    second: ui_12
+      213: 1778201838725259742
+    second: fugue_12
   - first:
-      213: 6071220295474305178
-    second: ui_13
+      213: -778826811033980727
+    second: fugue_13
   - first:
-      213: 2697481083480110284
-    second: ui_14
+      213: -2277358964272303044
+    second: fugue_14
   - first:
-      213: 1712464482933603101
-    second: ui_15
+      213: -7504504136474731597
+    second: fugue_15
   - first:
-      213: 4874896633046561287
-    second: search
+      213: 317263510530333349
+    second: fugue_16
   - first:
-      213: -7787622976490332879
-    second: tutorial
+      213: -775174194857496687
+    second: fugue_17
   - first:
-      213: 3793417686556777753
-    second: ui_18
+      213: -4241796031825571520
+    second: fugue_18
   - first:
-      213: 8450739732141010018
-    second: ui_19
+      213: -5683187825797262265
+    second: date
   - first:
-      213: 5660285115890169063
-    second: file
+      213: 5303914669486550547
+    second: fugue_20
   - first:
-      213: 8950759142192175709
-    second: ui_21
+      213: 3453688909550609473
+    second: fugue_21
   - first:
-      213: 9193187447140095505
-    second: ui_22
+      213: -2450599811816733390
+    second: fugue_22
   - first:
-      213: -3120730603551926074
-    second: ui_23
+      213: -128036710560723751
+    second: fugue_23
   - first:
-      213: 8825907884645483951
-    second: ui_24
+      213: 2324930362920457949
+    second: fugue_24
   - first:
-      213: -5130057317469923895
-    second: debug
+      213: -213871475199316180
+    second: fugue_25
   - first:
-      213: 8062878643169288418
-    second: yes
+      213: -3352782061941894227
+    second: fugue_26
   - first:
-      213: -2699499167317838321
+      213: 8707649317875577978
     second: no
   - first:
-      213: -9211019987572867793
-    second: ui_28
+      213: -5762519496937223386
+    second: fugue_28
   - first:
-      213: 621127007532356092
-    second: ui_29
+      213: 7449015619275565494
+    second: fugue_29
   - first:
-      213: -8761496183629611704
-    second: exit
+      213: -4923292594613194814
+    second: fugue_30
   - first:
-      213: 7285970225754692813
-    second: xxxxx
+      213: -7298521312209109779
+    second: fugue_31
   - first:
-      213: -3439486116421378984
-    second: ui_32
+      213: -8364522057557982432
+    second: fugue_32
   - first:
-      213: 1113166408476123525
-    second: ui_33
+      213: 7178972494288870794
+    second: fugue_33
   - first:
-      213: -4044852013064114820
-    second: ui_34
+      213: 4521435838842350316
+    second: fugue_34
   - first:
-      213: 6318320377479184414
-    second: ui_35
-  - first:
-      213: -4352409407941354246
-    second: ui_36
-  - first:
-      213: -2586311204780557721
-    second: ui_37
-  - first:
-      213: 2593895063694430531
-    second: ui_38
-  - first:
-      213: 8472440867327373802
-    second: ui_39
-  - first:
-      213: -6132305547406914789
-    second: ui_40
-  - first:
-      213: -8625732571697866722
-    second: ui_41
-  - first:
-      213: 6867523972200999915
-    second: ui_42
-  - first:
-      213: -8522723851631446894
-    second: ui_43
-  - first:
-      213: -1435124601987729151
-    second: ui_44
-  - first:
-      213: 7996481273727956128
-    second: ui_45
-  - first:
-      213: -1797625539728689003
-    second: ui_46
-  - first:
-      213: -3838674082296116462
-    second: ui_47
-  - first:
-      213: 6474345162767489121
-    second: ui_48
-  - first:
-      213: -5518285079964209032
-    second: ui_49
-  - first:
-      213: 1477026639884884223
-    second: ui_50
-  - first:
-      213: 6619377991601688179
-    second: ui_51
-  - first:
-      213: 4704908650962438296
-    second: ui_52
-  - first:
-      213: -1306798899436284186
-    second: ui_53
-  - first:
-      213: -6729922188544359180
-    second: ui_54
-  - first:
-      213: 2010546332569496265
-    second: ui_55
-  - first:
-      213: -2257005098330562615
-    second: worker
-  - first:
-      213: 7841826526693705400
-    second: workermax
-  - first:
-      213: -2478179172951605819
-    second: ui_58
-  - first:
-      213: -3101987878769862193
-    second: ui_59
-  - first:
-      213: 8724670492000027602
-    second: ui_60
-  - first:
-      213: -8777222040440213434
-    second: ui_61
-  - first:
-      213: 5450169549818359682
-    second: ui_62
-  - first:
-      213: -8663897895415964820
-    second: ui_63
-  - first:
-      213: 8346357610949856697
-    second: ui_64
-  - first:
-      213: -6549463974864596831
-    second: ui_65
-  - first:
-      213: -1138666919995813852
-    second: ui_66
-  - first:
-      213: -5844137124726258068
-    second: ui_67
-  - first:
-      213: 9183006299698924497
-    second: ui_68
-  - first:
-      213: -6883687401327654509
-    second: ui_69
-  - first:
-      213: 28605330617307870
-    second: ui_70
-  - first:
-      213: 5189968445831333158
-    second: ui_71
-  - first:
-      213: 7182921758186160951
-    second: ui_72
-  - first:
-      213: 9009827623729245612
-    second: ui_73
-  - first:
-      213: -4210466443380448551
-    second: ui_74
-  - first:
-      213: 866890183791875101
-    second: ui_75
-  - first:
-      213: 3838286995661171644
-    second: ui_76
-  - first:
-      213: 3301557408338603734
-    second: ui_77
-  - first:
-      213: -6369192775889099577
-    second: ui_78
-  - first:
-      213: 3282374057896856587
-    second: ui_79
-  - first:
-      213: -2544509032472500716
-    second: ui_80
-  - first:
-      213: 1360545754346290348
-    second: ui_81
-  - first:
-      213: -6648575095040313891
-    second: ui_82
-  - first:
-      213: 3466499862888438565
-    second: ui_83
-  - first:
-      213: -660276926474051170
-    second: ui_84
-  - first:
-      213: 8766819899806108530
-    second: ui_85
-  - first:
-      213: 599266860940690849
-    second: ui_86
-  - first:
-      213: 4554969395735223804
-    second: ui_87
-  - first:
-      213: 8782851099371217524
-    second: ui_88
-  - first:
-      213: -3033936680634787566
-    second: ui_89
-  - first:
-      213: -5918837224000219098
-    second: ui_90
-  - first:
-      213: -7949192779772629731
-    second: ui_91
-  - first:
-      213: 1421215888360075035
-    second: ui_92
-  - first:
-      213: 7131589614418504092
-    second: ui_93
-  - first:
-      213: 4909297768166247429
-    second: ui_94
-  - first:
-      213: 5607765839657774964
-    second: ui_95
-  - first:
-      213: 3085685752726860007
-    second: ui_96
-  - first:
-      213: 5475895946500414820
+      213: 6144770323604298862
     second: android
   - first:
-      213: -5417281360771443451
-    second: date
+      213: -2039906840128197536
+    second: fugue_36
+  - first:
+      213: -3853758625849774971
+    second: fugue_37
+  - first:
+      213: 1784955006458255116
+    second: fugue_38
+  - first:
+      213: -3301689862537890775
+    second: fugue_39
+  - first:
+      213: 1928158991061961295
+    second: fugue_40
+  - first:
+      213: 5538390006000822328
+    second: fugue_41
+  - first:
+      213: 5220055610500393911
+    second: fugue_42
+  - first:
+      213: -862224441321862833
+    second: fugue_43
+  - first:
+      213: 8604360571751974933
+    second: fugue_44
+  - first:
+      213: -2231964282840326464
+    second: fugue_45
+  - first:
+      213: 8027423611426943876
+    second: fugue_46
+  - first:
+      213: -1211902114090781428
+    second: fugue_47
+  - first:
+      213: 838349327427257546
+    second: fugue_48
+  - first:
+      213: -2731462165772982423
+    second: fugue_49
+  - first:
+      213: 6786137404173283495
+    second: fugue_50
+  - first:
+      213: 75175221149848317
+    second: fugue_51
+  - first:
+      213: 2417292633887629378
+    second: fugue_52
+  - first:
+      213: 797204286646791498
+    second: fugue_53
+  - first:
+      213: -8063383119621658760
+    second: fugue_54
+  - first:
+      213: 5588201454610144651
+    second: fugue_55
+  - first:
+      213: -7856883479103598401
+    second: fugue_56
+  - first:
+      213: -5501023561460477115
+    second: fugue_57
+  - first:
+      213: 447412313444018581
+    second: fugue_58
+  - first:
+      213: -4787981182563233206
+    second: fugue_59
+  - first:
+      213: -4700982388291972899
+    second: fugue_60
+  - first:
+      213: -6973310932013904038
+    second: fugue_61
+  - first:
+      213: 1592187854648486670
+    second: fugue_62
+  - first:
+      213: 4142348474208281224
+    second: fugue_63
+  - first:
+      213: 8188131618049430822
+    second: fugue_64
+  - first:
+      213: -3055580158796980018
+    second: fugue_65
+  - first:
+      213: 6173666892460820126
+    second: fugue_66
+  - first:
+      213: 3845826026713628888
+    second: fugue_67
+  - first:
+      213: -6613260398569419363
+    second: fugue_68
+  - first:
+      213: -468172270640436382
+    second: fugue_69
+  - first:
+      213: 5219025596612548249
+    second: fugue_70
+  - first:
+      213: -345257448324250043
+    second: fugue_71
+  - first:
+      213: -4417288053777981216
+    second: fugue_72
+  - first:
+      213: -4666380126676694387
+    second: fugue_73
+  - first:
+      213: -8444173476017736388
+    second: yes
+  - first:
+      213: 3777879515907658778
+    second: fugue_75
+  - first:
+      213: 4007238976686779565
+    second: fugue_76
+  - first:
+      213: 1868287462309740341
+    second: fugue_77
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -366,7 +303,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -378,16 +315,40 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_0
+      name: fugue_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -397,18 +358,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e3a2578d8d44bd18f0d0e33d046360
-      internalID: 5707218116961789024
+      spriteID: a3df91c5e26b14fcc95ae49ddf88042b
+      internalID: 6438907360324770146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_1
+      name: fugue_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -418,18 +379,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8609660322194e788df26d0226fec64
-      internalID: 3556181715638617739
+      spriteID: 7a6aac0c2a5d5438fad407b82eaefd19
+      internalID: 7927958579316098911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_2
+      name: fugue_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -439,18 +400,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd7674d9ca12048c6884a1eb429862d9
-      internalID: -8816031292267695619
+      spriteID: bcd048d606b8d4b20a6a702578b4311b
+      internalID: 4655031198363675445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_3
+      name: fugue_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -460,18 +421,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa03d95f3b8eb4c04b5e76120902bb75
-      internalID: 7263181891274304025
+      spriteID: 1435065aab915490aa985ec6496d6ad2
+      internalID: 6929091008011918143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_4
+      name: fugue_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -481,18 +442,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361f77169f0fc429bb838bed0aeb2f80
-      internalID: -7975249404588759376
+      spriteID: 79fced52d6b25494db71056d43e2ff98
+      internalID: 8007273823423672201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_5
+      name: fugue_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -502,18 +463,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51f2f65101fa64679ad1c52a3f83e19f
-      internalID: -9005941153719796207
+      spriteID: ba710108b789e423db5aa3a5c46385d7
+      internalID: 2592804155391145237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_6
+      name: fugue_6
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -523,18 +484,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9237e51933e49444086785ec33505da8
-      internalID: 2163036573998151787
+      spriteID: ccbd01ab1f56c418eb1d0c343312fd4e
+      internalID: -4378820814558879884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: key
+      name: fugue_7
       rect:
         serializedVersion: 2
         x: 224
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -544,18 +505,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eebd6009eb6ce4ffe92056ebe18f7981
-      internalID: 8599436577718238185
+      spriteID: ac417a4fe5fa346ee82c3b61c308cd1c
+      internalID: 6812340652981860659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_8
+      name: fugue_8
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -565,18 +526,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f3be45e2d1141eeb18a56a8b0d66fb
-      internalID: -9080700020481880845
+      spriteID: abb246d395eb14798b9cc60bac1a5170
+      internalID: -115566347383643236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_9
+      name: fugue_9
       rect:
         serializedVersion: 2
-        x: 288
-        y: 192
+        x: 289
+        y: 126
         width: 32
         height: 32
       alignment: 0
@@ -586,18 +547,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3626eabf591b74a7dbc8898684a631a6
-      internalID: -6774437969098921397
+      spriteID: 9ce58443e7bf34fdb8a5b82e8fdf4704
+      internalID: -3820677540588614617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_10
+      name: fugue_10
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -607,18 +568,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c34486ccf3890423d87223e9d2274697
-      internalID: -7334886338573059942
+      spriteID: ba544c136ae2a4703afa60c54413d70b
+      internalID: 371636208932928569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_11
+      name: fugue_11
       rect:
         serializedVersion: 2
         x: 352
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -628,18 +589,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5e6e3b4b72024a46b45c92fad9ec2da
-      internalID: 8852797563311604980
+      spriteID: 8a14ceeb3103344f49f9e09da43d146b
+      internalID: 3692286616538294662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_12
+      name: fugue_12
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -649,18 +610,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11e50f3c3093b4727aae9c89a739ea6c
-      internalID: -7420991742971661633
+      spriteID: d1821b5bbca0a41f3ae5a943dbc2a13a
+      internalID: 1778201838725259742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_13
+      name: fugue_13
       rect:
         serializedVersion: 2
         x: 416
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -670,18 +631,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d76a84be87e8f4fbc87844a3b096af66
-      internalID: 6071220295474305178
+      spriteID: 20823ce55ec05455fb498ff33f05c0e8
+      internalID: -778826811033980727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_14
+      name: fugue_14
       rect:
         serializedVersion: 2
         x: 448
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -691,18 +652,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd4ab9aeb21d144b0add5f2fb22cab8e
-      internalID: 2697481083480110284
+      spriteID: fdc3323d1d6644834b8902573d6d1382
+      internalID: -2277358964272303044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_15
+      name: fugue_15
       rect:
         serializedVersion: 2
         x: 480
-        y: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -712,18 +673,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45b35b9370e34426aa069b4fb75b9332
-      internalID: 1712464482933603101
+      spriteID: 93537651d0c0546cc91b44e1947ccb9d
+      internalID: -7504504136474731597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: search
+      name: fugue_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -733,18 +694,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 431b77ee301eb403d8556b38405d9b4b
-      internalID: 4874896633046561287
+      spriteID: 0dbaf1bb8f9604f838fcc2b0dd196d96
+      internalID: 317263510530333349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial
+      name: fugue_17
       rect:
         serializedVersion: 2
         x: 32
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -754,18 +715,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfe0a6a3e1cfb4a60a42fe137bc9ca3f
-      internalID: -7787622976490332879
+      spriteID: 16e720c24cdc24aa588ae8aa2aa46e23
+      internalID: -775174194857496687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_18
+      name: fugue_18
       rect:
         serializedVersion: 2
         x: 64
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -775,18 +736,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 024df7f4508e84a06b04e0ca6009f2d0
-      internalID: 3793417686556777753
+      spriteID: c9e4d17bdada149d48463b0f22ef3124
+      internalID: -4241796031825571520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_19
+      name: date
       rect:
         serializedVersion: 2
         x: 96
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -796,18 +757,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b9b275ff894c44f2b5b4e5fe824c3db
-      internalID: 8450739732141010018
+      spriteID: f7224d33208ae411fa49f8d992a5f0aa
+      internalID: -5683187825797262265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: file
+      name: fugue_20
       rect:
         serializedVersion: 2
         x: 128
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -817,18 +778,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 205eb4a6f71174c48ba8c2675669f888
-      internalID: 5660285115890169063
+      spriteID: ecaac63ec9e89462d80e6c34fbe84533
+      internalID: 5303914669486550547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_21
+      name: fugue_21
       rect:
         serializedVersion: 2
         x: 160
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -838,18 +799,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77ab526abc96242baa4d076a1fcebfbd
-      internalID: 8950759142192175709
+      spriteID: c04c299be476845d3a9d0891eb7a16bb
+      internalID: 3453688909550609473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_22
+      name: fugue_22
       rect:
         serializedVersion: 2
         x: 192
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -859,18 +820,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bcf1d2551ebd4400bc11a09f963cca7
-      internalID: 9193187447140095505
+      spriteID: 2e6fe8216939d49d18c55b3164d4664b
+      internalID: -2450599811816733390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_23
+      name: fugue_23
       rect:
         serializedVersion: 2
         x: 224
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -880,18 +841,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f4391cda003c449096b407bbb62740d
-      internalID: -3120730603551926074
+      spriteID: 19c07e106970f41fca2fe50390089788
+      internalID: -128036710560723751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_24
+      name: fugue_24
       rect:
         serializedVersion: 2
         x: 256
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -901,18 +862,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e488e57dc024f15a434594dfc56fab
-      internalID: 8825907884645483951
+      spriteID: a43616458934043bfa6198897fcb4ead
+      internalID: 2324930362920457949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: debug
+      name: fugue_25
       rect:
         serializedVersion: 2
         x: 288
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -922,18 +883,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9d85746f5faf4be785ef56dc91a7a2f
-      internalID: -5130057317469923895
+      spriteID: d46f7784899cb498892909f7ecc712e1
+      internalID: -213871475199316180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: yes
+      name: fugue_26
       rect:
         serializedVersion: 2
         x: 320
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -943,8 +904,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65924480b792946d995313aefdf10830
-      internalID: 8062878643169288418
+      spriteID: 831bf8045d43b4a70830b3a1c09cda46
+      internalID: -3352782061941894227
       vertices: []
       indices: 
       edges: []
@@ -954,7 +915,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 352
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -964,18 +925,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f749c7da39ee428389dc65533d101ab
-      internalID: -2699499167317838321
+      spriteID: 7a71ed2f95afe4240a0ad30b83883f95
+      internalID: 8707649317875577978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_28
+      name: fugue_28
       rect:
         serializedVersion: 2
         x: 384
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -985,18 +946,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5011b61ac21934f3d8ce3eebc73c0787
-      internalID: -9211019987572867793
+      spriteID: e1834717671394c2f8c4e820219174fb
+      internalID: -5762519496937223386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_29
+      name: fugue_29
       rect:
         serializedVersion: 2
         x: 416
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1006,18 +967,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a623b3f29d9484d34ab81c1d0ec2947f
-      internalID: 621127007532356092
+      spriteID: 04fed7ea412754490b17c7b96fdc2719
+      internalID: 7449015619275565494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exit
+      name: fugue_30
       rect:
         serializedVersion: 2
         x: 448
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1027,164 +988,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc18abff0d7984356b9881097459601c
-      internalID: -8761496183629611704
+      spriteID: 43450db7baa8645238f4e1cd90e855d9
+      internalID: -4923292594613194814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xxxxx
+      name: fugue_31
       rect:
         serializedVersion: 2
         x: 480
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6628fe377baec4ed5a412838fb538216
-      internalID: 7285970225754692813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4011dcedec7b4555a1da00ad5ead965
-      internalID: -3439486116421378984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_33
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06973ce36ba12457bb1bc9326b02fc81
-      internalID: 1113166408476123525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_34
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3eb769647d2a4b408713fa420d6f4e2
-      internalID: -4044852013064114820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_35
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60aafbf719ada43ddb65543284430006
-      internalID: 6318320377479184414
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_36
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d543778ba9f3c4a35b524f31af7c7710
-      internalID: -4352409407941354246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_37
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80e928b8c648941db9ed35877dd5162c
-      internalID: -2586311204780557721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_38
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 96
         width: 32
         height: 32
@@ -1195,224 +1009,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3ba2fd609cab440b8ad0593e12325a3
-      internalID: 2593895063694430531
+      spriteID: d53eceba7559a46ecb1f04d79f27ad91
+      internalID: -7298521312209109779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_39
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a174da46d738b4ff6abd482c33cfe78c
-      internalID: 8472440867327373802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_40
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 993d5e9e79560454abf60792e08b9e31
-      internalID: -6132305547406914789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_41
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b86a8496b76843cb8e30353520b6398
-      internalID: -8625732571697866722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_42
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 864d7217a54fd436b8932ae620fe05b9
-      internalID: 6867523972200999915
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_43
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef780bc24ae0e4262a6bdffa2e7b5ef8
-      internalID: -8522723851631446894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_44
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 734589e39c5544842800bddbc7328c67
-      internalID: -1435124601987729151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_45
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bd8554a2a1e64e6c9fd4703036d37a7
-      internalID: 7996481273727956128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_46
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d0a0f5125a59467789688a9ad75e4d4
-      internalID: -1797625539728689003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_47
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ce30ed0f88aa4c8c97c90bea63d9e28
-      internalID: -3838674082296116462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_48
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5eedca84a85254e8998e960e5157ff69
-      internalID: 6474345162767489121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_49
+      name: fugue_32
       rect:
         serializedVersion: 2
         x: 0
@@ -1426,14 +1030,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94932c122c704898a9b9e99e41b6c49
-      internalID: -5518285079964209032
+      spriteID: ea5486f0933a6406aa179f33be7330ef
+      internalID: -8364522057557982432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_50
+      name: fugue_33
       rect:
         serializedVersion: 2
         x: 32
@@ -1447,14 +1051,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aca19435d1754b78bb3df37a63b25ca
-      internalID: 1477026639884884223
+      spriteID: e2955069863d3466fab76810994ca6a6
+      internalID: 7178972494288870794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_51
+      name: fugue_34
       rect:
         serializedVersion: 2
         x: 64
@@ -1468,14 +1072,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f162e06d365374e80a050f65715387ad
-      internalID: 6619377991601688179
+      spriteID: f2c97ee333bbc4ad085ad499d6c698e3
+      internalID: 4521435838842350316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_52
+      name: android
       rect:
         serializedVersion: 2
         x: 96
@@ -1489,14 +1093,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b50528721d94abdb696fb942c0cd1c
-      internalID: 4704908650962438296
+      spriteID: 542fe4b1a175044f1a6fdf81292a0872
+      internalID: 6144770323604298862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_53
+      name: fugue_36
       rect:
         serializedVersion: 2
         x: 128
@@ -1510,14 +1114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b8881447d3d049edad4b455f5f3ac3f
-      internalID: -1306798899436284186
+      spriteID: 9b153f1366df5493db3d97f597c7632c
+      internalID: -2039906840128197536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_54
+      name: fugue_37
       rect:
         serializedVersion: 2
         x: 160
@@ -1531,14 +1135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab873c3791b5411e858b9bc9879f0f5
-      internalID: -6729922188544359180
+      spriteID: 86e371c61597441cd858d387f2f5e6f9
+      internalID: -3853758625849774971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_55
+      name: fugue_38
       rect:
         serializedVersion: 2
         x: 192
@@ -1552,14 +1156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cdd8df153edb408b81dbdcfc59ee0f6
-      internalID: 2010546332569496265
+      spriteID: b67ad0683774448eda282f4d790267ea
+      internalID: 1784955006458255116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worker
+      name: fugue_39
       rect:
         serializedVersion: 2
         x: 224
@@ -1573,14 +1177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4242c49c026974b9b8c4e27d29c25c7d
-      internalID: -2257005098330562615
+      spriteID: 527603eb3007f4f04907c65eb666c9e8
+      internalID: -3301689862537890775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: workermax
+      name: fugue_40
       rect:
         serializedVersion: 2
         x: 256
@@ -1594,14 +1198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58501ea8f7d434c709ad7faed86cc457
-      internalID: 7841826526693705400
+      spriteID: a75d7c3ce5164457382ae1baa360ef60
+      internalID: 1928158991061961295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_58
+      name: fugue_41
       rect:
         serializedVersion: 2
         x: 288
@@ -1615,14 +1219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64f990f3ba3ac4ef3af4b3ced400362e
-      internalID: -2478179172951605819
+      spriteID: 15ba745d5aeaa4ce79cbc7cff029fd5e
+      internalID: 5538390006000822328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_59
+      name: fugue_42
       rect:
         serializedVersion: 2
         x: 320
@@ -1636,14 +1240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 389eb31898da64625a2e63aebd8be23e
-      internalID: -3101987878769862193
+      spriteID: b95a61e4ce4494792ba7676d8b08dd88
+      internalID: 5220055610500393911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_60
+      name: fugue_43
       rect:
         serializedVersion: 2
         x: 352
@@ -1657,14 +1261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cbb65c0d0d9d4a5c91677b6697606de
-      internalID: 8724670492000027602
+      spriteID: f973a5bc7918f4b96bd294c97c4f32ee
+      internalID: -862224441321862833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_61
+      name: fugue_44
       rect:
         serializedVersion: 2
         x: 384
@@ -1678,14 +1282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72747e1bd8b0243ada0168a251ffba63
-      internalID: -8777222040440213434
+      spriteID: 488c6e2d670224f5ba374f3a5b112277
+      internalID: 8604360571751974933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_62
+      name: fugue_45
       rect:
         serializedVersion: 2
         x: 416
@@ -1699,14 +1303,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab3870811bb84d1387cfee81a558d31
-      internalID: 5450169549818359682
+      spriteID: 4bdb4eab3a53247e7839926c8d3357f2
+      internalID: -2231964282840326464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_63
+      name: fugue_46
       rect:
         serializedVersion: 2
         x: 448
@@ -1720,14 +1324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b957b9f2490c4892ae64aef4df50e8e
-      internalID: -8663897895415964820
+      spriteID: 884fd2c1d03684d078bc10a7c17637bc
+      internalID: 8027423611426943876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_64
+      name: fugue_47
       rect:
         serializedVersion: 2
         x: 480
@@ -1741,14 +1345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55da6846b7b914011add81b9e0916b8b
-      internalID: 8346357610949856697
+      spriteID: 5ce66ebea052e445f9af9fa3d40cce1b
+      internalID: -1211902114090781428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_65
+      name: fugue_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1762,14 +1366,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8a741d6023024ec18e9fe0e5e186a62
-      internalID: -6549463974864596831
+      spriteID: ff3bfd6d240524d929e98ade30bdb11c
+      internalID: 838349327427257546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_66
+      name: fugue_49
       rect:
         serializedVersion: 2
         x: 32
@@ -1783,14 +1387,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 152f95fbac91c4fd092c0304e36c4d61
-      internalID: -1138666919995813852
+      spriteID: 8a7bc0301a780452aa2e5b4db8151807
+      internalID: -2731462165772982423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_67
+      name: fugue_50
       rect:
         serializedVersion: 2
         x: 64
@@ -1804,14 +1408,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 783589efafbcc422da4530592b30e3d0
-      internalID: -5844137124726258068
+      spriteID: cf204fd7d8ac0404dbe521e3e5b0873b
+      internalID: 6786137404173283495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_68
+      name: fugue_51
       rect:
         serializedVersion: 2
         x: 96
@@ -1825,14 +1429,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f231f2d3f86cf478b84ae9ab507130f4
-      internalID: 9183006299698924497
+      spriteID: 8ddd6dfbe2d244e8eba867f581ad4675
+      internalID: 75175221149848317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_69
+      name: fugue_52
       rect:
         serializedVersion: 2
         x: 128
@@ -1846,14 +1450,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e208013c402a48fc9cc04bd3b93fc77
-      internalID: -6883687401327654509
+      spriteID: 9e874dbe62a5443bbb337f52e6245791
+      internalID: 2417292633887629378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_70
+      name: fugue_53
       rect:
         serializedVersion: 2
         x: 160
@@ -1867,14 +1471,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e84b8663a32bc4507972fb418bd885f5
-      internalID: 28605330617307870
+      spriteID: ac5fade9d8bf44b79930c9eb19f05172
+      internalID: 797204286646791498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_71
+      name: fugue_54
       rect:
         serializedVersion: 2
         x: 192
@@ -1888,14 +1492,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e985dcb8f3814500b5fafc6fe319724
-      internalID: 5189968445831333158
+      spriteID: 9db94ccb093204975847a653384b248f
+      internalID: -8063383119621658760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_72
+      name: fugue_55
       rect:
         serializedVersion: 2
         x: 224
@@ -1909,14 +1513,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e5edd3e32b99453cbef9a19bcee8cc9
-      internalID: 7182921758186160951
+      spriteID: 52ffbe18e49024b49a6c76819cbe8b90
+      internalID: 5588201454610144651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_73
+      name: fugue_56
       rect:
         serializedVersion: 2
         x: 256
@@ -1930,14 +1534,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea33a2b9c8cf84854ba03f257a21f375
-      internalID: 9009827623729245612
+      spriteID: 6a7918c0685704b94830488e985e14f5
+      internalID: -7856883479103598401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_74
+      name: fugue_57
       rect:
         serializedVersion: 2
         x: 288
@@ -1951,14 +1555,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de3c11a72cfe4dcb920ac716b5ed8d7
-      internalID: -4210466443380448551
+      spriteID: 107111d454381432e8a9c83c79769bf3
+      internalID: -5501023561460477115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_75
+      name: fugue_58
       rect:
         serializedVersion: 2
         x: 320
@@ -1972,14 +1576,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f71d3132d4de43f5b4473f9455123e6
-      internalID: 866890183791875101
+      spriteID: 85594a275142740bba5c16992ec04f88
+      internalID: 447412313444018581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_76
+      name: fugue_59
       rect:
         serializedVersion: 2
         x: 352
@@ -1993,14 +1597,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c726956beef44d49393c770e184ce0
-      internalID: 3838286995661171644
+      spriteID: 716f59023f87c40efb69f91be8c949b7
+      internalID: -4787981182563233206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_77
+      name: fugue_60
       rect:
         serializedVersion: 2
         x: 384
@@ -2014,14 +1618,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a9941f4b585b48349ef2474222885ea
-      internalID: 3301557408338603734
+      spriteID: 2a1a051beb39246b7b0be5ecf47f29f3
+      internalID: -4700982388291972899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_78
+      name: fugue_61
       rect:
         serializedVersion: 2
         x: 416
@@ -2035,14 +1639,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50a4156045888417e84123592853c597
-      internalID: -6369192775889099577
+      spriteID: 757e4060a2bc247a4b26301322fe152e
+      internalID: -6973310932013904038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_79
+      name: fugue_62
       rect:
         serializedVersion: 2
         x: 448
@@ -2056,14 +1660,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c6f9d26bbb347779218e5db71131c8
-      internalID: 3282374057896856587
+      spriteID: d41668befd6ed4a3e8a99e07656443ad
+      internalID: 1592187854648486670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_80
+      name: fugue_63
       rect:
         serializedVersion: 2
         x: 480
@@ -2077,14 +1681,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e59be993e54d493f8690be00853f979
-      internalID: -2544509032472500716
+      spriteID: be7958f5717a64ccb87110e99aa1062c
+      internalID: 4142348474208281224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_81
+      name: fugue_64
       rect:
         serializedVersion: 2
         x: 0
@@ -2098,14 +1702,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61fb784936b5f4263b7cc59b60ea1e9d
-      internalID: 1360545754346290348
+      spriteID: 55bae2af459714626823d4e05fcdd679
+      internalID: 8188131618049430822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_82
+      name: fugue_65
       rect:
         serializedVersion: 2
         x: 32
@@ -2119,14 +1723,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6f6f0320043f4659b1d6c840059de3d
-      internalID: -6648575095040313891
+      spriteID: e91d61708c65d460fbcd049a5ed8b709
+      internalID: -3055580158796980018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_83
+      name: fugue_66
       rect:
         serializedVersion: 2
         x: 64
@@ -2140,14 +1744,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a85afe36ab84b06bf8fc1b51db8be7
-      internalID: 3466499862888438565
+      spriteID: d03357c2aa947450c9b54bc35372b24c
+      internalID: 6173666892460820126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_84
+      name: fugue_67
       rect:
         serializedVersion: 2
         x: 96
@@ -2161,14 +1765,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a99d0e6acd540a6ac132d90d656892
-      internalID: -660276926474051170
+      spriteID: f4b85bc6128054f1ab0394ac83e0ebb6
+      internalID: 3845826026713628888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_85
+      name: fugue_68
       rect:
         serializedVersion: 2
         x: 128
@@ -2182,14 +1786,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad63b4e84c2054fdabc8caa5ed4b6aa3
-      internalID: 8766819899806108530
+      spriteID: a72c50d84452e44bc96497ca579abbab
+      internalID: -6613260398569419363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_86
+      name: fugue_69
       rect:
         serializedVersion: 2
         x: 160
@@ -2203,14 +1807,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbfda69ccadd5453bac1f6480088f771
-      internalID: 599266860940690849
+      spriteID: b64d58a32211d43e29e713c717ba0fcf
+      internalID: -468172270640436382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_87
+      name: fugue_70
       rect:
         serializedVersion: 2
         x: 192
@@ -2224,14 +1828,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a534ef0fe74554ff69fba57b629a6bf3
-      internalID: 4554969395735223804
+      spriteID: 5b49641afa1924b28802531b2237d7f0
+      internalID: 5219025596612548249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_88
+      name: fugue_71
       rect:
         serializedVersion: 2
         x: 224
@@ -2245,14 +1849,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7edbc1da4046464ba87cf2a1c6056a5
-      internalID: 8782851099371217524
+      spriteID: 623c189c92ccb4bad86658b688e1d5f6
+      internalID: -345257448324250043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_89
+      name: fugue_72
       rect:
         serializedVersion: 2
         x: 256
@@ -2266,14 +1870,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34eba6c8e3eb04201861a86f52f0a5bb
-      internalID: -3033936680634787566
+      spriteID: 0b6cb50dcfee14acfa147331978e2c09
+      internalID: -4417288053777981216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_90
+      name: fugue_73
       rect:
         serializedVersion: 2
         x: 288
@@ -2287,14 +1891,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f3eed56811ae4a7a81eca062d9d3293
-      internalID: -5918837224000219098
+      spriteID: 78af84fb6743f44bb9092d9859a3b9bc
+      internalID: -4666380126676694387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_91
+      name: yes
       rect:
         serializedVersion: 2
         x: 320
@@ -2308,14 +1912,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f04356cbd0754b03b8171ffbcb9cd45
-      internalID: -7949192779772629731
+      spriteID: ceea4d698ad684872af10d919e3a7a9a
+      internalID: -8444173476017736388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_92
+      name: fugue_75
       rect:
         serializedVersion: 2
         x: 352
@@ -2329,14 +1933,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c6d4c39126d34fb69fb61ecfd0a3fe4
-      internalID: 1421215888360075035
+      spriteID: 5c0863e1bec5143e89689c347bd93d96
+      internalID: 3777879515907658778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_93
+      name: fugue_76
       rect:
         serializedVersion: 2
         x: 384
@@ -2350,14 +1954,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce477a6408be7412090b757d29baf0ec
-      internalID: 7131589614418504092
+      spriteID: 7190349f6613c47d6bec33122009de38
+      internalID: 4007238976686779565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_94
+      name: fugue_77
       rect:
         serializedVersion: 2
         x: 416
@@ -2371,50 +1975,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1198ad947b8a44994872481709919a78
-      internalID: 4909297768166247429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_95
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d58b4aa4bb5546ddb154091f90cd65d
-      internalID: 5607765839657774964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_96
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0467d284d2fc843418ef1acec474e903
-      internalID: 3085685752726860007
+      spriteID: 2421cbd1f24ea48bb843834bc2279ad8
+      internalID: 1868287462309740341
       vertices: []
       indices: 
       edges: []
@@ -2422,7 +1984,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a2f595ad610704c0ea660e2a7c79d150
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

@@ -1,28 +1,28 @@
 using System;
+using Buildings;
 using Game;
 using Players;
+using Tools;
 using UnityEngine;
 
 namespace reqs
 {
-    
-    public class ReqQuestCount : BaseReqMinMaxPlayer
+    public class ReqMapLevelCount : BaseReqMinMaxPlayer
     {
 
         protected override int ValueMax(Player player, string element, string sett)
         {
-            //TODO
-            return 10;
+            return S.Map().levels.Count;
         }
 
         protected override int ValueAct(Player player, string element, string sett)
         {
-            return player.quests.quests.Count;
+            return S.Map().levels.Count;
         }
 
         protected override string Name(string element, string sett)
         {
-            return "quest";
+            return "map level";
         }
     }
 }

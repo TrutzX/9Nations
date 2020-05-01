@@ -76,18 +76,6 @@ MonoBehaviour:
       binaryNameFormat: '{0}.exe'
       dataDirNameFormat: '{0}_Data'
       targetGroup: 1
-    - enabled: 0
-      distributionList:
-        distributions: []
-      architectures:
-      - target: 2
-        name: OSX
-        enabled: 1
-      variants: []
-      platformName: OSX
-      binaryNameFormat: '{0}.app'
-      dataDirNameFormat: '{0}.app/Contents'
-      targetGroup: 1
     - enabled: 1
       distributionList:
         distributions: []
@@ -118,6 +106,40 @@ MonoBehaviour:
       binaryNameFormat: '{0}.app'
       dataDirNameFormat: '{0}.app/Contents'
       targetGroup: 1
+    - enabled: 0
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 13
+        name: Android
+        enabled: 1
+      variants:
+      - variantName: Device Type
+        selectedIndex: 0
+        values:
+        - FAT
+        - ARMv7
+        - x86
+      - variantName: Texture Compression
+        selectedIndex: 0
+        values:
+        - ETC
+        - ETC2
+        - ASTC
+        - DXT
+        - PVRTC
+        - ATC
+        - Generic
+      - variantName: Build System
+        selectedIndex: 0
+        values:
+        - Internal
+        - Gradle
+        - ADT (Legacy)
+      platformName: Android
+      binaryNameFormat: '{0}.apk'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 7
   _projectConfigurations:
     configSet:
       _Buckets: 050000000600000002000000ffffffff000000000300000004000000
@@ -161,7 +183,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: 
+    selectedKeyChain: Alpha/Android/Android (ARMv7,ETC,Gradle)
   _preBuildActions:
     buildActions: []
   _postBuildActions:

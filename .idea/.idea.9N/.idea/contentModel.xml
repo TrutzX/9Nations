@@ -1497,6 +1497,8 @@
               <e p="BaseGameButtonRun.cs" t="Include" />
               <e p="ChangeMenuGameButtonRun.cs" t="Include" />
               <e p="GameButtonHelper.cs" t="Include" />
+              <e p="MoveLevelGameButtonRun.cs" t="Include" />
+              <e p="TitleGameButtonRun.cs" t="Include" />
               <e p="UpdateGameButtonRun.cs" t="Include" />
             </e>
             <e p="Inputs" t="Include">
@@ -1550,7 +1552,6 @@
             <e p="GeneralSplitTab.cs" t="Include" />
             <e p="MapSplitTab.cs" t="Include" />
             <e p="PlayerSelectSplitElement.cs" t="Include" />
-            <e p="XXEndlessGameWindow.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
             <e p="BottomUI.cs" t="Include" />
@@ -1709,9 +1710,12 @@
             <e p="LoadSaveInfo.cs" t="Include" />
             <e p="LoadSaveMgmt.cs" t="Include" />
             <e p="LoadWindow.cs" t="Include" />
+            <e p="LoadWindowSplitElement.cs" t="Include" />
             <e p="SaveWindow.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
+            <e p="AndroidStartUp.cs" t="Include" />
+            <e p="ComputerStartUp.cs" t="Include" />
             <e p="Startgame.cs" t="Include" />
           </e>
           <e p="Maps" t="Include">
@@ -1779,6 +1783,7 @@
             <e p="BaseReqArgument.cs" t="Include" />
             <e p="BaseReqFight.cs" t="Include" />
             <e p="BaseReqMinMax.cs" t="Include" />
+            <e p="BaseReqMinMaxPlayer.cs" t="Include" />
             <e p="BaseReqNeg.cs" t="Include" />
             <e p="BaseReqOnlyMapElement.cs" t="Include" />
             <e p="BaseReqOnlyPlayer.cs" t="Include" />
@@ -1802,9 +1807,10 @@
             <e p="ReqHelper.cs" t="Include" />
             <e p="ReqHolder.cs" t="Include" />
             <e p="ReqHP.cs" t="Include" />
-            <e p="ReqMinMaxPlayer.cs" t="Include" />
+            <e p="ReqMapLevelCount.cs" t="Include" />
             <e p="ReqNation.cs" t="Include" />
             <e p="ReqOption.cs" t="Include" />
+            <e p="ReqPlatform.cs" t="Include" />
             <e p="ReqQuestCount.cs" t="Include" />
             <e p="ReqQuestFinish.cs" t="Include" />
             <e p="ReqRes.cs" t="Include" />
@@ -1833,8 +1839,6 @@
             <e p="ConvertHelper.cs" t="Include" />
             <e p="CSV.cs" t="Include" />
             <e p="ExceptionHelper.cs" t="Include" />
-            <e p="IRomanNumerals.cs" t="Include" />
-            <e p="Mittel.cs" t="Include" />
             <e p="NRandom.cs" t="Include" />
             <e p="NVector.cs" t="Include" />
             <e p="SplitHelper.cs" t="Include" />

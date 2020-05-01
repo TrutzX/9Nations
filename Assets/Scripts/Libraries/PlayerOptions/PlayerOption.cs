@@ -14,6 +14,11 @@ namespace Libraries.PlayerOptions
             return PlayerMgmt.ActPlayer().GetFeature(id);
         }
 
+        public override bool Exist()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void SetValue(string value)
         {
             PlayerMgmt.ActPlayer().SetFeature(id, value);

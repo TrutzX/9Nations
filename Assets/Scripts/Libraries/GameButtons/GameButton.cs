@@ -28,17 +28,17 @@ namespace Libraries.GameButtons
 
         public Button CreateImageButton(Transform transform, Player player, IMapUI text)
         {
-            GameObject button = UIElements.CreateImageButton(Icon, transform, () => { Call(player); }, Sound);
+            Button button = UIElements.CreateImageButton(Icon, transform, () => { Call(player); }, Sound);
 
             UIHelper.HoverEnter(button, () => text.ShowPanelMessage(LSys.tem.inputs.GameButtonName(this)),
                 () => text.ShowPanelMessage(""));
 
-            return button.GetComponent<Button>();
+            return button;
         }
 
         public Button CreateImageTextButton(Transform transform, Player player)
         {
-            Button button = UIHelper.CreateImageTextButton(name, Sprite(), transform, () =>
+            Button button = UIHelper.CreateImageTextButton(LSys.tem.inputs.GameButtonName(this), Sprite(), transform, () =>
             {
                 NAudio.Play(Sound);
                 Call(player);

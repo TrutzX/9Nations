@@ -36,20 +36,20 @@ namespace UI
             return GameObject.Find("UI").GetComponent<UIElements>();
         }
     
-        public static GameObject CreateImageButton(string icon, Transform parent, Action action, string sound="click")
+        public static Button CreateImageButton(string icon, Transform parent, Action action, string sound="click")
         {
-            GameObject act = CreateImageButton(SpriteHelper.Load(icon), parent, action, sound);
+            Button act = CreateImageButton(SpriteHelper.Load(icon), parent, action, sound);
             act.name = icon;
             return act;
         }
     
-        public static GameObject CreateImageButton(Sprite icon, Transform parent, Action action, string sound="click")
+        public static Button CreateImageButton(Sprite icon, Transform parent, Action action, string sound="click")
         {
-            GameObject act = Instantiate(Get().imageButton, parent);
+            Button act = Instantiate(Get().imageButton, parent).GetComponent<Button>();
             act.transform.Find("Image").GetComponent<Image>().sprite = icon;
             AddButtonSound(act, sound);
             if (action != null)
-                act.GetComponent<Button>().onClick.AddListener(() =>
+                act.onClick.AddListener(() =>
                     {
                         try
                         {
@@ -95,10 +95,10 @@ namespace UI
             return act;
         }
 
-        public static void AddButtonSound(GameObject g, string sound)
+        public static void AddButtonSound(Button g, string sound)
         {
             if (sound != null)
-                g.GetComponent<Button>().onClick.AddListener(() => { NAudio.Play(sound); });
+                g.onClick.AddListener(() => { NAudio.Play(sound); });
         }
     }
 }

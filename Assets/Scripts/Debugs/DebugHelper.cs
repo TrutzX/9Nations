@@ -9,6 +9,7 @@ using Maps.TileMaps;
 using Players;
 using Towns;
 using UI;
+using UnityEngine;
 
 namespace Debugs
 {
@@ -84,6 +85,7 @@ namespace Debugs
             {
                 PlayerMgmt.Get().ResetRound();
             });
+            p.panel.AddLabel("DPI: "+Screen.dpi);
             p.Finish();
         }
     }

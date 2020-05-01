@@ -120,6 +120,7 @@ namespace Classes
             Add(CreateInstance<UpdateGameButtonRun>());
             Add(CreateInstance<BackMenuGameButtonRun>());
             Add(CreateInstance<MoreMenuGameButtonRun>());
+            Add(CreateInstance<MoveLevelGameButtonRun>());
             
         }
 

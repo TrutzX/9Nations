@@ -57,7 +57,7 @@ namespace UI
                 NAudio.Play(selectedElement.audioPerform);
                 selectedElement.Perform();
                 CloseWindow();
-            });
+            }, null);
             selectButton.GetComponent<Button>().enabled = false;
         }
 

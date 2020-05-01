@@ -15,7 +15,7 @@ namespace Buildings
         // Start is called before the first frame update
         void Start()
         {
-            UpdatePanel(null);
+            //UpdatePanel(null);
         }
     
         /// <summary>

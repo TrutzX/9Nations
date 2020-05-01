@@ -1,6 +1,7 @@
 using System;
 using Game;
 using InputActions;
+using Tools;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,7 +48,7 @@ namespace Libraries.Inputs
         
         public void SetNewKey(string usedKey)
         {
-            this.usedKey = key;
+            this.usedKey = usedKey;
             S.InputAction().findKey = null;
             Enum.TryParse(usedKey, true, out _keyCode);
             UIHelper.UpdateButtonText(activeButton, Name());

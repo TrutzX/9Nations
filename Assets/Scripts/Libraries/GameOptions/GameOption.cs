@@ -10,11 +10,11 @@ namespace Libraries.GameOptions
     {
         public override string Value()
         {
-            if (GameHelper.IsGame() && GameMgmt.Get().data.features.ContainsKey(id))
+            if (GameHelper.IsGame() && Exist())
             {
                 return GameMgmt.Get().data.features[id];
             }
-            if (!GameHelper.IsGame() && L.b.gameOptions.startConfig.ContainsKey(id))
+            if (!GameHelper.IsGame() && Exist())
             {
                 return L.b.gameOptions.startConfig[id];
             }
@@ -22,6 +22,15 @@ namespace Libraries.GameOptions
             return standard;
         }
 
+        public override bool Exist()
+        {
+            if (GameHelper.IsGame())
+                return GameMgmt.Get().data.features.ContainsKey(id);
+            else
+            {
+                return L.b.gameOptions.startConfig.ContainsKey(id);
+            }
+        }
         public override void SetValue(string value)
         {
             if (GameHelper.IsGame())

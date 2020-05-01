@@ -33,6 +33,8 @@
 * by bogo-d from deviantart.com/bogo-d/art/Project-Icons-v-2-1-8-155863784
 * by Jorge Avila from opengameart.org/content/georgui-icon-set
 * by Bogdan Mihaiciuc from deviantart.com/bogo-d/art/Kingdom-Icons-212892514
+* by Yusuke Kamiyamane from p.yusukekamiyamane.com
+* by Charles Gabriel from opengameart.org/content/world-flag-icons
 
 #Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack

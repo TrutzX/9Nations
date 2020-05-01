@@ -105,17 +105,7 @@ namespace Classes.GameButtons
             SceneManager.LoadScene(3, LoadSceneMode.Single);
         }
     }
-    
-    public class TitleGameButtonRun : BaseGameButtonRun
-    {
-        public TitleGameButtonRun() : base ("title") { }
 
-        protected override void Run(Player player)
-        {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
-        }
-    }
-    
     public class ExitGameButtonRun : BaseGameButtonRun
     {
         public ExitGameButtonRun() : base ("exit") { }

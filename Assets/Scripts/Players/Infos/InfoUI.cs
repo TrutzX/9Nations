@@ -36,7 +36,7 @@ namespace Players.Infos
         
         public void AddInfoButton(Info info)
         {
-            GameObject button = UIElements.CreateImageButton(SpriteHelper.Load(info.icon), infoButtons.transform, null);
+            Button button = UIElements.CreateImageButton(SpriteHelper.Load(info.icon), infoButtons.transform, null);
 
             Action del = () =>
             {
@@ -47,15 +47,15 @@ namespace Players.Infos
 
             if (info.action == null)
             {
-                button.GetComponent<Button>().onClick.AddListener(() => del());
+                button.onClick.AddListener(() => del());
             }
             else
             {
-                button.GetComponent<Button>().onClick.AddListener(info.CallAction);
+                button.onClick.AddListener(info.CallAction);
             }
             
             
-            button.AddComponent<ClickableObject>();
+            button.gameObject.AddComponent<ClickableObject>();
             button.GetComponent<ClickableObject>().right = del;
             
             UIHelper.HoverEnter(button,() => ShowPanelMessage(info.title),() => ShowPanelMessage(""));

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace reqs
 {
-    public class ReqTownCount : ReqMinMaxPlayer
+    public class ReqTownCount : BaseReqMinMaxPlayer
     {
 
         protected override int ValueMax(Player player, string element, string sett)

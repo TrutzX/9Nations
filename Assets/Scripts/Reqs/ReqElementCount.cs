@@ -6,7 +6,7 @@ using Tools;
 
 namespace reqs
 {
-    public class ReqElementCount : ReqMinMaxPlayer
+    public class ReqElementCount : BaseReqMinMaxPlayer
     {
 
         protected override int ValueMax(Player player, string element, string sett)

@@ -70,7 +70,7 @@ namespace UI
             {
                 NAudio.Play(selectedElement.audioPerform);
                 selectedElement.Perform();
-            }).GetComponent<Button>();
+            }, null).GetComponent<Button>();
             selectButton.enabled = false;
         }
         

@@ -11,7 +11,7 @@ namespace Classes.Options
         public void Run()
         {
             //FindObjectOfType<DebugLogManager>().
-            GameObject.Find("MainCamera").transform.Find("IngameDebugConsole").gameObject.SetActive(S.Debug() && LSys.tem.options[ID()].Bool());
+            GameObject.Find("MainCamera").GetComponentInChildren<DebugLogManager>(true).gameObject.SetActive(S.Debug() && LSys.tem.options[ID()].Bool());
         }
 
         public string ID()

@@ -45,6 +45,11 @@ namespace Libraries.Options
             return Convert.ToBoolean(Value());
         }
 
+        public virtual bool Exist()
+        {
+            return PlayerPrefs.HasKey(id);
+        }
+
         public int Int()
         {
             return ConvertHelper.Int(Value());

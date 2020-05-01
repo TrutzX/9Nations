@@ -7,7 +7,7 @@ using Tools;
 
 namespace reqs
 {
-    public class ReqSaveFileCount : ReqMinMaxPlayer
+    public class ReqSaveFileCount : BaseReqMinMaxPlayer
     {
 
         protected override int ValueMax(Player player, string element, string sett)

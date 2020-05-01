@@ -7,7 +7,7 @@ namespace Audio
     {
         public void Start()
         {
-            UpdateAudio();
+            //UpdateAudio();
         }
 
         public static NAudio Get()

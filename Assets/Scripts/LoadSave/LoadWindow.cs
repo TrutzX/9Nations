@@ -1,6 +1,5 @@
 using Help;
 using UI;
-using UI.Show;
 
 namespace LoadSave
 {
@@ -17,28 +16,6 @@ namespace LoadSave
             }
             
             w.Finish();
-        }
-    }
-
-    public class LoadWindowSplitElement : SplitElement
-    {
-        protected LoadSaveInfo info;
-        protected WindowBuilderSplit w;
-
-        public LoadWindowSplitElement(LoadSaveInfo info, WindowBuilderSplit w) : base(info.name, "ui:file")
-        {
-            this.info = info;
-            this.w = w;
-        }
-
-        public override void ShowDetail(PanelBuilder panel)
-        {
-            info.ShowInfo(panel,w);
-        }
-
-        public override void Perform()
-        {
-            LoadSaveMgmt.LoadSave(info.file);
         }
     }
 }

@@ -1,4 +1,3 @@
-using Audio;
 using IngameDebugConsole;
 using Libraries;
 using UnityEngine;
@@ -10,7 +9,18 @@ namespace Classes.Options
     {
         public void Run()
         {
-            GameObject.Find("UICanvas").GetComponent<CanvasScaler>().scaleFactor = LSys.tem.options[ID()].Int() / 10f;
+            float scale;
+            if (LSys.tem.options[ID()].Exist())
+            {
+                scale = LSys.tem.options[ID()].Int() / 10f;
+            }
+            else
+            {
+                scale = Screen.dpi > 160 ? 2 : 1;
+            }
+            
+            GameObject.Find("UICanvas").GetComponent<CanvasScaler>().scaleFactor = scale;
+            GameObject.Find("MainCamera").GetComponentInChildren<DebugLogManager>(true).GetComponent<CanvasScaler>().scaleFactor = scale;
         }
 
         public string ID()

@@ -24,17 +24,4 @@ namespace LoadSave
             w.Finish();
         }
     }
-
-    public class SaveWindowSplitElement : LoadWindowSplitElement
-    {
-
-        public SaveWindowSplitElement(LoadSaveInfo info, WindowBuilderSplit w) : base(info, w)
-        {
-        }
-
-        public override void Perform()
-        {
-            info = LoadSaveMgmt.UpdateSave(info.file,GameMgmt.Get().data.name);
-        }
-    }
 }

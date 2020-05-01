@@ -11,7 +11,7 @@ namespace UI
     {
     
 
-        public static void HoverEnter(GameObject button, Action enter, Action exit)
+        public static void HoverEnter(MonoBehaviour button, Action enter, Action exit)
         {
             //hoverenter
             EventTrigger.Entry eventtype = new EventTrigger.Entry();
@@ -26,12 +26,13 @@ namespace UI
             eventtype2.callback.AddListener((eventData) => exit());
             button.GetComponent<EventTrigger>().triggers.Add(eventtype2);
         }
-
-        public static Button CreateButton(GameObject button, string title, Transform parent, Action action)
+    
+        public static Button CreateButton(string title, Transform parent, Action action, string sound="click")
         {
-            GameObject act = Instantiate(button, parent);
-            act.transform.Find("Label").GetComponent<Text>().text = title;
-            act.GetComponent<Button>().onClick.AddListener(() => { 
+            Button act = Instantiate(UIElements.Get().button, parent).GetComponent<Button>();
+            UpdateButtonText(act, title);
+            //act.transform.Find("Label").GetComponent<Text>().text = TextHelper.Cap(title);
+            act.onClick.AddListener(() => { 
                 try
                 {
                     action();
@@ -41,30 +42,16 @@ namespace UI
                     ExceptionHelper.ShowException(e);
                 }
             });
-            return act.GetComponent<Button>();
-        }
-    
-        public static Button CreateButton(string title, Transform parent, Action action)
-        {
-            return CreateButton(UIElements.Get().button, title,parent,action);
-        }
-    
-        [Obsolete("Please use UpdateButtonText with Button.")]
-        public static void UpdateButtonText(GameObject button, string title)
-        {
-            button.transform.GetChild(0).GetComponent<Text>().text = title;
+            UIElements.AddButtonSound(act, sound);
+            return act;
         }
     
         public static void UpdateButtonText(Button button, string title)
         {
-            button.transform.GetChild(0).GetComponent<Text>().text = title;
+            button.name = title;
+            button.transform.GetChild(0).GetComponent<Text>().text = TextHelper.Cap(title);
         }
-    
-        [Obsolete("Please use UpdateButtonImage with Button.")]
-        public static void UpdateButtonImage(GameObject button, Sprite sprite)
-        {
-            button.transform.GetChild(1).GetComponent<Image>().sprite = sprite;
-        }
+        
         public static void UpdateButtonImage(Button button, Sprite sprite)
         {
             button.transform.GetChild(1).GetComponent<Image>().sprite = sprite;
@@ -72,13 +59,23 @@ namespace UI
 
         public static Button CreateImageTextButton(string title, Sprite icon, Transform parent, Action action, string sound="click")
         {
-            GameObject act = Instantiate(UIElements.Get().imageTextButton, parent);
-            act.name = title;
-            act.transform.GetChild(0).GetComponent<Text>().text = title;
+            Button act = Instantiate(UIElements.Get().imageTextButton, parent).GetComponent<Button>();
+            UpdateButtonText(act, title);
+            //act.name = title;
+            //act.transform.GetChild(0).GetComponent<Text>().text = TextHelper.Cap(title);
             act.transform.GetChild(1).GetComponent<Image>().sprite = icon;
-            act.GetComponent<Button>().onClick.AddListener(() => { action(); });
+            act.onClick.AddListener(() => { 
+                try
+                {
+                    action();
+                }
+                catch (Exception e)
+                {
+                    ExceptionHelper.ShowException(e);
+                }
+            });
             UIElements.AddButtonSound(act, sound);
-            return act.GetComponent<Button>();
+            return act;
         }
 
         public static void ClearChild(GameObject go)
