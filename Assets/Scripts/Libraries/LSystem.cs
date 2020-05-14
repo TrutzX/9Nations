@@ -9,6 +9,7 @@ using Help;
 using Improvements;
 using Libraries.Buildings;
 using Libraries.Campaigns;
+using Libraries.Coats;
 using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
@@ -26,6 +27,7 @@ using Libraries.Res;
 using Libraries.Researches;
 using Libraries.Rounds;
 using Libraries.Terrains;
+using Libraries.Translations;
 using Libraries.Units;
 using Libraries.Usages;
 using Loading;
@@ -52,6 +54,8 @@ namespace Libraries
         public OptionMgmt<Option> options;
         public BaseMgmt<Icon> icons;
         public HelpMgmt helps;
+        public LanguageMgmt languages;
+        public TranslationMgmt translations;
         
         [NonSerialized] public LoadingScreen Load;
         public LSys(string file) : base(file)
@@ -76,6 +80,8 @@ namespace Libraries
             options = (OptionMgmt<Option>) Add(new OptionMgmt<Option>());
             icons = (BaseMgmt<Icon>) Add(new BaseMgmt<Icon>("icon"));
             helps = (HelpMgmt) Add(new HelpMgmt());
+            languages = (LanguageMgmt) Add(new LanguageMgmt());
+            translations = (TranslationMgmt) Add(new TranslationMgmt());
             
             yield return base.Loading();
         }

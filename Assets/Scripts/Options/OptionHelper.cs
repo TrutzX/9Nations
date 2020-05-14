@@ -20,6 +20,7 @@ namespace Options
             b.Add(new BaseOptionSplitElement("game","game", "logo"));
             b.Add(new BaseOptionSplitElement("audio", "audio", "audio"));
             b.Add(new BaseOptionSplitElement("graphics", "graphics", "graphics"));
+            b.Add(new LanguageOptionSplitElement());
             b.Add(new NetworkOptionSplitElement());
             
             //todo dyn

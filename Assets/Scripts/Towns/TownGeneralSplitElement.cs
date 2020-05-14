@@ -14,6 +14,7 @@ namespace Towns
 
         public override void ShowDetail(PanelBuilder panel)
         {
+            UIHelper.UpdateButtonImageColor(button, town.Coat().color);
             town.ShowInfo(panel);
         }
 

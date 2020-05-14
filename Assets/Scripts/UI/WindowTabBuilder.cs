@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game;
 using UI.Show;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,11 @@ namespace UI
         
             return act.GetComponent<WindowTabBuilder>();
         }
+        public static WindowTabBuilder CreateT(string title)
+        {
+            return Create(S.T(title));
+        }
+        
 
         
         public void Init(string title)

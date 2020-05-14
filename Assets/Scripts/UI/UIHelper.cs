@@ -56,6 +56,11 @@ namespace UI
         {
             button.transform.GetChild(1).GetComponent<Image>().sprite = sprite;
         }
+        
+        public static void UpdateButtonImageColor(Button button, Color color)
+        {
+            button.transform.GetChild(1).GetComponent<Image>().color = color;
+        }
 
         public static Button CreateImageTextButton(string title, Sprite icon, Transform parent, Action action, string sound="click")
         {

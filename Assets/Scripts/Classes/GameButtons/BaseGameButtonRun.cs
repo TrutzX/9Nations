@@ -29,5 +29,15 @@ namespace Classes.GameButtons
         }
 
         protected abstract void Run(Player player);
+
+        public virtual Sprite Sprite(Player player)
+        {
+            return Data().Sprite();
+        }
+
+        protected GameButton Data()
+        {
+            return L.b.gameButtons[id];
+        }
     }
 }

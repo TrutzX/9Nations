@@ -1,3 +1,4 @@
+using Players;
 using Tools;
 using UI;
 using UI.Show;
@@ -18,7 +19,7 @@ namespace Libraries.Terrains
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _data.ShowField(panel, _pos);
+            _data.ShowField(panel, PlayerMgmt.ActPlayer(), _pos);
         }
 
         public override void Perform()

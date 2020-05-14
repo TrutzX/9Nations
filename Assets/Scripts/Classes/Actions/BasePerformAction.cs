@@ -44,7 +44,7 @@ namespace Classes.Actions
         public virtual void BuildPanel(ActionDisplaySettings sett)
         {
             FDataAction da = L.b.actions[id];
-            string h = sett.header ?? (S.Debug() ? $"{da.name} ({id})" : da.name);
+            string h = sett.header ?? (S.Debug() ? $"{da.Name()} ({id})" : da.Name());
 
             if (sett.compact)
             {

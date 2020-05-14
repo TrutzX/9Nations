@@ -6,12 +6,14 @@ using Classes.GameButtons;
 using Classes.MapGenerator;
 using Classes.NameGenerator;
 using Classes.Options;
+using Classes.Overlays;
 using Classes.Scenarios;
 using Endless;
 using Game;
 using Libraries.Campaigns;
 using Libraries.Elements;
 using Libraries.FActions;
+using Libraries.GameButtons;
 using Libraries.MapGenerations;
 using Players;
 using Players.Kingdoms;
@@ -24,7 +26,8 @@ namespace Classes
         public Dictionary<string,IRun> scenarioRuns;
         public Dictionary<string,IRun> optionRuns;
         public Dictionary<string,BaseElementRun> elementRuns;
-        public Dictionary<string,BaseGameButtonRun> gameButtonRuns;
+        public Dictionary<string,BaseOverlay> overlaysRuns;
+        private Dictionary<string,BaseGameButtonRun> _gameButtonRuns;
         public Dictionary<string,BaseMapGenerator> mapGenerators;
         private Dictionary<string,BaseNameGenerator> _nameGenerators;
         private Dictionary<string,BasePerformAction> _actions;
@@ -51,10 +54,17 @@ namespace Classes
             Add(optionRuns, CreateInstance<OptionShowLog>());
             Add(optionRuns, CreateInstance<OptionUiScale>());
             Add(optionRuns, CreateInstance<OptionNight>());
+            Add(optionRuns, CreateInstance<OptionLanguage>());
             
             elementRuns = new Dictionary<string, BaseElementRun>();
             Add(CreateInstance<LightElement>());
             Add(CreateInstance<ShadowElement>());
+            
+            overlaysRuns = new Dictionary<string, BaseOverlay>();
+            Add(new OwnerOverlay());
+            Add(new BoundaryOverlay());
+            Add(new FrontierOverlay());
+            Add(new ResOverlay());
             
             _actions = new Dictionary<string, BasePerformAction>();
             Add(CreateInstance<ActionAttackUnit>());
@@ -64,6 +74,7 @@ namespace Classes
             Add(CreateInstance<ActionCraft>());
             Add(CreateInstance<ActionDestroy>());
             Add(CreateInstance<ActionEvolve>());
+            Add(CreateInstance<ActionExamine>());
             Add(CreateInstance<ActionExplore>());
             Add(CreateInstance<ActionFeaturePlayer>());
             Add(CreateInstance<ActionFoundTown>());
@@ -82,6 +93,7 @@ namespace Classes
             Add(CreateInstance<ActionTrade>());
             Add(CreateInstance<ActionTrain>());
             Add(CreateInstance<ActionUpgrade>());
+            Add(CreateInstance<ActionClaim>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());
@@ -100,7 +112,7 @@ namespace Classes
             Add(new TownNameGenerator());
             Add(new UnitNameGenerator());
             
-            gameButtonRuns = new Dictionary<string, BaseGameButtonRun>();
+            _gameButtonRuns = new Dictionary<string, BaseGameButtonRun>();
             Add(CreateInstance<MainMenuGameButtonRun>());
             Add(CreateInstance<ResearchGameButtonRun>());
             Add(CreateInstance<LexiconGameButtonRun>());
@@ -121,6 +133,7 @@ namespace Classes
             Add(CreateInstance<BackMenuGameButtonRun>());
             Add(CreateInstance<MoreMenuGameButtonRun>());
             Add(CreateInstance<MoveLevelGameButtonRun>());
+            Add(CreateInstance<OverlayGameButtonRun>());
             
         }
 
@@ -131,6 +144,15 @@ namespace Classes
                 throw new MissingMemberException("nameGenerators " + id +" is missing.");
             }
             return _nameGenerators[id].Gen(include);
+        }
+
+        public BaseGameButtonRun Button(string id)
+        {
+            if (!_gameButtonRuns.ContainsKey(id))
+            {
+                throw new MissingMemberException("BaseGameButtonRun " + id +" is missing.");
+            }
+            return _gameButtonRuns[id];
         }
         
         private void Add(BaseElementRun element)
@@ -143,9 +165,14 @@ namespace Classes
             holder[run.ID()] = run;
         }
         
-        private void Add(BaseNameGenerator name)
+        private void Add(BaseNameGenerator bName)
         {
-            _nameGenerators[name.id] = name;
+            _nameGenerators[bName.id] = bName;
+        }
+        
+        private void Add(BaseOverlay overlay)
+        {
+            overlaysRuns[overlay.ID()] = overlay;
         }
 
         private void Add(BasePerformAction performAction)
@@ -155,7 +182,7 @@ namespace Classes
 
         private void Add(BaseGameButtonRun gameButton)
         {
-            gameButtonRuns[gameButton.id] = gameButton;
+            _gameButtonRuns[gameButton.id] = gameButton;
         }
         
 

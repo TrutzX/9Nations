@@ -1,35 +1,35 @@
-id,name,sound,icon,price,//storage,//rechangeatdestroy,//replace,special
-,general,,,,,,,
-food,food,bite-small3,!Icons/base:food,2,0.5,50,,
-worker,worker,,!Icons/ui:worker,0,0,100,,true
-inhabitant,inhabitant,,!Icons/ui:workermax,0,0,100,,true
-gold,gold,,gold,5,0.25,50,,
-buildtime,build time,,build,0,0,,,true
-tool,tool,,tool,14,1,50,,
-religion,religion,,religion,,,,,true
-,light,,,,,,,
-wood,wood,interface5,!Icons/base:wood,4,1,50,,
-cobblestone,cobble stone,,!Icons/base:cobblestone,5,1.25,,,
-water,water,,!Icons/magic:water,1,1,,,
-research,Research,,research,0,0,50,,true
-,shadow,,,,,,,
-stone,stone,metalPot3,!Icons/icons:stone,6,1,50,,
-dirt,dirt,,!Icons/timeFantasy_craft:dirt,2,1,,,
-sand,sand,,!Icons/timeFantasy_craft:sand,1,1,,,
-,earth,,,,,,,
-copper,copper,,!Icons/mining:copper,,,,,
-ironore,iron ore,,!Icons/mining:ironore,,,,,
-ironignot,iron ignot,,!Icons/mining:ironignot,,,,,
-goldore,gold ore,,!Icons/mining:goldore,,,,,
-goldignot,gold ignot,,!Icons/mining:goldignot,,,,,
-coal,coal,,!Icons/mining:coal,,,,,
-charcoal,charcoal,,Icons/mining:charcoal,,,,,
-clay,clay,,Icons/mining:clay,,,,,
-brick,brick,,!Icons/base:brick,18,1,50,,
-pottery,pottery,,!Icons/base:pottery,,,,,
-,,,,,,,,
-,plank,Plank,,base:plank,12,1,50,
-,ore,Ore,,base:ore,5,1,50,
+id,name,sound,icon,price,//storage,//rechangeatdestroy,//replace,special,overlay,overlay,overlay,overlay
+,general,,,,,,,,,,,
+food,food,bite-small3,!Icons/base:food,2,0.5,50,,,,,,
+worker,worker,,!Icons/ui:worker,0,0,100,,true,,,,
+inhabitant,inhabitant,,!Icons/ui:workermax,0,0,100,,true,,,,
+gold,gold,,gold,5,0.25,50,,,,,,
+buildtime,build time,,build,0,0,,,true,,,,
+tool,tool,,tool,14,1,50,,,,,,
+religion,religion,,religion,,,,,true,,,,
+,light,,,,,,,,,,,
+wood,wood,interface5,!Icons/base:wood,4,1,50,,,!timeFantasy_craft16:wood1=1,!timeFantasy_craft16:wood100=100,,
+cobblestone,cobble stone,,!Icons/base:cobblestone,5,1.25,,,,,,,
+water,water,,!Icons/magic:water,1,1,,,,,,,
+research,Research,,research,0,0,50,,true,,,,
+,shadow,,,,,,,,,,,
+stone,stone,metalPot3,!Icons/icons:stone,6,1,50,,,!timeFantasy_craft16:stone1=1,!timeFantasy_craft16:stone50=50,!timeFantasy_craft16:stone250=250,!timeFantasy_craft16:stone500=500
+dirt,dirt,,!Icons/timeFantasy_craft:dirt,2,1,,,,,,,
+sand,sand,,!Icons/timeFantasy_craft:sand,1,1,,,,,,,
+,earth,,,,,,,,,,,
+copper,copper,,!Icons/mining:copper,,,,,,!timeFantasy_craft16:copper1=1,!timeFantasy_craft16:copper50=50,!timeFantasy_craft16:copper250=250,!timeFantasy_craft16:copper500=500
+ironore,iron ore,,!Icons/mining:ironore,,,,,,!timeFantasy_craft16:ironore1=1,!timeFantasy_craft16:ironore50=50,!timeFantasy_craft16:ironore250=250,!timeFantasy_craft16:ironore500=500
+ironignot,iron ignot,,!Icons/mining:ironignot,,,,,,,,,
+goldore,gold ore,,!Icons/mining:goldore,,,,,,!timeFantasy_craft16:goldore1=1,!timeFantasy_craft16:goldore50=50,!timeFantasy_craft16:goldore250=250,!timeFantasy_craft16:goldore500=500
+goldignot,gold ignot,,!Icons/mining:goldignot,,,,,,,,,
+coal,coal,,!Icons/mining:coal,,,,,,!timeFantasy_craft16:coal1=1,!timeFantasy_craft16:coal50=50,!timeFantasy_craft16:coal250=250,!timeFantasy_craft16:coal500=500
+charcoal,charcoal,,Icons/mining:charcoal,,,,,,,,,
+clay,clay,,Icons/mining:clay,,,,,,,,,
+brick,brick,,!Icons/base:brick,18,1,50,,,,,,
+pottery,pottery,,!Icons/base:pottery,,,,,,,,,
+,,,,,,,,,,,,
+,plank,Plank,,base:plank,12,1,50,,,,,
+,ore,Ore,,base:ore,5,1,50,,,,,
 ,weapon,Weapon,,base:weapon,54,1,50,
 ,,,,,,,,
 ,faith,Faith,,528,0,0,50,

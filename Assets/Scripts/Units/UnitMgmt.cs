@@ -68,6 +68,11 @@ namespace Units
             {
                 throw new MissingComponentException("not a valid position");
             }
+
+            if (At(pos) != null)
+            {
+                throw new MissingComponentException($"field {pos} is blocked");
+            }
         
             UnitInfo ui = Instantiate(unitPrefab, GameMgmt.Get().newMap.levels[pos.level].units.transform);
             ui.Init(type,player, pos);

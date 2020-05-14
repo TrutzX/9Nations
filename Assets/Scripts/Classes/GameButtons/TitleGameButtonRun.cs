@@ -14,7 +14,7 @@ namespace Classes.GameButtons
         protected override void Run(Player player)
         {
             
-            WindowPanelBuilder wpb = WindowPanelBuilder.Create("Exit game");
+            WindowPanelBuilder wpb = WindowPanelBuilder.Create(Data().Name());
             var saveonexit = LSys.tem.options["saveonexit"];
             saveonexit.AddOption(wpb.panel);
             wpb.panel.AddButton("to main menu", () =>

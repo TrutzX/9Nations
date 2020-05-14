@@ -22,7 +22,7 @@ TagManager:
   - Buildings
   - 
   - Units
-  - 
+  - Overlay
   - Effects
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Units
     uniqueID: 2923379127
+    locked: 0
+  - name: Overlay
+    uniqueID: 2590613101
     locked: 0
   - name: Effects
     uniqueID: 4091182143

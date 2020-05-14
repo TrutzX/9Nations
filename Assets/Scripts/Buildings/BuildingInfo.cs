@@ -6,6 +6,7 @@ using Improvements;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.FActions;
+using Libraries.Improvements;
 using Players;
 using reqs;
 using Tools;
@@ -135,6 +136,10 @@ namespace Buildings
             //reset images?
             UpdateConnectedImage();
             
+            //remove border
+            Player().overlay.Add("frontier",CircleGenerator.Gen(Pos(),baseData.visibilityRange), -1);
+            Town().overlay.Add("boundary",CircleGenerator.Gen(Pos(),baseData.visibilityRange), -1);
+            
             GameMgmt.Get().data.buildings.Remove(data);
             GameMgmt.Get().building.buildings.Remove(this);
             Destroy(gameObject);
@@ -145,6 +150,10 @@ namespace Buildings
         {
             base.FinishConstruct();
             UpdateConnectedImage();
+            
+            //add border
+            Player().overlay.Add("frontier",CircleGenerator.Gen(Pos(),baseData.visibilityRange), 1);
+            Town().overlay.Add("boundary",CircleGenerator.Gen(Pos(),baseData.visibilityRange), 1);
             
             //add worker
             if (dataBuilding.worker > 0)

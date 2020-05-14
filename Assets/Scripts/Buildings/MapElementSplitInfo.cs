@@ -21,7 +21,7 @@ namespace Buildings
             //diff unit?
             if (!_info.Owner(PlayerMgmt.ActPlayerID()))
             {
-                panel.AddSubLabel("Owner",_info.Player().name, _info.Player().icon);
+                panel.AddSubLabel("Owner",_info.Player().name, _info.Player().Coat().Icon);
                 panel.AddSubLabel("HP",$"??/{_info.baseData.hp}","hp");
                 panel.AddSubLabel("AP",$"??/{_info.baseData.ap}","ap");
                 return;

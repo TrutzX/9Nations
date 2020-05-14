@@ -33,6 +33,7 @@ namespace Endless
             panel.AddButton("Add a new player", () =>
             {
                 startConfig[id + "name"] = id==0?System.Environment.UserName:"Player";
+                startConfig[id + "coat"] = L.b.coats.Auto(id);
                 startConfig[id + "nation"] = "north";
                 startConfig[id + "winGold"] = "true";
                 startConfig[id + "loseKing"] = "true";
@@ -56,7 +57,7 @@ namespace Endless
             }
             
             GameMgmt.StartConfig = startConfig;
-            GameMgmt.StartConfig["name"] = "endless game";
+            GameMgmt.StartConfig["name"] = S.T("endless");
             GameMgmt.StartConfig["type"] = "endless";
             
             GameMgmt.Init();

@@ -27,7 +27,7 @@ namespace reqs
         /// <returns></returns>
         public bool NeedMap()
         {
-            return (onMap == null && pos == null);
+            return !(onMap == null && pos == null);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace reqs
         /// <exception cref="NotImplementedException"></exception>
         public void NeedMapException()
         {
-            if (NeedMap()) 
+            if (!NeedMap()) 
                 throw new NotImplementedException();
         }
     }

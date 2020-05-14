@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 namespace Maps.GameMaps
 {
     [Serializable]
-    public class GameMapDataLevel
+    public class GameMapDataLevel : IDataLevel
     {
         private const int DefaultTerrain = 6;
         

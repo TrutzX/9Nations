@@ -15,7 +15,7 @@ namespace Classes.Actions.Addons
         private MapElementInfo self;
         private NVector pos;
         
-        public ActionInteractSplitElement(ActionHolders holders, ActionHolder action, MapElementInfo self, NVector pos) : base(action.DataAction().name, action.DataAction().Icon)
+        public ActionInteractSplitElement(ActionHolders holders, ActionHolder action, MapElementInfo self, NVector pos) : base(action.DataAction().Name(), action.DataAction().Icon)
         {
             this.holders = holders;
             this.action = action;

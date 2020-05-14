@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Audio;
 using Buildings;
-
+using Game;
 using Libraries;
 using Libraries.Modifiers;
 using Players;
@@ -67,10 +67,15 @@ namespace UI
             
             GameObject button = Instantiate(UIElements.Get().panelLabel, panel.transform);
             button.name = title.Substring(0,Math.Min(title.Length,20));
-            button.GetComponent<Text>().text = title;
+            button.GetComponent<Text>().text = TextHelper.Cap(title);
             button.GetComponent<RectTransform>().sizeDelta = new Vector2(button.GetComponent<RectTransform>().sizeDelta.x,(title.Length/35+1)*16);
 
             return button.GetComponent<Text>();
+        }
+
+        public void AddLabelT(string key)
+        {
+            AddLabel(S.T(key));
         }
 
         public void RichText(string desc)
@@ -114,9 +119,15 @@ namespace UI
 
             return button;
         }
+
+        public void AddHeaderLabelT(string key)
+        {
+            AddHeaderLabel(S.T(key));
+        }
+        
         public GameObject AddHeaderLabel(string title)
         {
-            return UIElements.CreateHeaderLabel(panel.transform, title);
+            return UIElements.CreateHeaderLabel(panel.transform, TextHelper.Cap(title));
         }
 
         public GameObject AddImageLabel(string title, Sprite icon)
@@ -138,6 +149,11 @@ namespace UI
         {
             Button g = UIHelper.CreateButton(title,panel.transform,action, sound);
             return g;
+        }
+
+        public Button AddButtonT(string title, Action action, string sound = "click")
+        {
+            return AddButton(S.T(title), action, sound);
         }
 
 
@@ -236,19 +252,35 @@ namespace UI
             return slider;
         }
     
-        public GameObject AddDropdown(string[] values, string def, string[] titles, UnityAction<string> save)
+        public Dropdown AddDropdown(string[] values, string def, string[] titles, UnityAction<string> save)
         {
-            GameObject button = Instantiate(UIElements.Get().dropdown.gameObject, panel.transform);
+            Dropdown dropdown = Instantiate(UIElements.Get().dropdown.gameObject, panel.transform).GetComponent<Dropdown>();
         
             foreach(string t in titles)
             {
-                button.GetComponent<Dropdown>().options.Add(new Dropdown.OptionData(t));
+                dropdown.options.Add(new Dropdown.OptionData(t));
             }
 
-            button.GetComponent<Dropdown>().value = Array.IndexOf(values, def);
-            button.GetComponent<Dropdown>().onValueChanged.AddListener((pos) => { save(values[pos]); });
+            dropdown.value = Array.IndexOf(values, def);
+            dropdown.onValueChanged.AddListener((pos) => { save(values[pos]); });
         
-            return button;
+            return dropdown;
+        }
+    
+        public Dropdown AddDropdown<T>(List<T> items, string def, UnityAction<string> save) where T : BaseData
+        {
+            List<string> ids = new List<string>();
+            List<string> titles = new List<string>();
+            foreach (var item in items)
+            {
+                if (item.Hidden)
+                    continue;
+                
+                ids.Add(item.id);
+                titles.Add(item.Name());
+            }
+
+            return AddDropdown(ids.ToArray(), def, titles.ToArray(), save);
         }
     
         public Toggle AddCheckbox(bool value, string title, UnityAction<bool> save, string audio="checkBoxClick")

@@ -5,6 +5,7 @@ using Libraries;
 using Players.Infos;
 using Towns;
 using UI;
+using UnityEngine;
 
 namespace Players.Kingdoms
 {
@@ -33,6 +34,11 @@ namespace Players.Kingdoms
             
             
             b.Finish();
+        }
+
+        public override Sprite Sprite(Player player)
+        {
+            return player.Coat().Sprite();
         }
     }
 }

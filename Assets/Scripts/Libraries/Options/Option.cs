@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Classes;
 using Game;
 using Tools;
@@ -36,6 +37,18 @@ namespace Libraries.Options
             if (type == "text")
             {
                 panel.AddInput(name, Value(), SetValue);
+            }
+
+            if (type.StartsWith("dropdown"))
+            {
+                var values = SplitHelper.Separator(SplitHelper.Delimiter(type).value);
+                List<string> titles = new List<string>();
+                foreach (var value in values)
+                {
+                    titles.Add(S.T(value));
+                }
+                panel.AddHeaderLabel(name);
+                panel.AddDropdown(values,Value(), titles.ToArray(), SetValue);
             }
 
         }

@@ -1,4 +1,4 @@
-namespace Improvements
+namespace Libraries.Improvements
 {
     public class ImprovementHelper
     {

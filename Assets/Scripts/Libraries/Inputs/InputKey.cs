@@ -56,14 +56,14 @@ namespace Libraries.Inputs
             PlayerPrefs.Save();
         }
         
-        public string Name()
+        public override string Name()
         {
             if (IsGameButton())
             {
-                name = L.b.gameButtons[id].name;
+                name = L.b.gameButtons[id].Name();
             } else if (IsAction())
             {
-                name = L.b.actions[id].name;
+                name = L.b.actions[id].Name();
             }
 
             return $"{name} ({usedKey})";

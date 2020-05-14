@@ -45,7 +45,7 @@ namespace reqs
                 return b.Town()?.level??0;
             }
             //get the nearest town
-            Town t = S.Towns().NearstTown(player, pos,false);
+            Town t = S.Towns().NearestTown(player, pos,false);
             
             return t?.level??0;
         }

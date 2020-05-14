@@ -9,7 +9,7 @@ namespace Players.Infos
 {
     public class InfosSplitElement: SplitElement
     {
-        public InfosSplitElement() : base("Notifications", SpriteHelper.Load("base:info"))
+        public InfosSplitElement() : base(S.T("notifications"), "info")
         {
         }
 

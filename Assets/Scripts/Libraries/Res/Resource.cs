@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Libraries.Res
 {
@@ -8,6 +9,11 @@ namespace Libraries.Res
         public float price;
         public float weight;
         public bool special;
+        public List<string> overlay;
 
+        public Resource()
+        {
+            overlay = new List<string>();
+        }
     }
 }

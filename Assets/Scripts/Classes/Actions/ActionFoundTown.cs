@@ -1,3 +1,4 @@
+using System.Linq;
 using Buildings;
 using Game;
 using Libraries;
@@ -5,6 +6,7 @@ using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
 using Tools;
+using Towns;
 using UI;
 using Units;
 using UnityEngine;
@@ -29,21 +31,32 @@ namespace Classes.Actions
                 //name.GetComponentsInChildren<Text>()[1].text = NGenTown.GetTownName(PlayerMgmt.Get().GetActPlayer().nation);
             }, "random", "random");*/
 
+            Button button = null;
+            
             InputField townName = win.panel.AddInputRandom("town name",
                 LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator), s => { },
                 () => LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator));
 
-            win.panel.AddImageTextButton("Found the town", DataAction().Icon, () =>
+            var coats = L.b.coats.GetAllByCategory("town");
+            var dropdown = win.panel.AddDropdown(coats, coats.ElementAt(S.Towns().GetAll().Length % coats.Count).id,
+                coat =>
+                {
+                    UIHelper.UpdateButtonImageColor(button, L.b.coats[coat].color);
+                });
+            
+            button = win.panel.AddImageTextButton("Found the town", DataAction().Icon, () =>
             {
                 win.Close();
-                FoundTown(info, pos, townName.text);
+                FoundTown(info, pos, townName.text, coats[dropdown.value].id);
             }, DataAction().sound);
+            UIHelper.UpdateButtonImageColor(button, L.b.coats[coats[dropdown.value].id].color);
             win.Finish(400);
         }
 
-        protected void FoundTown(MapElementInfo info, NVector pos, string townName)
+        protected void FoundTown(MapElementInfo info, NVector pos, string townName, string coat)
         {
-            S.Towns().Create(townName, pos);
+            int tid = S.Towns().Create(townName, pos);
+            S.Town(tid).coat = coat;
             OnMapUI.Get().UpdatePanel(pos);
             PlayerMgmt.ActPlayer().UpdateButtonMenu();
         }

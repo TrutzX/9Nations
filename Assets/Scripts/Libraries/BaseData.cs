@@ -29,13 +29,17 @@ namespace Libraries
         
         public void AddImageLabel(PanelBuilder panel)
         {
-            panel.AddImageLabel(S.Debug()?$"{name} ({id})":name, Sprite());
+            var s = string.IsNullOrEmpty(name) ? Name() : name;
+            panel.AddImageLabel(S.Debug()?$"{s} ({id})":s, Sprite());
         }
 
-        [Obsolete]
-        public void AddReq(PanelBuilder panel, string header = "Requirements", Player player = null)
+        /// <summary>
+        /// Return the translated name
+        /// </summary>
+        /// <returns></returns>
+        public virtual string Name()
         {
-            req.BuildPanel(panel, header, player);
+            return S.T(id);
         }
 
         public virtual Sprite Sprite()

@@ -9,50 +9,38 @@ namespace Maps.TileMaps
     public class TileMapConfig16 : MonoBehaviour
     {
         private bool _winter;
-        private GameMapDataLevel _data;
+        private IDataLevel _data;
         private Tilemap _tileMap;
         private DataTerrain _terrain;
+        private Color _color;
         
-        public void SetTile(GameMapDataLevel data, Vector3Int pos, DataTerrain terrain, bool winter)
+        public void SetTile(IDataLevel data, Vector3Int pos, DataTerrain terrain, bool winter, Color color)
         {
             //set it
             _data = data;
             _winter = winter;
             _tileMap = GetComponent<Tilemap>();
             _terrain = terrain;
+            _color = color;
             
             //remove it?
             if (terrain == null)
             {
-                RemoveTile(pos.x, pos.y);
+                SetTile(pos.x, pos.y);
                 return;
             }
             
             //top left
-            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2 + 1, 0), Tile(TopLeft(pos.z, pos.x, pos.y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2 + 1, 0), _terrain.Tile(TopLeft(pos.z, pos.x, pos.y), _color));
             
             //top right
-            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2 + 1, 0), Tile(TopRight(pos.z, pos.x, pos.y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2 + 1, 0), _terrain.Tile(TopRight(pos.z, pos.x, pos.y), _color));
             
             //down left
-            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2, 0), Tile(DownLeft(pos.z, pos.x, pos.y)));
+            _tileMap.SetTile(new Vector3Int(pos.x * 2, pos.y * 2, 0), _terrain.Tile(DownLeft(pos.z, pos.x, pos.y), _color));
             
             //down right
-            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2, 0), Tile(DownRight(pos.z, pos.x, pos.y)));
-        }
-
-        private Tile Tile(int id)
-        {
-            return GameMgmt.Get().newMap.tools.GetTile(_terrain.Icon.Replace("4",id.ToString()));
-        }
-
-        public void RemoveTile(int x, int y)
-        {
-            _tileMap = GetComponent<Tilemap>();
-            _tileMap.SetTile(new Vector3Int(x * 2, y * 2 + 1, 0), null);
-            _tileMap.SetTile(new Vector3Int(x * 2 + 1, y * 2 + 1, 0), null);
-            _tileMap.SetTile(new Vector3Int(x * 2, y * 2, 0), null);
-            _tileMap.SetTile(new Vector3Int(x * 2 + 1, y * 2, 0), null);
+            _tileMap.SetTile(new Vector3Int(pos.x * 2 + 1, pos.y * 2, 0), _terrain.Tile(DownRight(pos.z, pos.x, pos.y), _color));
         }
         
         private int TopLeft(int layer, int x, int y)

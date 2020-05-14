@@ -16,18 +16,21 @@ namespace Classes.Scenarios
         {
             //L.b.gameOptions["fog"].SetValue("false");
             
-            int pid = PlayerMgmt.Get().CreatePlayer("userx", "forger");
+            int pid = S.Player().CreatePlayer("userx", "forger");
             PlayerMgmt.Get(pid).elements.elements.Add("shadow");
             PlayerMgmt.Get(pid).elements.elements.Add("earth");
             //GameMgmt.Get().NextPlayer();
 
             NVector pos = new NVector(6, 6, 0);
+            S.Unit().Create(pid, "shadow", pos);
+            
+            //if (1==1) return;
             NVector p1 = new NVector(7, 7, 0);
             
             int tid = S.Towns().Create(LClass.s.NameGenerator("town"), pid, pos);
             //S.Towns().Get(tid).level++;
 
-            S.Towns().Get(tid).AddRes("wood",60, ResType.Gift);
+            S.Town(tid).AddRes("wood",60, ResType.Gift);
             S.Towns().Get(tid).AddRes("cobblestone",60, ResType.Gift);
             S.Towns().Get(tid).AddRes("stone",60, ResType.Gift);
             //S.Towns().Get(tid).AddRes("brick",50, ResType.Gift);
@@ -41,7 +44,7 @@ namespace Classes.Scenarios
             S.Building().Create(tid, "stair", pos.DiffX(1));
             
             //UnitMgmt.Get().Create(pid, "light", GameMgmt.Get().newMap.tools.GetStartPos("north"));
-            S.Unit().Create(pid, "shadow", pos);
+            //S.Unit().Create(pid, "shadow", pos);
             S.Unit().Create(pid, "sworker", p1).FinishConstruct();
             GameMgmt.Get().data.map.ResGenAdd(p1, "copper", 1-GameMgmt.Get().data.map.ResGen(p1, "copper"));
             S.Unit().Create(pid, "swarrior", pos.DiffX(2)).FinishConstruct();
@@ -58,6 +61,7 @@ namespace Classes.Scenarios
             //PlayerMgmt.Get(pid).elements.elements.Add("light");
             //S.Unit().Create(pid, "lworker", pos.DiffX(3));
             S.Unit().Create(pid, "sexplorer", p1).FinishConstruct();
+            S.Unit().Create(pid, "geologist", p1.DiffX(1)).FinishConstruct();
             S.Building().Create(tid, "mine", p1).FinishConstruct();
 
             /*UnitMgmt.Get().Create(pid,"nking", new NVector(13,10,GameMgmt.Get().data.map.standard));

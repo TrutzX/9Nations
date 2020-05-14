@@ -1,3 +1,4 @@
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,7 @@ namespace UI.Show
 
         protected SplitElement(string title, Sprite icon)
         {
-            this.title = title;
+            this.title = TextHelper.Cap(title);
             this.icon = icon;
             audioSwitch = "switch";
             audioPerform = "click";

@@ -14,7 +14,7 @@ namespace Endless
         {
             L.b.gameOptions.startConfig = new Dictionary<string, string>();
             
-            WindowTabBuilder t = WindowTabBuilder.Create("Endless game");
+            WindowTabBuilder t = WindowTabBuilder.CreateT("endless");
             t.Add(new MapSplitTab(L.b.gameOptions.startConfig));
             t.Add(new GeneralSplitTab(L.b.gameOptions.startConfig));
         

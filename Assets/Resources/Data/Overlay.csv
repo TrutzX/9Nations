@@ -1,0 +1,5 @@
+id,icon,req,// desc
+boundary,foundTown,townCount=>1,//for towns
+res,res,element=shadow;earth,
+frontier,!Icons/ui:search,townCount=>1,//for kingdom
+owner,logo,townCount=>1,

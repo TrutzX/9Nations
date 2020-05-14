@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game;
 using Libraries.Rounds;
+using Tools;
 using UnityEngine;
 
 namespace Players
@@ -19,6 +20,7 @@ namespace Players
         /// Get it
         /// </summary>
         /// <returns></returns>
+        [Obsolete]
         public static PlayerMgmt Get()
         {
             return GameMgmt.Get().data.players;
@@ -97,6 +99,23 @@ namespace Players
             ActPlayer().StartRound();
         }
 
+        public Player OverlayHighest(string id, NVector pos)
+        {
+            int found=0;
+            Player player = null;
+            foreach (var p in players)
+            {
+                int f = (p.overlay.Get(id, pos));
+                if (f > found)
+                {
+                    found = f;
+                    player = p;
+                }
+            }
+
+            return player;
+        }
+        
         public IEnumerator CreatingFog()
         {
             foreach (Player p in players)

@@ -1,9 +1,7 @@
-using Game;
-using UI;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Maps
+namespace Maps.TileMaps
 {
     public class TileMapConfig32 : MonoBehaviour
     {

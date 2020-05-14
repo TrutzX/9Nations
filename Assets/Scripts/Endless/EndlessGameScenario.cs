@@ -21,6 +21,7 @@ namespace Endless
                 //add player
                 int pid = PlayerMgmt.Get().CreatePlayer(GameMgmt.StartConfig[id+"name"], GameMgmt.StartConfig[id+"nation"]);
                 Player p = PlayerMgmt.Get(pid);
+                p.coat = GameMgmt.StartConfig[id + "coat"];
                 //UnitMgmt.Get().Create(pid,L.b.nations[GameMgmt.StartConfig[id+"nation"]].Leader, GameMgmt.Get().newMap.tools.GetStartPos(GameMgmt.StartConfig[id + "nation"]));
             
                 //add quests

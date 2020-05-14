@@ -1,0 +1,116 @@
+id,english,german
+english,english,englisch
+german,german,deutsch
+languageSystem,system language,Sprache des Systems
+language,language,Sprache
+languageInfo,So far only a part has been translated.,Bisher ist nur ein Teil übersetzt.
+languageSelect,select your language,wähle deine Sprache
+endless,endless game,
+campaign,campaign,Kampagne
+research,research,
+lexicon,lexicon,
+quest,quest,
+debug,debug,
+nextround,next round,
+moveLevel,move level,
+options,options,
+save,save game,
+load,load game,Spiel laden
+kingdom,kingdom,
+nextUnit,Show next Unit,
+mod,mods,
+update,update available,
+endgame,end game,
+back,back,
+mainmenu,Main menu,
+more,more,
+exit,exit game,
+res,resource,
+town,town,
+overlay,overlay,
+cancel,cancel,
+close,close,
+reset,reset
+coat0,red
+coat1,blue
+coat2,turquoise
+coat3,violet gold
+coat4,light blue strip
+coat5,red heart
+coat6,black with yellow
+coat7,brown
+name,name
+endlessWin,How to win
+endlessWinGold,Collect 1000 Gold
+endlessLose,How to lose
+endlessLoseUnit,Lose all units
+nation,nation
+notifications,notifications
+owner,owner
+resInclude,included resources
+examine,examine the terrain
+examineRepeat,examine more terrain
+attackBuilding,attack building
+attackUnit,attack unit
+build,build
+cameraMove,move camera
+destroy,destroy it
+endGameLose,lose the game
+endGameWin,win the game
+featurePlayer,feature for player
+foundTown,found your town
+gameButton,call game button
+heal,heal
+interact,interact
+move,go
+frontier,kingdom frontier
+produce,produce resources
+sleep,sleep
+terraform,terraform
+townEvolve,develop town
+trade,trade
+train,train
+upgrade,upgrade
+evolve,evolve
+explore,explore
+moveTo,move to point
+craft,craft resources
+actionRepeatErrorDestination,Can not perform the action {0}. There is no destination in this level.
+actionRepeatErrorPath,Can not perform the action {0}. The path is blocked.
+actionRepeatErrorMove,Can not move multiple times. {0} will be canceled.
+unitMoveErrorPassable,Can not move in {0} because it is not passable.
+unitMoveErrorExplored,Can not move. The land is not explored.
+unitMoveErrorUnit,Can not move in {0} because {1} standing their.
+unitMoveErrorAp,Can not move in {0} because you need {1} more ap.
+unitMoveErrorBelong,{0} belongs to {1}.
+red,red
+cyan,cyan
+blue,blue
+darkblue,darkblue
+lightblue,lightblue
+purple,purple
+yellow,yellow
+lime,lime
+fuchsia,fuchsia
+white,white
+silver,silver
+grey,grey
+black,black
+orange,orange
+brown,brown
+maroon,maroon
+green,green
+olive,olive
+navy,navy
+teal,teal
+aqua,aqua
+magenta,magenta
+boundary,town boundary
+frontierOwn,Needs your own frontier (Visible via overlay)
+frontierOwnHere,.{0} Here is your frontier.
+frontierEnemy,Needs enemy frontier (Visible via overlay)
+frontierEnemyHere,.{0} Here is a enemy frontier.
+frontierNone,Needs no frontier (Visible via overlay)
+frontierNoneHere,.{0} Here is no frontier.
+claim,claim
+frontierNear,Needs your own frontier near (Visible via overlay)

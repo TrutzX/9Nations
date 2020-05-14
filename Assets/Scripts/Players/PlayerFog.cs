@@ -29,13 +29,8 @@ namespace Players
         /// </summary>
         public PlayerFog()
         {
-            
-        }
-
-        public IEnumerator CreatingFog(int pid)
-        {
             noFog = !S.Fog();
-            if (noFog) yield break;
+            if (noFog) return;
 
             if (visible == null)
             {
@@ -46,6 +41,11 @@ namespace Players
                     visible.Add(new bool[GameMgmt.Get().data.map.width,GameMgmt.Get().data.map.height]);
                 }
             }
+        }
+
+        public IEnumerator CreatingFog(int pid)
+        {
+            if (noFog) yield break;
             
             tileMap = new List<TileMapConfig16>();
             TileBase fTile = GameMgmt.Get().newMap.prototypeFog;
@@ -56,7 +56,7 @@ namespace Players
 
             for(int level=0;level<GameMgmt.Get().data.map.levels.Count;level++)
             {
-                tileMap.Add(GameMgmt.Get().newMap[level].CreateNewLayer($"Fog of war {pid}",10));
+                tileMap.Add(GameMgmt.Get().newMap[level].CreateNewLayer($"Fog of war {pid}",GameMgmt.Get().data.map.levels[0].LayerCount()+2));
                 bool[,] v = visible[level];
                 //paint everything?
                 for (int x = 0; x < width; x++)

@@ -22,13 +22,13 @@ namespace Libraries.GameButtons
 
         public void Call(Player player)
         {
-            LClass.s.gameButtonRuns[id].Call(player);
+            LClass.s.Button(id).Call(player);
         }
 
 
         public Button CreateImageButton(Transform transform, Player player, IMapUI text)
         {
-            Button button = UIElements.CreateImageButton(Icon, transform, () => { Call(player); }, Sound);
+            Button button = UIElements.CreateImageButton(LClass.s.Button(id).Sprite(player), transform, () => { Call(player); }, Sound);
 
             UIHelper.HoverEnter(button, () => text.ShowPanelMessage(LSys.tem.inputs.GameButtonName(this)),
                 () => text.ShowPanelMessage(""));
@@ -38,7 +38,7 @@ namespace Libraries.GameButtons
 
         public Button CreateImageTextButton(Transform transform, Player player)
         {
-            Button button = UIHelper.CreateImageTextButton(LSys.tem.inputs.GameButtonName(this), Sprite(), transform, () =>
+            Button button = UIHelper.CreateImageTextButton(LSys.tem.inputs.GameButtonName(this), LClass.s.Button(id).Sprite(player), transform, () =>
             {
                 NAudio.Play(Sound);
                 Call(player);

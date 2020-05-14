@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Buildings;
 using Game;
+using Libraries;
 using Players;
 using Tools;
 using UnityEngine;
@@ -36,7 +37,9 @@ namespace Towns
         /// <returns></returns>
         public int Create(string name, int playerID, NVector pos)
         {
-            towns.Add(new Town(++createTownCounter,playerID,name, pos));
+            Town town = new Town(++createTownCounter,playerID,name, pos);
+            town.coat = L.b.coats.Random("town").id;
+            towns.Add(town);
             Debug.Log($"Create town {name} ({createTownCounter}) for {playerID}");
             //create townhall
             GameMgmt.Get().building.Create(createTownCounter, PlayerMgmt.Get(playerID).elements.TownHall(),pos);
@@ -62,6 +65,44 @@ namespace Towns
         {
             return GetByPlayer(PlayerMgmt.ActPlayer().id);
         }
+
+        public Town OverlayHighest(string id, NVector pos)
+        {
+            int found=0;
+            Town town = null;
+            foreach (var t in towns)
+            {
+                int f = (t.overlay.Get(id, pos));
+                if (f > found)
+                {
+                    found = f;
+                    town = t;
+                }
+            }
+
+            return town;
+        }
+
+        public Town OverlayHighestPlayer(string id, NVector pos, Player p)
+        {
+            int found=0;
+            Town town = null;
+            foreach (var t in towns)
+            {
+                //own town?
+                if (t.playerId != p.id)
+                    continue;
+                
+                int f = (t.overlay.Get(id, pos));
+                if (f > found)
+                {
+                    found = f;
+                    town = t;
+                }
+            }
+
+            return town;
+        }
     
     
         /// <summary>
@@ -71,10 +112,14 @@ namespace Towns
         /// <param name="pos"></param>
         /// <param name="nextField"></param>
         /// <returns></returns>
-        public Town NearstTown(Player player, NVector pos, bool nextField)
+        public Town NearestTown(Player player, NVector pos, bool nextField)
         {
             int x = pos.x;
             int y = pos.y;
+            
+            //is on this field from a own town`
+            var town = S.Towns().OverlayHighestPlayer("boundary", pos, player);
+            if (town != null) return town;
         
             // on the next field and part of the player?
             foreach (BuildingInfo b in new [] { S.Building().At(pos), 

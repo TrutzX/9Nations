@@ -24,9 +24,6 @@ namespace Buildings
         {
             this._info = GetComponent<MapElementInfo>();
             this._data = data;
-            
-            
-            
         }
         
         /// <summary>

@@ -12,3 +12,4 @@ audioSound,Sounds,audio;start,75,scale=0;100,
 showLog,Show logs,debug;start,false,bool,option=debug:true
 modFolder,Additional mod folder,debug,,text,
 night,Show night,graphics;start,false,bool,disabled
+language,language,start,languageSystem,text,disabled

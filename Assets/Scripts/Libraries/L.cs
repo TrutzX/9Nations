@@ -8,6 +8,7 @@ using Help;
 using Improvements;
 using Libraries.Buildings;
 using Libraries.Campaigns;
+using Libraries.Coats;
 using Libraries.Crafts;
 using Libraries.Elements;
 using Libraries.FActions;
@@ -22,6 +23,7 @@ using Libraries.Maps;
 using Libraries.Movements;
 using Libraries.Nations;
 using Libraries.Options;
+using Libraries.Overlays;
 using Libraries.PlayerOptions;
 using Libraries.Res;
 using Libraries.Researches;
@@ -62,7 +64,9 @@ namespace Libraries
         public FightModiMgmt fightModis;
         public GameOptionMgmt gameOptions;
         public PlayerOptionMgmt playerOptions;
+        public OverlayMgmt overlays;
         public CraftMgmt crafts;
+        public CoatMgmt coats;
         
         /// <summary>
         /// For save only
@@ -108,6 +112,8 @@ namespace Libraries
             gameOptions = (GameOptionMgmt) Add(new GameOptionMgmt());
             playerOptions = (PlayerOptionMgmt) Add(new PlayerOptionMgmt());
             crafts = (CraftMgmt) Add(new CraftMgmt());
+            overlays = (OverlayMgmt) Add(new OverlayMgmt());
+            coats = (CoatMgmt) Add(new CoatMgmt());
             
             yield return base.Loading();
         }

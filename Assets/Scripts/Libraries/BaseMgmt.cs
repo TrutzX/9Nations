@@ -49,6 +49,17 @@ namespace Libraries
                 throw new MissingMemberException($"Can not find {key} in {name}");
             }
         }
+
+        public T Random()
+        {
+            return Data.ElementAt(UnityEngine.Random.Range(0, Data.Count)).Value;
+        }
+
+        public T Random(string category)
+        {
+            var all = GetAllByCategory(category);
+            return all[UnityEngine.Random.Range(0, all.Count)];
+        }
         
         public bool ContainsKey(string key)
         {

@@ -76,10 +76,10 @@ TextureImporter:
     second: timeFantasy_ui_23
   - first:
       213: 405655446357111348
-    second: timeFantasy_ui_24
+    second: overlay
   - first:
       213: -3033733694641711029
-    second: timeFantasy_ui_25
+    second: language
   - first:
       213: -7661402783386924940
     second: timeFantasy_ui_26
@@ -983,7 +983,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_24
+      name: overlay
       rect:
         serializedVersion: 2
         x: 288
@@ -1004,7 +1004,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_ui_25
+      name: language
       rect:
         serializedVersion: 2
         x: 320

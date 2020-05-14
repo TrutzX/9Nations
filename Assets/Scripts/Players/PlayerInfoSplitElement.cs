@@ -11,7 +11,7 @@ namespace Players
         private Player _player;
         
         //TODO ADD Icon
-        public PlayerInfoSplitElement(Player player) : base(player.name, SpriteHelper.Load(player.icon))
+        public PlayerInfoSplitElement(Player player) : base(player.name, player.Coat().Icon)
         {
             _player = player;
         }

@@ -72,7 +72,7 @@ namespace Buildings
         public void UnitUpdate()
         {
             //has a town?
-            Town t = S.Towns().NearstTown(PlayerMgmt.Get(playerId), pos, false);
+            Town t = S.Towns().NearestTown(PlayerMgmt.Get(playerId), pos, false);
             townId = t?.id ?? -1;
         }
     }

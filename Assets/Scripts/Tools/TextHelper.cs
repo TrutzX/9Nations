@@ -11,7 +11,9 @@ namespace Tools
          * @param name
          * @return
          */
-        public static string Cap(string name) {
+        public static string Cap(string name)
+        {
+            //if (string.IsNullOrEmpty(name)) return "null";
             return char.ToUpper(name[0]) + name.Substring(1);
         }
 

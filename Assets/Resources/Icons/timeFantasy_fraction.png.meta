@@ -97,46 +97,49 @@ TextureImporter:
     second: coat0
   - first:
       213: -8290624947547746191
-    second: timeFantasy_fraction_31
+    second: flag0
   - first:
       213: -8969548071377851345
     second: coat1
   - first:
       213: 3189267946035292417
-    second: timeFantasy_fraction_33
+    second: flag1
   - first:
       213: -3256283438710066204
     second: coat2
   - first:
       213: 3555656747628802863
-    second: timeFantasy_fraction_35
+    second: flag2
   - first:
       213: -6505666976756391946
     second: coat3
   - first:
       213: -5740393327713674333
-    second: timeFantasy_fraction_37
+    second: flag3
   - first:
       213: -5197946123690316593
     second: coat4
   - first:
       213: -4930093089471192047
-    second: timeFantasy_fraction_39
+    second: flag4
   - first:
       213: 7230660458637521507
     second: coat5
   - first:
       213: 8862743514976965433
-    second: timeFantasy_fraction_41
+    second: flag5
   - first:
       213: 6633363756411425475
     second: coat6
   - first:
       213: 2667035978667019420
-    second: timeFantasy_fraction_43
+    second: flag6
   - first:
       213: -8370371619392662021
     second: coat7
+  - first:
+      213: 6839999935383120817
+    second: flag7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -884,7 +887,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_31
+      name: flag0
       rect:
         serializedVersion: 2
         x: 32
@@ -926,7 +929,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_33
+      name: flag1
       rect:
         serializedVersion: 2
         x: 96
@@ -968,7 +971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_35
+      name: flag2
       rect:
         serializedVersion: 2
         x: 160
@@ -1010,7 +1013,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_37
+      name: flag3
       rect:
         serializedVersion: 2
         x: 224
@@ -1052,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_39
+      name: flag4
       rect:
         serializedVersion: 2
         x: 288
@@ -1094,7 +1097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_41
+      name: flag5
       rect:
         serializedVersion: 2
         x: 352
@@ -1136,7 +1139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: timeFantasy_fraction_43
+      name: flag6
       rect:
         serializedVersion: 2
         x: 416
@@ -1173,6 +1176,27 @@ TextureImporter:
       bones: []
       spriteID: ad665eda151f442fc87d08036f030295
       internalID: -8370371619392662021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flag7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd912a0733e842ffbabcc278a20b77b
+      internalID: 6839999935383120817
       vertices: []
       indices: 
       edges: []

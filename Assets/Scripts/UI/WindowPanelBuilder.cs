@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using Game;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
@@ -22,6 +24,8 @@ namespace UI
             panel.CalcSize();
             transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(w,panel.panel.GetComponent<RectTransform>().sizeDelta.y+48);
             gameObject.SetActive(true);
+            gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
+            gameObject.GetComponent<Image>().DOFade(0.33f, 10);
         }
     
         public void Finish()
@@ -31,7 +35,7 @@ namespace UI
 
         public void AddClose()
         {
-            panel.AddButton("Close",Close);
+            panel.AddButton(S.T("close"),Close);
         }
 
         public void Close()

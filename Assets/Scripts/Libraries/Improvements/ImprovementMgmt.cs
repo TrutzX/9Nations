@@ -84,12 +84,12 @@ namespace Improvements
             //remove or set?
             if (string.IsNullOrEmpty(GameMgmt.Get().data.map.levels[pos.level].improvement[pos.x, pos.y]))
             {
-                GameMgmt.Get().newMap[pos.level].Improvement.SetTile(pos.x, pos.y, null);
+                GameMgmt.Get().newMap[pos.level].improvement.SetTile(pos.x, pos.y, null);
                 return;
             }
             
             //show it
-            GameMgmt.Get().newMap[pos.level].Improvement.SetTile(pos.x, pos.y, Data[id].CalcSprite(pos));
+            GameMgmt.Get().newMap[pos.level].improvement.SetTile(pos.x, pos.y, Data[id].CalcSprite(pos));
             
             //reset pathfinding
             GameMgmt.Get().newMap.levels[pos.level].ResetPathFinding();

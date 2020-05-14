@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Audio;
 using Buildings;
+using DG.Tweening;
 using DigitalRuby.Tween;
 using Game;
 using Help;
@@ -56,7 +57,7 @@ namespace Units
             data.pos = pos.Clone();
         
             //has a town?
-            Town t = S.Towns().NearstTown(PlayerMgmt.Get(player), pos, false);
+            Town t = S.Towns().NearestTown(PlayerMgmt.Get(player), pos, false);
             if (t != null)
             {
                 int buildtime = L.b.modifiers["build"].CalcModi(dataUnit.buildTime, PlayerMgmt.Get(player), pos);
@@ -122,82 +123,93 @@ namespace Units
             Clear(pos);
             
         }
+
+        public string Passable(NVector pos)
+        {
+            DataTerrain land = GameMgmt.Get().newMap.Terrain(pos);
+            
+            //check terrain
+            int cost = GameMgmt.Get().newMap.PathFinding(Pos().level).Cost(Player(),dataUnit.movement,Pos(),pos);
+            if (cost == 0)
+            {
+                return S.T("unitMoveErrorPassable",land.name);
+            }
+
+            //visible?
+            if (!Player().fog.Visible(pos))
+            {
+                return S.T("unitMoveErrorExplored",land.name);
+            }
+
+            //another unit?
+            if (!S.Unit().Free(pos))
+            {
+                return S.T("unitMoveErrorUnit",land.name, S.Unit().At(pos).name);
+            }
+
+            //can walk
+            if (cost > data.ap)
+            {
+                return S.T("unitMoveErrorAp",land.name, cost - data.ap);
+            }
+
+            return null;
+        }
         
         public void MoveBy(int x, int y)
         {
             //own unit?
             if (!Owner(PlayerMgmt.ActPlayerID()))
             {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"{name} belongs to {Player().name}.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError(S.T("unitMoveErrorBelong",name, Player().name));
                 return;
             }
 
-            int dX = (int) GetComponent<Transform>().position.x + x;
-            int dY = (int) GetComponent<Transform>().position.y + y;
+            int dX = data.pos.x + x;
+            int dY = data.pos.y + y;
             NVector dPos = new NVector(dX, dY, Pos().level);
-            DataTerrain land = GameMgmt.Get().newMap.Terrain(dPos);
 
-            //check terrain
-            int cost = GameMgmt.Get().newMap.PathFinding(Pos().level).Cost(PlayerMgmt.ActPlayer(),dataUnit.movement,Pos(),dPos);
-            if (cost == 0)
+            //can move their?
+            string erg = Passable(dPos);
+            if (erg != null)
             {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because it is not passable.");
+                OnMapUI.Get().unitUI.ShowPanelMessageError(erg);
                 return;
             }
+            
+            //start animation
 
-            //visible?
-            if (!Player().fog.Visible(dPos))
+            var pPath = GameMgmt.Get().newMap.PathFinding(Pos().level).Path(Player(), dataUnit.movement, Pos(), dPos);
+            
+            //rebuild path
+            Vector3[] path = new Vector3[pPath.Count];
+            for (int i = 0; i < pPath.Count; i++)
             {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move, the land is not explored.");
-                return;
+                path[i] = new Vector2(pPath[i].x+0.5f, pPath[i].y);
             }
 
-            //another unit?
-            if (!S.Unit().Free(dPos))
-            {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because {S.Unit().At(dPos).name} standing their.");
-                return;
-            }
-
-            //can walk
-            if (cost > data.ap)
-            {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"Can not move in {land.name}, because you need {cost - data.ap} more ap.");
-                return;
-            }
-
-            //move it
-            Action<ITween<Vector3>> update = (t) => { gameObject.transform.position = t.CurrentValue; };
-
-            Action<ITween<Vector3>> completed = (t) =>
-            {
-                OnMapUI.Get().UpdatePanel(dPos);
-                transform.position = new Vector2(Pos().x+0.5f,Pos().y);
-                //show it
-                Clear(dPos);
-            };
-
-            //rotate
-            if (x > 0)
-            {
-                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(7);
-            }
-            else if (x < 0)
-            {
-                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(4);
-            } 
-            else if (y < 0)
-            {
-                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite();
-            } 
-            else 
-            {
-                GetComponent<SpriteRenderer>().sprite = dataUnit.Sprite(11);
-            }
-
+            GetComponent<UnitAnimator>().Calc((int) path[0].x - data.pos.x, (int) path[0].y - data.pos.y);
+            
             // completion defaults to null if not passed in
-            gameObject.Tween("MoveUnit", gameObject.transform.position, new Vector2(dX+0.5f,dY), 1, TweenScaleFunctions.Linear, update, completed);
-            data.ap -= cost;
+            gameObject.transform.DOPath(path, pPath.Count, PathType.CatmullRom)
+                .OnWaypointChange(value =>
+                {
+                    if (value >= path.Length) return;
+                    Clear(new NVector((int) path[value].x, (int) path[value].y, Pos().level));
+                    if (value >= 1)
+                    {
+                        GetComponent<UnitAnimator>().Calc((int) path[value].x-(int) path[value-1].x, (int) path[value].y-(int) path[value-1].y);
+                    }
+                    
+                })
+                .OnComplete(() =>
+                {
+                    GetComponent<UnitAnimator>().AnStop();
+                    OnMapUI.Get().UpdatePanel(dPos);
+                    transform.position = new Vector2(Pos().x+0.5f,Pos().y);
+                });
+            
+            data.ap -= GameMgmt.Get().newMap.PathFinding(Pos().level).Cost(Player(),dataUnit.movement,Pos(),dPos);
             data.pos.x += x;
             data.pos.y += y;
             S.CameraMove().MoveTo(dPos);

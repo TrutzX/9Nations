@@ -25,16 +25,17 @@ namespace GameMapLevels
             _tileCache = new Dictionary<string, Tile>();
         }
 
-        public Tile GetTile(string path)
+        public Tile GetTile(string path, string bid=null)
         {
-            if (_tileCache.ContainsKey(path))
+            string id = bid == null ? path : path + bid;
+            if (_tileCache.ContainsKey(id))
             {
-                return _tileCache[path];
+                return _tileCache[id];
             }
             
             Tile t = ScriptableObject.CreateInstance<Tile>();
             t.sprite = SpriteHelper.Load(path);
-            _tileCache[path] = t;
+            _tileCache[id] = t;
             return t;
         }
 

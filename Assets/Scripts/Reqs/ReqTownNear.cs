@@ -13,7 +13,7 @@ namespace reqs
     {
         public override bool Check(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
-            return S.Towns().NearstTown(player, pos, true)!=null;
+            return S.Towns().NearestTown(player, pos, true)!=null;
         }
 
         public override bool Final(Player player,MapElementInfo onMap, string sett, NVector pos)

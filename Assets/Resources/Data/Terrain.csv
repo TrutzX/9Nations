@@ -2,6 +2,7 @@ id,name,icon,desc,sound,hidden,movement,movement,movement,movement,modi,modi,til
 ,Standard,,,,,,,,,,,,,,,,,,
 unknown,Dark Terrain,!Terrain/unknown:unknown_4,Black signals where there is no land; so it is not explorable.,,,walk=0,fly=0,,float=0,,,6,,unknown,,,,,
 border,Map Border,,Not passable,,true,walk=0,fly=0,,float=0,,,,,border,,,,,
+frontier,frontier,!Terrain/frontier:frontier_4,,,true,walk=0,fly=0,,float=0,,,,,unknown,,,,,
 fog,Fog,,Not explored,,true,walk=0,fly=0,,float=0,,,,,fog,,,,,
 invisible,Invisble,!Terrain/invisible:invisible_4,Unknown land; but not visible,,true,walk=0,fly=0,,float=0,,,7,,unknown,,,,,
 ,,,,,,,,,,,,,,,,,,,
@@ -13,7 +14,7 @@ deep_wall,deep wall,!Terrain/deep_wall:deep_wall_4,,,,walk=0,fly=0,,,,view=-1,43
 deep_water,deep water,!Terrain/deep_water:deep_water_4,,,,walk=0,,swim=10,,,view=-1,45,,water,,,,,
 ,,,,,,,,,,,,,,,,,,,
 grass,grass,!Terrain/grass:grass_4,,bite-small3,,,,,,,,1,grass_snow,grass,,,,,
-grass_sand,sand grass,!Terrain/grass_sand:grass_sand_4,,,,,,,,,,25,grass_snow,grass,,,,,
+grass_sand,sand grass,!Terrain/grass_sand:grass_sand_4,,,,,,,,,,25,grass_snow,grass
 grass_dirt,dirt grass,!Terrain/grass_dirt:grass_dirt_4,,,,,,,,,,9,grass_snow,grass
 grass_snow,winter grass,!Terrain/grass_snow:grass_snow_4,,,,,,,,,,49,,grass
 ,,,,,,,,,,,,,,
@@ -29,7 +30,7 @@ swamp,swamp,!Terrain/swamp:swamp_4,,,,walk=15,,,,build=+50%,view=-1,5,ice,swamp
 water,water,!Terrain/water:water_4,Water and can be found anywhere. It's a blue. In winter it can become ice.,,,walk=0,,swim=10,,,,32,ice,water
 water_mountain,water mountain,!Terrain/water_mountain:water_mountain_4,,,,walk=20,,swim=20,,,,36,ice_mountain,mountain
 ice,ice,!Terrain/ice:ice_4,,,,,,swim=30,,,,56,,ice
-ice_mountain,ice mountain,!Terrain/ice_mountain:ice_mountain_4,,,,walk=20,,,float=0,build=+100%,view=+2,60,,mountain
+ice_mountain,ice mountain,!Terrain/ice_mountain:ice_mountain_4,,,,walk=20,,,float=0,build=+100%,view=+2,60,,mountain,,,,,
 ocean,ocean,!Terrain/ocean:ocean_4,,,,walk=0,,swim=15,float=0,,,37,,ocean,,,,,
 ,,,,,,,,,,,,,,,,,,,
 forest,forest,!Terrain/forest:forest_4,,interface5,,,fly=15,,,build=+25%,view=-1,2,forest_snow,forest,,wood=50-500,,,

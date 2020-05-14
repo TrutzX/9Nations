@@ -34,7 +34,7 @@ namespace Classes.Actions.Addons
         {
             UpdatePref("lastBuild");
             ism.Close();
-            GameMgmt.Get().building.Create(S.Towns().NearstTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
+            GameMgmt.Get().building.Create(S.Towns().NearestTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
             OnMapUI.Get().UpdatePanel(pos);
         }
 

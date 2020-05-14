@@ -43,12 +43,13 @@ namespace MainMenu
                 $"{Application.productName} V{Application.version}-{Application.platform} - {Application.companyName}";
             warning.text = LSys.tem.helps["beta"].Desc.Replace(";;",Environment.NewLine);
         
+            OptionHelper.RunStartOptions();
+            
             L.b.gameButtons.BuildMenu(null, "title", null, true, panel.transform);
         
+            //show it
             LSys.tem.Load.FinishLoading();
             
-            //show it
-            OptionHelper.RunStartOptions();
         
             // first start?
             if (!PlayerPrefs.HasKey("lastVersion"))
@@ -68,16 +69,18 @@ namespace MainMenu
             {
                 PlayerPrefs.SetString("lastVersion",Application.version);
                 PlayerPrefs.Save();
-
+                
+                WindowPanelBuilder w = WindowPanelBuilder.Create("Good to know");
+                
                 foreach (var help in LSys.tem.helps.GetAllByCategory("start"))
                 {
                     if (!help.req.Check(null)) continue;
                     
-                    WindowPanelBuilder w = WindowPanelBuilder.Create(help.name);
+                    w.panel.AddHeaderLabel(help.name);
                     w.panel.RichText(help.Desc);
-                    w.AddClose();
-                    w.Finish();
                 }
+                w.AddClose();
+                w.Finish();
             }
             
             StartCoroutine(CheckUpdate());

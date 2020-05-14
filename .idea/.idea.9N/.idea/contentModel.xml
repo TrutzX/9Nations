@@ -10,6 +10,20 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Demigiant" t="Include">
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="README.txt" t="Include" />
+          </e>
+        </e>
         <e p="DestroyGameObject.cs" t="Include" />
         <e p="Easy Save 2" t="Include">
           <e p="Changelog.txt" t="Include" />
@@ -1455,9 +1469,11 @@
               <e p="ActionAttackUnit.cs" t="Include" />
               <e p="ActionBuild.cs" t="Include" />
               <e p="ActionCameraMove.cs" t="Include" />
+              <e p="ActionClaim.cs" t="Include" />
               <e p="ActionCraft.cs" t="Include" />
               <e p="ActionDestroy.cs" t="Include" />
               <e p="ActionEvolve.cs" t="Include" />
+              <e p="ActionExamine.cs" t="Include" />
               <e p="ActionExplore.cs" t="Include" />
               <e p="ActionFeaturePlayer.cs" t="Include" />
               <e p="ActionFoundTown.cs" t="Include" />
@@ -1487,6 +1503,7 @@
               <e p="BaseActiveAction.cs" t="Include" />
               <e p="BasePerformAction.cs" t="Include" />
               <e p="BasePlayerPerformAction.cs" t="Include" />
+              <e p="BaseRepeatAction.cs" t="Include" />
             </e>
             <e p="Elements" t="Include">
               <e p="BaseElementRun.cs" t="Include" />
@@ -1498,6 +1515,7 @@
               <e p="ChangeMenuGameButtonRun.cs" t="Include" />
               <e p="GameButtonHelper.cs" t="Include" />
               <e p="MoveLevelGameButtonRun.cs" t="Include" />
+              <e p="OverlayGameButtonRun.cs" t="Include" />
               <e p="TitleGameButtonRun.cs" t="Include" />
               <e p="UpdateGameButtonRun.cs" t="Include" />
             </e>
@@ -1528,9 +1546,17 @@
               <e p="OptionAudioMusic.cs" t="Include" />
               <e p="OptionAudioSound.cs" t="Include" />
               <e p="OptionFullscreen.cs" t="Include" />
+              <e p="OptionLanguage.cs" t="Include" />
               <e p="OptionNight.cs" t="Include" />
               <e p="OptionShowLog.cs" t="Include" />
               <e p="OptionUiScale.cs" t="Include" />
+            </e>
+            <e p="Overlays" t="Include">
+              <e p="BaseOverlay.cs" t="Include" />
+              <e p="BoundaryOverlay.cs" t="Include" />
+              <e p="FrontierOverlay.cs" t="Include" />
+              <e p="OwnerOverlay.cs" t="Include" />
+              <e p="ResOverlay.cs" t="Include" />
             </e>
             <e p="Scenarios" t="Include">
               <e p="DebugScenario.cs" t="Include" />
@@ -1594,6 +1620,10 @@
               <e p="Scenario.cs" t="Include" />
               <e p="ScenarioMgmt.cs" t="Include" />
               <e p="ScenarioSplitElement.cs" t="Include" />
+            </e>
+            <e p="Coats" t="Include">
+              <e p="Coat.cs" t="Include" />
+              <e p="CoatMgmt.cs" t="Include" />
             </e>
             <e p="Crafts" t="Include">
               <e p="Craft.cs" t="Include" />
@@ -1671,6 +1701,11 @@
               <e p="Option.cs" t="Include" />
               <e p="OptionMgmt.cs" t="Include" />
             </e>
+            <e p="Overlays" t="Include">
+              <e p="MapOverlay.cs" t="Include" />
+              <e p="Overlay.cs" t="Include" />
+              <e p="OverlayMgmt.cs" t="Include" />
+            </e>
             <e p="PlayerOptions" t="Include">
               <e p="PlayerOption.cs" t="Include" />
               <e p="PlayerOptionMgmt.cs" t="Include" />
@@ -1692,6 +1727,12 @@
               <e p="DataTerrain.cs" t="Include" />
               <e p="TerrainMgmt.cs" t="Include" />
               <e p="TerrainSplitElement.cs" t="Include" />
+            </e>
+            <e p="Translations" t="Include">
+              <e p="Language.cs" t="Include" />
+              <e p="LanguageMgmt.cs" t="Include" />
+              <e p="Translation.cs" t="Include" />
+              <e p="TranslationMgmt.cs" t="Include" />
             </e>
             <e p="Units" t="Include">
               <e p="DataUnit.cs" t="Include" />
@@ -1722,6 +1763,7 @@
             <e p="GameMaps" t="Include">
               <e p="GameMapData.cs" t="Include" />
               <e p="GameMapDataLevel.cs" t="Include" />
+              <e p="IDataLevel.cs" t="Include" />
             </e>
             <e p="MapPathFinding.cs" t="Include" />
             <e p="PathFinding" t="Include">
@@ -1743,6 +1785,7 @@
           <e p="OLib.cs" t="Include" />
           <e p="Options" t="Include">
             <e p="BaseOptionSplitElement.cs" t="Include" />
+            <e p="LanguageOptionSplitElement.cs" t="Include" />
             <e p="NetworkOptionSplitElement.cs" t="Include" />
             <e p="OptionHelper.cs" t="Include" />
           </e>
@@ -1801,6 +1844,7 @@
             <e p="ReqFightNationEthos.cs" t="Include" />
             <e p="ReqFightUnitType.cs" t="Include" />
             <e p="ReqFogField.cs" t="Include" />
+            <e p="ReqFrontier.cs" t="Include" />
             <e p="ReqGame.cs" t="Include" />
             <e p="ReqGameActiveElement.cs" t="Include" />
             <e p="ReqGameOption.cs" t="Include" />
@@ -1874,6 +1918,7 @@
             <e p="WindowUIHelper.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
+            <e p="UnitAnimator.cs" t="Include" />
             <e p="UnitHelper.cs" t="Include" />
             <e p="UnitInfo.cs" t="Include" />
             <e p="UnitLexiconInfo.cs" t="Include" />

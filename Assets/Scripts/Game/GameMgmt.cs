@@ -166,9 +166,9 @@ namespace Game
                 throw e;
             }
             
-            yield return PlayerMgmt.Get().CreatingFog();
-            PlayerMgmt.Get().FirstRound();
-            yield return PlayerMgmt.Get().NextPlayer();
+            yield return S.Player().CreatingFog();
+            S.Player().FirstRound();
+            yield return S.Player().NextPlayer();
             NAudio.Play("startgame");
             load.FinishLoading();
         }
@@ -186,7 +186,7 @@ namespace Game
             //load Map
             yield return newMap.LoadMap();
             data.players.AfterLoad();
-            yield return PlayerMgmt.Get().CreatingFog();
+            yield return S.Player().CreatingFog();
 
             //load buildings
             yield return load.ShowSubMessage($"Loading Buildings");

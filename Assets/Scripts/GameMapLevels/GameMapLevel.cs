@@ -26,10 +26,11 @@ namespace GameMapLevels
         public int level;
         public List<TileMapConfig16> layers;
         public TileMapConfig16 border;
+        public TileMapConfig16 overlay;
         public List<TileMapConfig16> layersWinter;
         public GameMapDataLevel dataLevel;
         private GameMapData mapData;
-        public TileMapConfig32 Improvement;
+        public TileMapConfig32 improvement;
         
         private MapPathFinding _pathFinding, _winterPathFinding;
 
@@ -73,7 +74,9 @@ namespace GameMapLevels
             {
                 yield return AddLayer(i);
             }
-            Improvement = CreateNewLayer32("Improvement", dataLevel.LayerCount());
+            improvement = CreateNewLayer32("Improvement", dataLevel.LayerCount());
+            overlay = CreateNewLayer("overlay", dataLevel.LayerCount()+1);
+            overlay.GetComponent<TilemapRenderer>().sortingLayerName = "Overlay";
             yield return AddBorder();
         }
 
@@ -97,9 +100,9 @@ namespace GameMapLevels
                     
                     try
                     {
-                        t.SetTile(dataLevel, v,L.b.terrains[d], false);
+                        t.SetTile(dataLevel, v,L.b.terrains[d], false, Color.white);
                         int q = dataLevel.At(v, true);
-                        w.SetTile(dataLevel, v,L.b.terrains[q], true);
+                        w.SetTile(dataLevel, v,L.b.terrains[q], true, Color.white);
                     }
                     catch (Exception e)
                     {
@@ -153,10 +156,10 @@ namespace GameMapLevels
             if (!GameHelper.Valid(pos.x, pos.y)) return;
             
             int tId = dataLevel.At(pos, false);
-            layers[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], false);
+            layers[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], false, Color.white);
             
             tId = dataLevel.At(pos, true);
-            layersWinter[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], true);
+            layersWinter[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], true, Color.white);
         }
         
         private IEnumerator AddBorder()
@@ -165,7 +168,7 @@ namespace GameMapLevels
 
             TileBase bTile = GameMgmt.Get().newMap.prototypeBorder;
 
-            border = CreateNewLayer("Border", 11);
+            border = CreateNewLayer("Border", dataLevel.LayerCount()+5);
             border.transform.position = new Vector3(0,0,-1);
 
             for (int x = -1; x <= GameMgmt.Get().data.map.width; x++)

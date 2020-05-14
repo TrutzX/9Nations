@@ -43,7 +43,7 @@ namespace Libraries.Inputs
             //has the action an input?
             if (!ContainsKey(action.id))
             {
-                return action.name;
+                return action.Name();
             }
 
             return this[action.id].Name();
@@ -59,7 +59,7 @@ namespace Libraries.Inputs
             //has the action an input?
             if (!ContainsKey(button.id))
             {
-                return button.name;
+                return button.Name();
             }
 
             return this[button.id].Name();

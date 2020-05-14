@@ -8,6 +8,8 @@ using Game;
 using Help;
 using Libraries;
 using Libraries.Buildings;
+using Libraries.Coats;
+using Libraries.Overlays;
 using Libraries.Res;
 using Libraries.Usages;
 using Players;
@@ -24,15 +26,17 @@ namespace Towns
     [Serializable]
     public class Town
     {
-        [SerializeField] public string name;
-        [SerializeField] public int playerId;
-        [SerializeField] public int id;
-        [SerializeField] public NVector pos;
-        [SerializeField] public int level;
+        public string name;
+        public string coat;
+        public int playerId;
+        public int id;
+        public NVector pos;
+        public int level;
 
         [SerializeField] private Dictionary<string, int> res;
         [SerializeField] public Dictionary<string, string> modi;
         [SerializeField] public string usageMess;
+        public MapOverlay overlay;
 
         /// <summary>
         /// Only for loading
@@ -46,6 +50,7 @@ namespace Towns
             this.name = name;
             this.pos = pos.Clone();
             level = 1;
+            overlay = new MapOverlay();
             
             res = new Dictionary<string, int>();
             res["worker"] = 0;
@@ -99,6 +104,7 @@ namespace Towns
 
         public Sprite GetIcon()
         {
+            //todo add color
             return SpriteHelper.Load("foundTown");
         }
 
@@ -119,6 +125,11 @@ namespace Towns
             //panel.AddSubLabel(L.b.res["inhabitant"].name,$"{}/{}",L.b.res["inhabitant"].Icon);
             ShowRes(panel);
             panel.AddModi("Town wide modifications",modi);
+        }
+
+        public Coat Coat()
+        {
+            return L.b.coats[coat];
         }
 
         public void PreNextRound()

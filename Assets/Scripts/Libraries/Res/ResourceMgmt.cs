@@ -21,6 +21,9 @@ namespace Libraries.Res
                 case "special":
                     ele.special = Bool(data);
                     break;
+                case "overlay":
+                    ele.overlay.Add(data);
+                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;

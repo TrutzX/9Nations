@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using Game;
 using Libraries.Movements;
+using Players;
 using Tools;
 using UI;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Libraries.Terrains
 {
@@ -26,10 +29,10 @@ namespace Libraries.Terrains
         
         public override void ShowLexicon(PanelBuilder panel)
         {
-            this.ShowField(panel, null);
+            this.ShowField(panel, null, null);
         }
         
-        public void ShowField(PanelBuilder panel, NVector pos)
+        public void ShowField(PanelBuilder panel, Player player, NVector pos)
         {
             base.ShowLexicon(panel);
             if (!string.IsNullOrEmpty(winter))
@@ -45,12 +48,16 @@ namespace Libraries.Terrains
             }
             if (Movement.Count == 0) panel.AddImageLabel("Not passable","no");
             panel.AddModi("Modifiers",modi);
-            
+
+            ShowRes(panel, player, pos);
+        }
+
+        public void ShowRes(PanelBuilder panel, Player player, NVector pos)
+        {
             //addHeader
-            if (pos != null && GameMgmt.Get().data.map.levels[pos.level].ResGenKey(pos.x, pos.y) != null)
+            if (pos != null && GameMgmt.Get().data.map.levels[pos.level].ResGenKey(pos.x, pos.y) != null && player != null && player.overlay.Get("res",pos)==1)
             {
-                //TODO selbst erkunden
-                panel.AddHeaderLabel("Resources");
+                panel.AddHeaderLabelT("res");
                 foreach (string key in GameMgmt.Get().data.map.levels[pos.level].ResGenKey(pos.x, pos.y))
                 {
                     if (S.Debug())
@@ -62,10 +69,12 @@ namespace Libraries.Terrains
                     }
                     panel.AddImageLabel($"{L.b.terrains.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key))}x {L.b.res[key].name}", L.b.res[key].Icon);
                 }
-                
-            } else if (Res.Count > 0)
+                return;
+            } 
+            
+            if (Res.Count > 0)
             {
-                panel.AddHeaderLabel("Included Resources");
+                panel.AddHeaderLabelT("resInclude");
                 foreach (KeyValuePair<string, string> r in Res)
                 {
                     int chanc = ResChance(r.Key);
@@ -92,6 +101,13 @@ namespace Libraries.Terrains
             return (ConvertHelper.Int(c[0]), ConvertHelper.Int(c[1]));
         }
 
+        public Tile Tile(int id, Color color)
+        {
+            var t = GameMgmt.Get().newMap.tools.GetTile(Icon.Replace("4",id.ToString()), color.ToString());
+            t.color = color;
+            return t;
+        }
+        
         public int ResChance(string res)
         {
             if (!Res.ContainsKey(res))

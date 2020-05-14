@@ -9,7 +9,9 @@ using Buildings;
 using Game;
 using GameButtons;
 using Libraries;
+using Libraries.Coats;
 using Libraries.Nations;
+using Libraries.Overlays;
 using Libraries.Rounds;
 using LoadSave;
 using Players.Infos;
@@ -26,13 +28,14 @@ namespace Players
     public class Player
     {
         public string name;
-        public string icon;
+        public string coat;
         public string nation;
         public int id;
         public int points;
         public string status;
 
         public QuestMgmt quests;
+        public MapOverlay overlay;
 
         public PlayerFog fog;
         public PlayerResearchMgmt research;
@@ -52,12 +55,11 @@ namespace Players
             
         }
         
-        //TODO add icon selection
         public Player(int id, string name, string nation)
         {
             this.id = id;
             this.name = name;
-            this.icon = "coat"+id;
+            coat = L.b.coats.Auto(id);
             this.nation = nation;
             
             features = new Dictionary<string, string>();
@@ -65,6 +67,8 @@ namespace Players
             
             research = new PlayerResearchMgmt();
             research.player = this;
+            
+            overlay = new MapOverlay();
             
             quests = new QuestMgmt();
             quests.player = this;
@@ -77,6 +81,11 @@ namespace Players
             
         }
 
+        public Coat Coat()
+        {
+            return L.b.coats[coat];
+        }
+        
         public string GetFeature(string key)
         {
             if (!features.ContainsKey(key))
@@ -95,6 +104,7 @@ namespace Players
             info.Add(new Info($"Welcome {name}, it is "+S.Round().GetRoundString(), S.Round().Icon()));
 
             fog.StartRound();
+            overlay.ViewOverlay(GetFeature("overlay"));
 
             //update buttons
             UpdateButtonMenu();
@@ -119,6 +129,8 @@ namespace Players
             {
                 b.StartPlayerRound();
             }
+            
+            
             
             //show unit
             GameMgmt.Get().unit.ShowNextAvailableUnitForPlayer();
