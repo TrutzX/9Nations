@@ -20,7 +20,7 @@ namespace Players.Kingdoms
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            foreach (BuildingInfo info in GameMgmt.Get().building.GetByPlayer(PlayerMgmt.ActPlayer().id))
+            foreach (BuildingInfo info in GameMgmt.Get().building.GetByPlayer(S.ActPlayer().id))
             {
                 if (town != null && town.id != info.data.townId)
                     continue;

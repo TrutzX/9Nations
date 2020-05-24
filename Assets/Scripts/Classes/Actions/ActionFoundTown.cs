@@ -34,8 +34,8 @@ namespace Classes.Actions
             Button button = null;
             
             InputField townName = win.panel.AddInputRandom("town name",
-                LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator), s => { },
-                () => LClass.s.NameGenerator(PlayerMgmt.ActPlayer().Nation().TownNameGenerator));
+                LClass.s.NameGenerator(S.ActPlayer().Nation().TownNameGenerator), s => { },
+                () => LClass.s.NameGenerator(S.ActPlayer().Nation().TownNameGenerator));
 
             var coats = L.b.coats.GetAllByCategory("town");
             var dropdown = win.panel.AddDropdown(coats, coats.ElementAt(S.Towns().GetAll().Length % coats.Count).id,
@@ -58,7 +58,7 @@ namespace Classes.Actions
             int tid = S.Towns().Create(townName, pos);
             S.Town(tid).coat = coat;
             OnMapUI.Get().UpdatePanel(pos);
-            PlayerMgmt.ActPlayer().UpdateButtonMenu();
+            S.ActPlayer().UpdateButtonMenu();
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)

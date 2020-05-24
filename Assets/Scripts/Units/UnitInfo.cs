@@ -57,28 +57,26 @@ namespace Units
             data.pos = pos.Clone();
         
             //has a town?
-            Town t = S.Towns().NearestTown(PlayerMgmt.Get(player), pos, false);
+            Town t = S.Towns().NearestTown(S.Player(player), pos, false);
             if (t != null)
             {
-                int buildtime = L.b.modifiers["build"].CalcModi(dataUnit.buildTime, PlayerMgmt.Get(player), pos);
+                int buildtime = L.b.modifiers[C.BuildRes].CalcModi(dataUnit.buildTime, S.Player(player), pos);
                 
                 data.townId = t.id;
-                gameObject.AddComponent<Construction>();
-                gameObject.GetComponent<Construction>().Init(data,dataUnit.cost,this,buildtime);
-                PlayerMgmt.Get(player).fog.Clear(pos);
+                gameObject.AddComponent<Construction>().Init(data,dataUnit.cost,this,buildtime);
+                S.Player(player).fog.Clear(pos);
             }
             else
             {
                 Clear(pos);
             }
         
-            NextRound();
             FinishInit();
         }
 
         private void FinishInit()
         {
-            name = dataUnit.name;
+            name = dataUnit.Name();
 
             //show it
             SetSprite(dataUnit.Icon);
@@ -99,7 +97,7 @@ namespace Units
             
             GameMgmt.Get().data.units.Remove(data);
             Init(type,data.playerId,Pos());
-            GameMgmt.Get().data.units.Add(GetComponent<UnitInfo>().data);
+            GameMgmt.Get().data.units.Add(data);
             
             CalcUpgradeCost(L.b.units[type], old);
         }
@@ -132,25 +130,25 @@ namespace Units
             int cost = GameMgmt.Get().newMap.PathFinding(Pos().level).Cost(Player(),dataUnit.movement,Pos(),pos);
             if (cost == 0)
             {
-                return S.T("unitMoveErrorPassable",land.name);
+                return S.T("unitMoveErrorPassable",land.Name());
             }
 
             //visible?
             if (!Player().fog.Visible(pos))
             {
-                return S.T("unitMoveErrorExplored",land.name);
+                return S.T("unitMoveErrorExplored",land.Name());
             }
 
             //another unit?
             if (!S.Unit().Free(pos))
             {
-                return S.T("unitMoveErrorUnit",land.name, S.Unit().At(pos).name);
+                return S.T("unitMoveErrorUnit",land.Name(), S.Unit().At(pos).name);
             }
 
             //can walk
             if (cost > data.ap)
             {
-                return S.T("unitMoveErrorAp",land.name, cost - data.ap);
+                return S.T("unitMoveErrorAp",land.Name(), cost - data.ap);
             }
 
             return null;
@@ -159,7 +157,7 @@ namespace Units
         public void MoveBy(int x, int y)
         {
             //own unit?
-            if (!Owner(PlayerMgmt.ActPlayerID()))
+            if (!Owner(S.ActPlayerID()))
             {
                 OnMapUI.Get().unitUI.ShowPanelMessageError(S.T("unitMoveErrorBelong",name, Player().name));
                 return;

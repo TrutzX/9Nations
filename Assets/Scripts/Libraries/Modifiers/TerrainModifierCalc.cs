@@ -1,13 +1,9 @@
-using System;
 using Game;
-using Libraries;
-using Libraries.Modifiers;
 using Libraries.Terrains;
 using Players;
 using Tools;
-using UnityEngine;
 
-namespace Modifiers
+namespace Libraries.Modifiers
 {
     public class TerrainModifierCalc : BaseModifierCalc
     {
@@ -15,7 +11,7 @@ namespace Modifiers
         {
             string[] d = data.Split(';');
 
-            return base.Desc(d[0]) + " on " + L.b.terrains[d[2]].name;
+            return base.Desc(d[0]) + " on " + L.b.terrains[d[2]].Name();
         }
 
         public override bool Check(string data, Player player, NVector pos)

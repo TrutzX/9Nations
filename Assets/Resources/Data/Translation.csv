@@ -1,36 +1,57 @@
 id,english,german
-english,english,englisch
-german,german,deutsch
-languageSystem,system language,Sprache des Systems
-language,language,Sprache
 languageInfo,So far only a part has been translated.,Bisher ist nur ein Teil übersetzt.
-languageSelect,select your language,wähle deine Sprache
-endless,endless game,
+german,german,deutsch
+english,english,englisch
 campaign,campaign,Kampagne
-research,research,
-lexicon,lexicon,
-quest,quest,
-debug,debug,
-nextround,next round,
-moveLevel,move level,
-options,options,
-save,save game,
 load,load game,Spiel laden
-kingdom,kingdom,
-nextUnit,Show next Unit,
-mod,mods,
-update,update available,
-endgame,end game,
-back,back,
-mainmenu,Main menu,
-more,more,
-exit,exit game,
-res,resource,
-town,town,
-overlay,overlay,
-cancel,cancel,
-close,close,
-reset,reset
+language,language,Sprache
+languageSystem,system language,Sprache des Systems
+languageSelect,select your language,wähle deine Sprache
+languageHelp,help with the translation,unterstütze bei der Übersetzung
+task,task,Aufgabe
+taskPlural,tasks,Aufgaben
+action,action,
+actionRepeatErrorDestination,Can not perform the action {0}. There is no destination in this level.,
+actionRepeatErrorMove,Can not move multiple times. {0} will be canceled.,
+actionRepeatErrorPath,Can not perform the action {0}. The path is blocked.,
+advanced,advanced options
+airfire,air > fire
+airwater,air > water
+android,android
+aqua,aqua
+armoury,armoury
+athenaeum,athenaeum
+attackBuilding,attack building
+attackUnit,attack unit
+audioMusic,Background music
+audioSound,Sounds
+autosave,Save the game after each round
+back,back
+badgood,bad > good
+badneutral,bad > neutral
+barrack,barrack
+beta,Warning
+black,black
+blue,blue
+border,Map Border
+boundary,town boundary
+brick,brick
+brickworks,brickworks
+bridge,bridge
+brown,brown
+build,build
+building,building
+buildTime,build time
+cameraMove,move camera
+cancel,cancel
+centermouse,Center map on mouse click
+charcoal,charcoal
+claim,claim
+clay,clay
+claypit,clay pit
+close,close
+coal,coal
+coat,coat
 coat0,red
 coat1,blue
 coat2,turquoise
@@ -39,78 +60,310 @@ coat4,light blue strip
 coat5,red heart
 coat6,black with yellow
 coat7,brown
-name,name
-endlessWin,How to win
-endlessWinGold,Collect 1000 Gold
-endlessLose,How to lose
-endlessLoseUnit,Lose all units
-nation,nation
-notifications,notifications
-owner,owner
-resInclude,included resources
-examine,examine the terrain
-examineRepeat,examine more terrain
-attackBuilding,attack building
-attackUnit,attack unit
-build,build
-cameraMove,move camera
+cobblestoneC,cobble stone collector
+cobblestone,cobble stone
+copper,copper
+craft,craft resources
+credits,credits
+custom,custom
+cyan,cyan
+darkblue,darkblue
+debug,debug
+debugName,{0} ({1})
+deep,deep dirt
+deepGrass,deep grass
+deepStone,deep stone
+deepUnknown,deep unknown
+deepWall,deep wall
+deepWater,deep water
 destroy,destroy it
+developElement,Develop your nation
+dirt,dirt
+dirt2,bigger dirt collector
+earth,earth
+earthfire,earth > fire
+earthwall,earth wall
+earthwater,earth > water
+ehall,earth town hall
+element,element
+elementPlural,elements
+endgame,end game
 endGameLose,lose the game
 endGameWin,win the game
-featurePlayer,feature for player
-foundTown,found your town
-gameButton,call game button
-heal,heal
-interact,interact
-move,go
-frontier,kingdom frontier
-produce,produce resources
-sleep,sleep
-terraform,terraform
-townEvolve,develop town
-trade,trade
-train,train
-upgrade,upgrade
+endless,endless game
+endlessLose,How to lose
+endlessLoseUnit,Lose all units
+endlessWin,How to win
+endlessWinGold,Collect 1000 Gold
 evolve,evolve
+examine,examine the terrain
+examineRepeat,examine more terrain
+exit,exit game
 explore,explore
-moveTo,move to point
-craft,craft resources
-actionRepeatErrorDestination,Can not perform the action {0}. There is no destination in this level.
-actionRepeatErrorPath,Can not perform the action {0}. The path is blocked.
-actionRepeatErrorMove,Can not move multiple times. {0} will be canceled.
-unitMoveErrorPassable,Can not move in {0} because it is not passable.
-unitMoveErrorExplored,Can not move. The land is not explored.
-unitMoveErrorUnit,Can not move in {0} because {1} standing their.
-unitMoveErrorAp,Can not move in {0} because you need {1} more ap.
-unitMoveErrorBelong,{0} belongs to {1}.
-red,red
-cyan,cyan
-blue,blue
-darkblue,darkblue
-lightblue,lightblue
-purple,purple
-yellow,yellow
-lime,lime
-fuchsia,fuchsia
-white,white
-silver,silver
-grey,grey
-black,black
-orange,orange
-brown,brown
-maroon,maroon
-green,green
-olive,olive
-navy,navy
-teal,teal
-aqua,aqua
-magenta,magenta
-boundary,town boundary
-frontierOwn,Needs your own frontier (Visible via overlay)
-frontierOwnHere,.{0} Here is your frontier.
+featurePlayer,feature for player
+field,field
+field6,Oasis (Two player)
+field6mono,Oasis
+fieldPlural,fields
+fightmodi,fightmodi
+fireair,fire > air
+fireearth,fire > earth
+fisher,fisher
+float,float
+floatswim,float > swim
+floatwalk,float > walk
+fly,fly
+flyswim,fly > swim
+flywalk,fly > walk
+fog,Fog of war
+food,food
+forest,forest
+forestRough,rough forest
+forestSand,sand forest
+forestSnow,winter forest
+forge,forge
+forger,forger
+foundTown,found your town
+frontier,kingdom frontier
 frontierEnemy,Needs enemy frontier (Visible via overlay)
 frontierEnemyHere,.{0} Here is a enemy frontier.
+frontierNear,Needs your own frontier near (Visible via overlay)
 frontierNone,Needs no frontier (Visible via overlay)
 frontierNoneHere,.{0} Here is no frontier.
-claim,claim
-frontierNear,Needs your own frontier near (Visible via overlay)
+frontierOwn,Needs your own frontier (Visible via overlay)
+frontierOwnHere,.{0} Here is your frontier.
+fuchsia,fuchsia
+fullscreen,Play fullscreen
+gameButton,call game button
+gamebutton,gamebutton
+gameoption,game option
+general,General
+geologist,geologist
+gold,gold
+goldignot,gold ignot
+goldore,gold ore
+goodbad,good > bad,
+goodneutral,good > neutral,
+grass,grass,
+grassDirt,dirt grass,
+grassSand,sand grass,
+grassSnow,winter grass,
+green,green,
+grey,grey,
+heal,heal,
+help,help,
+hill,hill,
+hillDirt,dirt hill,
+hillRough,rough hill,
+hillSand,sand hill,
+hillSnow,snow hill,
+house,house,
+hunter,hunter,
+ice,ice,
+iceMountain,ice mountain,
+icon,icon,
+improvement,Convert to a map improvement
+,
+inhabitant,inhabitant,
+input,input,
+interact,interact,
+invisible,Invisble,
+iron,iron ignot,
+ironore,iron ore,
+kingdom,kingdom,
+lastBuild,last builds,
+lastTrain,last train,
+lava,lava,
+lavarock,lavarock,
+lexicon,lexicon
+lexplorer,light explorer
+lhall1,village hall
+lhall2,bigger village hall
+library,library
+light,light
+lightblue,lightblue
+lime,lime
+logger,logger
+lshrine,shrine
+lwarrior,light warrior
+lworker,light worker
+magenta,magenta
+mageskill,mage > skill
+magewarrior,mage > warrior
+mainmenu,Main menu
+map,map
+mapgeneration,map generation
+market,market
+maroon,maroon
+mine,mine
+minimap,Show Minimap
+mint,mint
+mod,mods
+modFolder,Additional mod folder
+modifier,modifier
+modifierPlural,modifiers
+more,more
+mountain,mountain
+mountainDirt,dirt mountain
+mountainRough,rough mountain
+mountainSand,sand mountain
+mountainSnow,snow mountain
+move,movement cost
+moveArea,go
+moveCamera,Move the camera
+moveCameraEast,Scroll east
+moveCameraLevelDown,Scroll level down
+moveCameraLevelTop,Scroll level up
+moveCameraNorth,Scroll north
+moveCameraSouth,Scroll south
+moveCameraWest,Scroll west
+moveCost,movement cost
+moveLevel,move level
+movement,movement
+moveTo,move to point
+moveUnit,Move the units
+moveUnitEast,Move unit east
+moveUnitNorth,Move unit north
+moveUnitSouth,Move unit south
+moveUnitWest,Move unit west
+name,name
+nation,nation
+navy,navy
+neutralbad,neutral > bad
+neutralgood,neutral > good
+new,Whats new?
+nextround,next round
+nextUnit,Show next Unit
+night,Show night
+north,north
+notifications,notifications
+ocean,ocean
+olive,olive
+option,option
+options,options
+orange,orange
+overlay,overlay
+owner,owner
+pantheon,pantheon
+plain,plain
+playeroption,player option
+plural,{1} {0}
+pottery,pottery
+privacy,Privacy Policy
+produce,produce resources
+purple,purple
+quarry,quarry
+quest,quest
+red,red
+religion,religion
+res,resource
+research,research
+reset,reset
+resInclude,included resources
+resource,resource
+resourceCount,{1}x {0}
+rootplantation,root plantation
+rough,rough terrain
+round,round
+round0,spring morning
+round1,spring afternoon
+round10,winter afternoon
+round11,winter night
+round2,spring night
+round3,summer morning
+round4,summer afternoon
+round5,summer night
+round6,autumn morning
+round7,autumn afternoon
+round8,autumn night
+round9,winter morning
+roundPlural,rounds
+samplingpoint,sampling point
+sandG,sand gather
+sand,sand
+save,save game
+saveonexit,Save the game
+scenario,scenario
+sdirt,dirt collector
+separator,; 
+sexplorer,shadow explorer
+sfarm,mushroom farm
+shadow,shadow
+shadowlight,shadow > light
+shall1,village hall
+shall2,bigger village hall
+showaction,Show every action
+showLog,Show logs
+silver,silver
+single,Single Scenarios
+skillmage,skill > mage
+skillwarrior,skill > warrior
+sleep,sleep
+snow,snow
+sshrine,shrine
+stair,stair
+stone,stone
+street,street
+street2,big street
+swamp,swamp
+swarrior,shadow warrior
+swim,swim
+swimfloat,swim > float
+swimfly,swim > fly
+sworker,shadow worker
+teal,teal
+temple,earth temple
+tent,tent
+terraform,terraform
+terrain,terrain
+tool,tool
+toolPlural,tools
+toolshop,tool shop
+town,town,
+townEvolve,develop town,
+tracks,tracks,
+trade,trade,
+tradeAction,{0} for {1},
+tradeBuy,Buy resources,
+tradeBuyError,No Resources to buy found.,
+tradeSell,Sell resources ,
+tradeSellError,No Resources to sell found.,
+train,train,
+tutorial,Tutorial,
+tutorialbasic,Basics,
+uiScale,Scale the Ui,
+underground,underground,
+unit,unit,
+unitMoveErrorAp,Can not move in {0} because you need {1} more ap.,
+unitMoveErrorBelong,{0} belongs to {1}.
+unitMoveErrorExplored,Can not move. The land is not explored.
+unitMoveErrorPassable,Can not move in {0} because it is not passable.
+unitMoveErrorUnit,Can not move in {0} because {1} standing their.
+unknown,Dark Terrain
+update,update available
+updateCheck,Check for updates
+upgrade,upgrade
+usage,usage
+view,view range
+walk,walk
+walkfloat,walk > float
+walkfly,walk > fly
+warriormage,warrior > mage
+warriorskill,warrior > skill
+water,water
+waterair,water > air
+waterearth,water > earth
+waterMountain,water mountain
+way,way
+white,white
+wood,wood
+worker,worker
+yellow,yellow
+zoomCameraIn,Zoom in
+zoomCameraOut,Zoom out
+reqElement,Need the element {0}.
+reqElementPlural,Need on of the elements {0}.
+reqUpgradeField,Needs on the field the building {0}.
+reqUpgradeFieldPlural,Needs on the field on of the buildings {0}.
+reqTerrain,Need the terrain {0}.
+reqTerrainPlural,Need on of the terrains {0}.

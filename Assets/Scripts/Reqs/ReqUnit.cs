@@ -36,7 +36,7 @@ namespace reqs
 
         protected override string Name(string element, string sett)
         {
-            return L.b.units[element].name;
+            return L.b.units[element].Name();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Players.Quests
     [Serializable]
     public class Quest : BaseData
     {
+        public string name;
         [SerializeField] private ReqHolder reqs;
         [SerializeField] private ActionHolders actions;
 

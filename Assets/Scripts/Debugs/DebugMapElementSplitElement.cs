@@ -24,7 +24,7 @@ namespace GameButtons
             panel.AddHeaderLabel("AP");
             panel.AddInput("AP", mapElementInfo.data.ap, (s => { mapElementInfo.data.ap = s; }));
             panel.AddButton("Set Finish", mapElementInfo.FinishConstruct);
-            
+
             //display all actions
             foreach (var act in mapElementInfo.data.action.actions)
             {

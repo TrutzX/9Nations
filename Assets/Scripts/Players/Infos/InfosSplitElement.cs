@@ -17,7 +17,7 @@ namespace Players.Infos
         {
             int lastRound = -1;
             //show all
-            foreach (Info key in PlayerMgmt.ActPlayer().info.infos)
+            foreach (Info key in S.ActPlayer().info.infos)
             {
                 //new round?
                 if (key.round != lastRound)

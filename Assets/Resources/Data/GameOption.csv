@@ -1,3 +1,5 @@
-id,name,category,standard,type
-research,Enable Research,general,true,bool
-fog,Fog of war,general,true,bool
+id,category,standard,type,req,req
+research,general,true,bool,,
+fog,general,true,bool,,
+buildTime,general;modi,0,scale=0;500,option=advanced:true,disabled
+produce,general;modi,0,scale=0;500,option=advanced:true,disabled

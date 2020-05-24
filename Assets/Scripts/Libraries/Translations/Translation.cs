@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UI;
 using UnityEngine;
 
 namespace Libraries.Translations
@@ -22,6 +23,7 @@ namespace Libraries.Translations
         
         public string Value(string lang)
         {
+
             if (trans.ContainsKey(lang))
             {
                 return trans[lang];
@@ -35,6 +37,16 @@ namespace Libraries.Translations
 
             Debug.LogWarning($"Can not find any translation {id} for {lang}");
             return id;
+        }
+
+        public override void ShowLexicon(PanelBuilder panel)
+        {
+            base.ShowLexicon(panel);
+            foreach (var k in trans)
+            {
+                panel.AddHeaderLabel(k.Key);
+                panel.AddLabel(k.Value);
+            }
         }
     }
 }

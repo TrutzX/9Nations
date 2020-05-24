@@ -1,7 +1,6 @@
 using Debugs;
 using Game;
 using GameButtons;
-using Help;
 using Libraries;
 using LoadSave;
 using Options;
@@ -21,21 +20,11 @@ namespace Classes.GameButtons
         {
             //create it
             WindowPanelBuilder win = WindowPanelBuilder.Create("Main menu");
-            L.b.gameButtons.BuildMenu(PlayerMgmt.ActPlayer(), "game", null, true, win.panel.panel.transform);
+            L.b.gameButtons.BuildMenu(S.ActPlayer(), "game", null, true, win.panel.panel.transform);
             win.Finish();
         }
     }
 
-    public class LexiconGameButtonRun : BaseGameButtonRun
-    {
-        public LexiconGameButtonRun() : base ("lexicon") { }
-
-        protected override void Run(Player player)
-        {
-            HelpHelper.ShowLexicon();
-        }
-    }
-    
     public class QuestGameButtonRun : BaseGameButtonRun
     {
         public QuestGameButtonRun() : base ("quest") { }

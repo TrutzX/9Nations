@@ -46,7 +46,7 @@ namespace Buildings
             foreach (var act in active.data.action.Is(ActionEvent.Direct))
             {
                 BasePerformAction ba = act.PerformAction();
-                if (act.req.Check(PlayerMgmt.ActPlayer(),active,active.Pos(), true))
+                if (act.req.Check(S.ActPlayer(),active,active.Pos(), true))
                     AddNewActionButton(active.data.action, act, active, actions);
             }
         }

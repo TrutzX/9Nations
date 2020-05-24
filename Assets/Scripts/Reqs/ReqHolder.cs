@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Buildings;
+using Game;
 using Players;
 using Tools;
 using UI;
@@ -25,7 +26,7 @@ namespace reqs
         
         public bool Check(MapElementInfo onMap, NVector pos)
         {
-            return Check(PlayerMgmt.ActPlayer(), onMap, pos);
+            return Check(S.ActPlayer(), onMap, pos);
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace reqs
 
         public string Desc(MapElementInfo onMap, NVector pos)
         {
-            return Desc(PlayerMgmt.ActPlayer(), onMap, pos);
+            return Desc(S.ActPlayer(), onMap, pos);
         }
 
         /// <summary>
@@ -194,7 +195,7 @@ namespace reqs
                 foreach (var req in reqs)
                 {
                     BaseReq r = OLib.GetReq(req[0]);
-                    panel.AddImageLabel(r.Desc(PlayerMgmt.ActPlayer(),onMap, req[1], pos), r.Check(PlayerMgmt.ActPlayer(), onMap, req[1], pos));
+                    panel.AddImageLabel(r.Desc(S.ActPlayer(),onMap, req[1], pos), r.Check(S.ActPlayer(), onMap, req[1], pos));
                 }
             }
             catch (Exception e)

@@ -1,6 +1,7 @@
 using System;
 using Classes;
 using Classes.Actions;
+using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
@@ -64,7 +65,7 @@ namespace Players.Infos
 
         public void CallAction()
         {
-            action.Perform(ActionEvent.Direct, PlayerMgmt.ActPlayer());
+            action.Perform(ActionEvent.Direct, S.ActPlayer());
         }
         
         public void AddToPanel(PanelBuilder panel)

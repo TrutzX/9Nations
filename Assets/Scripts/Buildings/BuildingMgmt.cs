@@ -76,6 +76,7 @@ namespace Buildings
         
             BuildingInfo bi = Instantiate(buildPrefab, GameMgmt.Get().newMap.levels[pos.level].buildings.transform);
             bi.Init(town,type,pos);
+            bi.NextRound();
             GameMgmt.Get().data.buildings.Add(bi.data);
             buildings.Add(bi);
             return bi;
@@ -87,7 +88,7 @@ namespace Buildings
             if (!L.b.buildings.ContainsKey(data.type))
             {
                 Debug.LogError($"Building {data.type} ({data.pos}) not exist");
-                PlayerMgmt.Get(data.playerId).info.Add(new Info($"Building {data.type} ({data.pos}) not exist","no"));
+                S.Player(data.playerId).info.Add(new Info($"Building {data.type} ({data.pos}) not exist","no"));
                 return null;
             }
         

@@ -30,7 +30,7 @@ namespace Classes.Actions
             }
             
             //load buildings
-            WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc,holder.DataAction().name);
+            WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc,holder.DataAction().Name());
 
             {
                 foreach (string key in keys)

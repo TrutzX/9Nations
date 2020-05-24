@@ -1,3 +1,5 @@
+using Game;
+using Libraries;
 using Libraries.Rounds;
 using Players.Infos;
 using UI;
@@ -18,10 +20,11 @@ namespace Players
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            panel.AddHeaderLabel("General");
+            panel.AddHeaderLabelT("general");
             panel.AddSubLabel("Name",_player.name);
-            panel.AddSubLabel("Nation",_player.Nation().name);
+            panel.AddSubLabel(L.b.nations.Name(),_player.Nation().Name());
             panel.AddSubLabel("Points",_player.points.ToString());
+            panel.AddModi(S.Game().data.modi);
 
         }
 

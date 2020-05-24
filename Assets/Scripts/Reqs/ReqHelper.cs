@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Buildings;
-
+using Game;
 using Players;
 using Tools;
 using UnityEngine;
@@ -13,7 +13,7 @@ namespace reqs
     {
         public static bool Check(Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
-            return Check(PlayerMgmt.ActPlayer(), reqs, onMap, pos);
+            return Check(S.ActPlayer(), reqs, onMap, pos);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace reqs
 
         public static string Desc(Dictionary<string, string> reqs, MapElementInfo onMap, NVector pos)
         {
-            return Desc(PlayerMgmt.ActPlayer(), reqs, onMap, pos);
+            return Desc(S.ActPlayer(), reqs, onMap, pos);
         }
 
         /// <summary>

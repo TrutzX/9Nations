@@ -1,3 +1,4 @@
+using Game;
 using UI;
 using UI.Show;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Players.Quests
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            quest.ShowInfo(panel, PlayerMgmt.ActPlayer());
+            quest.ShowInfo(panel, S.ActPlayer());
         }
 
         public override void Perform()

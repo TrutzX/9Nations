@@ -23,14 +23,14 @@ namespace reqs
             {
                 foreach (var pos in CircleGenerator.Gen(bra.pos, 1))
                 {
-                    Debug.Log(pos+" "+S.Player().OverlayHighest("frontier", pos));
-                    if (S.Player().OverlayHighest("frontier", pos) == bra.player)
+                    Debug.Log(pos+" "+S.Players().OverlayHighest("frontier", pos));
+                    if (S.Players().OverlayHighest("frontier", pos) == bra.player)
                         return true;
                 }
                 return false;
             }
             
-            var p = S.Player().OverlayHighest("frontier", bra.pos);
+            var p = S.Players().OverlayHighest("frontier", bra.pos);
 
             switch (bra.sett)
             {
@@ -56,7 +56,7 @@ namespace reqs
             
             if (bra.NeedMap())
             {
-                var p = S.Player().OverlayHighest("frontier", bra.pos);
+                var p = S.Players().OverlayHighest("frontier", bra.pos);
                 if (p == bra.player)
                     mess = S.T("frontierOwnHere",mess);
                 else if (p != null && p != bra.player)

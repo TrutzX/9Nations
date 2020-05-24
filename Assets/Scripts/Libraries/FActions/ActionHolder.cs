@@ -51,7 +51,7 @@ namespace Libraries.FActions
             //has ap?
             if (cost > info.data.ap)
             {
-                return (false, $"Action {action.name} need {cost - info.data.ap} AP more. Please wait a round to refill your AP.");
+                return (false, $"Action {action.Name()} need {cost - info.data.ap} AP more. Please wait a round to refill your AP.");
             }
 
             //check pref

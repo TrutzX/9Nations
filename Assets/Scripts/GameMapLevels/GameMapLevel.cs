@@ -153,7 +153,7 @@ namespace GameMapLevels
 
         private void UpdateTile(Vector3Int pos)
         {
-            if (!GameHelper.Valid(pos.x, pos.y)) return;
+            if (!S.Valid(pos.x, pos.y)) return;
             
             int tId = dataLevel.At(pos, false);
             layers[pos.z].SetTile(dataLevel, pos, tId==-1?null:L.b.terrains[tId], false, Color.white);

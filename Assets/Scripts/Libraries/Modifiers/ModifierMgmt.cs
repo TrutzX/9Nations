@@ -1,22 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Game;
-using Libraries;
-using Libraries.Modifiers;
-using Players;
-using UnityEngine;
 
-namespace Modifiers
+namespace Libraries.Modifiers
 {
     [Serializable]
     public class ModifierMgmt : BaseMgmt<Modifier>
     {
-        public Dictionary<string, BaseModifierCalc> Classes;
+        public Dictionary<string, BaseModifierCalc> classes;
         public ModifierMgmt() : base("modifier")
         {
-            Classes = new Dictionary<string, BaseModifierCalc>();
-            Classes.Add("base",new BaseModifierCalc());
-            Classes.Add("t",new TerrainModifierCalc());
+            classes = new Dictionary<string, BaseModifierCalc>();
+            classes.Add("base",new BaseModifierCalc());
+            classes.Add("t",new TerrainModifierCalc());
         }
     }
 }

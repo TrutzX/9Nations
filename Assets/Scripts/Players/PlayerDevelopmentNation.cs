@@ -83,7 +83,7 @@ namespace Players
         public void Develop(string element)
         {
             elements.Add(element);
-            player.info.Add(new Info($"Your nation develop the {L.b.elements[element].name}.",L.b.elements[element].Icon));
+            player.info.Add(new Info($"Your nation develop the {L.b.elements[element].Name()}.",L.b.elements[element].Icon));
             
             if (LClass.s.elementRuns.ContainsKey(element))
                 LClass.s.elementRuns[element].Develop(player);

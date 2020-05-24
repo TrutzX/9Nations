@@ -85,19 +85,24 @@ namespace UI
             {
                 return;
             }
+
+            if (desc.StartsWith("@F@"))
+            {
+                desc = Resources.Load<TextAsset>(desc.Substring(3)).text;
+            }
         
-            string[] lines = desc.Split(new string[]{";;"}, StringSplitOptions.RemoveEmptyEntries);
+            string[] lines = desc.Split(new string[]{";;",Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
             foreach (string line in lines)
             {
+                if (line.StartsWith("# "))
+                {
+                    AddHeaderLabel(line.Substring(2));
+                    continue;
+                }
+                
                 if (!line.StartsWith("@"))
                 {
                     AddLabel(line);
-                    continue;
-                }
-
-                if (line.StartsWith("@H@"))
-                {
-                    AddHeaderLabel(line.Substring(3));
                     continue;
                 }
 
@@ -187,26 +192,21 @@ namespace UI
             //add ress
             foreach (KeyValuePair<string, int> r in res)
             {
-                AddRes(r.Key, r.Value);
+                L.b.res[r.Key].AddImageLabel(this, r.Value);
             }
         }
     
-        public void AddRes(string res, object value)
-        {
-            AddImageLabel($"{value}x {L.b.res[res].name}", L.b.res[res].Icon);
-        }
-    
-        public void AddModi(string title, Dictionary<string, string> modi)
+        public void AddModi(Dictionary<string, string> modi)
         {
             //addHeader
             if (modi.Count > 0)
-                AddHeaderLabel(title);
+                AddHeaderLabel(S.T(L.b.modifiers.Id(),modi.Count));
         
             //add ress
             foreach (KeyValuePair<string, string> p in modi)
             {
                 Modifier m = L.b.modifiers[p.Key];
-                AddImageLabel($"{m.name}: {m.Classes(p.Value).Desc(p.Value)}", m.Sprite());
+                AddImageLabel($"{m.Name()}: {m.Classes(p.Value).Desc(p.Value)}", m.Sprite());
             }
         }
     
@@ -248,7 +248,14 @@ namespace UI
             slider.minValue = min;
             slider.value = def;
             slider.maxValue = max;
-            slider.onValueChanged.AddListener((val) => { save((int)val); });
+            slider.onValueChanged.AddListener((val) =>
+            {
+                save((int)val);
+                if (S.Advanced())
+                    slider.gameObject.GetComponentInChildren<Text>().text = ((int) val).ToString();
+            });
+            if (S.Advanced())
+                slider.gameObject.GetComponentInChildren<Text>().text = def.ToString();
             return slider;
         }
     
@@ -318,7 +325,7 @@ namespace UI
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 BaseReq r = OLib.GetReq(req.Key);
-                AddImageLabel(r.Desc(null, req.Value), r.Check(PlayerMgmt.ActPlayer(), req.Value) ? "ui:yes" : "ui:no");
+                AddImageLabel(r.Desc(null, req.Value), r.Check(S.ActPlayer(), req.Value) ? "ui:yes" : "ui:no");
             }
         }
 
@@ -332,7 +339,7 @@ namespace UI
             foreach (KeyValuePair<string, string> req in reqs)
             {
                 BaseReq r = OLib.GetReq(req.Key);
-                AddImageLabel(r.Desc(PlayerMgmt.ActPlayer(),onMap, req.Value, pos), r.Check(PlayerMgmt.ActPlayer(), onMap, req.Value, pos) ? "ui:yes" : "ui:no");
+                AddImageLabel(r.Desc(S.ActPlayer(),onMap, req.Value, pos), r.Check(S.ActPlayer(), onMap, req.Value, pos) ? "ui:yes" : "ui:no");
             }
         }
 

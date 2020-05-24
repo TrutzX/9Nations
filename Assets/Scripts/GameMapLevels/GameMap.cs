@@ -94,7 +94,7 @@ namespace GameMapLevels
                 gmdl.FinishBuild();
             }
         
-            Debug.Log($"Load Map {map.name} ({gmap.levels.Count}:{gmap.width}/{gmap.height})");
+            Debug.Log($"Load Map {map.Name()} ({gmap.levels.Count}:{gmap.width}/{gmap.height})");
             
             yield return CreateLayers();
         }

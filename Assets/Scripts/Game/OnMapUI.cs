@@ -49,7 +49,7 @@ namespace Game
                 SetActiveAction(null,false);
 
             //can view?
-            if (S.Fog() && !PlayerMgmt.ActPlayer().fog.Visible(pos))
+            if (S.Fog() && !S.ActPlayer().fog.Visible(pos))
             {
                 unitUI.UpdatePanel(null);
                 buildingUI.UpdatePanel(null);

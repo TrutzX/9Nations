@@ -36,7 +36,7 @@ namespace reqs
 
         public override string Desc(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
-            return Desc(player, sett)+$" Here is {GameMgmt.Get().newMap.Terrain(pos).name}";
+            return Desc(player, sett)+$" Here is {GameMgmt.Get().newMap.Terrain(pos).Name()}";
         }
 
         public override string Desc(Player player, string sett)

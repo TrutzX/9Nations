@@ -83,7 +83,7 @@ namespace Classes
             Add(CreateInstance<ActionGameButton>());
             Add(CreateInstance<ActionGameLose>());
             Add(CreateInstance<ActionGameWin>());
-            Add(CreateInstance<ActionMove>());
+            Add(CreateInstance<ActionMoveArea>());
             Add(CreateInstance<ActionMoveLevel>());
             Add(CreateInstance<ActionMoveTo>());
             Add(CreateInstance<ActionProduce>());
@@ -94,6 +94,7 @@ namespace Classes
             Add(CreateInstance<ActionTrain>());
             Add(CreateInstance<ActionUpgrade>());
             Add(CreateInstance<ActionClaim>());
+            Add(CreateInstance<ActionImprovement>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());

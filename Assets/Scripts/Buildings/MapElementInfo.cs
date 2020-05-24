@@ -24,6 +24,7 @@ namespace Buildings
 {
     public abstract class MapElementInfo : MonoBehaviour
     {
+        
         public BuildingUnitData data; //save data
         public BaseDataBuildingUnit baseData;
         
@@ -39,7 +40,7 @@ namespace Buildings
             return data.townId==-1?null:S.Towns().Get(data.townId);
         }
 
-        public Player Player() => PlayerMgmt.Get(data.playerId);
+        public Player Player() => S.Player(data.playerId);
 
         /// <summary>
         /// Check if the player id is the owner
@@ -76,7 +77,7 @@ namespace Buildings
             {
                 ActionHolder a = data.action.actions[data.actionWaitingActionPos];
                 FDataAction da = a.DataAction();
-                text += $"Prepare {da.name}";
+                text += $"Prepare {da.Name()}";
 
                 if (data.ActionWaitingAp != -1)
                     text += $" ({TextHelper.Proc(data.ActionWaitingAp, da.cost)}).";
@@ -237,7 +238,7 @@ namespace Buildings
             ActionHolder a = data.action.actions[data.actionWaitingActionPos];
             string erg = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
             if (!string.IsNullOrEmpty(erg))
-                SetLastInfo($"Performs {a.DataAction().name}. {erg}");
+                SetLastInfo($"Performs {a.DataAction().Name()}. {erg}");
         }
 
         public void StartPlayerRound()
@@ -253,7 +254,7 @@ namespace Buildings
             {
                 string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
                 if (!string.IsNullOrEmpty(erg2))
-                    SetLastInfo($"Performs {da.name}. {erg2}");
+                    SetLastInfo($"Performs {da.Name()}. {erg2}");
                 return;
             }
 
@@ -270,7 +271,7 @@ namespace Buildings
             data.ap += data.ActionWaitingAp;
             string erg = data.action.Perform(a, ActionEvent.Direct, Player(), this, data.actionWaitingPos);
             data.ap = da.cost - data.ActionWaitingAp;
-            SetLastInfo($"Performs {da.name}. {erg}");
+            SetLastInfo($"Performs {da.Name()}. {erg}");
         }
 
         protected void CalcUpgradeCost(BaseDataBuildingUnit build, BaseDataBuildingUnit old)
@@ -291,12 +292,6 @@ namespace Buildings
                 {
                     data.construction.Remove(cost.Key);
                 }
-            }
-
-            //TODO dyn add buildtime?
-            if (!data.construction.ContainsKey("buildtime"))
-            {
-                data.construction["buildtime"] = 1;
             }
         }
     }

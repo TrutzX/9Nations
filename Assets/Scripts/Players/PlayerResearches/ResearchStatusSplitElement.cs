@@ -24,7 +24,7 @@ namespace Players.PlayerResearches
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            PlayerResearchMgmt mgmt = PlayerMgmt.ActPlayer().research;
+            PlayerResearchMgmt mgmt = S.ActPlayer().research;
 
             if (mgmt.lastInfo != null)
             {
@@ -41,7 +41,7 @@ namespace Players.PlayerResearches
                 foreach (string e in mgmt.actual)
                 {
                     Element el = L.b.elements[e];
-                    panel.AddImageLabel(el.name, el.Icon);
+                    panel.AddImageLabel(el.Name(), el.Icon);
                 }
                     
             }
@@ -49,10 +49,10 @@ namespace Players.PlayerResearches
             elements = new List<string>();
                 
             panel.AddHeaderLabel("New Research area");
-            foreach (string en in PlayerMgmt.ActPlayer().elements.elements)
+            foreach (string en in S.ActPlayer().elements.elements)
             {
                 Element e = L.b.elements[en];
-                panel.AddImageTextButton($"Add {e.name}", e.Sprite(), (() =>
+                panel.AddImageTextButton($"Add {e.Name()}", e.Sprite(), (() =>
                 {
                     elements.Add(e.id);
                     UpdateDesc();
@@ -67,8 +67,8 @@ namespace Players.PlayerResearches
 
             if (S.Debug())
             {
-                panel.AddLabel($"Act cost: {PlayerMgmt.ActPlayer().research.cost}");
-                panel.AddLabel($"Act possible: {String.Join(",",PlayerMgmt.ActPlayer().research.AvailableResearch())}");
+                panel.AddLabel($"Act cost: {S.ActPlayer().research.cost}");
+                panel.AddLabel($"Act possible: {String.Join(",",S.ActPlayer().research.AvailableResearch())}");
             }
         }
 

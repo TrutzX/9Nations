@@ -53,8 +53,8 @@ namespace Towns
             overlay = new MapOverlay();
             
             res = new Dictionary<string, int>();
-            res["worker"] = 0;
-            res["inhabitant"] = 0;
+            res[C.Worker] = 0;
+            res[C.Inhabitant] = 0;
             modi = new Dictionary<string, string>();
             modi["produce"] = "125%";
         }
@@ -85,12 +85,12 @@ namespace Towns
             return res.ContainsKey(id)?res[id]:0;
         }
 
-        public void Evolve(int level)
+        public void Evolve(int l)
         {
-            this.level += level;
+            this.level += l;
             
             //inform
-            Player().info.Add(new Info($"Develop {name} to {GetTownLevelName()}","foundtown"));
+            Player().info.Add(new Info($"Develop {name} to {GetTownLevelName()}","foundTown"));
         }
         
         public string GetTownLevelName()
@@ -121,10 +121,10 @@ namespace Towns
                 () => LClass.s.NameGenerator(Player().Nation().TownNameGenerator));
 
             panel.AddLabel(GetTownLevelName());
-            panel.AddRes("inhabitant",$"{GetRes("inhabitant")}/{MaxInhabitantsAndWorker().maxInhabitants}");
+            L.b.res[C.Inhabitant].AddImageLabel(panel, $"{GetRes("inhabitant")}/{MaxInhabitantsAndWorker().maxInhabitants}");
             //panel.AddSubLabel(L.b.res["inhabitant"].name,$"{}/{}",L.b.res["inhabitant"].Icon);
             ShowRes(panel);
-            panel.AddModi("Town wide modifications",modi);
+            panel.AddModi(modi);
         }
 
         public Coat Coat()
@@ -218,7 +218,7 @@ namespace Towns
                     AddRes(usage.id, GetRes(usage.id), ResType.Consum);
                     Resource r = L.b.res[usage.id];
                     usageMess =
-                        $"The inhabitants from {GetTownLevelName()} {name} needs {amount} more {r.name}. Productivity drops to {prod:P2}.";
+                        $"The inhabitants from {GetTownLevelName()} {name} needs {amount} more {r.Name()}. Productivity drops to {prod:P2}.";
                     Player().info.Add(new Info(usageMess, r.Icon));
                 }
                 else
@@ -238,19 +238,20 @@ namespace Towns
 
             foreach (var r in res)
             {
-                if (!L.b.res[r.Key].special)
-                    panel.AddRes(r.Key,r.Value.ToString());
+                var res = L.b.res[r.Key];
+                if (!res.special)
+                    res.AddImageLabel(panel, r.Value);
             }
         }
 
         public Player Player()
         {
-            return PlayerMgmt.Get(playerId);
+            return S.Player(playerId);
         }
 
         public bool ActPlayerIsOwner()
         {
-            return playerId == PlayerMgmt.ActPlayerID();
+            return playerId == S.ActPlayerID();
         }
         
         public void ShowDetails()

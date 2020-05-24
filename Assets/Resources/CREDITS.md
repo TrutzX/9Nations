@@ -1,11 +1,10 @@
-
-#General
+# General
 * Background image by yd from opengameart.org/content/aleonas-tales-some-ui
 * Logo by DJ Viandox from fixicon.com
 * UI from opengameart.org/content/arkana-fts-gui
 * Units from finalbossblues.itch.io
 
-#Buildings and Terrains
+# Buildings and Terrains
 * by Avery from forums.rpgmakerweb.com/index.php?threads/averys-ace-stuff.26173
 * by Nekura from forums.rpgmakerweb.com/index.php?threads/nekura.38957
 * by Champion Of Darkness from forums.rpgmakerweb.com/index.php?threads/c.44668
@@ -26,7 +25,7 @@
 * by XxJapoZeroxX from rpgtileset.com/tileset/fantasy-world-tileset-for-rpg-maker-mv
 * by Meph from bay12forums.com/smf/index.php?topic=161047.0
 
-#Icons
+# Icons
 * by Avy from forums.rpgmakerweb.com/index.php?threads/avys-icon-workshop-back-to-buisness.21623
 * by Shikashi from shikashiassets.itch.io/shikashis-fantasy-icons-pack
 * by Gamejolt from gamejolt.com/about
@@ -36,16 +35,16 @@
 * by Yusuke Kamiyamane from p.yusukekamiyamane.com
 * by Charles Gabriel from opengameart.org/content/world-flag-icons
 
-#Sound
+# Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack
 * by Kenney from kenney.nl/assets/
 * by spuispuin from opengameart.org/content/won-orchestral-winning-jingle
 * by qubodup from opengameart.org/content/3-background-crash-explosion-bang-sounds
 
-#Music
+# Music
 * by tob from RTP-Tunes
 
-#Using Source Code
+# Using Source Code
 * Unity Engine by Unity from unity.com
 * 2D Extras by Unity from github.com/Unity-Technologies/2d-extras
 * Easy Save by Moodkie from assetstore.unity.com/packages/tools/input-management/easy-save-the-complete-save-load-asset-768

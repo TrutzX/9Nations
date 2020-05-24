@@ -1,3 +1,4 @@
+using Game;
 using Players;
 using Tools;
 using UI;
@@ -11,7 +12,7 @@ namespace Libraries.Terrains
         private readonly DataTerrain _data;
         private readonly NVector _pos;
         
-        public TerrainSplitElement(DataTerrain data, NVector pos) : base(data.name, data.Sprite())
+        public TerrainSplitElement(DataTerrain data, NVector pos) : base(data.Name(), data.Sprite())
         {
             _data = data;
             _pos = pos;
@@ -19,7 +20,7 @@ namespace Libraries.Terrains
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _data.ShowField(panel, PlayerMgmt.ActPlayer(), _pos);
+            _data.ShowField(panel, S.ActPlayer(), _pos);
         }
 
         public override void Perform()

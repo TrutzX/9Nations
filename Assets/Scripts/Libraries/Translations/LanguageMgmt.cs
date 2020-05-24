@@ -6,7 +6,10 @@ namespace Libraries.Translations
     [Serializable]
     public class LanguageMgmt : BaseMgmt<Language>
     {
-        public LanguageMgmt() : base("language") { }
+        public LanguageMgmt() : base("language")
+        {
+            
+        }
         
         protected override void ParseElement(Language ele, string header, string data)
         {

@@ -1,70 +1,133 @@
 fileFormatVersion: 2
-guid: e4e8a6e2d0be6440db857f320d75b380
+guid: d6f97b7d3d9084062a78955405f7c675
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3982473906545191100
-    second: mountain_dirt_2
+      213: 4011589908266295675
+    second: mountain_sand_2
   - first:
-      213: 242733200974453191
-    second: mountain_dirt_3
+      213: 8628441278645483595
+    second: mountain_sand_3
   - first:
-      213: 7272231580930381940
-    second: mountain_dirt_4
+      213: -5851469882358122998
+    second: mountain_sand_4
   - first:
-      213: 3720527207724225245
-    second: mountain_dirt_6
+      213: 753293249087727235
+    second: mountain_sand_6
   - first:
-      213: 8719644052484931961
-    second: mountain_dirt_7
+      213: -4344933205578993220
+    second: mountain_sand_7
   - first:
-      213: -5497088771547279425
-    second: mountain_dirt_8
+      213: -5059121830487997164
+    second: mountain_sand_8
   - first:
-      213: 7044641949086771017
-    second: mountain_dirt_9
+      213: 4792801954682368319
+    second: mountain_sand_9
   - first:
-      213: 4479412555387855287
-    second: mountain_dirt_10
+      213: 7756426976245147808
+    second: mountain_sand_10
   - first:
-      213: -452519513414280620
-    second: mountain_dirt_11
+      213: 1041461494274167661
+    second: mountain_sand_11
   - first:
-      213: 3251797056717811053
-    second: mountain_dirt_12
+      213: -2954584779071898333
+    second: mountain_sand_12
   - first:
-      213: -7706480412054301106
-    second: mountain_dirt_13
+      213: 7622159724912272031
+    second: mountain_sand_13
   - first:
-      213: 723219477062570982
-    second: mountain_dirt_14
+      213: 1523235222055238489
+    second: mountain_sand_14
   - first:
-      213: 8745083987145614709
-    second: mountain_dirt_15
+      213: -6184051074209256161
+    second: mountain_sand_15
   - first:
-      213: 6803805673414169613
-    second: mountain_dirt_16
+      213: -4508021823820842281
+    second: mountain_sand_16
   - first:
-      213: 1845056383434842608
-    second: mountain_dirt_17
+      213: 999463896325814876
+    second: mountain_sand_17
   - first:
-      213: 6247978693808536870
-    second: mountain_dirt_18
+      213: -7757261358097503287
+    second: mountain_sand_18
   - first:
-      213: 5873718367678365273
-    second: mountain_dirt_19
+      213: 7220425814612278063
+    second: mountain_sand_19
   - first:
-      213: -8454445431598485754
-    second: mountain_dirt_20
+      213: -2407684560684307150
+    second: mountain_sand_20
   - first:
-      213: -4754732389025633453
-    second: mountain_dirt_21
+      213: -5527264702120185932
+    second: mountain_sand_21
   - first:
-      213: 495083324143315747
-    second: mountain_dirt_22
+      213: 3535684879322237261
+    second: mountain_sand_22
   - first:
-      213: 2047474194236497895
-    second: mountain_dirt_23
+      213: -7465365315965996375
+    second: mountain_sand_23
+  - first:
+      213: -2688515625264733438
+    second: mountainSand_2
+  - first:
+      213: -7085398396055610766
+    second: mountainSand_3
+  - first:
+      213: 5941480463915598856
+    second: mountainSand_4
+  - first:
+      213: 3720279174508912888
+    second: mountainSand_6
+  - first:
+      213: -1832869060638798544
+    second: mountainSand_7
+  - first:
+      213: -6416205628673496012
+    second: mountainSand_8
+  - first:
+      213: -5567219339852387758
+    second: mountainSand_9
+  - first:
+      213: -7545360149676385852
+    second: mountainSand_10
+  - first:
+      213: -7227893154481213329
+    second: mountainSand_11
+  - first:
+      213: 4695667970264010408
+    second: mountainSand_12
+  - first:
+      213: 4866121972834201523
+    second: mountainSand_13
+  - first:
+      213: -1127235425697795164
+    second: mountainSand_14
+  - first:
+      213: 618106838552375703
+    second: mountainSand_15
+  - first:
+      213: 9126826138730125999
+    second: mountainSand_16
+  - first:
+      213: -6834852501497726609
+    second: mountainSand_17
+  - first:
+      213: -5269050250868822718
+    second: mountainSand_18
+  - first:
+      213: -9100702797942287892
+    second: mountainSand_19
+  - first:
+      213: 3959479908366998396
+    second: mountainSand_20
+  - first:
+      213: 6693918277573952081
+    second: mountainSand_21
+  - first:
+      213: -863534180156066969
+    second: mountainSand_22
+  - first:
+      213: 7813751787351322555
+    second: mountainSand_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,7 +224,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mountain_dirt_2
+      name: mountainSand_2
       rect:
         serializedVersion: 2
         x: 32
@@ -175,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab810125220004c86a8a529c89a37bbb
-      internalID: 3982473906545191100
+      spriteID: 93c7884661c564675a832820b25b2eb5
+      internalID: -2688515625264733438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_3
+      name: mountainSand_3
       rect:
         serializedVersion: 2
         x: 48
@@ -196,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae25663c696c46bc81094ecd596ff16
-      internalID: 242733200974453191
+      spriteID: 0b8083a87d0b14b839928767e189b373
+      internalID: -7085398396055610766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_4
+      name: mountainSand_4
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82159fbb4890345949f149f7d64a01b9
-      internalID: 7272231580930381940
+      spriteID: 34fe7cd82160d4616ab3a228b4c9768f
+      internalID: 5941480463915598856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_6
+      name: mountainSand_6
       rect:
         serializedVersion: 2
         x: 32
@@ -238,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d64dc32b1690544e7a7a33605701c6de
-      internalID: 3720527207724225245
+      spriteID: d096830be5655499f8190d3824667b57
+      internalID: 3720279174508912888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_7
+      name: mountainSand_7
       rect:
         serializedVersion: 2
         x: 48
@@ -259,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e75cd424c6d264c4ab85326f74b535ee
-      internalID: 8719644052484931961
+      spriteID: 15af6df3f1e604d99a269382025e49bb
+      internalID: -1832869060638798544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_8
+      name: mountainSand_8
       rect:
         serializedVersion: 2
         x: 0
@@ -280,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10cf070d2d4e14c45934cd09dd8221ad
-      internalID: -5497088771547279425
+      spriteID: cdcad6294fc8f43dea7c0e7f8340d990
+      internalID: -6416205628673496012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_9
+      name: mountainSand_9
       rect:
         serializedVersion: 2
         x: 16
@@ -301,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2791a34ac94044b9bb2d1de2e77366e
-      internalID: 7044641949086771017
+      spriteID: 92428719b59fc4d128abe155dbc927c5
+      internalID: -5567219339852387758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_10
+      name: mountainSand_10
       rect:
         serializedVersion: 2
         x: 32
@@ -322,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c192766560b1d4ba69cf1011ee00cf96
-      internalID: 4479412555387855287
+      spriteID: 31352e93e8c384f609b61f59117decf6
+      internalID: -7545360149676385852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_11
+      name: mountainSand_11
       rect:
         serializedVersion: 2
         x: 48
@@ -343,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec4b03a714e2414d86450ab7efca520
-      internalID: -452519513414280620
+      spriteID: 34345d13a11f54e80b035bb75ac6176b
+      internalID: -7227893154481213329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_12
+      name: mountainSand_12
       rect:
         serializedVersion: 2
         x: 0
@@ -364,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f79c25df3cebd48cbb25cf786c517bc9
-      internalID: 3251797056717811053
+      spriteID: 6da16d2dc2ac24dcfb7b5c56bc69c8d6
+      internalID: 4695667970264010408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_13
+      name: mountainSand_13
       rect:
         serializedVersion: 2
         x: 16
@@ -385,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a8b47562e254659a8297b0c9845a0b
-      internalID: -7706480412054301106
+      spriteID: f6519b8c8440f456b964c8b909d37ed3
+      internalID: 4866121972834201523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_14
+      name: mountainSand_14
       rect:
         serializedVersion: 2
         x: 32
@@ -406,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44c9b30d98a5843efa83cf65fbdd90aa
-      internalID: 723219477062570982
+      spriteID: 1463dd758ebeb4581a2c081e4be4067d
+      internalID: -1127235425697795164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_15
+      name: mountainSand_15
       rect:
         serializedVersion: 2
         x: 48
@@ -427,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f74e3f6507eb94c16a077505582ef978
-      internalID: 8745083987145614709
+      spriteID: 3174e56a9f1624daa8b803385aecb28a
+      internalID: 618106838552375703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_16
+      name: mountainSand_16
       rect:
         serializedVersion: 2
         x: 0
@@ -448,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 456ba436d00d54c78931f29286891eb4
-      internalID: 6803805673414169613
+      spriteID: 270e3c0cd08a64f13ab1ad6fb4d88e95
+      internalID: 9126826138730125999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_17
+      name: mountainSand_17
       rect:
         serializedVersion: 2
         x: 16
@@ -469,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a064e0041d5d34f63b490b8ceecfb289
-      internalID: 1845056383434842608
+      spriteID: 5f1be29238e3c4844a55b698f339e63e
+      internalID: -6834852501497726609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_18
+      name: mountainSand_18
       rect:
         serializedVersion: 2
         x: 32
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc915c07a71b484bab825c98581877c
-      internalID: 6247978693808536870
+      spriteID: 954ac9216fbbf40d98db63fa279f188e
+      internalID: -5269050250868822718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_19
+      name: mountainSand_19
       rect:
         serializedVersion: 2
         x: 48
@@ -511,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec85618674c564d0790f4eb11cb1cbfc
-      internalID: 5873718367678365273
+      spriteID: 238c21bc98a8947f3979e94e588b4372
+      internalID: -9100702797942287892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_20
+      name: mountainSand_20
       rect:
         serializedVersion: 2
         x: 0
@@ -532,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 888ad0f38c87d4eb5bc0a8e94655343a
-      internalID: -8454445431598485754
+      spriteID: 0d8b6d9fd73ba439c91a5a6017928d1c
+      internalID: 3959479908366998396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_21
+      name: mountainSand_21
       rect:
         serializedVersion: 2
         x: 16
@@ -553,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98b7104d3dac940248767dfa576b3525
-      internalID: -4754732389025633453
+      spriteID: 8584b5ec96fdf4d5cae6b163e546bccd
+      internalID: 6693918277573952081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_22
+      name: mountainSand_22
       rect:
         serializedVersion: 2
         x: 32
@@ -574,14 +637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feb5dffad3ac34648accccc444114472
-      internalID: 495083324143315747
+      spriteID: 8a76f69dae16d45eca82c0d76eba97eb
+      internalID: -863534180156066969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_dirt_23
+      name: mountainSand_23
       rect:
         serializedVersion: 2
         x: 48
@@ -595,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bfae3eab0041418090ea6760acc20c4
-      internalID: 2047474194236497895
+      spriteID: 57937efb2a0244068926b8bb9fc7292e
+      internalID: 7813751787351322555
       vertices: []
       indices: 
       edges: []

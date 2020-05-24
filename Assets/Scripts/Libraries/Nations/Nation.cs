@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game;
 using Libraries.Terrains;
 using UI;
 
@@ -27,23 +28,17 @@ namespace Libraries.Nations
         {
             DataTerrain terr = L.b.terrains[Terrain];
             base.ShowLexicon(panel);
-            panel.AddHeaderLabel("General");
-            panel.AddImageLabel($"Home terrain: {terr.name}", terr.Sprite());
-            panel.AddModi("Modifiers",Modi);
+            panel.AddHeaderLabelT("general");
+            panel.AddImageLabel($"Home terrain: {terr.Name()}", terr.Sprite());
+            panel.AddModi(Modi);
             if (elements.Count > 0)
             {
-                panel.AddHeaderLabel("Elements");
+                panel.AddHeaderLabel(S.T(L.b.elements.Id(),elements.Count));
                 foreach (var element in elements)
                 {
                     L.b.elements[element].AddImageLabel(panel);
                 }
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
         }
     }
 }

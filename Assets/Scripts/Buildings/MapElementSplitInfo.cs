@@ -1,4 +1,5 @@
 using System.Linq;
+using Game;
 using Players;
 using UI;
 using UI.Show;
@@ -19,7 +20,7 @@ namespace Buildings
             panel.AddImageLabel(_info.name, _info.Sprite());
             panel.AddHeaderLabel("Information");
             //diff unit?
-            if (!_info.Owner(PlayerMgmt.ActPlayerID()))
+            if (!_info.Owner(S.ActPlayerID()))
             {
                 panel.AddSubLabel("Owner",_info.Player().name, _info.Player().Coat().Icon);
                 panel.AddSubLabel("HP",$"??/{_info.baseData.hp}","hp");

@@ -421,7 +421,7 @@ TextureImporter:
     second: c_20
   - first:
       213: -760316534577225873
-    second: dirt
+    second: sdirt
   - first:
       213: 1316803534056105571
     second: c_22
@@ -1235,7 +1235,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirt
+      name: sdirt
       rect:
         serializedVersion: 2
         x: 0

@@ -22,7 +22,7 @@ namespace Classes.GameButtons
             if (!b.req.Check(player))
             {
                 NAudio.PlayBuzzer();
-                UIHelper.ShowOk(b.name, b.req.Desc(player));
+                UIHelper.ShowOk(b.Name(), b.req.Desc(player));
                 return;
             }
             Run(player);

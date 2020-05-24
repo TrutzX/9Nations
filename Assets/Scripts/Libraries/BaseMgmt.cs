@@ -9,6 +9,7 @@ using IniParser.Model;
 using IniParser.Parser;
 using JetBrains.Annotations;
 using Maps;
+using Players;
 using reqs;
 using Tools;
 using UI;
@@ -20,7 +21,6 @@ namespace Libraries
     public class BaseMgmt<T> : IRead where T : BaseData, new()
     {
         [SerializeField] protected Dictionary<string, T> Data;
-        [SerializeField] protected string name;
         [SerializeField] protected readonly string id;
         [SerializeField] protected string icon;
         [SerializeField] protected string lastRead;
@@ -29,12 +29,10 @@ namespace Libraries
         {
             Data = new Dictionary<string, T>();
             this.id = id;
-            name = TextHelper.Cap(id);
         }
-
-        protected BaseMgmt(string id, string name, string icon) : this(id)
+        
+        protected BaseMgmt(string id, string icon) : this(id)
         {
-            this.name = name;
             this.icon = icon;
         }
 
@@ -46,7 +44,7 @@ namespace Libraries
                 {
                     return Data[key];
                 }
-                throw new MissingMemberException($"Can not find {key} in {name}");
+                throw new MissingMemberException($"Can not find {key} in {id}");
             }
         }
 
@@ -205,7 +203,7 @@ namespace Libraries
         
         public string Name()
         {
-            return name;
+            return TextHelper.Cap(S.T(id));
         }
         
         public string Id()
@@ -227,9 +225,6 @@ namespace Libraries
             
             switch (header)
             {
-                case "name":
-                    ele.name = data;
-                    break;
                 case "icon":
                     ele.Icon = data;
                     break;
@@ -284,6 +279,16 @@ namespace Libraries
         public List<T> GetAllByCategory(string category)
         {
             return Values().Where(i => !i.Hidden && !string.IsNullOrEmpty(i.category) && i.category.Contains(category)).ToList();
+        }
+
+        public List<T> GetAllByCategory(string category, Player player)
+        {
+            return GetAllByCategory(category).Where(i => i.req.Check(player)).ToList();
+        }
+
+        public string NameList(string[] ids)
+        {
+            return String.Join(S.T("separator"),ids.ToList().Select(i => this[i].Name()));
         }
     }
 }

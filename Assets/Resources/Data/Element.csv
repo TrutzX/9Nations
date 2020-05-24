@@ -1,12 +1,12 @@
-id,name,hidden,icon,desc,req,req,townhall
-light,Light,false,!Units/light:light_1,This is the basic element; if you are interested in the overworld. You will get a light to explore the area and develop your first town.,elementCount=<0,,lhall1
-shadow,Shadow,false,!Units/shadow:shadow_1,This is the basic element; if you are interested in the underworld. You will get a shadow to explore the area and develop your first town.,elementCount=<0,,shall1
-fire,Fire,true,!Icons/magic:fire,No useful features at the moment.,element=shadow;light,disabled,
-air,Air,true,!Icons/magic:air,No useful features at the moment.,element=light,disabled,
-earth,Earth,true,!Icons/magic:earth,Deep under the stone lies great options.,element=shadow,,ehall1
-water,Water,true,!Icons/magic:water,No useful features at the moment.,element=shadow;light,disabled,
-death,Death,true,!Icons/base:destroy,No useful features at the moment.,,disabled,
-energy,Energy,true,!Icons/magic:energy,No useful features at the moment.,,disabled,
-life,Life,true,!Icons/magic:life,No useful features at the moment.,,disabled,
-metal,Metal,true,Icons/mining:metal,No useful features at the moment.,,disabled,
-wood,Wood,true,!Icons/base:wood,No useful features at the moment.,,disabled,
+id,hidden,icon,desc,req,req,townhall
+light,false,!Units/light:light_1,This is the basic element; if you are interested in the overworld. You will get a light to explore the area and develop your first town.,elementCount=<0,,lhall1
+shadow,false,!Units/shadow:shadow_1,This is the basic element; if you are interested in the underworld. You will get a shadow to explore the area and develop your first town.,elementCount=<0,,shall1
+fire,true,!Icons/magic:fire,No useful features at the moment.,element=shadow;light,disabled,
+air,true,!Icons/magic:air,No useful features at the moment.,element=light,disabled,
+earth,true,!Icons/magic:earth,Deep under the stone lies great options.,element=shadow,,
+water,true,!Icons/magic:water,No useful features at the moment.,element=shadow;light,disabled,
+death,true,!Icons/base:destroy,No useful features at the moment.,,disabled,
+energy,true,!Icons/magic:energy,No useful features at the moment.,,disabled,
+life,true,!Icons/magic:life,No useful features at the moment.,,disabled,
+metal,true,Icons/mining:metal,No useful features at the moment.,,disabled,
+wood,true,!Icons/base:wood,No useful features at the moment.,,disabled,

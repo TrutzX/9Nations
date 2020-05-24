@@ -58,15 +58,19 @@ namespace Libraries.Inputs
         
         public override string Name()
         {
+            string name;
             if (IsGameButton())
             {
                 name = L.b.gameButtons[id].Name();
             } else if (IsAction())
             {
                 name = L.b.actions[id].Name();
+            } else
+            {
+                name = base.Name();
             }
 
-            return $"{name} ({usedKey})";
+            return S.T("debugName", name, usedKey);
         }
 
         public bool IsGameButton()

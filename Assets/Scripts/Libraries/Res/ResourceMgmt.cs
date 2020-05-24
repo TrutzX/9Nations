@@ -6,7 +6,7 @@ namespace Libraries.Res
     [Serializable]
     public class ResourceMgmt : BaseMgmt<Resource>
     {
-        public ResourceMgmt() : base("resource","resources","res") { }
+        public ResourceMgmt() : base("resource","res") { }
 
         protected override void ParseElement(Resource ele, string header, string data)
         {

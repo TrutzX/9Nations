@@ -1,70 +1,133 @@
 fileFormatVersion: 2
-guid: 0821ccb614de249b488b854815791e80
+guid: 501a7824634614d6f897f96b902605d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2911686646015323476
-    second: mountain_snow_2
+      213: 622762586034236754
+    second: deep_stone_2
   - first:
-      213: -2585588296897077118
-    second: mountain_snow_3
+      213: 8978953364181122555
+    second: deep_stone_3
   - first:
-      213: -9072814270529735208
-    second: mountain_snow_4
+      213: -4470486782467255773
+    second: deep_stone_4
   - first:
-      213: -6512330812055349207
-    second: mountain_snow_6
+      213: 964855175660741563
+    second: deep_stone_6
   - first:
-      213: 808601211937495731
-    second: mountain_snow_7
+      213: -5338537335776236082
+    second: deep_stone_7
   - first:
-      213: -1875876992480873134
-    second: mountain_snow_8
+      213: 2593152614695489451
+    second: deep_stone_8
   - first:
-      213: -7959999958118889398
-    second: mountain_snow_9
+      213: 8084172885225327564
+    second: deep_stone_9
   - first:
-      213: 4412901906191672102
-    second: mountain_snow_10
+      213: 54194332252601177
+    second: deep_stone_10
   - first:
-      213: 993405293475755904
-    second: mountain_snow_11
+      213: -4585816458229703814
+    second: deep_stone_11
   - first:
-      213: -1191886107860667249
-    second: mountain_snow_12
+      213: 9083124403556552381
+    second: deep_stone_12
   - first:
-      213: -1125715379106953639
-    second: mountain_snow_13
+      213: -3091879984251109710
+    second: deep_stone_13
   - first:
-      213: 1078596304151441961
-    second: mountain_snow_14
+      213: -2734906302931884205
+    second: deep_stone_14
   - first:
-      213: -6746667140915832881
-    second: mountain_snow_15
+      213: 6521223032364734930
+    second: deep_stone_15
   - first:
-      213: -1773046022821359491
-    second: mountain_snow_16
+      213: 864175436804779468
+    second: deep_stone_16
   - first:
-      213: 454271194553982649
-    second: mountain_snow_17
+      213: 7952590655375175085
+    second: deep_stone_17
   - first:
-      213: -7185599700988271003
-    second: mountain_snow_18
+      213: 2679750475389142896
+    second: deep_stone_18
   - first:
-      213: -1283795391806334863
-    second: mountain_snow_19
+      213: 3618864535270185144
+    second: deep_stone_19
   - first:
-      213: 1897272269439456357
-    second: mountain_snow_20
+      213: 4407749742438953125
+    second: deep_stone_20
   - first:
-      213: -453831480904444057
-    second: mountain_snow_21
+      213: 1065325681958934902
+    second: deep_stone_21
   - first:
-      213: 4198507698360385817
-    second: mountain_snow_22
+      213: -1447017869476765714
+    second: deep_stone_22
   - first:
-      213: -3020231358201411210
-    second: mountain_snow_23
+      213: -8011987994343870610
+    second: deep_stone_23
+  - first:
+      213: 1775309474330423526
+    second: deepStone_2
+  - first:
+      213: -2904379018821073611
+    second: deepStone_3
+  - first:
+      213: -640981473502823963
+    second: deepStone_4
+  - first:
+      213: 8853068957379499781
+    second: deepStone_6
+  - first:
+      213: -2234559350485233622
+    second: deepStone_7
+  - first:
+      213: 5540166905583584341
+    second: deepStone_8
+  - first:
+      213: -1663881532255971250
+    second: deepStone_9
+  - first:
+      213: 738022120043072958
+    second: deepStone_10
+  - first:
+      213: -664530494821446585
+    second: deepStone_11
+  - first:
+      213: -8794878517134206315
+    second: deepStone_12
+  - first:
+      213: 2728760500195492499
+    second: deepStone_13
+  - first:
+      213: -6358657205844122044
+    second: deepStone_14
+  - first:
+      213: -4116108969536327874
+    second: deepStone_15
+  - first:
+      213: -6471542930634572271
+    second: deepStone_16
+  - first:
+      213: -5392763343015944487
+    second: deepStone_17
+  - first:
+      213: -242850870774663120
+    second: deepStone_18
+  - first:
+      213: 7299471178625873092
+    second: deepStone_19
+  - first:
+      213: -4821333455080854363
+    second: deepStone_20
+  - first:
+      213: -448562249134510765
+    second: deepStone_21
+  - first:
+      213: 2662969675487702593
+    second: deepStone_22
+  - first:
+      213: 4981708160721587425
+    second: deepStone_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,7 +224,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mountain_snow_2
+      name: deepStone_2
       rect:
         serializedVersion: 2
         x: 32
@@ -175,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c751fc5f4eaa471eb2811794e5ec1ae
-      internalID: 2911686646015323476
+      spriteID: 2f6cf927824004db08a8484b7472cbae
+      internalID: 1775309474330423526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_3
+      name: deepStone_3
       rect:
         serializedVersion: 2
         x: 48
@@ -196,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2c96903044948c79c99a7cd3836f50
-      internalID: -2585588296897077118
+      spriteID: d81ce6eb93c0248ec8119fbe84ee0fd6
+      internalID: -2904379018821073611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_4
+      name: deepStone_4
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e247c32c738b442c2858e35e24fb851e
-      internalID: -9072814270529735208
+      spriteID: d27a619b2ce974545ba05b57a199e8e7
+      internalID: -640981473502823963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_6
+      name: deepStone_6
       rect:
         serializedVersion: 2
         x: 32
@@ -238,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12d7b4c63fd3e4f3b939be22456c29a0
-      internalID: -6512330812055349207
+      spriteID: b0db4ba26fb7644979d8aa237784fa9f
+      internalID: 8853068957379499781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_7
+      name: deepStone_7
       rect:
         serializedVersion: 2
         x: 48
@@ -259,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b650d2e60778d4c0d8e7cc8ccf1de3f9
-      internalID: 808601211937495731
+      spriteID: bc5324462a54a4d2e9e1c83165bbfe0d
+      internalID: -2234559350485233622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_8
+      name: deepStone_8
       rect:
         serializedVersion: 2
         x: 0
@@ -280,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05829684df9e84e819fa0c24453e973e
-      internalID: -1875876992480873134
+      spriteID: 12d9cfea824184bc7a7e1dff2e7c2c6c
+      internalID: 5540166905583584341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_9
+      name: deepStone_9
       rect:
         serializedVersion: 2
         x: 16
@@ -301,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1689efb950024c61a06cd2e96a437d3
-      internalID: -7959999958118889398
+      spriteID: 1ac850f5575654ac6a4bb13264b4c328
+      internalID: -1663881532255971250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_10
+      name: deepStone_10
       rect:
         serializedVersion: 2
         x: 32
@@ -322,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b4a04b31001a46b2844bca2b17e4270
-      internalID: 4412901906191672102
+      spriteID: dfe69bf1d2fe34c89a6c8f02ac4b264e
+      internalID: 738022120043072958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_11
+      name: deepStone_11
       rect:
         serializedVersion: 2
         x: 48
@@ -343,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 770e05a4f8d8d4106910eb61be56c628
-      internalID: 993405293475755904
+      spriteID: 84e3d72732ae44ed5a3d74a71c6c5bef
+      internalID: -664530494821446585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_12
+      name: deepStone_12
       rect:
         serializedVersion: 2
         x: 0
@@ -364,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 482105b0646ac40e8a6f086fbe3516eb
-      internalID: -1191886107860667249
+      spriteID: 6c9e47211830d472c87559a013374ae0
+      internalID: -8794878517134206315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_13
+      name: deepStone_13
       rect:
         serializedVersion: 2
         x: 16
@@ -385,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e5a0f3e64e2041abba9d247d516a348
-      internalID: -1125715379106953639
+      spriteID: 21847285bcabb44ac8f234152464d4eb
+      internalID: 2728760500195492499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_14
+      name: deepStone_14
       rect:
         serializedVersion: 2
         x: 32
@@ -406,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8bcc81ea0bb446e389121fe9794de52
-      internalID: 1078596304151441961
+      spriteID: c933fa301615d48c29add47e2f2d7576
+      internalID: -6358657205844122044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_15
+      name: deepStone_15
       rect:
         serializedVersion: 2
         x: 48
@@ -427,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78cc9457c5cf46158cc12a8b2cb46d0
-      internalID: -6746667140915832881
+      spriteID: af591d9afd2a845f0828423cbe40f52d
+      internalID: -4116108969536327874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_16
+      name: deepStone_16
       rect:
         serializedVersion: 2
         x: 0
@@ -448,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3787bfee7a6d54968a8f70b7b7fe83e7
-      internalID: -1773046022821359491
+      spriteID: 9476c9bd043b44e15892eae58f3937b1
+      internalID: -6471542930634572271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_17
+      name: deepStone_17
       rect:
         serializedVersion: 2
         x: 16
@@ -469,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a827a6343880423aa68e7d50261e87c
-      internalID: 454271194553982649
+      spriteID: 2d5628ebe2c8e45e0817500f4b4c43f0
+      internalID: -5392763343015944487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_18
+      name: deepStone_18
       rect:
         serializedVersion: 2
         x: 32
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc65953faaa54c10bdfd23679165cb5
-      internalID: -7185599700988271003
+      spriteID: 55c2bb2910efc4965a1b178ab82ce46b
+      internalID: -242850870774663120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_19
+      name: deepStone_19
       rect:
         serializedVersion: 2
         x: 48
@@ -511,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6ba777f2eaa94116947f0163b346ffa
-      internalID: -1283795391806334863
+      spriteID: 8a66e4b6199c544cbac51b80e4286d4c
+      internalID: 7299471178625873092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_20
+      name: deepStone_20
       rect:
         serializedVersion: 2
         x: 0
@@ -532,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 466e2246b44bf4d1da4c6e90a4a8d762
-      internalID: 1897272269439456357
+      spriteID: d7bb313d3ebf643049d8a0543125c822
+      internalID: -4821333455080854363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_21
+      name: deepStone_21
       rect:
         serializedVersion: 2
         x: 16
@@ -553,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1f2b9c1ced184ece812b790626a6b4c
-      internalID: -453831480904444057
+      spriteID: b9ea2c732dfc44dbdb0a82e42a8ccd1b
+      internalID: -448562249134510765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_22
+      name: deepStone_22
       rect:
         serializedVersion: 2
         x: 32
@@ -574,14 +637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b3f61efd83314819aa68e8d15059474
-      internalID: 4198507698360385817
+      spriteID: 927dbd5262c544180836acfbddeab3b2
+      internalID: 2662969675487702593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_snow_23
+      name: deepStone_23
       rect:
         serializedVersion: 2
         x: 48
@@ -595,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae33cd263fde4dfaadd642a85a5ff33
-      internalID: -3020231358201411210
+      spriteID: 6382d53234b9141139eefe1150aec27a
+      internalID: 4981708160721587425
       vertices: []
       indices: 
       edges: []

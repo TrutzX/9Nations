@@ -66,11 +66,11 @@ namespace reqs
             //check unit
             if (type == "unit")
             {
-                return $"Needs the unit {L.b.units[id].name} on this field.";
+                return $"Needs the unit {L.b.units[id].Name()} on this field.";
             }
             
             //check building
-            return $"Needs the building {L.b.buildings[id].name} on this field.";
+            return $"Needs the building {L.b.buildings[id].Name()} on this field.";
         }
     }
 }

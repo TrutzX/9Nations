@@ -5,7 +5,7 @@ namespace Libraries.Buildings
     [Serializable]
     public class DataBuildingMgmt : BaseDataBuildingUnitMgmt<DataBuilding>
     {
-        public DataBuildingMgmt() : base("building","buildings","build") { }
+        public DataBuildingMgmt() : base("building","build") { }
 
         protected override void ParseElement(DataBuilding ele, string header, string data)
         {

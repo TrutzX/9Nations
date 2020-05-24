@@ -10,7 +10,7 @@ namespace Help
     {
         private readonly BaseData _data;
         
-        public LexiconSplitElement(BaseData data) : this(data, data.name, data.Sprite())
+        public LexiconSplitElement(BaseData data) : this(data, data.Name(), data.Sprite())
         {
         }
         

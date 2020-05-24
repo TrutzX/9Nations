@@ -17,7 +17,7 @@ namespace Classes.Actions.Addons
         protected BaseDataBuildingUnit build;
         protected MapElementInfo go;
         protected NVector pos;
-        public BuildSplitElement(BaseDataBuildingUnit build, MapElementInfo go, NVector pos, ISplitManager ism) : base(build.name, build.Sprite())
+        public BuildSplitElement(BaseDataBuildingUnit build, MapElementInfo go, NVector pos, ISplitManager ism) : base(build.Name(), build.Sprite())
         {
             this.build = build;
             this.pos = pos;
@@ -34,7 +34,7 @@ namespace Classes.Actions.Addons
         {
             UpdatePref("lastBuild");
             ism.Close();
-            GameMgmt.Get().building.Create(S.Towns().NearestTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
+            GameMgmt.Get().building.Create(S.Towns().NearestTown(S.ActPlayer(),pos,false).id, build.id, pos);
             OnMapUI.Get().UpdatePanel(pos);
         }
 

@@ -1,3 +1,4 @@
+using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
@@ -21,7 +22,7 @@ namespace Players.Quests
         public static Quest Action(string id)
         {
             FDataAction da = L.b.actions[id];
-            Quest q = new Quest(da.id, da.name, da.Icon).AddAction(id,"");
+            Quest q = new Quest(da.id, da.Name(), da.Icon).AddAction(id,"");
             return q;
         }
 
@@ -30,7 +31,7 @@ namespace Players.Quests
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Quest window",null);
 
-            foreach (Quest q in PlayerMgmt.ActPlayer().quests.quests)
+            foreach (Quest q in S.ActPlayer().quests.quests)
             {
                 if (q.IsFinish() || q.InProgress())
                     b.Add(new QuestSplitElement(q));

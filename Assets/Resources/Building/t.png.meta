@@ -7,7 +7,7 @@ TextureImporter:
     second: mint
   - first:
       213: 6983501290316935211
-    second: t_1
+    second: pottery
   - first:
       213: 3034741463602328472
     second: forge
@@ -359,10 +359,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_1
+      name: pottery
       rect:
         serializedVersion: 2
-        x: 32
+        x: 31
         y: 352
         width: 32
         height: 32

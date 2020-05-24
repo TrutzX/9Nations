@@ -1,70 +1,133 @@
 fileFormatVersion: 2
-guid: 4b83a80a8ae8b48d5b410825db2991b7
+guid: 2f0c4097947514d2fb395d48e72444b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1069408806414977272
-    second: mountain_rough_2
+      213: -2253568936270031941
+    second: hill_dirt_2
   - first:
-      213: 7717321290574033897
-    second: mountain_rough_3
+      213: 8184143223685015513
+    second: hill_dirt_3
   - first:
-      213: -7945929501151806953
-    second: mountain_rough_4
+      213: -8595768975650581697
+    second: hill_dirt_4
   - first:
-      213: 1329372190310592675
-    second: mountain_rough_6
+      213: 5815246702635770184
+    second: hill_dirt_6
   - first:
-      213: -3831816665088361738
-    second: mountain_rough_7
+      213: 5330689251701721710
+    second: hill_dirt_7
   - first:
-      213: -5346425823031599626
-    second: mountain_rough_8
+      213: -5021117956882724890
+    second: hill_dirt_8
   - first:
-      213: 6454282941097279633
-    second: mountain_rough_9
+      213: -2991302626287730690
+    second: hill_dirt_9
   - first:
-      213: 8971700536082689862
-    second: mountain_rough_10
+      213: -5432582805425914530
+    second: hill_dirt_10
   - first:
-      213: 4477622893506506911
-    second: mountain_rough_11
+      213: 6244868779462878027
+    second: hill_dirt_11
   - first:
-      213: -5757847903800125327
-    second: mountain_rough_12
+      213: -6808381102659705108
+    second: hill_dirt_12
   - first:
-      213: -6412604178044537658
-    second: mountain_rough_13
+      213: -4331318906027357572
+    second: hill_dirt_13
   - first:
-      213: -5779840914847012967
-    second: mountain_rough_14
+      213: -695009688021322741
+    second: hill_dirt_14
   - first:
-      213: -5753054978200624791
-    second: mountain_rough_15
+      213: -6056800267746121243
+    second: hill_dirt_15
   - first:
-      213: -6624728780932343809
-    second: mountain_rough_16
+      213: 8132524155171160421
+    second: hill_dirt_16
   - first:
-      213: -8616178595771423992
-    second: mountain_rough_17
+      213: -5125743510263928487
+    second: hill_dirt_17
   - first:
-      213: -2731218192245689344
-    second: mountain_rough_18
+      213: 1409035025866212844
+    second: hill_dirt_18
   - first:
-      213: -3852336702753009848
-    second: mountain_rough_19
+      213: -5534855383140485542
+    second: hill_dirt_19
   - first:
-      213: 6016460032929996608
-    second: mountain_rough_20
+      213: 3669152225120441177
+    second: hill_dirt_20
   - first:
-      213: -8369161040483029387
-    second: mountain_rough_21
+      213: -3793816051760622451
+    second: hill_dirt_21
   - first:
-      213: 9195996984433761913
-    second: mountain_rough_22
+      213: 3156079351231533635
+    second: hill_dirt_22
   - first:
-      213: -4209387934096206587
-    second: mountain_rough_23
+      213: 62880189928649682
+    second: hill_dirt_23
+  - first:
+      213: -1210634593819740095
+    second: hillDirt_2
+  - first:
+      213: 7960576331827397859
+    second: hillDirt_3
+  - first:
+      213: 8933468487081916239
+    second: hillDirt_4
+  - first:
+      213: 1105304033813848974
+    second: hillDirt_6
+  - first:
+      213: -2605952742746570451
+    second: hillDirt_7
+  - first:
+      213: 1847832597784481374
+    second: hillDirt_8
+  - first:
+      213: -232385701420137912
+    second: hillDirt_9
+  - first:
+      213: -1168073150610134587
+    second: hillDirt_10
+  - first:
+      213: 8943703944188216305
+    second: hillDirt_11
+  - first:
+      213: -3708995122494913912
+    second: hillDirt_12
+  - first:
+      213: 4105042001722920630
+    second: hillDirt_13
+  - first:
+      213: 8999723778451342530
+    second: hillDirt_14
+  - first:
+      213: 6758316927616342796
+    second: hillDirt_15
+  - first:
+      213: -6003341706918546637
+    second: hillDirt_16
+  - first:
+      213: -6411859442865201982
+    second: hillDirt_17
+  - first:
+      213: 2151834773328159842
+    second: hillDirt_18
+  - first:
+      213: -4434490418249171473
+    second: hillDirt_19
+  - first:
+      213: -2057008215839687917
+    second: hillDirt_20
+  - first:
+      213: 1838128758490288447
+    second: hillDirt_21
+  - first:
+      213: -8028864332232593740
+    second: hillDirt_22
+  - first:
+      213: 980557425392042790
+    second: hillDirt_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,7 +224,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mountain_rough_2
+      name: hillDirt_2
       rect:
         serializedVersion: 2
         x: 32
@@ -175,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80a1ab4875be84d4e82955dcdf8533fa
-      internalID: -1069408806414977272
+      spriteID: 8cd566cd1bcdb4dd89d25336e6088465
+      internalID: -1210634593819740095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_3
+      name: hillDirt_3
       rect:
         serializedVersion: 2
         x: 48
@@ -196,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acf1675ada3f948359b13a9db9d099f0
-      internalID: 7717321290574033897
+      spriteID: f7553eeaa7dbd4efa97fb1669c59483c
+      internalID: 7960576331827397859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_4
+      name: hillDirt_4
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2773942bcf3a49b5b913acb9666ef9c
-      internalID: -7945929501151806953
+      spriteID: d8a4164ac62f14e188ea08d7deef5f6b
+      internalID: 8933468487081916239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_6
+      name: hillDirt_6
       rect:
         serializedVersion: 2
         x: 32
@@ -238,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03b88b3d634064be3a1da72b3c36197f
-      internalID: 1329372190310592675
+      spriteID: c9c2e2db5096245179a9ee1d060b395e
+      internalID: 1105304033813848974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_7
+      name: hillDirt_7
       rect:
         serializedVersion: 2
         x: 48
@@ -259,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63c99e023a0564d81bb72a2d149ebc04
-      internalID: -3831816665088361738
+      spriteID: d3df9f99a1c06425c8b0713e23abd7ed
+      internalID: -2605952742746570451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_8
+      name: hillDirt_8
       rect:
         serializedVersion: 2
         x: 0
@@ -280,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 984f8daf56c8848e5836bda6ecf4f896
-      internalID: -5346425823031599626
+      spriteID: 0a1bcccf7123b499c8d54882de6d85d9
+      internalID: 1847832597784481374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_9
+      name: hillDirt_9
       rect:
         serializedVersion: 2
         x: 16
@@ -301,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c19900f1ffae479a8049b048b9a053e
-      internalID: 6454282941097279633
+      spriteID: 2846c49054b284b929b094dc013fe371
+      internalID: -232385701420137912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_10
+      name: hillDirt_10
       rect:
         serializedVersion: 2
         x: 32
@@ -322,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39844a37a8a844ffcb67ddf905fabb2a
-      internalID: 8971700536082689862
+      spriteID: 970e8018c04c04a2ab9f6456bc059c15
+      internalID: -1168073150610134587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_11
+      name: hillDirt_11
       rect:
         serializedVersion: 2
         x: 48
@@ -343,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54bc2f1535fe840b29c73a4c95e44fc0
-      internalID: 4477622893506506911
+      spriteID: e152591f277b742208f81a0e17ce1e79
+      internalID: 8943703944188216305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_12
+      name: hillDirt_12
       rect:
         serializedVersion: 2
         x: 0
@@ -364,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c323ba88e23d946a7abb962da62a5b74
-      internalID: -5757847903800125327
+      spriteID: d289ccf45cb764e21af2ec1f9ab8a77d
+      internalID: -3708995122494913912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_13
+      name: hillDirt_13
       rect:
         serializedVersion: 2
         x: 16
@@ -385,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b906101ffa475458f98dea5e75f319fa
-      internalID: -6412604178044537658
+      spriteID: 8e35f3a88fe27449d9f0644b53eec066
+      internalID: 4105042001722920630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_14
+      name: hillDirt_14
       rect:
         serializedVersion: 2
         x: 32
@@ -406,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62dae4148eef74fb38cde2a615e937a4
-      internalID: -5779840914847012967
+      spriteID: 4d7f338b686cf4205a047239276a739c
+      internalID: 8999723778451342530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_15
+      name: hillDirt_15
       rect:
         serializedVersion: 2
         x: 48
@@ -427,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ad4651981b6440c699fae04e0a950b9
-      internalID: -5753054978200624791
+      spriteID: d016359f3a6ad4cb29086a6226a68e6f
+      internalID: 6758316927616342796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_16
+      name: hillDirt_16
       rect:
         serializedVersion: 2
         x: 0
@@ -448,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9d72c6215c840d09ceaeeddab3a7dd
-      internalID: -6624728780932343809
+      spriteID: 2bd2f5e3afc28430d93fdf8f98b97e17
+      internalID: -6003341706918546637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_17
+      name: hillDirt_17
       rect:
         serializedVersion: 2
         x: 16
@@ -469,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b92a41fa16c740a2b292c696056be40
-      internalID: -8616178595771423992
+      spriteID: fa7e83f59eb6241ad9b88c96b8482772
+      internalID: -6411859442865201982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_18
+      name: hillDirt_18
       rect:
         serializedVersion: 2
         x: 32
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4370ef9727af7473c9ffbf9b97ab8a18
-      internalID: -2731218192245689344
+      spriteID: e3ecff0775fd64394998809bb909c1eb
+      internalID: 2151834773328159842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_19
+      name: hillDirt_19
       rect:
         serializedVersion: 2
         x: 48
@@ -511,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f2021d2094a44b8b95b85c509c2b3b1
-      internalID: -3852336702753009848
+      spriteID: 57bfe830fee4249189f50faf8a585b49
+      internalID: -4434490418249171473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_20
+      name: hillDirt_20
       rect:
         serializedVersion: 2
         x: 0
@@ -532,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1763266f65fb4d8192f04c206e47545
-      internalID: 6016460032929996608
+      spriteID: 1c5305b87b0e34a6781e7dcbf9124d0f
+      internalID: -2057008215839687917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_21
+      name: hillDirt_21
       rect:
         serializedVersion: 2
         x: 16
@@ -553,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 775a6c68ccec3482ebd5629bb3d2f626
-      internalID: -8369161040483029387
+      spriteID: 6e0c23a526ee143558f1fd365a769804
+      internalID: 1838128758490288447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_22
+      name: hillDirt_22
       rect:
         serializedVersion: 2
         x: 32
@@ -574,14 +637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5ee1ee9134314467af1031dd9b940b6
-      internalID: 9195996984433761913
+      spriteID: f79cbeb929e544dbab2ef78ac9c9a5e0
+      internalID: -8028864332232593740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_rough_23
+      name: hillDirt_23
       rect:
         serializedVersion: 2
         x: 48
@@ -595,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abeeb07ab159849d39d2a6a07be6d7c3
-      internalID: -4209387934096206587
+      spriteID: ccbc64a5bfa564f8a93f65c2d4159059
+      internalID: 980557425392042790
       vertices: []
       indices: 
       edges: []

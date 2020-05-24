@@ -22,9 +22,6 @@ namespace Improvements
                 case "combine":
                     ele.combine = Bool(data);
                     break;
-                case "file":
-                    ele.file = data;
-                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;

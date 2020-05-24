@@ -45,7 +45,7 @@ namespace Endless
             });
 
             panel.AddHeaderLabel("Options");
-            L.b.gameOptions.GetAllByCategory("general").ForEach(o => o.AddOption(panel));
+            L.b.gameOptions.GetAllByCategory("general",null).ForEach(o => o.AddOption(panel));
         }
 
         public override void Perform()

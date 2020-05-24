@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using Game;
 using Libraries;
 using Libraries.Res;
 using Towns;
@@ -24,7 +24,7 @@ namespace Classes.Actions.Addons
         
         private void BuildWindow(string settings)
         {
-            WindowPanelBuilder w = WindowPanelBuilder.Create("Trade");
+            WindowPanelBuilder w = WindowPanelBuilder.Create(L.b.actions["trade"].Name());
 
             //build ress list
             List<string> values = new List<string>();
@@ -41,20 +41,20 @@ namespace Classes.Actions.Addons
                 if (r.price > 0 && _town.GetRes(r.id) > 0)
                 {
                     values.Add(r.id);
-                    titles.Add($"{_town.GetRes(r.id)}x {r.name}");
+                    titles.Add(r.Text(_town.GetRes(r.id)));
                 }
             }
-
+ 
             //found something?
             if (values.Count == 0)
             {
-                w.panel.AddLabel("No Resources to sell found.");
+                w.panel.AddLabelT("tradeSellError");
                 w.Finish();
                 return;
             }
 
             _sell = values[0];
-            w.panel.AddHeaderLabel("Sell resources");
+            w.panel.AddHeaderLabelT("tradeSell");
             w.panel.AddDropdown(values.ToArray(), values[0], titles.ToArray(), s =>
             {
                 _sell = s;
@@ -75,20 +75,20 @@ namespace Classes.Actions.Addons
                 if (r.price > 0)
                 {
                     values.Add(r.id);
-                    titles.Add(r.name);
+                    titles.Add(r.Name());
                 }
             }
 
             //found something?
             if (values.Count == 0)
             {
-                w.panel.AddLabel("No Resources to sell found.");
+                w.panel.AddLabelT("tradeBuyError");
                 w.Finish();
                 return;
             }
 
             _buy = values[0];
-            w.panel.AddHeaderLabel("Buy resources");
+            w.panel.AddHeaderLabelT("tradeBuy");
             w.panel.AddDropdown(values.ToArray(), values[0], titles.ToArray(), s =>
             {
                 _buy = s;
@@ -129,33 +129,33 @@ namespace Classes.Actions.Addons
 
         private void UpdateButton()
         {
-            string bT = L.b.res[_buy].name;
+            var bT = L.b.res[_buy];
             float bP = L.b.res[_buy].price;
-            string sT = L.b.res[_sell].name;
+            var sT = L.b.res[_sell];
             float sP = L.b.res[_sell].price;
             
             //1
             //Debug.LogWarning($"Kosten {sT}:{sP}");
             //Debug.LogWarning($"Erhalten {bT}:{bP}");
             int v = Convert.ToInt32(Math.Ceiling(1d * bP / sP));
-            UIHelper.UpdateButtonText(shop1,$"{v}x {sT} for 1x {bT}");
-            shop1.gameObject.SetActive(bT != sT && _town.GetRes(_sell) >= v);
+            UIHelper.UpdateButtonText(shop1,S.T("tradeAction",sT.Text(v),bT.Text(1)));
+            shop1.gameObject.SetActive(_buy != _sell && _town.GetRes(_sell) >= v);
             //Debug.LogWarning($"Diff {sT} {town.GetRes(sell)}>={v}");
             
             //10
             v = Convert.ToInt32(Math.Ceiling(10d * bP / sP));
-            UIHelper.UpdateButtonText(shop10,$"{v}x {sT} for 10x {bT}");
-            shop10.gameObject.SetActive(bT != sT && _town.GetRes(_sell) >= v);
+            UIHelper.UpdateButtonText(shop10,S.T("tradeAction",sT.Text(v),bT.Text(10)));
+            shop10.gameObject.SetActive(_buy != _sell && _town.GetRes(_sell) >= v);
             
             //100
             v = Convert.ToInt32(Math.Ceiling(100d * bP / sP));
-            UIHelper.UpdateButtonText(shop100,$"{v}x {sT} for 100x {bT}");
-            shop100.gameObject.SetActive(bT != sT && _town.GetRes(_sell) >= v);
+            UIHelper.UpdateButtonText(shop100,S.T("tradeAction",sT.Text(v),bT.Text(100)));
+            shop100.gameObject.SetActive(_buy != _sell && _town.GetRes(_sell) >= v);
             
             //1000
             v = Convert.ToInt32(Math.Ceiling(1000d * bP / sP));
-            UIHelper.UpdateButtonText(shop1000,$"{v}x {sT} for 1000x {bT}");
-            shop1000.gameObject.SetActive(bT != sT && _town.GetRes(_sell) >= v);
+            UIHelper.UpdateButtonText(shop1000,S.T("tradeAction",sT.Text(v),bT.Text(1000)));
+            shop1000.gameObject.SetActive(_buy != _sell && _town.GetRes(_sell) >= v);
         }
         
         private void Shop(int count)

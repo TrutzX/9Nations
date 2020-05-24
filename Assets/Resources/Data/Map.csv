@@ -1,4 +1,4 @@
-id,name,folder,author,width,height,level,req
-field6,Oasis (Two player),!Maps/field6,sven,30,25,Underground; Ground and Overground,
-field6mono,Oasis,!Maps/field6mono,sven,30,25,Ground,
-debug,Debug,!Maps/debug,sven,20,15,Ground,option=debug:true
+id,folder,author,width,height,level,req
+field6,!Maps/field6,sven,30,25,Underground; Ground and Overground,
+field6mono,!Maps/field6mono,sven,30,25,Ground,
+debug,!Maps/debug,sven,20,15,Ground,option=debug:true

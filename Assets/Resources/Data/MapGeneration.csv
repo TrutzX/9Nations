@@ -1,6 +1,6 @@
-id,name,generator,unknown,grass,grass_sand,grass_dirt,grass_snow,plain,rough,dirt,lavarock,lava,sand,snow,swamp,water,ocean,mountain,mountain_dirt,mountain_rough,mountain_sand,mountain_snow,hill,hill_dirt,hill_rough,hill_sand,hill_snow
-underground,Underground generator,underground,deep_unknown,deep_grass,deep_grass,deep_grass,deep_grass,deep,deep,deep,deep,lava,deep,deep,deep,deep,deep_water,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone,deep_stone
-mountain,Overworld mountain generator,mountain,unknown,,,,,,,,,,,,,,,mountain,mountain_dirt,mountain_rough,mountain_sand,mountain_snow,hill,hill_dirt,hill_rough,hill_sand,hill_snow
+id,desc,generator,unknown,grass,grassSand,grassDirt,grassSnow,plain,rough,dirt,lavarock,lava,sand,snow,swamp,water,ocean,mountain,mountainDirt,mountainRough,mountainSand,mountainSnow,hill,hillDirt,hillRough,hillSand,hillSnow
+underground,Underground generator,underground,deepUnknown,deepGrass,deepGrass,deepGrass,deepGrass,deep,deep,deep,deep,lava,deep,deep,deep,deep,deepWater,deepStone,deepStone,deepStone,deepStone,deepStone,deepStone,deepStone,deepStone,deepStone,deepStone
+mountain,Overworld mountain generator,mountain,unknown,,,,,,,,,,,,,,,mountain,mountainDirt,mountainRough,mountainSand,mountainSnow,hill,hillDirt,hillRough,hillSand,hillSnow
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,

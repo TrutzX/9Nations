@@ -1,12 +1,5 @@
-id,name,hidden,icon,desc,category,map,req
-tutorialbasic,Basics,,!Icons/ui:tutorial,You learn to move your units and found a town and build some buildings.,tutorial,field6,
-debug,debug,,debug,,single,field6mono,option=debug:true
-endless,endless,true,,,single,,
-pantheon,pantheon,,!Building/a:temple,Found your own religion,single,field6mono,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
+id,hidden,icon,desc,category,map,req
+tutorialbasic,,!Icons/ui:tutorial,You learn to move your units and found a town and build some buildings.,tutorial,field6,
+debug,,debug,,single,field6mono,option=debug:true
+endless,true,,,single,,
+pantheon,,!Building/a:temple,Found your own religion,single,field6mono,

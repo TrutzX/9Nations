@@ -38,7 +38,7 @@ namespace Classes.Actions
             //found it?
             if (opts.Count == 0)
             {
-                OnMapUI.Get().unitUI.ShowPanelMessageError($"No terraform possible for {terrain.name}");
+                OnMapUI.Get().unitUI.ShowPanelMessageError($"No terraform possible for {terrain.Name()}");
                 return;
             }
 
@@ -51,7 +51,7 @@ namespace Classes.Actions
             }
 
             //multiple?
-            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Terraform {terrain.name}");
+            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Terraform {terrain.Name()}");
             foreach (var opt in opts)
             {
                 wpb.panel.AddImageTextButton(CreateTitle(opt), terrain.Sprite(), () =>
@@ -89,8 +89,8 @@ namespace Classes.Actions
         private static string CreateTitle((string key, string value) d)
         {
             return d.value == "remove"
-                ? $"Remove terrain {L.b.terrains[d.key].name}"
-                : $"Convert {L.b.terrains[d.key].name} to {L.b.terrains[d.value].name}";
+                ? $"Remove terrain {L.b.terrains[d.key].Name()}"
+                : $"Convert {L.b.terrains[d.key].Name()} to {L.b.terrains[d.value].Name()}";
         }
 
         public override ActionHolder Create(string setting)

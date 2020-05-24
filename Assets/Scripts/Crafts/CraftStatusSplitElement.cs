@@ -37,7 +37,7 @@ namespace Crafts
                 var d = SplitHelper.SplitInt(_holder.data["craft" + i]);
                 Craft c = L.b.crafts[d.key];
                 int id = i;
-                Button b = panel.AddImageTextButton((d.value == -1?"Endless ":d.value+"x ") + c.name, c.Icon, () =>
+                Button b = panel.AddImageTextButton((d.value == -1?"Endless ":d.value+"x ") + c.Name(), c.Icon, () =>
                 {
                     Remove(id);
                 });

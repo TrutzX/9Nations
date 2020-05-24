@@ -76,6 +76,7 @@ namespace Units
         
             UnitInfo ui = Instantiate(unitPrefab, GameMgmt.Get().newMap.levels[pos.level].units.transform);
             ui.Init(type,player, pos);
+            ui.NextRound();
             units.Add(ui);
             GameMgmt.Get().data.units.Add(ui.data);
             return ui;
@@ -87,7 +88,7 @@ namespace Units
             if (!L.b.units.ContainsKey(data.type))
             {
                 Debug.LogError($"Unit {data.type} ({data.pos}) not exist");
-                PlayerMgmt.Get(data.playerId).info.Add(new Info($"Unit {data.type} ({data.pos}) not exist","no"));
+                S.Player(data.playerId).info.Add(new Info($"Unit {data.type} ({data.pos}) not exist","no"));
                 return null;
             }
         
@@ -102,7 +103,7 @@ namespace Units
             //has an active unit?
             //Debug.LogWarning(FindObjectOfType<OnMapUI>());
             UnitInfo u = FindObjectOfType<OnMapUI>().unitUI.active;
-            UnitInfo[] unitP = GetByPlayer(PlayerMgmt.ActPlayer().id);
+            UnitInfo[] unitP = GetByPlayer(S.ActPlayer().id);
             
             //has units?
             if (unitP.Length == 0) return;

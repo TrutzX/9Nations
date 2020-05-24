@@ -15,7 +15,7 @@ namespace Classes.Actions.Addons
         public override void Perform()
         {
             UpdatePref("lastTrain");
-            GameMgmt.Get().unit.Create(S.Towns().NearestTown(PlayerMgmt.ActPlayer(),pos,false).id, build.id, pos);
+            GameMgmt.Get().unit.Create(S.Towns().NearestTown(S.ActPlayer(),pos,false).id, build.id, pos);
             OnMapUI.Get().UpdatePanel(pos);
         }
     }

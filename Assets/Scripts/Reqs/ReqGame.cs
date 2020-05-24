@@ -9,7 +9,7 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
-            return GameHelper.IsGame();
+            return S.IsGame();
         }
 
         public override bool Final(Player player, string sett)

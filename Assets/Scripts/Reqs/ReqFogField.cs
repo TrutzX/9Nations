@@ -37,7 +37,7 @@ namespace reqs
             }
             
             DataTerrain n = GameMgmt.Get().newMap.Terrain(new NVector(sett));
-            return $"You need to explore a {n.name}. Status: " + (Check(player,sett) ? "Not found" : "Found");
+            return $"You need to explore a {n.Name()}. Status: " + (Check(player,sett) ? "Not found" : "Found");
         }
     }
 }

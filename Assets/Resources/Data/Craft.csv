@@ -1,10 +1,10 @@
-id,name,icon,category,craft,craft,craft,req,req,req
+id,desc,icon,category,craft,craft,craft,req,req,req
 stone,extract stone,!Icons/icons:stone,mine,stone:2,,,terrainRes=>1:stone,,
 copper,extract copper,!Icons/mining:copper,mine,copper:3,,,terrainRes=>1:copper,,research=copper
 ironore,extract ironore,!Icons/mining:ironore,mine,ironore:2,,,terrainRes=>1:ironore,element=fire,research=ironore
 goldore,extract goldore,!Icons/mining:goldore,mine,goldore:1,,,terrainRes=>1:goldore,element=earth,research=goldore
 coal,extract coal,!Icons/mining:coal,mine,coal:2,,,terrainRes=>1:coal,,research=coppertool
-ironignot,forge iron ignot,!Icons/mining:ironignot,forge,ironignot:1,coal:-1,ironore:-1,,element=fire,research=ironore
+iron,forge iron ignot,!Icons/mining:iron,forge,iron:1,coal:-1,ironore:-1,,element=fire,research=ironore
 goldignot,forge gold ignot,!Icons/mining:goldignot,forge,goldignot:1,coal:-1,goldore:-1,,element=earth,research=goldore
 coppertool,produce tools from copper,!Icons/mining:coppertool,toolshop,tool:1,copper:-7,,,,research=coppertool
-irontool,produce tools from iron,!Icons/mining:irontool,toolshop,tool:1,ironignot:-2,,,element=fire,research=irontool
+irontool,produce tools from iron,!Icons/mining:irontool,toolshop,tool:1,iron:-2,,,element=fire,research=irontool

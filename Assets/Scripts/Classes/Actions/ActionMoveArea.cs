@@ -10,9 +10,9 @@ using UnityEngine;
 
 namespace Classes.Actions
 {
-    public class ActionMove : BaseActiveAction
+    public class ActionMoveArea : BaseActiveAction
     {
-        public ActionMove() : base("move") { }
+        public ActionMoveArea() : base("moveArea") { }
 
         public override void PreRun()
         {

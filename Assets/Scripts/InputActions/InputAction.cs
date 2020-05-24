@@ -101,7 +101,7 @@ namespace InputActions
                 //req fullfilled?
                 if (!key.req.Check(ActPlayer(),active, active?.Pos()))
                 {
-                    if (GameHelper.IsGame())
+                    if (S.IsGame())
                         OnMapUI.Get().ShowPanelMessageError(key.req.Desc(ActPlayer(),active, active?.Pos()));
                     else
                     {
@@ -224,12 +224,12 @@ namespace InputActions
             }
             
             //found nothing?
-            OnMapUI.Get().unitUI.ShowPanelMessageError($"Action {L.b.actions[key.id].name} can not called, their is no unit or building, who can perform it.");
+            OnMapUI.Get().unitUI.ShowPanelMessageError($"Action {L.b.actions[key.id].Name()} can not called, their is no unit or building, who can perform it.");
         }
 
         private Player ActPlayer()
         {
-            return GameHelper.IsGame() ? PlayerMgmt.ActPlayer() : null;
+            return S.IsGame() ? S.ActPlayer() : null;
         }
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace InputActions
             Transform trans = Camera.main.GetComponent<Transform>();
             
             //valid pos?
-            if (!GameHelper.Valid((int)trans.position.x+x,(int)trans.position.y+y))
+            if (!S.Valid((int)trans.position.x+x,(int)trans.position.y+y))
             {
                 OnMapUI.Get().ShowPanelMessageError("The camera position is to far outside of the map.");
                 return;

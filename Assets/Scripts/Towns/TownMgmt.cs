@@ -25,7 +25,7 @@ namespace Towns
 
         public int Create(string name, NVector pos)
         {
-            return Create(name, PlayerMgmt.ActPlayer().id,  pos);
+            return Create(name, S.ActPlayer().id,  pos);
         }
     
         /// <summary>
@@ -42,7 +42,7 @@ namespace Towns
             towns.Add(town);
             Debug.Log($"Create town {name} ({createTownCounter}) for {playerID}");
             //create townhall
-            GameMgmt.Get().building.Create(createTownCounter, PlayerMgmt.Get(playerID).elements.TownHall(),pos);
+            GameMgmt.Get().building.Create(createTownCounter, S.Player(playerID).elements.TownHall(),pos);
             return createTownCounter;
         }
 
@@ -63,7 +63,7 @@ namespace Towns
     
         public List<Town> GetByActPlayer()
         {
-            return GetByPlayer(PlayerMgmt.ActPlayer().id);
+            return GetByPlayer(S.ActPlayer().id);
         }
 
         public Town OverlayHighest(string id, NVector pos)

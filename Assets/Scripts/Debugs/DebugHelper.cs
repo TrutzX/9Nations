@@ -29,7 +29,7 @@ namespace Debugs
             {
                 ActionHolder ah = new ActionHolder();
                 ah.data["trade"] = null;
-                LClass.s.GetNewAction("trade").PerformCheck(ActionEvent.Direct, PlayerMgmt.ActPlayer(), ah);
+                LClass.s.GetNewAction("trade").PerformCheck(ActionEvent.Direct, S.ActPlayer(), ah);
             });
             p.panel.AddButton("Give research", () =>
             {
@@ -41,19 +41,19 @@ namespace Debugs
             {
                 foreach (Research r in L.b.researches.Values())
                 {
-                    PlayerMgmt.ActPlayer().research.Set(r.id, true);
+                    S.ActPlayer().research.Set(r.id, true);
                 }
             });
             p.panel.AddButton("Unfinish all research", () =>
             {
                 foreach (Research r in L.b.researches.Values())
                 {
-                    PlayerMgmt.ActPlayer().research.Set(r.id, false);
+                    S.ActPlayer().research.Set(r.id, false);
                 }
             });
             p.panel.AddButton("Switch Fog", () =>
             {
-                foreach (TileMapConfig16 t in PlayerMgmt.ActPlayer().fog.tileMap)
+                foreach (TileMapConfig16 t in S.ActPlayer().fog.tileMap)
                 {
                     t.gameObject.SetActive(!t.gameObject.activeSelf);
                 }
@@ -63,7 +63,7 @@ namespace Debugs
                 WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
                 foreach (var fp in L.b.playerOptions.Values())
                 {
-                    wp.panel.AddLabel(fp.name+": "+PlayerMgmt.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
+                    wp.panel.AddLabel(fp.Name()+": "+S.ActPlayer().GetFeature(fp.id)+" ("+fp.standard+")");
                 }
                 wp.Finish();
             });
@@ -72,7 +72,7 @@ namespace Debugs
                 WindowPanelBuilder wp = WindowPanelBuilder.Create("features");
                 foreach (var fp in L.b.gameOptions.Values())
                 {
-                    wp.panel.AddLabel(fp.name+": "+fp.Value()+" ("+fp.standard+")");
+                    wp.panel.AddLabel(fp.Name()+": "+fp.Value()+" ("+fp.standard+")");
                 }
                 wp.Finish();
             });
@@ -83,7 +83,7 @@ namespace Debugs
             });
             p.panel.AddButton("Reset round", () =>
             {
-                PlayerMgmt.Get().ResetRound();
+                S.Players().ResetRound();
             });
             p.panel.AddLabel("DPI: "+Screen.dpi);
             p.Finish();

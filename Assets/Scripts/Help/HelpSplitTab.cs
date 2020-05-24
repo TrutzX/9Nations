@@ -7,7 +7,7 @@ namespace Help
 {
     public class HelpSplitTab : SplitElementTab
     {
-        public HelpSplitTab() : base("Help", "help")
+        public HelpSplitTab() : base(LSys.tem.helps.Name(), LSys.tem.helps.Sprite())
         {
             foreach(NHelp h in LSys.tem.helps.Values())
             {

@@ -51,7 +51,7 @@ namespace Buildings
         {
             action = new ActionHolders(d.action);
             sprite = d.Icon;
-            name = d.name;
+            name = d.Name();
             hp = d.hp;
             hpMax = d.hp;
             ap = d.ap;
@@ -72,7 +72,7 @@ namespace Buildings
         public void UnitUpdate()
         {
             //has a town?
-            Town t = S.Towns().NearestTown(PlayerMgmt.Get(playerId), pos, false);
+            Town t = S.Towns().NearestTown(S.Player(playerId), pos, false);
             townId = t?.id ?? -1;
         }
     }

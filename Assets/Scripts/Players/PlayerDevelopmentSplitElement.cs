@@ -9,7 +9,7 @@ namespace Players
         private readonly Element _element;
         private readonly PlayerDevelopmentNation _pdn;
         
-        public PlayerDevelopmentSplitElement(Element element, PlayerDevelopmentNation pdn) : base(element.name, element.Icon)
+        public PlayerDevelopmentSplitElement(Element element, PlayerDevelopmentNation pdn) : base(element.Name(), element.Icon)
         {
             _element = element;
             _pdn = pdn;

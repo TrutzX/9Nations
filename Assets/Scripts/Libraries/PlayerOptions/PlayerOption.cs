@@ -11,7 +11,7 @@ namespace Libraries.PlayerOptions
     {
         public override string Value()
         {
-            return PlayerMgmt.ActPlayer().GetFeature(id);
+            return S.ActPlayer().GetFeature(id);
         }
 
         public override bool Exist()
@@ -21,7 +21,7 @@ namespace Libraries.PlayerOptions
 
         public override void SetValue(string value)
         {
-            PlayerMgmt.ActPlayer().SetFeature(id, value);
+            S.ActPlayer().SetFeature(id, value);
         }
     }
 }

@@ -65,7 +65,7 @@ namespace Players.PlayerResearches
             //finish it
             Research r = NRandom<Research>.Rand(av);
             finish.Add(r.id,true);
-            SetLastInfo($"Eureka! Finish the research {r.name}");
+            SetLastInfo($"Eureka! Finish the research {r.Name()}");
 
             //research again
             BeginNewResearch(actual);

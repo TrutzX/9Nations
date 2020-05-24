@@ -1,4 +1,5 @@
 using System;
+using Game;
 using Libraries;
 using Libraries.Usages;
 using UI;
@@ -18,11 +19,11 @@ namespace Towns
         public override void ShowDetail(PanelBuilder panel)
         {
             var n = town.MaxInhabitantsAndWorker();
-            int i = town.GetRes("inhabitant");
+            int i = town.GetRes(C.Inhabitant);
             
-            panel.AddHeaderLabel("General");
-            panel.AddRes("inhabitant",$"{i}/{n.maxInhabitants}");
-            panel.AddImageLabel($"{town.GetRes("worker")} free worker", L.b.res["worker"].Icon);
+            panel.AddHeaderLabelT("general");
+            L.b.res[C.Inhabitant].AddImageLabel(panel, $"{i}/{n.maxInhabitants}");
+            L.b.res[C.Worker].AddImageLabel(panel, $"{town.GetRes("worker")} free worker");
             panel.AddSubLabel("Productivity",town.modi["produce"],"res");
             if (town.usageMess != null) panel.AddSubLabel("Status",town.usageMess);
             
@@ -37,7 +38,7 @@ namespace Towns
                 
                 if (a == 0) continue;
 
-                panel.AddSubLabel(usage.name,$"{a} from {town.GetRes(usage.id)}", usage.Icon);
+                panel.AddSubLabel(usage.Name(),$"{a} from {town.GetRes(usage.id)}", usage.Icon);
             }
             
             town.ShowRes(panel);

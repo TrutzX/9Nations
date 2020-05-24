@@ -55,7 +55,7 @@ namespace Classes.Actions
                         if (!data.mapElement || data.field != "near")
                             continue;
 
-                        if (!action.req.Check(PlayerMgmt.ActPlayer(), mapElementInfo, dPos, true))
+                        if (!action.req.Check(S.ActPlayer(), mapElementInfo, dPos, true))
                         {
                             continue;
                         }
@@ -70,7 +70,7 @@ namespace Classes.Actions
                         if (!S.Unit().Free(dPos))
                         {
                             //TODO color own?
-                            if (S.Unit().At(dPos).Owner(PlayerMgmt.ActPlayerID()))
+                            if (S.Unit().At(dPos).Owner(S.ActPlayerID()))
                             {
                                 Color(dPos,2);
                             }
@@ -121,7 +121,7 @@ namespace Classes.Actions
             if (!S.Unit().Free(LastClickPos))
             {
                 UnitInfo unit = S.Unit().At(LastClickPos);
-                if (unit.Owner(PlayerMgmt.ActPlayerID()))
+                if (unit.Owner(S.ActPlayerID()))
                 {
                     mapElementInfo.UI().ShowPanelMessage($"You want to interact with {unit.name}? Click again!");
                 }
@@ -133,7 +133,7 @@ namespace Classes.Actions
             }
 
             DataTerrain terr = GameMgmt.Get().newMap.Terrain(LastClickPos);
-            mapElementInfo.UI().ShowPanelMessage($"You want to interact with {terr.name}? Click again!");
+            mapElementInfo.UI().ShowPanelMessage($"You want to interact with {terr.Name()}? Click again!");
         }
 
         public override void ClickSecond()
@@ -148,14 +148,14 @@ namespace Classes.Actions
                     continue;
 
                 //found it?
-                if (!action.req.Check(PlayerMgmt.ActPlayer(), mapElementInfo, LastClickPos, true))
+                if (!action.req.Check(S.ActPlayer(), mapElementInfo, LastClickPos, true))
                 {
                     continue;
                 }
                 
                 
                 ActionInteractSplitElement be = new ActionInteractSplitElement(mapElementInfo.data.action, action, mapElementInfo, LastClickPos);
-                be.disabled = action.req.Desc(PlayerMgmt.ActPlayer(), mapElementInfo, LastClickPos);
+                be.disabled = action.req.Desc(S.ActPlayer(), mapElementInfo, LastClickPos);
                 be.audioPerform = data.sound;
                 b.Add(be);
             }

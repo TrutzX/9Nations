@@ -12,7 +12,6 @@ namespace Libraries
     public class BaseData
     {
         public string id;
-        public string name;
         public string Icon;
         public string Desc;
         public string Sound;
@@ -29,8 +28,20 @@ namespace Libraries
         
         public void AddImageLabel(PanelBuilder panel)
         {
-            var s = string.IsNullOrEmpty(name) ? Name() : name;
-            panel.AddImageLabel(S.Debug()?$"{s} ({id})":s, Sprite());
+            panel.AddImageLabel(S.Debug()?S.T("debugName",Name(),id):Name(), Sprite());
+        }
+
+        public virtual void AddImageLabel(PanelBuilder panel, int count)
+        {
+            var text = S.T("plural", S.T(id,count), count);
+            panel.AddImageLabel(text,Sprite());
+        }
+
+        public void AddSubLabel(PanelBuilder panel, int count, string header=null, string display=null)
+        {
+            if (string.IsNullOrEmpty(display)) display = count.ToString();
+            var text = string.IsNullOrEmpty(header) ? display : S.T("plural", S.T(header,count), display);
+            panel.AddSubLabel(Name(),text, Sprite());
         }
 
         /// <summary>

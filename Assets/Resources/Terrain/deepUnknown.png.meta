@@ -1,70 +1,133 @@
 fileFormatVersion: 2
-guid: 1131102d3ce544167a1ac7481450d758
+guid: 87d70cdf3908c48cfac51456cb524f0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5010547882142962975
-    second: forest_rough_2
+      213: 8318826441370193912
+    second: deep_unknown_2
   - first:
-      213: 3065104011379322114
-    second: forest_rough_3
+      213: 2972583293139416874
+    second: deep_unknown_3
   - first:
-      213: -9170310998185574786
-    second: forest_rough_4
+      213: 1993205762139032465
+    second: deep_unknown_4
   - first:
-      213: 4032559039145510227
-    second: forest_rough_6
+      213: -1822191476042254182
+    second: deep_unknown_6
   - first:
-      213: -190149213628221757
-    second: forest_rough_7
+      213: -4482420920474704412
+    second: deep_unknown_7
   - first:
-      213: 1651373338483381445
-    second: forest_rough_8
+      213: -4764581579501599060
+    second: deep_unknown_8
   - first:
-      213: -4721445648261691820
-    second: forest_rough_9
+      213: 1490182794041441214
+    second: deep_unknown_9
   - first:
-      213: -3459584576061984160
-    second: forest_rough_10
+      213: -1322449512620228788
+    second: deep_unknown_10
   - first:
-      213: -1542663552730425061
-    second: forest_rough_11
+      213: -2572750064654335769
+    second: deep_unknown_11
   - first:
-      213: -6896793591327741393
-    second: forest_rough_12
+      213: -176582961026893089
+    second: deep_unknown_12
   - first:
-      213: 2331448497210297422
-    second: forest_rough_13
+      213: -831093255964557286
+    second: deep_unknown_13
   - first:
-      213: 4496219332475578956
-    second: forest_rough_14
+      213: -8452145030109085964
+    second: deep_unknown_14
   - first:
-      213: -4115283956377181
-    second: forest_rough_15
+      213: 5756643685110375246
+    second: deep_unknown_15
   - first:
-      213: -7229924057084247311
-    second: forest_rough_16
+      213: -8525881527259863433
+    second: deep_unknown_16
   - first:
-      213: 517856969411537497
-    second: forest_rough_17
+      213: -2719767838921771963
+    second: deep_unknown_17
   - first:
-      213: 7586609783589095761
-    second: forest_rough_18
+      213: -8259245703126314658
+    second: deep_unknown_18
   - first:
-      213: 8589688951203944593
-    second: forest_rough_19
+      213: -2054435152308123091
+    second: deep_unknown_19
   - first:
-      213: -697735673754549076
-    second: forest_rough_20
+      213: 2456620774601113788
+    second: deep_unknown_20
   - first:
-      213: 7641312337353306244
-    second: forest_rough_21
+      213: -1030599059426996310
+    second: deep_unknown_21
   - first:
-      213: -5196408112872399598
-    second: forest_rough_22
+      213: 5649109484578790027
+    second: deep_unknown_22
   - first:
-      213: 3271080837404643911
-    second: forest_rough_23
+      213: 1585346686384334707
+    second: deep_unknown_23
+  - first:
+      213: 3908967793748540866
+    second: deepUnknown_2
+  - first:
+      213: 563925965140755905
+    second: deepUnknown_3
+  - first:
+      213: 1991149651092741443
+    second: deepUnknown_4
+  - first:
+      213: -7967465332933211955
+    second: deepUnknown_6
+  - first:
+      213: -6783827938114161869
+    second: deepUnknown_7
+  - first:
+      213: -7467136588665481736
+    second: deepUnknown_8
+  - first:
+      213: 1088817723084504286
+    second: deepUnknown_9
+  - first:
+      213: 6185070005071801372
+    second: deepUnknown_10
+  - first:
+      213: -8005512656175524393
+    second: deepUnknown_11
+  - first:
+      213: 738591568629999184
+    second: deepUnknown_12
+  - first:
+      213: 6866019874590763892
+    second: deepUnknown_13
+  - first:
+      213: -6867823820127085103
+    second: deepUnknown_14
+  - first:
+      213: -1428501988634828913
+    second: deepUnknown_15
+  - first:
+      213: 1507787740910627932
+    second: deepUnknown_16
+  - first:
+      213: -1828968444012790078
+    second: deepUnknown_17
+  - first:
+      213: 725830632789543156
+    second: deepUnknown_18
+  - first:
+      213: -4426433986404968932
+    second: deepUnknown_19
+  - first:
+      213: -6405209907938096393
+    second: deepUnknown_20
+  - first:
+      213: -301178072708919411
+    second: deepUnknown_21
+  - first:
+      213: 1109440127954661922
+    second: deepUnknown_22
+  - first:
+      213: 5564532182997582159
+    second: deepUnknown_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,7 +224,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: forest_rough_2
+      name: deepUnknown_2
       rect:
         serializedVersion: 2
         x: 32
@@ -175,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38066b109e3b74eb790a88f336487fc0
-      internalID: 5010547882142962975
+      spriteID: e4e712a8da33045baa75c1057bff7002
+      internalID: 3908967793748540866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_3
+      name: deepUnknown_3
       rect:
         serializedVersion: 2
         x: 48
@@ -196,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ddbcff3043c249d89ad4635d2026d3b
-      internalID: 3065104011379322114
+      spriteID: a50b1c555d6764830a54b8c18086c136
+      internalID: 563925965140755905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_4
+      name: deepUnknown_4
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18de233052758443c8b9187250b0b3da
-      internalID: -9170310998185574786
+      spriteID: de84a8f1affd14ceb8fe3e0d4e2420cc
+      internalID: 1991149651092741443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_6
+      name: deepUnknown_6
       rect:
         serializedVersion: 2
         x: 32
@@ -238,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 515ac601c098e4474804fe56899a3172
-      internalID: 4032559039145510227
+      spriteID: 94fc89c7334614dd4bca9f8734acd017
+      internalID: -7967465332933211955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_7
+      name: deepUnknown_7
       rect:
         serializedVersion: 2
         x: 48
@@ -259,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d227136a9a5d4b3bab742fa36b9281f
-      internalID: -190149213628221757
+      spriteID: 22c3d512b51d444bdb2a792a20bd2324
+      internalID: -6783827938114161869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_8
+      name: deepUnknown_8
       rect:
         serializedVersion: 2
         x: 0
@@ -280,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d088e5c0bbb464293862793bf202e544
-      internalID: 1651373338483381445
+      spriteID: dfee2381f7f5b424c906a4c64c30ee01
+      internalID: -7467136588665481736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_9
+      name: deepUnknown_9
       rect:
         serializedVersion: 2
         x: 16
@@ -301,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101ae904ece8d4ce697965c4b21adeda
-      internalID: -4721445648261691820
+      spriteID: 6c0ecef7aa0cc47cb990a50e5f87d8d7
+      internalID: 1088817723084504286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_10
+      name: deepUnknown_10
       rect:
         serializedVersion: 2
         x: 32
@@ -322,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54bf5925c7d38488d80548d7778b916f
-      internalID: -3459584576061984160
+      spriteID: 1b18acac7937147efa1ddd5ff04de4c2
+      internalID: 6185070005071801372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_11
+      name: deepUnknown_11
       rect:
         serializedVersion: 2
         x: 48
@@ -343,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 299ead1fdbf0a43f885fd3d34b33d6a8
-      internalID: -1542663552730425061
+      spriteID: 2a8629891d47948548999f6154ba461b
+      internalID: -8005512656175524393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_12
+      name: deepUnknown_12
       rect:
         serializedVersion: 2
         x: 0
@@ -364,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c896c290cf134512b3027c8de55f043
-      internalID: -6896793591327741393
+      spriteID: 51d64bca1665847fe96a76469e3e82cb
+      internalID: 738591568629999184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_13
+      name: deepUnknown_13
       rect:
         serializedVersion: 2
         x: 16
@@ -385,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 018cdff2131094ac482e82cddc2c770c
-      internalID: 2331448497210297422
+      spriteID: 2c0a72f69df194c68930767dc8ca4c15
+      internalID: 6866019874590763892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_14
+      name: deepUnknown_14
       rect:
         serializedVersion: 2
         x: 32
@@ -406,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8124c8b3a2f439c90a6ba03e4db2ef
-      internalID: 4496219332475578956
+      spriteID: 391287d55b2c8480fb4bd44d3850ca62
+      internalID: -6867823820127085103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_15
+      name: deepUnknown_15
       rect:
         serializedVersion: 2
         x: 48
@@ -427,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a4a9db72a5de4b4fb311ec119e22289
-      internalID: -4115283956377181
+      spriteID: e35adb05dd4bd4474b6834e1f59b3af2
+      internalID: -1428501988634828913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_16
+      name: deepUnknown_16
       rect:
         serializedVersion: 2
         x: 0
@@ -448,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a69108975fc64394acb1f3a96e8563c
-      internalID: -7229924057084247311
+      spriteID: 3df90bf4c5cd34502b89b38dcfc708a2
+      internalID: 1507787740910627932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_17
+      name: deepUnknown_17
       rect:
         serializedVersion: 2
         x: 16
@@ -469,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a14feb44ac444efa970414884c3694
-      internalID: 517856969411537497
+      spriteID: 713b97379fd774dc082b81f5485bb529
+      internalID: -1828968444012790078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_18
+      name: deepUnknown_18
       rect:
         serializedVersion: 2
         x: 32
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d27ad17208242e38a8c76239d724e8
-      internalID: 7586609783589095761
+      spriteID: d89970efb44504de7ab569889a4ffee0
+      internalID: 725830632789543156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_19
+      name: deepUnknown_19
       rect:
         serializedVersion: 2
         x: 48
@@ -511,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a7a9a19d486e47408c9b8142573cf60
-      internalID: 8589688951203944593
+      spriteID: c1bcd9e03a2de4b8290a7fc84f394fd8
+      internalID: -4426433986404968932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_20
+      name: deepUnknown_20
       rect:
         serializedVersion: 2
         x: 0
@@ -532,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b49c1dada225c443e8415ddcfda8ca83
-      internalID: -697735673754549076
+      spriteID: d407830e041b147368582acd65324f41
+      internalID: -6405209907938096393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_21
+      name: deepUnknown_21
       rect:
         serializedVersion: 2
         x: 16
@@ -553,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d1f3199c012e4b30bd75643bdc3e426
-      internalID: 7641312337353306244
+      spriteID: 902fadf11068f4e03aee8b071b68bc09
+      internalID: -301178072708919411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_22
+      name: deepUnknown_22
       rect:
         serializedVersion: 2
         x: 32
@@ -574,14 +637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fcc7256e43e248d9a28f324d560af13
-      internalID: -5196408112872399598
+      spriteID: 5783360010a494a40a49980a82055bdd
+      internalID: 1109440127954661922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_rough_23
+      name: deepUnknown_23
       rect:
         serializedVersion: 2
         x: 48
@@ -595,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 782f9b87d05b64efdb9fb984511ad682
-      internalID: 3271080837404643911
+      spriteID: 036e568de192844788f74bc117b7558c
+      internalID: 5564532182997582159
       vertices: []
       indices: 
       edges: []

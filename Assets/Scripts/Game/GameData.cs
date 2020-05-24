@@ -23,8 +23,8 @@ namespace Game
         public List<BuildingUnitData> buildings;
 
         public Dictionary<string, string> features;
-
         
+        public Dictionary<string, string> modi;
         
     }
 }

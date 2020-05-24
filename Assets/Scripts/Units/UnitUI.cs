@@ -47,7 +47,7 @@ namespace Units
             //add new actions
             foreach (var act in active.data.action.Is(ActionEvent.Direct))
             {
-                if (act.req.Check(PlayerMgmt.ActPlayer(),active,active.Pos(), true))
+                if (act.req.Check(S.ActPlayer(),active,active.Pos(), true))
                     AddNewActionButton(active.data.action, act, active, actions);
             }
         }

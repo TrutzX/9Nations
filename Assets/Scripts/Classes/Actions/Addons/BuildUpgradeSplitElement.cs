@@ -1,5 +1,6 @@
 using Buildings;
 using Game;
+using Libraries;
 using Libraries.Buildings;
 using Tools;
 using UI;
@@ -21,16 +22,17 @@ namespace Classes.Actions.Addons
             
             foreach (var cost in build.cost)
             {
+                var r = L.b.res[cost.Key];
                 if (!go.baseData.cost.ContainsKey(cost.Key))
                 {
-                    panel.AddRes(cost.Key, cost.Value);
+                    r.AddImageLabel(panel, cost.Value);
                     found = true;
                     continue;
                 }
 
                 if (cost.Value > go.baseData.cost[cost.Key])
                 {
-                    panel.AddRes(cost.Key, cost.Value-go.baseData.cost[cost.Key]);
+                    r.AddImageLabel(panel, cost.Value-go.baseData.cost[cost.Key]);
                     found = true;
                 }
             }

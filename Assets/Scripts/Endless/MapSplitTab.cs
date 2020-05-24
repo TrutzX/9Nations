@@ -34,7 +34,7 @@ namespace Endless
         private readonly Dictionary<string, string> _startConfig;
         private readonly MapSplitTab _tab;
         
-        public MapSelectSplitElement(DataMap map, MapSplitTab tab, Dictionary<string, string> startConfig) : base(map.name, map.Sprite())
+        public MapSelectSplitElement(DataMap map, MapSplitTab tab, Dictionary<string, string> startConfig) : base(map.Name(), map.Sprite())
         {
             _map = map;
             _startConfig = startConfig;

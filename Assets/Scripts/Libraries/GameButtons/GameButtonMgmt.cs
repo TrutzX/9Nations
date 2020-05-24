@@ -9,7 +9,7 @@ namespace Libraries.GameButtons
     [Serializable]
     public class GameButtonMgmt : BaseMgmt<GameButton>
     {
-        public GameButtonMgmt() : base("gamebutton","GameButton",null) { }
+        public GameButtonMgmt() : base("gamebutton") { }
         
         public void BuildMenu(Player player, string category, IMapUI text, bool button, Transform transform)
         {

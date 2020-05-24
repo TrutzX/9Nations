@@ -1,4 +1,8 @@
+using System.Linq;
+using Game;
+using Libraries;
 using Players;
+using Tools;
 using UnityEngine;
 
 namespace reqs
@@ -8,14 +12,7 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
-
-            foreach (var e in sett.Split(';'))
-            {
-                if (player.elements.Contains(e))
-                    return true;
-            }
-
-            return false;
+            return SplitHelper.Separator(sett).Any(e => player.elements.Contains(e));
         }
 
         public override bool Final(Player player, string sett)
@@ -25,7 +22,8 @@ namespace reqs
 
         public override string Desc(Player player, string sett)
         {
-            return $"Need the element {sett}.";
+            var l = SplitHelper.Separator(sett);
+            return S.T(LSys.tem.translations.GetPlural("reqElement",l.Length), L.b.elements.NameList(l));
         }
     }
 }

@@ -19,7 +19,7 @@ namespace reqs
 
         public override string Desc(Player player, string sett)
         {
-            return $"Can only build from the nation {L.b.nations[sett].name}.";
+            return $"Can only build from the nation {L.b.nations[sett].Name()}.";
         }
     }
 }

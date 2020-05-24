@@ -1,3 +1,4 @@
+using Game;
 using Libraries;
 using Libraries.Researches;
 using UI;
@@ -18,8 +19,8 @@ namespace Players.PlayerResearches
             panel.AddHeaderLabel("Finish researches");
             foreach (Research r in L.b.researches.Values())
             {
-                if (PlayerMgmt.ActPlayer().research.IsFinish(r.id))
-                    panel.AddImageLabel(r.name, r.Icon);
+                if (S.ActPlayer().research.IsFinish(r.id))
+                    panel.AddImageLabel(r.Name(), r.Icon);
             }
 
             if (panel.Count() == 1)

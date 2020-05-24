@@ -16,7 +16,7 @@ namespace Classes.MapGenerator
             
             if (oTerrain == -1 && Random.Range(0,10) <= 6) // 60%
             {
-                layerData[height - y - 1][x] = L.b.terrains["deep_wall"].defaultTile;
+                layerData[height - y - 1][x] = L.b.terrains["deepWall"].defaultTile;
                 return;
             }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Buildings;
+using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
@@ -39,8 +40,8 @@ namespace Libraries.Buildings
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            panel.AddSubLabel("Build time",$"{buildTime} rounds","round");
-            panel.AddSubLabel("View Radius",$"{visibilityRange} fields","view");
+            L.b.res[C.BuildRes].AddSubLabel(panel,buildTime,"round");
+            L.b.res[C.ViewModi].AddSubLabel(panel,visibilityRange,"field");
             panel.AddRes("Cost for construction",cost);
             req.BuildPanel(panel, "Requirement for construction");
             
@@ -51,35 +52,38 @@ namespace Libraries.Buildings
 
         public void ShowBuild(PanelBuilder panel, NVector pos)
         {
-            base.ShowLexicon(panel);
-            panel.AddSubLabel("Build time",L.b.modifiers["build"].CalcText(visibilityRange, PlayerMgmt.ActPlayer(), pos, "rounds"),"round");
-            panel.AddSubLabel("View Radius",L.b.modifiers["view"].CalcText(visibilityRange, PlayerMgmt.ActPlayer(), pos, "fields"),"view");
-            panel.AddRes("Cost for construction",cost);
-            req.BuildPanel(panel, "Requirement for construction", null, pos);
-            
-            ActionDisplaySettings sett = new ActionDisplaySettings(panel, PlayerMgmt.ActPlayer(), null, pos,null);
+            ShowIntern(panel, pos);
+
+            ActionDisplaySettings sett = new ActionDisplaySettings(panel, S.ActPlayer(), null, pos,null);
             sett.compact = true;
             action.BuildPanel(panel, "Actions", sett);
         }
-        
+
         public void ShowOwn(PanelBuilder panel, MapElementInfo onMap)
         {
-            if (!onMap.Owner(PlayerMgmt.ActPlayerID()))
+            if (!onMap.Owner(S.ActPlayerID()))
             {
                 ShowLexicon(panel);
                 return;
             }
             
             NVector pos = onMap.Pos();
-
-            base.ShowLexicon(panel);
-            panel.AddSubLabel("Build time",L.b.modifiers["build"].CalcText(visibilityRange, PlayerMgmt.ActPlayer(), pos, "rounds"),"round");
-            panel.AddSubLabel("View Radius",L.b.modifiers["view"].CalcText(visibilityRange, PlayerMgmt.ActPlayer(), pos, "fields"),"view");
-            panel.AddRes("Cost for construction",cost);
-            req.BuildPanel(panel,"Requirement for construction", onMap, pos);
+            ShowIntern(panel, pos);
 
             onMap.data.action.BuildPanel(panel, "Actions", new ActionDisplaySettings(panel, onMap.Player(), onMap, pos, null));
+        }
 
+        private void ShowIntern(PanelBuilder panel, NVector pos)
+        {
+            base.ShowLexicon(panel);
+            var b = L.b.modifiers[C.BuildRes].CalcText(buildTime, S.ActPlayer(), pos);
+            L.b.res[C.BuildRes].AddSubLabel(panel, b.value, "round", b.display);
+
+            var v = L.b.modifiers[C.ViewModi].CalcText(visibilityRange, S.ActPlayer(), pos);
+            L.b.modifiers[C.ViewModi].AddSubLabel(panel, v.value, "field", v.display);
+
+            panel.AddRes("Cost for construction", cost);
+            req.BuildPanel(panel, "Requirement for construction", null, pos);
         }
     }
 }

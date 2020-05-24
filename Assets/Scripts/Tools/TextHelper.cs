@@ -38,7 +38,12 @@ namespace Tools
 
         public static string Header(string h)
         {
-            return $"@H@{h}";
+            return $"# {h}";
+        }
+
+        public static string File(string h)
+        {
+            return $"@F@{h}";
         }
 
         public static string IconLabel(string icon, string text)

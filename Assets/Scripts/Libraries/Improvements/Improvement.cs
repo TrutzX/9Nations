@@ -12,7 +12,6 @@ namespace Libraries.Improvements
     public class Improvement : BaseData
     {
         public Dictionary<string, string> modi;
-        public string file;
         public bool combine;
 
         public Improvement()
@@ -20,9 +19,9 @@ namespace Libraries.Improvements
             modi = new Dictionary<string, string>();
         }
         
-        public override Sprite Sprite()
+        public Sprite Sprite(int sprite = 14)
         {
-            return SpriteHelper.Load(file+(combine?"14":""));
+            return SpriteHelper.Load(Icon.Replace("14", sprite.ToString()));
         }
 
         public Sprite CalcSprite(NVector pos)
@@ -40,13 +39,13 @@ namespace Libraries.Improvements
             
             //Debug.Log($"{pos} north:{north}, east:{east}, south:{south}, west:{west}");
             
-            return SpriteHelper.Load(file+ImprovementHelper.GetId(north, east, south, west));
+            return Sprite(ImprovementHelper.GetId(north, east, south, west));
         }
         
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            panel.AddModi("Modifiers",modi);
+            panel.AddModi(modi);
         }
     }
 }

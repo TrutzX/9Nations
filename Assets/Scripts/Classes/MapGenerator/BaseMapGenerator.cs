@@ -18,7 +18,7 @@ namespace Classes.MapGenerator
             DataTerrain invisible = L.b.terrains["invisible"];
             GameMapDataLevel std = GameMgmt.Get().data.map.levels[GameMgmt.Get().data.map.standard];
             
-            Debug.Log($"Generate layer {mapGeneration.name}:{GameMgmt.Get().data.map.width}/{height}");
+            Debug.Log($"Generate layer {mapGeneration.Name()}:{GameMgmt.Get().data.map.width}/{height}");
             
             for(int layer = 0; layer < std.LayerCount(); layer++)
             {

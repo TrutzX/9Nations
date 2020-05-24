@@ -75,7 +75,7 @@ namespace Libraries.Overlays
             }
 
             //build it
-            L.b.overlays[id].RunCode().Run(PlayerMgmt.ActPlayer(), o);
+            L.b.overlays[id].RunCode().Run(S.ActPlayer(), o);
         }
     }
 }

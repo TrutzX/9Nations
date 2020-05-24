@@ -23,7 +23,7 @@ namespace Players.Infos
             UIHelper.ClearChild(infoButtons);
             
             //add new
-            foreach (Info info in PlayerMgmt.ActPlayer().info.infos)
+            foreach (Info info in S.ActPlayer().info.infos)
             {
                 if (info.round != GameMgmt.Get().gameRound.Round)
                 {

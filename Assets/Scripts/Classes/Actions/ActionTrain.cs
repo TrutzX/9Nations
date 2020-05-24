@@ -31,9 +31,9 @@ namespace Classes.Actions
             foreach (string e in player.elements.elements)
             {
                 Element ele = L.b.elements[e];
-                SplitElementTab set = new SplitElementTab(ele.name, ele.Icon, holder.DataAction().name);
+                SplitElementTab set = new SplitElementTab(ele.Name(), ele.Icon, holder.DataAction().Name());
 
-                var b = L.b.units.GetAllByCategory(ele.id).OrderBy(o=>o.name).ToList();
+                var b = L.b.units.GetAllByCategory(ele.id).OrderBy(o=>o.Name()).ToList();
                 foreach (DataUnit build in b)
                 {
                     AddBuild(player, info, pos, build.id, set);

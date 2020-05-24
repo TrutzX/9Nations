@@ -31,9 +31,9 @@ namespace Classes.Actions
             foreach (string e in player.elements.elements)
             {
                 Element ele = L.b.elements[e];
-                SplitElementTab set = new SplitElementTab(ele.name, ele.Icon, holder.DataAction().name);
+                SplitElementTab set = new SplitElementTab(ele.Name(), ele.Icon, holder.DataAction().Name());
 
-                var b = L.b.buildings.GetAllByCategory(ele.id).OrderBy(o=>o.name).ToList();
+                var b = L.b.buildings.GetAllByCategory(ele.id).OrderBy(o=>o.Name()).ToList();
                 foreach (DataBuilding build in b)
                 {
                     AddBuild(player, info, pos, build.id, set);
@@ -53,7 +53,7 @@ namespace Classes.Actions
             if (holder.data.ContainsKey("allowed"))
             {
                 //load buildings
-                WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc, holder.DataAction().name);
+                WindowBuilderSplit b = WindowBuilderSplit.Create(holder.DataAction().Desc, holder.DataAction().Name());
 
                 foreach (string key in SplitHelper.Separator(holder.data["allowed"]))
                 {
@@ -73,7 +73,7 @@ namespace Classes.Actions
             //add last used?
             if (!string.IsNullOrEmpty(last.Value()))
             {
-                SplitElementTab set = new SplitElementTab(last.name, last.Icon, holder.DataAction().name);
+                SplitElementTab set = new SplitElementTab(last.Name(), last.Icon, holder.DataAction().Name());
                 foreach (string key in SplitHelper.Separator(last.Value()))
                 {
                     if (string.IsNullOrEmpty(key)) continue;

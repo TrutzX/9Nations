@@ -28,7 +28,7 @@ namespace reqs
         public override string Desc(Player player, string sett)
         {
             BaseDataBuildingUnit e = L.b.buildings.ContainsKey(sett) ? (BaseDataBuildingUnit) L.b.buildings[sett] : L.b.units[sett];
-            return $"Need to known {e.name}. Actual:{e.req.Desc(player)}";
+            return $"Need to known {e.Name()}. Actual:{e.req.Desc(player)}";
         }
     }
 }

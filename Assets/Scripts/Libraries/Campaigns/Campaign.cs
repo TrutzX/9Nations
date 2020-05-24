@@ -15,13 +15,12 @@ namespace Libraries.Campaigns
 
         public void ShowDetail(PanelBuilder panel)
         {
-            panel.AddHeaderLabel(name);
-            panel.AddLabel(Desc);
+            base.ShowLexicon(panel);
             panel.AddHeaderLabel("Scenarios");
             foreach (Scenario s in Scenarios())
             {
                 if (s.req.Check(null))
-                    panel.AddImageTextButton(s.name, SpriteHelper.Load(s.Icon), (() => s.Start()));
+                    panel.AddImageTextButton(s.Name(), SpriteHelper.Load(s.Icon), (() => s.Start()));
             }
         }
 

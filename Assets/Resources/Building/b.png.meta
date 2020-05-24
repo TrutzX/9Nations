@@ -331,7 +331,7 @@ TextureImporter:
     second: b_6
   - first:
       213: -4053208685693142464
-    second: b_7
+    second: house
   - first:
       213: 9069642619591972418
     second: b_8
@@ -463,7 +463,7 @@ TextureImporter:
     second: b_50
   - first:
       213: 1779733740546597972
-    second: b_51
+    second: housewinter
   - first:
       213: 1847429388013392791
     second: b_52
@@ -845,7 +845,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: b_7
+      name: house
       rect:
         serializedVersion: 2
         x: 224
@@ -1769,11 +1769,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: b_51
+      name: housewinter
       rect:
         serializedVersion: 2
         x: 96
-        y: 192
+        y: 191
         width: 32
         height: 32
       alignment: 6

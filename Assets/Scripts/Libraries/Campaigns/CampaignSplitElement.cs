@@ -7,7 +7,7 @@ namespace Libraries.Campaigns
     public class CampaignSplitElement : SplitElement
     {
         private Campaign campaign;
-        public CampaignSplitElement(Campaign campaign) : base(campaign.name, SpriteHelper.Load(campaign.Icon))
+        public CampaignSplitElement(Campaign campaign) : base(campaign.Name(), SpriteHelper.Load(campaign.Icon))
         {
             this.campaign = campaign;
         }
@@ -19,7 +19,7 @@ namespace Libraries.Campaigns
 
         public override void Perform()
         {
-            Debug.Log("start2 "+campaign.name);
+            Debug.Log("start2 "+campaign.Name());
             Debug.Log(campaign.Scenarios());
             LSys.tem.campaigns.ShowScenarios(campaign);
         }

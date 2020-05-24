@@ -8,9 +8,14 @@ namespace Libraries.Translations
     [Serializable]
     public class TranslationMgmt : BaseMgmt<Translation>
     {
-        public string lang;
-        
-        public TranslationMgmt() : base("translation") { }
+        public string lang = "english";
+
+        public TranslationMgmt() : base("translation")
+        {
+            //add base text
+            GetOrCreate("language").Add(lang,id);
+            GetOrCreate(id).Add(lang,id);
+        }
         
         protected override void ParseElement(Translation ele, string header, string data)
         {
@@ -28,10 +33,16 @@ namespace Libraries.Translations
             return this[key].Value(lang);
         }
 
+        public string GetPlural(string key, object p0)
+        {
+            //is p0 a number?
+            var isNumeric = int.TryParse(p0.ToString(), out int n);
+            return isNumeric && n != 1 && ContainsKey(key + "Plural") ? key + "Plural" : key;
+        }
+
         public string Translate(string key, object p0, object p1)
         {
-            string text = Translate(key);
-            return string.Format(text, p0, p1);
+            return string.Format(Translate(GetPlural(key, p0)), p0, p1);
         }
         
         public void UpdateLang()

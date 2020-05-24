@@ -1,3 +1,4 @@
+using Game;
 using Players;
 using Players.Quests;
 
@@ -8,8 +9,8 @@ namespace Classes.Scenarios
 
         public void Run()
         {
-            int pid = PlayerMgmt.Get().CreatePlayer(System.Environment.UserName, "forger");
-            PlayerMgmt.Get(pid).quests.Add(QuestHelper.Win().AddReq("building",">1:temple"));
+            int pid = S.Players().CreatePlayer(System.Environment.UserName, "forger");
+            S.Player(pid).quests.Add(QuestHelper.Win().AddReq("building",">1:temple"));
         }
 
         public string ID()

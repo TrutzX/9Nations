@@ -1,5 +1,5 @@
-id,name,icon
-view,view range,view
-build,build time,round
-move,movement cost,ap
-produce,general produce,res
+id,icon
+view,view
+buildTime,round
+moveCost,ap
+produce,res

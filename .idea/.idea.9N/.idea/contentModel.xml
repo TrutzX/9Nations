@@ -1481,8 +1481,9 @@
               <e p="ActionGameLose.cs" t="Include" />
               <e p="ActionGameWin.cs" t="Include" />
               <e p="ActionHeal.cs" t="Include" />
+              <e p="ActionImprovement.cs" t="Include" />
               <e p="ActionInteract.cs" t="Include" />
-              <e p="ActionMove.cs" t="Include" />
+              <e p="ActionMoveArea.cs" t="Include" />
               <e p="ActionMoveLevel.cs" t="Include" />
               <e p="ActionMoveTo.cs" t="Include" />
               <e p="ActionProduce.cs" t="Include" />
@@ -1514,6 +1515,7 @@
               <e p="BaseGameButtonRun.cs" t="Include" />
               <e p="ChangeMenuGameButtonRun.cs" t="Include" />
               <e p="GameButtonHelper.cs" t="Include" />
+              <e p="LexiconGameButtonRun.cs" t="Include" />
               <e p="MoveLevelGameButtonRun.cs" t="Include" />
               <e p="OverlayGameButtonRun.cs" t="Include" />
               <e p="TitleGameButtonRun.cs" t="Include" />
@@ -1581,8 +1583,8 @@
           </e>
           <e p="Game" t="Include">
             <e p="BottomUI.cs" t="Include" />
+            <e p="C.cs" t="Include" />
             <e p="GameData.cs" t="Include" />
-            <e p="GameHelper.cs" t="Include" />
             <e p="GameMgmt.cs" t="Include" />
             <e p="OnMapUI.cs" t="Include" />
             <e p="S.cs" t="Include" />
@@ -1594,7 +1596,6 @@
             <e p="GameMapView.cs" t="Include" />
           </e>
           <e p="Help" t="Include">
-            <e p="HelpHelper.cs" t="Include" />
             <e p="HelpSplitTab.cs" t="Include" />
             <e p="LexiconSplitElement.cs" t="Include" />
             <e p="LexiconSplitTab.cs" t="Include" />
@@ -1877,6 +1878,7 @@
             <e p="ReqUnitOwn.cs" t="Include" />
             <e p="ReqUpdate.cs" t="Include" />
             <e p="ReqUpgradeCan.cs" t="Include" />
+            <e p="ReqUpgradeField.cs" t="Include" />
             <e p="ReqWindowOpen.cs" t="Include" />
           </e>
           <e p="Tools" t="Include">

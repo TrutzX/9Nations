@@ -1,6 +1,6 @@
 id,icon,desc,cost,mapelement,field,req,req,req,useunderconstruction,onlyowner,sound
-attackBuilding,!Icons/base:fight,Fight the building,10,true,near,,,buildingOwn=enemy,,,attack
-attackUnit,!Icons/base:fight,Fight the unit,10,true,near,hp=>25%,,unitDest=enemy,,,attack
+attackBuilding,fight,Fight the building,10,true,near,,,buildingOwn=enemy,,,attack
+attackUnit,fight,Fight the unit,10,true,near,hp=>25%,,unitDest=enemy,,,attack
 build,build,Construct a new Building,,true,near,empty=building,frontier=own,unitDest=!enemy,,,
 cameraMove,logo,Move the camera,0,,,,,,,false,
 destroy,!Icons/base:destroy,,15,true,own,,,,true,,
@@ -11,23 +11,20 @@ foundTown,!Icons/base:foundTown,Found your town,10,true,,,,,,,
 gameButton,logo,Call a special game button,0,,,,,,,,
 heal,!Icons/magic:heal,Heal the unit. The cure rate is based on the available AP.,,true,near,,,unitDest=own,,,
 interact,!Icons/base:interact,Interact with the neighbors or near fields,0,true,,,,,,,
-move,!Icons/base:move,The unit go or move,0,true,,,,,,,
+moveArea,move,Show where the unit can move or go this round,0,true,,,,,,,
 moveLevel,!Icons/timeFantasy_ui:moveLevel,Move units between levels,0,,,,,,,false,
 produce,res,Produce res,0,,,,,,,,
-sleep,!Icons/base:sleep,Wait for the next round,1,true,own,,,,,
-terraform,logo,Change the terrain,40,true,near,,,,,
-townEvolve,foundTown,Upgrade the town to a new level,0,true,own,,,,,
-trade,!Icons/icons:trade,Trade your ressources,,true,,,frontier=own,,,
-train,train,Train a new unit,,true,own,empty=unit,,,,
-upgrade,!Icons/icons:upgrade,Upgrade this,10,,,,,,,
-evolve,religion,Try to evolve a new element,150,,,,,,,
-explore,!Icons/magic:explore,Automatical explore the world,,true,own,gameOption=fog:true,,,,
-moveTo,!Icons/timeFantasy_stats:moveTo,Move the unit to a specific point,0,true,own,,,,,
-craft,!Icons/icons:craft,Can craft from recipts different resources,0,true,own,,,,,
-examine,!Icons/ui:search,examine the terrain to find different resources.,,true,own,,,,,
-claim,!Terrain/frontier:frontier_4,claim this field for building,10,true,own,frontier=none,frontier=near,,,
-,,,,,,,,,,,
-,id,name,icon,desc,cost,activeMapElement,req1,useUnderConstruction,,persistent
-,improvement,Convert to a map improvement
-,Convert to a map improvement
-,0,logo,bool,,bool,,bool
+sleep,!Icons/base:sleep,Wait for the next round,1,true,own,,
+terraform,logo,Change the terrain,40,true,near,,
+townEvolve,foundTown,Upgrade the town to a new level,0,true,own,,
+trade,!Icons/icons:trade,Trade your ressources,,true,,,frontier=own
+train,train,Train a new unit,,true,own,empty=unit,
+upgrade,!Icons/icons:upgrade,Upgrade this,10,,,,
+evolve,religion,Try to evolve a new element,150,,,,
+explore,!Icons/magic:explore,Automatical explore the world,,true,own,gameOption=fog:true,
+moveTo,!Icons/timeFantasy_stats:moveTo,Move the unit to a specific point,0,true,own,,
+craft,!Icons/icons:craft,Can craft from recipts different resources,0,true,own,,
+examine,!Icons/ui:search,examine the terrain to find different resources.,,true,own,,
+claim,!Terrain/frontier:frontier_4,claim this field for building,10,true,own,frontier=none,frontier=near
+improvement,logo,Convert to a map improvement
+,0,true,own,,

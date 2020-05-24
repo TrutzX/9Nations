@@ -13,7 +13,7 @@ namespace Libraries.Buildings
     {
         protected ActionHolder lastAction;
         protected BaseDataBuildingUnitMgmt(string id) : base(id) { }
-        protected BaseDataBuildingUnitMgmt(string id, string name, string icon) : base(id, name, icon) { }
+        protected BaseDataBuildingUnitMgmt(string id, string icon) : base(id, icon) { }
 
         protected override void ParseElement(T ele, string header, string data)
         {

@@ -1,8 +1,3 @@
-id,name,icon,desc,progress,
-tutorial,Tutorial,!Icons/ui:tutorial,You will learn the basics of 9 Nations.,false,
-single,Single Scenarios,!Icons/magic:single,Play different single scenarios.,false,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
+id,icon,desc,progress
+tutorial,!Icons/ui:tutorial,You will learn the basics of 9 Nations.,false
+single,!Icons/magic:single,Play different single scenarios.,false

@@ -19,13 +19,13 @@ namespace Libraries.Options
         {
             if (type == "bool")
             {
-                panel.AddCheckbox(Bool(), name, s => { SetValue(Convert.ToString(s)); });
+                panel.AddCheckbox(Bool(), Name(), s => { SetValue(Convert.ToString(s)); });
                 return;
             }
 
             if (type.StartsWith("scale"))
             {
-                panel.AddHeaderLabel(name);
+                panel.AddHeaderLabel(Name());
                 var t = SplitHelper.SeparatorInt(SplitHelper.Delimiter(type).value);
                 panel.AddSlider(t[0], t[1], PlayerPrefs.GetInt(id,Int32.Parse(Value())), s =>
                 {
@@ -36,7 +36,7 @@ namespace Libraries.Options
 
             if (type == "text")
             {
-                panel.AddInput(name, Value(), SetValue);
+                panel.AddInput(Name(), Value(), SetValue);
             }
 
             if (type.StartsWith("dropdown"))
@@ -47,7 +47,7 @@ namespace Libraries.Options
                 {
                     titles.Add(S.T(value));
                 }
-                panel.AddHeaderLabel(name);
+                panel.AddHeaderLabel(Name());
                 panel.AddDropdown(values,Value(), titles.ToArray(), SetValue);
             }
 

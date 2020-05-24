@@ -6,7 +6,7 @@ namespace Libraries.Units
     [Serializable]
     public class DataUnitMgmt : BaseDataBuildingUnitMgmt<DataUnit>
     {
-        public DataUnitMgmt() : base("unit", "Units", "train") { }
+        public DataUnitMgmt() : base("unit", "train") { }
 
         protected override void ParseElement(DataUnit ele, string header, string data)
         {

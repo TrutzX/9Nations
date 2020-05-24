@@ -18,7 +18,7 @@ namespace Players.Kingdoms
             
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Kingdom overview",null);
-            b.Add(new PlayerInfoSplitElement(PlayerMgmt.ActPlayer()));
+            b.Add(new PlayerInfoSplitElement(S.ActPlayer()));
             b.Add(new CameraUnitSplitElement(b));
             
             //add all towns
@@ -29,7 +29,7 @@ namespace Players.Kingdoms
             
             LSys.tem.helps.AddHelp("kingdom", b);
             b.Add(new InfosSplitElement());
-            b.Add(new LexiconSplitElement(PlayerMgmt.ActPlayer().Nation()));
+            b.Add(new LexiconSplitElement(S.ActPlayer().Nation()));
             b.Add(new LexiconSplitElement(GameMgmt.Get().gameRound.GetRound()));
             
             

@@ -868,7 +868,7 @@ TextureImporter:
     second: d_32
   - first:
       213: -4774839531090316318
-    second: sand
+    second: sandG
   - first:
       213: -7191795691054615837
     second: d_34
@@ -1171,7 +1171,7 @@ TextureImporter:
     second: d_133
   - first:
       213: -693849542857533321
-    second: d_134
+    second: brickworks
   - first:
       213: -1088842616144309113
     second: d_135
@@ -1456,7 +1456,7 @@ TextureImporter:
     second: d_228
   - first:
       213: -3360517771649337164
-    second: XXX
+    second: ehall
   - first:
       213: -4253227925750795092
     second: xxxxx
@@ -2309,7 +2309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand
+      name: sandG
       rect:
         serializedVersion: 2
         x: 65
@@ -4430,7 +4430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: d_134
+      name: brickworks
       rect:
         serializedVersion: 2
         x: 224
@@ -6425,7 +6425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XXX
+      name: ehall
       rect:
         serializedVersion: 2
         x: 192

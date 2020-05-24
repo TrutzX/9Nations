@@ -4,6 +4,7 @@ using Libraries.FActions.General;
 using Players;
 using Tools;
 using Units;
+using UnityEngine;
 
 namespace Classes.Actions
 {
@@ -28,7 +29,7 @@ namespace Classes.Actions
             conf.trigger = ActionEvent.FinishConstruct;
 
             //add time?
-            conf.data["level"] = setting ?? "1";
+            conf.data["level"] = string.IsNullOrEmpty(setting) ? "1": setting;
 
             return conf;
         }

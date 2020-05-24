@@ -1,5 +1,6 @@
 
 using Buildings;
+using Game;
 using Libraries.FActions;
 using Players;
 using Tools;
@@ -25,7 +26,7 @@ namespace Classes.Actions.Addons
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            ActionDisplaySettings ads = new ActionDisplaySettings(panel, PlayerMgmt.ActPlayer(), self, pos, action);
+            ActionDisplaySettings ads = new ActionDisplaySettings(panel, S.ActPlayer(), self, pos, action);
             action.PerformAction().BuildPanel(ads);
         }
 
@@ -38,10 +39,10 @@ namespace Classes.Actions.Addons
                 return;
             }
             
-            string erg = holders.Perform(action, ActionEvent.Direct, PlayerMgmt.ActPlayer(), self, pos);
+            string erg = holders.Perform(action, ActionEvent.Direct, S.ActPlayer(), self, pos);
             
             if (erg != null)
-                UIHelper.ShowOk(action.DataAction().name,erg);
+                UIHelper.ShowOk(action.DataAction().Name(),erg);
         }
     }
 }

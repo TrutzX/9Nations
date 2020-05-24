@@ -64,13 +64,13 @@ namespace Buildings
             }
 
             //can add from diff player?
-            if (da.onlyOwner && !info.Owner(PlayerMgmt.ActPlayerID()))
+            if (da.onlyOwner && !info.Owner(S.ActPlayerID()))
             {
                 return;
             }
 
             //can add final?
-            if (!action.req.Check(PlayerMgmt.ActPlayer(), info, info.Pos(), true))
+            if (!action.req.Check(S.ActPlayer(), info, info.Pos(), true))
             {
                 return;
             }
@@ -82,7 +82,7 @@ namespace Buildings
 
             UIHelper.HoverEnter(button,
                 () => { ShowPanelMessage($"{LSys.tem.inputs.ActionName(da)}, Cost:{da.cost}/{info.data.ap} AP"); },
-                () => { ShowPanelMessage(info.Status(PlayerMgmt.ActPlayerID())); });
+                () => { ShowPanelMessage(info.Status(S.ActPlayerID())); });
         }
 
         private void PerformAction(ActionHolders holder, ActionHolder action, MapElementInfo info)
@@ -110,7 +110,7 @@ namespace Buildings
                 return;
             }
 
-            string mess = holder.Perform(action, ActionEvent.Direct, PlayerMgmt.ActPlayer(), info, info.Pos());
+            string mess = holder.Perform(action, ActionEvent.Direct, S.ActPlayer(), info, info.Pos());
             if (mess != null)
             {
                 ShowPanelMessageError(mess);
@@ -124,7 +124,7 @@ namespace Buildings
 
             //show icon
             info.GetComponentsInChildren<Image>()[1].sprite = active.Sprite();
-            ShowPanelMessage(active.Status(PlayerMgmt.ActPlayerID()));
+            ShowPanelMessage(active.Status(S.ActPlayerID()));
 
             info.GetComponent<Button>().onClick.RemoveAllListeners();
             info.GetComponent<Button>().onClick.AddListener(() => { active.ShowInfoWindow(); });
@@ -142,7 +142,7 @@ namespace Buildings
             {
                 ShowPanelMessage(ActiveAction.PanelMessage());
                 FDataAction action = ActiveAction.DataAction();
-                UIHelper.CreateImageTextButton("Cancel " + action.name, action.Sprite(), actions.transform,
+                UIHelper.CreateImageTextButton("Cancel " + action.Name(), action.Sprite(), actions.transform,
                     () => { OnMapUI.Get().SetActiveAction(null, active.GetComponent<BuildingInfo>() != null); },
                     "cancel");
                 return;

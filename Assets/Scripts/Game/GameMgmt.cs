@@ -66,7 +66,7 @@ namespace Game
         IEnumerator NextPlayerCo()
         {
             yield return load.ShowMessage("Finish turn");
-            yield return PlayerMgmt.ActPlayer().FinishRound();
+            yield return S.ActPlayer().FinishRound();
             yield return data.players.NextPlayer();
             load.FinishLoading();
         }
@@ -105,6 +105,7 @@ namespace Game
             data.units = new List<BuildingUnitData>();
             data.features = new Dictionary<string, string>();
             data.map = new GameMapData();
+            data.modi = new Dictionary<string, string>();
             
             //show it
             ConnectGameObjs();
@@ -152,7 +153,7 @@ namespace Game
         {
             //load Map
             data.map.id = _map;
-            data.name = LSys.tem.scenarios[id].name;
+            data.name = LSys.tem.scenarios[id].Name();
             yield return newMap.CreateMap();
             
             yield return load.ShowSubMessage($"Loading players");
@@ -166,9 +167,21 @@ namespace Game
                 throw e;
             }
             
-            yield return S.Player().CreatingFog();
-            S.Player().FirstRound();
-            yield return S.Player().NextPlayer();
+            //add modis
+            foreach (var option in L.b.gameOptions.GetAllByCategory("modi"))
+            {
+                if (!StartConfig.ContainsKey(option.id)) continue;
+                
+                var val = Convert.ToInt32(StartConfig[option.id]);
+                if (val == 0) continue;
+                
+                data.modi[option.id] = val+"%";
+                Debug.Log(option.id+":"+val+"%");
+            }
+            
+            yield return S.Players().CreatingFog();
+            S.Players().FirstRound();
+            yield return S.Players().NextPlayer();
             NAudio.Play("startgame");
             load.FinishLoading();
         }
@@ -186,7 +199,7 @@ namespace Game
             //load Map
             yield return newMap.LoadMap();
             data.players.AfterLoad();
-            yield return S.Player().CreatingFog();
+            yield return S.Players().CreatingFog();
 
             //load buildings
             yield return load.ShowSubMessage($"Loading Buildings");
@@ -207,7 +220,7 @@ namespace Game
             gameRound.Load();
             
             //init players
-            PlayerMgmt.ActPlayer().StartRound();
+            S.ActPlayer().StartRound();
             NAudio.Play("startgame");
             load.FinishLoading();
         }

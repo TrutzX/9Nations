@@ -15,17 +15,7 @@ namespace Players
         [SerializeField] private List<Player> players;
         [SerializeField] private int createPlayerCounter;
         [SerializeField] private int actPlayer;
-    
-        /// <summary>
-        /// Get it
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete]
-        public static PlayerMgmt Get()
-        {
-            return GameMgmt.Get().data.players;
-        }
-    
+
         // Start is called before the first frame update
         public PlayerMgmt()
         {
@@ -34,6 +24,8 @@ namespace Players
             actPlayer = -1;
         }
 
+        public int ActPlayer => actPlayer;
+
         public int CreatePlayer(string name, string nation)
         {
             players.Add(new Player(++createPlayerCounter,name,nation));
@@ -41,21 +33,6 @@ namespace Players
             return createPlayerCounter;
         }
 
-        public static Player Get(int id)
-        {
-            return Get().players.Single(p => id == p.id);
-        }
-
-        public static Player ActPlayer()
-        {
-            return Get().players[ActPlayerID()];
-        }
-
-        public static int ActPlayerID()
-        {
-            return Get().actPlayer;
-        }
-    
         public IEnumerator NextRound()
         {
             int c = 0;
@@ -82,7 +59,7 @@ namespace Players
         public void ResetRound()
         {
             actPlayer = 0;
-            ActPlayer().StartRound();
+            S.ActPlayer().StartRound();
         }
         
         public IEnumerator NextPlayer()
@@ -95,8 +72,8 @@ namespace Players
                 actPlayer = 0;
             }
 
-            yield return GameMgmt.Get().load.ShowMessage($"Start turn for {ActPlayer().name}");
-            ActPlayer().StartRound();
+            yield return GameMgmt.Get().load.ShowMessage($"Start turn for {S.ActPlayer().name}");
+            S.ActPlayer().StartRound();
         }
 
         public Player OverlayHighest(string id, NVector pos)
@@ -114,6 +91,11 @@ namespace Players
             }
 
             return player;
+        }
+
+        public Player Get(int id)
+        {
+            return players.Single(p => id == p.id);
         }
         
         public IEnumerator CreatingFog()

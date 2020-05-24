@@ -74,6 +74,7 @@ public class OLib : ScriptableObject
         AddReq("unitOwn", CreateInstance<ReqUnitOwn>());
         AddReq("update", CreateInstance<ReqUpdate>());        
         AddReq("upgrade", CreateInstance<ReqUpgradeCan>());
+        AddReq("upgradeField", CreateInstance<ReqUpgradeField>());
         AddReq("frontier", CreateInstance<ReqFrontier>());
     }
 

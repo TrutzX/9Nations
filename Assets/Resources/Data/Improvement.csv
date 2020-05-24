@@ -1,5 +1,6 @@
-id,name,modi,file,combine
-way,way,move=-25%,Improvements/way:way_,true
-street,street,move=-50%,Improvements/street:street_,true
-street3,big street,move=-75%,Improvements/street3:street3_,true
-bridge,bridge,move=10,,
+id,modi,icon,combine,hidden
+way,moveCost=-25%,!Improvements/way:way_14,true,
+street,moveCost=-50%,!Improvements/street:street_14,true,true
+street3,moveCost=-75%,!Improvements/street3:street3_14,true,true
+bridge,moveCost=15,,,true
+railway,,,,true

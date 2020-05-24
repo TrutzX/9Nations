@@ -8,7 +8,6 @@ namespace Libraries.MapGenerations
     {
         public MapGenerationMgmt() : base("mapgeneration")
         {
-            name = "Map generation";
         }
 
         protected override void ParseElement(MapGeneration ele, string header, string data)

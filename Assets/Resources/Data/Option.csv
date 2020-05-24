@@ -1,15 +1,16 @@
-id,name,category,standard,type,req
-debug,Debug,game,false,bool,
-centermouse,Center map on mouse click,game,false,bool,
-fullscreen,Play fullscreen,graphics;start,true,bool,
-uiScale,Scale the Ui,graphics;start,10,scale=5;30,
-autosave,Save the game after each round,game,true,bool,
-saveonexit,Save the game,game;exit,true,bool,
-update,Check for updates,network,true,bool,
-showaction,Show every action,game,false,bool,
-audioMusic,Background music,audio;start,50,scale=0;100,
-audioSound,Sounds,audio;start,75,scale=0;100,
-showLog,Show logs,debug;start,false,bool,option=debug:true
-modFolder,Additional mod folder,debug,,text,
-night,Show night,graphics;start,false,bool,disabled
-language,language,start,languageSystem,text,disabled
+id,category,standard,type,req
+debug,game,false,bool,option=advanced:true
+centermouse,game,false,bool,
+fullscreen,graphics;start,true,bool,
+uiScale,graphics;start,10,scale=5;30,
+autosave,game,true,bool,
+saveonexit,game;exit,true,bool,
+updateCheck,network,true,bool,
+showaction,game,false,bool,
+audioMusic,audio;start,50,scale=0;100,
+audioSound,audio;start,75,scale=0;100,
+showLog,debug;start,false,bool,option=debug:true
+modFolder,debug,,text,
+night,graphics;start,false,bool,disabled
+language,start,languageSystem,text,
+advanced,game,false,bool,

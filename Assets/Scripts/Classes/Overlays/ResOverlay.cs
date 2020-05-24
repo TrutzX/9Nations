@@ -12,7 +12,7 @@ namespace Classes.Overlays
     {
         protected override void SetTile(TileMapConfig16 tile, NVector pos)
         {
-            if (PlayerMgmt.ActPlayer().overlay.Get("res", pos)==0)
+            if (S.ActPlayer().overlay.Get("res", pos)==0)
                 return;
             
             int align = 0;

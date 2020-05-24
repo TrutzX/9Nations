@@ -163,7 +163,7 @@ namespace Maps.TileMaps
 
         private bool Def(int layer, int self, int x, int y)
         {
-            if (!GameHelper.Valid(x, y))
+            if (!S.Valid(x, y))
             {
                 return true;
             }

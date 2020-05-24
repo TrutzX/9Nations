@@ -63,21 +63,18 @@ namespace Buildings
             data.BuildingInit(configType, town);
             data.pos = pos.Clone();
             
-            int buildtime = L.b.modifiers["build"].CalcModi(dataBuilding.buildTime, S.Towns().Get(town).Player(), pos);
-
-            gameObject.AddComponent<Construction>();
-            gameObject.GetComponent<Construction>().Init(data,dataBuilding.cost,this, buildtime);
+            int buildtime = L.b.modifiers[C.BuildRes].CalcModi(dataBuilding.buildTime, S.Towns().Get(town).Player(), pos);
+            gameObject.AddComponent<Construction>().Init(data,dataBuilding.cost,this, buildtime);
         
-            PlayerMgmt.Get(Town().playerId).fog.Clear(pos);
+            S.Player(Town().playerId).fog.Clear(pos);
 
-            NextRound();
             FinishInit();
         
         }
 
         private void FinishInit()
         {
-            gameObject.name = baseData.name;
+            gameObject.name = baseData.Name();
 
             //show it
             GetComponent<Transform>().position = new Vector2(data.pos.x,data.pos.y);
@@ -158,7 +155,7 @@ namespace Buildings
             //add worker
             if (dataBuilding.worker > 0)
             {
-                Town().AddRes("inhabitant", (int) Math.Ceiling(dataBuilding.worker/4f), ResType.Gift);
+                Town().AddRes(C.Inhabitant, (int) Math.Ceiling(dataBuilding.worker/4f), ResType.Gift);
             }
             
         }
@@ -179,7 +176,7 @@ namespace Buildings
             
             GameMgmt.Get().data.buildings.Remove(data);
             Init(data.townId,type,Pos());
-            GameMgmt.Get().data.buildings.Add(GetComponent<BuildingInfo>().data);
+            GameMgmt.Get().data.buildings.Add(data);
             
             CalcUpgradeCost(L.b.buildings[type], old);
         }

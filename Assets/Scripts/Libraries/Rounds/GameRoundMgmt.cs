@@ -84,7 +84,7 @@ namespace Libraries.Rounds
             GameMgmt.Get().newMap.NextRound();
             SwitchNight();
         
-            yield return PlayerMgmt.Get().NextRound();
+            yield return S.Players().NextRound();
         
         }
 

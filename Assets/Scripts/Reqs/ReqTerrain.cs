@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Buildings;
 using Game;
+using Libraries;
 using Maps;
 using Players;
 using Tools;
@@ -25,12 +26,13 @@ namespace reqs
 
         public override string Desc(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
-            return Desc(player,sett)+$" Here is {GameMgmt.Get().newMap.Terrain(pos).name}";
+            return Desc(player,sett)+$" Here is {GameMgmt.Get().newMap.Terrain(pos).Name()}";
         }
 
         public override string Desc(Player player, string sett)
         {
-            return $"Needs the terrain {sett}.";
+            var l = SplitHelper.Separator(sett);
+            return S.T(LSys.tem.translations.GetPlural("reqTerrain",l.Length), L.b.terrains.NameList(l));
         }
     }
 }

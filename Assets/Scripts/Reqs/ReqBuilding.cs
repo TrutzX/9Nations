@@ -26,12 +26,20 @@ namespace reqs
         }
         protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
-            
-            Town t = onMap.Town();
-            if (t == null)
+            Town t;
+            if (onMap != null)
             {
-                return ValueAct(player, element, sett);
+                t = onMap.Town();
+                if (t == null)
+                {
+                    return ValueAct(player, element, sett);
+                }
             }
+            else
+            {
+                t = S.Towns().NearestTown(player, pos, false);
+            }
+            
             
             return S.Building().GetByTownType(t.id, element).Length;
         }
@@ -43,7 +51,7 @@ namespace reqs
 
         protected override string Name(string element, string sett)
         {
-            return L.b.buildings[element].name;
+            return L.b.buildings[element].Name();
         }
     }
 }

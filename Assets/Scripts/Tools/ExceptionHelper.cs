@@ -24,9 +24,9 @@ namespace Tools
             w.panel.AddLabel("The error will sent automatically.");
             
             //add reset?
-            if (GameHelper.IsGame())
+            if (S.IsGame())
             {
-                w.panel.AddButton("Reset round", PlayerMgmt.Get().ResetRound);
+                w.panel.AddButton("Reset round", S.Players().ResetRound);
             }
             
             w.AddClose();

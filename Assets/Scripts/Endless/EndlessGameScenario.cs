@@ -19,8 +19,8 @@ namespace Endless
             while (GameMgmt.StartConfig.ContainsKey(id + "name"))
             {
                 //add player
-                int pid = PlayerMgmt.Get().CreatePlayer(GameMgmt.StartConfig[id+"name"], GameMgmt.StartConfig[id+"nation"]);
-                Player p = PlayerMgmt.Get(pid);
+                int pid = S.Players().CreatePlayer(GameMgmt.StartConfig[id+"name"], GameMgmt.StartConfig[id+"nation"]);
+                Player p = S.Player(pid);
                 p.coat = GameMgmt.StartConfig[id + "coat"];
                 //UnitMgmt.Get().Create(pid,L.b.nations[GameMgmt.StartConfig[id+"nation"]].Leader, GameMgmt.Get().newMap.tools.GetStartPos(GameMgmt.StartConfig[id + "nation"]));
             

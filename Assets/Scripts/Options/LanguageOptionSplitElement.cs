@@ -21,6 +21,9 @@ namespace Options
             {
                 panel.AddImageTextButton(lang.Name(), lang.Icon, (() => UpdateLang(lang.id)));
             }
+
+            panel.AddHeaderLabelT("task");
+            panel.AddButtonT("languageHelp", (() => Application.OpenURL("https://9nations.de/files/directLinksN.php?typ=translate")));
         }
 
         private void UpdateLang(string lang)

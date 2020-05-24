@@ -76,7 +76,7 @@ namespace MainMenu
                 {
                     if (!help.req.Check(null)) continue;
                     
-                    w.panel.AddHeaderLabel(help.name);
+                    w.panel.AddHeaderLabel(help.Name());
                     w.panel.RichText(help.Desc);
                 }
                 w.AddClose();
@@ -89,7 +89,7 @@ namespace MainMenu
 
         IEnumerator CheckUpdate()
         {
-            if (!LSys.tem.options["update"].Bool()) yield break;
+            if (!LSys.tem.options["updateCheck"].Bool()) yield break;
             
             int time = PlayerPrefs.GetInt("update.time", 0);
             int hours = (int) (DateTime.Now - new DateTime(2020, 01, 01)).TotalHours;

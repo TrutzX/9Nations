@@ -7,13 +7,13 @@ namespace Libraries.Helps
     [Serializable]
     public class HelpMgmt : BaseMgmt<NHelp>
     {
-        public HelpMgmt() : base("help") { }
+        public HelpMgmt() : base("help", "help") { }
         
         public void AddHelp(string category, WindowBuilderSplit wbs)
         {
             foreach (NHelp h in GetAllByCategory(category))
             {
-                wbs.Add(new LexiconSplitElement(h, $"About {h.name}", SpriteHelper.Load("lexicon")));
+                wbs.Add(new LexiconSplitElement(h, $"About {h.Name()}", SpriteHelper.Load("lexicon")));
             }
         }
     }

@@ -11,9 +11,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityBuild/Editor/Build/Settings/UI/ProjectConfigurationsDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/2d-extras-master/Assets/Tilemap/Tiles/Rule Override Tile/Scripts/Editor/PopulateRuleOverrideTileWizard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputActions/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Editor/ES2EditorManageTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Editor/ES2EditorFileEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FunkyCode/SmartLighting2D/Components/LightingManager2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/2d-extras-master/Assets/Tilemap/Brushes/Group Brush/Scripts/Editor/GroupBrush.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Editor/ES2AutoInspector.cs" root0="FORCE_HIGHLIGHTING" />
@@ -22,7 +25,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadSave/LoadWindowSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Editor/Types/Components/ES2Editor_MeshCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/UI/Utility/ScaleFitter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FunkyCode/SmartLighting2D/Editor/Lighting2DSettingsWindowEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Editor/Types/Primitives/ES2Editor_byte.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FunkyCode/SmartLighting2D/Editor/LightingManager2DEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/FileIniParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/StreamIniDataParser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -31,6 +37,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/Model/Formatting/DefaultIniDataFormatter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/Parser/IniDataParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Editor/TMP_BaseEditorPanel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/ini-parser-2.5.2/src/IniFileParser/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Scripts/ES2Spreadsheet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Scripts/ES2Web.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Editor/DebugLogManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Scripts/ES2Cache.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Overlays/OwnerOverlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ClickableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CircleGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 2/Scripts/Readers/ES2Reader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqFrontier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WindowPanelBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Overlays/MapOverlay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,18 +75,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/OverlayGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Show/SplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Show/SplitElementTab.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/LexiconGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Show/PanelBuilderTab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Overlays/OverlayMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/BottomUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Coats/Coat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/OnMapUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/StatisticSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/LexiconSplitTab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/LexiconSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/HelpSplitTab.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Help/HelpHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/XXGameMapMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/MapPathFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/GameMaps/GameMapData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,6 +94,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/TileMaps/TileMapConfig32.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/PantheonScenario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/TileMaps/TileMapHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/PathFinding/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/PathFinding/PPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/PathFinding/PathFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maps/PathFinding/PGrid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,7 +131,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUnitOwn.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqFightUnitType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUpgradeCan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionTrain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Options/OptionLanguage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUnit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,6 +149,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/ES3File.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqDisabled.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/Translation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/UI/DisplayComponents/ModContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/TutorialBasicScenario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/BaseReqFight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqSameField.cs" root0="FORCE_HIGHLIGHTING" />
@@ -183,7 +192,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitLexiconInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/UnitInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/ES3Type_Shader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Endless/PlayerSelectSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/_Obsolete/UI/ModStatisticsDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/_Obsolete/UI/DownloadDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Inputs/BaseInputAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionEvolve.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionAttackBuilding.cs" root0="FORCE_HIGHLIGHTING" />
@@ -194,7 +206,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/BaseActiveAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionHeal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionTrade.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionMoveArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/DwarfTownNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionFeaturePlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionExplore.cs" root0="FORCE_HIGHLIGHTING" />
@@ -215,6 +227,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/AndroidStartUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionInteractSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionTradeWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/ES3Type_GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/_Obsolete/UI/ModfileDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/BuildUpgradeSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -224,17 +237,21 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/BuildSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/GhostTownNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Pixel UI/Scripts/UITabbedWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/ES3Type_ForceOverLifetimeModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUpgradeField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/UnderWaterTownNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Elements/ShadowElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Elements/LightElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqMapLevelCount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/BaseGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/SkytownNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUpgradeCan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Pixel UI/Scripts/UITooltip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/UpdateGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/ChangeMenuGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/GameButtonHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/TitleGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Types/Unity Types/Component Types/ES3Type_Camera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/NameGenerator/OrcTownNameGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Pixel UI/Scripts/UIDialogueWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Endless/MapSplitTab.cs" root0="FORCE_HIGHLIGHTING" />
@@ -271,6 +288,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Players/Kingdoms/CameraUnitSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/DebugScenario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Players/Kingdoms/CameraBuildingSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/C.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Players/Kingdoms/KingdomGameButtonRun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Players/PlayerResearches/ResearchFinishSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/ModManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -292,8 +310,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D0BC631-CADD-4A07-BF74-717847E90CFA/50E/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MapElementSplitInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D0BC631-CADD-4A07-BF74-717847E90CFA/C8/Tuple.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Easy Save 3/Scripts/Writers/ES3XMLWriter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionAttackUnit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionImprovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/IMapUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MapElementUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -325,6 +345,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafts/CraftStatusSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Helps/HelpMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Helps/NHelp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/API Objects/WebRequestError.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Icons/Icon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Units/DataUnitMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Units/DataUnit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -335,6 +356,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Options/OptionUiScale.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Inputs/InputKey.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Inputs/InputOptionSplitElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/mod.io/Scripts/UI/ModView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Rounds/RoundMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Rounds/Round.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Options/OptionHelper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -366,6 +388,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/DataBuilding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/BaseDataBuildingUnitMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/DataBuildingMgmt.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityBuild/Editor/Build/BuildProject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityBuild/Editor/Build/BuildCLI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/MapGenerator/UndergroundMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Campaigns/Campaign.cs" root0="FORCE_HIGHLIGHTING" />
@@ -388,6 +411,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Researches/ResearchMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Scripts/DebugLogConsole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/Researches/Research.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UnityBuild/Editor/Build/Tools/UnityBuild-AssetBundle/Editor/BuildAssetBundles.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/GameButtons/GameButtonMgmt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Libraries/GameButtons/GameButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Classes/Options/OptionShowLog.cs" root0="FORCE_HIGHLIGHTING" />
@@ -423,57 +447,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitAnimator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/TileMaps/TileMapConfig32.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/LSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/L.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/LanguageMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Data/system.txt" />
-        <option value="$PROJECT_DIR$/Assets/Resources/Data/game.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Players/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/GeneralSplitTab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameMapLevels/GameMapTools.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMaps/IDataLavel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMaps/GameMapDataLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/GameMaps/IDataLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Overlays/BaseOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Terrains/DataTerrain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Maps/TileMaps/TileMapConfig16.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameMapLevels/GameMapLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Construction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Players/PlayerOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Players/PlayerMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Overlays/KingdomOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Overlays/Overlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Coats/CoatMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PanelBuilder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/PlayerSelectSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/S.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Players/MapOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Overlays/MapOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingInfo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Overlays/FrontierOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Overlays/BoundaryOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Coats/Coat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Helps/HelpMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Improvements/Improvement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Rounds/Round.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Nations/Nation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionMoverea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionMoveArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/BaseDataBuildingUnitMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/CREDITS.md" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tools/TextHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionInteractSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionFoundTown.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/Town.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/TownGeneralSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqOverlay.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OLib.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/TownMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/LexiconGameButtonRun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Players/PlayerInfoSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Endless/GeneralSplitTab.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/DebugScenario.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitMgmt.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/BasePerformAction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionClaim.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/LClass.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/BaseReqArgument.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqFrontier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/SpriteHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Debugs/DebugMapElementSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Modifiers/Modifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PanelBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Res/Resource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Terrains/DataTerrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Help/StatisticSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/BaseReqMinMax.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/BuildUpgradeSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WindowPanelBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionTradeWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/C.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/TownResSplitElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/BaseDataBuildingUnit.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Improvements/ImprovementHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/OLib.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/Town.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionProduce.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionTownEvolve.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqBuilding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqUpgradeField.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqTerrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Reqs/ReqElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/TutorialBasicScenario.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/Translation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/TranslationMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/DebugScenario.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Construction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/BuildingMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/MapElementInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Options/LanguageOptionSplitElement.cs" />
       </list>
     </option>
   </component>
@@ -677,7 +701,11 @@
       <workItem from="1588876344695" duration="13214000" />
       <workItem from="1589093326510" duration="17049000" />
       <workItem from="1589464922968" duration="51000" />
-      <workItem from="1589465016061" duration="5290000" />
+      <workItem from="1589465016061" duration="6175000" />
+      <workItem from="1589718584931" duration="7248000" />
+      <workItem from="1590043183392" duration="49000" />
+      <workItem from="1590043303452" duration="16893000" />
+      <workItem from="1590212146333" duration="6403000" />
     </task>
     <servers />
   </component>
@@ -720,10 +748,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="264" key="Rider.ProjectTemplateDialog.Size/0.0.1680.1050@0.0.1680.1050" timestamp="1587396484257" />
-    <state x="1003" y="327" key="RiderGenerateDialog" timestamp="1588747033141">
+    <state x="1003" y="327" key="RiderGenerateDialog" timestamp="1589719483296">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="1003" y="327" key="RiderGenerateDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1588747033141" />
+    <state x="1003" y="327" key="RiderGenerateDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1589719483296" />
     <state x="436" y="177" width="982" height="722" key="SettingsEditor" timestamp="1589465160544">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -732,10 +760,14 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1585769833792" />
-    <state x="664" y="56" width="824" height="538" key="find.popup" timestamp="1589489454242">
+    <state x="444" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590128821753">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="664" y="56" width="824" height="538" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1589489454242" />
+    <state x="444" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1590128821753" />
+    <state x="498" y="227" width="824" height="538" key="find.popup" timestamp="1590212750060">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="498" y="227" width="824" height="538" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1590212750060" />
     <state x="505" y="176" width="670" height="676" key="search.everywhere.popup" timestamp="1589135071340">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

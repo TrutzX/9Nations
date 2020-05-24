@@ -18,9 +18,9 @@ namespace Classes.Actions.Addons
             FDataAction da = action.DataAction();
             int round = (int) Math.Ceiling((1f * da.cost - info.data.ap) / info.data.apMax);
 
-            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Wait for {da.name}?");
+            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Wait for {da.Name()}?");
             wpb.panel.AddLabel(da.Desc);
-            wpb.panel.AddImageLabel($"Action {da.name} need {da.cost - info.data.ap} AP more. You can wait {round} rounds.",
+            wpb.panel.AddImageLabel($"Action {da.Name()} need {da.cost - info.data.ap} AP more. You can wait {round} rounds.",
                 "round");
             wpb.panel.AddButton($"Wait {round} rounds", () =>
             {

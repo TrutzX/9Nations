@@ -103,7 +103,7 @@ namespace Maps
             gmap.width = gmap.levels.First().Width();
             gmap.height = gmap.levels.First().Height();
         
-            Debug.Log($"Load Map {map.name} ({gmap.width}/{gmap.height})");
+            Debug.Log($"Load Map {map.Name()} ({gmap.width}/{gmap.height})");
             
             yield return CreateLayers();
         }

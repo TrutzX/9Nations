@@ -17,7 +17,7 @@ namespace reqs
 
         public override bool Check(Player player, string sett)
         {
-            if (!LSys.tem.options["update"].Bool()) return false;
+            if (!LSys.tem.options["updateCheck"].Bool()) return false;
             
             string[] s = SplitHelper.Separator(PlayerPrefs.GetString("update.txt", "false"));
             return !(s[0].Equals("false"));

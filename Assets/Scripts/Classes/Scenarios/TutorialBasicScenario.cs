@@ -26,8 +26,8 @@ namespace Classes.Scenarios
             GameMgmt.Get().newMap.levels[0].SetTile(new Vector3Int(17,10,1), forest);
 
             //add player
-            int pid = PlayerMgmt.Get().CreatePlayer("user", "north");
-            Player p = PlayerMgmt.Get(pid);
+            int pid = S.Players().CreatePlayer("user", "north");
+            Player p = S.Player(pid);
             p.elements.elements.Add("light");
             
             //and unit
@@ -51,11 +51,11 @@ namespace Classes.Scenarios
 
             //move
             DataUnit light = L.b.units["light"];
-            q = new Quest("move",$"Move the {light.name}","base:move");
+            q = new Quest("move",$"Move the {light.Name()}","base:move");
             q.Desc = TextHelper.RichText(
                 "You see your first unit: the element light. Click on it. Then you see on the bottom his actions, click on the walk icon and walk one field down or press Arrow down. ",
                 "After that you consume all your action points (AP) for this turn. Finish your round. Press the hourglass icon in the bottom middle or press space. ",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(light.Icon,$"Select your {light.name}."), TextHelper.IconLabel("base:move","Move the light down (Arrow down) or with Move Action."), round);
+                TextHelper.Header("Tasks"), TextHelper.IconLabel(light.Icon,$"Select your {light.Name()}."), TextHelper.IconLabel("base:move","Move the light down (Arrow down) or with Move Action."), round);
             q.AddReq("fogField","0;16;8");
             p.quests.Add(q);
 
@@ -75,9 +75,9 @@ namespace Classes.Scenarios
             q = new Quest(lworker.id,"Train your first unit",lworker.Icon);
             q.Desc = TextHelper.RichText(
                 "At the same time the town hall was built, which manages all resources of your settlement.",
-                $"Move the {light.name} away from the town hall and train a worker.",
+                $"Move the {light.Name()} away from the town hall and train a worker.",
                 "To build your empire you need units to perform the basic actions. The main task of workers is to construct buildings and collect resources.",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(light.Icon,$"Move the {light.name} away"), TextHelper.IconLabel("train",$"Call in the {lhall.name} the train action"), TextHelper.IconLabel(lworker.Icon,$"Train a {lworker.name}"));
+                TextHelper.Header("Tasks"), TextHelper.IconLabel(light.Icon,$"Move the {light.Name()} away"), TextHelper.IconLabel("train",$"Call in the {lhall.Name()} the train action"), TextHelper.IconLabel(lworker.Icon,$"Train a {lworker.Name()}"));
             q.AddReq("unit", $">1:{lworker.id}");
             q.AddReq("questFinish", "found");
             q.main = true;
@@ -86,37 +86,37 @@ namespace Classes.Scenarios
             //build food
             q = Build(L.b.buildings["hunter"]);
             q.Desc = TextHelper.RichText("You can only grow with enough resources. The basics are food, wood and stones. Move your king left to the grass, finish the round and then click the build action and build the hunter.",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(grass.Icon,$"Move to the {grass.name}"), q.Desc);
+                TextHelper.Header("Tasks"), TextHelper.IconLabel(grass.Icon,$"Move to the {grass.Name()}"), q.Desc);
             q.AddReq("questFinish", lworker.id);
             p.quests.Add(q);
 
             //build wood
             q = Build(L.b.buildings["logger"]);
             q.Desc = TextHelper.RichText("Great, you start produce food, now you need wood. Move your king in the forest and build the logger.",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(forest.Icon,$"Move to the {forest.name}"), q.Desc);
+                TextHelper.Header("Tasks"), TextHelper.IconLabel(forest.Icon,$"Move to the {forest.Name()}"), q.Desc);
             q.AddReq("questFinish", "hunter");
             p.quests.Add(q);
 
             //build stone
-            q = Build(L.b.buildings["quarry"]);
-            q.Desc = TextHelper.RichText("After that you need some stone for the library. Move your king on the hill and build the quarry.",
+            q = Build(L.b.buildings["cobblestoneC"]);
+            q.Desc = TextHelper.RichText("After that you need some stone for the library. Move your king on the hill and build the cobblestone collector.",
                 TextHelper.Header("Tasks"), TextHelper.IconLabel(hill.Icon,$"Move in the {hill.Icon}"), q.Desc);
             q.AddReq("questFinish", "logger");
             p.quests.Add(q);
 
             //build research
-            q = Build(L.b.buildings["library"]);
+            DataBuilding library = L.b.buildings["library"];
+            q = Build(library);
             q.Desc = TextHelper.RichText("Now you have every resources for the library. Move near your tent and build the library.",
                 TextHelper.Header("Tasks"), q.Desc);
-            q.AddReq("questFinish", "quarry");
+            q.AddReq("questFinish", "cobblestoneC");
             p.quests.Add(q);
 
             //research something
-            DataBuilding library = L.b.buildings["library"];
             q = new Quest("research","Research the bigger village hall","research");
             q.Desc = TextHelper.RichText(
                 "In 9 nations, research is carried out in areas in which we want to develop further. The bigger village hall is in the area of life. Then upgrade the village hall to win the tutorial.",
-                TextHelper.Header("Tasks"), TextHelper.IconLabel(library.Icon,$"Wait until the {library.name} is finish build"), TextHelper.IconLabel("research","Open research menu"), TextHelper.IconLabel(L.b.elements["life"].Icon,"Select life as area"), round);
+                TextHelper.Header("Tasks"), TextHelper.IconLabel(library.Icon,$"Wait until the {library.Name()} is finish build"), TextHelper.IconLabel("research","Open research menu"), TextHelper.IconLabel(L.b.elements["life"].Icon,"Select life as area"), round);
             q.AddReq("questFinish", "library");
             q.main = true;
             p.quests.Add(q);
@@ -129,8 +129,8 @@ namespace Classes.Scenarios
 
         private Quest Build(DataBuilding b)
         {
-            Quest q = new Quest(b.id,"Build a "+b.name,b.Icon);
-            q.Desc = TextHelper.IconLabel(b.Icon, "Build a "+b.name);
+            Quest q = new Quest(b.id,"Build a "+b.Name(),b.Icon);
+            q.Desc = TextHelper.IconLabel(b.Icon, "Build a "+b.Name());
             q.main = true;
             q.AddReq("building", ">1:"+b.id);
             return q;

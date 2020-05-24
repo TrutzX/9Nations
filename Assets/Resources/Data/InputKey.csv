@@ -1,40 +1,40 @@
-id,name,hidden,icon,category,key,type,req,req,req
-research,,,,general,F1,gameButton,windowOpen=false,game,
-lexicon,,,,general,F2,gameButton,windowOpen=false,game,
-quest,,,,general,F3,gameButton,windowOpen=false,game,
-debug,,,,general,F4,gameButton,windowOpen=false,game,
-nextround,,,,general,Space,gameButton,windowOpen=false,game,
-options,,,,general,F10,gameButton,windowOpen=false,,
-save,,,,general,F12,gameButton,windowOpen=false,game,
-load,,,,general,F11,gameButton,windowOpen=false,,
-kingdom,,,,general,F5,gameButton,windowOpen=false,game,
-mainmenu,,,,general,Escape,gameButton,windowOpen=false,game,
-closeWindow,Close Window,,,general,Escape,hidden,windowOpen=true,,
-nextUnit,,,,general,Comma,gameButton,windowOpen=false,game,
-attackBuilding,,,,unit,J,action,windowOpen=false,game,gameActiveElement=true
-attackUnit,,,,unit,V,action,windowOpen=false,game,gameActiveElement=true
-build,,,,unit,B,action,windowOpen=false,game,gameActiveElement=true
-destroy,,,,unit,K,action,windowOpen=false,game,gameActiveElement=true
-foundTown,,,,unit,Y,action,windowOpen=false,game,gameActiveElement=true
-heal,,,,unit,H,action,windowOpen=false,game,gameActiveElement=true
-interact,,,,unit,I,action,windowOpen=false,game,gameActiveElement=true
-move,,,,unit,G,action,windowOpen=false,game,gameActiveElement=true
-moveLevel,,,,unit,L,action,windowOpen=false,game,gameActiveElement=true
-sleep,,,,unit,Z,action,windowOpen=false,game,gameActiveElement=true
-terraform,,,,unit,C,action,windowOpen=false,game,gameActiveElement=true
-trade,,,,unit,T,action,windowOpen=false,game,gameActiveElement=true
-train,,,,unit,N,action,windowOpen=false,game,gameActiveElement=true
-upgrade,,,,unit,U,action,windowOpen=false,game,gameActiveElement=true
-moveUnitEast,Move unit east,,train,unit,LeftArrow,hidden,windowOpen=false,game,gameActiveElement=unit
-moveUnitSouth,Move unit south,,train,unit,DownArrow,hidden,windowOpen=false,game,gameActiveElement=unit
-moveUnitWest,Move unit west,,train,unit,RightArrow,hidden,windowOpen=false,game,gameActiveElement=unit
-moveUnitNorth,Move unit north,,train,unit,UpArrow,hidden,windowOpen=false,game,gameActiveElement=unit
-moveCameraEast,Scroll east,,east,camera,A,hidden,windowOpen=false,game,
-moveCameraSouth,Scroll south,,south,camera,S,hidden,windowOpen=false,game,
-moveCameraWest,Scroll west,,west,camera,D,hidden,windowOpen=false,game,
-moveCameraNorth,Scroll north,,north,camera,W,hidden,windowOpen=false,game,
-zoomCameraIn,Zoom in,,zoom,camera,E,hidden,windowOpen=false,game,
-zoomCameraOut,Zoom out,,zoom,camera,Q,hidden,windowOpen=false,game,
-moveCameraLevelTop,Scroll level up,,moveLevel,camera,R,hidden,windowOpen=false,game,mapLevel=>1
-moveCameraLevelDown,Scroll level down,,moveLevel,camera,F,hidden,windowOpen=false,game,mapLevel=>1
-minimap,Show Minimap,true,map,general,M,hidden,windowOpen=false,game,
+id,hidden,icon,category,key,type,req,req,req
+research,,,general,F1,gameButton,windowOpen=false,game,
+lexicon,,,general,F2,gameButton,windowOpen=false,game,
+quest,,,general,F3,gameButton,windowOpen=false,game,
+debug,,,general,F4,gameButton,windowOpen=false,game,
+nextround,,,general,Space,gameButton,windowOpen=false,game,
+options,,,general,F10,gameButton,windowOpen=false,,
+save,,,general,F12,gameButton,windowOpen=false,game,
+load,,,general,F11,gameButton,windowOpen=false,,
+kingdom,,,general,F5,gameButton,windowOpen=false,game,
+mainmenu,,,general,Escape,gameButton,windowOpen=false,game,
+closeWindow,,,general,Escape,hidden,windowOpen=true,,
+nextUnit,,,general,Comma,gameButton,windowOpen=false,game,
+attackBuilding,,,unit,J,action,windowOpen=false,game,gameActiveElement=true
+attackUnit,,,unit,V,action,windowOpen=false,game,gameActiveElement=true
+build,,,unit,B,action,windowOpen=false,game,gameActiveElement=true
+destroy,,,unit,K,action,windowOpen=false,game,gameActiveElement=true
+foundTown,,,unit,Y,action,windowOpen=false,game,gameActiveElement=true
+heal,,,unit,H,action,windowOpen=false,game,gameActiveElement=true
+interact,,,unit,I,action,windowOpen=false,game,gameActiveElement=true
+move,,,unit,G,action,windowOpen=false,game,gameActiveElement=true
+moveLevel,,,unit,L,action,windowOpen=false,game,gameActiveElement=true
+sleep,,,unit,Z,action,windowOpen=false,game,gameActiveElement=true
+terraform,,,unit,C,action,windowOpen=false,game,gameActiveElement=true
+trade,,,unit,T,action,windowOpen=false,game,gameActiveElement=true
+train,,,unit,N,action,windowOpen=false,game,gameActiveElement=true
+upgrade,,,unit,U,action,windowOpen=false,game,gameActiveElement=true
+moveUnitEast,,train,unit,LeftArrow,hidden,windowOpen=false,game,gameActiveElement=unit
+moveUnitSouth,,train,unit,DownArrow,hidden,windowOpen=false,game,gameActiveElement=unit
+moveUnitWest,,train,unit,RightArrow,hidden,windowOpen=false,game,gameActiveElement=unit
+moveUnitNorth,,train,unit,UpArrow,hidden,windowOpen=false,game,gameActiveElement=unit
+moveCameraEast,,east,camera,A,hidden,windowOpen=false,game,
+moveCameraSouth,,south,camera,S,hidden,windowOpen=false,game,
+moveCameraWest,,west,camera,D,hidden,windowOpen=false,game,
+moveCameraNorth,,north,camera,W,hidden,windowOpen=false,game,
+zoomCameraIn,,zoom,camera,E,hidden,windowOpen=false,game,
+zoomCameraOut,,zoom,camera,Q,hidden,windowOpen=false,game,
+moveCameraLevelTop,,moveLevel,camera,R,hidden,windowOpen=false,game,mapLevel=>1
+moveCameraLevelDown,,moveLevel,camera,F,hidden,windowOpen=false,game,mapLevel=>1
+minimap,true,map,general,M,hidden,windowOpen=false,game,

@@ -32,7 +32,6 @@ using Libraries.Units;
 using Libraries.Usages;
 using Loading;
 using Maps;
-using Modifiers;
 using ModIO;
 using Newtonsoft.Json.Utilities;
 using UnityEngine;

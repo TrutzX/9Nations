@@ -7,19 +7,19 @@ namespace Libraries.Campaigns
     public class ScenarioSplitElement : SplitElement
     {
         private Scenario scenario;
-        public ScenarioSplitElement(Scenario scenario) : base(scenario.name, scenario.Icon)
+        public ScenarioSplitElement(Scenario scenario) : base(scenario.Name(), scenario.Icon)
         {
             this.scenario = scenario;
         }
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            scenario.ShowDetail(panel);
+            scenario.ShowLexicon(panel);
         }
 
         public override void Perform()
         {
-            Debug.Log("start "+scenario.name);
+            Debug.Log("start "+scenario.Name());
             scenario.Start();
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Libraries;
@@ -6,14 +7,22 @@ using UnityEngine;
 
 namespace UI
 {
-    public class SpriteHelper : ScriptableObject
+    public static class SpriteHelper
     {
-        public static Sprite Load(string path)
+        private static readonly Dictionary<string, Sprite> Cache = new Dictionary<string, Sprite>();
+        
+        public static Sprite Load(string opath)
         {
-            
-            if (L.b != null && LSys.tem.icons.ContainsKey(path))
+            //in cache?
+            if (Cache.ContainsKey(opath))
             {
-                path = LSys.tem.icons[path].Icon;
+                return Cache[opath];
+            }
+
+            string path = opath;
+            if (L.b != null && LSys.tem.icons.ContainsKey(opath))
+            {
+                path = LSys.tem.icons[opath].Icon;
             }
 
             if (path.StartsWith("!"))
@@ -26,6 +35,8 @@ namespace UI
                 //TODO load extern
                 Debug.LogWarning($"Path {path} is wrong formatted");
             }
+
+            Sprite r;
             
             if (path.Contains(":"))
             {
@@ -34,19 +45,25 @@ namespace UI
                 {
                     try
                     {
-                        return UnityEngine.Resources.LoadAll<Sprite>(prepath[0]).Single(s => s.name == prepath[1]);
+                        r = Resources.LoadAll<Sprite>(prepath[0]).Single(s => s.name == prepath[1]);
+                        Cache[opath] = r;
+                        return r;
                     }
                     catch (InvalidOperationException)
                     {
+                        Debug.LogWarning($"icon {path} is missing");
                         //TODO übergang
-                        return UnityEngine.Resources.LoadAll<Sprite>("Icons/" + prepath[0]).Single(s => s.name == prepath[1]);
+                        r = Resources.LoadAll<Sprite>("Icons/" + prepath[0]).Single(s => s.name == prepath[1]);
+                        Cache[opath] = r;
+                        return r;
                     }
                 }
-                catch (InvalidOperationException e)
+                catch (InvalidOperationException)
                 {
                     Debug.LogWarning($"icon {path} is missing");
-                    Debug.LogException(e);
-                    return UnityEngine.Resources.Load<Sprite>(prepath[0]);
+                    r = Resources.Load<Sprite>(prepath[0]);
+                    Cache[opath] = r;
+                    return r;
                 }
             }
             
@@ -55,13 +72,9 @@ namespace UI
                 Debug.LogWarning($"icon {path} looks broken");
             }
 
-            return UnityEngine.Resources.Load<Sprite>(path);
-        }
-
-        [ObsoleteAttribute("This method is obsolete. Call Load instead.", false)] 
-        public static Sprite LoadIcon(string icon)
-        {
-            return Load(icon);
+            r = Resources.Load<Sprite>(path);
+            Cache[opath] = r;
+            return r;
         }
         
         public static Sprite LoadExternalSprite(string filePath, float pixelsPerUnit = 32f, SpriteMeshType spriteType = SpriteMeshType.Tight)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game;
-using Modifiers;
 using Players;
 using Tools;
+using UI;
 
 namespace Libraries.Modifiers
 {
@@ -44,9 +44,9 @@ namespace Libraries.Modifiers
             if (data.Contains(";"))
             {
                 string[] d = data.Split(';');
-                return L.b.modifiers.Classes[d[1]];
+                return L.b.modifiers.classes[d[1]];
             }
-            return L.b.modifiers.Classes["base"];
+            return L.b.modifiers.classes["base"];
         }
         
         public int CalcModi(int standard, Player player, NVector pos)
@@ -54,6 +54,7 @@ namespace Libraries.Modifiers
             int proc = 0;
             int val = 0;
 
+            Check(S.Game().data.modi, player, pos, ref val, ref proc);
             Check(player.Modi, player, pos, ref val, ref proc);
             Check(player.Nation().Modi, player, pos, ref val, ref proc);
             Check(GameMgmt.Get().newMap.Terrain(pos).modi, player, pos, ref val, ref proc);
@@ -66,12 +67,12 @@ namespace Libraries.Modifiers
             standard += val;
             return Math.Max(0,standard);
         }
-
-        public string CalcText(int standard, Player player, NVector pos, string title)
+        
+        public (int value, string display) CalcText(int standard, Player player, NVector pos)
         {
             //calc time
             int newS = CalcModi(standard, player, pos);
-            return newS == standard ? $"{newS} {title}" : $"{newS} ({standard}) {title}";
+            return (newS, newS == standard ? newS.ToString() : S.T("debugName",newS,standard));
         }
         
         /// <summary>

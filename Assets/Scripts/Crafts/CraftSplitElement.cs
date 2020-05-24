@@ -16,7 +16,7 @@ namespace Crafts
         private MapElementInfo _info;
         private ActionHolder _holder;
         
-        public CraftSplitElement(Craft craft, MapElementInfo info, ActionHolder holder) : base(craft.name, craft.Icon)
+        public CraftSplitElement(Craft craft, MapElementInfo info, ActionHolder holder) : base(craft.Name(), craft.Icon)
         {
             _craft = craft;
             _info = info;
@@ -29,16 +29,16 @@ namespace Crafts
             _craft.req.BuildPanel(panel,"Requirements", _info, _info.Pos());
             
             panel.AddHeaderLabel("Actions");
-            panel.AddImageTextButton(_craft.name, _craft.Icon, () =>
+            panel.AddImageTextButton(_craft.Name(), _craft.Icon, () =>
                 _holder.data["craft" + NextFreeID()] = $"{_craft.id}:1"
             );
-            panel.AddImageTextButton($"10x {_craft.name}", _craft.Icon, () =>
+            panel.AddImageTextButton($"10x {_craft.Name()}", _craft.Icon, () =>
                 _holder.data["craft" + NextFreeID()] = $"{_craft.id}:10"
             );
-            panel.AddImageTextButton($"100x {_craft.name}", _craft.Icon, () =>
+            panel.AddImageTextButton($"100x {_craft.Name()}", _craft.Icon, () =>
                 _holder.data["craft" + NextFreeID()] = $"{_craft.id}:100"
             );
-            panel.AddImageTextButton($"endless {_craft.name}", _craft.Icon, () =>
+            panel.AddImageTextButton($"endless {_craft.Name()}", _craft.Icon, () =>
                 _holder.data["craft" + NextFreeID()] = $"{_craft.id}:-1"
             );
         }

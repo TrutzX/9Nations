@@ -1,20 +1,20 @@
-id,name,icon,season,daytime,modi
-0,spring morning,!Icons/DayNightClock:DayNightClock_110,spring,morning,
-1,spring afternoon,!Icons/DayNightClock:DayNightClock_12,spring,afternoon,view=+1
-2,spring night,!Icons/DayNightClock:DayNightClock_22,spring,night,view=-1
-3,summer morning,!Icons/DayNightClock:DayNightClock_108,summer,morning,view=+1
-4,summer afternoon,!Icons/DayNightClock:DayNightClock_8,summer,afternoon,view=+2
-5,summer night,!Icons/DayNightClock:DayNightClock_20,summer,night,
-6,autumn morning,!Icons/DayNightClock:DayNightClock_106,autumn,morning,
-7,autumn afternoon,!Icons/DayNightClock:DayNightClock_4,autumn,afternoon,view=+1
-8,autumn night,!Icons/DayNightClock:DayNightClock_18,autumn,night,view=-1
-9,winter morning,!Icons/DayNightClock:DayNightClock_104,winter,morning,view=-1
-10,winter afternoon,!Icons/DayNightClock:DayNightClock_0,winter,afternoon,
-11,winter night,!Icons/DayNightClock:DayNightClock_16,winter,night,view=-2
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
+id,icon,season,daytime,modi
+0,!Icons/DayNightClock:DayNightClock_110,spring,morning,
+1,!Icons/DayNightClock:DayNightClock_12,spring,afternoon,view=+1
+2,!Icons/DayNightClock:DayNightClock_22,spring,night,view=-1
+3,!Icons/DayNightClock:DayNightClock_108,summer,morning,view=+1
+4,!Icons/DayNightClock:DayNightClock_8,summer,afternoon,view=+2
+5,!Icons/DayNightClock:DayNightClock_20,summer,night,
+6,!Icons/DayNightClock:DayNightClock_106,autumn,morning,
+7,!Icons/DayNightClock:DayNightClock_4,autumn,afternoon,view=+1
+8,!Icons/DayNightClock:DayNightClock_18,autumn,night,view=-1
+9,!Icons/DayNightClock:DayNightClock_104,winter,morning,view=-1
+10,!Icons/DayNightClock:DayNightClock_0,winter,afternoon,
+11,!Icons/DayNightClock:DayNightClock_16,winter,night,view=-2
 ,,,,
 ,,,,
+,,,,
+,,,,
+,,,,
+,,,
+,,,

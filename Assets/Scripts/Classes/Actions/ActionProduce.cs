@@ -1,6 +1,7 @@
 using System;
 using Buildings;
 using Game;
+using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
@@ -87,7 +88,7 @@ namespace Classes.Actions
                 {
                     if (!data.Key.StartsWith("res-")) continue;
 
-                    sett.panel.AddRes(data.Key.Substring(4), data.Value);
+                    L.b.res[data.Key.Substring(4)].AddImageLabel(sett.panel, ConvertHelper.Int(data.Value));
                 }
                 
                 return;
@@ -99,7 +100,7 @@ namespace Classes.Actions
             {
                 if (!data.Key.StartsWith("res-")) continue;
 
-                sett.panel.AddRes(data.Key.Substring(4), data.Value);
+                L.b.res[data.Key.Substring(4)].AddImageLabel(sett.panel, ConvertHelper.Int(data.Value));
             }
             if (sett.mapElement == null)
                 sett.holder.req.BuildPanel(sett.panel, "Requirement");

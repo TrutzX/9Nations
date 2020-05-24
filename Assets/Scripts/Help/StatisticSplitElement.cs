@@ -9,7 +9,7 @@ namespace Help
 {
     public class StatisticSplitElement : SplitElement
     {
-        public StatisticSplitElement() : base("Statistic", "Icons/base:statistic") { }
+        public StatisticSplitElement() : base("Statistic", "!Icons/base:statistic") { }
 
         public override void ShowDetail(PanelBuilder panel)
         {
@@ -20,7 +20,7 @@ namespace Help
             panel.AddHeaderLabel("Library");
             foreach (var m in L.b.mgmts.Values)
             {
-                panel.AddImageLabel($"{m.Length}x {m.Name()}",m.Sprite());
+                panel.AddImageLabel($"{m.Length} x {m.Name()}",m.Sprite());
             }
 
             panel.AddHeaderLabel("Mods");

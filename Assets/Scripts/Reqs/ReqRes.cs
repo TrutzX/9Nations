@@ -32,7 +32,7 @@ namespace reqs
 
         protected override string Name(string element, string sett)
         {
-            return L.b.res[element].name;
+            return L.b.res[element].Name();
         }
     }
 }

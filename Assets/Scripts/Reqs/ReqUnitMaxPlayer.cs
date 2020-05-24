@@ -29,7 +29,7 @@ namespace reqs
             string unit = sett.Split(',')[0];
             int amount = Int32.Parse(sett.Split(',')[1]);
             
-            return $"Need max {amount}x {L.b.units[unit].name}."+(player==null?"":$" You have {S.Unit().GetByPlayerType(player.id, unit).Length}x.");
+            return $"Need max {amount}x {L.b.units[unit].Name()}."+(player==null?"":$" You have {S.Unit().GetByPlayerType(player.id, unit).Length}x.");
         }
     }
 }

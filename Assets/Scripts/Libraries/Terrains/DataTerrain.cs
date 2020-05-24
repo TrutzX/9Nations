@@ -38,16 +38,16 @@ namespace Libraries.Terrains
             if (!string.IsNullOrEmpty(winter))
             {
                 DataTerrain w = L.b.terrains[winter];
-                panel.AddImageLabel($"Winter: {w.name}", w.Sprite());
+                panel.AddImageLabel($"Winter: {w.Name()}", w.Sprite());
             }
 
             panel.AddHeaderLabel("Movement cost");
             foreach (Movement m in L.b.movements.Values())
             {
-                panel.AddSubLabel(m.name,(MoveCost(m.id)==0?"Not passable":$"{MoveCost(m.id)} AP"),m.Icon);
+                panel.AddSubLabel(m.Name(),(MoveCost(m.id)==0?"Not passable":$"{MoveCost(m.id)} AP"),m.Icon);
             }
             if (Movement.Count == 0) panel.AddImageLabel("Not passable","no");
-            panel.AddModi("Modifiers",modi);
+            panel.AddModi(modi);
 
             ShowRes(panel, player, pos);
         }
@@ -67,7 +67,7 @@ namespace Libraries.Terrains
                             val => GameMgmt.Get().data.map.ResGenAdd(pos, key, val-GameMgmt.Get().data.map.ResGen(pos, key)));
                         continue;
                     }
-                    panel.AddImageLabel($"{L.b.terrains.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key))}x {L.b.res[key].name}", L.b.res[key].Icon);
+                    L.b.res[key].AddImageLabel(panel, L.b.terrains.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key)));
                 }
                 return;
             } 
@@ -80,7 +80,7 @@ namespace Libraries.Terrains
                     int chanc = ResChance(r.Key);
                     string chance = chanc >= 1 ? $"{chanc}% chance: " : "";
                     var c = ResRange(r.Key);
-                    panel.AddImageLabel(chance+$"{L.b.terrains.GenDesc(c.min)}-{L.b.terrains.GenDesc(c.max)}x {L.b.res[r.Key].name}", L.b.res[r.Key].Icon);
+                    L.b.res[r.Key].AddImageLabel(panel, chance+$"{L.b.terrains.GenDesc(c.min)}-{L.b.terrains.GenDesc(c.max)}x {L.b.res[r.Key].Name()}");
                 }
             }
         }

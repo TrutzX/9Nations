@@ -1,6 +1,6 @@
-id,name,icon,desc,rate,req,req,req
-food,food,!Icons/base:food,,-0.2,,,
-water,water,!Icons/magic:water,,-0.3,element=light,,
-gold,gold,gold,,0.1,,,
-religion,religion,religion,,-1,,townLevel=>2,
-pottery,pottery,!Icons/base:pottery,,-0.25,element=earth,townLevel=>2,disabled
+id,icon,desc,rate,req,req,req
+food,!Icons/base:food,,-0.2,,,
+water,!Icons/magic:water,,-0.3,element=light,,
+gold,gold,,0.1,,,
+religion,religion,,-1,,townLevel=>2,
+pottery,pottery,,-0.25,element=earth,townLevel=>3,

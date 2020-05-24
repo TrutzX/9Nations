@@ -36,7 +36,7 @@ namespace Maps
             {
                 for (int y = 0; y < gmap.height; y++)
                 {
-                    costMap[x, y] = L.b.modifiers["move"].CalcModi(level.Terrain(x, y).MoveCost(moveType), player,
+                    costMap[x, y] = L.b.modifiers[C.MoveCost].CalcModi(level.Terrain(x, y).MoveCost(moveType), player,
                         new NVector(x, y, _id));// level.Terrain(x, y).MoveCost(moveType, nation);
                     //Debug.LogWarning($"Cost for {X},{Y} for {nation}-{moveType} is {costMap[x,y]}");
                 }
