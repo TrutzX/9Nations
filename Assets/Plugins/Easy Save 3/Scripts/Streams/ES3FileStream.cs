@@ -22,7 +22,7 @@ namespace ES3Internal
 				ES3IO.CreateDirectory(directoryPath);
 			if(fileMode != ES3FileMode.Write || fileMode == ES3FileMode.Append)
 				return path;
-			return (fileMode == ES3FileMode.Write) ? path + ES3.temporaryFileSuffix : path;
+			return (fileMode == ES3FileMode.Write) ? path + ES3IO.temporaryFileSuffix : path;
 		}
 
 		protected static FileMode GetFileMode(ES3FileMode fileMode)

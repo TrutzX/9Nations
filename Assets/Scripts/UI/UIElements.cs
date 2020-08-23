@@ -29,6 +29,7 @@ namespace UI
         public Dropdown dropdown;
         public Slider slider;
         public Image panelImage;
+        public Image imageCounter;
     
 
         public static UIElements Get()
@@ -76,6 +77,15 @@ namespace UI
         public static GameObject CreateImageLabel(Transform parent, string title, string icon)
         {
             return CreateImageLabel(parent, title, SpriteHelper.Load(icon));
+        }
+    
+        public static Image CreateImageCounter(Transform parent, int count, string icon)
+        {
+            Image act = Instantiate(Get().imageCounter, parent);
+            act.name = icon+count.ToString();
+            act.GetComponent<Image>().sprite = SpriteHelper.Load(icon);
+            act.transform.GetChild(0).GetComponent<Text>().text = count.ToString();
+            return act;
         }
     
         public static GameObject CreateHeaderLabel(Transform parent, string title)

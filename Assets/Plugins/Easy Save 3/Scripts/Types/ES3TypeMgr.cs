@@ -9,19 +9,27 @@ namespace ES3Internal
 	[UnityEngine.Scripting.Preserve]
 	public static class ES3TypeMgr
 	{
+        private static object _lock = new object();
+
 		[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 		public static Dictionary<Type, ES3Type> types = null;
+
+        // We cache the last accessed type as we quite often use the same type multiple times,
+        // so this improves performance as another lookup is not required.
+        private static ES3Type lastAccessedType = null;
 
 		public static ES3Type GetOrCreateES3Type(Type type, bool throwException = true)
 		{
 			if(types == null)
 				Init();
 
-			ES3Type es3Type;
+            if (type != typeof(object) && lastAccessedType != null && lastAccessedType.type == type)
+                return lastAccessedType;
+
 			// If type doesn't exist, create one.
-			if(types.TryGetValue(type, out es3Type))
-				return es3Type;
-			return CreateES3Type(type, throwException);
+			if(types.TryGetValue(type, out lastAccessedType))
+				return lastAccessedType;
+			return (lastAccessedType = CreateES3Type(type, throwException));
 		}
 
 		public static ES3Type GetES3Type(Type type)
@@ -29,9 +37,8 @@ namespace ES3Internal
 			if(types == null)
 				Init();
 
-			ES3Type es3Type;
-			if(types.TryGetValue(type, out es3Type))
-				return es3Type;
+			if(types.TryGetValue(type, out lastAccessedType))
+				return lastAccessedType;
 			return null;
 		}
 
@@ -39,7 +46,15 @@ namespace ES3Internal
 		{
 			if(types == null)
 				Init();
-			types[type] = es3Type;
+
+            var existingType = GetES3Type(type);
+            if (existingType != null && existingType.priority > es3Type.priority)
+                return;
+
+            lock (_lock)
+            {
+                types[type] = es3Type;
+            }
 		}
 
 		internal static ES3Type CreateES3Type(Type type, bool throwException = true)
@@ -51,7 +66,6 @@ namespace ES3Internal
 			else if(ES3Reflection.TypeIsArray(type))
 			{
 				int rank = ES3Reflection.GetArrayRank(type);
-
 				if(rank == 1)
 					es3Type = new ES3ArrayType(type);
 				else if(rank == 2)
@@ -108,23 +122,25 @@ namespace ES3Internal
 			{
 				if(throwException)
 					throw new NotSupportedException(string.Format("ES3Type.type is null when trying to create an ES3Type for {0}, possibly because the element type is not supported.", type));
-
 				return null;
 			}
 
-			Add(type, es3Type);
+            Add(type, es3Type);
 			return es3Type;
 		}
 
-		internal static void Init()
-		{
-			types = new Dictionary<Type, ES3Type>();
-			// ES3Types add themselves to the types Dictionary.
-			ES3Reflection.GetInstances<ES3Type>();
+        internal static void Init()
+        {
+            lock (_lock)
+            {
+                types = new Dictionary<Type, ES3Type>();
+                // ES3Types add themselves to the types Dictionary.
+                ES3Reflection.GetInstances<ES3Type>();
 
-			// Check that the type list was initialised correctly.
-			if(types == null || types.Count == 0)
-				throw new TypeLoadException("Type list could not be initialised. Please contact Easy Save developers on mail@moodkie.com.");
-		}
+                // Check that the type list was initialised correctly.
+                if (types == null || types.Count == 0)
+                    throw new TypeLoadException("Type list could not be initialised. Please contact Easy Save developers on mail@moodkie.com.");
+            }
+        }
 	}
 }

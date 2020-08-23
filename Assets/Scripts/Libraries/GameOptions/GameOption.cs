@@ -25,7 +25,10 @@ namespace Libraries.GameOptions
         public override bool Exist()
         {
             if (S.IsGame())
+            {
                 return GameMgmt.Get().data.features.ContainsKey(id);
+            }
+                
             else
             {
                 return L.b.gameOptions.startConfig.ContainsKey(id);

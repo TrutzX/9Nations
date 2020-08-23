@@ -24,7 +24,14 @@ namespace Libraries
         [SerializeField] protected readonly string id;
         [SerializeField] protected string icon;
         [SerializeField] protected string lastRead;
-
+        
+        /// <summary>
+        /// For save only
+        /// </summary>
+        public BaseMgmt() : this(null)
+        {
+        }
+        
         public BaseMgmt(string id)
         {
             Data = new Dictionary<string, T>();
@@ -228,9 +235,6 @@ namespace Libraries
                 case "icon":
                     ele.Icon = data;
                     break;
-                case "desc":
-                    ele.Desc = data;
-                    break;
                 case "sound":
                     ele.Sound = data;
                     break;
@@ -239,6 +243,9 @@ namespace Libraries
                     break;
                 case "category":
                     ele.category = data;
+                    break;
+                case "desc":
+                    ele.desc = data;
                     break;
                 case "req":
                     ele.req.Add(data);
@@ -257,7 +264,7 @@ namespace Libraries
             }
 
             Data[id] = new T();
-            Data[id].id = id;
+            Data[id].Id(id);
             return Data[id];
         }
 

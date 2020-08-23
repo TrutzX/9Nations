@@ -5,11 +5,12 @@ namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
 	[ES3PropertiesAttribute([propertyNames])]
-	public class ES3Type_[es3TypeSuffix] : ES3ScriptableObjectType
+	public class ES3UserType_[es3TypeSuffix] : ES3ScriptableObjectType
 	{
 		public static ES3Type Instance = null;
 
-		public ES3Type_[es3TypeSuffix]() : base(typeof([fullType])){ Instance = this; }
+		public ES3UserType_[es3TypeSuffix]() : base(typeof([fullType])){ Instance = this; priority = 1; }
+
 
 		protected override void WriteScriptableObject(object obj, ES3Writer writer)
 		{
@@ -33,11 +34,12 @@ namespace ES3Types
 		}
 	}
 
-	public class ES3Type_[es3TypeSuffix]Array : ES3ArrayType
+
+	public class ES3UserType_[es3TypeSuffix]Array : ES3ArrayType
 	{
 		public static ES3Type Instance;
 
-		public ES3Type_[es3TypeSuffix]Array() : base(typeof([fullType][]), ES3Type_[es3TypeSuffix].Instance)
+		public ES3UserType_[es3TypeSuffix]Array() : base(typeof([fullType][]), ES3UserType_[es3TypeSuffix].Instance)
 		{
 			Instance = this;
 		}

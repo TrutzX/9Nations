@@ -8,7 +8,10 @@ namespace ES3Internal
 	{
         public static readonly string persistentDataPath = Application.persistentDataPath;
 
-		public enum ES3FileMode {Read, Write, Append}
+        internal const string backupFileSuffix = ".bac";
+        internal const string temporaryFileSuffix = ".tmp";
+
+        public enum ES3FileMode {Read, Write, Append}
 
 		public static DateTime GetTimestamp(string filePath)
 		{
@@ -52,7 +55,7 @@ namespace ES3Internal
 			if(slash == (path.Length - 1))
 				slash = path.Substring(0, slash).LastIndexOf(slashChar);
 			if(slash == -1)
-				Debug.LogError("Path provided is not a directory path as it contains no slashes.");
+				ES3Debug.LogError("Path provided is not a directory path as it contains no slashes.");
 			return path.Substring(0, slash);
 		}
 		
@@ -114,17 +117,19 @@ namespace ES3Internal
 
 		public static void CommitBackup(ES3Settings settings)
 		{
+            ES3Debug.Log("Committing backup for "+settings.path+" to storage location "+settings.location);
+
 			if(settings.location == ES3.Location.File)
 			{
 				// Delete the old file before overwriting it.
 				DeleteFile(settings.FullPath);
 				// Rename temporary file to new file.
-				MoveFile(settings.FullPath + ES3.temporaryFileSuffix, settings.FullPath);
+				MoveFile(settings.FullPath + temporaryFileSuffix, settings.FullPath);
 			}
 			else if(settings.location == ES3.Location.PlayerPrefs)
 			{
-				PlayerPrefs.SetString(settings.FullPath, PlayerPrefs.GetString(settings.FullPath + ES3.temporaryFileSuffix));
-				PlayerPrefs.DeleteKey(settings.FullPath + ES3.temporaryFileSuffix);
+				PlayerPrefs.SetString(settings.FullPath, PlayerPrefs.GetString(settings.FullPath + temporaryFileSuffix));
+				PlayerPrefs.DeleteKey(settings.FullPath + temporaryFileSuffix);
 				PlayerPrefs.Save();
 			}
 		}

@@ -3,7 +3,7 @@ using System;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("font", "text", "supportRichText", "resizeTextForBestFit", "resizeTextMinSize", "resizeTextMaxSize", "alignment", "alignByGeometry", "fontSize", "horizontalOverflow", "verticalOverflow", "lineSpacing", "fontStyle", "onCullStateChanged", "maskable", "color", "raycastTarget", "material", "useGUILayout", "runInEditMode", "enabled", "tag", "name", "hideFlags")]
+	[ES3PropertiesAttribute("font", "text", "supportRichText", "resizeTextForBestFit", "resizeTextMinSize", "resizeTextMaxSize", "alignment", "alignByGeometry", "fontSize", "horizontalOverflow", "verticalOverflow", "lineSpacing", "fontStyle", "onCullStateChanged", "maskable", "color", "raycastTarget", "material", "useGUILayout", "enabled", "tag", "name", "hideFlags")]
 	public class ES3Type_Text : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -34,8 +34,13 @@ namespace ES3Types
 			writer.WriteProperty("maskable", instance.maskable);
 			writer.WriteProperty("color", instance.color);
 			writer.WriteProperty("raycastTarget", instance.raycastTarget);
-			writer.WritePropertyByRef("material", instance.material);
-			writer.WriteProperty("useGUILayout", instance.useGUILayout);
+            // Unity automatically sets the default material if it's set to null.
+            // This prevents missing reference warnings.
+            if (instance.material.name.Contains("Default"))
+                writer.WriteProperty("material", null);
+            else
+                writer.WriteProperty("material", instance.material);
+            writer.WriteProperty("useGUILayout", instance.useGUILayout);
 			writer.WriteProperty("enabled", instance.enabled);
 			writer.WriteProperty("hideFlags", instance.hideFlags);
 		}

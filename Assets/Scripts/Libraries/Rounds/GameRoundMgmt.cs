@@ -95,8 +95,8 @@ namespace Libraries.Rounds
                 return;
             }
             
-            FindObjectOfType<LightingManager2D>().disableEngine = !IsDayTime("night");
-            LightingMainBuffer2D.ForceUpdate();
+            //FindObjectOfType<LightingManager2D>().disableEngine = !IsDayTime("night");
+            //LightingMainBuffer2D.ForceUpdate();
         }
         
         public string Icon()

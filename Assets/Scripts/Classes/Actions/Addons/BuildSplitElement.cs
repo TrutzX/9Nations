@@ -34,8 +34,11 @@ namespace Classes.Actions.Addons
         {
             UpdatePref("lastBuild");
             ism.Close();
-            GameMgmt.Get().building.Create(S.Towns().NearestTown(S.ActPlayer(),pos,false).id, build.id, pos);
-            OnMapUI.Get().UpdatePanel(pos);
+            MaterialWindow.ShowBuildMaterialWindow(build, pos, cost =>
+            {
+                GameMgmt.Get().building.Create(S.Towns().NearestTown(S.ActPlayer(),pos,false).id, build.id, pos, cost);
+                OnMapUI.Get().UpdatePanel(pos);
+            });
         }
 
         protected void UpdatePref(string key)

@@ -35,14 +35,15 @@ namespace Towns
         /// <param name="playerID"></param>
         /// <param name="pos"></param>
         /// <returns></returns>
-        public int Create(string name, int playerID, NVector pos)
+        public int Create(string name, int playerID, NVector pos, bool townHall = true)
         {
             Town town = new Town(++createTownCounter,playerID,name, pos);
             town.coat = L.b.coats.Random("town").id;
             towns.Add(town);
             Debug.Log($"Create town {name} ({createTownCounter}) for {playerID}");
             //create townhall
-            GameMgmt.Get().building.Create(createTownCounter, S.Player(playerID).elements.TownHall(),pos);
+            if (townHall)
+                GameMgmt.Get().building.Create(createTownCounter, S.Player(playerID).elements.TownHall(),pos);
             return createTownCounter;
         }
 

@@ -53,7 +53,7 @@ namespace ES3Internal
 					PlayerPrefs.Save();
 	            }
 	            else
-					PlayerPrefs.SetString(path + ES3.temporaryFileSuffix, System.Convert.ToBase64String(this.ToArray()));
+					PlayerPrefs.SetString(path + ES3IO.temporaryFileSuffix, System.Convert.ToBase64String(this.ToArray()));
 				// Save the timestamp to a separate key.
 				PlayerPrefs.SetString("timestamp_" + path, System.DateTime.UtcNow.Ticks.ToString());
 			}

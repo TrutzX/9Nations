@@ -4,11 +4,12 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	public class ES3Type_Material : ES3UnityObjectType
+	public class ES3UserType_Material : ES3UnityObjectType
 	{
 		public static ES3Type Instance = null;
 
-		public ES3Type_Material() : base(typeof(UnityEngine.Material)){ Instance = this; }
+		public ES3UserType_Material() : base(typeof(UnityEngine.Material)){ Instance = this; priority = 1; }
+
 
 		protected override void WriteUnityObject(object obj, ES3Writer writer)
 		{

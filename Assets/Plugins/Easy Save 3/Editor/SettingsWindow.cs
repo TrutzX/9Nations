@@ -13,6 +13,8 @@ namespace ES3Editor
 		public SerializedObject so = null;
 		public SerializedProperty assemblyNamesProperty = null;
 
+        private Vector2 scrollPos = Vector2.zero;
+
 		public SettingsWindow(EditorWindow window) : base("Settings", window){}
 
 		public override void OnGUI()
@@ -20,71 +22,102 @@ namespace ES3Editor
 			if(settings == null || editorSettings == null || assemblyNamesProperty == null)
 				Init();
 
-			var style = EditorStyle.Get;
+            var style = EditorStyle.Get;
 
-			EditorGUI.BeginChangeCheck();
-
-			EditorGUILayout.BeginVertical(style.area);
-
-			GUILayout.Label("Runtime Settings", style.heading);
-
-			EditorGUILayout.BeginVertical(style.area);
-
-			ES3SettingsEditor.Draw(settings);
-
-			EditorGUILayout.EndVertical();
-
-            var wideLabel = new GUIStyle();
-            wideLabel.fixedWidth = 400;
-
-            GUILayout.Label("Debug Settings", style.heading);
-
-            EditorGUILayout.BeginVertical(style.area);
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel("Log Warnings", wideLabel);
-            editorSettings.logWarnings = EditorGUILayout.Toggle(editorSettings.logWarnings);
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.EndVertical();
-
-            GUILayout.Label("Editor Settings", style.heading);
-
-			EditorGUILayout.BeginVertical(style.area);
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Auto Add Manager to Scene", wideLabel);
-			editorSettings.addMgrToSceneAutomatically = EditorGUILayout.Toggle(editorSettings.addMgrToSceneAutomatically);
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Auto Update References", wideLabel);
-			editorSettings.autoUpdateReferences = EditorGUILayout.Toggle(editorSettings.autoUpdateReferences);
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.Space();
+            var labelWidth = EditorGUIUtility.labelWidth;
 
 
-			// Show Assembly names array.
-			//EditorGUILayout.PropertyField(assemblyNamesProperty, new GUIContent("Assemblies containing ES3Types", "The names of assemblies we want to load ES3Types from."), true); // True means show children
-			/*if(so.ApplyModifiedProperties())
-			{
-				#if UNITY_2018_3_OR_NEWER
-				PrefabUtility.SaveAsPrefabAsset(defaultSettingsGo,ES3Settings.PathToDefaultSettings());
-				#endif
-			}*/
+            EditorGUI.BeginChangeCheck();
 
-			EditorGUILayout.EndVertical();
+            using (var scrollView = new EditorGUILayout.ScrollViewScope(scrollPos, style.area))
+            {
+                scrollPos = scrollView.scrollPosition;
 
-			EditorGUILayout.EndVertical();
+                EditorGUIUtility.labelWidth = 160;
 
+                GUILayout.Label("Runtime Settings", style.heading);
+
+                using (new EditorGUILayout.VerticalScope(style.area))
+                {
+                    ES3SettingsEditor.Draw(settings);
+                }
+
+                GUILayout.Label("Debug Settings", style.heading);
+
+                using (new EditorGUILayout.VerticalScope(style.area))
+                {
+                    EditorGUIUtility.labelWidth = 100;
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Log Info");
+                        editorSettings.logDebugInfo = EditorGUILayout.Toggle(editorSettings.logDebugInfo);
+                    }
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Log Warnings");
+                        editorSettings.logWarnings = EditorGUILayout.Toggle(editorSettings.logWarnings);
+                    }
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Log Errors");
+                        editorSettings.logErrors = EditorGUILayout.Toggle(editorSettings.logErrors);
+                    }
+
+                    EditorGUILayout.Space();
+                }
+
+                GUILayout.Label("Editor Settings", style.heading);
+
+                using (new EditorGUILayout.VerticalScope(style.area))
+                {
+                    EditorGUIUtility.labelWidth = 170;
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Auto Update References");
+                        editorSettings.autoUpdateReferences = EditorGUILayout.Toggle(editorSettings.autoUpdateReferences);
+                    }
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Use Global References");
+
+                        var symbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+                        bool useGlobalReferences = !symbols.Contains("ES3GLOBAL_DISABLED");
+                        if(EditorGUILayout.Toggle(useGlobalReferences) != useGlobalReferences)
+                        {
+                            // Remove the existing symbol even if we're disabling global references, just incase it's already in there.
+                            symbols = symbols.Replace("ES3GLOBAL_DISABLED;", ""); // With semicolon
+                            symbols = symbols.Replace("ES3GLOBAL_DISABLED", "");  // Without semicolon
+
+                            // Add the symbol if useGlobalReferences is currently true, meaning that we want to disable it.
+                            if (useGlobalReferences)
+                                symbols = "ES3GLOBAL_DISABLED;" + symbols;
+
+                            PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, symbols);
+
+                            if(useGlobalReferences)
+                                EditorUtility.DisplayDialog("Global references disabled for build platform", "This will only disable Global References for this build platform. To disable it for other build platforms, open that platform in the Build Settings and uncheck this box again.", "Ok");
+                        }
+                    }
+
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        EditorGUILayout.PrefixLabel("Add All Prefabs to Manager");
+                        editorSettings.addAllPrefabsToManager = EditorGUILayout.Toggle(editorSettings.addAllPrefabsToManager);
+                    }
+
+                    EditorGUILayout.Space();
+                }
+            }
 
             if (EditorGUI.EndChangeCheck())
-            {
-
                 EditorUtility.SetDirty(editorSettings);
-            }
+
+            EditorGUIUtility.labelWidth = labelWidth; // Set the label width back to default
 		}
 
 		public void Init()

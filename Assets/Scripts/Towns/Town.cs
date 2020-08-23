@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using Buildings;
 using Classes;
@@ -32,10 +33,13 @@ namespace Towns
         public int id;
         public NVector pos;
         public int level;
+        public int usages;
 
-        [SerializeField] private Dictionary<string, int> res;
-        [SerializeField] public Dictionary<string, string> modi;
-        [SerializeField] public string usageMess;
+        [SerializeField] private Dictionary<string, double> res;
+        public RoundResStatistic resStatistic;
+        
+        public Dictionary<string, string> modi;
+        public string usageMess;
         public MapOverlay overlay;
 
         /// <summary>
@@ -52,14 +56,19 @@ namespace Towns
             level = 1;
             overlay = new MapOverlay();
             
-            res = new Dictionary<string, int>();
+            res = new Dictionary<string, double>();
             res[C.Worker] = 0;
             res[C.Inhabitant] = 0;
+            resStatistic = new RoundResStatistic();
+            resStatistic.NextRound();
+            
             modi = new Dictionary<string, string>();
-            modi["produce"] = "125%";
+            
+            if (L.b.gameOptions["usageTown"].Bool())
+                modi["produce"] = "125%";
         }
 
-        public void AddRes(string id, int amount, ResType type)
+        public void AddRes(string id, double amount, ResType type)
         {
             if (!res.ContainsKey(id))
             {
@@ -68,10 +77,13 @@ namespace Towns
                 res[id] += amount;
             
             //add to points?
-            if (type == ResType.Produce && amount > 0)
+            if (type == ResType.Produce)
             {
-                Player().points += (int) Math.Round(L.b.res[id].price * amount);
+                if (amount > 0)
+                    Player().points += (int) Math.Round(L.b.res[id].price * amount);
             }
+                
+            resStatistic.AddRess(id, amount, type);
             
             //check
             if (res[id] < 0)
@@ -82,7 +94,57 @@ namespace Towns
 
         public int GetRes(string id)
         {
-            return res.ContainsKey(id)?res[id]:0;
+            return res.ContainsKey(id)?(int) res[id]:0;
+        }
+
+        public int GetCombineRes(string id)
+        {
+            int total = 0;
+            bool known = false;
+            foreach (var r in L.b.res.GetAllByCategory(id))
+            {
+                    if (res.ContainsKey(r.id))
+                    {
+                        Debug.Log("comb for "+id+" is "+r.id+" with "+res[r.id]);
+                        total += (int) res[r.id];
+                        known = true;
+                    }
+            }
+
+            return !known?-1:total;
+        }
+
+        public void AddCombineRes(string id, double amount, ResType type)
+        {
+            //find list
+            var parts = L.b.res.Values().Where(r => r.combine == id && KnowRes(r.id)).ToList();
+
+            if (parts.Count == 0)
+            {
+                Debug.LogError($"Can not add combined res {id} with amount {amount}, because no res is known.");
+                return;
+            }
+            
+            //add it?
+            if (amount > 0)
+            {
+                foreach (var r in parts)
+                {
+                    AddRes(r.id,amount / parts.Count,type);
+                }
+            }
+            
+            //remove it
+            double par = amount / GetCombineRes(id);
+            foreach (var r in parts)
+            {
+                AddRes(r.id,par*GetRes(id),type);
+            }
+        }
+
+        public bool KnowRes(string id)
+        {
+            return res.ContainsKey(id);
         }
 
         public void Evolve(int l)
@@ -102,6 +164,11 @@ namespace Towns
             return Player().Nation().TownNameLevel[level - 1];
         }
 
+        public string TownTitle()
+        {
+            return S.T("townTitle", GetTownLevelName(), name);
+        }
+        
         public Sprite GetIcon()
         {
             //todo add color
@@ -114,6 +181,7 @@ namespace Towns
             {
                 panel.AddImageLabel(name, GetIcon());
                 panel.AddLabel(GetTownLevelName());
+                panel.AddSubLabel("Owner",Player().name,Player().Coat().Icon);
                 return;
             }
             
@@ -121,10 +189,37 @@ namespace Towns
                 () => LClass.s.NameGenerator(Player().Nation().TownNameGenerator));
 
             panel.AddLabel(GetTownLevelName());
-            L.b.res[C.Inhabitant].AddImageLabel(panel, $"{GetRes("inhabitant")}/{MaxInhabitantsAndWorker().maxInhabitants}");
+            L.b.res[C.Inhabitant].AddImageLabel(panel, $"{GetRes(C.Inhabitant)}/{MaxInhabitantsAndWorker().maxInhabitants}");
             //panel.AddSubLabel(L.b.res["inhabitant"].name,$"{}/{}",L.b.res["inhabitant"].Icon);
-            ShowRes(panel);
+            //ShowRes(panel);
+
+            ShowCombineRes(panel);
+
             panel.AddModi(modi);
+        }
+
+        public void ShowCombineRes(PanelBuilder panel)
+        {
+            bool found = false;
+
+            foreach (var r in L.b.res.Values())
+            {
+                if (String.IsNullOrEmpty(r.combine))
+                    continue;
+
+                var erg = GetCombineRes(r.combine);
+
+                //found?
+                if (erg >= 0)
+                {
+                    if (!found)
+                        panel.AddHeaderLabelT("resources");
+
+                    r.AddImageLabel(panel, erg);
+
+                    found = true;
+                }
+            }
         }
 
         public Coat Coat()
@@ -156,49 +251,91 @@ namespace Towns
         
         public void NextRound()
         {
-            var n = MaxInhabitantsAndWorker();
-
-            int inhabitant = GetRes("inhabitant");
             usageMess = null;
+            usages = 0;
+            resStatistic.NextRound();
+            UsageTown();
+            InhabitantGrow();
+        }
+
+        private void InhabitantGrow()
+        {
+            var n = MaxInhabitantsAndWorker();
             
-            decimal prod = n.buildingWorker==0?0:(decimal)inhabitant / n.buildingWorker;
+            //disabled?
+            if (!L.b.gameOptions["inhabitantGrow"].Bool())
+            {
+                res[C.Inhabitant] = n.maxInhabitants;
+                res[C.Worker] = Math.Max(0,n.maxInhabitants-n.buildingWorker);
+                return;
+            }
+            
+            //grow it
+            int inhabitant = GetRes(C.Inhabitant);
             
             //overpop?
             if (inhabitant > n.maxInhabitants)
             {
-                res["inhabitant"] = inhabitant = n.maxInhabitants;
+                usageMess = S.T("inhabitantGrowOverPop", TownTitle(),
+                    L.b.items[C.Inhabitant].Plural(inhabitant - n.maxInhabitants));
+                Player().info.Add(new Info(usageMess,"inhabitant"));
+                res[C.Inhabitant] -= level;
             }
             
-            //missing worker?
-            if (inhabitant - n.buildingWorker < 0)
+            //can grow?
+            if (n.maxInhabitants > inhabitant)
             {
-                res["worker"] = 0;
-                usageMess =
-                    $"{GetTownLevelName()} {name} needs {n.buildingWorker - inhabitant} more workers. Productivity drops to {prod:P2}.";
-                Player().info.Add(new Info(usageMess,"res"));
-            }
-            else
-            {
-                prod = Math.Min(ConvertHelper.Proc(modi["produce"])+Decimal.Parse("0.01"),Decimal.Parse("1.5"));
-                res["worker"] = inhabitant-n.buildingWorker;
-                
-                //grow?
-                if (inhabitant < n.maxInhabitants)
+                if (level >= usages)
                 {
-                    inhabitant = Math.Min(n.maxInhabitants,inhabitant+(int)Math.Ceiling(res["worker"]/2f));
-                    res["inhabitant"] = inhabitant;
+                    inhabitant += level;
+                    res[C.Inhabitant] = Math.Min(n.maxInhabitants, inhabitant);
+                }
+                else
+                {
+                    usageMess = S.T("inhabitantGrowMissingUsage", TownTitle());
+                    Player().info.Add(new Info(usageMess,"inhabitant"));
                 }
             }
-
-            modi["produce"] = (int) (Math.Max(prod, Decimal.Parse("0.25")) * 100) + "%";
             
-            CalcUsages();
+            //enough worker?
+            if (n.buildingWorker > inhabitant)
+            {
+                modi["produce"] = (int) (Math.Max(inhabitant*1d/n.buildingWorker, 0.25d) * 100) + "%";
+                usageMess = S.T("inhabitantGrowMissingWorker", TownTitle(), n.buildingWorker - inhabitant,
+                    modi["produce"]);
+                Player().info.Add(new Info(usageMess,"inhabitant"));
+            }
+            
+            res[C.Worker] = Math.Max(0,inhabitant-n.buildingWorker);
         }
 
-        private void CalcUsages()
+        private void UsageTown()
         {
-            decimal prod = ConvertHelper.Proc(modi["produce"]);
-            int inhabitant = GetRes("inhabitant");
+            //disabled?
+            if (!L.b.gameOptions["usageTown"].Bool())
+            {
+                if (res[C.Inhabitant] >= MaxInhabitantsAndWorker().buildingWorker)
+                {
+                    modi["produce"] = "100%";
+                }
+                return;
+            }
+            
+            //find usage count
+            foreach (Usage usage in L.b.usages.Values())
+            {
+                //can use?
+                if (!usage.req.Check(Player()))
+                {
+                    continue;
+                }
+
+                usages += usage.factor;
+            }
+
+            //factor = wieviel muss erfüllt werden, pro Level kann eins ignoriert werden
+            
+            int inhabitant = GetRes(C.Inhabitant);
             //use usage
             foreach (Usage usage in L.b.usages.Values())
             {
@@ -208,39 +345,58 @@ namespace Towns
                     continue;
                 }
 
+                var r = L.b.res[usage.id];
+                
                 int amount = (int) Math.Round(usage.rate * inhabitant);
-
-                //need res?
-                if (amount < 0 && amount * -1 > GetRes(usage.id))
-                {
-                    prod *= (GetRes(usage.id) * Decimal.One) / amount;
-                    amount -= GetRes(usage.id);
-                    AddRes(usage.id, GetRes(usage.id), ResType.Consum);
-                    Resource r = L.b.res[usage.id];
-                    usageMess =
-                        $"The inhabitants from {GetTownLevelName()} {name} needs {amount} more {r.Name()}. Productivity drops to {prod:P2}.";
-                    Player().info.Add(new Info(usageMess, r.Icon));
-                }
-                else
-                {
-                    AddRes(usage.id, amount, ResType.Produce);
-                }
+                bool comb = !string.IsNullOrEmpty(r.combine);
+                int hasAmount = comb?GetCombineRes(usage.id):GetRes(usage.id);
+                
+                    //need res?
+                    if (amount < 0 && amount * -1 > hasAmount)
+                    {
+                        amount -= hasAmount;
+                        if (comb)
+                            AddCombineRes(usage.id, hasAmount, ResType.Consum);
+                        else
+                            AddRes(usage.id, hasAmount, ResType.Consum);
+                        usageMess = S.T("UsageTownRes", TownTitle(), r.Text(amount));
+                        Player().info.Add(new Info(usageMess, r.Icon));
+                    }
+                    else
+                    {
+                        //has enough
+                        if (amount != 0)
+                            if (comb)
+                                AddCombineRes(usage.id, amount, ResType.Produce);
+                            else
+                                AddRes(usage.id, amount, ResType.Produce);
+                        
+                        usages -= 1;
+                    }
+                
             }
-
-            modi["produce"] = (int) (Math.Max(prod, Decimal.Parse("0.25")) * 100) + "%";
+            
+            if (level >= usages)
+            {
+                decimal prod = ConvertHelper.Proc(modi["produce"]);
+                prod += (decimal) 0.01;
+                prod = Math.Max(Decimal.Parse("0.25"), Math.Min(prod, Decimal.Parse("1.5")));
+                modi["produce"] = (int) (prod * 100) + "%";
+            }
+            
             //Debug.Log("prod"+modi["produce"]);
         }
 
         public void ShowRes(PanelBuilder panel)
         {
             if (res.Count > 0)
-                panel.AddHeaderLabel("Resources");
+                panel.AddHeaderLabelT("resources");
 
             foreach (var r in res)
             {
                 var res = L.b.res[r.Key];
                 if (!res.special)
-                    res.AddImageLabel(panel, r.Value);
+                    res.AddImageLabel(panel, (int) r.Value);
             }
         }
 
@@ -266,6 +422,12 @@ namespace Towns
             wbs.Add(new TownResSplitElement(this));
             wbs.Add(new CameraUnitSplitElement(wbs,this));
             wbs.Add(new CameraBuildingSplitElement(wbs,this));
+
+            if (L.b.gameOptions["usageTown"].Bool())
+            {
+                wbs.Add(new TownUsageSplitElement(this));
+            }
+            
             LSys.tem.helps.AddHelp("town", wbs);
             wbs.Finish();
         }
@@ -273,6 +435,6 @@ namespace Towns
 
     public enum ResType
     {
-        Produce, Gift, Construction, Trade, Consum
+        Produce, Gift, Construction, Trade, Consum, Equip
     }
 }

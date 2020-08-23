@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game;
 using Libraries.Rounds;
+using Players.PlayerTypes;
 using Tools;
 using UnityEngine;
 
@@ -26,10 +27,10 @@ namespace Players
 
         public int ActPlayer => actPlayer;
 
-        public int CreatePlayer(string name, string nation)
+        public int CreatePlayer(string name, string nation, PlayerType type = PlayerType.Human)
         {
-            players.Add(new Player(++createPlayerCounter,name,nation));
-            Debug.Log($"Create Player {name} ({createPlayerCounter}) for nation {nation}");
+            players.Add(new Player(++createPlayerCounter,name,nation, type));
+            Debug.Log($"Create Player {name} ({createPlayerCounter}/{type}) for nation {nation}");
             return createPlayerCounter;
         }
 
@@ -39,26 +40,46 @@ namespace Players
             int m = players.Count;
             foreach (Player p in players)
             {
-                p.NextRound();
                 yield return GameMgmt.Get().load.ShowSubMessage($"Updating players ({c}/{m})");
+                p.NextRound();
+                yield return p.Type().NextRound(p);
                 c++;
             }
         }
-    
-        public void FirstRound()
+
+        public IEnumerator GameStart()
         {
-            players.ForEach(p => p.FirstRound());
+            Debug.Log("GameStart "+players.Count);
+            foreach (Player p in players)
+            {
+                p.FirstRound();
+                yield return p.Type().Start(p);
+            }
         }
 
-        public void AfterLoad()
+        public IEnumerator GameLoaded()
         {
-            Debug.Log("players "+players.Count);
-            players.ForEach(p => p.AfterLoad());
+            Debug.Log("GameLoaded "+players.Count);
+            foreach (Player p in players)
+            {
+                p.AfterLoad();
+                yield return p.Type().Loaded(p);
+            }
+        }
+
+        public IEnumerator GameBegin()
+        {
+            Debug.Log("GameBegin "+players.Count);
+            foreach (Player p in players)
+            {
+                p.FirstRound();
+                yield return p.Type().Begin(p);
+            }
         }
 
         public void ResetRound()
         {
-            actPlayer = 0;
+            actPlayer = 1;
             S.ActPlayer().StartRound();
         }
         
@@ -68,12 +89,27 @@ namespace Players
             //next round?
             if (actPlayer >= players.Count)
             {
+                actPlayer = -1;
                 yield return S.Round().NextRound();
                 actPlayer = 0;
             }
 
-            yield return GameMgmt.Get().load.ShowMessage($"Start turn for {S.ActPlayer().name}");
-            S.ActPlayer().StartRound();
+            //a human player left?
+            if (players.Count(player => player.Type().id == PlayerType.Human) == 0)
+            {
+                //todo XXX
+            }
+
+            //is a human?
+            if (players[actPlayer].Type().id == PlayerType.Human)
+            {
+                yield return GameMgmt.Get().load.ShowMessage($"Start turn for {S.ActPlayer().name}");
+                S.ActPlayer().StartRound();
+            }
+            else
+            {
+                yield return NextPlayer();
+            }
         }
 
         public Player OverlayHighest(string id, NVector pos)
@@ -97,13 +133,10 @@ namespace Players
         {
             return players.Single(p => id == p.id);
         }
-        
-        public IEnumerator CreatingFog()
+
+        public void Init()
         {
-            foreach (Player p in players)
-            {
-                yield return p.fog.CreatingFog(p.id);
-            }
+            CreatePlayer(S.T("nature"), "nature", PlayerType.Nature);
         }
     }
 }

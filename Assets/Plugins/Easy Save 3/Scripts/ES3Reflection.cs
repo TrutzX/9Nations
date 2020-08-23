@@ -14,13 +14,16 @@ namespace ES3Internal
 		public const string memberFieldPrefix = "m_";
 		public const string componentTagFieldName = "tag";
 		public const string componentNameFieldName = "name";
+        public static readonly string[] excludedPropertyNames = new string[]{"runInEditMode", "useGUILayout", "hideFlags"};
 
 		public static readonly Type serializableAttributeType = typeof(System.SerializableAttribute);
 		public static readonly Type serializeFieldAttributeType = typeof(SerializeField);
 		public static readonly Type obsoleteAttributeType = typeof(System.ObsoleteAttribute);
 		public static readonly Type nonSerializedAttributeType = typeof(System.NonSerializedAttribute);
+        public static readonly Type es3SerializableAttributeType = typeof(ES3Serializable);
+        public static readonly Type es3NonSerializableAttributeType = typeof(ES3NonSerializable);
 
-		public static Type[] EmptyTypes = new Type[0];
+        public static Type[] EmptyTypes = new Type[0];
 
 		private static Assembly[] _assemblies = null;
 		private static Assembly[] Assemblies
@@ -40,10 +43,7 @@ namespace ES3Internal
 							if(assembly != null)
 								assemblyList.Add(assembly);
 						}
-						catch
-						{
-							//Debug.LogWarning("Assembly \""+assemblyNames[i]+"\" could not be found. If you are using Assembly Definition Files, you should delete this assembly from the \"Assemblies containing ES3Types\" list in Window > Easy Save 3 > Settings, and add the names of the Assemblies you are using instead.");
-						}
+						catch{}
 					}
 					_assemblies = assemblyList.ToArray();
 				}
@@ -65,10 +65,15 @@ namespace ES3Internal
 				return null;
 		}
 
-		public static List<FieldInfo> GetSerializableFields(Type type, bool safe=true, string[] memberNames=null)
+		public static List<FieldInfo> GetSerializableFields(Type type, List<FieldInfo> serializableFields=null, bool safe=true, string[] memberNames=null, BindingFlags bindings = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
 		{
-			var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-			var serializableFields = new List<FieldInfo>();
+            if (type == null)
+                return new List<FieldInfo>();
+
+			var fields = type.GetFields(bindings);
+			
+            if(serializableFields == null)
+                serializableFields = new List<FieldInfo>();
 
 			foreach(var field in fields)
 			{
@@ -76,24 +81,37 @@ namespace ES3Internal
 
 				// If a members array was provided as a parameter, only include the field if it's in the array.
 				if(memberNames != null)
-				if(!memberNames.Contains(fieldName))
-					continue;
+				    if(!memberNames.Contains(fieldName))
+					    continue;
 
 				var fieldType = field.FieldType;
 
-				if(safe)
+                if (AttributeIsDefined(field, es3SerializableAttributeType))
+                {
+                    serializableFields.Add(field);
+                    continue;
+                }
+
+                if (AttributeIsDefined(field, es3NonSerializableAttributeType))
+                    continue;
+
+                if (safe)
 				{
 					// If the field is private, only serialize it if it's explicitly marked as serializable.
 					if(!field.IsPublic && !AttributeIsDefined(field, serializeFieldAttributeType))
 						continue;
 				}
 
-				// Don't store fields whose type is the same as the class the field is housed in unless it's stored by reference (to prevent cyclic references)
-				if(fieldType == type && !IsAssignableFrom(typeof(UnityEngine.Object), fieldType))
+                // Exclude const or readonly fields.
+                if (field.IsLiteral || field.IsInitOnly)
+                    continue;
+
+                // Don't store fields whose type is the same as the class the field is housed in unless it's stored by reference (to prevent cyclic references)
+                if (fieldType == type && !IsAssignableFrom(typeof(UnityEngine.Object), fieldType))
 					continue;
 
 				// If property is marked as obsolete or non-serialized, don't serialize it.
-				if(AttributeIsDefined(field, obsoleteAttributeType) || AttributeIsDefined(field, nonSerializedAttributeType))
+				if(AttributeIsDefined(field, nonSerializedAttributeType) || AttributeIsDefined(field, obsoleteAttributeType))
 					continue;
 
 				if(!TypeIsSerializable(field.FieldType))
@@ -105,24 +123,42 @@ namespace ES3Internal
 
 				serializableFields.Add(field);
 			}
+
+            var baseType = BaseType(type);
+            if (baseType != null && baseType != typeof(System.Object) && baseType != typeof(UnityEngine.Object))
+                GetSerializableFields(BaseType(type), serializableFields, safe, memberNames);
+
 			return serializableFields;
 		}
 
-		public static List<PropertyInfo> GetSerializableProperties(Type type, bool safe=true, string[] memberNames=null)
+		public static List<PropertyInfo> GetSerializableProperties(Type type, List<PropertyInfo> serializableProperties=null, bool safe=true, string[] memberNames=null, BindingFlags bindings = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
 		{
 			bool isComponent = IsAssignableFrom(typeof(UnityEngine.Component), type);
 
-			var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
 			// Only get private properties if we're not getting properties safely.
 			if(!safe)
-				bindingFlags = bindingFlags | BindingFlags.NonPublic;
+				bindings = bindings | BindingFlags.NonPublic;
 
-			var properties = type.GetProperties(bindingFlags);
-			var serializableProperties = new List<PropertyInfo>();
+			var properties = type.GetProperties(bindings);
+
+            if(serializableProperties == null)
+			    serializableProperties = new List<PropertyInfo>();
 
 			foreach(var p in properties)
 			{
-				var propertyName = p.Name;
+                if (AttributeIsDefined(p, es3SerializableAttributeType))
+                {
+                    serializableProperties.Add(p);
+                    continue;
+                }
+
+                if (AttributeIsDefined(p, es3NonSerializableAttributeType))
+                    continue;
+
+                var propertyName = p.Name;
+
+                if (excludedPropertyNames.Contains(propertyName))
+                    continue;
 
 				// If a members array was provided as a parameter, only include the property if it's in the array.
 				if(memberNames != null)
@@ -132,7 +168,7 @@ namespace ES3Internal
 				if(safe)
 				{
 					// If safe serialization is enabled, only get properties which are explicitly marked as serializable.
-					if(!AttributeIsDefined(p, serializeFieldAttributeType))
+					if(!AttributeIsDefined(p, serializeFieldAttributeType) && !AttributeIsDefined(p, es3SerializableAttributeType))
 						continue;
 				}
 
@@ -173,13 +209,20 @@ namespace ES3Internal
 				serializableProperties.Add(p);
 			}
 
-			return serializableProperties;
+            var baseType = BaseType(type);
+            if (baseType != null && baseType != typeof(System.Object))
+                GetSerializableProperties(baseType, serializableProperties, safe, memberNames);
+
+            return serializableProperties;
 		}
 
 		public static bool TypeIsSerializable(Type type)
 		{
 			if(type == null)
 				return false;
+
+            if (AttributeIsDefined(type, es3NonSerializableAttributeType))
+                return false;
 
 			if(IsPrimitive(type) || IsValueType(type) || IsAssignableFrom(typeof(UnityEngine.Component), type) || IsAssignableFrom(typeof(UnityEngine.ScriptableObject), type))
 				return true;
@@ -241,8 +284,11 @@ namespace ES3Internal
 
 		public static ES3ReflectedMember[] GetSerializableMembers(Type type, bool safe=true, string[] memberNames=null)
 		{
-			var fieldInfos = GetSerializableFields(type, safe, memberNames);
-			var propertyInfos = GetSerializableProperties(type, safe, memberNames);
+            if (type == null)
+                return new ES3ReflectedMember[0];
+
+			var fieldInfos = GetSerializableFields(type, new List<FieldInfo>(), safe, memberNames);
+			var propertyInfos = GetSerializableProperties(type, new List<PropertyInfo>(), safe, memberNames);
 			var reflectedFields = new ES3ReflectedMember[fieldInfos.Count + propertyInfos.Count];
 
 			for(int i=0; i<fieldInfos.Count; i++)
@@ -330,7 +376,7 @@ namespace ES3Internal
 			return type.GetElementType();
 		}
 
-		#if NETFX_CORE
+#if NETFX_CORE
 		public static bool IsAbstract(Type type)
 		{
 		return type.GetTypeInfo().IsAbstract;
@@ -386,7 +432,10 @@ namespace ES3Internal
 
 		public static PropertyInfo GetProperty(Type type, string propertyName)
 		{
-		return type.GetTypeInfo().GetDeclaredProperty(propertyName);
+        	var property = type.GetTypeInfo().GetDeclaredProperty(propertyName);
+            if (property == null && type.BaseType != typeof(object))
+                return GetProperty(type.BaseType, propertyName);
+            return property;
 		}
 
 		public static FieldInfo GetField(Type type, string fieldName)
@@ -419,8 +468,13 @@ namespace ES3Internal
 		{
 		return type.GetTypeInfo().ImplementedInterfaces.Contains(interfaceType);
 		}
-		#else
-		public static bool IsAbstract(Type type)
+
+        public static Type BaseType(Type type)
+        {
+            return type.GetTypeInfo().BaseType;
+        }
+#else
+        public static bool IsAbstract(Type type)
 		{
 			return type.IsAbstract;
 		}
@@ -464,12 +518,18 @@ namespace ES3Internal
 
 		public static PropertyInfo GetProperty(Type type, string propertyName)
 		{
-			return type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+			var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (property == null && BaseType(type) != typeof(object))
+                return GetProperty(BaseType(type), propertyName);
+            return property;
 		}
 
 		public static FieldInfo GetField(Type type, string fieldName)
 		{
-			return type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+			var field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (field == null && BaseType(type) != typeof(object))
+                return GetField(BaseType(type), fieldName);
+            return field;
 		}
 
 		public static bool IsPrimitive(Type type)
@@ -491,12 +551,17 @@ namespace ES3Internal
 		{
 			return (type.GetInterface(interfaceType.Name) != null);
 		}
-		#endif
 
-		/*
+        public static Type BaseType(Type type)
+        {
+            return type.BaseType;
+        }
+#endif
+
+        /*
 	 * 	Allows us to use FieldInfo and PropertyInfo interchangably.
 	 */
-		public struct ES3ReflectedMember
+        public struct ES3ReflectedMember
 		{
 			// The FieldInfo or PropertyInfo for this field.
 			private FieldInfo fieldInfo;
@@ -560,7 +625,13 @@ namespace ES3Internal
 				this.method = nonGenericMethod.MakeGenericMethod(genericParameters);
 			}
 
-			public object Invoke(object obj, object[] parameters = null)
+            public ES3ReflectedMethod(Type type, string methodName, Type[] genericParameters, Type[] parameterTypes, BindingFlags bindingAttr)
+            {
+                MethodInfo nonGenericMethod = type.GetMethod(methodName, bindingAttr, null, parameterTypes, null);
+                this.method = nonGenericMethod.MakeGenericMethod(genericParameters);
+            }
+
+            public object Invoke(object obj, object[] parameters = null)
 			{
 				return method.Invoke(obj, parameters);
 			}

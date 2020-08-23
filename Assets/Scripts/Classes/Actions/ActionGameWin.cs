@@ -3,6 +3,7 @@ using Libraries.FActions;
 using Libraries.FActions.General;
 using Players;
 using Tools;
+using UnityEngine;
 
 namespace Classes.Actions
 {
@@ -18,7 +19,7 @@ namespace Classes.Actions
         public override ActionHolder Create(string setting)
         {
             ActionHolder conf = base.Create(setting);
-            conf.trigger = ActionEvent.Direct;
+            conf.trigger = ActionEvent.Quest;
             return conf;
         }
     }

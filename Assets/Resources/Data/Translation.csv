@@ -105,6 +105,7 @@ field,field
 field6,Oasis (Two player)
 field6mono,Oasis
 fieldPlural,fields
+fight,fight
 fightmodi,fightmodi
 fireair,fire > air
 fireearth,fire > earth
@@ -134,7 +135,6 @@ frontierOwn,Needs your own frontier (Visible via overlay)
 frontierOwnHere,.{0} Here is your frontier.
 fuchsia,fuchsia
 fullscreen,Play fullscreen
-gameButton,call game button
 gamebutton,gamebutton
 gameoption,game option
 general,General
@@ -165,6 +165,7 @@ icon,icon,
 improvement,Convert to a map improvement
 ,
 inhabitant,inhabitant,
+inhabitantPlural,inhabitants,
 input,input,
 interact,interact,
 invisible,Invisble,
@@ -174,7 +175,7 @@ kingdom,kingdom,
 lastBuild,last builds,
 lastTrain,last train,
 lava,lava,
-lavarock,lavarock,
+lavarock,lavarock
 lexicon,lexicon
 lexplorer,light explorer
 lhall1,village hall
@@ -318,7 +319,7 @@ terraform,terraform
 terrain,terrain
 tool,tool
 toolPlural,tools
-toolshop,tool shop
+toolshop,tool shop,
 town,town,
 townEvolve,develop town,
 tracks,tracks,
@@ -330,11 +331,11 @@ tradeSell,Sell resources ,
 tradeSellError,No Resources to sell found.,
 train,train,
 tutorial,Tutorial,
-tutorialbasic,Basics,
+tutorial1,Basics & light element,
 uiScale,Scale the Ui,
 underground,underground,
 unit,unit,
-unitMoveErrorAp,Can not move in {0} because you need {1} more ap.,
+unitMoveErrorAp,Can not move in {0} because you need {1} more ap.
 unitMoveErrorBelong,{0} belongs to {1}.
 unitMoveErrorExplored,Can not move. The land is not explored.
 unitMoveErrorPassable,Can not move in {0} because it is not passable.
@@ -367,3 +368,202 @@ reqUpgradeField,Needs on the field the building {0}.
 reqUpgradeFieldPlural,Needs on the field on of the buildings {0}.
 reqTerrain,Need the terrain {0}.
 reqTerrainPlural,Need on of the terrains {0}.
+screenshot,screenshot
+atk,attack
+def,defense
+dam,damage
+lampDesc,Allow you to see more
+swordcDesc,Simple sword
+swordiDesc,Advanced sword
+shieldcDesc,Simple shield
+shieldiDesc,Advanced shield
+potionapDesc,This potion give you 20 ap
+telescope,telescope
+swordc,copper sword
+swordi,iron sword
+shieldc,copper shield
+shieldi,iron shield
+potionap,light ap potion,
+potionhp,light hp potion,
+potionhpdesc,This potion heals 5 ap,
+foreman,foreman,
+foremanassistant,assistant foreman,
+foremandesc,With a foreman the building works 50% more efficient.,
+foremanassistantdesc,With a assistant foreman the building works 25% more efficient.,
+actionPlural,actions,
+item,item,
+itemPlural,items,
+itemEquipNo,Nothing equipped,
+itemEquipUn,Unequip,
+itemEquipNew,Equip new item,
+itempos1,building item,
+itempos2,building item,
+itempos3,building item,
+itemhand1,hand,
+itemhand2,hand,
+itemarmour,armour,
+townPlural,towns,
+townNo,you need at least 1 town,
+tutorialDesc,You will learn the basics of 9 Nations.,
+singleDesc,Play different single scenarios.,
+tutorial1Desc,You learn to move your units and found a town and build some buildings with the light element.,
+pantheonDesc,Found your own religion,
+screenshotDesc,example for screenshots,
+lightDesc,This is the basic element; if you are interested in the overworld. You will get a light to explore the area and develop your first town.,
+shadowDesc,This is the basic element; if you are interested in the underworld. You will get a shadow to explore the area and develop your first town.,
+fireDesc,No useful features at the moment.,
+airDesc,No useful features at the moment.,
+earthDesc,Deep under the stone lies great options.,
+waterElementDesc,No useful features at the moment.,
+deathDesc,No useful features at the moment.
+energyDesc,No useful features at the moment.
+lifeDesc,No useful features at the moment.
+metalDesc,No useful features at the moment.
+woodDesc,No useful features at the moment.
+magewarriorDesc,mage get a % attack bonus over warrior.
+warriorskillDesc,warrior get a % attack bonus over skill.
+skillmageDesc,skill get a % attack bonus over mage.
+warriormageDesc,warrior get a % attack bonus over mage.
+skillwarriorDesc,skill get a % attack bonus over warrior.
+mageskillDesc,mage get a % attack bonus over skill.
+fireearthDesc,fire unit get a % attack bonus on earth unit.
+earthwaterDesc,earth unit get a % attack bonus on water unit.
+waterairDesc,water unit get a % attack bonus on air unit.
+airfireDesc,air unit get a % attack bonus on fire unit.
+earthfireDesc,earth unit get a % attack bonus on fire unit.
+waterearthDesc,water unit get a % attack bonus on earth unit.
+airwaterDesc,air unit get a % attack bonus on water unit.
+fireairDesc,fire unit get a % attack bonus on air unit.
+shadowlightDesc,shadow unit get a % attack bonus on light unit.
+swimfloatDesc,Unit from movement type swim get a % attack bonus on units from the movement type float.
+floatwalkDesc,Unit from movement type float get a % attack bonus on units from the movement type walk.
+walkflyDesc,Unit from movement type walk get a % attack bonus on units from the movement type fly.
+flyswimDesc,Unit from movement type fly get a % attack bonus on units from the movement type swim.
+swimflyDesc,Unit from movement type swim get a % attack bonus on units from the movement type fly in the afternoon.
+floatswimDesc,Unit from movement type float get a % attack bonus on units from the movement type swim in the afternoon.
+walkfloatDesc,Unit from movement type walk get a % attack bonus on units from the movement type float in the afternoon.
+flywalkDesc,Unit from movement type fly get a % attack bonus on units from the movement type walk in the afternoon.
+goodbadDesc,Unit with the ethos good get a % attack bonus on units from the ethos bad.
+badneutralDesc,Unit with the ethos bad get a % attack bonus on units from the ethos neutral.
+neutralgoodDesc,Unit with the ethos neutral get a % attack bonus on units from the ethos good.
+badgoodDesc,Unit with the ethos bad get a % attack malus on units from the ethos good.
+neutralbadDesc,Unit with the ethos neutral get a % attack malus on units from the ethos bad.
+goodneutralDesc,Unit with the ethos good get a % attack malus on units from the ethos neutral.
+statAdd,add {0} {1}
+statRemove,remove {0} {1}
+ap,ap
+apMax,maximal ap
+hp,hp
+hpMax,maximal hp
+attackBuildingDesc,fight the building
+attackUnitDesc,fight the unit
+buildDesc,construct a new Building
+cameraMoveDesc,move the camera
+endGameLoseDesc,lose the game
+endGameWinDesc,win the game
+featurePlayerDesc,set the feature
+foundTownDesc,found your town
+gameButtonDesc,call a special game button
+healDesc,heal the unit. The cure rate is based on the available AP.
+interactDesc,interact with the neighbors or near fields
+moveAreaDesc,show where the unit can move or go this round
+moveLevelDesc,move units between levels
+produceDesc,produce res
+sleepDesc,wait for the next round
+terraformDesc,change the terrain
+townEvolveDesc,upgrade the town to a new level
+tradeDesc,trade your ressources
+trainDesc,train a new unit
+upgradeDesc,upgrade this
+evolveDesc,try to evolve a new element
+exploreDesc,automatical explore the world
+moveToDesc,move the unit to a specific point
+craftDesc,can craft from recipts different resources
+examineDesc,examine the terrain to find different resources.
+claimDesc,claim this field for building
+improvementDesc,convert to a map improvement
+
+statDesc,change the stat
+modiDesc,modificie the modificier
+shoec,copper shoe
+shoei,iron shoe
+itemshoe,shoe
+northDesc,Default nation
+rangerDesc,Nation under construction. Not really usefull at the moment.
+customnDesc,You shape your own future
+unknownDesc,Black signals where there is no land; so it is not explorable.
+borderDesc,Not passable
+fogDesc,Not explored
+invisibleDesc,Unknown land; but not visible
+dirtDesc,Dirt is usually brown and is fairly generic. 
+sandDesc,Sand is a yellow-brown and found only around water or in the desert. 
+waterDesc,Water and can be found anywhere. It's blue. In winter it can become ice.
+chest,chest
+chestopen,open this chest
+player,player
+playerPlural,players
+nature,nature
+chestGen,generate bonus chests on the world
+chestGenResearch,You found knowledge about {0} in the chest.
+chestGenRes,You found {0}x {1} in the chest.
+chestGenField,You found knowledge about the area in the chest.
+chestGenItem,You found a {0} in the chest.
+chestGenNo,You found nothing valuable in this chest.
+chestGenWood,The chest was processed to {0} wood. 
+chestGenLoading,The chests will be placed in the world.
+chestGenLoadingSub,{0} from {1}
+tutorial2,town management & shadow element
+tutorial2Desc,You learn to management your town and develop it with the shadow element.
+tutorial3,units & earth element
+tutorial3Desc,You learn to develop your units your town and develop it with the earth element.
+moveUnitDesc,You can move the units with the arrow keys or via the move action.They need enough AP. Every Round the AP will be refreshed.
+moveCameraDesc,To move the camera use the keys WASD on the keyboard. Otherwise press the middle mouse button and move the map or move the cursor to the border. Zoom is possible with Q and E. Move between the levels is possible with R and F.
+generalDesc,Hello!;;Nice to meet you. I'm Sven and develop 9 Nations. It is a tuned-based strategy game. You have to explore the area and develop your kingdoms.
+betaDesc,Hello;;This version starts a different kind of play. Your nation will later develop elements. At the moment their are two options. In this state the game does not contains all features at the moment. This means that you can encounter bugs; crashes; incomplete and unpolished features etc. also except balancing issuses.;;If you have found any mistakes; bugs oder you have questions use the feedback button. I'm happy to hear from you.;;Greetings Sven
+privacyDesc,Please take a look at the website https://9nations.de/privacy-policy/privacy-policy-in-game/
+newDesc,Hello;;this update brings items and a second tutorial and much rebalancing and some ui improvements. To understand 9 nations play the tutorial. You can find it in the campaign menu.;;You can find the new features on the website https://9nations.de
+researchDesc,You never know what you will discover during research. Research in 9N also functions this way. You choose different elements or a combination of them and start researching. The more elements you combine the longer the research will take. The greater is the chance of researching something. If I only do research light you will discover the baracks. If you combine light and light you can also discover the bigger village hall or the baracks.
+unitDesc,Units are (besides buildings) essential to the game. When clicked you can moved them with the arrow keys which costs action points (AP). You can also perform various actions which costs AP. At the end of each round the AP will be refilled.;;Units are always supplied by the nearest city. Also they use the resources of this city.
+buildingDesc,Buildings are (besides the units) basic to the game. If they are clicked actions can be performed which costs action points (AP). At the end of each round the AP is replenished.;;Buildings are always part of a city. The closest city is automatically selected during construction.
+townDesc,A city is a collection of buildings with shared resources. A city also manages all units that are in its area.;;Cities always have a center which is represented by the town hall. The city can be levelled if the town hall is upgraded. This allowed to build more and different buildings but also your inhabitens demands more resources.
+developElementDesc,You can use a ready-made nation or develop your own. If you want to develop your own you have to decide with which element you want to develop your nation. Each element gives you different units; buildings; abilities and access to other elements. In total you can develop in 4 elements.
+androidDesc,The support for android is at the moment very limited  so no tooltips and mods are supported. If you find any bugs or display issues please contact us.
+creditsDesc,@F@CREDITS
+customn,custom nation
+useageTown,enable usage system for towns
+inhabitantGrow,inhabitant grow
+inhabitantGrowDesc,If you have enough space in your houses and all usages are filled; the inhabitant will grow. They grow one inhabitant per town level per round. 
+inhabitantGrowOverPop,People are leaving the {0} because {1} have no place to live.
+inhabitantGrowMissingWorker,{0} needs {1} more workers. Productivity drops to {2}. Try to build more houses or to pause some buildings.
+townTitle,{0} of {1}
+inhabitantGrowMissingUsage,The {0} does not grow, because not all needs are met.
+UsageTownRes,The inhabitants from {0} needs {1} more.
+construction,construction material
+mushroom,mushroom
+constructionMaterial,Select your material
+constructionMaterialUse,Use
+constructionCost,Cost for construction
+constructionReq,Requirement for construction
+constructionOwn,Own combination
+constructionOwnReplace,Replace {0}
+constructionOwnReplaceNothing,Nothing to replace, you can build {0}!
+constructionOwnUseRes,Use {0}
+material,material
+materialDesc,If several materials are available in a city; you can choose which one to use or a mix of them.;;Each material has different properties; which affects for example the HP; AP and construction time.;;For example building material can be replaced by wood or stone. If you build with wood the building is finished faster; but has less HP. Stone is very robust but takes a long time to build.
+constructionOnGoing,Under construction
+constructionOnGoingDesc,Missing resources
+craftReceipt,Receipt
+resources,resources
+fish,fish
+meat,meat
+usageRound,usages per round
+usageRoundDisabled,based on the game rul
+usageRoundRes,{0} from {1}
+usageRoundResult,result
+usageRoundResultStatus,Usage: {0} from needed {1} 
+usageRoundResultStatusFulfilled,Status: Everything fulfilled your town can grow.
+usageRoundResultStatusNotFulfilled,Status: Not everything fulfilled your town can not grow.
+unitMoveErrorConstruction,Can not move {0} because it is under construction.
+townProduceLastRound,Produced last round
+townDetails,{0} is part of {1}. Show details for {1}.
+townRes,{0} has {1}

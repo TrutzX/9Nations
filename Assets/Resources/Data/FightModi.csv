@@ -1,30 +1,30 @@
-id,//base,//dest,icon,desc,modi,req,req
-magewarrior,mage,warrior,logo,mage get a 50% attack bonus over warrior.,50,fightUnitType=mage:warrior,
-warriorskill,warrior,skill,logo,warrior get a 50% attack bonus over skill.,50,fightUnitType=warrior:skill,
-skillmage,skill,mage,logo,skill get a 50% attack bonus over mage.,50,fightUnitType=skill:mage,
-warriormage,warrior,mage,logo,warrior get a 25% attack bonus over mage.,25,fightUnitType=warrior:mage,daytime=night
-skillwarrior,skill,warrior,logo,skill get a 25% attack bonus over warrior.,25,fightUnitType=skill:warrior,daytime=night
-mageskill,mage,skill,logo,mage get a 25% attack bonus over skill.,25,fightUnitType=mage:skill,daytime=night
-fireearth,fire,earth,!Icons/magic:fire,fire unit get a 25% attack bonus on earth unit.,25,fightElement=fire:earth,
-earthwater,earth,water,!Icons/magic:earth,earth unit get a 25% attack bonus on water unit.,25,fightElement=earth:water,
-waterair,water,air,!Icons/magic:water,water unit get a 25% attack bonus on air unit.,25,fightElement=water:air,
-airfire,air,fire,!Icons/magic:air,air unit get a 25% attack bonus on fire unit.,25,fightElement=air:fire,
-earthfire,earth,fire,!Icons/magic:earth,earth unit get a 15% attack bonus on fire unit.,15,fightElement=earth:fire,daytime=morning
-waterearth,water,earth,!Icons/magic:water,water unit get a 15% attack bonus on earth unit.,15,fightElement=water:earth,daytime=morning
-airwater,air,water,!Icons/magic:air,air unit get a 15% attack bonus on water unit.,15,fightElement=air:water,daytime=morning
-fireair,fire,air,!Icons/magic:fire,fire unit get a 15% attack bonus on air unit.,15,fightElement=fire:air,daytime=morning
-shadowlight,shadow,light,logo,shadow unit get a 11% attack bonus on light unit.,11,fightElement=shadow:light,
-swimfloat,swim,float,!Icons/base:swim,Unit from movement type swim get a 30% attack bonus on units from the movement type float.,30,fightMovementType=swim:float,
-floatwalk,float,walk,!Icons/base:float,Unit from movement type float get a 30% attack bonus on units from the movement type walk.,30,fightMovementType=float:walk,
-walkfly,walk,fly,!Icons/base:walk,Unit from movement type walk get a 30% attack bonus on units from the movement type fly.,30,fightMovementType=walk:fly,
-flyswim,fly,swim,!Icons/base:fly,Unit from movement type fly get a 30% attack bonus on units from the movement type swim.,30,fightMovementType=fly:swim,
-swimfly,swim,fly,!Icons/base:swim,Unit from movement type swim get a 15% attack bonus on units from the movement type fly in the afternoon.,15,fightMovementType=swim:fly,daytime=afternoon
-floatswim,float,swim,!Icons/base:float,Unit from movement type float get a 15% attack bonus on units from the movement type swim in the afternoon.,15,fightMovementType=float:swim,daytime=afternoon
-walkfloat,walk,float,!Icons/base:walk,Unit from movement type walk get a 15% attack bonus on units from the movement type float in the afternoon.,15,fightMovementType=walk:float,daytime=afternoon
-flywalk,fly,walk,!Icons/base:fly,Unit from movement type fly get a 15% attack bonus on units from the movement type walk in the afternoon.,15,fightMovementType=fly:walk,daytime=afternoon
-goodbad,good,bad,logo,Unit with the ethos good get a 25% attack bonus on units from the ethos bad.,25,fightNationEthos=good:bad,
-badneutral,bad,neutral,logo,Unit with the ethos bad get a 25% attack bonus on units from the ethos neutral.,25,fightNationEthos=bad:neutral,
-neutralgood,neutral,good,logo,Unit with the ethos neutral get a 25% attack bonus on units from the ethos good.,25,fightNationEthos=neutral:good,
-badgood,bad,good,logo,Unit with the ethos bad get a -25% attack malus on units from the ethos good.,-25,fightNationEthos=bad:good,
-neutralbad,neutral,bad,logo,Unit with the ethos neutral get a -25% attack malus on units from the ethos bad.,-25,fightNationEthos=neutral:bad,
-goodneutral,good,neutral,logo,Unit with the ethos good get a -25% attack malus on units from the ethos neutral.,-25,fightNationEthos=good:neutral,
+id,//base,//dest,icon,modi,req,req
+magewarrior,mage,warrior,logo,50,fightUnitType=mage:warrior,
+warriorskill,warrior,skill,logo,50,fightUnitType=warrior:skill,
+skillmage,skill,mage,logo,50,fightUnitType=skill:mage,
+warriormage,warrior,mage,logo,25,fightUnitType=warrior:mage,daytime=night
+skillwarrior,skill,warrior,logo,25,fightUnitType=skill:warrior,daytime=night
+mageskill,mage,skill,logo,25,fightUnitType=mage:skill,daytime=night
+fireearth,fire,earth,!Icons/magic:fire,25,fightElement=fire:earth,
+earthwater,earth,water,!Icons/magic:earth,25,fightElement=earth:water,
+waterair,water,air,!Icons/magic:water,25,fightElement=water:air,
+airfire,air,fire,!Icons/magic:air,25,fightElement=air:fire,
+earthfire,earth,fire,!Icons/magic:earth,15,fightElement=earth:fire,daytime=morning
+waterearth,water,earth,!Icons/magic:water,15,fightElement=water:earth,daytime=morning
+airwater,air,water,!Icons/magic:air,15,fightElement=air:water,daytime=morning
+fireair,fire,air,!Icons/magic:fire,15,fightElement=fire:air,daytime=morning
+shadowlight,shadow,light,logo,11,fightElement=shadow:light,
+swimfloat,swim,float,!Icons/base:swim,30,fightMovementType=swim:float,
+floatwalk,float,walk,!Icons/base:float,30,fightMovementType=float:walk,
+walkfly,walk,fly,!Icons/base:walk,30,fightMovementType=walk:fly,
+flyswim,fly,swim,!Icons/base:fly,30,fightMovementType=fly:swim,
+swimfly,swim,fly,!Icons/base:swim,15,fightMovementType=swim:fly,daytime=afternoon
+floatswim,float,swim,!Icons/base:float,15,fightMovementType=float:swim,daytime=afternoon
+walkfloat,walk,float,!Icons/base:walk,15,fightMovementType=walk:float,daytime=afternoon
+flywalk,fly,walk,!Icons/base:fly,15,fightMovementType=fly:walk,daytime=afternoon
+goodbad,good,bad,logo,25,fightNationEthos=good:bad,
+badneutral,bad,neutral,logo,25,fightNationEthos=bad:neutral,
+neutralgood,neutral,good,logo,25,fightNationEthos=neutral:good,
+badgood,bad,good,logo,-25,fightNationEthos=bad:good,
+neutralbad,neutral,bad,logo,-25,fightNationEthos=neutral:bad,
+goodneutral,good,neutral,logo,-25,fightNationEthos=good:neutral,

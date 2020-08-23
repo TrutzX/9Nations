@@ -10,12 +10,14 @@ namespace ES3Types
 	{
 		public ES3Type elementType;
 
-		protected ES3Reflection.ES3ReflectedMethod readMethod = null;
-		protected ES3Reflection.ES3ReflectedMethod readIntoMethod = null;
+		/*protected ES3Reflection.ES3ReflectedMethod readMethod = null;
+		protected ES3Reflection.ES3ReflectedMethod readIntoMethod = null;*/
 
-		public abstract void Write(object obj, ES3Writer writer, ES3.ReferenceMode memberReferenceMode);
+        public abstract object Read(ES3Reader reader);
+        public abstract void ReadInto(ES3Reader reader, object obj);
+        public abstract void Write(object obj, ES3Writer writer, ES3.ReferenceMode memberReferenceMode);
 
-		public ES3CollectionType(Type type) : base(type)
+        public ES3CollectionType(Type type) : base(type)
 		{
 			elementType = ES3TypeMgr.GetOrCreateES3Type(ES3Reflection.GetElementTypes(type)[0], false);
 			isCollection = true;
@@ -25,18 +27,19 @@ namespace ES3Types
 				isUnsupported = true;
 		}
 
-		public ES3CollectionType(Type type, ES3Type elementType) : base(type)
+        public ES3CollectionType(Type type, ES3Type elementType) : base(type)
 		{
 			this.elementType = elementType;
 			isCollection = true;
 		}
 
-		public override void Write(object obj, ES3Writer writer)
+        [UnityEngine.Scripting.Preserve]
+        public override void Write(object obj, ES3Writer writer)
 		{
 			Write(obj, writer, ES3.ReferenceMode.ByRefAndValue);
 		}
 
-		protected virtual bool ReadICollection<T>(ES3Reader reader, ICollection<T> collection, ES3Type elementType)
+        protected virtual bool ReadICollection<T>(ES3Reader reader, ICollection<T> collection, ES3Type elementType)
 		{
 			if(reader.StartReadCollection())
 				return false;
@@ -57,7 +60,13 @@ namespace ES3Types
 			return true;
 		}
 
-		protected virtual void ReadICollectionInto<T>(ES3Reader reader, ICollection<T> collection, ES3Type elementType)
+        protected virtual void ReadICollectionInto<T>(ES3Reader reader, ICollection<T> collection, ES3Type elementType)
+        {
+            ReadICollectionInto(reader, collection, elementType);
+        }
+
+        [UnityEngine.Scripting.Preserve]
+        protected virtual void ReadICollectionInto(ES3Reader reader, ICollection collection, ES3Type elementType)
 		{
 			if(reader.StartReadCollection())
 				throw new NullReferenceException("The Collection we are trying to load is stored as null, which is not allowed when using ReadInto methods.");
@@ -72,7 +81,7 @@ namespace ES3Types
 				if(!reader.StartReadCollectionItem())
 					break;
 
-				reader.ReadInto<T>(item, elementType);
+				reader.ReadInto<object>(item, elementType);
 
 				// If we find a ']', we reached the end of the array.
 				if(reader.EndReadCollectionItem())
@@ -93,7 +102,7 @@ namespace ES3Types
 		/*
 		 * 	Calls the Read method using reflection so we don't need to provide a generic parameter.
 		 */
-		public virtual object Read(ES3Reader reader)
+		/*public virtual object Read(ES3Reader reader)
 		{
 			if(readMethod == null)
 				readMethod = ES3Reflection.GetMethod(this.GetType(), "Read", new Type[]{elementType.type}, new Type[]{typeof(ES3Reader)});
@@ -105,6 +114,6 @@ namespace ES3Types
 			if(readIntoMethod == null)
 				readIntoMethod = ES3Reflection.GetMethod(this.GetType(), "ReadInto", new Type[]{elementType.type}, new Type[]{typeof(ES3Reader), typeof(object)});
 			readIntoMethod.Invoke(this, new object[]{reader, obj});
-		}
+		}*/
 	}
 }

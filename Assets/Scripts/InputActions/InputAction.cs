@@ -24,11 +24,20 @@ namespace InputActions
         public MapElementInfo active;
         public Action<KeyCode> findKey;
         private int[] keyValues;
+        private int _boundary;
+        private int _width;
+        private int _height;
+        private float speed = 32;
+        private Transform trans;
         
         void Awake() {
             keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
+            _width = Screen.width;
+            _height = Screen.height;
+            _boundary = 1;
+            trans = Camera.main.GetComponent<Transform>();
         }
-
+        
         public void SetActive(UnitInfo unit)
         {
             aUnit = unit;
@@ -133,6 +142,49 @@ namespace InputActions
                     ExceptionHelper.ShowException(e);
                 }
                 
+            }
+            
+            MouseMoveMap();
+        }
+
+        private void MouseMoveMap()
+        {
+            //todo dynamic
+            if (!S.Game() || WindowsMgmt.Get().AnyOpenWindow())
+            {
+                return;
+            }
+            
+            //Source: http://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/
+            
+            if (Input.GetMouseButton(2)) {
+                if (Math.Abs(Input.GetAxis ("Mouse X")) > 0.01) {
+                    var p = new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 
+                        Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed, 0.0f);
+                    //todo implement border check
+                    trans.position += p;
+                }
+                
+            }
+            
+            if (Input.mousePosition.x > _width - _boundary && Input.mousePosition.x < _width + _boundary)
+            {
+                MoveCamera(1,0);
+            }
+		
+            if (Input.mousePosition.x < 0 + _boundary && Input.mousePosition.x > 0 - _boundary)
+            {
+                MoveCamera(-1,0);
+            }
+		
+            if (Input.mousePosition.y > _height - _boundary && Input.mousePosition.y < _height + _boundary)
+            {
+                MoveCamera(0,1);
+            }
+ 
+            if (Input.mousePosition.y < 0 + _boundary && Input.mousePosition.y > 0 - _boundary)
+            {
+                MoveCamera(0,-1);
             }
         }
 
@@ -257,7 +309,7 @@ namespace InputActions
             if (S.CameraMove().IsMoving())
                 return;
             
-            Transform trans = Camera.main.GetComponent<Transform>();
+            
             
             //valid pos?
             if (!S.Valid((int)trans.position.x+x,(int)trans.position.y+y))

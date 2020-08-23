@@ -8,8 +8,6 @@ using ES3Internal;
 
 public class ES3EditorUtility : Editor 
 {
-    public static string pathToEasySaveFolder = null;
-
 	public static void DisplayLink(string label, string url)
 	{
 		var style = ES3Editor.EditorStyle.Get;

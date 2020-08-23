@@ -1,13 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackToMain : MonoBehaviour
+namespace Mods
 {
-    // Start is called before the first frame update
-    public void Back()
+    public class BackToMain : MonoBehaviour
     {
-        SceneManager.LoadScene(0);
+        // Start is called before the first frame update
+        public void Back()
+        {
+            SceneManager.LoadScene(0);
+        }
+        // Start is called before the first frame update
+        public static void Back2()
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

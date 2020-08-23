@@ -1,10 +1,21 @@
-id,desc,icon,category,craft,craft,craft,req,req,req
-stone,extract stone,!Icons/icons:stone,mine,stone:2,,,terrainRes=>1:stone,,
-copper,extract copper,!Icons/mining:copper,mine,copper:3,,,terrainRes=>1:copper,,research=copper
-ironore,extract ironore,!Icons/mining:ironore,mine,ironore:2,,,terrainRes=>1:ironore,element=fire,research=ironore
-goldore,extract goldore,!Icons/mining:goldore,mine,goldore:1,,,terrainRes=>1:goldore,element=earth,research=goldore
-coal,extract coal,!Icons/mining:coal,mine,coal:2,,,terrainRes=>1:coal,,research=coppertool
-iron,forge iron ignot,!Icons/mining:iron,forge,iron:1,coal:-1,ironore:-1,,element=fire,research=ironore
-goldignot,forge gold ignot,!Icons/mining:goldignot,forge,goldignot:1,coal:-1,goldore:-1,,element=earth,research=goldore
-coppertool,produce tools from copper,!Icons/mining:coppertool,toolshop,tool:1,copper:-7,,,,research=coppertool
-irontool,produce tools from iron,!Icons/mining:irontool,toolshop,tool:1,iron:-2,,,element=fire,research=irontool
+id,icon,category,craft,craft,craft,craft,req,req,req
+stone,!Icons/icons:stone,mine,stone:1,,,,terrainRes=>1:stone,,
+copper,!Icons/mining:copper,mine,copper:1,,,,terrainRes=>1:copper,,research=copper
+ironore,!Icons/mining:ironore,mine,ironore:1,,,,terrainRes=>1:ironore,element=fire,research=ironore
+goldore,!Icons/mining:goldore,mine,goldore:1,,,,terrainRes=>1:goldore,element=earth,research=goldore
+coal,!Icons/mining:coal,mine,coal:1,,,,terrainRes=>1:coal,,research=coppertool
+iron,!Icons/mining:iron,forge,iron:1,coal:-1,ironore:-1,,,element=fire,research=ironore
+goldignot,!Icons/mining:goldignot,forge,goldignot:1,coal:-1,goldore:-1,,,element=earth,research=goldore
+coppertool,tool,toolshop,tool:1,copper:-3,,,,,research=coppertool
+irontool,tool,toolshop,tool:1,iron:-1,,,,element=fire,research=irontool
+telescope,!Icons/icons:telescope,armoury,telescope:1,copper:-5,sand:-2,,,,
+swordc,!Icons/base:swordc,armoury,swordc:1,copper:-6,coal:-3,,,element=earth,
+swordi,!Icons/base:swordi,armoury,swordi:1,iron:-4,coal:-6,,,element=fire,
+shieldc,!Icons/timeFantasy_shield:shieldc,armoury,shieldc:1,copper:-6,coal:-3,,,element=earth,research=shieldc
+shieldi,!Icons/timeFantasy_shield:shieldi,armoury,shieldi:1,iron:-4,coal:-6,,,element=fire,research=shieldi
+potionap,!Icons/magic:potionap,doctor,potionap:1,,,,,,
+potionhp,!Icons/magic:potionhp,doctor,potionhp:1,,,,,,
+foreman,!Icons/magic:foreman,person,foreman:1,worker:-1,food:-5,gold:-3,,,
+foremanassistant,!Icons/magic:foremanassistant,person,foremanassistant:1,worker:-1,food:-3,gold:-1,,,
+shoec,walk,armoury,shoec:1,copper:-6,coal:-3,,,element=earth,research=shoec
+shoei,!Icons/base:shoei,armoury,shoei:1,iron:-5,coal:-6,,,element=fire,research=shoei

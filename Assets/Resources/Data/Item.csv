@@ -1,0 +1,12 @@
+id,icon,category,req,req,req,action,action
+telescope,!Icons/icons:telescope,hand,,,,modi=view:2,
+swordc,!Icons/base:swordc,hand,stat=>1:atk,,,stat=atk:2,
+swordi,!Icons/base:swordi,hand,stat=>1:atk,,,stat=atk:5;apMax:-1,
+shieldc,!Icons/timeFantasy_shield:shieldc,hand,stat=>1:def,,,stat=def:5;apMax:-1,
+shieldi,!Icons/timeFantasy_shield:shieldi,hand,stat=>1:def,,,stat=def:2,
+potionap,!Icons/magic:potionap,consumable,ap=>1,ap=<50%,,stat=ap:20,
+potionhp,!Icons/magic:potionhp,consumable,,,,stat=hp:5,
+foreman,!Icons/magic:foreman,building,,,,modi=prod:25,
+foremanassistant,!Icons/magic:foremanassistant,building,,,,modi=prod:50,
+shoec,walk,shoe,,,,stat=apMax:1,
+shoei,!Icons/base:shoei,shoe,,,,stat=apMax:2,

@@ -55,7 +55,8 @@ namespace Libraries.FActions
             }
 
             //check pref
-            Debug.Log($"call {evt} {action.id} with {req.reqs.Count} reqs");
+            if (evt != ActionEvent.NextRound)
+                Debug.Log($"call {evt} {action.id} with {req.reqs.Count} reqs");
             //can use?
             if (!req.Check(player, info, pos))
             {

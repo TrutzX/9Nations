@@ -579,26 +579,9 @@ public class ES3Cloud : ES3WebClass
     #region DownloadFilenames
 
     /// <summary>Downloads the names of all of the files on the server. Downloaded filenames are stored in the 'filenames' variable of the ES3Cloud object.</summary>
-    /// <param name="searchPattern">A search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character.</param>
-    public IEnumerator DownloadFilenames(string searchPattern="")
-	{
-		return DownloadFilenames("", "", searchPattern);
-	}
-
-    /// <summary>Downloads the names of all of the files on the server. Downloaded filenames are stored in the 'filenames' variable of the ES3Cloud object.</summary>
-    /// <param name="user">The unique name of the user we want to find the filenames of.</param>
-    /// <param name="searchPattern">A search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character.</param>
-    public IEnumerator DownloadFilenames(string user, string searchPattern="")
-    /// <param name="pattern">A search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character.</param>
-    {
-        return DownloadFilenames(user, "", searchPattern);
-	}
-
-    /// <summary>Downloads the names of all of the files on the server. Downloaded filenames are stored in the 'filenames' variable of the ES3Cloud object.</summary>
     /// <param name="user">The unique name of the user we want to find the filenames of.</param>
     /// <param name="password">The password of the user we want to find the filenames of.</param>
-    /// <param name="searchPattern">A search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character.</param>
-    public IEnumerator DownloadFilenames(string user, string password, string searchPattern="")
+    public IEnumerator DownloadFilenames(string user="", string password="")
 	{
 		Reset();
 
@@ -606,8 +589,6 @@ public class ES3Cloud : ES3WebClass
 		form.AddField("apiKey",  apiKey);
 		form.AddField("getFilenames", "");
 		form.AddField("user", GetUser(user, password));
-        if (!string.IsNullOrEmpty(searchPattern))
-            form.AddField("pattern", searchPattern);
 
 		using(var webRequest = UnityWebRequest.Post(url, form))
 		{
@@ -619,12 +600,37 @@ public class ES3Cloud : ES3WebClass
 		isDone = true;
 	}
 
-	#endregion
+    /// <summary>Downloads the names of all of the files on the server. Downloaded filenames are stored in the 'filenames' variable of the ES3Cloud object.</summary>
+    /// <param name="user">The unique name of the user we want to find the filenames of.</param>
+    /// <param name="password">The password of the user we want to find the filenames of.</param>
+    /// <param name="searchPattern">A search pattern containing '%' or '_' wildcards where '%' represents zero, one, or multiple characters, and '_' represents a single character.</param>
+    public IEnumerator SearchFilenames(string searchPattern, string user="", string password="")
+    {
+        Reset();
 
-	#region DownloadTimestamp
+        var form = CreateWWWForm();
+        form.AddField("apiKey", apiKey);
+        form.AddField("getFilenames", "");
+        form.AddField("user", GetUser(user, password));
+        if (!string.IsNullOrEmpty(searchPattern))
+            form.AddField("pattern", searchPattern);
 
-	/// <summary>Downloads the timestamp representing when the server file was last updated. The downloaded timestamp is stored in the 'timestamp' variable of the ES3Cloud object.</summary>
-	public IEnumerator DownloadTimestamp()
+        using (var webRequest = UnityWebRequest.Post(url, form))
+        {
+            yield return SendWebRequest(webRequest);
+            if (!HandleError(webRequest, false))
+                _data = webRequest.downloadHandler.data;
+        }
+
+        isDone = true;
+    }
+
+    #endregion
+
+    #region DownloadTimestamp
+
+    /// <summary>Downloads the timestamp representing when the server file was last updated. The downloaded timestamp is stored in the 'timestamp' variable of the ES3Cloud object.</summary>
+    public IEnumerator DownloadTimestamp()
 	{
 		return DownloadTimestamp(new ES3Settings(), "", "");
 	}

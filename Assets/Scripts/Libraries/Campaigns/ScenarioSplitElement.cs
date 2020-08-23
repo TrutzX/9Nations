@@ -19,7 +19,6 @@ namespace Libraries.Campaigns
 
         public override void Perform()
         {
-            Debug.Log("start "+scenario.Name());
             scenario.Start();
         }
     }

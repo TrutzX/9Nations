@@ -18,7 +18,8 @@ namespace ES3Types
 		protected override void WriteObject(object obj, ES3Writer writer)
 		{
 			WriteProperties(obj, writer);
-		}
+
+        }
 
 		protected override object ReadObject<T>(ES3Reader reader)
 		{

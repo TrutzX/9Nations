@@ -20,7 +20,7 @@ namespace ES3Types
 			if(elementType == null)
 				throw new ArgumentNullException("ES3Type argument cannot be null.");
 
-			writer.StartWriteCollection(list.Count);
+			//writer.StartWriteCollection();
 
 			int i = 0;
 			foreach(object item in list)
@@ -31,25 +31,27 @@ namespace ES3Types
 				i++;
 			}
 
-			writer.EndWriteCollection();
+			//writer.EndWriteCollection();
 		}
 
 		public override object Read<T>(ES3Reader reader)
 		{
-			var list = new List<T>();
+            return Read(reader);
+
+            /*var list = new List<T>();
 			if(!ReadICollection<T>(reader, list, elementType))
 				return null;
-			return list;
-		}
+			return list;*/
+        }
 
 		public override void ReadInto<T>(ES3Reader reader, object obj)
 		{
-			ReadICollectionInto(reader, (List<T>)obj, elementType);
+			ReadICollectionInto(reader, (ICollection)obj, elementType);
 		}
 
 		public override object Read(ES3Reader reader)
 		{
-			var instance = (IList)ES3Reflection.CreateInstance(type);
+            var instance = (IList)ES3Reflection.CreateInstance(type);
 
 			if(reader.StartReadCollection())
 				return null;

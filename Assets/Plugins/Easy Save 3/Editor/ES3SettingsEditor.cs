@@ -22,10 +22,14 @@ namespace ES3Editor
 
 			EditorGUILayout.Space();
 
-			settings.encryptionType = (ES3.EncryptionType)EditorGUILayout.EnumPopup("Encryption Type", settings.encryptionType);
+			settings.encryptionType = (ES3.EncryptionType)EditorGUILayout.EnumPopup("Encryption", settings.encryptionType);
 			settings.encryptionPassword = EditorGUILayout.TextField("Encryption Password", settings.encryptionPassword);
 
-			EditorGUILayout.Space();
+            EditorGUILayout.Space();
+
+            settings.compressionType = (ES3.CompressionType)EditorGUILayout.EnumPopup("Compression", settings.compressionType);
+
+            EditorGUILayout.Space();
 			
 			settings.saveChildren = EditorGUILayout.Toggle("Save GameObject Children", settings.saveChildren);
 			
@@ -36,10 +40,13 @@ namespace ES3Editor
 				EditorGUILayout.BeginVertical(style.area);
 
 				settings.format = (ES3.Format)EditorGUILayout.EnumPopup("Format", settings.format);
+                if (settings.format == ES3.Format.JSON)
+                    settings.prettyPrint = EditorGUILayout.Toggle(new GUIContent("Pretty print JSON"), settings.prettyPrint);
 				settings.bufferSize = EditorGUILayout.IntField("Buffer Size", settings.bufferSize);
 				settings.memberReferenceMode = (ES3.ReferenceMode)EditorGUILayout.EnumPopup("Serialise Unity Object fields", settings.memberReferenceMode);
+                settings.serializationDepthLimit = EditorGUILayout.IntField("Serialisation Depth", settings.serializationDepthLimit);
 
-				EditorGUILayout.Space();
+                EditorGUILayout.Space();
 
 				EditorGUILayout.EndVertical();
 			}

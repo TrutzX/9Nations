@@ -15,7 +15,12 @@ public class ES3Spreadsheet
 	private const char COMMA_CHAR = ',';
 	private const char NEWLINE_CHAR = '\n';
 	private const string ESCAPED_QUOTE = "\"\"";
-	private static char[] CHARS_TO_ESCAPE = { ',', '"', '\n' };
+	private static char[] CHARS_TO_ESCAPE = { ',', '"', '\n', ' ' };
+
+    public ES3Spreadsheet()
+    {
+        ES3Debug.Log("ES3Spreadsheet created");
+    }
 
 	public int ColumnCount
 	{
@@ -27,12 +32,14 @@ public class ES3Spreadsheet
 		get{ return rows; }
 	}
 
-	public void SetCell<T>(int col, int row, object value)
+	public void SetCell<T>(int col, int row, T value)
 	{
-		// If we're writing a string, add it without formatting.
-		if(typeof(T) == typeof(string))
+        ES3Debug.Log("Setting cell (" + col + "," + row + ") to value " + value);
+
+        // If we're writing a string, add it without formatting.
+        if (value.GetType() == typeof(string))
 		{
-			SetCell(col, row, (string)value);
+			SetCellString(col, row, (string)(object)value);
 			return;
 		}
 
@@ -42,7 +49,7 @@ public class ES3Spreadsheet
 			using (var jsonWriter = new ES3JSONWriter (ms, settings, false, false))
 				jsonWriter.Write(value, ES3.ReferenceMode.ByValue);
 
-			SetCell(col, row, settings.encoding.GetString(ms.ToArray()));
+			SetCellString(col, row, settings.encoding.GetString(ms.ToArray()));
 		}
 
 		// Expand the spreadsheet if necessary.
@@ -52,38 +59,62 @@ public class ES3Spreadsheet
 			rows = (row+1);
 	}
 
-	private void SetCell(int col, int row, string value)
+	private void SetCellString(int col, int row, string value)
 	{
 		cells [new Index (col, row)] = value;
 
 		// Expand the spreadsheet if necessary.
 		if(col >= cols)
 			cols = (col+1);
-		if(row >= rows)
-			rows = (row+1);
-	}
+        if (row >= rows)
+            rows = (row + 1);
+    }
 
-	public T GetCell<T>(int col, int row)
+
+    // Don't create non-generic version of this. Generic parameter is necessary as no type data is stored in the CSV file.
+    public T GetCell<T>(int col, int row)
 	{
-		string value;
+        var val = GetCell(typeof(T), col, row);
 
-		if(col >= cols || row >= rows)
-			throw new System.IndexOutOfRangeException("Cell ("+col+", "+row+") is out of bounds of spreadsheet ("+cols+", "+rows+").");
-
-		if(!cells.TryGetValue(new Index (col, row), out value) || string.IsNullOrEmpty(value))
-			return default(T);
-
-		// IF we're loading a string, simply return the string value.
-		if(typeof(T) == typeof(string))
-			return (T)(object)value;
-
-		var settings = new ES3Settings ();
-		using(var ms = new MemoryStream(settings.encoding.GetBytes(value)))
-			using (var jsonReader = new ES3JSONReader(ms, settings, false))
-				return jsonReader.Read<T>();
+        if (val == null)
+            return default(T);
+        return (T)val;
 	}
 
-	public void Load(string filePath)
+    internal object GetCell(System.Type type, int col, int row)
+    {
+        string value;
+
+        if (col >= cols || row >= rows)
+            throw new System.IndexOutOfRangeException("Cell (" + col + ", " + row + ") is out of bounds of spreadsheet (" + cols + ", " + rows + ").");
+
+        if (!cells.TryGetValue(new Index(col, row), out value) || string.IsNullOrEmpty(value))
+        {
+            ES3Debug.Log("Getting cell (" + col + "," + row + ") is empty, so default value is being returned");
+            return null;
+        }
+
+        // If we're loading a string, simply return the string value.
+        if (type == typeof(string))
+        {
+            var str = (object)value;
+            ES3Debug.Log("Getting cell (" + col + "," + row + ") with value " + str);
+            return str;
+        }
+
+        var settings = new ES3Settings();
+        using (var ms = new MemoryStream(settings.encoding.GetBytes(value)))
+        {
+            using (var jsonReader = new ES3JSONReader(ms, settings, false))
+            {
+                var obj = ES3TypeMgr.GetOrCreateES3Type(type, true).Read<object>(jsonReader);
+                ES3Debug.Log("Getting cell (" + col + "," + row + ") with value " + obj);
+                return obj;
+            }
+        }
+    }
+
+    public void Load(string filePath)
 	{
 		Load(new ES3Settings (filePath));
 	}
@@ -117,6 +148,8 @@ public class ES3Spreadsheet
 			string value = "";
 			int col = 0;
 			int row = 0;
+
+            ES3Debug.Log("Reading spreadsheet "+settings.path+" from "+settings.location);
 
 			// Read until the end of the stream.
 			while(true)
@@ -159,7 +192,8 @@ public class ES3Spreadsheet
 					value += c;
 			}
 		}
-	}
+        ES3Debug.Log("Finished reading spreadsheet " + settings.path + " from " + settings.location);
+    }
 
 	public void Save(string filePath)
 	{
@@ -192,19 +226,22 @@ public class ES3Spreadsheet
 		{
 			// If data already exists and we're appending, we need to prepend a newline.
 			if(append && ES3.FileExists(settings))
-				writer.Write('\n');
+				writer.Write(NEWLINE_CHAR);
 
 			var array = ToArray();
 			for(int row = 0; row < rows; row++)
 			{
 				if(row != 0)
-					writer.Write('\n');
+					writer.Write(NEWLINE_CHAR);
 
 				for(int col = 0; col < cols; col++)
 				{
 					if(col != 0)
-						writer.Write(',');
-					writer.Write( Escape(array [col, row]) );
+						writer.Write(COMMA_CHAR);
+
+                    ES3Debug.Log("Writing cell (" + col + "," + row + ") to file with value "+ array[col, row]);
+
+                    writer.Write( Escape(array [col, row]) );
 				}
 			}
 		}

@@ -25,10 +25,10 @@ namespace ES3Internal
 		#region WritePrimitive(value) methods.
 
 		internal override void WritePrimitive(int value)		{ baseWriter.Write(value); }
-		internal override void WritePrimitive(float value)	{ baseWriter.Write(value.ToString(CultureInfo.InvariantCulture)); }
+		internal override void WritePrimitive(float value)	{ baseWriter.Write(value.ToString("R", CultureInfo.InvariantCulture)); }
 		internal override void WritePrimitive(bool value)		{ baseWriter.Write(value ? "true" : "false"); }
 		internal override void WritePrimitive(decimal value)	{ baseWriter.Write(value.ToString(CultureInfo.InvariantCulture)); }
-		internal override void WritePrimitive(double value)	{ baseWriter.Write(value.ToString(CultureInfo.InvariantCulture)); }
+		internal override void WritePrimitive(double value)	{ baseWriter.Write(value.ToString("R", CultureInfo.InvariantCulture)); }
 		internal override void WritePrimitive(long value)		{ baseWriter.Write(value); }
 		internal override void WritePrimitive(ulong value)	{ baseWriter.Write(value); }
 		internal override void WritePrimitive(uint value)		{ baseWriter.Write(value); }
@@ -97,63 +97,81 @@ namespace ES3Internal
 
 		private void WriteCommaIfRequired()
 		{
-			if(!isFirstProperty)
-				baseWriter.Write(',');
-			else
-				isFirstProperty = false;
-		}
+            if (!isFirstProperty)
+                baseWriter.Write(',');
+            else
+                isFirstProperty = false;
+            WriteNewlineAndTabs();
+        }
 
 		internal override void WriteRawProperty(string name, byte[] value)
 		{ 
-			StartWriteProperty(name); baseWriter.Write(settings.encoding.GetString(value, 0, value.Length)); 
+			StartWriteProperty(name); baseWriter.Write(settings.encoding.GetString(value, 0, value.Length)); EndWriteProperty(name);
 		}
 
 		internal override void StartWriteFile()
 		{
-			if(writeHeaderAndFooter)
-				baseWriter.Write('{');
+            if (writeHeaderAndFooter)
+                baseWriter.Write('{');
+            base.StartWriteFile();
 		}
 
 		internal override void EndWriteFile()
 		{
+            base.EndWriteFile();
+            WriteNewlineAndTabs();
 			if(writeHeaderAndFooter)
 				baseWriter.Write('}');
 		}
 
 		internal override void StartWriteProperty(string name)
 		{
+            base.StartWriteProperty(name);
 			WriteCommaIfRequired();
 			Write(name);
-			baseWriter.Write(':');
-		}
+
+            if(settings.prettyPrint)
+                baseWriter.Write(' ');
+            baseWriter.Write(':');
+            if (settings.prettyPrint)
+                baseWriter.Write(' ');
+        }
 
 		internal override void EndWriteProperty(string name)
 		{
-			// It's not necessary to perform any operations after writing the property in JSON.
-		}
+            // It's not necessary to perform any operations after writing the property in JSON.
+            base.EndWriteProperty(name);
+        }
 
 		internal override void StartWriteObject(string name)
 		{
-			isFirstProperty = true;
+            base.StartWriteObject(name);
+            isFirstProperty = true;
 			baseWriter.Write('{');
-		}
+        }
 
 		internal override void EndWriteObject(string name)
 		{
-			// Set isFirstProperty to false incase we didn't write any properties, in which case
-			// WriteCommaIfRequired() is never called.
-			isFirstProperty = false;
-			baseWriter.Write('}');
-		}
+            base.EndWriteObject(name);
+            // Set isFirstProperty to false incase we didn't write any properties, in which case
+            // WriteCommaIfRequired() is never called.
+            isFirstProperty = false;
+            WriteNewlineAndTabs();
+            baseWriter.Write('}');
+        }
 
-		internal override void StartWriteCollection(int length)
+		internal override void StartWriteCollection()
 		{
-			baseWriter.Write('[');
-		}
+            base.StartWriteCollection();
+            baseWriter.Write('[');
+            WriteNewlineAndTabs();
+        }
 
 		internal override void EndWriteCollection()
 		{
-			baseWriter.Write(']');
+            base.EndWriteCollection();
+            WriteNewlineAndTabs();
+            baseWriter.Write(']');
 		}
 
 		internal override void StartWriteCollectionItem(int index)
@@ -166,7 +184,7 @@ namespace ES3Internal
 		{
 		}
 
-		internal override void StartWriteDictionary(int length)
+		internal override void StartWriteDictionary()
 		{
 			StartWriteObject(null);
 		}
@@ -201,5 +219,15 @@ namespace ES3Internal
 		{
 			baseWriter.Dispose();
 		}
+
+        public void WriteNewlineAndTabs()
+        {
+            if (settings.prettyPrint)
+            {
+                baseWriter.Write(Environment.NewLine);
+                for (int i = 0; i < serializationDepth; i++)
+                    baseWriter.Write('\t');
+            }
+        }
 	}
 }

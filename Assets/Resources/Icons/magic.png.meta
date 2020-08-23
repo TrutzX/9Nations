@@ -262,7 +262,7 @@ TextureImporter:
     second: magic_85
   - first:
       213: 468173904832628962
-    second: magic_86
+    second: assa
   - first:
       213: -2019485497884127457
     second: magic_87
@@ -283,7 +283,7 @@ TextureImporter:
     second: magic_92
   - first:
       213: -7674100502482870083
-    second: magic_93
+    second: mushroom
   - first:
       213: 8903878123150603950
     second: magic_94
@@ -334,13 +334,13 @@ TextureImporter:
     second: magic_109
   - first:
       213: 8381669265388970380
-    second: magic_110
+    second: foreman
   - first:
       213: -6149146275028719477
     second: magic_111
   - first:
       213: 6101280928372881037
-    second: magic_112
+    second: foremanassistant
   - first:
       213: -6900939675491422364
     second: magic_113
@@ -472,7 +472,7 @@ TextureImporter:
     second: magic_155
   - first:
       213: -6931287368651312139
-    second: magic_156
+    second: potionhp
   - first:
       213: 3142792163315484425
     second: magic_157
@@ -523,7 +523,7 @@ TextureImporter:
     second: magic_172
   - first:
       213: 7050829148962774105
-    second: magic_173
+    second: potionap
   - first:
       213: -2696578144332691303
     second: magic_174
@@ -660,7 +660,7 @@ TextureImporter:
       213: -2739471585737019422
     second: magic_218
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -714,6 +714,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2549,7 +2550,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_86
+      name: assa
       rect:
         serializedVersion: 2
         x: 256
@@ -2696,7 +2697,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_93
+      name: mushroom
       rect:
         serializedVersion: 2
         x: 480
@@ -3053,7 +3054,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_110
+      name: foreman
       rect:
         serializedVersion: 2
         x: 0
@@ -3095,7 +3096,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_112
+      name: foremanassistant
       rect:
         serializedVersion: 2
         x: 64
@@ -4019,7 +4020,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_156
+      name: potionhp
       rect:
         serializedVersion: 2
         x: 0
@@ -4376,7 +4377,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magic_173
+      name: potionap
       rect:
         serializedVersion: 2
         x: 32

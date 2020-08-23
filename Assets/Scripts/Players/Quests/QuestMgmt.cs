@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Players.Quests;
 
 namespace Players
@@ -17,6 +18,11 @@ namespace Players
 
         public void Add(Quest q)
         {
+            if (quests.Count(qu => qu.id == q.id) > 0)
+            {
+                throw new InvalidCastException($"A Quest with the id {q.id} already exist");
+            }
+
             quests.Add(q);
         }
 

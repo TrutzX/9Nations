@@ -11,6 +11,8 @@ namespace Players.Infos
     {
         public List<Info> infos;
 
+        [NonSerialized] public Player player;
+        
         public InfoMgmt()
         {
             infos = new List<Info>();
@@ -21,6 +23,12 @@ namespace Players.Infos
             //Debug.Log($"Add Note: {noti.title}");
             noti.round = S.Round().Round;
             infos.Insert(0,noti);
+            //act player? show it
+            //Debug.Log(player+" "+noti.title);
+            if (player != null && player == S.ActPlayer())
+            {
+                OnMapUI.Get().InfoUi.AddInfoButton(noti);
+            }
         }
 
         /// <summary>

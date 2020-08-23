@@ -23,7 +23,6 @@ namespace reqs
             {
                 foreach (var pos in CircleGenerator.Gen(bra.pos, 1))
                 {
-                    Debug.Log(pos+" "+S.Players().OverlayHighest("frontier", pos));
                     if (S.Players().OverlayHighest("frontier", pos) == bra.player)
                         return true;
                 }

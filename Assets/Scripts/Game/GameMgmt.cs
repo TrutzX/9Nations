@@ -110,6 +110,7 @@ namespace Game
             //show it
             ConnectGameObjs();
             OptionHelper.RunStartOptions();
+            data.players.Init();
 
             if (StartConfig == null)
             {
@@ -117,7 +118,8 @@ namespace Game
                 StartConfig["name"] = "debug";
                 StartConfig["type"] = "scenario";
                 StartConfig["scenario"] = "debug";
-                //StartConfig["scenario"] = "pantheon";
+                StartConfig["scenario"] = "screenshot";
+                //StartConfig["scenario"] = "tutorial2";
             }
             
             yield return load.ShowMessage("Loading "+StartConfig["name"]);
@@ -179,27 +181,28 @@ namespace Game
                 Debug.Log(option.id+":"+val+"%");
             }
             
-            yield return S.Players().CreatingFog();
-            S.Players().FirstRound();
-            yield return S.Players().NextPlayer();
+            yield return data.players.GameStart();
+            yield return data.players.GameBegin();
+            yield return data.players.NextPlayer();
             NAudio.Play("startgame");
             load.FinishLoading();
         }
 
         IEnumerator LoadGame()
         {
-            yield return load.ShowMessage("Loading game");
+            yield return load.ShowMessage("Loading "+StartConfig["file"]);
             yield return load.ShowSubMessage($"Loading library");
             L.b = ES3.Load<L>("lib",StartConfig["file"]+"lib.9n");
-            yield return load.ShowSubMessage($"Loading game");
+            yield return load.ShowSubMessage($"Loading file");
             data = ES3.Load<GameData>("game",StartConfig["file"]+"game.9n");
             
             ConnectGameObjs();
             
             //load Map
             yield return newMap.LoadMap();
-            data.players.AfterLoad();
-            yield return S.Players().CreatingFog();
+            yield return load.ShowSubMessage($"Loading players");
+            yield return data.players.GameLoaded();
+            yield return data.players.GameBegin();
 
             //load buildings
             yield return load.ShowSubMessage($"Loading Buildings");
@@ -207,7 +210,6 @@ namespace Game
             {
                 building.Load(bdata);
             }
-            
 
             //load units
             yield return load.ShowSubMessage($"Loading Units");

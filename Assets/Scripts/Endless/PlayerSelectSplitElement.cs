@@ -14,7 +14,7 @@ namespace Endless
     internal class PlayerSelectSplitElement : GeneralSplitElement
     {
         
-        public PlayerSelectSplitElement(Dictionary<string, string> startConfig, int id) : base(startConfig, "Player")
+        public PlayerSelectSplitElement(Dictionary<string, string> startConfig, int id) : base(startConfig, startConfig[id + "name"])
         {
             this.id = id;
             icon = L.b.coats[startConfig[id + "coat"]].Sprite();

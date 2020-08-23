@@ -46,14 +46,21 @@ namespace ES3Types
 			if(saveChildren || (es3AutoSave != null && es3AutoSave.saveChildren))
 				writer.WriteProperty("children", GetChildren(instance), ES3.ReferenceMode.ByRefAndValue);
 
-			var components = new List<Component>();
-			foreach (var component in instance.GetComponents<Component>())
-			{
-				var componentType = component.GetType();
-				// Only save explicitly-supported Components, /*or those explicitly marked as Serializable*/.
-				if(ES3TypeMgr.GetES3Type(componentType) != null /*|| ES3Reflection.AttributeIsDefined(componentType, ES3Reflection.serializableAttributeType)*/)
-					components.Add(component);
-			}
+			List<Component> components;
+
+            // If there's an ES3AutoSave attached and Components are marked to be saved, save these.
+            var autoSave = instance.GetComponent<ES3AutoSave>();
+            if (autoSave != null && autoSave.componentsToSave != null && autoSave.componentsToSave.Count > 0)
+                components = autoSave.componentsToSave;
+            // Otherwise, only save explicitly-supported Components, /*or those explicitly marked as Serializable*/.
+            else
+            {
+                components = new List<Component>();
+                foreach (var component in instance.GetComponents<Component>())
+                    if (component != null && ES3TypeMgr.GetES3Type(component.GetType()) != null)
+                        components.Add(component);
+            }
+
 			writer.WriteProperty("components", components, ES3.ReferenceMode.ByRefAndValue);
 		}
 
@@ -62,37 +69,24 @@ namespace ES3Types
 			UnityEngine.Object obj = null;
 			var refMgr = ES3ReferenceMgrBase.Current;
 			long id = 0;
-			// Read the intial properties regarding the instance we're loading.
-			while(true)
+
+            // Read the intial properties regarding the instance we're loading.
+            while (true)
 			{
 				if(refMgr == null)
-				{
-					reader.Skip();
-					continue;
-				}
-				var propertyName = ReadPropertyName(reader);
+                    throw new InvalidOperationException("An Easy Save 3 Manager is required to load references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
+
+                var propertyName = ReadPropertyName(reader);
 
 				if(propertyName == ES3Type.typeFieldName)
 					return ES3TypeMgr.GetOrCreateES3Type(reader.ReadType()).Read<T>(reader);
 				else if(propertyName == ES3ReferenceMgrBase.referencePropertyName)
 				{
-					if(refMgr == null)
-					{
-						reader.Skip();
-						continue;
-					}
-
 					id = reader.Read_ref();
 					obj = refMgr.Get(id, true);
 				}
 				else if(propertyName == transformPropertyName)
 				{
-					if(refMgr == null)
-					{
-						reader.Skip();
-						continue;
-					}
-
 					// Now load the Transform's ID and assign it to the Transform of our object.
 					long transformID = reader.Read_ref();
 					if(obj == null)
@@ -137,7 +131,10 @@ namespace ES3Types
 			{
 				switch(propertyName)
 				{
-					case "prefab":
+                    case ES3ReferenceMgrBase.referencePropertyName:
+                        ES3ReferenceMgr.Current.Add(instance, reader.Read_ref());
+                        break;
+                    case "prefab":
 						break;
 					case "layer":
 						instance.layer = reader.Read<System.Int32>(ES3Type_int.Instance);

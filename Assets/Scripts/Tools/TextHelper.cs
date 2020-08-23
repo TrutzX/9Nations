@@ -14,7 +14,17 @@ namespace Tools
         public static string Cap(string name)
         {
             //if (string.IsNullOrEmpty(name)) return "null";
-            return char.ToUpper(name[0]) + name.Substring(1);
+            return name.Length >= 2 ? char.ToUpper(name[0]) + name.Substring(1) : name;
+        }
+        
+        public static bool IsNull(this int? value)
+        {
+            return (value??0) == 0;
+        }
+        
+        public static bool IsNull(this float? value)
+        {
+            return Math.Abs((value??0)) < 0.01f;
         }
 
         public static string CommaSep(string[] l)

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Schema;
 using Audio;
 using Buildings;
-
+using Classes;
 using Game;
 using GameButtons;
 using Libraries;
@@ -16,6 +16,7 @@ using Libraries.Rounds;
 using LoadSave;
 using Players.Infos;
 using Players.PlayerResearches;
+using Players.PlayerTypes;
 using Towns;
 using UI;
 using Units;
@@ -43,9 +44,12 @@ namespace Players
 
         public Dictionary<string, string> Modi;
         public PlayerDevelopmentNation elements;
+        [SerializeField] private string type;
+        [NonSerialized] private BasePlayerType typeClass;
         
         [SerializeField] private Dictionary<string, string> features;
         
+        public Dictionary<string, string> data;
         
         /// <summary>
         /// Only for loading
@@ -55,7 +59,7 @@ namespace Players
             
         }
         
-        public Player(int id, string name, string nation)
+        public Player(int id, string name, string nation, PlayerType type)
         {
             this.id = id;
             this.name = name;
@@ -77,8 +81,17 @@ namespace Players
             elements.player = this;
             
             fog = new PlayerFog();
+            fog.Init();
             info = new InfoMgmt();
+
+            this.type = type.ToString();
             
+            data = new Dictionary<string, string>();
+        }
+
+        public BasePlayerType Type()
+        {
+            return typeClass ?? (typeClass = LClass.s.playerTypes[type]);
         }
 
         public Coat Coat()
@@ -100,6 +113,8 @@ namespace Players
         
         public void StartRound()
         {
+            info.player = this;
+            
             Debug.Log($"Start round {S.Round().GetRoundString()} for player {name}");
             info.Add(new Info($"Welcome {name}, it is "+S.Round().GetRoundString(), S.Round().Icon()));
 
@@ -181,23 +196,17 @@ namespace Players
 
         public IEnumerator FinishRound()
         {
-            //TODO Autosave only for human player
-            //save
-            if (LSys.tem.options["autosave"].Bool())
-            {
-                yield return GameMgmt.Get().load.ShowSubMessage($"Save auto save");
-                LoadSaveMgmt.UpdateSave($"autosave{id}",$"Auto save {name}");
-            }
-            
+            yield return Type().FinishRound(this);
             fog.FinishRound();
-            
         }
 
         public void AfterLoad()
         {
+            fog.Init();
             research.player = this;
             quests.player = this;
             elements.player = this;
+            info.player = this;
         }
 
         public void NextRound()

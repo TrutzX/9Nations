@@ -15,6 +15,9 @@ namespace Libraries.Usages
                 case "rate":
                     ele.rate = Float(data);
                     break;
+                case "factor":
+                    ele.factor = Int(data);
+                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;

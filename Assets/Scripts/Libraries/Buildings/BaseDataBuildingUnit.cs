@@ -8,6 +8,7 @@ using Players;
 using reqs;
 using Tools;
 using UI;
+using UnityEngine;
 
 namespace Libraries.Buildings
 {
@@ -42,21 +43,22 @@ namespace Libraries.Buildings
             base.ShowLexicon(panel);
             L.b.res[C.BuildRes].AddSubLabel(panel,buildTime,"round");
             L.b.res[C.ViewModi].AddSubLabel(panel,visibilityRange,"field");
-            panel.AddRes("Cost for construction",cost);
-            req.BuildPanel(panel, "Requirement for construction");
+            ShowWorker(panel);
+            panel.AddResT("constructionCost",cost);
+            req.BuildPanel(panel, S.T("constructionReq"));
             
             ActionDisplaySettings sett = new ActionDisplaySettings(panel,null);
             sett.compact = true;
-            action.BuildPanel(panel, "Actions", sett);
+            action.BuildPanelT(sett);
         }
-
+        
         public void ShowBuild(PanelBuilder panel, NVector pos)
         {
-            ShowIntern(panel, pos);
+            ShowIntern(panel, null, pos);
 
             ActionDisplaySettings sett = new ActionDisplaySettings(panel, S.ActPlayer(), null, pos,null);
             sett.compact = true;
-            action.BuildPanel(panel, "Actions", sett);
+            action.BuildPanelT(sett);
         }
 
         public void ShowOwn(PanelBuilder panel, MapElementInfo onMap)
@@ -68,22 +70,36 @@ namespace Libraries.Buildings
             }
             
             NVector pos = onMap.Pos();
-            ShowIntern(panel, pos);
+            ShowIntern(panel, onMap, pos);
 
-            onMap.data.action.BuildPanel(panel, "Actions", new ActionDisplaySettings(panel, onMap.Player(), onMap, pos, null));
+            onMap.data.action.BuildPanelT(new ActionDisplaySettings(panel, onMap.Player(), onMap, pos, null));
         }
 
-        private void ShowIntern(PanelBuilder panel, NVector pos)
+        private void ShowIntern(PanelBuilder panel, MapElementInfo onMap, NVector pos)
         {
             base.ShowLexicon(panel);
             var b = L.b.modifiers[C.BuildRes].CalcText(buildTime, S.ActPlayer(), pos);
             L.b.res[C.BuildRes].AddSubLabel(panel, b.value, "round", b.display);
 
-            var v = L.b.modifiers[C.ViewModi].CalcText(visibilityRange, S.ActPlayer(), pos);
+            int _view = onMap == null ? visibilityRange : onMap.data.visibilityRange;
+            int _atk = onMap == null ? atk : onMap.data.atk;
+            int _def = onMap == null ? def : onMap.data.def;
+            
+            var v = L.b.modifiers[C.ViewModi].CalcText(_view, S.ActPlayer(), pos);
             L.b.modifiers[C.ViewModi].AddSubLabel(panel, v.value, "field", v.display);
+            ShowWorker(panel);
 
-            panel.AddRes("Cost for construction", cost);
-            req.BuildPanel(panel, "Requirement for construction", null, pos);
+            if (_atk > 0 || _def > 0)
+                panel.AddHeaderLabelT("fight");
+            panel.AddSubLabelT("atk", _atk, "atk");
+            panel.AddSubLabelT("def", _def, "def");
+            
+            panel.AddResT("constructionCost", cost);
+            req.BuildPanel(panel, S.T("constructionReq"), null, pos);
+        }
+
+        protected virtual void ShowWorker(PanelBuilder panel)
+        {
         }
     }
 }

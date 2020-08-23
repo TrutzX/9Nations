@@ -17,7 +17,8 @@ namespace reqs
             {
                 return !S.Round().IsDayTime(sett.Split('-')[1]);
             }
-            return S.Round().IsDayTime(sett);
+            
+            return sett.Contains(S.Round().GetRound().daytime);
         }
 
         public override bool Final(Player player, string sett)

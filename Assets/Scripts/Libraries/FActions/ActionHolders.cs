@@ -4,6 +4,8 @@ using System.Linq;
 using Buildings;
 using Classes;
 using Classes.Actions;
+using Classes.Actions.Addons;
+using Game;
 using JetBrains.Annotations;
 using Libraries.FActions.General;
 using Players;
@@ -50,6 +52,33 @@ namespace Libraries.FActions
             }
 
             return act;
+        }
+
+        public string Removes(ActionEvent evt, Player player, [CanBeNull] MapElementInfo info, NVector pos)
+        {
+            ActionArgument arg = new ActionArgument(evt, null, player, info, pos);
+            foreach (var action in Is(evt))
+            {
+                arg.holder = action;
+                Remove(arg);
+            }
+
+            //todo
+            return null;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="evt"></param>
+        /// <param name="player"></param>
+        /// <param name="info"></param>
+        /// <param name="pos"></param>
+        /// <returns>null or error message</returns>
+        public void Remove(ActionArgument arg)
+        {
+            arg.holder.PerformAction().Remove(arg);
         }
 
         public string Performs(ActionEvent evt, Player player, [CanBeNull] MapElementInfo info, NVector pos)
@@ -107,13 +136,13 @@ namespace Libraries.FActions
             return mess;
         }
 
-        public void BuildPanel(PanelBuilder panel, String title, ActionDisplaySettings sett)
+        public void BuildPanelT(ActionDisplaySettings sett, String title="action")
         {
             if (actions.Count == 0)
             {
                 return;
             }
-            panel.AddHeaderLabel(title);
+            sett.panel.AddHeaderLabel(S.T(title, actions.Count));
             sett.compact = true;
             
             //display all actions

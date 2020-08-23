@@ -59,7 +59,13 @@ namespace Game
             unitUI.UpdatePanel(S.Unit().At(pos));
             buildingUI.UpdatePanel(S.Building().At(pos));
         }
-
+        
+        public MapElementInfo GetActive()
+        {
+            MapElementInfo info = unitUI.active;
+            return info != null ? info : buildingUI.active;
+        }
+        
         public void UpdatePanelOnMouse()
         {
             Vector2 p = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));

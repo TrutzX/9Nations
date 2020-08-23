@@ -40,9 +40,9 @@ namespace Libraries.Translations
             return isNumeric && n != 1 && ContainsKey(key + "Plural") ? key + "Plural" : key;
         }
 
-        public string Translate(string key, object p0, object p1)
+        public string Translate(string key, object p0, object p1, object p2)
         {
-            return string.Format(Translate(GetPlural(key, p0)), p0, p1);
+            return string.Format(Translate(GetPlural(key, p0)), p0, p1, p2);
         }
         
         public void UpdateLang()

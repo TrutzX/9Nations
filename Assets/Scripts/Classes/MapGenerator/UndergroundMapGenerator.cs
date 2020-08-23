@@ -14,7 +14,7 @@ namespace Classes.MapGenerator
         {
             int oTerrain = std.At(new Vector3Int(x, y, layer));
             
-            if (oTerrain == -1 && Random.Range(0,10) <= 6) // 60%
+            if (oTerrain == -1 && Random.Range(0,10) <= 7) // 70%
             {
                 layerData[height - y - 1][x] = L.b.terrains["deepWall"].defaultTile;
                 return;

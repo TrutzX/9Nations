@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ES3Internal;
 
 namespace ES3Types
@@ -20,9 +21,20 @@ namespace ES3Types
 
 		public override void Write(object obj, ES3Writer writer)
 		{
-			if(!WriteUsingDerivedType(obj, writer))
-				WriteObject(obj, writer);
-		}
+            if (!WriteUsingDerivedType(obj, writer))
+            {
+                var baseType = ES3Reflection.BaseType(obj.GetType());
+                if (baseType != typeof(object))
+                {
+                    var es3Type = ES3TypeMgr.GetOrCreateES3Type(baseType);
+                    // If it's a Dictionary, we need to write it as a field with a property name.
+                    if (es3Type.isDictionary || es3Type.isCollection)
+                        writer.WriteProperty("_Values", obj, es3Type);
+                }
+
+                WriteObject(obj, writer);
+            }
+        }
 
 		public override object Read<T>(ES3Reader reader)
 		{
@@ -38,6 +50,7 @@ namespace ES3Types
 				else
 				{
 					reader.overridePropertiesName = propertyName;
+
 					return ReadObject<T>(reader);
 				}
 			}

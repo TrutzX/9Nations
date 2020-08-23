@@ -40,11 +40,11 @@ namespace Classes.Actions
                 return;
 
             sett.panel.AddHeaderLabel($"{sett.mapElement.name} attacks");
-            sett.panel.AddSubLabel("Attack",sett.mapElement.baseData.atk.ToString(),"atk");
-            sett.panel.AddSubLabel("Damage",$"{sett.mapElement.baseData.damMin}-{sett.mapElement.baseData.damMax}","damage");
+            sett.panel.AddSubLabelT("atk",sett.mapElement.data.atk,"atk");
+            sett.panel.AddSubLabelT("dam",$"{sett.mapElement.baseData.damMin}-{sett.mapElement.baseData.damMax}","damage");
 
             sett.panel.AddHeaderLabel($"{info.name} defends");
-            sett.panel.AddSubLabel("Defense",info.baseData.def.ToString(),"def");
+            sett.panel.AddSubLabelT("def",info.data.def,"def");
             
             //both units?
             if (!sett.mapElement.IsBuilding() && !info.IsBuilding())
@@ -57,11 +57,11 @@ namespace Classes.Actions
 
                     if (!found)
                     {
-                        sett.panel.AddHeaderLabel("Fight modificator");
+                        sett.panel.AddHeaderLabelT("fightmodi");
                         found = true;
                     }
                     
-                    sett.panel.AddImageLabel(fm.Desc, fm.Icon);
+                    sett.panel.AddImageLabel(fm.Desc(), fm.Icon);
                 }
             }
         }

@@ -253,10 +253,10 @@ TextureImporter:
     second: base_82
   - first:
       213: -730410426871317211
-    second: base_83
+    second: swordc
   - first:
       213: 8787948424237141558
-    second: weapon
+    second: swordi
   - first:
       213: 1574168999704996879
     second: base_85
@@ -376,7 +376,7 @@ TextureImporter:
     second: walk
   - first:
       213: -6536896949903021249
-    second: base_124
+    second: shoei
   - first:
       213: 5171521710739485800
     second: base_125
@@ -565,7 +565,7 @@ TextureImporter:
     second: base_186
   - first:
       213: 5673340964253793112
-    second: base_187
+    second: item
   - first:
       213: -8042480437656319716
     second: res
@@ -694,10 +694,10 @@ TextureImporter:
     second: ore
   - first:
       213: -3743056833689210025
-    second: base_230
+    second: meat
   - first:
       213: -736744685638670418
-    second: base_231
+    second: fish
   - first:
       213: 8841892613780960305
     second: base_232
@@ -712,7 +712,7 @@ TextureImporter:
     second: base_235
   - first:
       213: 2409600177247628695
-    second: food
+    second: apple
   - first:
       213: 783552694327738963
     second: bread
@@ -745,7 +745,7 @@ TextureImporter:
     second: base_246
   - first:
       213: 3472832314920238482
-    second: base_247
+    second: nature
   - first:
       213: 109575314771394750
     second: base_248
@@ -854,8 +854,14 @@ TextureImporter:
   - first:
       213: -7957830988773349252
     second: base_282
+  - first:
+      213: 463073815569336556
+    second: construction
+  - first:
+      213: -8261933414961447066
+    second: food
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -909,6 +915,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -921,9 +928,21 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2681,7 +2700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_83
+      name: swordc
       rect:
         serializedVersion: 2
         x: 0
@@ -2702,7 +2721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapon
+      name: swordi
       rect:
         serializedVersion: 2
         x: 32
@@ -3542,11 +3561,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_124
+      name: shoei
       rect:
         serializedVersion: 2
-        x: 416
-        y: 352
+        x: 415
+        y: 351
         width: 32
         height: 32
       alignment: 0
@@ -4865,7 +4884,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_187
+      name: item
       rect:
         serializedVersion: 2
         x: 32
@@ -5768,7 +5787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_230
+      name: meat
       rect:
         serializedVersion: 2
         x: 96
@@ -5789,7 +5808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_231
+      name: fish
       rect:
         serializedVersion: 2
         x: 128
@@ -5894,7 +5913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: food
+      name: apple
       rect:
         serializedVersion: 2
         x: 288
@@ -6024,7 +6043,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 96
+        y: 94
         width: 32
         height: 32
       alignment: 0
@@ -6125,7 +6144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_247
+      name: nature
       rect:
         serializedVersion: 2
         x: 128
@@ -6876,6 +6895,48 @@ TextureImporter:
       bones: []
       spriteID: a45422e33c5f04b67bfbcda93fb87130
       internalID: -7957830988773349252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: construction
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce88bc98e2b2d6600800000000000000
+      internalID: 463073815569336556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: food
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ffa4b2557b75d80800000000000000
+      internalID: -8261933414961447066
       vertices: []
       indices: 
       edges: []

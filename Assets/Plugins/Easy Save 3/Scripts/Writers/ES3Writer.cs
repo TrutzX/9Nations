@@ -14,25 +14,57 @@ public abstract class ES3Writer : IDisposable
 	internal bool writeHeaderAndFooter = true;
 	internal bool overwriteKeys = true;
 
+    protected int serializationDepth = 0;
+
 	#region ES3Writer Abstract Methods
 
 	internal abstract void WriteNull();
 
-	internal abstract void StartWriteFile();
-	internal abstract void EndWriteFile();
+    internal virtual void StartWriteFile()
+    {
+        serializationDepth++;
+    }
 
-	internal abstract void StartWriteObject(string name);
-	internal abstract void EndWriteObject(string name);
+    internal virtual void EndWriteFile()
+    {
+        serializationDepth--;
+    }
 
-	internal abstract void StartWriteProperty(string name);
-	internal abstract void EndWriteProperty(string name);
+    internal virtual void StartWriteObject(string name)
+    {
+        serializationDepth++;
+    }
 
-	internal abstract void StartWriteCollection(int length);
-	internal abstract void EndWriteCollection();
-	internal abstract void StartWriteCollectionItem(int index);
+	internal virtual void EndWriteObject(string name)
+    {
+        serializationDepth--;
+    }
+
+	internal virtual void StartWriteProperty(string name)
+    {
+        if (name == null)
+            throw new ArgumentNullException("Key or field name cannot be NULL when saving data.");
+        ES3Debug.Log("<b>"+name +"</b> (writing property)", null, serializationDepth);
+    }
+
+	internal virtual void EndWriteProperty(string name)
+    {
+    }
+
+    internal virtual void StartWriteCollection()
+    {
+        serializationDepth++;
+    }
+
+    internal virtual void EndWriteCollection()
+    {
+        serializationDepth--;
+    }
+
+    internal abstract void StartWriteCollectionItem(int index);
 	internal abstract void EndWriteCollectionItem(int index);
 
-	internal abstract void StartWriteDictionary(int length);
+	internal abstract void StartWriteDictionary();
 	internal abstract void EndWriteDictionary();
 	internal abstract void StartWriteDictionaryKey(int index);
 	internal abstract void EndWriteDictionaryKey(int index);
@@ -75,41 +107,41 @@ public abstract class ES3Writer : IDisposable
 	/* User-facing methods used when writing randomly-accessible Key-Value pairs. */
 	#region Write(key, value) Methods
 
-	/// <summary>Writes a value to the writer with the given key.</summary>
-	/// <param name="key">The key which uniquely identifies this value.</param>
-	/// <param name="value">The value we want to write.</param>
-	public virtual void Write<T>(string key, object value)
-	{ 
-		StartWriteProperty(key);
-		StartWriteObject(null);
-		WriteType(typeof(T));
-		WriteProperty("value", value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings.referenceMode);
-		EndWriteObject(null);
-		MarkKeyForDeletion(key);
-	}
-
 	internal virtual void Write(string key, Type type, byte[] value)
 	{
 		StartWriteProperty(key);
-		StartWriteObject(null);
+		StartWriteObject(key);
 		WriteType(type);
 		WriteRawProperty("value", value);
-		EndWriteObject(null);
+		EndWriteObject(key);
+        EndWriteProperty(key);
 		MarkKeyForDeletion(key);
 	}
 
-	/// <summary>Writes a value to the writer with the given key, using the given type rather than the generic parameter.</summary>
-	/// <param name="type">The type we want to use for the header, and to retrieve an ES3Type.</param>
-	/// <param name="key">The key which uniquely identifies this value.</param>
-	/// <param name="value">The value we want to write.</param>
-	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    /// <summary>Writes a value to the writer with the given key.</summary>
+    /// <param name="key">The key which uniquely identifies this value.</param>
+    /// <param name="value">The value we want to write.</param>
+    public virtual void Write<T>(string key, object value)
+    {
+        if(typeof(T) == typeof(object))
+            Write(value.GetType(), key, value);
+        else
+            Write(typeof(T), key, value);
+    }
+
+    /// <summary>Writes a value to the writer with the given key, using the given type rather than the generic parameter.</summary>
+    /// <param name="key">The key which uniquely identifies this value.</param>
+    /// <param name="value">The value we want to write.</param>
+    /// <param name="type">The type we want to use for the header, and to retrieve an ES3Type.</param>
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual void Write(Type type, string key, object value)
 	{ 
 		StartWriteProperty(key);
-		StartWriteObject(null);
+		StartWriteObject(key);
 		WriteType(type);
 		WriteProperty("value", value, ES3TypeMgr.GetOrCreateES3Type(type), settings.referenceMode);
-		EndWriteObject(null);
+		EndWriteObject(key);
+        EndWriteProperty(key);
 		MarkKeyForDeletion(key);
 	}
 
@@ -132,9 +164,26 @@ public abstract class ES3Writer : IDisposable
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual void Write(object value, ES3Type type, ES3.ReferenceMode memberReferenceMode = ES3.ReferenceMode.ByRef)
 	{
-		// Note that we have to check UnityEngine.Object types for null by casting it first, otherwise
-		// it will always return false.
-		if(value == null || (type.isES3TypeUnityObject && ((UnityEngine.Object)value) == null))
+        // Deal with System.Objects
+        if (type.type == typeof(object))
+        {
+            var valueType = value.GetType();
+            type = ES3TypeMgr.GetOrCreateES3Type(valueType);
+            if (!type.isCollection && !type.isDictionary)
+            {
+                StartWriteObject(null);
+                WriteType(valueType);
+
+                type.Write(value, this);
+
+                EndWriteObject(null);
+                return;
+            }
+        }
+
+        // Note that we have to check UnityEngine.Object types for null by casting it first, otherwise
+        // it will always return false.
+        if (value == null || (type.isES3TypeUnityObject && ((UnityEngine.Object)value) == null))
 		{ 
 			WriteNull(); 
 			return; 
@@ -145,40 +194,48 @@ public abstract class ES3Writer : IDisposable
 		if(type.isUnsupported)
 			throw new NotSupportedException("Types of "+type.type+" are not supported.");
 
-		if(type.isPrimitive)
-			type.Write(value, this);
-		else if(type.isCollection)
-			((ES3CollectionType)type).Write(value, this, memberReferenceMode);
-		else if(type.isDictionary)
-			((ES3DictionaryType)type).Write(value, this, memberReferenceMode);
-		else
-		{
-			if(type.type == typeof(GameObject))
-				((ES3Type_GameObject)type).saveChildren = settings.saveChildren;
+        if (type.isPrimitive)
+            type.Write(value, this);
+        else if (type.isCollection)
+        {
+            StartWriteCollection();
+            ((ES3CollectionType)type).Write(value, this, memberReferenceMode);
+            EndWriteCollection();
+        }
+        else if (type.isDictionary)
+        {
+            StartWriteDictionary();
+            ((ES3DictionaryType)type).Write(value, this, memberReferenceMode);
+            EndWriteDictionary();
+        }
+        else
+        {
+            if (type.type == typeof(GameObject))
+                ((ES3Type_GameObject)type).saveChildren = settings.saveChildren;
 
-			StartWriteObject(null);
+            StartWriteObject(null);
 
-			if(type.isES3TypeUnityObject)
-				((ES3UnityObjectType)type).WriteObject(value, this, memberReferenceMode);
-			else
-				type.Write(value, this);
-			EndWriteObject(null);
-		}
+            if (type.isES3TypeUnityObject)
+                ((ES3UnityObjectType)type).WriteObject(value, this, memberReferenceMode);
+            else
+                type.Write(value, this);
+            EndWriteObject(null);
+        }
 	}
 
 	internal virtual void WriteRef(UnityEngine.Object obj)
 	{
-		var refMgr = ES3ReferenceMgrBase.Current;
+        var refMgr = ES3ReferenceMgrBase.Current;
         if (refMgr == null)
-            throw new InvalidOperationException("An Easy Save 3 Manager is required to load references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
-        		
-		// Get the reference ID, if it exists, and store it.
-		long id = refMgr.Get(obj);
-		// If reference ID doesn't exist, create reference.
-		if(id == -1)
-			id = refMgr.Add(obj);
-		WriteProperty(ES3ReferenceMgrBase.referencePropertyName, id.ToString());
-	}
+            throw new InvalidOperationException("An Easy Save 3 Manager is required to save references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
+
+        // Get the reference ID, if it exists, and store it.
+        long id = refMgr.Get(obj);
+        // If reference ID doesn't exist, create reference.
+        if (id == -1)
+            id = refMgr.Add(obj);
+        WriteProperty(ES3ReferenceMgrBase.referencePropertyName, id.ToString());
+    }
 
 	#endregion
 
@@ -189,8 +246,8 @@ public abstract class ES3Writer : IDisposable
 	/// <param name="name">The name of the field or property.</param>
 	/// <param name="value">The value we want to write.</param>
 	public virtual void WriteProperty(string name, object value)
-	{ 
-		StartWriteProperty(name); Write(value, settings.memberReferenceMode);
+	{
+        WriteProperty(name, value, settings.memberReferenceMode);
 	}
 
 	/// <summary>Writes a field or property to the writer. Note that this should only be called within an ES3Type.</summary>
@@ -198,43 +255,52 @@ public abstract class ES3Writer : IDisposable
 	/// <param name="value">The value we want to write.</param>
 	/// <param name="memberReferenceMode">Whether we want to write the property by reference, by value, or both.</param>
 	public virtual void WriteProperty(string name, object value, ES3.ReferenceMode memberReferenceMode)
-	{ 
-		StartWriteProperty(name); Write(value, memberReferenceMode);
+	{
+        if (SerializationDepthLimitExceeded())
+            return;
+
+        StartWriteProperty(name); Write(value, memberReferenceMode); EndWriteProperty(name);
 	}
 
-	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    /// <summary>Writes a field or property to the writer. Note that this should only be called within an ES3Type.</summary>
+    /// <param name="name">The name of the field or property.</param>
+    /// <param name="value">The value we want to write.</param>
+    public virtual void WriteProperty<T>(string name, object value)
+    {
+        WriteProperty(name, value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings.memberReferenceMode);
+    }
+
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual void WriteProperty(string name, object value, ES3Type type)
 	{ 
-		StartWriteProperty(name); Write(value, type, settings.memberReferenceMode);
+		WriteProperty(name, value, type, settings.memberReferenceMode);
 	}
 
-	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual void WriteProperty(string name, object value, ES3Type type, ES3.ReferenceMode memberReferenceMode)
 	{
-		StartWriteProperty(name); Write(value, type, memberReferenceMode);
-	}
+        if (SerializationDepthLimitExceeded())
+            return;
 
-	/// <summary>Writes a field or property to the writer. Note that this should only be called within an ES3Type.</summary>
-	/// <param name="name">The name of the field or property.</param>
-	/// <param name="value">The value we want to write.</param>
-	public virtual void WriteProperty<T>(string name, object value)
-	{ 
-		StartWriteProperty(name); Write(value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings.memberReferenceMode);
+        StartWriteProperty(name); 
+        Write(value, type, memberReferenceMode); 
+        EndWriteProperty(name);
 	}
 
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-	public void WritePropertyByRef(string name, UnityEngine.Object value)
+	public virtual void WritePropertyByRef(string name, UnityEngine.Object value)
 	{
-		StartWriteProperty(name);
+        if (SerializationDepthLimitExceeded())
+            return;
 
-		if(value == null){ WriteNull(); return; };
-
-		StartWriteObject(null);
-
+        StartWriteProperty(name);
+		if(value == null)
+        { 
+            WriteNull(); 
+            return; };
+		StartWriteObject(name);
 		WriteRef(value);
-
-		EndWriteObject(null);
-
+		EndWriteObject(name);
 		EndWriteProperty(name);
 	}
 
@@ -337,23 +403,39 @@ public abstract class ES3Writer : IDisposable
 		if(stream.GetType() == typeof(MemoryStream))
 		{
 			settings = (ES3Settings)settings.Clone();
-			settings.location = ES3.Location.Memory;
+			settings.location = ES3.Location.InternalMS;
 		}
 
 		// Get the baseWriter using the given Stream.
 		if(settings.format == ES3.Format.JSON)
 			return new ES3JSONWriter(stream, settings, writeHeaderAndFooter, overwriteKeys);
-		else
+        else if (settings.format == ES3.Format.Binary_Alpha)
+            return new ES3BinaryWriter(stream, settings, writeHeaderAndFooter, overwriteKeys);
+        else
 			return null;
 	}
 
-	#endregion
+    #endregion
 
-	/*
+    /*
+     * Checks whether serialization depth limit has been exceeded
+     */
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    protected bool SerializationDepthLimitExceeded()
+    {
+        if (serializationDepth > settings.serializationDepthLimit)
+        {
+            ES3Debug.LogWarning("Serialization depth limit of " + settings.serializationDepthLimit + " has been exceeded, indicating that there may be a circular reference.\nIf this is not a circular reference, you can increase the depth by going to Window > Easy Save 3 > Settings > Advanced Settings > Serialization Depth Limit");
+            return true;
+        }
+        return false;
+    }
+
+    /*
 	 * 	Marks a key for deletion.
 	 * 	When merging files, keys marked for deletion will not be included.
 	 */
-	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual void MarkKeyForDeletion(string key)
 	{
 		keysToDelete.Add(key);

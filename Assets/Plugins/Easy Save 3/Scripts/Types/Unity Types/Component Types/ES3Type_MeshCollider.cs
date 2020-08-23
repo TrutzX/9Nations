@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("sharedMesh", "convex", "inflateMesh", "skinWidth", "enabled", "isTrigger", "contactOffset", "material")]
+	[ES3PropertiesAttribute("sharedMesh", "convex", "inflateMesh", "skinWidth", "enabled", "isTrigger", "contactOffset", "sharedMaterial")]
 	public class ES3Type_MeshCollider : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -17,15 +17,15 @@ namespace ES3Types
 		protected override void WriteComponent(object obj, ES3Writer writer)
 		{
 			var instance = (UnityEngine.MeshCollider)obj;
-			
-			writer.WriteProperty("sharedMesh", instance.sharedMesh);
-			writer.WriteProperty("convex", instance.convex, ES3Type_bool.Instance);
+
+            writer.WritePropertyByRef("sharedMesh", instance.sharedMesh);
+            writer.WriteProperty("convex", instance.convex, ES3Type_bool.Instance);
 			/*writer.WriteProperty("inflateMesh", instance.inflateMesh, ES3Type_bool.Instance);
 			writer.WriteProperty("skinWidth", instance.skinWidth, ES3Type_float.Instance);*/
 			writer.WriteProperty("enabled", instance.enabled, ES3Type_bool.Instance);
 			writer.WriteProperty("isTrigger", instance.isTrigger, ES3Type_bool.Instance);
 			writer.WriteProperty("contactOffset", instance.contactOffset, ES3Type_float.Instance);
-			writer.WriteProperty("material", instance.material);
+			writer.WriteProperty("material", instance.sharedMaterial);
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -58,7 +58,7 @@ namespace ES3Types
 						instance.contactOffset = reader.Read<System.Single>(ES3Type_float.Instance);
 						break;
 					case "material":
-						instance.material = reader.Read<UnityEngine.PhysicMaterial>(ES3Type_PhysicMaterial.Instance);
+                        instance.sharedMaterial = reader.Read<UnityEngine.PhysicMaterial>(ES3Type_PhysicMaterial.Instance);
 						break;
 					default:
 						reader.Skip();

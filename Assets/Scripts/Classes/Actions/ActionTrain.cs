@@ -24,7 +24,7 @@ namespace Classes.Actions
         {
             if (BuildAllowed(player, info, pos, holder)) return;
 
-            WindowTabBuilder wtb = WindowTabBuilder.Create(holder.DataAction().Desc);
+            WindowTabBuilder wtb = WindowTabBuilder.Create(holder.DataAction().Desc());
 
             BuildLast(player, info, pos, holder, wtb, "lastTrain");
 

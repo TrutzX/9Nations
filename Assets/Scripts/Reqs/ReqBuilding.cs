@@ -39,19 +39,24 @@ namespace reqs
             {
                 t = S.Towns().NearestTown(player, pos, false);
             }
-            
-            
-            return S.Building().GetByTownType(t.id, element).Length;
+
+            return S.Building().GetByTownType(t.id, element, TryParseBool(sett)).Length;
         }
 
         protected override int ValueAct(Player player, string element, string sett)
         {
-            return S.Building().GetByPlayerType(player.id, element).Length;
+            return S.Building().GetByPlayerType(player.id, element, TryParseBool(sett)).Length;
         }
 
         protected override string Name(string element, string sett)
         {
             return L.b.buildings[element].Name();
+        }
+
+        private bool TryParseBool(string sett)
+        {
+            Boolean.TryParse(sett, out bool erg);
+            return erg;
         }
     }
 }

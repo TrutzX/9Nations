@@ -3,7 +3,7 @@ using System;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("center", "size", "enabled", "isTrigger", "contactOffset", "material")]
+	[ES3PropertiesAttribute("center", "size", "enabled", "isTrigger", "contactOffset", "sharedMaterial")]
 	public class ES3Type_BoxCollider : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -22,7 +22,7 @@ namespace ES3Types
 			writer.WriteProperty("enabled", instance.enabled);
 			writer.WriteProperty("isTrigger", instance.isTrigger);
 			writer.WriteProperty("contactOffset", instance.contactOffset);
-			writer.WritePropertyByRef("material", instance.material);
+			writer.WritePropertyByRef("material", instance.sharedMaterial);
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -49,7 +49,7 @@ namespace ES3Types
 						instance.contactOffset = reader.Read<System.Single>();
 						break;
 					case "material":
-						instance.material = reader.Read<UnityEngine.PhysicMaterial>();
+						instance.sharedMaterial = reader.Read<UnityEngine.PhysicMaterial>();
 						break;
 					default:
 						reader.Skip();

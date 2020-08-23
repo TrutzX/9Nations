@@ -10,20 +10,7 @@ namespace Libraries.Modifiers
     [Serializable]
     public class Modifier : BaseData
     {
-        public int CalcModi(int standard, Player player)
-        {
-            int proc = 0;//%
-            int val = 0;
-            
-            Check(player.Modi, player, ref val, ref proc);
-            Check(player.Nation().Modi, player, ref val, ref proc);
-            Check(GameMgmt.Get().gameRound.Modi(), player, ref val, ref proc);
-            
-            standard += (standard * proc) / 100;
-            standard += val;
-            return Math.Max(0,standard);
-        }
-
+        
         private void Check(Dictionary<string, string> dir, Player player, ref int val, ref int proc)
         {
             if (!dir.ContainsKey(id))
@@ -49,7 +36,26 @@ namespace Libraries.Modifiers
             return L.b.modifiers.classes["base"];
         }
         
+        public int CalcModi(int standard, Player player)
+        {
+            int proc = 0;//%
+            int val = 0;
+            
+            Check(player.Modi, player, ref val, ref proc);
+            Check(player.Nation().Modi, player, ref val, ref proc);
+            Check(GameMgmt.Get().gameRound.Modi(), player, ref val, ref proc);
+            
+            standard += (standard * proc) / 100;
+            standard += val;
+            return Math.Max(0,standard);
+        }
+        
         public int CalcModi(int standard, Player player, NVector pos)
+        {
+            return (int) CalcModi(Convert.ToDouble(standard), player, pos);
+        }
+        
+        public double CalcModi(double standard, Player player, NVector pos)
         {
             int proc = 0;
             int val = 0;

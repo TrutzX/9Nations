@@ -1,5 +1,6 @@
 using System;
 using Buildings;
+using Classes.Actions.Addons;
 using Game;
 using JetBrains.Annotations;
 using Libraries;
@@ -33,6 +34,12 @@ namespace Classes.Actions
         
         protected abstract void Perform(ActionEvent evt, Player player, [CanBeNull] MapElementInfo info, NVector pos,
             ActionHolder holder);
+
+        public virtual void Remove(ActionArgument arg)
+        {
+            //todo
+            throw new NotImplementedException();
+        }
 
         public void PerformCheck(ActionEvent evt, Player player, ActionHolder holder)
         {

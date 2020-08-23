@@ -21,8 +21,8 @@ namespace Players
         public override void ShowDetail(PanelBuilder panel)
         {
             panel.AddHeaderLabelT("general");
-            panel.AddSubLabel("Name",_player.name);
-            panel.AddSubLabel(L.b.nations.Name(),_player.Nation().Name());
+            panel.AddSubLabel("Name",_player.name, _player.Coat().Icon);
+            panel.AddSubLabel(L.b.nations.Name(),_player.Nation().Name(), _player.Nation().Icon);
             panel.AddSubLabel("Points",_player.points.ToString());
             panel.AddModi(S.Game().data.modi);
 

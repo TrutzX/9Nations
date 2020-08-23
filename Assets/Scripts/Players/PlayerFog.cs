@@ -22,12 +22,16 @@ namespace Players
     {
         [SerializeField] private List<bool[,]> visible;
         [NonSerialized] public List<TileMapConfig16> tileMap;
-        [SerializeField] private bool noFog;
+        public bool noFog;
 
         /// <summary>
         /// Create all 
         /// </summary>
         public PlayerFog()
+        {
+        }
+
+        public void Init()
         {
             noFog = !S.Fog();
             if (noFog) return;

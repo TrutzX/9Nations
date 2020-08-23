@@ -43,7 +43,10 @@ namespace Classes.Actions.Addons
         
         public override void Perform()
         {
-            go.Upgrade(build.id);
+            MaterialWindow.ShowBuildMaterialWindow(build, pos, cost =>
+            {
+                go.Upgrade(build.id, cost);
+            });
             OnMapUI.Get().UpdatePanel(pos);
         }
     }

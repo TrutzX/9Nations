@@ -39,10 +39,13 @@ namespace MainMenu
             yield return L.Init();
 
             yield return LSys.tem.Load.ShowMessage("Prepare main menu");
+            
+            Debug.Log($"Start main menu V{Application.version}-{Application.platform}");
+            
             version.text =
                 $"{Application.productName} V{Application.version}-{Application.platform} - {Application.companyName}";
-            warning.text = LSys.tem.helps["beta"].Desc.Replace(";;",Environment.NewLine);
-        
+            warning.text = LSys.tem.helps["beta"].Desc().Replace(";;",Environment.NewLine);
+            
             OptionHelper.RunStartOptions();
             
             L.b.gameButtons.BuildMenu(null, "title", null, true, panel.transform);
@@ -54,6 +57,7 @@ namespace MainMenu
             // first start?
             if (!PlayerPrefs.HasKey("lastVersion"))
             {
+                //todo dynamic
                 if (Application.platform == RuntimePlatform.Android)
                 {
                     new AndroidStartUp().Run();
@@ -77,7 +81,7 @@ namespace MainMenu
                     if (!help.req.Check(null)) continue;
                     
                     w.panel.AddHeaderLabel(help.Name());
-                    w.panel.RichText(help.Desc);
+                    w.panel.RichText(help.Desc());
                 }
                 w.AddClose();
                 w.Finish();

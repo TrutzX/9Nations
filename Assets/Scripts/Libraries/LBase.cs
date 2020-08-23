@@ -15,10 +15,17 @@ namespace Libraries
     [Serializable]
     public abstract class LBase
     {
-        protected readonly string file;
+        [SerializeField] protected string file;
         
         public Dictionary<string, IRead> mgmts;
 
+        /// <summary>
+        /// For save only
+        /// </summary>
+        public LBase() : this(null)
+        {
+        }
+        
         public LBase(string file)
         {
             this.file = file;

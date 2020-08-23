@@ -19,7 +19,7 @@ namespace Libraries.Crafts
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            panel.AddRes("Receipt", res);
+            panel.AddResT("craftReceipt", res);
             req.BuildPanel(panel,"Requirements");
         }
     }

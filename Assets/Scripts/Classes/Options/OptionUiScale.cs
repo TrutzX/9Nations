@@ -1,3 +1,4 @@
+using System;
 using IngameDebugConsole;
 using Libraries;
 using UnityEngine;
@@ -16,7 +17,14 @@ namespace Classes.Options
             }
             else
             {
-                scale = Screen.dpi > 160 ? 2 : 1;
+                scale = Screen.dpi > 160 || Screen.width >= 1920 ? 2 : 1;
+                LSys.tem.options[ID()].SetValue(((int) (scale * 10)).ToString());
+            }
+
+            if (scale <= 0)
+            {
+                scale = 1;
+                Debug.LogWarning($"ScaleFactor {scale} has the wrong value.");
             }
             
             GameObject.Find("UICanvas").GetComponent<CanvasScaler>().scaleFactor = scale;

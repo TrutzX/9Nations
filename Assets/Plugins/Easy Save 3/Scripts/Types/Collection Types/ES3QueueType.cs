@@ -17,7 +17,7 @@ namespace ES3Types
 			if(elementType == null)
 				throw new ArgumentNullException("ES3Type argument cannot be null.");
 
-			writer.StartWriteCollection(list.Count);
+			//writer.StartWriteCollection();
 
 			int i = 0;
 			foreach(object item in list)
@@ -28,12 +28,13 @@ namespace ES3Types
 				i++;
 			}
 
-			writer.EndWriteCollection();
+			//writer.EndWriteCollection();
 		}
 
 		public override object Read<T>(ES3Reader reader)
 		{
-			if(reader.StartReadCollection())
+            return Read(reader);
+			/*if(reader.StartReadCollection())
 				return null;
 
 			var queue = new Queue<T>();
@@ -49,7 +50,7 @@ namespace ES3Types
 			}
 
 			reader.EndReadCollection();
-			return queue;
+			return queue;*/
 		}
 
 		public override void ReadInto<T>(ES3Reader reader, object obj)
@@ -96,11 +97,11 @@ namespace ES3Types
 			// Iterate through each character until we reach the end of the array.
 			while(true)
 			{
-				if(!reader.StartReadCollectionItem())
+                if (!reader.StartReadCollectionItem())
 					break;
 				instance.Add(reader.Read<object>(elementType));
 
-				if(reader.EndReadCollectionItem())
+                if (reader.EndReadCollectionItem())
 					break;
 			}
 

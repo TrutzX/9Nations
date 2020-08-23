@@ -503,681 +503,681 @@ namespace ES3Types
 					case "globalIlluminationFlags":
 						instance.globalIlluminationFlags = reader.Read<UnityEngine.MaterialGlobalIlluminationFlags>();
 						break;
-				case "_Color":
-					instance.SetColor("_Color", reader.Read<Color>());
-					break;
-				case "_SpecColor":
-					instance.SetColor("_SpecColor", reader.Read<Color>());
-					break;
-				case "_Shininess":
-					instance.SetFloat("_Shininess", reader.Read<float>());
-					break;
-				case "_MainTex":
-					instance.SetTexture("_MainTex", reader.Read<Texture>());
-					break;
-				case "_MainTex_TextureOffset":
-					instance.SetTextureOffset("_MainTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_MainTex_TextureScale":
-					instance.SetTextureScale("_MainTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Illum":
-					instance.SetTexture("_Illum", reader.Read<Texture>());
-					break;
-				case "_Illum_TextureOffset":
-					instance.SetTextureOffset("_Illum_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Illum_TextureScale":
-					instance.SetTextureScale("_Illum_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_BumpMap":
-					instance.SetTexture("_BumpMap", reader.Read<Texture>());
-					break;
-				case "_BumpMap_TextureOffset":
-					instance.SetTextureOffset("_BumpMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_BumpMap_TextureScale":
-					instance.SetTextureScale("_BumpMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Emission":
-					instance.SetFloat("_Emission", reader.Read<float>());
-					break;
-				case "_Specular":
-					instance.SetColor("_Specular", reader.Read<Color>());
-					break;
-				case "_MainBump":
-					instance.SetTexture("_MainBump", reader.Read<Texture>());
-					break;
-				case "_MainBump_TextureOffset":
-					instance.SetTextureOffset("_MainBump_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_MainBump_TextureScale":
-					instance.SetTextureScale("_MainBump_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Mask":
-					instance.SetTexture("_Mask", reader.Read<Texture>());
-					break;
-				case "_Mask_TextureOffset":
-					instance.SetTextureOffset("_Mask_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Mask_TextureScale":
-					instance.SetTextureScale("_Mask_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Focus":
-					instance.SetFloat("_Focus", reader.Read<float>());
-					break;
-				case "_StencilComp":
-					instance.SetFloat("_StencilComp", reader.Read<float>());
-					break;
-				case "_Stencil":
-					instance.SetFloat("_Stencil", reader.Read<float>());
-					break;
-				case "_StencilOp":
-					instance.SetFloat("_StencilOp", reader.Read<float>());
-					break;
-				case "_StencilWriteMask":
-					instance.SetFloat("_StencilWriteMask", reader.Read<float>());
-					break;
-				case "_StencilReadMask":
-					instance.SetFloat("_StencilReadMask", reader.Read<float>());
-					break;
-				case "_ColorMask":
-					instance.SetFloat("_ColorMask", reader.Read<float>());
-					break;
-				case "_UseUIAlphaClip":
-					instance.SetFloat("_UseUIAlphaClip", reader.Read<float>());
-					break;
-				case "_SrcBlend":
-					instance.SetFloat("_SrcBlend", reader.Read<float>());
-					break;
-				case "_DstBlend":
-					instance.SetFloat("_DstBlend", reader.Read<float>());
-					break;
-				case "_ReflectColor":
-					instance.SetColor("_ReflectColor", reader.Read<Color>());
-					break;
-				case "_Cube":
-					instance.SetTexture("_Cube", reader.Read<Texture>());
-					break;
-				case "_Cube_TextureOffset":
-					instance.SetTextureOffset("_Cube_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Cube_TextureScale":
-					instance.SetTextureScale("_Cube_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Tint":
-					instance.SetColor("_Tint", reader.Read<Color>());
-					break;
-				case "_Exposure":
-					instance.SetFloat("_Exposure", reader.Read<float>());
-					break;
-				case "_Rotation":
-					instance.SetFloat("_Rotation", reader.Read<float>());
-					break;
-				case "_Tex":
-					instance.SetTexture("_Tex", reader.Read<Texture>());
-					break;
-				case "_Tex_TextureOffset":
-					instance.SetTextureOffset("_Tex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Tex_TextureScale":
-					instance.SetTextureScale("_Tex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_MainTex_Scale":
-					instance.SetTextureScale("_MainTex", reader.Read<Vector2>());
-					break;
-				case "_Control":
-					instance.SetTexture("_Control", reader.Read<Texture>());
-					break;
-				case "_Control_TextureOffset":
-					instance.SetTextureOffset("_Control_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Control_TextureScale":
-					instance.SetTextureScale("_Control_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Splat3":
-					instance.SetTexture("_Splat3", reader.Read<Texture>());
-					break;
-				case "_Splat3_TextureOffset":
-					instance.SetTextureOffset("_Splat3_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Splat3_TextureScale":
-					instance.SetTextureScale("_Splat3_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Splat2":
-					instance.SetTexture("_Splat2", reader.Read<Texture>());
-					break;
-				case "_Splat2_TextureOffset":
-					instance.SetTextureOffset("_Splat2_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Splat2_TextureScale":
-					instance.SetTextureScale("_Splat2_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Splat1":
-					instance.SetTexture("_Splat1", reader.Read<Texture>());
-					break;
-				case "_Splat1_TextureOffset":
-					instance.SetTextureOffset("_Splat1_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Splat1_TextureScale":
-					instance.SetTextureScale("_Splat1_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Splat0":
-					instance.SetTexture("_Splat0", reader.Read<Texture>());
-					break;
-				case "_Splat0_TextureOffset":
-					instance.SetTextureOffset("_Splat0_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Splat0_TextureScale":
-					instance.SetTextureScale("_Splat0_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Normal3":
-					instance.SetTexture("_Normal3", reader.Read<Texture>());
-					break;
-				case "_Normal3_TextureOffset":
-					instance.SetTextureOffset("_Normal3_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Normal3_TextureScale":
-					instance.SetTextureScale("_Normal3_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Normal2":
-					instance.SetTexture("_Normal2", reader.Read<Texture>());
-					break;
-				case "_Normal2_TextureOffset":
-					instance.SetTextureOffset("_Normal2_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Normal2_TextureScale":
-					instance.SetTextureScale("_Normal2_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Normal1":
-					instance.SetTexture("_Normal1", reader.Read<Texture>());
-					break;
-				case "_Normal1_TextureOffset":
-					instance.SetTextureOffset("_Normal1_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Normal1_TextureScale":
-					instance.SetTextureScale("_Normal1_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Normal0":
-					instance.SetTexture("_Normal0", reader.Read<Texture>());
-					break;
-				case "_Normal0_TextureOffset":
-					instance.SetTextureOffset("_Normal0_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Normal0_TextureScale":
-					instance.SetTextureScale("_Normal0_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Cutoff":
-					instance.SetFloat("_Cutoff", reader.Read<float>());
-					break;
-				case "_BaseLight":
-					instance.SetFloat("_BaseLight", reader.Read<float>());
-					break;
-				case "_AO":
-					instance.SetFloat("_AO", reader.Read<float>());
-					break;
-				case "_Occlusion":
-					instance.SetFloat("_Occlusion", reader.Read<float>());
-					break;
-				case "_TreeInstanceColor":
-					instance.SetVector("_TreeInstanceColor", reader.Read<Vector4>());
-					break;
-				case "_TreeInstanceScale":
-					instance.SetVector("_TreeInstanceScale", reader.Read<Vector4>());
-					break;
-				case "_SquashAmount":
-					instance.SetFloat("_SquashAmount", reader.Read<float>());
-					break;
-				case "_TranslucencyColor":
-					instance.SetColor("_TranslucencyColor", reader.Read<Color>());
-					break;
-				case "_TranslucencyViewDependency":
-					instance.SetFloat("_TranslucencyViewDependency", reader.Read<float>());
-					break;
-				case "_ShadowStrength":
-					instance.SetFloat("_ShadowStrength", reader.Read<float>());
-					break;
-				case "_ShadowOffsetScale":
-					instance.SetFloat("_ShadowOffsetScale", reader.Read<float>());
-					break;
-				case "_ShadowTex":
-					instance.SetTexture("_ShadowTex", reader.Read<Texture>());
-					break;
-				case "_ShadowTex_TextureOffset":
-					instance.SetTextureOffset("_ShadowTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_ShadowTex_TextureScale":
-					instance.SetTextureScale("_ShadowTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_BumpSpecMap":
-					instance.SetTexture("_BumpSpecMap", reader.Read<Texture>());
-					break;
-				case "_BumpSpecMap_TextureOffset":
-					instance.SetTextureOffset("_BumpSpecMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_BumpSpecMap_TextureScale":
-					instance.SetTextureScale("_BumpSpecMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_TranslucencyMap":
-					instance.SetTexture("_TranslucencyMap", reader.Read<Texture>());
-					break;
-				case "_TranslucencyMap_TextureOffset":
-					instance.SetTextureOffset("_TranslucencyMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_TranslucencyMap_TextureScale":
-					instance.SetTextureScale("_TranslucencyMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_LightMap":
-					instance.SetTexture("_LightMap", reader.Read<Texture>());
-					break;
-				case "_LightMap_TextureOffset":
-					instance.SetTextureOffset("_LightMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_LightMap_TextureScale":
-					instance.SetTextureScale("_LightMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DetailTex":
-					instance.SetTexture("_DetailTex", reader.Read<Texture>());
-					break;
-				case "_DetailTex_TextureOffset":
-					instance.SetTextureOffset("_DetailTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DetailTex_TextureScale":
-					instance.SetTextureScale("_DetailTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DetailBump":
-					instance.SetTexture("_DetailBump", reader.Read<Texture>());
-					break;
-				case "_DetailBump_TextureOffset":
-					instance.SetTextureOffset("_DetailBump_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DetailBump_TextureScale":
-					instance.SetTextureScale("_DetailBump_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Strength":
-					instance.SetFloat("_Strength", reader.Read<float>());
-					break;
-				case "_InvFade":
-					instance.SetFloat("_InvFade", reader.Read<float>());
-					break;
-				case "_EmisColor":
-					instance.SetColor("_EmisColor", reader.Read<Color>());
-					break;
-				case "_Parallax":
-					instance.SetFloat("_Parallax", reader.Read<float>());
-					break;
-				case "_ParallaxMap":
-					instance.SetTexture("_ParallaxMap", reader.Read<Texture>());
-					break;
-				case "_ParallaxMap_TextureOffset":
-					instance.SetTextureOffset("_ParallaxMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_ParallaxMap_TextureScale":
-					instance.SetTextureScale("_ParallaxMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DecalTex":
-					instance.SetTexture("_DecalTex", reader.Read<Texture>());
-					break;
-				case "_DecalTex_TextureOffset":
-					instance.SetTextureOffset("_DecalTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DecalTex_TextureScale":
-					instance.SetTextureScale("_DecalTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_GlossMap":
-					instance.SetTexture("_GlossMap", reader.Read<Texture>());
-					break;
-				case "_GlossMap_TextureOffset":
-					instance.SetTextureOffset("_GlossMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_GlossMap_TextureScale":
-					instance.SetTextureScale("_GlossMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_ShadowOffset":
-					instance.SetTexture("_ShadowOffset", reader.Read<Texture>());
-					break;
-				case "_ShadowOffset_TextureOffset":
-					instance.SetTextureOffset("_ShadowOffset_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_ShadowOffset_TextureScale":
-					instance.SetTextureScale("_ShadowOffset_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_SunDisk":
-					instance.SetFloat("_SunDisk", reader.Read<float>());
-					break;
-				case "_SunSize":
-					instance.SetFloat("_SunSize", reader.Read<float>());
-					break;
-				case "_AtmosphereThickness":
-					instance.SetFloat("_AtmosphereThickness", reader.Read<float>());
-					break;
-				case "_SkyTint":
-					instance.SetColor("_SkyTint", reader.Read<Color>());
-					break;
-				case "_GroundColor":
-					instance.SetColor("_GroundColor", reader.Read<Color>());
-					break;
-				case "_WireThickness":
-					instance.SetFloat("_WireThickness", reader.Read<float>());
-					break;
-				case "_ZWrite":
-					instance.SetFloat("_ZWrite", reader.Read<float>());
-					break;
-				case "_ZTest":
-					instance.SetFloat("_ZTest", reader.Read<float>());
-					break;
-				case "_Cull":
-					instance.SetFloat("_Cull", reader.Read<float>());
-					break;
-				case "_ZBias":
-					instance.SetFloat("_ZBias", reader.Read<float>());
-					break;
-				case "_HueVariation":
-					instance.SetColor("_HueVariation", reader.Read<Color>());
-					break;
-				case "_WindQuality":
-					instance.SetFloat("_WindQuality", reader.Read<float>());
-					break;
-				case "_DetailMask":
-					instance.SetTexture("_DetailMask", reader.Read<Texture>());
-					break;
-				case "_DetailMask_TextureOffset":
-					instance.SetTextureOffset("_DetailMask_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DetailMask_TextureScale":
-					instance.SetTextureScale("_DetailMask_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_MetallicTex":
-					instance.SetTexture("_MetallicTex", reader.Read<Texture>());
-					break;
-				case "_MetallicTex_TextureOffset":
-					instance.SetTextureOffset("_MetallicTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_MetallicTex_TextureScale":
-					instance.SetTextureScale("_MetallicTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Glossiness":
-					instance.SetFloat("_Glossiness", reader.Read<float>());
-					break;
-				case "_GlossMapScale":
-					instance.SetFloat("_GlossMapScale", reader.Read<float>());
-					break;
-				case "_SmoothnessTextureChannel":
-					instance.SetFloat("_SmoothnessTextureChannel", reader.Read<float>());
-					break;
-				case "_Metallic":
-					instance.SetFloat("_Metallic", reader.Read<float>());
-					break;
-				case "_MetallicGlossMap":
-					instance.SetTexture("_MetallicGlossMap", reader.Read<Texture>());
-					break;
-				case "_MetallicGlossMap_TextureOffset":
-					instance.SetTextureOffset("_MetallicGlossMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_MetallicGlossMap_TextureScale":
-					instance.SetTextureScale("_MetallicGlossMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_SpecularHighlights":
-					instance.SetFloat("_SpecularHighlights", reader.Read<float>());
-					break;
-				case "_GlossyReflections":
-					instance.SetFloat("_GlossyReflections", reader.Read<float>());
-					break;
-				case "_BumpScale":
-					instance.SetFloat("_BumpScale", reader.Read<float>());
-					break;
-				case "_OcclusionStrength":
-					instance.SetFloat("_OcclusionStrength", reader.Read<float>());
-					break;
-				case "_OcclusionMap":
-					instance.SetTexture("_OcclusionMap", reader.Read<Texture>());
-					break;
-				case "_OcclusionMap_TextureOffset":
-					instance.SetTextureOffset("_OcclusionMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_OcclusionMap_TextureScale":
-					instance.SetTextureScale("_OcclusionMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_EmissionColor":
-					instance.SetColor("_EmissionColor", reader.Read<Color>());
-					break;
-				case "_EmissionMap":
-					instance.SetTexture("_EmissionMap", reader.Read<Texture>());
-					break;
-				case "_EmissionMap_TextureOffset":
-					instance.SetTextureOffset("_EmissionMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_EmissionMap_TextureScale":
-					instance.SetTextureScale("_EmissionMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DetailAlbedoMap":
-					instance.SetTexture("_DetailAlbedoMap", reader.Read<Texture>());
-					break;
-				case "_DetailAlbedoMap_TextureOffset":
-					instance.SetTextureOffset("_DetailAlbedoMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DetailAlbedoMap_TextureScale":
-					instance.SetTextureScale("_DetailAlbedoMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DetailNormalMapScale":
-					instance.SetFloat("_DetailNormalMapScale", reader.Read<float>());
-					break;
-				case "_DetailNormalMap":
-					instance.SetTexture("_DetailNormalMap", reader.Read<Texture>());
-					break;
-				case "_DetailNormalMap_TextureOffset":
-					instance.SetTextureOffset("_DetailNormalMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DetailNormalMap_TextureScale":
-					instance.SetTextureScale("_DetailNormalMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_UVSec":
-					instance.SetFloat("_UVSec", reader.Read<float>());
-					break;
-				case "_Mode":
-					instance.SetFloat("_Mode", reader.Read<float>());
-					break;
-				case "_TintColor":
-					instance.SetColor("_TintColor", reader.Read<Color>());
-					break;
-				case "_WavingTint":
-					instance.SetColor("_WavingTint", reader.Read<Color>());
-					break;
-				case "_WaveAndDistance":
-					instance.SetVector("_WaveAndDistance", reader.Read<Vector4>());
-					break;
-				case "_LightTexture0":
-					instance.SetTexture("_LightTexture0", reader.Read<Texture>());
-					break;
-				case "_LightTexture0_TextureOffset":
-					instance.SetTextureOffset("_LightTexture0_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_LightTexture0_TextureScale":
-					instance.SetTextureScale("_LightTexture0_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_LightTextureB0":
-					instance.SetTexture("_LightTextureB0", reader.Read<Texture>());
-					break;
-				case "_LightTextureB0_TextureOffset":
-					instance.SetTextureOffset("_LightTextureB0_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_LightTextureB0_TextureScale":
-					instance.SetTextureScale("_LightTextureB0_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_ShadowMapTexture":
-					instance.SetTexture("_ShadowMapTexture", reader.Read<Texture>());
-					break;
-				case "_ShadowMapTexture_TextureOffset":
-					instance.SetTextureOffset("_ShadowMapTexture_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_ShadowMapTexture_TextureScale":
-					instance.SetTextureScale("_ShadowMapTexture_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_SecondTex":
-					instance.SetTexture("_SecondTex", reader.Read<Texture>());
-					break;
-				case "_SecondTex_TextureOffset":
-					instance.SetTextureOffset("_SecondTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_SecondTex_TextureScale":
-					instance.SetTextureScale("_SecondTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_ThirdTex":
-					instance.SetTexture("_ThirdTex", reader.Read<Texture>());
-					break;
-				case "_ThirdTex_TextureOffset":
-					instance.SetTextureOffset("_ThirdTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_ThirdTex_TextureScale":
-					instance.SetTextureScale("_ThirdTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "PixelSnap":
-					instance.SetFloat("PixelSnap", reader.Read<float>());
-					break;
-				case "_RendererColor":
-					instance.SetColor("_RendererColor", reader.Read<Color>());
-					break;
-				case "_Flip":
-					instance.SetVector("_Flip", reader.Read<Vector4>());
-					break;
-				case "_AlphaTex":
-					instance.SetTexture("_AlphaTex", reader.Read<Texture>());
-					break;
-				case "_AlphaTex_TextureOffset":
-					instance.SetTextureOffset("_AlphaTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_AlphaTex_TextureScale":
-					instance.SetTextureScale("_AlphaTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_EnableExternalAlpha":
-					instance.SetFloat("_EnableExternalAlpha", reader.Read<float>());
-					break;
-				case "_Level":
-					instance.SetFloat("_Level", reader.Read<float>());
-					break;
-				case "_SpecGlossMap":
-					instance.SetTexture("_SpecGlossMap", reader.Read<Texture>());
-					break;
-				case "_SpecGlossMap_TextureOffset":
-					instance.SetTextureOffset("_SpecGlossMap_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_SpecGlossMap_TextureScale":
-					instance.SetTextureScale("_SpecGlossMap_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_FrontTex":
-					instance.SetTexture("_FrontTex", reader.Read<Texture>());
-					break;
-				case "_FrontTex_TextureOffset":
-					instance.SetTextureOffset("_FrontTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_FrontTex_TextureScale":
-					instance.SetTextureScale("_FrontTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_BackTex":
-					instance.SetTexture("_BackTex", reader.Read<Texture>());
-					break;
-				case "_BackTex_TextureOffset":
-					instance.SetTextureOffset("_BackTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_BackTex_TextureScale":
-					instance.SetTextureScale("_BackTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_LeftTex":
-					instance.SetTexture("_LeftTex", reader.Read<Texture>());
-					break;
-				case "_LeftTex_TextureOffset":
-					instance.SetTextureOffset("_LeftTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_LeftTex_TextureScale":
-					instance.SetTextureScale("_LeftTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_RightTex":
-					instance.SetTexture("_RightTex", reader.Read<Texture>());
-					break;
-				case "_RightTex_TextureOffset":
-					instance.SetTextureOffset("_RightTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_RightTex_TextureScale":
-					instance.SetTextureScale("_RightTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_UpTex":
-					instance.SetTexture("_UpTex", reader.Read<Texture>());
-					break;
-				case "_UpTex_TextureOffset":
-					instance.SetTextureOffset("_UpTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_UpTex_TextureScale":
-					instance.SetTextureScale("_UpTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_DownTex":
-					instance.SetTexture("_DownTex", reader.Read<Texture>());
-					break;
-				case "_DownTex_TextureOffset":
-					instance.SetTextureOffset("_DownTex_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_DownTex_TextureScale":
-					instance.SetTextureScale("_DownTex_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_Metallic0":
-					instance.SetFloat("_Metallic0", reader.Read<float>());
-					break;
-				case "_Metallic1":
-					instance.SetFloat("_Metallic1", reader.Read<float>());
-					break;
-				case "_Metallic2":
-					instance.SetFloat("_Metallic2", reader.Read<float>());
-					break;
-				case "_Metallic3":
-					instance.SetFloat("_Metallic3", reader.Read<float>());
-					break;
-				case "_Smoothness0":
-					instance.SetFloat("_Smoothness0", reader.Read<float>());
-					break;
-				case "_Smoothness1":
-					instance.SetFloat("_Smoothness1", reader.Read<float>());
-					break;
-				case "_Smoothness2":
-					instance.SetFloat("_Smoothness2", reader.Read<float>());
-					break;
-				case "_Smoothness3":
-					instance.SetFloat("_Smoothness3", reader.Read<float>());
-					break;
-				case "_TexA":
-					instance.SetTexture("_TexA", reader.Read<Texture>());
-					break;
-				case "_TexA_TextureOffset":
-					instance.SetTextureOffset("_TexA_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_TexA_TextureScale":
-					instance.SetTextureScale("_TexA_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_TexB":
-					instance.SetTexture("_TexB", reader.Read<Texture>());
-					break;
-				case "_TexB_TextureOffset":
-					instance.SetTextureOffset("_TexB_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_TexB_TextureScale":
-					instance.SetTextureScale("_TexB_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_value":
-					instance.SetFloat("_value", reader.Read<float>());
-					break;
-				case "_Texel":
-					instance.SetFloat("_Texel", reader.Read<float>());
-					break;
-				case "_Detail":
-					instance.SetTexture("_Detail", reader.Read<Texture>());
-					break;
-				case "_Detail_TextureOffset":
-					instance.SetTextureOffset("_Detail_TextureOffset", reader.Read<Vector2>());
-					break;
-				case "_Detail_TextureScale":
-					instance.SetTextureScale("_Detail_TextureScale", reader.Read<Vector2>());
-					break;
-				case "_HalfOverCutoff":
-					instance.SetFloat("_HalfOverCutoff", reader.Read<float>());
-					break;
+				    case "_Color":
+					    instance.SetColor("_Color", reader.Read<Color>());
+					    break;
+				    case "_SpecColor":
+					    instance.SetColor("_SpecColor", reader.Read<Color>());
+					    break;
+				    case "_Shininess":
+					    instance.SetFloat("_Shininess", reader.Read<float>());
+					    break;
+				    case "_MainTex":
+					    instance.SetTexture("_MainTex", reader.Read<Texture>());
+					    break;
+				    case "_MainTex_TextureOffset":
+					    instance.SetTextureOffset("_MainTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_MainTex_TextureScale":
+					    instance.SetTextureScale("_MainTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Illum":
+					    instance.SetTexture("_Illum", reader.Read<Texture>());
+					    break;
+				    case "_Illum_TextureOffset":
+					    instance.SetTextureOffset("_Illum_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Illum_TextureScale":
+					    instance.SetTextureScale("_Illum_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_BumpMap":
+					    instance.SetTexture("_BumpMap", reader.Read<Texture>());
+					    break;
+				    case "_BumpMap_TextureOffset":
+					    instance.SetTextureOffset("_BumpMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_BumpMap_TextureScale":
+					    instance.SetTextureScale("_BumpMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Emission":
+					    instance.SetFloat("_Emission", reader.Read<float>());
+					    break;
+				    case "_Specular":
+					    instance.SetColor("_Specular", reader.Read<Color>());
+					    break;
+				    case "_MainBump":
+					    instance.SetTexture("_MainBump", reader.Read<Texture>());
+					    break;
+				    case "_MainBump_TextureOffset":
+					    instance.SetTextureOffset("_MainBump_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_MainBump_TextureScale":
+					    instance.SetTextureScale("_MainBump_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Mask":
+					    instance.SetTexture("_Mask", reader.Read<Texture>());
+					    break;
+				    case "_Mask_TextureOffset":
+					    instance.SetTextureOffset("_Mask_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Mask_TextureScale":
+					    instance.SetTextureScale("_Mask_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Focus":
+					    instance.SetFloat("_Focus", reader.Read<float>());
+					    break;
+				    case "_StencilComp":
+					    instance.SetFloat("_StencilComp", reader.Read<float>());
+					    break;
+				    case "_Stencil":
+					    instance.SetFloat("_Stencil", reader.Read<float>());
+					    break;
+				    case "_StencilOp":
+					    instance.SetFloat("_StencilOp", reader.Read<float>());
+					    break;
+				    case "_StencilWriteMask":
+					    instance.SetFloat("_StencilWriteMask", reader.Read<float>());
+					    break;
+				    case "_StencilReadMask":
+					    instance.SetFloat("_StencilReadMask", reader.Read<float>());
+					    break;
+				    case "_ColorMask":
+					    instance.SetFloat("_ColorMask", reader.Read<float>());
+					    break;
+				    case "_UseUIAlphaClip":
+					    instance.SetFloat("_UseUIAlphaClip", reader.Read<float>());
+					    break;
+				    case "_SrcBlend":
+					    instance.SetFloat("_SrcBlend", reader.Read<float>());
+					    break;
+				    case "_DstBlend":
+					    instance.SetFloat("_DstBlend", reader.Read<float>());
+					    break;
+				    case "_ReflectColor":
+					    instance.SetColor("_ReflectColor", reader.Read<Color>());
+					    break;
+				    case "_Cube":
+					    instance.SetTexture("_Cube", reader.Read<Texture>());
+					    break;
+				    case "_Cube_TextureOffset":
+					    instance.SetTextureOffset("_Cube_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Cube_TextureScale":
+					    instance.SetTextureScale("_Cube_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Tint":
+					    instance.SetColor("_Tint", reader.Read<Color>());
+					    break;
+				    case "_Exposure":
+					    instance.SetFloat("_Exposure", reader.Read<float>());
+					    break;
+				    case "_Rotation":
+					    instance.SetFloat("_Rotation", reader.Read<float>());
+					    break;
+				    case "_Tex":
+					    instance.SetTexture("_Tex", reader.Read<Texture>());
+					    break;
+				    case "_Tex_TextureOffset":
+					    instance.SetTextureOffset("_Tex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Tex_TextureScale":
+					    instance.SetTextureScale("_Tex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_MainTex_Scale":
+					    instance.SetTextureScale("_MainTex", reader.Read<Vector2>());
+					    break;
+				    case "_Control":
+					    instance.SetTexture("_Control", reader.Read<Texture>());
+					    break;
+				    case "_Control_TextureOffset":
+					    instance.SetTextureOffset("_Control_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Control_TextureScale":
+					    instance.SetTextureScale("_Control_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Splat3":
+					    instance.SetTexture("_Splat3", reader.Read<Texture>());
+					    break;
+				    case "_Splat3_TextureOffset":
+					    instance.SetTextureOffset("_Splat3_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Splat3_TextureScale":
+					    instance.SetTextureScale("_Splat3_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Splat2":
+					    instance.SetTexture("_Splat2", reader.Read<Texture>());
+					    break;
+				    case "_Splat2_TextureOffset":
+					    instance.SetTextureOffset("_Splat2_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Splat2_TextureScale":
+					    instance.SetTextureScale("_Splat2_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Splat1":
+					    instance.SetTexture("_Splat1", reader.Read<Texture>());
+					    break;
+				    case "_Splat1_TextureOffset":
+					    instance.SetTextureOffset("_Splat1_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Splat1_TextureScale":
+					    instance.SetTextureScale("_Splat1_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Splat0":
+					    instance.SetTexture("_Splat0", reader.Read<Texture>());
+					    break;
+				    case "_Splat0_TextureOffset":
+					    instance.SetTextureOffset("_Splat0_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Splat0_TextureScale":
+					    instance.SetTextureScale("_Splat0_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Normal3":
+					    instance.SetTexture("_Normal3", reader.Read<Texture>());
+					    break;
+				    case "_Normal3_TextureOffset":
+					    instance.SetTextureOffset("_Normal3_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Normal3_TextureScale":
+					    instance.SetTextureScale("_Normal3_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Normal2":
+					    instance.SetTexture("_Normal2", reader.Read<Texture>());
+					    break;
+				    case "_Normal2_TextureOffset":
+					    instance.SetTextureOffset("_Normal2_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Normal2_TextureScale":
+					    instance.SetTextureScale("_Normal2_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Normal1":
+					    instance.SetTexture("_Normal1", reader.Read<Texture>());
+					    break;
+				    case "_Normal1_TextureOffset":
+					    instance.SetTextureOffset("_Normal1_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Normal1_TextureScale":
+					    instance.SetTextureScale("_Normal1_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Normal0":
+					    instance.SetTexture("_Normal0", reader.Read<Texture>());
+					    break;
+				    case "_Normal0_TextureOffset":
+					    instance.SetTextureOffset("_Normal0_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Normal0_TextureScale":
+					    instance.SetTextureScale("_Normal0_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Cutoff":
+					    instance.SetFloat("_Cutoff", reader.Read<float>());
+					    break;
+				    case "_BaseLight":
+					    instance.SetFloat("_BaseLight", reader.Read<float>());
+					    break;
+				    case "_AO":
+					    instance.SetFloat("_AO", reader.Read<float>());
+					    break;
+				    case "_Occlusion":
+					    instance.SetFloat("_Occlusion", reader.Read<float>());
+					    break;
+				    case "_TreeInstanceColor":
+					    instance.SetVector("_TreeInstanceColor", reader.Read<Vector4>());
+					    break;
+				    case "_TreeInstanceScale":
+					    instance.SetVector("_TreeInstanceScale", reader.Read<Vector4>());
+					    break;
+				    case "_SquashAmount":
+					    instance.SetFloat("_SquashAmount", reader.Read<float>());
+					    break;
+				    case "_TranslucencyColor":
+					    instance.SetColor("_TranslucencyColor", reader.Read<Color>());
+					    break;
+				    case "_TranslucencyViewDependency":
+					    instance.SetFloat("_TranslucencyViewDependency", reader.Read<float>());
+					    break;
+				    case "_ShadowStrength":
+					    instance.SetFloat("_ShadowStrength", reader.Read<float>());
+					    break;
+				    case "_ShadowOffsetScale":
+					    instance.SetFloat("_ShadowOffsetScale", reader.Read<float>());
+					    break;
+				    case "_ShadowTex":
+					    instance.SetTexture("_ShadowTex", reader.Read<Texture>());
+					    break;
+				    case "_ShadowTex_TextureOffset":
+					    instance.SetTextureOffset("_ShadowTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_ShadowTex_TextureScale":
+					    instance.SetTextureScale("_ShadowTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_BumpSpecMap":
+					    instance.SetTexture("_BumpSpecMap", reader.Read<Texture>());
+					    break;
+				    case "_BumpSpecMap_TextureOffset":
+					    instance.SetTextureOffset("_BumpSpecMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_BumpSpecMap_TextureScale":
+					    instance.SetTextureScale("_BumpSpecMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_TranslucencyMap":
+					    instance.SetTexture("_TranslucencyMap", reader.Read<Texture>());
+					    break;
+				    case "_TranslucencyMap_TextureOffset":
+					    instance.SetTextureOffset("_TranslucencyMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_TranslucencyMap_TextureScale":
+					    instance.SetTextureScale("_TranslucencyMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_LightMap":
+					    instance.SetTexture("_LightMap", reader.Read<Texture>());
+					    break;
+				    case "_LightMap_TextureOffset":
+					    instance.SetTextureOffset("_LightMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_LightMap_TextureScale":
+					    instance.SetTextureScale("_LightMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DetailTex":
+					    instance.SetTexture("_DetailTex", reader.Read<Texture>());
+					    break;
+				    case "_DetailTex_TextureOffset":
+					    instance.SetTextureOffset("_DetailTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DetailTex_TextureScale":
+					    instance.SetTextureScale("_DetailTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DetailBump":
+					    instance.SetTexture("_DetailBump", reader.Read<Texture>());
+					    break;
+				    case "_DetailBump_TextureOffset":
+					    instance.SetTextureOffset("_DetailBump_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DetailBump_TextureScale":
+					    instance.SetTextureScale("_DetailBump_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Strength":
+					    instance.SetFloat("_Strength", reader.Read<float>());
+					    break;
+				    case "_InvFade":
+					    instance.SetFloat("_InvFade", reader.Read<float>());
+					    break;
+				    case "_EmisColor":
+					    instance.SetColor("_EmisColor", reader.Read<Color>());
+					    break;
+				    case "_Parallax":
+					    instance.SetFloat("_Parallax", reader.Read<float>());
+					    break;
+				    case "_ParallaxMap":
+					    instance.SetTexture("_ParallaxMap", reader.Read<Texture>());
+					    break;
+				    case "_ParallaxMap_TextureOffset":
+					    instance.SetTextureOffset("_ParallaxMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_ParallaxMap_TextureScale":
+					    instance.SetTextureScale("_ParallaxMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DecalTex":
+					    instance.SetTexture("_DecalTex", reader.Read<Texture>());
+					    break;
+				    case "_DecalTex_TextureOffset":
+					    instance.SetTextureOffset("_DecalTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DecalTex_TextureScale":
+					    instance.SetTextureScale("_DecalTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_GlossMap":
+					    instance.SetTexture("_GlossMap", reader.Read<Texture>());
+					    break;
+				    case "_GlossMap_TextureOffset":
+					    instance.SetTextureOffset("_GlossMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_GlossMap_TextureScale":
+					    instance.SetTextureScale("_GlossMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_ShadowOffset":
+					    instance.SetTexture("_ShadowOffset", reader.Read<Texture>());
+					    break;
+				    case "_ShadowOffset_TextureOffset":
+					    instance.SetTextureOffset("_ShadowOffset_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_ShadowOffset_TextureScale":
+					    instance.SetTextureScale("_ShadowOffset_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_SunDisk":
+					    instance.SetFloat("_SunDisk", reader.Read<float>());
+					    break;
+				    case "_SunSize":
+					    instance.SetFloat("_SunSize", reader.Read<float>());
+					    break;
+				    case "_AtmosphereThickness":
+					    instance.SetFloat("_AtmosphereThickness", reader.Read<float>());
+					    break;
+				    case "_SkyTint":
+					    instance.SetColor("_SkyTint", reader.Read<Color>());
+					    break;
+				    case "_GroundColor":
+					    instance.SetColor("_GroundColor", reader.Read<Color>());
+					    break;
+				    case "_WireThickness":
+					    instance.SetFloat("_WireThickness", reader.Read<float>());
+					    break;
+				    case "_ZWrite":
+					    instance.SetFloat("_ZWrite", reader.Read<float>());
+					    break;
+				    case "_ZTest":
+					    instance.SetFloat("_ZTest", reader.Read<float>());
+					    break;
+				    case "_Cull":
+					    instance.SetFloat("_Cull", reader.Read<float>());
+					    break;
+				    case "_ZBias":
+					    instance.SetFloat("_ZBias", reader.Read<float>());
+					    break;
+				    case "_HueVariation":
+					    instance.SetColor("_HueVariation", reader.Read<Color>());
+					    break;
+				    case "_WindQuality":
+					    instance.SetFloat("_WindQuality", reader.Read<float>());
+					    break;
+				    case "_DetailMask":
+					    instance.SetTexture("_DetailMask", reader.Read<Texture>());
+					    break;
+				    case "_DetailMask_TextureOffset":
+					    instance.SetTextureOffset("_DetailMask_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DetailMask_TextureScale":
+					    instance.SetTextureScale("_DetailMask_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_MetallicTex":
+					    instance.SetTexture("_MetallicTex", reader.Read<Texture>());
+					    break;
+				    case "_MetallicTex_TextureOffset":
+					    instance.SetTextureOffset("_MetallicTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_MetallicTex_TextureScale":
+					    instance.SetTextureScale("_MetallicTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Glossiness":
+					    instance.SetFloat("_Glossiness", reader.Read<float>());
+					    break;
+				    case "_GlossMapScale":
+					    instance.SetFloat("_GlossMapScale", reader.Read<float>());
+					    break;
+				    case "_SmoothnessTextureChannel":
+					    instance.SetFloat("_SmoothnessTextureChannel", reader.Read<float>());
+					    break;
+				    case "_Metallic":
+					    instance.SetFloat("_Metallic", reader.Read<float>());
+					    break;
+				    case "_MetallicGlossMap":
+					    instance.SetTexture("_MetallicGlossMap", reader.Read<Texture>());
+					    break;
+				    case "_MetallicGlossMap_TextureOffset":
+					    instance.SetTextureOffset("_MetallicGlossMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_MetallicGlossMap_TextureScale":
+					    instance.SetTextureScale("_MetallicGlossMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_SpecularHighlights":
+					    instance.SetFloat("_SpecularHighlights", reader.Read<float>());
+					    break;
+				    case "_GlossyReflections":
+					    instance.SetFloat("_GlossyReflections", reader.Read<float>());
+					    break;
+				    case "_BumpScale":
+					    instance.SetFloat("_BumpScale", reader.Read<float>());
+					    break;
+				    case "_OcclusionStrength":
+					    instance.SetFloat("_OcclusionStrength", reader.Read<float>());
+					    break;
+				    case "_OcclusionMap":
+					    instance.SetTexture("_OcclusionMap", reader.Read<Texture>());
+					    break;
+				    case "_OcclusionMap_TextureOffset":
+					    instance.SetTextureOffset("_OcclusionMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_OcclusionMap_TextureScale":
+					    instance.SetTextureScale("_OcclusionMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_EmissionColor":
+					    instance.SetColor("_EmissionColor", reader.Read<Color>());
+					    break;
+				    case "_EmissionMap":
+					    instance.SetTexture("_EmissionMap", reader.Read<Texture>());
+					    break;
+				    case "_EmissionMap_TextureOffset":
+					    instance.SetTextureOffset("_EmissionMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_EmissionMap_TextureScale":
+					    instance.SetTextureScale("_EmissionMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DetailAlbedoMap":
+					    instance.SetTexture("_DetailAlbedoMap", reader.Read<Texture>());
+					    break;
+				    case "_DetailAlbedoMap_TextureOffset":
+					    instance.SetTextureOffset("_DetailAlbedoMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DetailAlbedoMap_TextureScale":
+					    instance.SetTextureScale("_DetailAlbedoMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DetailNormalMapScale":
+					    instance.SetFloat("_DetailNormalMapScale", reader.Read<float>());
+					    break;
+				    case "_DetailNormalMap":
+					    instance.SetTexture("_DetailNormalMap", reader.Read<Texture>());
+					    break;
+				    case "_DetailNormalMap_TextureOffset":
+					    instance.SetTextureOffset("_DetailNormalMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DetailNormalMap_TextureScale":
+					    instance.SetTextureScale("_DetailNormalMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_UVSec":
+					    instance.SetFloat("_UVSec", reader.Read<float>());
+					    break;
+				    case "_Mode":
+					    instance.SetFloat("_Mode", reader.Read<float>());
+					    break;
+				    case "_TintColor":
+					    instance.SetColor("_TintColor", reader.Read<Color>());
+					    break;
+				    case "_WavingTint":
+					    instance.SetColor("_WavingTint", reader.Read<Color>());
+					    break;
+				    case "_WaveAndDistance":
+					    instance.SetVector("_WaveAndDistance", reader.Read<Vector4>());
+					    break;
+				    case "_LightTexture0":
+					    instance.SetTexture("_LightTexture0", reader.Read<Texture>());
+					    break;
+				    case "_LightTexture0_TextureOffset":
+					    instance.SetTextureOffset("_LightTexture0_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_LightTexture0_TextureScale":
+					    instance.SetTextureScale("_LightTexture0_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_LightTextureB0":
+					    instance.SetTexture("_LightTextureB0", reader.Read<Texture>());
+					    break;
+				    case "_LightTextureB0_TextureOffset":
+					    instance.SetTextureOffset("_LightTextureB0_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_LightTextureB0_TextureScale":
+					    instance.SetTextureScale("_LightTextureB0_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_ShadowMapTexture":
+					    instance.SetTexture("_ShadowMapTexture", reader.Read<Texture>());
+					    break;
+				    case "_ShadowMapTexture_TextureOffset":
+					    instance.SetTextureOffset("_ShadowMapTexture_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_ShadowMapTexture_TextureScale":
+					    instance.SetTextureScale("_ShadowMapTexture_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_SecondTex":
+					    instance.SetTexture("_SecondTex", reader.Read<Texture>());
+					    break;
+				    case "_SecondTex_TextureOffset":
+					    instance.SetTextureOffset("_SecondTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_SecondTex_TextureScale":
+					    instance.SetTextureScale("_SecondTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_ThirdTex":
+					    instance.SetTexture("_ThirdTex", reader.Read<Texture>());
+					    break;
+				    case "_ThirdTex_TextureOffset":
+					    instance.SetTextureOffset("_ThirdTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_ThirdTex_TextureScale":
+					    instance.SetTextureScale("_ThirdTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "PixelSnap":
+					    instance.SetFloat("PixelSnap", reader.Read<float>());
+					    break;
+				    case "_RendererColor":
+					    instance.SetColor("_RendererColor", reader.Read<Color>());
+					    break;
+				    case "_Flip":
+					    instance.SetVector("_Flip", reader.Read<Vector4>());
+					    break;
+				    case "_AlphaTex":
+					    instance.SetTexture("_AlphaTex", reader.Read<Texture>());
+					    break;
+				    case "_AlphaTex_TextureOffset":
+					    instance.SetTextureOffset("_AlphaTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_AlphaTex_TextureScale":
+					    instance.SetTextureScale("_AlphaTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_EnableExternalAlpha":
+					    instance.SetFloat("_EnableExternalAlpha", reader.Read<float>());
+					    break;
+				    case "_Level":
+					    instance.SetFloat("_Level", reader.Read<float>());
+					    break;
+				    case "_SpecGlossMap":
+					    instance.SetTexture("_SpecGlossMap", reader.Read<Texture>());
+					    break;
+				    case "_SpecGlossMap_TextureOffset":
+					    instance.SetTextureOffset("_SpecGlossMap_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_SpecGlossMap_TextureScale":
+					    instance.SetTextureScale("_SpecGlossMap_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_FrontTex":
+					    instance.SetTexture("_FrontTex", reader.Read<Texture>());
+					    break;
+				    case "_FrontTex_TextureOffset":
+					    instance.SetTextureOffset("_FrontTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_FrontTex_TextureScale":
+					    instance.SetTextureScale("_FrontTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_BackTex":
+					    instance.SetTexture("_BackTex", reader.Read<Texture>());
+					    break;
+				    case "_BackTex_TextureOffset":
+					    instance.SetTextureOffset("_BackTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_BackTex_TextureScale":
+					    instance.SetTextureScale("_BackTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_LeftTex":
+					    instance.SetTexture("_LeftTex", reader.Read<Texture>());
+					    break;
+				    case "_LeftTex_TextureOffset":
+					    instance.SetTextureOffset("_LeftTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_LeftTex_TextureScale":
+					    instance.SetTextureScale("_LeftTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_RightTex":
+					    instance.SetTexture("_RightTex", reader.Read<Texture>());
+					    break;
+				    case "_RightTex_TextureOffset":
+					    instance.SetTextureOffset("_RightTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_RightTex_TextureScale":
+					    instance.SetTextureScale("_RightTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_UpTex":
+					    instance.SetTexture("_UpTex", reader.Read<Texture>());
+					    break;
+				    case "_UpTex_TextureOffset":
+					    instance.SetTextureOffset("_UpTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_UpTex_TextureScale":
+					    instance.SetTextureScale("_UpTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_DownTex":
+					    instance.SetTexture("_DownTex", reader.Read<Texture>());
+					    break;
+				    case "_DownTex_TextureOffset":
+					    instance.SetTextureOffset("_DownTex_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_DownTex_TextureScale":
+					    instance.SetTextureScale("_DownTex_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_Metallic0":
+					    instance.SetFloat("_Metallic0", reader.Read<float>());
+					    break;
+				    case "_Metallic1":
+					    instance.SetFloat("_Metallic1", reader.Read<float>());
+					    break;
+				    case "_Metallic2":
+					    instance.SetFloat("_Metallic2", reader.Read<float>());
+					    break;
+				    case "_Metallic3":
+					    instance.SetFloat("_Metallic3", reader.Read<float>());
+					    break;
+				    case "_Smoothness0":
+					    instance.SetFloat("_Smoothness0", reader.Read<float>());
+					    break;
+				    case "_Smoothness1":
+					    instance.SetFloat("_Smoothness1", reader.Read<float>());
+					    break;
+				    case "_Smoothness2":
+					    instance.SetFloat("_Smoothness2", reader.Read<float>());
+					    break;
+				    case "_Smoothness3":
+					    instance.SetFloat("_Smoothness3", reader.Read<float>());
+					    break;
+				    case "_TexA":
+					    instance.SetTexture("_TexA", reader.Read<Texture>());
+					    break;
+				    case "_TexA_TextureOffset":
+					    instance.SetTextureOffset("_TexA_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_TexA_TextureScale":
+					    instance.SetTextureScale("_TexA_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_TexB":
+					    instance.SetTexture("_TexB", reader.Read<Texture>());
+					    break;
+				    case "_TexB_TextureOffset":
+					    instance.SetTextureOffset("_TexB_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_TexB_TextureScale":
+					    instance.SetTextureScale("_TexB_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_value":
+					    instance.SetFloat("_value", reader.Read<float>());
+					    break;
+				    case "_Texel":
+					    instance.SetFloat("_Texel", reader.Read<float>());
+					    break;
+				    case "_Detail":
+					    instance.SetTexture("_Detail", reader.Read<Texture>());
+					    break;
+				    case "_Detail_TextureOffset":
+					    instance.SetTextureOffset("_Detail_TextureOffset", reader.Read<Vector2>());
+					    break;
+				    case "_Detail_TextureScale":
+					    instance.SetTextureScale("_Detail_TextureScale", reader.Read<Vector2>());
+					    break;
+				    case "_HalfOverCutoff":
+					    instance.SetFloat("_HalfOverCutoff", reader.Read<float>());
+					    break;
 
 					default:
 						reader.Skip();

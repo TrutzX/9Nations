@@ -80,7 +80,7 @@ namespace ES3Types
                             }
                             catch(Exception e)
                             {
-                                Debug.LogError("Easy Save encountered an error when trying to load this Texture, please see the end of this messasge for the error. This is most likely because the Texture format of the instance we are loading into is different to the Texture we saved.\n"+e.ToString(), instance);
+                                ES3Internal.ES3Debug.LogError("Easy Save encountered an error when trying to load this Texture, please see the end of this messasge for the error. This is most likely because the Texture format of the instance we are loading into is different to the Texture we saved.\n"+e.ToString(), instance);
                             }
                         }
 						break;
@@ -104,7 +104,7 @@ namespace ES3Types
         protected bool IsReadable(Texture2D instance)
         {
             #if UNITY_2018_3_OR_NEWER
-            return instance.isReadable;
+            return instance != null && instance.isReadable;
             #else
             return true;
             #endif

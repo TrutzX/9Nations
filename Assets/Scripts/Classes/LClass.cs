@@ -17,6 +17,7 @@ using Libraries.GameButtons;
 using Libraries.MapGenerations;
 using Players;
 using Players.Kingdoms;
+using Players.PlayerTypes;
 using UnityEngine;
 
 namespace Classes
@@ -29,6 +30,7 @@ namespace Classes
         public Dictionary<string,BaseOverlay> overlaysRuns;
         private Dictionary<string,BaseGameButtonRun> _gameButtonRuns;
         public Dictionary<string,BaseMapGenerator> mapGenerators;
+        public Dictionary<string,BasePlayerType> playerTypes;
         private Dictionary<string,BaseNameGenerator> _nameGenerators;
         private Dictionary<string,BasePerformAction> _actions;
 
@@ -44,8 +46,10 @@ namespace Classes
             scenarioRuns = new Dictionary<string, IRun>();
             Add(scenarioRuns, new DebugScenario());
             Add(scenarioRuns, new EndlessGameScenario());
-            Add(scenarioRuns, new TutorialBasicScenario());
+            Add(scenarioRuns, new Tutorial1Scenario());
+            Add(scenarioRuns, new Tutorial2Scenario());
             Add(scenarioRuns, new PantheonScenario());
+            Add(scenarioRuns, new ScreenshotScenario());
         
             optionRuns = new Dictionary<string, IRun>();
             Add(optionRuns, CreateInstance<OptionAudioMusic>());
@@ -95,6 +99,9 @@ namespace Classes
             Add(CreateInstance<ActionUpgrade>());
             Add(CreateInstance<ActionClaim>());
             Add(CreateInstance<ActionImprovement>());
+            Add(CreateInstance<ActionStat>());
+            Add(CreateInstance<ActionModi>());
+            Add(CreateInstance<ActionChestOpen>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());
@@ -136,6 +143,9 @@ namespace Classes
             Add(CreateInstance<MoveLevelGameButtonRun>());
             Add(CreateInstance<OverlayGameButtonRun>());
             
+            playerTypes = new Dictionary<string, BasePlayerType>();
+            Add(new NaturePlayerType());
+            Add(new HumanPlayerType());
         }
 
         public string NameGenerator(string id, string include = null)
@@ -159,6 +169,11 @@ namespace Classes
         private void Add(BaseElementRun element)
         {
             elementRuns[element.id] = element;
+        }
+        
+        private void Add(BasePlayerType element)
+        {
+            playerTypes[element.id.ToString()] = element;
         }
         
         private void Add(Dictionary<string,IRun> holder, IRun run)

@@ -37,6 +37,8 @@ public class ES3Settings : System.ICloneable
                     if (oldSettings != null)
                     {
                         oldSettings.CopyInto(_defaultSettingsScriptableObject.settings);
+                        // Only enable warning logs by default for new installs as this may look like unexpected behaviour to some.
+                        _defaultSettingsScriptableObject.logWarnings = false;
                         RemoveOldSettings();
                     }
 
@@ -60,6 +62,17 @@ public class ES3Settings : System.ICloneable
                     _defaults = defaultSettingsScriptableObject.settings;
             }
             return _defaults;
+        }
+    }
+
+    private static ES3Settings _unencryptedUncompressedSettings = null; 
+    internal static ES3Settings unencryptedUncompressedSettings
+    {
+        get
+        {
+            if (_unencryptedUncompressedSettings == null)
+                _unencryptedUncompressedSettings = new ES3Settings(ES3.EncryptionType.None, ES3.CompressionType.None);
+            return _unencryptedUncompressedSettings;
         }
     }
 
@@ -87,18 +100,22 @@ public class ES3Settings : System.ICloneable
 	public string path = "SaveFile.es3";
 	/// <summary>The type of encryption to use when encrypting data, if any.</summary>
 	public ES3.EncryptionType encryptionType = ES3.EncryptionType.None;
-	/// <summary>The password to use when encrypting data.</summary>
-	public string encryptionPassword = "password";
+    /// <summary>The type of encryption to use when encrypting data, if any.</summary>
+	public ES3.CompressionType compressionType = ES3.CompressionType.None;
+    /// <summary>The password to use when encrypting data.</summary>
+    public string encryptionPassword = "password";
 	/// <summary>The default directory in which to store files, and the location which relative paths should be relative to.</summary>
 	public ES3.Directory directory = ES3.Directory.PersistentDataPath;
 	/// <summary>What format to use when serialising and deserialising data.</summary>
 	public ES3.Format format = ES3.Format.JSON;
-	/// <summary>Any stream buffers will be set to this length in bytes.</summary>
-	public int bufferSize = 2048;
+    /// <summary>Whether we want to pretty print JSON.</summary>
+	public bool prettyPrint = true;
+    /// <summary>Any stream buffers will be set to this length in bytes.</summary>
+    public int bufferSize = 2048;
 	/// <summary>The text encoding to use for text-based format. Note that changing this may invalidate previous save data.</summary>
 	public System.Text.Encoding encoding = System.Text.Encoding.UTF8;
 	// <summary>Whether we should serialise children when serialising a GameObject.</summary>
-	public bool saveChildren = false;
+	public bool saveChildren = true;
 	
 	/// <summary>Whether we should check that the data we are loading from a file matches the method we are using to load it.</summary>
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -114,8 +131,12 @@ public class ES3Settings : System.ICloneable
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public ES3.ReferenceMode referenceMode = ES3.ReferenceMode.ByRefAndValue;
 
-	/// <summary>The names of the Assemblies we should try to load our ES3Types from.</summary>
+    /// <summary>How many levels of hierarchy Easy Save will serialise. This is used to protect against cyclic references.</summary>
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    public int serializationDepthLimit = 64;
+
+    /// <summary>The names of the Assemblies we should try to load our ES3Types from.</summary>
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public string[] assemblyNames = new string[] { "Assembly-CSharp-firstpass", "Assembly-CSharp"};
 
     /// <summary>Gets the full, absolute path which this ES3Settings object identifies.</summary>
@@ -166,45 +187,55 @@ public class ES3Settings : System.ICloneable
 
     #region Constructors
 
-    /// <summary>Creates a new ES3Settings object.</summary>
-    public ES3Settings()
-    {
-        if (defaultSettings != null)
-            defaultSettings.CopyInto(this);
-    }
-
-    /// <summary>Creates a new ES3Settings object with the given path.</summary>
-    /// <param name="path">The path associated with this ES3Settings object.</param>
-    public ES3Settings(string path) : this()
-    {
-        this.path = path;
-    }
-
     /// <summary>Creates a new ES3Settings object with the given path.</summary>
     /// <param name="path">The path associated with this ES3Settings object.</param>
     /// <param name="settings">The settings we want to use to override the default settings.</param>
-    public ES3Settings(string path, ES3Settings settings)
+    public ES3Settings(string path = null, ES3Settings settings = null) : this(true)
     {
         // if there are settings to merge, merge them.
         if (settings != null)
             settings.CopyInto(this);
-        this.path = path;
+
+        if (path != null)
+            this.path = path;
+    }
+
+    /// <summary>Creates a new ES3Settings object with the given path.</summary>
+    /// <param name="path">The path associated with this ES3Settings object.</param>
+    /// <param name="enums">Accepts an ES3.EncryptionType, ES3.CompressionType, ES3.Location, ES3.Directory or ES3.ReferenceMode.</param>
+    public ES3Settings(string path, params System.Enum[] enums) : this(enums)
+    {
+        if (path != null)
+            this.path = path;
+    }
+
+
+    /// <summary>Creates a new ES3Settings object with the given path.</summary>
+    /// <param name="path">The path associated with this ES3Settings object.</param>
+    /// <param name="enums">Accepts an ES3.EncryptionType, ES3.CompressionType, ES3.Location, ES3.Directory or ES3.ReferenceMode.</param>
+    public ES3Settings(params System.Enum[] enums) : this(true)
+    {
+        foreach (var setting in enums)
+        {
+            if (setting is ES3.EncryptionType)
+                this.encryptionType = (ES3.EncryptionType)setting;
+            else if (setting is ES3.Location)
+                this.location = (ES3.Location)setting;
+            else if (setting is ES3.CompressionType)
+                this.compressionType = (ES3.CompressionType)setting;
+            else if (setting is ES3.ReferenceMode)
+                this.referenceMode = (ES3.ReferenceMode)setting;
+            else if (setting is ES3.Format)
+                this.format = (ES3.Format)setting;
+            else if (setting is ES3.Directory)
+                this.directory = (ES3.Directory)setting;
+        }
     }
 
     /// <summary>Creates a new ES3Settings object with the given encryption settings.</summary>
     /// <param name="encryptionType">The type of encryption to use, if any.</param>
     /// <param name="encryptionPassword">The password to use when encrypting data.</param>
-    public ES3Settings(ES3.EncryptionType encryptionType, string encryptionPassword) : this()
-    {
-        this.encryptionType = encryptionType;
-        this.encryptionPassword = encryptionPassword;
-    }
-
-    /// <summary>Creates a new ES3Settings object with the given path and encryption settings.</summary>
-    /// <param name="path">The path associated with this ES3Settings object.</param>
-    /// <param name="encryptionType">The type of encryption to use, if any.</param>
-    /// <param name="encryptionPassword">The password to use when encrypting data.</param>
-    public ES3Settings(string path, ES3.EncryptionType encryptionType, string encryptionPassword) : this(path)
+    public ES3Settings(ES3.EncryptionType encryptionType, string encryptionPassword) : this(true)
     {
         this.encryptionType = encryptionType;
         this.encryptionPassword = encryptionPassword;
@@ -215,7 +246,7 @@ public class ES3Settings : System.ICloneable
     /// <param name="encryptionType">The type of encryption to use, if any.</param>
     /// <param name="encryptionPassword">The password to use when encrypting data.</param>
     /// <param name="settings">The settings we want to use to override the default settings.</param>
-    public ES3Settings(string path, ES3.EncryptionType encryptionType, string encryptionPassword, ES3Settings settings) : this(path, settings)
+    public ES3Settings(string path, ES3.EncryptionType encryptionType, string encryptionPassword, ES3Settings settings = null) : this(path, settings)
     {
         this.encryptionType = encryptionType;
         this.encryptionPassword = encryptionPassword;
@@ -243,23 +274,24 @@ public class ES3Settings : System.ICloneable
         {
             string[] guids = AssetDatabase.FindAssets("ES3Window");
             if (guids.Length == 0)
-                Debug.LogError("Could not locate the Easy Save 3 folder because the ES3Window script has been moved or removed.");
+                ES3Debug.LogError("Could not locate the Easy Save 3 folder because the ES3Window script has been moved or removed.");
             if (guids.Length > 1)
-                Debug.LogError("Could not locate the Easy Save 3 folder because more than one ES3Window script exists in the project, but this needs to be unique to locate the folder.");
+                ES3Debug.LogError("Could not locate the Easy Save 3 folder because more than one ES3Window script exists in the project, but this needs to be unique to locate the folder.");
 
             pathToEasySaveFolder = AssetDatabase.GUIDToAssetPath(guids[0]).Split(new string[] { "Editor" }, System.StringSplitOptions.RemoveEmptyEntries)[0];
         }
         return pathToEasySaveFolder;
     }
 
-    public static string PathToDefaultSettings()
+    internal static string PathToDefaultSettings()
     {
         return PathToEasySaveFolder() + "Resources/"+defaultSettingsPath+".asset";
-    
     }
 
-    private static void CreateDefaultSettingsFolder()
+    internal static void CreateDefaultSettingsFolder()
     {
+        if (AssetDatabase.IsValidFolder(PathToEasySaveFolder() + "Resources/ES3"))
+            return;
         // Remove leading slash from PathToEasySaveFolder.
         AssetDatabase.CreateFolder(PathToEasySaveFolder().Remove(PathToEasySaveFolder().Length - 1, 1), "Resources");
         AssetDatabase.CreateFolder(PathToEasySaveFolder() + "Resources", "ES3");
@@ -308,9 +340,11 @@ public class ES3Settings : System.ICloneable
         newSettings._location = _location;
         newSettings.directory = directory;
         newSettings.format = format;
+        newSettings.prettyPrint = prettyPrint;
         newSettings.path = path;
         newSettings.encryptionType = encryptionType;
         newSettings.encryptionPassword = encryptionPassword;
+        newSettings.compressionType = compressionType;
         newSettings.bufferSize = bufferSize;
         newSettings.encoding = encoding;
         newSettings.typeChecking = typeChecking;
@@ -318,6 +352,7 @@ public class ES3Settings : System.ICloneable
         newSettings.memberReferenceMode = memberReferenceMode;
         newSettings.assemblyNames = assemblyNames;
         newSettings.saveChildren = saveChildren;
+        newSettings.serializationDepthLimit = serializationDepthLimit;
     }
 
     #endregion
@@ -333,8 +368,10 @@ public class ES3SerializableSettings : ES3Settings
 {
 	public ES3SerializableSettings() : base(false){}
 	public ES3SerializableSettings(bool applyDefaults) : base(applyDefaults){}
+    public ES3SerializableSettings(string path) : base(false) { this.path = path; }
+    public ES3SerializableSettings(string path, ES3.Location location) : base(false) { this.location = location; }
 
 #if UNITY_EDITOR
-	public bool showAdvancedSettings = false;
+    public bool showAdvancedSettings = false;
 #endif
 }

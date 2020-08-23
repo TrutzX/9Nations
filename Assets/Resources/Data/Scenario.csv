@@ -1,5 +1,8 @@
-id,hidden,icon,desc,category,map,req
-tutorialbasic,,!Icons/ui:tutorial,You learn to move your units and found a town and build some buildings.,tutorial,field6,
-debug,,debug,,single,field6mono,option=debug:true
-endless,true,,,single,,
-pantheon,,!Building/a:temple,Found your own religion,single,field6mono,
+id,hidden,icon,category,map,req
+tutorial1,,!Units/light:light_1,tutorial,field6,
+debug,,debug,single,field6mono,option=debug:true
+endless,true,,single,,
+pantheon,,!Building/a:temple,single,field6mono,
+screenshot,,logo,single,field6,option=debug:true
+tutorial2,,!Units/shadow:shadow_1,tutorial,field6,
+tutorial3,true,!Icons/magic:earth,tutorial,field6,

@@ -14,7 +14,8 @@ namespace Classes.Scenarios
 
         public void Run()
         {
-            //L.b.gameOptions["fog"].SetValue("false");
+            L.b.gameOptions["chestGen"].SetValue("true");
+            L.b.gameOptions["fog"].SetValue("false");
             
             int pid = S.Players().CreatePlayer("userx", "forger");
             S.Player(pid).elements.elements.Add("shadow");
@@ -39,7 +40,11 @@ namespace Classes.Scenarios
             S.Towns().Get(tid).AddRes("worker",50, ResType.Gift);
             S.Towns().Get(tid).AddRes("sand",50, ResType.Gift);
             S.Towns().Get(tid).AddRes("tool",50, ResType.Gift);
-
+            S.Towns().Get(tid).AddRes("telescope",2, ResType.Gift);
+            S.Towns().Get(tid).AddRes("swordc",2, ResType.Gift);
+            S.Towns().Get(tid).AddRes("shieldi",2, ResType.Gift);
+            S.Towns().Get(tid).AddRes("potionap",2, ResType.Gift);
+                
             S.Building().Create(tid, "stair", pos.DiffX(1));
             
             //UnitMgmt.Get().Create(pid, "light", GameMgmt.Get().newMap.tools.GetStartPos("north"));
@@ -68,6 +73,7 @@ namespace Classes.Scenarios
             S.Unit().Create(pid, "geologist", p1.DiffX(1)).FinishConstruct();
             S.Building().Create(tid, "mine", p1).FinishConstruct();
 
+            
             pid = S.Players().CreatePlayer("usery", "north");
             
             /*UnitMgmt.Get().Create(pid,"nking", new NVector(13,10,GameMgmt.Get().data.map.standard));

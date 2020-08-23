@@ -18,6 +18,7 @@ using Libraries.GameButtons;
 using Libraries.GameOptions;
 using Libraries.Icons;
 using Libraries.Inputs;
+using Libraries.Items;
 using Libraries.MapGenerations;
 using Libraries.Maps;
 using Libraries.Modifiers;
@@ -37,7 +38,6 @@ using Maps;
 using ModIO;
 using Newtonsoft.Json.Utilities;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
  
 namespace Libraries
@@ -52,6 +52,7 @@ namespace Libraries
         public NationMgmt nations;
         public ImprovementMgmt improvements;
         public ElementMgmt elements;
+        
         public RoundMgmt rounds;
         public DataBuildingMgmt buildings;
         public DataUnitMgmt units;
@@ -67,6 +68,7 @@ namespace Libraries
         public OverlayMgmt overlays;
         public CraftMgmt crafts;
         public CoatMgmt coats;
+        public ItemMgmt items;
         
         /// <summary>
         /// For save only
@@ -114,6 +116,7 @@ namespace Libraries
             crafts = (CraftMgmt) Add(new CraftMgmt());
             overlays = (OverlayMgmt) Add(new OverlayMgmt());
             coats = (CoatMgmt) Add(new CoatMgmt());
+            items = (ItemMgmt) Add(new ItemMgmt());
             
             yield return base.Loading();
         }

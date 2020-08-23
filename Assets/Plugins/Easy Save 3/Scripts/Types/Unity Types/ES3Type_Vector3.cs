@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("x", "y", "z")]
+	[ES3Properties("x", "y", "z")]
 	public class ES3Type_Vector3 : ES3Type
 	{
 		public static ES3Type Instance = null;

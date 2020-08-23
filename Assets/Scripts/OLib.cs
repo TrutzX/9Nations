@@ -76,6 +76,7 @@ public class OLib : ScriptableObject
         AddReq("upgrade", CreateInstance<ReqUpgradeCan>());
         AddReq("upgradeField", CreateInstance<ReqUpgradeField>());
         AddReq("frontier", CreateInstance<ReqFrontier>());
+        AddReq("stat", CreateInstance<ReqStat>());
     }
 
     private static void AddReq(string id, BaseReq action)

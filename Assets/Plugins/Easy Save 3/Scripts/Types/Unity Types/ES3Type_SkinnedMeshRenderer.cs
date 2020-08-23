@@ -90,7 +90,7 @@ namespace ES3Types
 					case "receiveShadows":
 						instance.receiveShadows = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
-					case "materials":
+					case "sharedMaterials":
 						instance.sharedMaterials = reader.Read<UnityEngine.Material[]>();
 						break;
 					case "lightmapIndex":
@@ -133,7 +133,7 @@ namespace ES3Types
                         var blendShapeWeights = reader.Read<System.Single[]>(ES3Type_floatArray.Instance);
                         if (instance.sharedMesh == null) break;
                         if (blendShapeWeights.Length != instance.sharedMesh.blendShapeCount)
-                            UnityEngine.Debug.LogError("The number of blend shape weights we are loading does not match the number of blend shapes in this SkinnedMeshRenderer's Mesh");
+                            ES3Internal.ES3Debug.LogError("The number of blend shape weights we are loading does not match the number of blend shapes in this SkinnedMeshRenderer's Mesh");
                         for (int i = 0; i < blendShapeWeights.Length; i++)
                             instance.SetBlendShapeWeight(i, blendShapeWeights[i]);
                         break;

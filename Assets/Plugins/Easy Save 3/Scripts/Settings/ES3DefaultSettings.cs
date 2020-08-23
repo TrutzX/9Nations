@@ -7,7 +7,6 @@ namespace ES3Internal
 		[SerializeField]
 		public ES3SerializableSettings settings = null;
 
-		public bool addMgrToSceneAutomatically = true;
 		public bool autoUpdateReferences = true;
 	}
 }

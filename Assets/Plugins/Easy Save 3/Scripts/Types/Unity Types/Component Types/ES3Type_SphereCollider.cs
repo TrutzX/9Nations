@@ -3,7 +3,7 @@ using System;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("center", "radius", "enabled", "isTrigger", "contactOffset", "material")]
+	[ES3PropertiesAttribute("center", "radius", "enabled", "isTrigger", "contactOffset", "sharedMaterial")]
 	public class ES3Type_SphereCollider : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -22,7 +22,7 @@ namespace ES3Types
 			writer.WriteProperty("enabled", instance.enabled, ES3Type_bool.Instance);
 			writer.WriteProperty("isTrigger", instance.isTrigger, ES3Type_bool.Instance);
 			writer.WriteProperty("contactOffset", instance.contactOffset, ES3Type_float.Instance);
-			writer.WritePropertyByRef("material", instance.material);
+			writer.WritePropertyByRef("material", instance.sharedMaterial);
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -48,7 +48,7 @@ namespace ES3Types
 						instance.contactOffset = reader.Read<System.Single>(ES3Type_float.Instance);
 						break;
 					case "material":
-						instance.material = reader.Read<UnityEngine.PhysicMaterial>();
+                        instance.sharedMaterial = reader.Read<UnityEngine.PhysicMaterial>();
 						break;
 					default:
 						reader.Skip();

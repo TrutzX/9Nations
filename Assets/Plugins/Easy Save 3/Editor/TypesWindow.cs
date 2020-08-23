@@ -140,11 +140,13 @@ namespace ES3Editor
 			EditorGUILayout.BeginVertical(style.area);
 
 			bool hasParameterlessConstructor = ES3Reflection.HasParameterlessConstructor(type);
-			string path = GetOutputPath(types[selectedType].type);
+            bool isComponent = ES3Reflection.IsAssignableFrom(typeof(Component), type);
+
+            string path = GetOutputPath(types[selectedType].type);
 			// An ES3Type file already exists.
 			if(File.Exists(path))
 			{
-				if(hasParameterlessConstructor)
+				if(hasParameterlessConstructor || isComponent)
 				{
 					EditorGUILayout.BeginHorizontal();
 					if(GUILayout.Button("Reset to Default"))
@@ -173,7 +175,7 @@ namespace ES3Editor
 			// No ES3Type file and no fields.
 			else if(fields.Length == 0)
 			{
-				if(!hasParameterlessConstructor)
+				if(!hasParameterlessConstructor && !isComponent)
 					EditorGUILayout.HelpBox("This type has no public parameterless constructors.\n\nTo support this type you will need to create an ES3Type script and modify it to use a specific constructor instead of the parameterless constructor.", MessageType.Info);
 				
 				if(GUILayout.Button("Create ES3Type Script"))
@@ -182,7 +184,7 @@ namespace ES3Editor
 			// No ES3Type file, but fields are selectable.
 			else
 			{
-				if(!hasParameterlessConstructor)
+				if(!hasParameterlessConstructor && !isComponent)
 				{
 					EditorGUILayout.HelpBox("This type has no public parameterless constructors.\n\nTo support this type you will need to select the fields you wish to serialize below, and then modify the generated ES3Type script to use a specific constructor instead of the parameterless constructor.", MessageType.Info);
 					if(GUILayout.Button("Select all fields and generate ES3Type script"))
@@ -342,11 +344,20 @@ namespace ES3Editor
 
 		private void PerformSearch(string query)
 		{
-			bool emptyQuery = string.IsNullOrEmpty(query);
+            var lowerCaseQuery = query.ToLowerInvariant();
+			var emptyQuery = string.IsNullOrEmpty(query);
 
 			for(int i=0; i<types.Length; i++)
-				types[i].showInList = (emptyQuery || types[i].name.Contains(query));
+				types[i].showInList = (emptyQuery || types[i].lowercaseName.Contains(lowerCaseQuery));
 		}
+
+        public void SelectType(Type type)
+        {
+            Init();
+            for (int i = 0; i < types.Length; i++)
+                if (types[i].type == type)
+                    SelectType(i);
+        }
 
 		private void SelectType(int typeIndex)
 		{
@@ -598,15 +609,15 @@ namespace ES3Editor
 				string writeByRef = ES3Reflection.IsAssignableFrom(typeof(UnityEngine.Object), field.MemberType) ? "ByRef" : "";
 				string es3TypeParam = HasExplicitES3Type(es3Type) && writeByRef == "" ? ", "+es3Type.GetType().Name+".Instance" : "";
 				// If this is static, access the field through the class name rather than through an instance.
-				string instance = (field.IsStatic) ? GetFullTypeName(field.MemberType) : "instance";
+				string instance = (field.IsStatic) ? GetFullTypeName(type) : "instance";
 
 				if(!field.IsPublic)
 				{
 					string memberType = field.isProperty ? "Property" : "Field";
-					writes += String.Format("\n\t\t\twriter.WritePrivate{2}{1}(\"{0}\", instance);", field.Name, writeByRef, memberType);
+					writes += String.Format("\r\n\t\t\twriter.WritePrivate{2}{1}(\"{0}\", instance);", field.Name, writeByRef, memberType);
 				}
 				else
-					writes += String.Format("\n\t\t\twriter.WriteProperty{1}(\"{0}\", {3}.{0}{2});", field.Name, writeByRef, es3TypeParam, instance);
+					writes += String.Format("\r\n\t\t\twriter.WriteProperty{1}(\"{0}\", {3}.{0}{2});", field.Name, writeByRef, es3TypeParam, instance);
 			}
 			return writes;
 		}
@@ -628,26 +639,26 @@ namespace ES3Editor
 				string fieldTypeName = GetFullTypeName(field.MemberType);
 				string es3TypeParam = HasExplicitES3Type(field.MemberType) ? ES3TypeMgr.GetES3Type(field.MemberType).GetType().Name+".Instance" : "";
 				// If this is static, access the field through the class name rather than through an instance.
-				string instance = (field.IsStatic) ? GetFullTypeName(field.MemberType) : "instance";
+				string instance = (field.IsStatic) ? GetFullTypeName(type) : "instance";
 
 				// If we're writing a private field or property, we need to write it using a different method.
 				if(!field.IsPublic)
 				{
 					es3TypeParam = ", " + es3TypeParam;
 					if(field.isProperty)
-						reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\treader.SetPrivateProperty(\"{0}\", reader.Read<{1}>(), instance);\n\t\t\t\t\tbreak;", field.Name, fieldTypeName);
+						reads += String.Format("\r\n\t\t\t\t\tcase \"{0}\":\r\n\t\t\t\t\treader.SetPrivateProperty(\"{0}\", reader.Read<{1}>(), instance);\r\n\t\t\t\t\tbreak;", field.Name, fieldTypeName);
 					else
-						reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\treader.SetPrivateField(\"{0}\", reader.Read<{1}>(), instance);\n\t\t\t\t\tbreak;", field.Name, fieldTypeName);
+						reads += String.Format("\r\n\t\t\t\t\tcase \"{0}\":\r\n\t\t\t\t\treader.SetPrivateField(\"{0}\", reader.Read<{1}>(), instance);\r\n\t\t\t\t\tbreak;", field.Name, fieldTypeName);
 				}
 				else
-					reads += String.Format("\n\t\t\t\t\tcase \"{0}\":\n\t\t\t\t\t\t{3}.{0} = reader.Read<{1}>({2});\n\t\t\t\t\t\tbreak;", field.Name, fieldTypeName, es3TypeParam, instance);
+					reads += String.Format("\r\n\t\t\t\t\tcase \"{0}\":\r\n\t\t\t\t\t\t{3}.{0} = reader.Read<{1}>({2});\r\n\t\t\t\t\t\tbreak;", field.Name, fieldTypeName, es3TypeParam, instance);
 			}
 			return reads;
 		}
 
 		private string GetOutputPath(Type type)
 		{
-			return Application.dataPath + "/Easy Save 3/Types/ES3Type_"+type.Name+".cs";
+			return Application.dataPath + "/Easy Save 3/Types/ES3UserType_"+type.Name+".cs";
 		}
 
 		/* Gets the full Type name, replacing any syntax (such as '+') with a dot to make it a valid type name */
@@ -693,6 +704,7 @@ namespace ES3Editor
 		public class TypeListItem
 		{
 			public string name;
+            public string lowercaseName;
 			public string namespaceName;
 			public Type type;
 			public bool showInList;
@@ -701,6 +713,7 @@ namespace ES3Editor
 			public TypeListItem(string name, string namespaceName, Type type, bool showInList, bool hasExplicitES3Type)
 			{
 				this.name = name;
+                this.lowercaseName = name.ToLowerInvariant();
 				this.namespaceName = namespaceName;
 				this.type = type;
 				this.showInList = showInList;

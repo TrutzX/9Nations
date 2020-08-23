@@ -30,7 +30,14 @@ namespace ES3Editor
 			}
 			#endif
 		
-			Undo.AddComponent<ES3Prefab>(go);
+			var es3Prefab = Undo.AddComponent<ES3Prefab>(go);
+            es3Prefab.GeneratePrefabReferences();
+
+            if (ES3ReferenceMgr.Current != null)
+            {
+                ES3ReferenceMgr.Current.AddPrefab(es3Prefab);
+                EditorUtility.SetDirty(ES3ReferenceMgr.Current);
+            }
 		}
 
 		[MenuItem("GameObject/Easy Save 3/Enable Easy Save for Prefab", true, 1001)]

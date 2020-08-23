@@ -23,7 +23,6 @@ namespace UI
                 middle();
             else if (right != null && eventData.button == PointerEventData.InputButton.Right)
             {
-                Debug.Log("Right click");
                 right();
             }
                 

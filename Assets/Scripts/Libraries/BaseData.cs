@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Game;
 using Players;
 using reqs;
@@ -12,8 +13,8 @@ namespace Libraries
     public class BaseData
     {
         public string id;
+        public string desc;
         public string Icon;
-        public string Desc;
         public string Sound;
         public bool Hidden;
         public string category;
@@ -24,6 +25,15 @@ namespace Libraries
             Sound = "click";
             Icon = "logo";
             req = new ReqHolder();
+        }
+
+        public void Id(string nid)
+        {
+            if (!string.IsNullOrEmpty(id))
+                throw new InvalidDataException("can not set id again");
+
+            id = nid;
+            desc = id + "Desc";
         }
         
         public void AddImageLabel(PanelBuilder panel)
@@ -40,8 +50,13 @@ namespace Libraries
         public void AddSubLabel(PanelBuilder panel, int count, string header=null, string display=null)
         {
             if (string.IsNullOrEmpty(display)) display = count.ToString();
-            var text = string.IsNullOrEmpty(header) ? display : S.T("plural", S.T(header,count), display);
+            var text = Plural(count, header, display);
             panel.AddSubLabel(Name(),text, Sprite());
+        }
+
+        public string Plural(int count, string header=null, string display=null)
+        {
+            return string.IsNullOrEmpty(header) ? display : S.T("plural", S.T(header,count), display); ;
         }
 
         /// <summary>
@@ -51,6 +66,15 @@ namespace Libraries
         public virtual string Name()
         {
             return S.T(id);
+        }
+
+        /// <summary>
+        /// Return the translated name
+        /// </summary>
+        /// <returns></returns>
+        public virtual string Desc()
+        {
+            return LSys.tem.translations.ContainsKey(desc) ? S.T(desc) : null;
         }
 
         public virtual Sprite Sprite()
@@ -66,7 +90,7 @@ namespace Libraries
         public virtual void ShowLexicon(PanelBuilder panel)
         {
             AddImageLabel(panel);
-            panel.RichText(Desc);
+            panel.RichText(Desc());
         }
     }
 }

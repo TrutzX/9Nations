@@ -8,5 +8,11 @@ namespace Libraries.Usages
     public class Usage : BaseData
     {
         public float rate;
+        public int factor;
+
+        public Usage()
+        {
+            factor = 1;
+        }
     }
 }

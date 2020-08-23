@@ -3,3 +3,6 @@ research,general,true,bool,,
 fog,general,true,bool,,
 buildTime,general;modi,0,scale=0;500,option=advanced:true,disabled
 produce,general;modi,0,scale=0;500,option=advanced:true,disabled
+chestGen,general,false,bool,,
+usageTown,general,true,bool,,
+inhabitantGrow,general,true,bool,,

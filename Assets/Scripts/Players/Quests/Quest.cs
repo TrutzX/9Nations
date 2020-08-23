@@ -31,7 +31,7 @@ namespace Players.Quests
         
         public Quest(string id, string name, string icon)
         {
-            this.id = id;
+            Id(id);
             this.name = name;
             Icon = icon;
             
@@ -77,7 +77,7 @@ namespace Players.Quests
                     //inform player
                     Info i = new Info(name, Icon);
                     if (main)
-                        i.Important(Desc);
+                        i.Important(desc);
                     player.info.Add(i);
                 }
                 else
@@ -96,13 +96,19 @@ namespace Players.Quests
             }
         }
         
+        public override string Name()
+        {
+            return name;
+        }
+        
         public void ShowInfo(PanelBuilder panel, Player player = null)
         {
-            ShowLexicon(panel);
+            AddImageLabel(panel);
+            panel.RichText(desc);
             panel.AddSubLabel("Status", (IsFinish() ? "Finish":"In Progress"),IsFinish() ?"yes":"round");
             
             reqs.BuildPanel(panel, "Requirement", player);
-            actions.BuildPanel(panel, "Actions", new ActionDisplaySettings(panel,null));
+            actions.BuildPanelT(new ActionDisplaySettings(panel,null));
         }
     }
 }

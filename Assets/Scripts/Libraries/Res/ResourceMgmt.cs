@@ -18,8 +18,20 @@ namespace Libraries.Res
                 case "weight":
                     ele.weight = Float(data);
                     break;
+                case "hp":
+                    ele.hp = Float(data);
+                    break;
+                case "ap":
+                    ele.ap = Float(data);
+                    break;
+                case "modi":
+                    Delimiter(ele.modi, data);
+                    break;
                 case "special":
                     ele.special = Bool(data);
+                    break;
+                case "combine":
+                    ele.combine = data;
                     break;
                 case "overlay":
                     ele.overlay.Add(data);

@@ -62,7 +62,15 @@ namespace Classes.Actions
 
             ResType r = evt == ActionEvent.NextRound ? ResType.Produce :
                 evt == ActionEvent.FinishConstruct ? ResType.Construction : ResType.Gift;
-            info.Town().AddRes(res, val, r);
+
+            double v = val;
+            //add modi?
+            if (r == ResType.Produce && val > 0)
+            {
+                v = L.b.modifiers[C.ProduceModi].CalcModi(v, info.Player(), info.Pos());
+            }
+            
+            info.Town().AddRes(res, v, r);
             return true;
         }
 

@@ -5,6 +5,7 @@ using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using Tools;
 using UI;
 
 namespace Players.Infos
@@ -44,6 +45,12 @@ namespace Players.Infos
             return this;
         }
 
+        public Info CameraMove(NVector pos)
+        {
+            AddAction("cameraMove",$"{pos.level};{pos.x};{pos.y}");
+            return this;
+        }
+
         public Info Important(string desc)
         {
             this.desc = desc;
@@ -66,6 +73,7 @@ namespace Players.Infos
         public void CallAction()
         {
             action.Perform(ActionEvent.Direct, S.ActPlayer());
+            read = true;
         }
         
         public void AddToPanel(PanelBuilder panel)

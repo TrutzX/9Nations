@@ -20,6 +20,7 @@ namespace Classes.Actions.Addons
         public ActionTradeWindow(Town town, string sett)
         {
             _town = town;
+            BuildWindow(sett);
         }
         
         private void BuildWindow(string settings)

@@ -40,6 +40,7 @@
 * by Kenney from kenney.nl/assets/
 * by spuispuin from opengameart.org/content/won-orchestral-winning-jingle
 * by qubodup from opengameart.org/content/3-background-crash-explosion-bang-sounds
+* by spookymodem from opengameart.org/content/open-chest
 
 # Music
 * by tob from RTP-Tunes

@@ -19,7 +19,7 @@ namespace Classes.Actions.Addons
             int round = (int) Math.Ceiling((1f * da.cost - info.data.ap) / info.data.apMax);
 
             WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Wait for {da.Name()}?");
-            wpb.panel.AddLabel(da.Desc);
+            wpb.panel.RichText(da.Desc());
             wpb.panel.AddImageLabel($"Action {da.Name()} need {da.cost - info.data.ap} AP more. You can wait {round} rounds.",
                 "round");
             wpb.panel.AddButton($"Wait {round} rounds", () =>

@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ES3Internal;
+using System.Linq;
 
 namespace ES3Types
 {
@@ -20,6 +22,7 @@ namespace ES3Types
 		public bool isES3TypeUnityObject = false;
 		public bool isReflectedType = false;
 		public bool isUnsupported = false;
+        public int priority = 0;
 
 		protected ES3Type(Type type)
 		{
@@ -80,9 +83,9 @@ namespace ES3Types
 
 		protected object ReadProperties(ES3Reader reader, object obj)
 		{
-			// Iterate through each property in the file and try to load it using the appropriate
-			// ES3Member in the members array.
-			foreach(string propertyName in reader.Properties)
+            // Iterate through each property in the file and try to load it using the appropriate
+            // ES3Member in the members array.
+            foreach (string propertyName in reader.Properties)
 			{
 				// Find the property.
 				ES3Member property = null;
@@ -95,15 +98,56 @@ namespace ES3Types
 					}
 				}
 
-				if(property == null)
+                // If this is a class which derives directly from a Collection, we need to load it's dictionary first.
+                if(propertyName == "_Values")
+                {
+                    var baseType = ES3TypeMgr.GetOrCreateES3Type(ES3Reflection.BaseType(obj.GetType()));
+                    if(baseType.isDictionary)
+                    {
+                        var dict = (IDictionary)obj;
+                        var loaded = (IDictionary)baseType.Read<IDictionary>(reader);
+                        foreach (DictionaryEntry kvp in loaded)
+                            dict[kvp.Key] = kvp.Value;
+                    }
+                    else if(baseType.isCollection)
+                    {
+                        var loaded = (IEnumerable)baseType.Read<IEnumerable>(reader);
+
+                        var type = baseType.GetType();
+
+                        if (type == typeof(ES3ListType))
+                            foreach (var item in loaded)
+                                ((IList)obj).Add(item);
+                        else if (type == typeof(ES3QueueType))
+                        {
+                            var method = baseType.type.GetMethod("Enqueue");
+                            foreach (var item in loaded)
+                                method.Invoke(obj, new object[] { item });
+                        }
+                        else if (type == typeof(ES3StackType))
+                        {
+                            var method = baseType.type.GetMethod("Push");
+                            foreach (var item in loaded)
+                                method.Invoke(obj, new object[] { item });
+                        }
+                        else if (type == typeof(ES3HashSetType))
+                        {
+                            var method = baseType.type.GetMethod("Add");
+                            foreach (var item in loaded)
+                                method.Invoke(obj, new object[] { item });
+                        }
+                    }
+                }
+
+                if (property == null)
 					reader.Skip();
 				else
 				{
 					var type = ES3TypeMgr.GetOrCreateES3Type(property.type);
 
-					if(ES3Reflection.IsAssignableFrom(typeof(IDictionary), property.type))
+					if(ES3Reflection.IsAssignableFrom(typeof(ES3DictionaryType), type.GetType()))
 						property.reflectedMember.SetValue(obj, ((ES3DictionaryType)type).Read(reader));
-					else if(ES3Reflection.IsAssignableFrom(typeof(ICollection), property.type))
+					else if(ES3Reflection.IsAssignableFrom(typeof(ES3CollectionType), type.GetType()))
 						property.reflectedMember.SetValue(obj, ((ES3CollectionType)type).Read(reader));
 					else
 					{

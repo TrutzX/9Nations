@@ -124,5 +124,18 @@ namespace Libraries.Terrains
 
             return 0;
         }
+
+        public bool Passable()
+        {
+            foreach (var move in L.b.movements.Values())
+            {
+                if ((Movement.ContainsKey(move.id) ? Movement[move.id]: move.def) > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

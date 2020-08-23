@@ -19,8 +19,6 @@ namespace Libraries.Campaigns
 
         public override void Perform()
         {
-            Debug.Log("start2 "+campaign.Name());
-            Debug.Log(campaign.Scenarios());
             LSys.tem.campaigns.ShowScenarios(campaign);
         }
     }

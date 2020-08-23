@@ -16,21 +16,27 @@ MonoBehaviour:
     _location: 0
     path: SaveData.es3
     encryptionType: 0
+    compressionType: 0
     encryptionPassword: password
     directory: 0
     format: 0
+    prettyPrint: 1
     bufferSize: 2048
     saveChildren: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0
     referenceMode: 2
+    serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
+    - mod.io.UnityPlugin
     - Assembly-CSharp-firstpass
+    - Cinemachine
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
-  logInfo: 1
+  addAllPrefabsToManager: 1
+  logDebugInfo: 0
   logWarnings: 1
   logErrors: 1

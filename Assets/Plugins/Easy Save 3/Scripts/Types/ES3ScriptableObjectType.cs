@@ -31,7 +31,13 @@ namespace ES3Types
 			ReadScriptableObject<T>(reader, obj);
 		}
 
-		protected override object ReadUnityObject<T>(ES3Reader reader)
+        protected override object ReadUnityObject<T>(ES3Reader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        protected override object ReadObject<T>(ES3Reader reader)
 		{
 			var refMgr = ES3ReferenceMgrBase.Current;
 			long id = -1;
@@ -42,7 +48,7 @@ namespace ES3Types
 				if(propertyName == ES3ReferenceMgrBase.referencePropertyName && refMgr != null)
 				{
 					id = reader.Read_ref();
-					instance = refMgr.Get(id);
+					instance = refMgr.Get(id, type);
 
                     if (instance != null)
                         break;
@@ -53,7 +59,8 @@ namespace ES3Types
 					if(instance == null)
 					{
 						instance = ScriptableObject.CreateInstance(type);
-						refMgr.Add(instance, id);
+                        if(refMgr != null)
+						    refMgr.Add(instance, id);
                     }
 					break;
 				}

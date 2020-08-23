@@ -28,7 +28,7 @@ namespace Game
         
         public static Player ActPlayer()
         {
-            return Players().Get(Players().ActPlayer);
+            return Players().ActPlayer == -1?null:Players().Get(Players().ActPlayer);
         }
 
         public static int ActPlayerID()
@@ -95,11 +95,21 @@ namespace Game
             return L.b.gameOptions["fog"].Bool();
         }
 
-        public static string T(string key, object p0=null, object p1=null)
+        public static string T(string key, params object[] p)
         {
-            if (p0 != null)
-                return LSys.tem.translations.Translate(key, p0, p1);
-            return LSys.tem.translations.Translate(key);
+            if (p.Length == 0)
+                return LSys.tem.translations.Translate(key);
+                
+            if (p.Length == 1)
+                return LSys.tem.translations.Translate(key, p[0], null, null);
+                
+            if (p.Length == 2)
+                return LSys.tem.translations.Translate(key, p[0], p[1], null);
+                
+            if (p.Length == 3)
+                return LSys.tem.translations.Translate(key, p[0], p[1], p[2]);
+            
+            return $"{key} hast to much to translate in "+String.Join(";",p);
         }
 
         public static bool Valid(int x, int y)

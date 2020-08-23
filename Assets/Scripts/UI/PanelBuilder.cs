@@ -48,6 +48,36 @@ namespace UI
             AddImageLabel($"{title}: {data}", icon);
         }
 
+        public void AddSubLabelT(string title, string data, string icon)
+        {
+            if (string.IsNullOrEmpty(data))
+            {
+                return;
+            }
+
+            AddImageLabel($"{S.T(title)}: {data}", icon);
+        }
+
+        public void AddSubLabelT(string title, int data, string icon)
+        {
+            if (TextHelper.IsNull(data))
+            {
+                return;
+            }
+
+            AddImageLabel($"{S.T(title)}: {data}", icon);
+        }
+
+        public void AddSubLabelT(string title, float data, string icon)
+        {
+            if (TextHelper.IsNull(data))
+            {
+                return;
+            }
+
+            AddImageLabel($"{S.T(title)}: {data}", icon);
+        }
+
         public void AddSubLabel(string title, string data, Sprite icon)
         {
             if (string.IsNullOrEmpty(data))
@@ -183,11 +213,11 @@ namespace UI
             return AddImageLabel(title, icon?"yes":"no");
         }
     
-        public void AddRes(string title, Dictionary<string, int> res)
+        public void AddResT(string title, Dictionary<string, int> res)
         {
             //addHeader
             if (res.Count > 0)
-                AddHeaderLabel(title);
+                AddHeaderLabelT(title);
         
             //add ress
             foreach (KeyValuePair<string, int> r in res)

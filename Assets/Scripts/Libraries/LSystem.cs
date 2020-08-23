@@ -35,7 +35,6 @@ using Maps;
 using ModIO;
 using Newtonsoft.Json.Utilities;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 namespace Libraries
