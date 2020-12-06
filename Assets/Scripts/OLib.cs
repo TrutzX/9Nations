@@ -30,6 +30,7 @@ public class OLib : ScriptableObject
         self._req = new Dictionary<string, BaseReq>();
         AddReq("ap", CreateInstance<ReqAp>());
         AddReq("building", CreateInstance<ReqBuilding>());
+        AddReq("buildingOwn", CreateInstance<ReqBuildingOwn>());
         AddReq("daytime", CreateInstance<ReqDayTime>());
         AddReq("disabled", CreateInstance<ReqDisabled>());
         AddReq("dummy", CreateInstance<ReqDummy>());
@@ -77,6 +78,8 @@ public class OLib : ScriptableObject
         AddReq("upgradeField", CreateInstance<ReqUpgradeField>());
         AddReq("frontier", CreateInstance<ReqFrontier>());
         AddReq("stat", CreateInstance<ReqStat>());
+        AddReq("spellCount", CreateInstance<ReqSpellCount>());
+        AddReq("buildingCategory", CreateInstance<ReqBuildingCategory>());
     }
 
     private static void AddReq(string id, BaseReq action)
