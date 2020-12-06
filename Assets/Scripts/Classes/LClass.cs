@@ -8,6 +8,7 @@ using Classes.NameGenerator;
 using Classes.Options;
 using Classes.Overlays;
 using Classes.Scenarios;
+using Debugs;
 using Endless;
 using Game;
 using Libraries.Campaigns;
@@ -17,7 +18,9 @@ using Libraries.GameButtons;
 using Libraries.MapGenerations;
 using Players;
 using Players.Kingdoms;
+using Players.PlayerResearches;
 using Players.PlayerTypes;
+using Players.Quests;
 using UnityEngine;
 
 namespace Classes
@@ -44,10 +47,11 @@ namespace Classes
         private void Init2()
         {
             scenarioRuns = new Dictionary<string, IRun>();
-            Add(scenarioRuns, new DebugScenario());
+            Add(scenarioRuns, CreateInstance<DebugScenario>());
             Add(scenarioRuns, new EndlessGameScenario());
-            Add(scenarioRuns, new Tutorial1Scenario());
-            Add(scenarioRuns, new Tutorial2Scenario());
+            Add(scenarioRuns, new Tutorial1LightScenario());
+            Add(scenarioRuns, new Tutorial2ShadowScenario());
+            Add(scenarioRuns, new Tutorial3Earth());
             Add(scenarioRuns, new PantheonScenario());
             Add(scenarioRuns, new ScreenshotScenario());
         
@@ -95,6 +99,7 @@ namespace Classes
             Add(CreateInstance<ActionTerraform>());
             Add(CreateInstance<ActionTownEvolve>());
             Add(CreateInstance<ActionTrade>());
+            Add(CreateInstance<ActionSendRes>());
             Add(CreateInstance<ActionTrain>());
             Add(CreateInstance<ActionUpgrade>());
             Add(CreateInstance<ActionClaim>());
@@ -102,6 +107,10 @@ namespace Classes
             Add(CreateInstance<ActionStat>());
             Add(CreateInstance<ActionModi>());
             Add(CreateInstance<ActionChestOpen>());
+            Add(CreateInstance<ActionMagic>());
+            Add(CreateInstance<ActionMagicSelect>());
+            Add(CreateInstance<ActionSpellLearn>());
+            Add(CreateInstance<ActionVision>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());

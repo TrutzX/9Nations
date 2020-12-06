@@ -1,5 +1,7 @@
 ﻿using System;
 using Game;
+using MapElements;
+using Tools;
 using UI;
 
 namespace Libraries.Buildings
@@ -25,6 +27,11 @@ namespace Libraries.Buildings
             {
                 L.b.res[C.Worker].AddImageLabel(panel, -worker);
             }
+        }
+
+        public override void ShowLexicon(PanelBuilder panel, MapElementInfo onMap, NVector pos)
+        {
+            base.ShowLexicon(panel, onMap!=null && !onMap.IsBuilding()?null:onMap, pos);
         }
     }
 

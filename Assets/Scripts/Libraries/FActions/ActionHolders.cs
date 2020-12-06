@@ -8,6 +8,7 @@ using Classes.Actions.Addons;
 using Game;
 using JetBrains.Annotations;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using UI;
@@ -44,6 +45,9 @@ namespace Libraries.FActions
 
         public List<ActionHolder> Is(ActionEvent type)
         {
+            if (type == ActionEvent.All)
+                return actions;
+            
             List<ActionHolder> act = new List<ActionHolder>();
             foreach (var holder in actions)
             {

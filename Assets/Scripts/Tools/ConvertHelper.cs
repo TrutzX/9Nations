@@ -23,5 +23,10 @@ namespace Tools
             }
             return Int(s) * Decimal.One / 100;
         }
+
+        public static int Between(int val, int min, int max)
+        {
+            return Math.Max(Math.Min(val, max), min);
+        }
     }
 }

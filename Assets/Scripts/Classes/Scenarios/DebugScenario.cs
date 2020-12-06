@@ -1,25 +1,49 @@
 using Game;
 using Libraries;
+using Libraries.Animations;
 using Libraries.Campaigns;
 using Players;
+using Players.Quests;
 using Tools;
 using Towns;
+using UI;
 using Units;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Classes.Scenarios
 {
-    public class DebugScenario : IRun
+    public class DebugScenario : ScriptableObject, IRun
     {
 
         public void Run()
         {
-            L.b.gameOptions["chestGen"].SetValue("true");
+            L.b.gameOptions["chestGen"].SetValue("false");
             L.b.gameOptions["fog"].SetValue("false");
-            
+
             int pid = S.Players().CreatePlayer("userx", "forger");
             S.Player(pid).elements.elements.Add("shadow");
-            S.Player(pid).elements.elements.Add("earth");
+            S.Player(pid).quests.Add(QuestHelper.AddNoUnitTown(QuestHelper.Lose()));
+            
+            NVector pos = new NVector(8, 6, 1);
+            S.Unit().Create(pid, "fsoldier", pos).FinishConstruct();
+
+            int pid2 = S.Players().CreatePlayer("usery", "customn");
+            S.Player(pid2).elements.elements.Add("light");
+            S.Player(pid2).quests.Add(QuestHelper.AddNoUnitTown(QuestHelper.Lose()));
+            
+            NVector p2 = new NVector(9, 6, 1);
+            var u = S.Unit().Create(pid2, "lcurer", p2);
+            u.FinishConstruct();
+
+            var tid = S.Towns().Create("ua", pid2, p2.DiffX(1));
+            S.Building().Create(tid, "logger", p2).FinishConstruct();
+
+            //var at = L.b.animations.Hp(-12,u.Pos(), u);
+            //Debug.Log("ds"+at.transform.position);
+
+            /*S.Player(pid).elements.elements.Add("earth");
             //GameMgmt.Get().NextPlayer();
 
             NVector pos = new NVector(6, 6, 0);
@@ -51,20 +75,32 @@ namespace Classes.Scenarios
             //S.Unit().Create(pid, "shadow", pos);
             S.Unit().Create(pid, "sworker", p1.DiffX(1)).FinishConstruct();
             GameMgmt.Get().data.map.ResGenAdd(p1, "copper", 1-GameMgmt.Get().data.map.ResGen(p1, "copper"));
-            S.Unit().Create(pid, "swarrior", pos.DiffX(2)).FinishConstruct();
+            var mage = S.Unit().Create(pid, "emage", pos.DiffY(1).DiffX(1));
+            mage.FinishConstruct();
+            mage.data.spells.Learn("addAP");
+            mage.data.spells.Learn("vision");
             
-            S.Building().Create(tid, "tent", pos.DiffY(1).DiffX(1)).FinishConstruct();
+            S.Building().Create(tid, "emagicschool", pos.DiffY(1).DiffX(1)).FinishConstruct();
+            
+            S.Building().Create(tid, "tent", pos.DiffY(5).DiffX(1)).FinishConstruct();
             S.Building().Create(tid, "sshrine", pos.DiffY(-1).DiffX(1)).FinishConstruct();
             
             S.Building().Create(tid, "shall2", pos.DiffY(-2).DiffX(1)).FinishConstruct();
             
+            S.Building().Create(tid, "mint", pos.DiffY(-3).DiffX(1)).FinishConstruct();
+            S.Building().Create(tid, "mine", pos.DiffY(-3).DiffX(2)).FinishConstruct();
+            S.Building().Create(tid, "toolshop", pos.DiffY(-3).DiffX(3)).FinishConstruct();
+            
             //GameMgmt.Get().newMap.levels[0].SetTile(new Vector3Int(7,7,0), L.b.terrains["grass"]);
             
             p1 = pos.Diff(3, 0);
-            S.Building().Create(tid, "way", p1);
-            S.Building().Create(tid, "way", p1.DiffX(-1)).FinishConstruct();
+            S.Building().Create(tid, "earthWall", p1).FinishConstruct();
+            S.Building().Create(tid, "earthWall", p1.DiffY(1)).FinishConstruct();
+            S.Building().Create(tid, "earthWallGate", p1.DiffY(2));
+            S.Building().Create(tid, "earthWall", p1.DiffY(3)).FinishConstruct();
+            S.Building().Create(tid, "earthWall", p1.DiffX(-1));//.FinishConstruct();
             
-            p1 = p1.Diff(0, 3);
+            p1 = p1.Diff(0, 4);
             
             //pid = PlayerMgmt.Get().CreatePlayer("usery", "north");
             //PlayerMgmt.Get(pid).elements.elements.Add("light");

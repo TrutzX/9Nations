@@ -5,6 +5,7 @@ using Buildings;
 using Game;
 using Libraries;
 using Libraries.Modifiers;
+using MapElements;
 using Players;
 using reqs;
 using Tools;
@@ -55,7 +56,7 @@ namespace UI
                 return;
             }
 
-            AddImageLabel($"{S.T(title)}: {data}", icon);
+            AddImageLabel($"{TextHelper.Cap(S.T(title))}: {data}", icon);
         }
 
         public void AddSubLabelT(string title, int data, string icon)
@@ -65,7 +66,7 @@ namespace UI
                 return;
             }
 
-            AddImageLabel($"{S.T(title)}: {data}", icon);
+            AddImageLabel($"{TextHelper.Cap(S.T(title))}: {data}", icon);
         }
 
         public void AddSubLabelT(string title, float data, string icon)

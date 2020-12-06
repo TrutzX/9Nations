@@ -1,11 +1,12 @@
+using Tools;
 using UnityEngine;
 
 namespace UI.Show
 {
     public abstract class Tab
     {
-        protected string name;
-        protected Sprite icon;
+        protected readonly string name;
+        protected readonly Sprite icon;
         public WindowTabBuilder window;
 
         protected Tab(string name, string icon) : this(name, SpriteHelper.Load(icon))
@@ -14,7 +15,7 @@ namespace UI.Show
         
         protected Tab(string name, Sprite icon)
         {
-            this.name = name;
+            this.name = TextHelper.Cap(name);
             this.icon = icon;
         }
 

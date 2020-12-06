@@ -18,6 +18,9 @@ namespace Libraries.Units
                 case "type":
                     ele.type = data;
                     break;
+                case "folder":
+                    ele.folder = data;
+                    break;
                 default:
                     base.ParseElement(ele, header, data);
                     break;

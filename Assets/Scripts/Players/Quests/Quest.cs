@@ -19,8 +19,7 @@ namespace Players.Quests
         [SerializeField] private ActionHolders actions;
 
         public bool main;
-        
-        [SerializeField] private int status;
+        public int status;
 
         /// <summary>
         /// For loading only
@@ -107,7 +106,7 @@ namespace Players.Quests
             panel.RichText(desc);
             panel.AddSubLabel("Status", (IsFinish() ? "Finish":"In Progress"),IsFinish() ?"yes":"round");
             
-            reqs.BuildPanel(panel, "Requirement", player);
+            reqs.BuildPanel(panel, player);
             actions.BuildPanelT(new ActionDisplaySettings(panel,null));
         }
     }

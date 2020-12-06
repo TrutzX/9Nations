@@ -1237,7 +1237,7 @@ TextureImporter:
     second: tower_157
   - first:
       213: -4815375466814114531
-    second: logger
+    second: asad
   - first:
       213: -6086471633440866968
     second: tower_159
@@ -1521,7 +1521,7 @@ TextureImporter:
       213: -7373054387949218179
     second: tower_252
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1575,6 +1575,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -4922,7 +4923,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: logger
+      name: asad
       rect:
         serializedVersion: 2
         x: 448

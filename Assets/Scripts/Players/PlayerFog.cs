@@ -6,6 +6,8 @@ using Buildings;
 using Help;
 using Game;
 using Libraries;
+using MapElements.Buildings;
+using MapElements.Units;
 using Maps;
 using Maps.GameMaps;
 using Maps.TileMaps;
@@ -50,6 +52,7 @@ namespace Players
         public IEnumerator CreatingFog(int pid)
         {
             if (noFog) yield break;
+            yield return GameMgmt.Get().load.ShowMessage($"Create fog");
             
             tileMap = new List<TileMapConfig16>();
             TileBase fTile = GameMgmt.Get().newMap.prototypeFog;

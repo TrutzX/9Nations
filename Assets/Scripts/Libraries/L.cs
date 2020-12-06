@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Classes;
 using Help;
 using Improvements;
+using Libraries.Animations;
 using Libraries.Buildings;
 using Libraries.Campaigns;
 using Libraries.Coats;
@@ -30,6 +31,7 @@ using Libraries.PlayerOptions;
 using Libraries.Res;
 using Libraries.Researches;
 using Libraries.Rounds;
+using Libraries.Spells;
 using Libraries.Terrains;
 using Libraries.Units;
 using Libraries.Usages; 
@@ -69,6 +71,8 @@ namespace Libraries
         public CraftMgmt crafts;
         public CoatMgmt coats;
         public ItemMgmt items;
+        public SpellMgmt spells;
+        public AnimationMgmt animations;
         
         /// <summary>
         /// For save only
@@ -117,6 +121,8 @@ namespace Libraries
             overlays = (OverlayMgmt) Add(new OverlayMgmt());
             coats = (CoatMgmt) Add(new CoatMgmt());
             items = (ItemMgmt) Add(new ItemMgmt());
+            spells = Add<SpellMgmt>();
+            animations = Add<AnimationMgmt>();
             
             yield return base.Loading();
         }

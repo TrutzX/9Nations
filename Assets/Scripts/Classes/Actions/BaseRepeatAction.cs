@@ -5,6 +5,8 @@ using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Units;
+using MapElements;
+using MapElements.Units;
 using NesScripts.Controls.PathFind;
 using Players;
 using Tools;
@@ -20,7 +22,7 @@ namespace Classes.Actions
 
         protected void SetRepeat(MapElementInfo info, NVector pos, ActionHolder holder)
         {
-            info.SetRepeatAction(info.data.action.actions.IndexOf(holder), pos);
+            info.SetRepeatAction(new ActionWaiting(holder, info.data.action, pos));
             OnMapUI.Get().UpdatePanel(info.Pos());
         }
 
@@ -64,7 +66,7 @@ namespace Classes.Actions
 
             //has a field?
             unit.SetLastInfo(S.T("actionRepeatErrorDestination",holder.DataAction().Name()));
-            unit.SetWaitingAction(-1, null);
+            unit.SetWaitingAction(null);
             return false;
         }
 
@@ -101,7 +103,7 @@ namespace Classes.Actions
                 if (holder.data.ContainsKey("posTried"))
                 {
                     unit.SetLastInfo(S.T("actionRepeatErrorMove",holder.DataAction().Name()));
-                    unit.SetRepeatAction(-1,null);
+                    unit.SetRepeatAction(null);
                 }
                 else
                 {

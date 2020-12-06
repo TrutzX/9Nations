@@ -20,7 +20,7 @@ namespace Libraries.Terrains
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _data.ShowField(panel, S.ActPlayer(), _pos);
+            _data.ShowLexicon(panel, null, _pos);
         }
 
         public override void Perform()

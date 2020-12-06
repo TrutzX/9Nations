@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Classes.Actions.Addons;
 using Game;
 using Libraries;
 using Libraries.Buildings;
 using Tools;
 using Towns;
 using UI;
-using UnityEngine;
 
-namespace Classes.Actions.Addons
+namespace MapElements.Material
 {
     public class MaterialWindow
     {
@@ -18,6 +18,7 @@ namespace Classes.Actions.Addons
             string need = null;
             Town town = S.Towns().NearestTown(S.ActPlayer(), pos, false);
             
+            //todo support multiple
             //check if material need to replaced?
             foreach (var c in build.cost)
             {
@@ -33,13 +34,21 @@ namespace Classes.Actions.Addons
             if (string.IsNullOrEmpty(need))
             {
                 //nothing found? Build it directly
-                perform.Invoke(build.cost);
+                perform.Invoke(new Dictionary<string, int>(build.cost));
                 return;
             }
             
             //how much types is known?
             var found = L.b.res.GetAllByCategory(need).Where(r => town.KnowRes(r.id)).ToList();
 
+            //found nothing?
+            if (found.Count == 0)
+            {
+                UIHelper.ShowOk(S.T("constructionMaterial"), TextHelper.RichText(S.T("constructionMaterialNothing",
+                    town.GetTownLevelName(),town.name),TextHelper.Header("material"),TextHelper.CommaSep(L.b.res.GetAllByCategory(need).Select(r => r.Name()).ToArray())));
+                return;
+            }
+            
             //found one? Build it directly
             if (found.Count == 1)
             {

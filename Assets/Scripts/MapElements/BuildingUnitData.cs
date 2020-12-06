@@ -6,7 +6,9 @@ using Libraries.Buildings;
 using Libraries.FActions;
 using Libraries.Units;
 using MapElements;
+using MapElements.Spells;
 using Players;
+using Players.Infos;
 using Tools;
 using Towns;
 
@@ -28,22 +30,23 @@ namespace Buildings
         public string type;
         public string name;
         public string sprite;
-        public string lastInfo;
         public Dictionary<string, string> data;
         public Dictionary<string, int> construction;
+        public Dictionary<string, int> constructionOrg;
         public ActionHolders action;
-        public int actionWaitingAp, actionWaitingActionPos;
+        public ActionWaiting waiting;
         public Dictionary<string, string> items;
-        public NVector actionWaitingPos;
         public Dictionary<string, string> modi;
+        public MapElementSpells spells;
+        public MapElementInfoInfoMgmt info;
         
         public int buildTime;
         
-        public void BuildingInit(string type, int town, CalculatedData calc)
+        public void BuildingInit(MapElementInfo mei, string type, int town, CalculatedData calc)
         {
             this.type = type;
             DataBuilding b = L.b.buildings[type];
-            BaseInit(b, calc);
+            BaseInit(mei, b, calc);
             townId = town;
             BuildingUpdate();
         }
@@ -53,7 +56,7 @@ namespace Buildings
             playerId = S.Towns().Get(townId).playerId;
         }
 
-        private void BaseInit(BaseDataBuildingUnit d, CalculatedData calc)
+        private void BaseInit(MapElementInfo mei, BaseDataBuildingUnit d, CalculatedData calc)
         {
             action = new ActionHolders(d.action);
             sprite = d.Icon;
@@ -65,17 +68,19 @@ namespace Buildings
             atk = d.atk;
             def = d.def;
             visibilityRange = d.visibilityRange;
-            actionWaitingActionPos = -1;
             data = new Dictionary<string, string>();
             items = new Dictionary<string, string>();
             modi = new Dictionary<string, string>();
+            spells = new MapElementSpells();
+            info = new MapElementInfoInfoMgmt();
+            info.mapElementInfo = mei;
         }
         
-        public void UnitInit(string type, int town, int player, CalculatedData calc)
+        public void UnitInit(MapElementInfo mei, string type, int town, int player, CalculatedData calc)
         {
             this.type = type;
             DataUnit u = L.b.units[type];
-            BaseInit(u, calc);
+            BaseInit(mei, u, calc);
             townId = town;
             playerId = player;
         }

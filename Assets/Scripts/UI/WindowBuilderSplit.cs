@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using Tools;
 using UI.Show;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ namespace UI
         {
             GameObject act = Instantiate(UIElements.Get().splitWindow, GameObject.Find("WindowsMgmt").transform);
 
+            title = TextHelper.Cap(title);
             act.name = title;
             act.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = title;
 
@@ -94,23 +96,8 @@ namespace UI
 
         private void ClickButton(SplitElement ele)
         {
-            //disabled?
-            if (ele.disabled != null)
-            {
-                //has a button?
-                if (selectButton != null)
-                {
-                    UIHelper.UpdateButtonText(selectButton, ele.disabled);
-                    selectButton.GetComponent<Button>().enabled = false;
-                }
-
-                selectedElement = ele;
-                ShowDetail();
-                return;
-            }
-
             //same element?
-            if (ele == selectedElement && selectButton != null)
+            if (ele.disabled == null && ele == selectedElement && selectButton != null)
             {
                 NAudio.Play(selectedElement.audioPerform);
                 selectedElement.Perform();
@@ -120,14 +107,30 @@ namespace UI
 
             //show infos
             selectedElement = ele;
-            if (selectButton != null)
-            {
-                selectButton.GetComponent<Button>().enabled = true;
-                UIHelper.UpdateButtonText(selectButton, $"{selectButtonText} {ele.title}");
-            }
 
             //create panel
             ShowDetail();
+            UpdateButton();
+        }
+
+        private void UpdateButton()
+        {
+            if (selectedElement.disabled != null)
+            {
+                //has a button?
+                if (selectButton != null)
+                {
+                    UIHelper.UpdateButtonText(selectButton, selectedElement.disabled);
+                    selectButton.GetComponent<Button>().enabled = false;
+                }
+                return;
+            }
+            
+            if (selectButton != null)
+            {
+                selectButton.GetComponent<Button>().enabled = true;
+                UIHelper.UpdateButtonText(selectButton, $"{selectButtonText} {selectedElement.title}");
+            }
         }
 
         private void ShowDetail()
@@ -148,6 +151,7 @@ namespace UI
         public void Reload()
         {
             ShowDetail();
+            UpdateButton();
         }
 
         private void AddSplitButton(SplitElement ele)

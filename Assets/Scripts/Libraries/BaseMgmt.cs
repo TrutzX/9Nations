@@ -115,11 +115,13 @@ namespace Libraries
             var d = SplitHelper.SplitInt(data);
             res.Add(d.key, d.value);
         }
-        
+
         public IEnumerator ParseCsv(string path)
         {
             yield return LSys.tem.Load.ShowMessage("Loading "+Name());
-            string[][] data = CSV.Read(Read(path));
+            //string[][] data = Ncsv.Read(Read(path));
+            //Debug.Log($"Library {id}: from {path}");
+            string[][] data = Ncsv.Csv2ArrayOwn(Read(path));
             yield return LSys.tem.Load.ShowSubMessage($"Loading 0/{data.Length}");
             Debug.Log($"Library {id}: Reading {data.Length} elements with {data[0].Length} headers from {path}");
             for (int l = 1; l < data.Length; l++)
@@ -141,6 +143,8 @@ namespace Libraries
                 if (data[l].Length > data[0].Length)
                 {
                     Debug.LogWarning($"{id}: {data[l][0]} has {data[l].Length} data and only {data[0].Length} header");
+                    Debug.Log(String.Join(", ,",data[0]));
+                    Debug.Log(String.Join(", ,",data[l]));
                 }
                 
                 for (int i = 1; i < data[l].Length; i++)
@@ -256,7 +260,7 @@ namespace Libraries
             }
         }
         
-        protected T GetOrCreate(string id)
+        public T GetOrCreate(string id)
         {
             if (ContainsKey(id))
             {

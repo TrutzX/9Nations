@@ -95,7 +95,7 @@ namespace UI
         public static void ShowOk(string title, string desc)
         {
             WindowPanelBuilder wpb = WindowPanelBuilder.Create(title);
-            wpb.panel.AddLabel(desc);
+            wpb.panel.RichText(desc);
             wpb.AddClose();
             wpb.Finish();
         }

@@ -6,6 +6,7 @@ using Buildings;
 using Game;
 using InputActions;
 using Libraries;
+using MapElements.Units;
 using Maps;
 using NesScripts.Controls.PathFind;
 using Players;
@@ -51,6 +52,11 @@ namespace Units
             return GetAll().Where(g => g.data.playerId == pid).ToArray();
         }
     
+        public UnitInfo[] GetByTown(int tid)
+        {
+            return GetAll().Where(g => g.data.townId == tid).ToArray();
+        }
+    
         public UnitInfo[] GetByPlayerType(int pid, string type)
         {
             return GetByPlayer(pid).Where(g => g.data.type == type).ToArray();
@@ -61,7 +67,7 @@ namespace Units
             //exist?
             if (!L.b.units.ContainsKey(type))
             {
-                throw new MissingComponentException("Unit "+type+ "not exist");
+                throw new MissingComponentException("Unit "+type+ " not exist");
             }
 
             if (!pos.Valid())
@@ -73,9 +79,9 @@ namespace Units
             {
                 throw new MissingComponentException($"field {pos} is blocked");
             }
-        
+
             UnitInfo ui = Instantiate(unitPrefab, GameMgmt.Get().newMap.levels[pos.level].units.transform);
-            ui.Init(type,player, pos, cost??new Dictionary<string, int>(L.b.units[type].cost));
+            ui.Init(type, player, pos, cost??new Dictionary<string, int>(L.b.units[type].cost));
             ui.NextRound();
             units.Add(ui);
             GameMgmt.Get().data.units.Add(ui.data);
@@ -117,7 +123,7 @@ namespace Units
                 UnitInfo ui = unitP[(i+s+1)%unitP.Length];
                 
                 //right unit?
-                if (!ui.IsUnderConstruction() && ui.data.ap > 0)
+                if (!ui.IsUnderConstruction() && ui.data.ap > 0 && ui.data.waiting == null)
                 {
                     FindObjectOfType<OnMapUI>().UpdatePanel(ui.GetData().pos);
                     S.CameraMove().MoveTo(ui.GetData().pos);

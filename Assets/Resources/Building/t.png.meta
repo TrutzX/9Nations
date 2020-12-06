@@ -70,7 +70,7 @@ TextureImporter:
     second: t_21
   - first:
       213: 4940522342685506331
-    second: t_22
+    second: xxcsd
   - first:
       213: -7380804649921801559
     second: t_23
@@ -118,10 +118,10 @@ TextureImporter:
     second: armoury
   - first:
       213: -5398802310772358694
-    second: toolshop
+    second: qwed
   - first:
       213: -2824098905963302075
-    second: t_39
+    second: e
   - first:
       213: 270129868391443047
     second: t_40
@@ -148,7 +148,7 @@ TextureImporter:
     second: armourywinter
   - first:
       213: 8998380029671944850
-    second: toolshopwinter
+    second: sdsd
   - first:
       213: -8035516345854702719
     second: t_49
@@ -243,7 +243,7 @@ TextureImporter:
       213: -4806820080757584948
     second: t_79
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -297,6 +297,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -800,7 +801,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_22
+      name: xxcsd
       rect:
         serializedVersion: 2
         x: 0
@@ -1136,7 +1137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toolshop
+      name: qwed
       rect:
         serializedVersion: 2
         x: 32
@@ -1157,7 +1158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t_39
+      name: e
       rect:
         serializedVersion: 2
         x: 64
@@ -1346,7 +1347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toolshopwinter
+      name: sdsd
       rect:
         serializedVersion: 2
         x: 32

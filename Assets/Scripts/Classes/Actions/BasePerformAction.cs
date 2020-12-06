@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Units;
@@ -83,7 +84,7 @@ namespace Classes.Actions
                 switch (sett.holder.trigger)
                 {
                     case ActionEvent.Direct:
-                        sett.panel.AddImageLabel($"You can performed it directly for {da.cost} AP","ap");
+                        sett.panel.AddImageLabel($"You can performed it directly for {sett.holder.cost} AP","ap");
                         break;
                     case ActionEvent.FinishConstruct:
                         sett.panel.AddLabel("It will be performed after finish construction.");
@@ -101,9 +102,9 @@ namespace Classes.Actions
             if (sett.addReq)
             {
                 if (sett.pos == null)
-                    sett.holder.req.BuildPanel(sett.panel, "Requirement");
+                    sett.holder.req.BuildPanel(sett.panel);
                 else
-                    sett.holder.req.BuildPanel(sett.panel, "Requirement", sett.mapElement, sett.pos);
+                    sett.holder.req.BuildPanel(sett.panel, sett.mapElement, sett.pos);
             }
                 
         }
@@ -139,6 +140,6 @@ namespace Classes.Actions
     [Serializable]
     public enum ActionEvent
     {
-        Direct, NextRound, FinishConstruct, Quest
+        Direct, NextRound, FinishConstruct, Quest, All
     }
 }

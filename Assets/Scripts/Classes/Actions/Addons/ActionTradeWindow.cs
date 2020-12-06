@@ -27,14 +27,14 @@ namespace Classes.Actions.Addons
         {
             WindowPanelBuilder w = WindowPanelBuilder.Create(L.b.actions["trade"].Name());
 
-            //build ress list
+            //build res list
             List<string> values = new List<string>();
             List<string> titles = new List<string>();
 
             //sell
             foreach (Resource r in L.b.res.Values())
             {
-                if (settings!= null && settings.StartsWith("sell") && !settings.Contains(r.id))
+                if (settings != null && settings.StartsWith("sell") && !settings.Contains(r.id))
                 {
                     continue;
                 }
@@ -45,7 +45,9 @@ namespace Classes.Actions.Addons
                     titles.Add(r.Text(_town.GetRes(r.id)));
                 }
             }
- 
+            
+            //todo sort sell
+
             //found something?
             if (values.Count == 0)
             {
@@ -96,33 +98,35 @@ namespace Classes.Actions.Addons
                 UpdateButton();
             });
 
+            var sound = L.b.actions["trade"].sound;
+            
             //add button
             shop1 = w.panel.AddButton("", () =>
             {
                 Shop(1);
                 w.Close();
-            });
+            }, sound);
 
             //add button
             shop10 = w.panel.AddButton("", () =>
             {
                 Shop(10);
                 w.Close();
-            });
+            }, sound);
 
             //add button
             shop100 = w.panel.AddButton("", () =>
             {
                 Shop(100);
                 w.Close();
-            });
+            }, sound);
 
             //add button
             shop1000 = w.panel.AddButton("", () =>
             {
                 Shop(1000);
                 w.Close();
-            });
+            }, sound);
 
             w.Finish();
             UpdateButton();

@@ -1,15 +1,14 @@
 using System;
 using Audio;
-using Buildings;
-
 using Game;
 using Libraries;
-using Libraries.Rounds;
+using MapElements;
+using MapElements.Buildings;
+using Tools;
 using Towns;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
@@ -48,10 +47,8 @@ namespace Players.Infos
             }
         }
 
-        public void ShowTown()
+        private void ShowTown()
         {
-
-            
             //remove actions
             UIHelper.ClearChild(infoButtons);
             
@@ -87,7 +84,7 @@ namespace Players.Infos
                     continue;
                 }
 
-                int count = string.IsNullOrEmpty(r.combine) ? town.GetRes(r.id) : town.GetCombineRes(r.id);
+                int count = town.GetRes(r.id);
                 
                 var img = UIElements.CreateImageCounter(infoButtons.transform, count, r.Icon);
                 UIHelper.HoverEnter(img,() => ShowPanelMessage(S.T("townRes",town.name, r.Text(count))),() => ShowPanelMessage(""));
@@ -96,7 +93,7 @@ namespace Players.Infos
         
         public void AddInfoButton(Info info)
         {
-            Button button = UIElements.CreateImageButton(SpriteHelper.Load(info.icon), infoButtons.transform, null);
+            Button button = UIElements.CreateImageButton(SpriteHelper.Load(info.overviewIcon), infoButtons.transform, null);
 
             Action del = () =>
             {
@@ -118,7 +115,7 @@ namespace Players.Infos
                 {
                     del();
                     //todo add desc?
-                    UIHelper.ShowOk("Notification",info.title);
+                    UIHelper.ShowOk("Notification",TextHelper.RichText(info.title,info.desc));
                 });
             }
             else
@@ -126,17 +123,10 @@ namespace Players.Infos
                 button.onClick.AddListener(info.CallAction);
             }
             
-            
             button.gameObject.AddComponent<ClickableObject>();
             button.GetComponent<ClickableObject>().right = del;
             
             UIHelper.HoverEnter(button,() => ShowPanelMessage(info.title),() => ShowPanelMessage(""));
-            
-            //show?
-            if (info.desc != null)
-            {
-                info.ShowImportant();
-            }
         }
 
         public void ShowPanelMessage(string text)

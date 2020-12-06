@@ -1,5 +1,6 @@
 ﻿using System;
 using Audio;
+using Libraries.Animations;
 using Tools;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,7 +31,8 @@ namespace UI
         public Slider slider;
         public Image panelImage;
         public Image imageCounter;
-    
+        public AnimationObject animationHelper;
+        public AnimationText animationText;
 
         public static UIElements Get()
         {

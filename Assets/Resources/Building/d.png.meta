@@ -829,10 +829,10 @@ TextureImporter:
     second: d_19
   - first:
       213: 3117040474522476962
-    second: charcoal
+    second: dfgdgf
   - first:
       213: -7819465369084464311
-    second: charcoalwinter
+    second: asddas
   - first:
       213: -7574805910514347262
     second: d_22
@@ -1533,7 +1533,7 @@ TextureImporter:
       213: 6737012307973515931
     second: d_254
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1587,6 +1587,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2036,7 +2037,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charcoal
+      name: dfgdgf
       rect:
         serializedVersion: 2
         x: 160
@@ -2057,7 +2058,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charcoalwinter
+      name: asddas
       rect:
         serializedVersion: 2
         x: 192

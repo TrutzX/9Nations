@@ -1,31 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using Buildings;
 using Game;
-using Help;
-using Improvements;
 using Libraries;
 using Libraries.Buildings;
-using Libraries.FActions;
 using Libraries.Improvements;
-using MapElements;
 using MapElements.Items;
-using Players;
-using reqs;
+using Players.Infos;
 using Tools;
 using Towns;
 using UI;
 using UnityEngine;
 
-namespace Buildings
+namespace MapElements.Buildings
 {
     public class BuildingInfo : MapElementInfo
     {
         public DataBuilding dataBuilding;
-        private bool isWinter;
+        public bool isWinter;
 
         public override bool NextRound()
         {
-            data.lastInfo = null;
             data.ap = data.apMax;
             data.BuildingUpdate();
             Town t = Town();
@@ -64,7 +59,7 @@ namespace Buildings
             var calc = CalculatedData.Calc(dataBuilding, cost);
             
             data = new BuildingUnitData();
-            data.BuildingInit(configType, town, calc);
+            data.BuildingInit(this, configType, town, calc);
             data.pos = pos.Clone();
             
             int buildtime = L.b.modifiers[C.BuildRes].CalcModi(calc.buildTime, S.Towns().Get(town).Player(), pos);
@@ -100,6 +95,7 @@ namespace Buildings
             }
 
             SetSprite(isWinter&&!string.IsNullOrEmpty(dataBuilding.winter)?dataBuilding.winter:dataBuilding.Icon);
+            GetComponent<BuildingAnimator>().CreateAnimation();
         }
 
         public void SetConnectedImage()
@@ -113,7 +109,7 @@ namespace Buildings
                 bool west = S.Building().At(Pos().DiffX(-1))?.dataBuilding.connected == dataBuilding.connected;
 
                 string f = dataBuilding.Icon.Replace("14", ImprovementHelper.GetId(north, east, south, west)+"");
-                SetSprite("Building/"+f);
+                SetSprite(f);
             }
             
         }
@@ -130,12 +126,7 @@ namespace Buildings
         /// </summary>
         public override void Kill()
         {
-        
             //todo get ress back
-            Destroy(gameObject);
-        
-            //reset images?
-            UpdateConnectedImage();
             
             //remove border
             Player().overlay.Add("frontier",CircleGenerator.Gen(Pos(),baseData.visibilityRange), -1);
@@ -143,8 +134,19 @@ namespace Buildings
             
             GameMgmt.Get().data.buildings.Remove(data);
             GameMgmt.Get().building.buildings.Remove(this);
+            L.b.animations.Create("explosion", Pos());
+            
             Destroy(gameObject);
             Debug.Log($"Kill building {name} at {Pos()}");
+        
+            //has modi?
+            if (dataBuilding.modi.Count > 0)
+            {
+                S.Map().PathFinding(Pos().level).ResetAll();
+            }
+            
+            //reset images?
+            UpdateConnectedImage();
         }
         
         public override void FinishConstruct()
@@ -178,13 +180,13 @@ namespace Buildings
 
         public override void Upgrade(string type, Dictionary<string, int> cost)
         {
-            BaseDataBuildingUnit old = baseData;
+            var oldCost = data.constructionOrg;
             
             GameMgmt.Get().data.buildings.Remove(data);
             Init(data.townId,type,Pos(), cost);
             GameMgmt.Get().data.buildings.Add(data);
-            
-            CalcUpgradeCost(L.b.buildings[type], old);
+
+            CalcUpgradeCost(cost, oldCost);
         }
     }
 }

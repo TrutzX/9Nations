@@ -4,6 +4,7 @@ using Game;
 using Libraries.Buildings;
 using Libraries.Crafts;
 using Libraries.FActions;
+using MapElements;
 using Tools;
 using UI;
 using UI.Show;
@@ -26,7 +27,7 @@ namespace Crafts
         public override void ShowDetail(PanelBuilder panel)
         {
             _craft.ShowLexicon(panel);
-            _craft.req.BuildPanel(panel,"Requirements", _info, _info.Pos());
+            _craft.req.BuildPanel(panel, _info, _info.Pos());
             
             panel.AddHeaderLabel("Actions");
             panel.AddImageTextButton(_craft.Name(), _craft.Icon, () =>

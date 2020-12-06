@@ -1,7 +1,11 @@
+using System;
 using Buildings;
 using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Tools;
 using UI;
@@ -26,7 +30,7 @@ namespace Classes.Actions
             MoveBuilding(info ,pos, holder);
         }
 
-        private void MoveBuilding(Buildings.MapElementInfo info, NVector pos, ActionHolder holder)
+        private void MoveBuilding(MapElementInfo info, NVector pos, ActionHolder holder)
         {
             BuildingInfo ui = (BuildingInfo) info;
             //check status
@@ -71,10 +75,10 @@ namespace Classes.Actions
             TryMoveUnit(S.Unit().At(pos), pos.DiffLevel(diff));
         }
 
-        private void Build(bool up, Buildings.MapElementInfo info, NVector pos, ActionHolder holder)
+        private void Build(bool up, MapElementInfo info, NVector pos, ActionHolder holder)
         {
-            Debug.Log($"Old {pos}");
-            Debug.Log($"Old {info.Pos()}");
+            //Debug.Log($"Old {pos}");
+            //Debug.Log($"Old {info.Pos()}");
             
             if (up)
             {
@@ -106,19 +110,20 @@ namespace Classes.Actions
             }
             
             //have enough ap?
-            int cost = GameMgmt.Get().newMap[pos.level].PathFinding()
-                .Cost(info.Player(), info.dataUnit.movement, pos, pos);
+            int cost = GameMgmt.Get().newMap[pos.level].PathFinding().Cost(info.Player(), info.dataUnit.movement, pos, pos);
+            cost = Math.Max(cost, 10); // cost at least 10 ap
 
             if (cost > info.data.ap)
             {
                 OnMapUI.Get().unitUI.ShowPanelMessageError($"{info.name} can not move between the levels. {info.name} need {cost} AP, but only have {info.data.ap} AP.");
                 return;
             }
-            
+
+            info.data.ap -= cost;
             info.MoveTo(pos);
         }
         
-        private void MoveUnit(Buildings.MapElementInfo info, NVector pos)
+        private void MoveUnit(MapElementInfo info, NVector pos)
         {
             UnitInfo ui = (UnitInfo) info;
             int l = GameMgmt.Get().data.map.levels.Count;

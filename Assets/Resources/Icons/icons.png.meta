@@ -1228,7 +1228,7 @@ TextureImporter:
     second: Icons_162
   - first:
       213: 6223471141701817509
-    second: Icons_163
+    second: sendRes
   - first:
       213: -4428782099389735289
     second: Icons_164
@@ -1279,7 +1279,7 @@ TextureImporter:
     second: random
   - first:
       213: 716232749300783011
-    second: custom
+    second: customn
   - first:
       213: 2189078973585233020
     second: Icons_181
@@ -1473,7 +1473,7 @@ TextureImporter:
       213: -8924638685331413173
     second: Icons_244
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1527,6 +1527,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -4979,7 +4980,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_163
+      name: sendRes
       rect:
         serializedVersion: 2
         x: 416
@@ -5336,7 +5337,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: custom
+      name: customn
       rect:
         serializedVersion: 2
         x: 448

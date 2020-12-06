@@ -31,6 +31,9 @@ namespace Libraries.Inputs
         
         public void BuildPanel(PanelBuilder panel)
         {
+            if (S.Debug())
+                panel.AddLabel(key + " " + usedKey + " " + _keyCode);
+            
             if (IsGameButton())
             {
                 activeButton = panel.AddImageTextButton(Name(), L.b.gameButtons[id].Icon, (() => { new InputKeyChange(this); }), Sound);
@@ -70,7 +73,7 @@ namespace Libraries.Inputs
                 name = base.Name();
             }
 
-            return S.T("debugName", name, usedKey);
+            return S.T("debugName", TextHelper.Cap(name), usedKey);
         }
 
         public bool IsGameButton()

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Buildings;
 using Game;
 using LoadSave;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Towns;
 using Units;
@@ -45,7 +47,7 @@ namespace Libraries.Rounds
             
             foreach (Town t in ts)
             {
-                t.NextRound();
+                yield return t.NextRound();
                 if (c % 2 == 0)
                 {
                     yield return GameMgmt.Get().load.ShowSubMessage($"Updating town ({c}/{m})");
@@ -126,7 +128,7 @@ namespace Libraries.Rounds
 
         public string GetRoundString(int round)
         {
-            return $"{GetSeasonString()} {GetRound().daytime}, year {round/L.b.rounds.Length+1}";
+            return $"{GetRound(round).season} {GetRound(round).daytime}, year {round/L.b.rounds.Length+1}";
         }
 
         public string GetSeasonString()

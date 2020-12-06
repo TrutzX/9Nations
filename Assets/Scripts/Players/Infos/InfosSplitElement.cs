@@ -9,15 +9,18 @@ namespace Players.Infos
 {
     public class InfosSplitElement: SplitElement
     {
-        public InfosSplitElement() : base(S.T("notifications"), "info")
+        private BaseInfoMgmt _infoMgmt;
+        
+        public InfosSplitElement(BaseInfoMgmt infoMgmt) : base(S.T("notifications"), "info")
         {
+            _infoMgmt = infoMgmt;
         }
 
         public override void ShowDetail(PanelBuilder panel)
         {
             int lastRound = -1;
             //show all
-            foreach (Info key in S.ActPlayer().info.infos)
+            foreach (Info key in _infoMgmt.infos)
             {
                 //new round?
                 if (key.round != lastRound)

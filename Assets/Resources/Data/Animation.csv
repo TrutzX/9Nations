@@ -1,0 +1,8 @@
+id,icon,speed,repeat,sound
+smallStar,!Animation/smallStar:smallStar_0,,,
+magicBarrier,!Animation/magicBarrier:magicBarrier_0,,,
+weaponhit,!Animation/weaponhit:weaponhit_0,,,
+heal,!Animation/heal:heal_0,3,,blessing
+broken,!Animation/broken:broken_0,,,
+sandClock,!Animation/sandClock:sandClock_0,3,2,
+explosion,!Animation/explosion:explosion_0,2,,explode

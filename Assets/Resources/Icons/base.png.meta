@@ -220,7 +220,7 @@ TextureImporter:
     second: base_71
   - first:
       213: -293416048419925307
-    second: base_72
+    second: xxx
   - first:
       213: -1200435870911722467
     second: audio2
@@ -490,7 +490,7 @@ TextureImporter:
     second: base_161
   - first:
       213: -5757533415923287579
-    second: base_162
+    second: flower
   - first:
       213: 4867457142216708678
     second: base_163
@@ -685,7 +685,7 @@ TextureImporter:
     second: brick
   - first:
       213: -3286734256992654294
-    second: base_227
+    second: carrot
   - first:
       213: -7164585110499218883
     second: base_228
@@ -2469,7 +2469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_72
+      name: xxx
       rect:
         serializedVersion: 2
         x: 480
@@ -4359,7 +4359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_162
+      name: flower
       rect:
         serializedVersion: 2
         x: 256
@@ -5724,7 +5724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: base_227
+      name: carrot
       rect:
         serializedVersion: 2
         x: 0
@@ -6908,7 +6908,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6929,7 +6929,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -7,7 +7,6 @@ using Audio;
 using Buildings;
 using Classes;
 using Game;
-using GameButtons;
 using Libraries;
 using Libraries.Coats;
 using Libraries.Nations;
@@ -17,6 +16,7 @@ using LoadSave;
 using Players.Infos;
 using Players.PlayerResearches;
 using Players.PlayerTypes;
+using Tools;
 using Towns;
 using UI;
 using Units;
@@ -26,7 +26,7 @@ using UnityEngine.SceneManagement;
 namespace Players
 {
     [Serializable]
-    public class Player
+    public class Player : IGameRoundObject
     {
         public string name;
         public string coat;
@@ -40,7 +40,7 @@ namespace Players
 
         public PlayerFog fog;
         public PlayerResearchMgmt research;
-        public InfoMgmt info;
+        public PlayerInfoMgmt info;
 
         public Dictionary<string, string> Modi;
         public PlayerDevelopmentNation elements;
@@ -50,6 +50,8 @@ namespace Players
         [SerializeField] private Dictionary<string, string> features;
         
         public Dictionary<string, string> data;
+
+        public PlayerSpells spells;
         
         /// <summary>
         /// Only for loading
@@ -82,11 +84,13 @@ namespace Players
             
             fog = new PlayerFog();
             fog.Init();
-            info = new InfoMgmt();
+            info = new PlayerInfoMgmt();
 
             this.type = type.ToString();
             
             data = new Dictionary<string, string>();
+            
+            spells = new PlayerSpells();
         }
 
         public BasePlayerType Type()
@@ -124,6 +128,9 @@ namespace Players
             //update buttons
             UpdateButtonMenu();
             UpdateButtonBottom();
+            
+            elements.StartRound();
+            quests.NextRound();
 
             //clear panels
             OnMapUI.Get().buildingUI.UpdatePanel(null);
@@ -133,22 +140,37 @@ namespace Players
             //win?
             if (WinLose()) return;
             
-            elements.StartRound();
-            
             //prepare units
             foreach (var b in S.Building().GetByPlayer(id))
             {
                 b.StartPlayerRound();
             }
+            
             foreach (var b in S.Unit().GetByPlayer(id))
             {
                 b.StartPlayerRound();
             }
             
-            
-            
             //show unit
             GameMgmt.Get().unit.ShowNextAvailableUnitForPlayer();
+            
+            //show noti?
+            //add new
+            foreach (Info i in info.infos)
+            {
+                if (i.round != GameMgmt.Get().gameRound.Round)
+                {
+                    break;
+                }
+                
+                if (i.read) continue;
+
+                //show?
+                if (!string.IsNullOrEmpty(i.desc))
+                {
+                    i.ShowImportant();
+                }
+            }
         }
 
         public void UpdateButtonBottom()
@@ -168,9 +190,10 @@ namespace Players
         {
             if (status == "win")
             {
-                WindowPanelBuilder w = WindowPanelBuilder.Create("You won");
-                w.panel.AddButton("End Game", () => { SceneManager.LoadScene(0); });
-                w.panel.AddButton("Play a little more", () => { });
+                WindowPanelBuilder w = WindowPanelBuilder.Create(S.T("endGameWin"));
+                w.panel.AddLabel(S.T("endGamePoints", points, S.Round().Round));
+                w.panel.AddButtonT("endgame", () => { SceneManager.LoadScene(0); });
+                w.panel.AddButtonT("endGameWinButton", () => { });
                 w.Finish();
                 NAudio.PlayMusic("win",false);
                 status = null;
@@ -179,12 +202,16 @@ namespace Players
             
             if (status == "lose")
             {
-                WindowPanelBuilder w = WindowPanelBuilder.Create("You lose");
-                w.panel.AddButton("End Game", () =>
+                WindowPanelBuilder w = WindowPanelBuilder.Create(S.T("endGameLose"));
+                w.panel.AddLabel(S.T("endGamePoints", points, S.Round().Round));
+                w.panel.AddButtonT("endgame", () =>
                 {
-                    //TODO delete player and move units to gaia player
-                    SceneManager.LoadScene(0);
+                    w.Close();
                 });
+                w.onClose = () =>
+                {
+                    S.Players().KillPlayer(id);
+                };
                 w.Finish();
                 NAudio.PlayMusic("lose",false);
                 status = null;
@@ -200,6 +227,9 @@ namespace Players
             fog.FinishRound();
         }
 
+        /**
+         * Call after the game is loaded
+         */
         public void AfterLoad()
         {
             fog.Init();
@@ -209,12 +239,12 @@ namespace Players
             info.player = this;
         }
 
-        public void NextRound()
+        public IEnumerator NextRound()
         {
-            quests.NextRound();
             if (GetFeature("research") == "true")
                 research.NextRound();
             info.NextRound();
+            yield return null;
         }
 
         /// <summary>
@@ -271,9 +301,9 @@ namespace Players
             return L.b.nations[nation];
         }
 
-        public void FirstRound()
+        public IEnumerator FirstRound()
         {
-            NextRound();
+            yield return NextRound();
         }
     }
 }

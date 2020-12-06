@@ -4,6 +4,7 @@ using System.Linq;
 using Buildings;
 using Game;
 using Libraries;
+using MapElements.Buildings;
 using Players;
 using Tools;
 using UnityEngine;
@@ -45,6 +46,37 @@ namespace Towns
             if (townHall)
                 GameMgmt.Get().building.Create(createTownCounter, S.Player(playerID).elements.TownHall(),pos);
             return createTownCounter;
+        }
+
+        public void Kill(int tid)
+        {
+            //remove it
+            Town t = Get(tid);
+            Debug.Log($"Destroy town {t.name} ({tid})");
+            towns.Remove(t);
+
+            //reset all units
+            foreach (var unit in S.Unit().GetByTown(tid))
+            {
+                unit.data.townId = -1;
+            }
+            
+            //destroy buildings
+            foreach (var build in S.Building().GetByTown(tid))
+            {
+                build.Kill();
+            }
+            
+            //has the player towns left?
+            Town nt = NearestTown(t.Player(), t.pos, false);
+
+            if (nt == null)
+            {
+                //no towns
+                return;
+            }
+            
+            //TODO transfer res?
         }
 
         public Town Get(int id)

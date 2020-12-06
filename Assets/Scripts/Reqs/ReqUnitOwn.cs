@@ -7,7 +7,7 @@ using Tools;
 using Towns;
 using Units;
 using UnityEngine;
-using MapElementInfo = Buildings.MapElementInfo;
+using MapElementInfo = MapElements.MapElementInfo;
 using Object = UnityEngine.Object;
 
 namespace reqs
@@ -17,10 +17,6 @@ namespace reqs
         protected override bool CheckIntern(BaseReqArgument bra)
         {
             bra.NeedMapException();
-            
-            Debug.Log(bra.sett);
-            Debug.Log(bra.onMap);
-            Debug.Log(bra.pos);
 
             if (bra.onMap == null)
                 bra.onMap = S.Unit().At(bra.pos);

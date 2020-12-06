@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game;
 using Libraries;
 using Libraries.Elements;
@@ -25,11 +26,6 @@ namespace Players.PlayerResearches
         public override void ShowDetail(PanelBuilder panel)
         {
             PlayerResearchMgmt mgmt = S.ActPlayer().research;
-
-            if (mgmt.lastInfo != null)
-            {
-                panel.AddSubLabel("Status",mgmt.lastInfo);
-            }
                 
             panel.AddHeaderLabel("Actual");
             if (mgmt.actual == null || mgmt.actual.Count == 0)
@@ -67,8 +63,14 @@ namespace Players.PlayerResearches
 
             if (S.Debug())
             {
-                panel.AddLabel($"Act cost: {S.ActPlayer().research.cost}");
-                panel.AddLabel($"Act possible: {String.Join(",",S.ActPlayer().research.AvailableResearch())}");
+                panel.AddSubLabel($"Act cost",S.ActPlayer().research.cost.ToString());
+                panel.AddHeaderLabel("General possible");
+                panel.AddLabel(String.Join(",",S.ActPlayer().research.AvailableResearch().Select(r => r.Name())));
+                if (mgmt.actual != null)
+                {
+                    panel.AddHeaderLabel("Actual possible");
+                    panel.AddLabel(String.Join(",",S.ActPlayer().research.AvailableResearch(mgmt.actual).Select(r => r.Name())));
+                }
             }
         }
 

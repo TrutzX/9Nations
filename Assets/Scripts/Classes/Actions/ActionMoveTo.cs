@@ -6,6 +6,8 @@ using Buildings;
 using Game;
 using Libraries.FActions;
 using Libraries.Units;
+using MapElements;
+using MapElements.Units;
 using NesScripts.Controls.PathFind;
 using Players;
 using Tools;
@@ -21,6 +23,7 @@ namespace Classes.Actions
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos, ActionHolder holder)
         {
+            Debug.Log(evt);
             if (evt == ActionEvent.Direct)
             {
                 base.Perform(evt, player, info, pos, holder);
@@ -29,6 +32,29 @@ namespace Classes.Actions
                 
             //move to point?
             MoveToPos(player, (UnitInfo) info, pos, holder);
+        }
+
+        public override void Click(NVector pos)
+        {
+            //known click?
+            if (pos.Equals(LastClickPos))
+            {
+                ClickSecond();
+                OnMapUI.Get().SetActiveAction(null,false);
+                return;
+            }
+            
+            //new Click?
+            LastClickPos = pos;
+            if (S.Unit().At(pos) != null)
+            {
+                NAudio.PlayCancel();
+                ClickFirstCancel();
+            }
+            else
+            {
+                ClickFirst();
+            }
         }
         
         public override void PreRun()
@@ -44,25 +70,15 @@ namespace Classes.Actions
             return "Select the field, where you want to move.";
         }
 
-        public override void ClickFirst()
+        protected override void ClickFirst()
         {
-            
-            //is visible?
-            if (!player.fog.Visible(LastClickPos))
-            {
-                OnMapUI.Get().SetActiveAction(null,false);
-                NAudio.PlayCancel();
-                return;
-            }
-            
-            
             Debug.Log("Click first on "+LastClickPos);
 
             UnitInfo unit = (UnitInfo) mapElementInfo;
             string moveTyp = unit.dataUnit.movement;
             var path = GameMgmt.Get().newMap.PathFinding(mapElementInfo.Pos().level);
             List<PPoint> way = path.Path(player, moveTyp, mapElementInfo.Pos(), new NVector(LastClickPos.x, LastClickPos.y, mapElementInfo.Pos().level));
-            
+
             if (way.Count == 0)
             {
                 OnMapUI.Get().unitUI.ShowPanelMessage($"Can not move to this field. No path found.");
@@ -88,10 +104,15 @@ namespace Classes.Actions
             OnMapUI.Get().unitUI.ShowPanelMessage($"You want to move to this field for {cost} AP? Click again!");
         }
 
-        public override void ClickSecond()
+        protected override void ClickFirstCancel()
+        {
+            OnMapUI.Get().SetActiveAction(null,false);
+        }
+
+        protected override void ClickSecond()
         {
             action.data["pos"] = LastClickPos.ToString();
-            mapElementInfo.SetRepeatAction(mapElementInfo.data.action.actions.IndexOf(action), mapElementInfo.Pos());
+            mapElementInfo.SetRepeatAction(new ActionWaiting(action, mapElementInfo.data.action, mapElementInfo.Pos()));
             
             //set move to
             Debug.Log("Click second on "+LastClickPos);
@@ -130,7 +151,7 @@ namespace Classes.Actions
             }
 
             holder.data.Remove("pos");
-            unit.SetRepeatAction(-1, null);
+            unit.SetRepeatAction(null);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Game;
 using Libraries.Movements;
+using MapElements;
 using Players;
 using Tools;
 using UI;
@@ -16,40 +17,44 @@ namespace Libraries.Terrains
         public int defaultTile;
         public string winter;
         public Dictionary<string, string> modi;
-        public Dictionary<string, int> Movement;
-        public Dictionary<string, string> Res;
+        public Dictionary<string, int> movement;
+        public Dictionary<string, string> res;
 
         public DataTerrain()
         {
             defaultTile = -1;
             modi = new Dictionary<string, string>();
-            Res = new Dictionary<string, string>();
-            Movement = new Dictionary<string, int>();
+            res = new Dictionary<string, string>();
+            movement = new Dictionary<string, int>();
         }
         
         public override void ShowLexicon(PanelBuilder panel)
         {
-            this.ShowField(panel, null, null);
+            ShowLexicon(panel, null, null);
         }
         
-        public void ShowField(PanelBuilder panel, Player player, NVector pos)
+        public override void ShowLexicon(PanelBuilder panel, MapElementInfo onMap, NVector pos)
         {
             base.ShowLexicon(panel);
             if (!string.IsNullOrEmpty(winter))
             {
                 DataTerrain w = L.b.terrains[winter];
-                panel.AddImageLabel($"Winter: {w.Name()}", w.Sprite());
+                panel.AddSubLabel(S.T("terrainPassableWinter"),w.Name(), w.Sprite());
             }
 
-            panel.AddHeaderLabel("Movement cost");
+            panel.AddHeaderLabelT("move");
             foreach (Movement m in L.b.movements.Values())
             {
-                panel.AddSubLabel(m.Name(),(MoveCost(m.id)==0?"Not passable":$"{MoveCost(m.id)} AP"),m.Icon);
+                int costO = MoveCost(m.id);
+                int cost = GameMgmt.Get().newMap.PathFinding(pos.level).CostNode(S.ActPlayer(), m.id, pos);
+
+                var mess = S.T("terrainPassable", cost==0?S.T("terrainPassableNot"):S.T("terrainPassableAP",cost), cost == costO ? "" : S.T("terrainPassableOrg",costO==0?S.T("terrainPassableNot"):S.T("terrainPassableAP",costO)));
+                panel.AddSubLabel(m.Name(),mess,m.Icon);
             }
-            if (Movement.Count == 0) panel.AddImageLabel("Not passable","no");
+            //if (movement.Count == 0) panel.AddImageLabel(S.T("terrainPassableNot"),"no");
             panel.AddModi(modi);
 
-            ShowRes(panel, player, pos);
+            ShowRes(panel, S.ActPlayer(), pos);
         }
 
         public void ShowRes(PanelBuilder panel, Player player, NVector pos)
@@ -72,10 +77,10 @@ namespace Libraries.Terrains
                 return;
             } 
             
-            if (Res.Count > 0)
+            if (res.Count > 0)
             {
                 panel.AddHeaderLabelT("resInclude");
-                foreach (KeyValuePair<string, string> r in Res)
+                foreach (KeyValuePair<string, string> r in res)
                 {
                     int chanc = ResChance(r.Key);
                     string chance = chanc >= 1 ? $"{chanc}% chance: " : "";
@@ -87,17 +92,17 @@ namespace Libraries.Terrains
         
         public int MoveCost(string moveTyp)
         {
-            return Movement.ContainsKey(moveTyp)?Movement[moveTyp]:L.b.movements[moveTyp].def;
+            return movement.ContainsKey(moveTyp)?movement[moveTyp]:L.b.movements[moveTyp].def;
         }
 
         public (int min, int max) ResRange(string res)
         {
-            if (!Res.ContainsKey(res))
+            if (!this.res.ContainsKey(res))
             {
                 return (0, 0);
             }
             
-            string[] c = SplitHelper.Separator(Res[res])[0].Split('-');
+            string[] c = SplitHelper.Separator(this.res[res])[0].Split('-');
             return (ConvertHelper.Int(c[0]), ConvertHelper.Int(c[1]));
         }
 
@@ -110,12 +115,12 @@ namespace Libraries.Terrains
         
         public int ResChance(string res)
         {
-            if (!Res.ContainsKey(res))
+            if (!this.res.ContainsKey(res))
             {
                 return 0;
             }
             
-            string[] s = SplitHelper.Separator(Res[res]);
+            string[] s = SplitHelper.Separator(this.res[res]);
 
             if (s.Length >= 2)
             {
@@ -129,7 +134,7 @@ namespace Libraries.Terrains
         {
             foreach (var move in L.b.movements.Values())
             {
-                if ((Movement.ContainsKey(move.id) ? Movement[move.id]: move.def) > 0)
+                if ((movement.ContainsKey(move.id) ? movement[move.id]: move.def) > 0)
                 {
                     return true;
                 }

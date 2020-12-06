@@ -68,6 +68,9 @@ namespace Libraries.Modifiers
             if (L.b.improvements.Has(pos))
                 Check(L.b.improvements.At(pos).modi, player, pos, ref val, ref proc);
             
+            if (S.Building(pos) != null)
+                Check(S.Building(pos).dataBuilding.modi, player, pos, ref val, ref proc);
+
             //calc
             standard += (standard * proc) / 100;
             standard += val;

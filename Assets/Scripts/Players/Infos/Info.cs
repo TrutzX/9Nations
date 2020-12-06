@@ -7,6 +7,7 @@ using Libraries.FActions;
 using Libraries.FActions.General;
 using Tools;
 using UI;
+using UnityEngine;
 
 namespace Players.Infos
 {
@@ -14,6 +15,7 @@ namespace Players.Infos
     public class Info
     {
         public string icon;
+        public string overviewIcon;
         public string title;
         public string desc;
         public ActionHolder action;
@@ -27,10 +29,11 @@ namespace Players.Infos
         {
         }
 
-        public Info(string title, string icon)
+        public Info(string title, string icon, string overviewIcon=null)
         {
             this.icon = icon;
             this.title = title;
+            this.overviewIcon = overviewIcon??icon;
         }
 
         /// <summary>

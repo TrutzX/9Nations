@@ -18,6 +18,9 @@ namespace Libraries.FActions
                 case "useunderconstruction":
                     ele.useUnderConstruction = Bool(data);
                     break;
+                case "animation":
+                    ele.animation = data;
+                    break;
                 case "onlyowner":
                     ele.onlyOwner = Bool(data);
                     break;

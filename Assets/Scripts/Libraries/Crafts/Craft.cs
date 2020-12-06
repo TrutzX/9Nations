@@ -20,7 +20,7 @@ namespace Libraries.Crafts
         {
             base.ShowLexicon(panel);
             panel.AddResT("craftReceipt", res);
-            req.BuildPanel(panel,"Requirements");
+            req.BuildPanel(panel);
         }
     }
 }

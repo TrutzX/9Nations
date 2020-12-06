@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game;
 using Libraries;
+using MapElements;
 using Towns;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Buildings
 
         public void Init(BuildingUnitData data, Dictionary<string, int> construction, MapElementInfo info, int buildTime)
         {
+            data.constructionOrg = new Dictionary<string, int>(construction);
             data.construction = construction;
             data.construction.Add(C.BuildRes,buildTime+1);
             data.buildTime = buildTime;
@@ -32,7 +34,7 @@ namespace Buildings
         /// 
         /// </summary>
         /// <returns>true == under construction</returns>
-        public bool RoundConstruct()
+        public bool NextRound()
         {
             Town t = _info.Town();
         

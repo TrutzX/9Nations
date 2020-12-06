@@ -1,9 +1,9 @@
+using Classes.GameButtons;
 using Libraries;
-using Players;
-using Players.PlayerResearches;
+using Players.Infos;
 using UI;
 
-namespace Classes.GameButtons
+namespace Players.PlayerResearches
 {
     public class ResearchGameButtonRun : BaseGameButtonRun
     {
@@ -14,6 +14,7 @@ namespace Classes.GameButtons
             WindowBuilderSplit b = WindowBuilderSplit.Create("Research window",null);
             b.Add(new ResearchStatusSplitElement());
             b.Add(new ResearchFinishSplitElement());
+            b.Add(new InfosSplitElement(player.research.info));
             LSys.tem.helps.AddHelp("research", b);
             b.Finish();
         }

@@ -3,6 +3,7 @@ using System.Linq;
 using Audio;
 using Game;
 using Libraries.FActions;
+using MapElements.Units;
 using Players;
 using Tools;
 using Units;
@@ -69,22 +70,19 @@ namespace Classes.Actions
             return "Select the field, where you want to move.";
         }
 
-        public override void ClickFirst()
+        protected override void ClickFirst()
         {
-            //was selected?
-            if (Points.Count(p => p.x == LastClickPos.x && p.y == LastClickPos.y) == 0)
-            {
-                OnMapUI.Get().SetActiveAction(null,false);
-                NAudio.PlayCancel();
-                return;
-            }
-            
             string moveTyp = ((UnitInfo)mapElementInfo).dataUnit.movement;
             int cost = GameMgmt.Get().newMap.PathFinding(mapElementInfo.Pos().level).Cost(player, moveTyp, mapElementInfo.Pos(), new NVector(LastClickPos.x, LastClickPos.y, mapElementInfo.Pos().level));
             OnMapUI.Get().unitUI.ShowPanelMessage($"You want to move to this field for {cost} AP? Click again!");
         }
 
-        public override void ClickSecond()
+        protected override void ClickFirstCancel()
+        {
+            OnMapUI.Get().SetActiveAction(null,false);
+        }
+
+        protected override void ClickSecond()
         {
             ((UnitInfo)mapElementInfo).MoveTo(LastClickPos);
         }

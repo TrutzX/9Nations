@@ -1,6 +1,7 @@
-id,icon,factor,rate,req,req,req,
-food,food,,-0.2,,,,
-water,!Icons/magic:water,,-0.3,element=light,,,
-gold,gold,,0.1,,,,
-religion,religion,,-1,,townLevel=>2,,
-pottery,pottery,,-0.25,element=earth,townLevel=>3,,
+id,icon,factor,rate,req,req,req
+food,food,,-0.2,,,
+water,!Icons/magic:water,,-0.3,element=light;fire,,
+gold,gold,,0.1,,,
+religion,religion,,-1,,townLevel=>2,
+pottery,pottery,,-0.08,element=earth,townLevel=>3,
+//fuel,,,,,,

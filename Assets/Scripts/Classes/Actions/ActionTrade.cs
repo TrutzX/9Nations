@@ -3,6 +3,7 @@ using Classes.Actions.Addons;
 using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Towns;
@@ -28,11 +29,13 @@ namespace Classes.Actions
             if (towns.Count == 0)
             {
                 OnMapUI.Get().ShowPanelMessageError("No town for trading.");
+                return;
             }
 
             if (towns.Count == 1)
             {
                 new ActionTradeWindow(towns[0], holder.data["trade"]);
+                return;
             }
 
             WindowPanelBuilder wpb = WindowPanelBuilder.Create("Where do you want to trade?");

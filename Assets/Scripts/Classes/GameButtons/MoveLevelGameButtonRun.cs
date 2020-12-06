@@ -17,11 +17,16 @@ namespace Classes.GameButtons
             WindowPanelBuilder wpb = WindowPanelBuilder.Create("Move level");
             foreach (var gml in S.Map().levels)
             {
-                wpb.panel.AddButton(gml.name, () =>
+                var b = wpb.panel.AddButton(gml.name, () =>
                 {
                     S.Map().view.View(gml.level);
                     wpb.Close();
-                }).interactable = gml.level != S.Map().view.ActiveLevel;
+                });
+
+                if (gml.level == S.Map().view.ActiveLevel)
+                {
+                    b.enabled = false;
+                }
             }
             
             wpb.AddClose();

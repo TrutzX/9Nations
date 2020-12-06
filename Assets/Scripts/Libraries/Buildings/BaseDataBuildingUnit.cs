@@ -4,6 +4,7 @@ using Buildings;
 using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using reqs;
 using Tools;
@@ -46,30 +47,32 @@ namespace Libraries.Buildings
             ShowWorker(panel);
             panel.AddResT("constructionCost",cost);
             req.BuildPanel(panel, S.T("constructionReq"));
+            panel.AddModi(modi);
             
             ActionDisplaySettings sett = new ActionDisplaySettings(panel,null);
             sett.compact = true;
             action.BuildPanelT(sett);
         }
         
-        public void ShowBuild(PanelBuilder panel, NVector pos)
+        public override void ShowLexicon(PanelBuilder panel, MapElementInfo onMap, NVector pos)
         {
-            ShowIntern(panel, null, pos);
+            if (onMap == null)
+            {
+                ShowIntern(panel, null, pos);
 
-            ActionDisplaySettings sett = new ActionDisplaySettings(panel, S.ActPlayer(), null, pos,null);
-            sett.compact = true;
-            action.BuildPanelT(sett);
-        }
-
-        public void ShowOwn(PanelBuilder panel, MapElementInfo onMap)
-        {
+                ActionDisplaySettings sett = new ActionDisplaySettings(panel, S.ActPlayer(), null, pos,null);
+                sett.compact = true;
+                action.BuildPanelT(sett);
+                return;
+            }
+            
             if (!onMap.Owner(S.ActPlayerID()))
             {
                 ShowLexicon(panel);
                 return;
             }
             
-            NVector pos = onMap.Pos();
+            pos = onMap.Pos();
             ShowIntern(panel, onMap, pos);
 
             onMap.data.action.BuildPanelT(new ActionDisplaySettings(panel, onMap.Player(), onMap, pos, null));
@@ -96,6 +99,7 @@ namespace Libraries.Buildings
             
             panel.AddResT("constructionCost", cost);
             req.BuildPanel(panel, S.T("constructionReq"), null, pos);
+            panel.AddModi(modi);
         }
 
         protected virtual void ShowWorker(PanelBuilder panel)

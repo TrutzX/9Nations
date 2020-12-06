@@ -58,7 +58,7 @@ namespace Players.PlayerTypes
 
                 if (i % 20 == 0)
                 {
-                    yield return LSys.tem.Load.ShowMessage(S.T("chestGenLoadingSub", i, count));
+                    yield return LSys.tem.Load.ShowSubMessage(S.T("chestGenLoadingSub", i, count));
                 }
 
                 i++;

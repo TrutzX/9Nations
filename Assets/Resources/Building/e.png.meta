@@ -796,7 +796,7 @@ TextureImporter:
     second: e_32
   - first:
       213: -329101189915672922
-    second: mine
+    second: asdfsd
   - first:
       213: 4299895703597473804
     second: e_34
@@ -1461,7 +1461,7 @@ TextureImporter:
       213: -1620111284326278656
     second: e_254
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1515,6 +1515,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2237,7 +2238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mine
+      name: asdfsd
       rect:
         serializedVersion: 2
         x: 64

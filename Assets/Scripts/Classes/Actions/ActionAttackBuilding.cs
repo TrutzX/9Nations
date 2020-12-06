@@ -2,6 +2,7 @@ using Buildings;
 using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Units;
@@ -16,7 +17,13 @@ namespace Classes.Actions
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
         {
-            Perform(info, S.Unit().At(pos));
+            Perform(info, S.Building().At(pos));
+        }
+
+        public override void BuildPanel(ActionDisplaySettings sett)
+        {
+            //found dest?
+            BuildPanelIntern(sett, S.Building(sett.pos));
         }
     }
 }

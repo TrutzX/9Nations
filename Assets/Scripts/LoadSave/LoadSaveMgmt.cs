@@ -86,10 +86,10 @@ namespace LoadSave
 
         public static void LoadSave(string file)
         {
-            GameMgmt.StartConfig = new Dictionary<string, string>();
-            GameMgmt.StartConfig["type"] = "load";
-            GameMgmt.StartConfig["name"] = "save game "+file;
-            GameMgmt.StartConfig["file"] = file;
+            GameMgmt.startConfig = new Dictionary<string, string>();
+            GameMgmt.startConfig["type"] = "load";
+            GameMgmt.startConfig["name"] = "save game "+file;
+            GameMgmt.startConfig["file"] = file;
             SceneManager.LoadScene(1);
         }
     }

@@ -25,6 +25,7 @@ namespace Classes.Actions
             }
 
             player.elements.points += 1;
+            player.info.Add(new Info("The gods have been smiling on you, you've evolving the next round.","religion"));
         }
 
         public override void BuildPanel(ActionDisplaySettings sett)

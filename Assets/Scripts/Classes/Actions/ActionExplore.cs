@@ -4,6 +4,8 @@ using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Units;
+using MapElements;
+using MapElements.Units;
 using NesScripts.Controls.PathFind;
 using Players;
 using Tools;

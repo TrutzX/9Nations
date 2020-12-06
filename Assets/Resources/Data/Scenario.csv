@@ -1,8 +1,8 @@
 id,hidden,icon,category,map,req
-tutorial1,,!Units/light:light_1,tutorial,field6,
+tutorial1,,light,tutorial,field6,
 debug,,debug,single,field6mono,option=debug:true
 endless,true,,single,,
 pantheon,,!Building/a:temple,single,field6mono,
 screenshot,,logo,single,field6,option=debug:true
-tutorial2,,!Units/shadow:shadow_1,tutorial,field6,
-tutorial3,true,!Icons/magic:earth,tutorial,field6,
+tutorial2,,shadow,tutorial,field6mono,
+tutorial3,,earth,tutorial,field6,

@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using Audio;
 using Buildings;
 using Classes.Actions;
 using Game;
 using InputActions;
 using Libraries;
 using Libraries.FActions;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using reqs;
 using UnityEngine;
@@ -18,6 +21,19 @@ namespace Units
         void Start()
         {
             //UpdatePanel(null);
+        }
+
+        public override void ShowPanelMessageError(string text)
+        {
+            base.ShowPanelMessageError(text);
+            
+            //show animation?
+            if (text == null || active == null)
+            {
+                return;
+            }
+            
+            active.UnitAnimator().PlayIdleAnimation(UnitAnimatorType.No);
         }
     
         /// <summary>
@@ -38,19 +54,8 @@ namespace Units
                 return;
             }
         
-            UpdateInfoButton();
+            UpdateInfoButton(unit.dataUnit.AnimationSprite(UnitAnimatorType.Face));
             AddButtons();
-        }
-
-        public override void AddAllActionButtons()
-        {
-            
-            //add new actions
-            foreach (var act in active.data.action.Is(ActionEvent.Direct))
-            {
-                if (act.req.Check(S.ActPlayer(),active,active.Pos(), true))
-                    AddNewActionButton(active.data.action, act, active, actions);
-            }
         }
     }
 }

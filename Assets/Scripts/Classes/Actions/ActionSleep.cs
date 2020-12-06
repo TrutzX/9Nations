@@ -2,6 +2,7 @@ using Buildings;
 using Game;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Units;
@@ -15,11 +16,11 @@ namespace Classes.Actions
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
         {
-            info.data.ap = 0;
+            //info.data.ap = 0;
             
             if (evt == ActionEvent.Direct)
             {
-                info.SetRepeatAction(info.data.action.actions.IndexOf(holder), pos);
+                info.SetRepeatAction(new ActionWaiting(holder, info.data.action, pos));
                 OnMapUI.Get().UpdatePanel(info.Pos());
             }
         }

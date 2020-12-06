@@ -29,7 +29,7 @@ namespace Libraries.Terrains
             switch (header)
             {
                 case "movement":
-                    Delimiter(ele.Movement, data);
+                    Delimiter(ele.movement, data);
                     break;
                 case "tile":
                     ele.defaultTile = Int(data);
@@ -41,7 +41,7 @@ namespace Libraries.Terrains
                     Delimiter(ele.modi, data);
                     break;
                 case "res":
-                    Delimiter(ele.Res, data);
+                    Delimiter(ele.res, data);
                     break;
                 default:
                     base.ParseElement(ele, header, data);

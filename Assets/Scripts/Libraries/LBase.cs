@@ -98,6 +98,13 @@ namespace Libraries
             mgmts.Add(mgmt.Id(),mgmt);
             return mgmt;
         }
+        
+        protected T Add<T>() where T : IRead, new()
+        {
+            T mgmt = new T();
+            mgmts.Add(mgmt.Id(),mgmt);
+            return mgmt;
+        }
 
         protected IRead GetMgmt(string typ)
         {

@@ -2,6 +2,9 @@ using System;
 using Buildings;
 using Game;
 using Libraries;
+using MapElements;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Tools;
 using Units;
@@ -12,7 +15,7 @@ namespace reqs
     
     public class ReqSameField : BaseReqOnlyMapElement
     {
-        public override bool Check(Player player, Buildings.MapElementInfo onMap, string sett, NVector pos)
+        public override bool Check(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
             string type = sett.Split(',')[0];
             string id = sett.Split(',')[1];
@@ -35,12 +38,12 @@ namespace reqs
             return false;
         }
 
-        public override bool Final(Player player, Buildings.MapElementInfo onMap, string sett, NVector pos)
+        public override bool Final(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
             return true;
         }
 
-        public override string Desc(Player player, Buildings.MapElementInfo onMap, string sett, NVector pos)
+        public override string Desc(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
             string type = sett.Split(',')[0];
             string id = sett.Split(',')[1];

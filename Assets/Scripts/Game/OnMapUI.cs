@@ -4,6 +4,8 @@ using Classes.Actions;
 using InputActions;
 using Libraries;
 using Libraries.FActions;
+using MapElements;
+using MapElements.Buildings;
 using Players;
 using Players.Infos;
 using Tools;
@@ -21,6 +23,7 @@ namespace Game
         public BuildingUI buildingUI;
         public InfoUI InfoUi;
         public BottomUI bottomUI;
+        public GameObject textAnimation;
 
         public GameObject menuButton;
         public Text menuButtonText;

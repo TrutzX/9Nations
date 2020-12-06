@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Game;
+using Tools;
 using UI.Show;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace UI
     public class WindowTabBuilder : MonoBehaviour, IWindow
     {
         private List<Tab> _tabs;
-        private string title;
+        private string _title;
 
         public Text header;
         public GameObject content;
@@ -21,6 +22,7 @@ namespace UI
         private WindowTabBuilder(){}
         public static WindowTabBuilder Create(string title)
         {
+            title = TextHelper.Cap(title);
             GameObject act = Instantiate(UIElements.Get().tabWindow, GameObject.Find("WindowsMgmt").transform);
             act.name = title;
             act.GetComponent<WindowTabBuilder>().Init(title);
@@ -31,13 +33,11 @@ namespace UI
         {
             return Create(S.T(title));
         }
-        
 
-        
-        public void Init(string title)
+        private void Init(string title)
         {
             _tabs = new List<Tab>();
-            this.title = title;
+            _title = title;
             header.text = title;
         }
         
@@ -64,6 +64,11 @@ namespace UI
             gameObject.SetActive(true);
         }
 
+        public int Count()
+        {
+            return _tabs.Count;
+        }
+        
         public void CloseWindow()
         {
             Destroy(gameObject);
@@ -71,7 +76,7 @@ namespace UI
 
         public void ShowTab(Tab t)
         {
-            header.text = $"{title} | {t.Name()}";
+            header.text = $"{_title} | {t.Name()}";
             UIHelper.ClearChild(content);
             t.Show(content.transform);
         }

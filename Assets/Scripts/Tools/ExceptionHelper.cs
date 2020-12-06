@@ -1,12 +1,10 @@
 using System;
 using Game;
-using Players;
 using UI;
-using UnityEngine;
 
 namespace Tools
 {
-    public class ExceptionHelper
+    public static class ExceptionHelper
     {
         /// <summary>
         /// Show and throw again

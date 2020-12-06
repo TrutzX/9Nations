@@ -192,11 +192,11 @@ namespace Maps.GameMaps
                 {
                     DataTerrain bt = Terrain(x, y);
                     //has res?
-                    if (bt.Res.Count == 0) continue;
+                    if (bt.res.Count == 0) continue;
                     
                     //add it
                     resGenerate[x,y] = new Dictionary<string, int>();
-                    foreach (KeyValuePair<string, string> r in bt.Res)
+                    foreach (KeyValuePair<string, string> r in bt.res)
                     {
                         string[] s = SplitHelper.Separator(r.Value);
                         

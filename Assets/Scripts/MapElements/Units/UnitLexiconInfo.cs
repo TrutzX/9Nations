@@ -1,3 +1,4 @@
+using MapElements.Units;
 using UI;
 using UI.Show;
 
@@ -14,7 +15,7 @@ namespace Units
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _unit.dataUnit.ShowOwn(panel, _unit);
+            _unit.dataUnit.ShowLexicon(panel, _unit, null);
         }
 
         public override void Perform()

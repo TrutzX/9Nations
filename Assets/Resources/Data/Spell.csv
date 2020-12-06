@@ -1,0 +1,7 @@
+id,hidden,icon,difficult,category,cost,animation,sound,req,reqTarget,req,action,actionFail,actionFail
+addAP,,ap,,earth,10,SmallStar,,,unitDest=own,,stat=ap:10,stat=ap:-20,stat=ap:-20
+addDef,,def,,earth,20,MagicBarrier,,disabled,unitDest=own,,stat=def:5,stat=def:-10,stat=def:-10
+removeAP,,ap,,earth,10,SmallStar,,,unitDest=enemy,,stat=ap:-10,stat=ap:20,stat=ap:20
+refreshRes,,res,50,earth,100,MagicBarrier,,,unitDest=enemy,,,,
+vision,,view,-25,earth,5,weaponHit,,gameOption=fog:true,,,vision,stat=apMax:-1,stat=apMax:-1
+heal,,,25,earth,,heal,,,unitDest=own,,heal,,

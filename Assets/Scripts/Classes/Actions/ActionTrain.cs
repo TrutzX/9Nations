@@ -1,69 +1,44 @@
 using System.Linq;
 using Buildings;
 using Classes.Actions.Addons;
+using Game;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.Elements;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Units;
+using MapElements;
+using MapElements.Material;
 using Players;
 using Tools;
 using UI;
 using UI.Show;
 using Units;
+using UnityEngine;
 
 namespace Classes.Actions
 {
-    public class ActionTrain : ActionBuild
+    
+    public class ActionTrain : BaseSelectElementAction<DataUnitMgmt,DataUnit>
     {
         public ActionTrain() : base("train"){}
-
-        protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
-            ActionHolder holder)
-        {
-            if (BuildAllowed(player, info, pos, holder)) return;
-
-            WindowTabBuilder wtb = WindowTabBuilder.Create(holder.DataAction().Desc());
-
-            BuildLast(player, info, pos, holder, wtb, "lastTrain");
-
-            foreach (string e in player.elements.elements)
-            {
-                Element ele = L.b.elements[e];
-                SplitElementTab set = new SplitElementTab(ele.Name(), ele.Icon, holder.DataAction().Name());
-
-                var b = L.b.units.GetAllByCategory(ele.id).OrderBy(o=>o.Name()).ToList();
-                foreach (DataUnit build in b)
-                {
-                    AddBuild(player, info, pos, build.id, set);
-                }
-
-                if (set.Count() > 0)
-                {
-                    wtb.Add(set);
-                }
-            }
-
-            wtb.Finish();
-        }
-
-        protected override BaseDataBuildingUnit Get(string key)
-        {
-            return L.b.units[key];
-        }
         
-        protected override void AddBuild(Player player, MapElementInfo info, NVector pos, string key, ISplitManager set)
+        protected override DataUnitMgmt Objects()
         {
-            BaseDataBuildingUnit build = Get(key);
-            
-            if (build.req.Check(player, info, pos, true))
+            return L.b.units;
+        }
+
+        protected override SplitElement CreateSplitElement(DataUnit build, MapElementInfo info, NVector pos, ISplitManager ism)
+        {
+            return new BaseSelectElementSplitElement<DataUnit>(id, build, info, pos, ism, (mei, position) => 
             {
-                TrainSplitElement be = new TrainSplitElement(build, info, pos, set);
-                be.disabled = build.req.Desc(player, info, pos);
-                set.Add(be);
-                //win.AddBuilding(build.id);
-            }
+                MaterialWindow.ShowBuildMaterialWindow(build, pos, cost =>
+                {
+                    GameMgmt.Get().unit.Create(S.ActPlayerID(), build.id, pos, cost);
+                    OnMapUI.Get().UpdatePanel(pos);
+                });
+            });
         }
     }
 }

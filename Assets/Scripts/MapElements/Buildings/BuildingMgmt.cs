@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Game;
 using Libraries;
+using MapElements.Buildings;
 using Players;
 using Players.Infos;
 using Tools;
@@ -73,7 +74,17 @@ namespace Buildings
             {
                 throw new MissingComponentException($"Building {type} not exist");
             }
-            
+
+            if (!pos.Valid())
+            {
+                throw new MissingComponentException("not a valid position");
+            }
+
+            if (At(pos) != null)
+            {
+                throw new MissingComponentException($"field {pos} is blocked");
+            }
+
             BuildingInfo bi = Instantiate(buildPrefab, GameMgmt.Get().newMap.levels[pos.level].buildings.transform);
             bi.Init(town,type,pos,cost??new Dictionary<string, int>(L.b.buildings[type].cost));
             bi.NextRound();

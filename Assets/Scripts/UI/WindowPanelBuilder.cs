@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
 using Game;
+using Tools;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI
@@ -8,9 +10,11 @@ namespace UI
     public class WindowPanelBuilder : MonoBehaviour
     {
         public PanelBuilder panel;
+        public UnityAction onClose;
 
         public static WindowPanelBuilder Create(string title)
         {
+            title = TextHelper.Cap(title);
             GameObject act = Instantiate(UIElements.Get().panelWindow, GameObject.Find("WindowsMgmt").transform);
             act.name = title;
             act.transform.GetComponentInChildren<Text>().text = title;
@@ -41,6 +45,7 @@ namespace UI
         public void Close()
         {
             Destroy(gameObject);
+            onClose?.Invoke();
         }
     }
 }

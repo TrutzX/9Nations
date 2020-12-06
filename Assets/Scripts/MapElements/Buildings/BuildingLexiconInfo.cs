@@ -1,3 +1,4 @@
+using MapElements.Buildings;
 using UI;
 using UI.Show;
 
@@ -14,7 +15,7 @@ namespace Buildings
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            _unit.baseData.ShowOwn(panel, _unit);
+            _unit.baseData.ShowLexicon(panel, _unit, null);
             
         }
 

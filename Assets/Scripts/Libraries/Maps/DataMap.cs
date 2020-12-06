@@ -4,6 +4,7 @@ using Game;
 using Help;
 using IniParser.Model;
 using IniParser.Parser;
+using Tools;
 using UI;
 using UnityEngine;
 
@@ -41,10 +42,10 @@ namespace Libraries.Maps
             if (Intern())
             {
                 TextAsset t = UnityEngine.Resources.Load<TextAsset>(Dir()+format+id);
-                return CSV.Convert(CSV.Read(t.text));
+                return Ncsv.Convert(Ncsv.Read(t.text));
             }
             
-            return CSV.Convert(CSV.Read(File.ReadAllText(Dir()+format+id+".csv")));
+            return Ncsv.Convert(Ncsv.Read(File.ReadAllText(Dir()+format+id+".csv")));
         }
 
         private bool Intern()

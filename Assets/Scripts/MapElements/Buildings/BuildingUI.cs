@@ -4,6 +4,7 @@ using Classes.Actions;
 using Game;
 using InputActions;
 using Libraries.FActions;
+using MapElements.Buildings;
 using Players;
 using reqs;
 using UnityEngine;
@@ -36,20 +37,8 @@ namespace Buildings
                 return;
             }
 
-            UpdateInfoButton();
+            UpdateInfoButton(active.Sprite());
             AddButtons();
-        }
-    
-        public override void AddAllActionButtons()
-        {
-            
-            //add new actions
-            foreach (var act in active.data.action.Is(ActionEvent.Direct))
-            {
-                BasePerformAction ba = act.PerformAction();
-                if (act.req.Check(S.ActPlayer(),active,active.Pos(), true))
-                    AddNewActionButton(active.data.action, act, active, actions);
-            }
         }
     }
 }

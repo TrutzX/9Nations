@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 using Audio;
 using Buildings;
 using Classes;
@@ -11,7 +9,6 @@ using InputActions;
 using Libraries;
 using Libraries.Rounds;
 using Loading;
-using LoadSave;
 using Maps;
 using Options;
 using Players;
@@ -20,9 +17,6 @@ using Towns;
 using Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Color = UnityEngine.Color;
 
 namespace Game
 {
@@ -40,7 +34,7 @@ namespace Game
 
         private static GameMgmt self;
 
-        public static Dictionary<string, string> StartConfig;
+        public static Dictionary<string, string> startConfig;
 
         public LoadingScreen load;
 
@@ -75,7 +69,7 @@ namespace Game
         {
             LClass.Init();
             load = GameObject.Find("UICanvas").GetComponentInChildren<LoadingScreen>(true);
-            if (StartConfig != null && StartConfig["type"] == "load")
+            if (startConfig != null && startConfig["type"] == "load")
             {
                 StartCoroutine(LoadGame());
                 return;
@@ -111,34 +105,28 @@ namespace Game
             ConnectGameObjs();
             OptionHelper.RunStartOptions();
             data.players.Init();
-
-            if (StartConfig == null)
+ 
+            if (startConfig == null)
             {
-                StartConfig = new Dictionary<string, string>();
-                StartConfig["name"] = "debug";
-                StartConfig["type"] = "scenario";
-                StartConfig["scenario"] = "debug";
-                StartConfig["scenario"] = "screenshot";
-                //StartConfig["scenario"] = "tutorial2";
+                startConfig = new Dictionary<string, string>();
+                startConfig["name"] = "debug";
+                startConfig["type"] = "scenario";
+                startConfig["scenario"] = "tutorial3";
+                //startConfig["scenario"] = "screenshot";
+                startConfig["scenario"] = "debug";
             }
             
-            yield return load.ShowMessage("Loading "+StartConfig["name"]);
+            yield return load.ShowMessage("Loading "+startConfig["name"]);
 
-            if (StartConfig["type"] == "endless")
+            if (startConfig["type"] == "endless")
             {
-                yield return (StartScenario("endless",StartConfig["map"]));
+                yield return (StartScenario("endless",startConfig["map"]));
             } 
             else
             {
-                yield return (StartScenario(StartConfig["scenario"],LSys.tem.scenarios[StartConfig["scenario"]].map));
+                yield return (StartScenario(startConfig["scenario"],LSys.tem.scenarios[startConfig["scenario"]].map));
             }
 
-        }
-
-        public MapElementInfo At(NVector pos)
-        {
-            MapElementInfo info = S.Unit().At(pos);
-            return info != null ? info : S.Building().At(pos);
         }
 
         private void ConnectGameObjs()
@@ -151,10 +139,10 @@ namespace Game
             self = this;
         }
 
-        public IEnumerator StartScenario(string id, string _map)
+        public IEnumerator StartScenario(string id, string map)
         {
             //load Map
-            data.map.id = _map;
+            data.map.id = map;
             data.name = LSys.tem.scenarios[id].Name();
             yield return newMap.CreateMap();
             
@@ -172,9 +160,9 @@ namespace Game
             //add modis
             foreach (var option in L.b.gameOptions.GetAllByCategory("modi"))
             {
-                if (!StartConfig.ContainsKey(option.id)) continue;
+                if (!startConfig.ContainsKey(option.id)) continue;
                 
-                var val = Convert.ToInt32(StartConfig[option.id]);
+                var val = Convert.ToInt32(startConfig[option.id]);
                 if (val == 0) continue;
                 
                 data.modi[option.id] = val+"%";
@@ -190,11 +178,11 @@ namespace Game
 
         IEnumerator LoadGame()
         {
-            yield return load.ShowMessage("Loading "+StartConfig["file"]);
+            yield return load.ShowMessage("Loading "+startConfig["file"]);
             yield return load.ShowSubMessage($"Loading library");
-            L.b = ES3.Load<L>("lib",StartConfig["file"]+"lib.9n");
+            L.b = ES3.Load<L>("lib",startConfig["file"]+"lib.9n");
             yield return load.ShowSubMessage($"Loading file");
-            data = ES3.Load<GameData>("game",StartConfig["file"]+"game.9n");
+            data = ES3.Load<GameData>("game",startConfig["file"]+"game.9n");
             
             ConnectGameObjs();
             

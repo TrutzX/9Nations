@@ -5,6 +5,9 @@ using GameMapLevels;
 using InputActions;
 using Libraries;
 using Libraries.Rounds;
+using MapElements;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Tools;
 using Towns;
@@ -55,9 +58,29 @@ namespace Game
             return GameMgmt.Get().building;
         }
         
+        public static BuildingInfo Building(NVector pos)
+        {
+            return GameMgmt.Get().building.At(pos);
+        }
+        
         public static UnitMgmt Unit()
         {
             return GameMgmt.Get().unit;
+        }
+        
+        public static UnitInfo Unit(NVector pos)
+        {
+            return GameMgmt.Get().unit.At(pos);
+        }
+        
+        public static MapElementInfo MapElement(NVector pos)
+        {
+            if (GameMgmt.Get().unit.Free(pos))
+                return Building(pos);
+            else
+            {
+                return Unit(pos);
+            }
         }
         
         public static GameMgmt Game()

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Game;
+using MapElements;
 using Players;
 using reqs;
 using Tools;
@@ -91,6 +92,18 @@ namespace Libraries
         {
             AddImageLabel(panel);
             panel.RichText(Desc());
+        }
+
+        public virtual void ShowLexicon(PanelBuilder panel, MapElementInfo onMap, NVector pos)
+        {
+            ShowLexicon(panel);
+            req.BuildPanel(panel, onMap, pos);
+        }
+
+        public virtual void ShowLexicon(PanelBuilder panel, Player player)
+        {
+            ShowLexicon(panel);
+            req.BuildPanel(panel, player);
         }
     }
 }

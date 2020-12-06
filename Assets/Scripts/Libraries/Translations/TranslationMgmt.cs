@@ -42,7 +42,14 @@ namespace Libraries.Translations
 
         public string Translate(string key, object p0, object p1, object p2)
         {
-            return string.Format(Translate(GetPlural(key, p0)), p0, p1, p2);
+            try
+            {
+                return string.Format(Translate(GetPlural(key, p0)), p0, p1, p2);
+            }
+            catch (Exception e)
+            {
+                throw new FormatException("Can not translate "+key, e);
+            }
         }
         
         public void UpdateLang()
@@ -52,6 +59,7 @@ namespace Libraries.Translations
             lang = selected == "langSystem" ? Application.systemLanguage.ToString().ToLower() : selected;
             
             //language exist?
+            
             if (!LSys.tem.languages.ContainsKey(lang))
             {
                 lang = LSys.tem.languages.Values().First(l => l.standard).id;

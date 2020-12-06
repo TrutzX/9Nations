@@ -1,5 +1,6 @@
 using Game;
 using UI;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Libraries.Inputs
@@ -31,7 +32,15 @@ namespace Libraries.Inputs
             wpb.AddClose();
             wpb.Finish();
             
-            S.InputAction().findKey = code => { _newKey = code.ToString(); change.enabled = true; UIHelper.UpdateButtonText(change, $"Set new key to {_newKey}"); };
+            S.InputAction().findKey = code =>
+            {
+                if (code.ToString().StartsWith("Mouse"))
+                    return;
+                
+                _newKey = code.ToString(); 
+                change.enabled = true; 
+                UIHelper.UpdateButtonText(change, $"Set new key to {_newKey}");
+            };
         }
         
     }

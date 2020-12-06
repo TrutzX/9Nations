@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Buildings;
 using Game;
+using MapElements;
 using Players;
 using Tools;
 using Towns;
@@ -16,7 +17,7 @@ namespace reqs
         public override bool Check(Player player, MapElementInfo onMap, string sett, NVector pos)
         {
             var s = SplitHelper.Split(sett);
-            return CheckMapElement(onMap, s.key) && CheckMapElement(S.Game().At(pos), s.value);
+            return CheckMapElement(onMap, s.key) && CheckMapElement(S.MapElement(pos), s.value);
         }
 
         public override bool Final(Player player, MapElementInfo onMap, string sett, NVector pos)

@@ -1,26 +1,27 @@
 using System;
 using System.Collections.Generic;
+using Buildings;
 using Classes.Actions;
+using Debugs;
 using Game;
-using GameButtons;
 using Help;
-using InputActions;
 using JetBrains.Annotations;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.FActions;
 using Libraries.FActions.General;
 using Libraries.Terrains;
+using MapElements.Buildings;
+using MapElements.Spells;
 using Players;
 using Players.Infos;
 using Players.Kingdoms;
-using reqs;
 using Tools;
 using Towns;
 using UI;
 using UnityEngine;
 
-namespace Buildings
+namespace MapElements
 {
     public abstract class MapElementInfo : MonoBehaviour
     {
@@ -70,25 +71,28 @@ namespace Buildings
         
             if (IsUnderConstruction())
             {
-                return $"{gameObject.name} under construction ({(int) (GetComponent<Construction>().GetConstructionProcent()*100)}%) {data.lastInfo}";
+                return $"{gameObject.name} under construction ({(int) (GetComponent<Construction>().GetConstructionProcent()*100)}%) {data.info.LastInfo()}";
             }
 
-            if (data.actionWaitingActionPos != -1)
+            if (data.waiting != null)
             {
-                ActionHolder a = data.action.actions[data.actionWaitingActionPos];
+                ActionHolder a = data.action.actions[data.waiting.actionPos];
                 FDataAction da = a.DataAction();
                 text += $"Prepare {da.Name()}";
 
-                if (data.actionWaitingAp != -1)
-                    text += $" ({TextHelper.Proc(data.actionWaitingAp, da.cost)}).";
+                if (data.waiting.endless)
+                    text += $" (repeat unlimited).";
+                else
+                    text += $" ({TextHelper.Proc(data.waiting.ap, data.waiting.apMax)}).";
+                
                 
                 if (S.Debug())
-                    text += data.ap+"/"+data.actionWaitingAp + "/" + da.cost;
+                    text += data.ap+"/"+data.waiting.ap + "/" + data.waiting.apMax;
             }
 
             //add hp?
             string hp = data.hp < data.hpMax ? $"HP:{data.hp}/{data.hpMax}, " : "";
-            return $"{gameObject.name} {hp}AP:{data.ap}/{data.apMax}{text} {data.lastInfo}";
+            return $"{gameObject.name} {hp}AP:{data.ap}/{data.apMax}{text} {data.info.LastInfo()}";
         }
 
         public bool IsUnderConstruction()
@@ -103,21 +107,26 @@ namespace Buildings
         public virtual bool NextRound()
         {
             //under construction?
-            if (IsUnderConstruction() && GetComponent<Construction>().RoundConstruct())
+            if (IsUnderConstruction() && GetComponent<Construction>().NextRound())
             {
+                //AddNoti("IsUnderConstruction");
                 return false;
             }
             
             //has a town?
             if (data.townId == -1)
             {
+                //AddNoti("no town");
                 return false;
             }
             
             //perform actions
-            SetLastInfo(data.action.Performs(ActionEvent.NextRound, Player(), this, Pos()));
-
-            return data.lastInfo == null;
+            string erg = data.action.Performs(ActionEvent.NextRound, Player(), this, Pos());
+            SetLastInfo(erg);
+            
+            //AddNoti("erg:"+erg?.Length);
+            
+            return String.IsNullOrEmpty(erg);
         }
         
         public virtual void FinishConstruct()
@@ -143,9 +152,16 @@ namespace Buildings
             if (data.townId != -1)
                 win.Add(new CameraTownSplitElement(win, Town()));
             if (S.Debug())
+            {
                 win.Add(new DebugMapElementSplitElement(this));
+                win.Add(new DebugSpellSplitElement(this));
+            }
+                
             if (L.b.improvements.Has(Pos()))
                 win.Add(new LexiconSplitElement(L.b.improvements.At(Pos())));
+            
+            win.Add(new InfosSplitElement(data.info));
+            
             return win;
         }
 
@@ -163,6 +179,7 @@ namespace Buildings
         public virtual void Load(BuildingUnitData data)
         {
             this.data = data;
+            this.data.info.mapElementInfo = this;
         
             if (data.construction != null)
             {
@@ -172,15 +189,30 @@ namespace Buildings
         
         }
 
+        [Obsolete]
         public void SetLastInfo(string mess)
+        {
+            AddNoti(mess, null);
+        }
+
+        public void AddNoti(string mess, string icon)
         {
             if (string.IsNullOrEmpty(mess))
             {
                 return;
             }
             
-            data.lastInfo = mess;
-            Player().info.Add(new Info(mess,baseData.Icon).AddAction("cameraMove",$"{Pos().level};{Pos().x};{Pos().y}"));
+            AddNoti(new Info(mess, icon ?? baseData.Icon, baseData.Icon));
+        }
+
+        public void AddNoti(Info info)
+        {
+            if (info.action == null)
+            {
+                info.AddAction("cameraMove",$"{Pos().level};{Pos().x};{Pos().y}");
+            }
+            
+            data.info.Add(info);
         }
         
         public void AddHp(int hp) {
@@ -201,7 +233,12 @@ namespace Buildings
         /// </summary>
         protected void Clear(NVector pos)
         {
-            Player().fog.Clear(pos, L.b.modifiers["view"].CalcModiNotNull(baseData.visibilityRange,Player(),pos));
+            Player().fog.Clear(pos, CalcVisibleRange(pos));
+        }
+
+        public int CalcVisibleRange(NVector pos, int fac=1)
+        {
+            return L.b.modifiers["view"].CalcModiNotNull(baseData.visibilityRange*fac, Player(), pos);
         }
 
         public void SetActive()
@@ -217,27 +254,28 @@ namespace Buildings
             return OnMapUI.Get().unitUI;
         }
 
-        public void SetWaitingAction(int actionPos, NVector pos)
+        public void SetWaitingAction(ActionWaiting waiting)
         {
-            data.actionWaitingActionPos = actionPos;
-            if (actionPos == -1) return;
-
-            data.actionWaitingAp = data.ap;
+            data.waiting = waiting;
+            if (waiting == null) return;
+            
+            //todo calc magic wait ap
+            waiting.ap = data.ap;
             data.ap = 0;
-            data.actionWaitingPos = pos;
+
+            //Debug.Log(waiting.ap+"/"+waiting.apMax);
         }
 
-        public void SetRepeatAction(int actionPos, NVector pos)
+        public void SetRepeatAction(ActionWaiting waiting)
         {
-            data.actionWaitingActionPos = actionPos;
-            if (actionPos == -1) return;
+            data.waiting = waiting;
+            if (waiting == null) return;
 
-            data.actionWaitingAp = -1;
-            data.actionWaitingPos = pos;
+            waiting.endless = true;
             
             //perform first
-            ActionHolder a = data.action.actions[data.actionWaitingActionPos];
-            string erg = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
+            ActionHolder a = data.action.actions[waiting.actionPos];
+            string erg = data.action.Perform(a, ActionEvent.NextRound, Player(), this, waiting.pos);
             if (!string.IsNullOrEmpty(erg))
                 SetLastInfo($"Performs {a.DataAction().Name()}. {erg}");
         }
@@ -245,50 +283,51 @@ namespace Buildings
         public void StartPlayerRound()
         {
             //has a waiting round?
-            if (data.actionWaitingActionPos == -1) return;
+            if (data.waiting == null) return;
             
-            ActionHolder a = data.action.actions[data.actionWaitingActionPos];
+            ActionHolder a = data.action.actions[data.waiting.actionPos];
             FDataAction da = a.DataAction();
 
             //perform every turn?
-            if (data.actionWaitingAp == -1)
+            if (data.waiting.endless)
             {
-                string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.actionWaitingPos);
+                string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.waiting.pos);
                 if (!string.IsNullOrEmpty(erg2))
                     SetLastInfo($"Performs {da.Name()}. {erg2}");
                 return;
             }
 
             //wait more?
-            if (da.cost > data.ap + data.actionWaitingAp)
+            if (data.waiting.apMax > data.ap + data.waiting.ap)
             {
-                data.actionWaitingAp += data.ap;
+                data.waiting.ap += data.ap;
                 data.ap = 0;
                 return;
             }
 
-            data.ap = da.cost - data.actionWaitingAp;
-            data.actionWaitingActionPos = -1;
-            data.ap += data.actionWaitingAp;
-            string erg = data.action.Perform(a, ActionEvent.Direct, Player(), this, data.actionWaitingPos);
-            data.ap = da.cost - data.actionWaitingAp;
+            data.ap = data.waiting.apMax - data.waiting.ap;
+            data.ap += data.waiting.ap;
+            a.data["waiting"] = data.waiting.sett;
+            string erg = data.action.Perform(a, data.waiting.evt, Player(), this, data.waiting.pos);
+            a.data.Remove("waiting");
+            data.ap = data.waiting.apMax - data.waiting.ap;
             SetLastInfo($"Performs {da.Name()}. {erg}");
+            data.waiting = null;
         }
 
-        protected void CalcUpgradeCost(BaseDataBuildingUnit build, BaseDataBuildingUnit old)
+        protected void CalcUpgradeCost(Dictionary<string, int> buildCost, Dictionary<string, int> oldCost)
         {
-            //todo also interpret construction cost
             //calc new cost
-            foreach (var cost in build.cost)
+            foreach (var cost in new Dictionary<string, int>(buildCost))
             {
-                if (!old.cost.ContainsKey(cost.Key))
+                if (!oldCost.ContainsKey(cost.Key))
                 {
                     continue;
                 }
 
-                if (cost.Value > old.cost[cost.Key])
+                if (cost.Value > oldCost[cost.Key])
                 {
-                    data.construction[cost.Key] -= old.cost[cost.Key];
+                    data.construction[cost.Key] -= oldCost[cost.Key];
                 }
                 else
                 {

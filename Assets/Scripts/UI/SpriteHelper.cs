@@ -28,7 +28,6 @@ namespace UI
             if (path.StartsWith("!"))
             {
                 path = path.Substring(1);
-                
             }
             else
             {
@@ -76,11 +75,43 @@ namespace UI
             Cache[opath] = r;
             return r;
         }
+
+        public static bool Exist(string opath)
+        {
+            //in cache?
+            if (Cache.ContainsKey(opath))
+            {
+                return true;
+            }
+
+            string path = opath;
+            if (L.b != null && LSys.tem.icons.ContainsKey(opath))
+            {
+                path = LSys.tem.icons[opath].Icon;
+            }
+
+            if (path.StartsWith("!"))
+            {
+                path = path.Substring(1);
+            }
+            else
+            {
+                //TODO load extern
+                Debug.LogWarning($"Path {path} is wrong formatted");
+            }
+            
+            if (path.Contains(":"))
+            {
+                string[] prepath = path.Split(':');
+                return Resources.LoadAll<Sprite>(prepath[0]).Count(s => s.name == prepath[1]) == 1;
+            }
+
+            return Resources.Load<Sprite>(path) != null;
+        }
         
         public static Sprite LoadExternalSprite(string filePath, float pixelsPerUnit = 32f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
             // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
- 
             Texture2D spriteTexture = LoadExternalTexture(filePath);
             return Sprite.Create(spriteTexture, new Rect(0, 0, spriteTexture.width, spriteTexture.height), new Vector2(0, 0), pixelsPerUnit, 0 , spriteType);
         }

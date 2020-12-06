@@ -7,7 +7,7 @@ using Tools;
 using Towns;
 using Units;
 using UnityEngine;
-using MapElementInfo = Buildings.MapElementInfo;
+using MapElementInfo = MapElements.MapElementInfo;
 using Object = UnityEngine.Object;
 
 namespace reqs
@@ -19,7 +19,7 @@ namespace reqs
             bra.NeedMapException();
 
             bra.onMap = S.Unit().At(bra.pos);
-
+            
             if (bra.onMap == null) return false;
             
             switch (bra.sett)

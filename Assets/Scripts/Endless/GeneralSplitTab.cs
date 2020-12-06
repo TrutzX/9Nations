@@ -56,9 +56,9 @@ namespace Endless
                 return;
             }
             
-            GameMgmt.StartConfig = startConfig;
-            GameMgmt.StartConfig["name"] = S.T("endless");
-            GameMgmt.StartConfig["type"] = "endless";
+            GameMgmt.startConfig = startConfig;
+            GameMgmt.startConfig["name"] = S.T("endless");
+            GameMgmt.startConfig["type"] = "endless";
             
             GameMgmt.Init();
         }

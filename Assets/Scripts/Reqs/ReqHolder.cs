@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Buildings;
 using Game;
+using MapElements;
 using Players;
 using Tools;
 using UI;
@@ -152,6 +153,11 @@ namespace reqs
             }
         }
 
+        public void BuildPanel(PanelBuilder panel, Player player = null)
+        {
+            BuildPanel(panel,S.T("requirement",reqs.Count), player);
+        }
+
         public void BuildPanel(PanelBuilder panel, string title, Player player = null)
         {
             try
@@ -181,6 +187,11 @@ namespace reqs
             }
         }
 
+        public void BuildPanel(PanelBuilder panel, MapElementInfo onMap, NVector pos)
+        {
+            BuildPanel(panel,S.T("requirement",reqs.Count), onMap, pos);
+        }
+        
         public void BuildPanel(PanelBuilder panel, string title, MapElementInfo onMap, NVector pos)
         {
             try

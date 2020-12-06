@@ -16,7 +16,7 @@ namespace Libraries.FightModis
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            req.BuildPanel(panel, "Requirements");
+            req.BuildPanel(panel);
         }
     }
 }

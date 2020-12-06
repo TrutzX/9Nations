@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using Game;
 using Libraries.Rounds;
 using Players.PlayerTypes;
 using Tools;
+using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Players
 {
@@ -34,6 +37,42 @@ namespace Players
             return createPlayerCounter;
         }
 
+        public void KillPlayer(int pid)
+        {
+            //set all units & towns to gaia
+            foreach (var unit in S.Unit().GetByPlayer(pid))
+            {
+                unit.data.playerId = 0; //gaia
+            }
+            foreach (var town in S.Towns().GetByPlayer(pid))
+            {
+                town.playerId = 0;
+            }
+
+            int act=1;
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].id != pid) continue;
+                act = (actPlayer == i) ? 0 : actPlayer > i ? -1 : 1;
+            }
+
+            //remove from array
+            players.Remove(Get(pid));
+            
+            //remove before
+            if (act == -1)
+            {
+                actPlayer--;
+            }
+            
+            //remove self?
+            if (act == 0)
+            {
+                actPlayer--;
+                S.Game().NextPlayer();
+            }
+        }
+
         public IEnumerator NextRound()
         {
             int c = 0;
@@ -41,7 +80,7 @@ namespace Players
             foreach (Player p in players)
             {
                 yield return GameMgmt.Get().load.ShowSubMessage($"Updating players ({c}/{m})");
-                p.NextRound();
+                yield return p.NextRound();
                 yield return p.Type().NextRound(p);
                 c++;
             }
@@ -52,7 +91,7 @@ namespace Players
             Debug.Log("GameStart "+players.Count);
             foreach (Player p in players)
             {
-                p.FirstRound();
+                yield return p.FirstRound();
                 yield return p.Type().Start(p);
             }
         }
@@ -72,7 +111,7 @@ namespace Players
             Debug.Log("GameBegin "+players.Count);
             foreach (Player p in players)
             {
-                p.FirstRound();
+                yield return p.FirstRound();
                 yield return p.Type().Begin(p);
             }
         }
@@ -95,9 +134,17 @@ namespace Players
             }
 
             //a human player left?
-            if (players.Count(player => player.Type().id == PlayerType.Human) == 0)
+            if (CountHumanPlayer() == 0)
             {
-                //todo XXX
+                WindowPanelBuilder w = WindowPanelBuilder.Create(S.T("endGame"));
+                w.panel.AddLabelT("endGamePlayer");
+                w.AddClose();
+                w.onClose = () =>
+                {
+                    SceneManager.LoadScene(0);
+                };
+                w.Finish();
+                yield break;
             }
 
             //is a human?
@@ -132,6 +179,11 @@ namespace Players
         public Player Get(int id)
         {
             return players.Single(p => id == p.id);
+        }
+
+        public int CountHumanPlayer()
+        {
+            return players.Count(player => player.Type().id == PlayerType.Human);
         }
 
         public void Init()

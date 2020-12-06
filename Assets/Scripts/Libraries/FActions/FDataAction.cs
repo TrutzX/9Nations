@@ -11,6 +11,7 @@ namespace Libraries.FActions
         public string sound;
         public bool mapElement;
         public string field;
+        public string animation;
 
         public FDataAction()
         {

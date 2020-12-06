@@ -5,6 +5,7 @@ using Classes;
 using Classes.Actions;
 using JetBrains.Annotations;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using reqs;
 using Tools;
@@ -79,6 +80,12 @@ namespace Libraries.FActions
                 {
                     remove = true;
                 }
+            }
+
+            //todo play sound and animation?
+            if (!String.IsNullOrEmpty(action.animation))
+            {
+                L.b.animations.Create(action.animation, pos);
             }
 
             info.data.ap -= cost;

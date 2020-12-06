@@ -9,9 +9,9 @@ namespace Libraries.Improvements
             if (north && east && south && west) return 10;
             
             //three
-            if (north && east && south) return 9;
+            if (north && east && south) return 12;
             if (north && east && west) return 13;
-            if (north && south && west) return 12;
+            if (north && south && west) return 9;
             if (east && south && west) return 8;
             
             //two rounds

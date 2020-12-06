@@ -28,7 +28,7 @@ namespace Players.Kingdoms
             }
             
             LSys.tem.helps.AddHelp("kingdom", b);
-            b.Add(new InfosSplitElement());
+            b.Add(new InfosSplitElement(S.ActPlayer().info));
             b.Add(new LexiconSplitElement(S.ActPlayer().Nation()));
             b.Add(new LexiconSplitElement(GameMgmt.Get().gameRound.GetRound()));
             

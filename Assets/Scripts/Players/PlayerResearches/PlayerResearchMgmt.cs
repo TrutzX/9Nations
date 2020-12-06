@@ -16,13 +16,14 @@ namespace Players.PlayerResearches
 
         public List<string> actual;
         public int cost;
-        public string lastInfo;
+        public BaseInfoMgmt info;
         
         [NonSerialized] public Player player;
 
         public PlayerResearchMgmt()
         {
             finish = new Dictionary<string, bool>();
+            info = new BaseInfoMgmt();
         }
 
         public bool IsFinish(string id)
@@ -37,7 +38,7 @@ namespace Players.PlayerResearches
         
         public void NextRound()
         {
-            lastInfo = null;
+            info.NextRound();
             if (cost <= 0)
             {
                 SetLastInfo("No research at the moment");
@@ -73,22 +74,7 @@ namespace Players.PlayerResearches
 
         public List<Research> AvailableResearch()
         {
-            List<Research> list = new List<Research>();
-            foreach (Research r in L.b.researches.Values())
-            {
-                    //finished?
-                    if (IsFinish(r.id))
-                    {
-                        continue;
-                    }
-                    
-                    if (r.req.Check(player))
-                    {
-                        list.Add(r);
-                    }
-            }
-
-            return list;
+            return L.b.researches.Values().Where(r=>!IsFinish(r.id) && r.req.Check(player)).ToList();
         }
         
         public List<Research> AvailableResearch(List<string> eles)
@@ -96,9 +82,27 @@ namespace Players.PlayerResearches
             List<Research> list = new List<Research>();
             foreach (Research r in AvailableResearch())
             {
-                //check ele
-                if (!eles.Except(r.elements).Any())
+                List<string> ele =new List<string>(r.elements);
+                
+                //check the elements
+                foreach (var e in eles)
+                {
+                    if (ele.Contains(e))
+                    {
+                        ele.Remove(e);
+                    }
+                    //empty list? or not included?
+                    else
+                    {
+                        break;
+                    }
+                }
+                
+                //list finish?
+                if (ele.Count == 0)
+                {
                     list.Add(r);
+                }
             }
 
             return list;
@@ -112,8 +116,9 @@ namespace Players.PlayerResearches
 
         public void SetLastInfo(string mess)
         {
-            lastInfo = mess;
-            player.info.Add(new Info(mess,"research").AddAction("gameButton","research"));
+            var i = new Info(mess, "research").AddAction("gameButton", "research");
+            player.info.Add(i);
+            info.Add(i);
         }
     }
 }

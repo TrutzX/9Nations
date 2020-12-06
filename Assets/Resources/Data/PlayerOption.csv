@@ -1,5 +1,7 @@
 id,icon,category,standard,type
 research,,general,false,bool
-lastBuild,build,,,text
-lastTrain,train,,,text
+lastbuild,build,,,text
+lasttrain,train,,,text
 overlay,overlay,,,text
+lastmagic,magic,,,text
+lastspellLearn,magic,,,text

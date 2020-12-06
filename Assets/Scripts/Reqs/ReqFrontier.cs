@@ -8,7 +8,7 @@ using Towns;
 using UI;
 using Units;
 using UnityEngine;
-using MapElementInfo = Buildings.MapElementInfo;
+using MapElementInfo = MapElements.MapElementInfo;
 using Object = UnityEngine.Object;
 
 namespace reqs

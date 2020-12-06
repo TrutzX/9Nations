@@ -1,10 +1,10 @@
 using System.Linq;
+using Buildings;
 using Game;
-using Players;
 using UI;
 using UI.Show;
 
-namespace Buildings
+namespace MapElements
 {
     class MapElementSplitInfo : SplitElement
     {
@@ -28,7 +28,7 @@ namespace Buildings
                 return;
             }
             
-            panel.RichText(_info.data.lastInfo);
+            panel.RichText(_info.data.info.LastInfo());
             panel.AddSubLabel("HP",$"{_info.data.hp}/{_info.data.hpMax}","hp");
             panel.AddSubLabel("AP",$"{_info.data.ap}/{_info.data.apMax}","ap");
             

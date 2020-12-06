@@ -17,7 +17,7 @@ namespace Libraries.Modifiers
         public override bool Check(string data, Player player, NVector pos)
         {
             string[] d = data.Split(';');
-            DataTerrain terr = GameMgmt.Get().newMap.Terrain(pos);
+            DataTerrain terr = GameMgmt.Get().newMap.Terrain(pos); 
             return terr.id == d[2];
         }
         

@@ -4,6 +4,7 @@ using Buildings;
 using Game;
 using JetBrains.Annotations;
 using Libraries.FActions;
+using MapElements;
 using Tools;
 using UI;
 
@@ -23,14 +24,14 @@ namespace Libraries.Items
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            req.BuildPanel(panel,"Requirements");
+            req.BuildPanel(panel);
             action.BuildPanelT(new ActionDisplaySettings(panel, null));
         }
         
         public void ShowOwn(PanelBuilder panel, MapElementInfo info)
         {
             base.ShowLexicon(panel);
-            req.BuildPanel(panel,"Requirements", info, info.Pos());
+            req.BuildPanel(panel, info, info.Pos());
             action.BuildPanelT(new ActionDisplaySettings(panel, S.ActPlayer(), info, info.Pos(), null));
         }
     }

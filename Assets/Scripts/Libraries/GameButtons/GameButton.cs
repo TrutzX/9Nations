@@ -2,7 +2,7 @@
 using Audio;
 using Buildings;
 using Classes;
-using GameButtons;
+using MapElements.Buildings;
 using Players;
 using UI;
 using UnityEngine;
@@ -17,7 +17,7 @@ namespace Libraries.GameButtons
         public override void ShowLexicon(PanelBuilder panel)
         {
             base.ShowLexicon(panel);
-            req.BuildPanel(panel, "Requirements");
+            req.BuildPanel(panel);
         }
 
         public void Call(Player player)

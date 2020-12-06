@@ -1,7 +1,9 @@
 using Buildings;
 using Game;
+using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using UI;
@@ -21,12 +23,12 @@ namespace Classes.Actions
             if (holder.trigger == ActionEvent.NextRound)
             {
                 info.Kill();
-                info.SetLastInfo($"The unit {info.name} has died.");
+                info.AddNoti(S.T("destroyDie",info.name),DataAction().Icon);
                 return;
             }
 
-            WindowPanelBuilder wpb = WindowPanelBuilder.Create($"Kill {info.name}?");
-            wpb.panel.AddButton($"Kill {info.name}", (() =>
+            WindowPanelBuilder wpb = WindowPanelBuilder.Create(S.T("destroyKill",info.name));
+            wpb.panel.AddImageTextButton(S.T("destroyKill",info.name), info.Sprite(),(() =>
             {
                 info.Kill();
                 OnMapUI.Get().UpdatePanel(info.Pos());

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Audio;
 using Buildings;
 using Game;
 using Help;
 using Libraries.FActions;
+using MapElements;
 using NesScripts.Controls.PathFind;
 using Players;
 using Tools;
@@ -68,11 +71,13 @@ namespace Classes.Actions
 
         public abstract string PanelMessage();
 
-        public abstract void ClickFirst();
+        protected abstract void ClickFirst();
 
-        public abstract void ClickSecond();
+        protected abstract void ClickFirstCancel();
 
-        public void Click(NVector pos)
+        protected abstract void ClickSecond();
+
+        public virtual void Click(NVector pos)
         {
             //known click?
             if (pos.Equals(LastClickPos))
@@ -84,7 +89,15 @@ namespace Classes.Actions
             
             //new Click?
             LastClickPos = pos;
-            ClickFirst();
+            if (Points.Count(p => p.x == LastClickPos.x && p.y == LastClickPos.y) == 0)
+            {
+                NAudio.PlayCancel();
+                ClickFirstCancel();
+            }
+            else
+            {
+                ClickFirst();
+            }
         }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)

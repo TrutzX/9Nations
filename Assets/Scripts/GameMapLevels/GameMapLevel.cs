@@ -22,6 +22,7 @@ namespace GameMapLevels
         public TileMapConfig32 prototypeMapLayer32;
         public GameObject buildings;
         public GameObject units;
+        public GameObject effects;
         
         public int level;
         public List<TileMapConfig16> layers;

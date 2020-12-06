@@ -4,6 +4,7 @@ using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Towns;
@@ -70,7 +71,9 @@ namespace Classes.Actions
                 v = L.b.modifiers[C.ProduceModi].CalcModi(v, info.Player(), info.Pos());
             }
             
+            //todo right comb?
             info.Town().AddRes(res, v, r);
+            
             return true;
         }
 
@@ -111,9 +114,9 @@ namespace Classes.Actions
                 L.b.res[data.Key.Substring(4)].AddImageLabel(sett.panel, ConvertHelper.Int(data.Value));
             }
             if (sett.mapElement == null)
-                sett.holder.req.BuildPanel(sett.panel, "Requirement");
+                sett.holder.req.BuildPanel(sett.panel);
             else
-                sett.holder.req.BuildPanel(sett.panel, "Requirement", sett.mapElement, sett.pos);
+                sett.holder.req.BuildPanel(sett.panel, sett.mapElement, sett.pos);
         }
 
         public override ActionHolder Create(string setting)

@@ -57,8 +57,7 @@ namespace Towns
                 var r = L.b.res[usage.id];
                 
                 int amount = (int) Math.Round(inh * usage.rate);
-                bool comb = string.IsNullOrEmpty(r.combine);
-                int hasAmount = comb?town.GetCombineRes(usage.id):town.GetRes(usage.id);
+                int hasAmount = town.GetRes(r.id);
                 
                 panel.AddSubLabel(usage.Name(),S.T("usageRoundRes",amount, hasAmount), usage.Icon);
                 //need res?

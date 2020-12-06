@@ -9,6 +9,9 @@ using Libraries.Buildings;
 using Libraries.FActions;
 using Libraries.GameButtons;
 using Libraries.Inputs;
+using MapElements;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Tools;
 using UI;
@@ -19,8 +22,8 @@ namespace InputActions
 {
     public class InputAction : MonoBehaviour
     {
-        private UnitInfo aUnit;
-        private BuildingInfo aBuilding;
+        private UnitInfo _aUnit;
+        private BuildingInfo _aBuilding;
         public MapElementInfo active;
         public Action<KeyCode> findKey;
         private int[] keyValues;
@@ -28,39 +31,39 @@ namespace InputActions
         private int _width;
         private int _height;
         private float speed = 32;
-        private Transform trans;
+        private Transform _trans;
         
         void Awake() {
             keyValues = (int[])System.Enum.GetValues(typeof(KeyCode));
             _width = Screen.width;
             _height = Screen.height;
             _boundary = 1;
-            trans = Camera.main.GetComponent<Transform>();
+            _trans = Camera.main.GetComponent<Transform>();
         }
         
         public void SetActive(UnitInfo unit)
         {
-            aUnit = unit;
+            _aUnit = unit;
             if (unit != null)
             {
                 active = unit;
             }
             else
             {
-                active = aBuilding;
+                active = _aBuilding;
             }
         }
 
         public void SetActive(BuildingInfo building)
         {
-            aBuilding = building;
-            if (building != null && aUnit == null)
+            _aBuilding = building;
+            if (building != null && _aUnit == null)
             {
                 active = building;
             }
             else
             {
-                active = aUnit;
+                active = _aUnit;
             }
         }
         
@@ -72,15 +75,15 @@ namespace InputActions
             {
                 if (Input.anyKey)
                 {
-                    for(int i = 0; i < keyValues.Length; i++)
+                    foreach (var key in keyValues)
                     {
-                        if (keyValues[i].ToString().StartsWith("mouse"))
+                        if (key.ToString().StartsWith("mouse"))
                         {
                             continue;
                         }
                         
-                        if (Input.GetKeyDown((KeyCode)keyValues[i]))
-                            findKey((KeyCode)keyValues[i]);
+                        if (Input.GetKeyDown((KeyCode)key))
+                            findKey((KeyCode)key);
                     }
                 }
                 return;
@@ -88,10 +91,10 @@ namespace InputActions
 
             if (LSys.tem == null || LSys.tem.inputs == null)
             {
-                Debug.Log("LSys.tem is not loaded, can not perform key check.");
+                Debug.Log($"LSys.tem is not loaded, can not perform key check. LSys.tem:${LSys.tem != null} LSys.tem.inputs:${LSys.tem != null && LSys.tem.inputs != null}");
                 return;
             }
-
+            
             //check all buttons
             foreach (InputKey key in LSys.tem.inputs.Values())
             {
@@ -162,7 +165,7 @@ namespace InputActions
                     var p = new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 
                         Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed, 0.0f);
                     //todo implement border check
-                    trans.position += p;
+                    _trans.position += p;
                 }
                 
             }
@@ -193,16 +196,16 @@ namespace InputActions
             switch (key.id)
             {
                 case "moveUnitEast":
-                    aUnit.MoveBy(-1,0);
+                    _aUnit.MoveBy(-1,0);
                     break;
                 case "moveUnitSouth":
-                    aUnit.MoveBy(0,-1);
+                    _aUnit.MoveBy(0,-1);
                     break;
                 case "moveUnitWest":
-                    aUnit.MoveBy(1,0);
+                    _aUnit.MoveBy(1,0);
                     break;
                 case "moveUnitNorth":
-                    aUnit.MoveBy(0,+1);
+                    _aUnit.MoveBy(0,+1);
                     break;
                 case "moveCameraEast":
                     MoveCamera(-1,0);
@@ -245,31 +248,31 @@ namespace InputActions
         private void PressAction(InputKey key)
         {
             //which has this action?
-            if (aUnit != null)
+            if (_aUnit != null)
             {
-                BaseDataBuildingUnit data = aUnit.baseData;
+                BaseDataBuildingUnit data = _aUnit.baseData;
                 //unit contains action?
                 if (data.action.Contains(key.id))
                 {
                     //TODO check more settings
                     //can perform action?
                     ActionHolder action = data.action.Get(key.id);
-                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, aUnit.Player(), aUnit, aUnit.Pos()));
+                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, _aUnit.Player(), _aUnit, _aUnit.Pos()));
                     
                     return;
                 }
             }
             
-            if (aBuilding != null)
+            if (_aBuilding != null)
             {
-                BaseDataBuildingUnit data = aBuilding.baseData;
+                BaseDataBuildingUnit data = _aBuilding.baseData;
                 //unit contains action?
                 if (data.action.Contains(key.id))
                 {
                     //TODO check more settings
                     //can perform action?
                     ActionHolder action = data.action.Get(key.id);
-                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, aBuilding.Player(), aBuilding, aBuilding.Pos()));
+                    OnMapUI.Get().unitUI.ShowPanelMessageError(data.action.Perform(action, ActionEvent.Direct, _aBuilding.Player(), _aBuilding, _aBuilding.Pos()));
 
                     return;
                 }
@@ -312,7 +315,7 @@ namespace InputActions
             
             
             //valid pos?
-            if (!S.Valid((int)trans.position.x+x,(int)trans.position.y+y))
+            if (!S.Valid((int)_trans.position.x+x,(int)_trans.position.y+y))
             {
                 OnMapUI.Get().ShowPanelMessageError("The camera position is to far outside of the map.");
                 return;

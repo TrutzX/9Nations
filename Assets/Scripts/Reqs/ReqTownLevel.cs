@@ -3,6 +3,9 @@ using System.Linq;
 using Buildings;
 
 using Game;
+using MapElements;
+using MapElements.Buildings;
+using MapElements.Units;
 using Players;
 using Tools;
 using Towns;
@@ -14,7 +17,7 @@ namespace reqs
     
     public class ReqTownLevel : BaseReqMinMax
     {
-        protected override int ValueMax(Player player, Buildings.MapElementInfo onMap, string element, string sett, NVector pos)
+        protected override int ValueMax(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             return ValueMax(player, element, sett);
         }
@@ -25,7 +28,7 @@ namespace reqs
             return 5;
         }
 
-        protected override int ValueAct(Player player, Buildings.MapElementInfo onMap, string element, string sett, NVector pos)
+        protected override int ValueAct(Player player, MapElementInfo onMap, string element, string sett, NVector pos)
         {
             //has it?
             if (onMap != null)

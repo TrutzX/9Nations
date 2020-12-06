@@ -4,6 +4,7 @@ using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
 using Players;
 using Tools;
 using Towns;
@@ -47,14 +48,17 @@ namespace Classes.Actions
             button = win.panel.AddImageTextButton("Found the town", DataAction().Icon, () =>
             {
                 win.Close();
-                FoundTown(info, pos, townName.text, coats[dropdown.value].id);
+                FoundTown(info, pos, townName.text, coats[dropdown.value].id, holder.data.ContainsKey("kill"));
             }, DataAction().sound);
             UIHelper.UpdateButtonImageColor(button, L.b.coats[coats[dropdown.value].id].color);
             win.Finish(400);
         }
 
-        protected void FoundTown(MapElementInfo info, NVector pos, string townName, string coat)
+        private void FoundTown(MapElementInfo info, NVector pos, string townName, string coat, bool kill)
         {
+            if (kill)
+                info.Kill();
+            
             int tid = S.Towns().Create(townName, pos);
             S.Town(tid).coat = coat;
             OnMapUI.Get().UpdatePanel(pos);

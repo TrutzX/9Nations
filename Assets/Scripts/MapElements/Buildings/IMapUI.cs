@@ -1,4 +1,4 @@
-namespace Buildings
+namespace MapElements.Buildings
 {
     public interface IMapUI
     {

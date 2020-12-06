@@ -9,6 +9,8 @@ using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
+using MapElements.Buildings;
 using Players;
 using reqs;
 using Tools;
@@ -33,7 +35,7 @@ namespace Buildings
             infoText.text = text;
         }
 
-        public void ShowPanelMessageError(string text)
+        public virtual void ShowPanelMessageError(string text)
         {
             if (text == null)
             {
@@ -54,7 +56,7 @@ namespace Buildings
                 throw new MissingMemberException($"Action for {info} is missing.");
             }
 
-            BasePerformAction ba = action.PerformAction();
+            //BasePerformAction ba = action.PerformAction();
             FDataAction da = action.DataAction();
 
             //can add under construction?
@@ -81,7 +83,7 @@ namespace Buildings
             }, da.sound);
 
             UIHelper.HoverEnter(button,
-                () => { ShowPanelMessage($"{LSys.tem.inputs.ActionName(da)}, Cost:{da.cost}/{info.data.ap} AP"); },
+                () => { ShowPanelMessage(S.T("actionTooltip",LSys.tem.inputs.ActionName(da), action.cost, info.data.ap)); },
                 () => { ShowPanelMessage(info.Status(S.ActPlayerID())); });
         }
 
@@ -104,7 +106,7 @@ namespace Buildings
             }
 
             //check ap
-            if (da.cost > info.data.ap)
+            if (action.cost > info.data.ap)
             {
                 ActionHelper.WaitRound(holder, action, info, info.Pos());
                 return;
@@ -117,13 +119,13 @@ namespace Buildings
             }
         }
 
-        protected void UpdateInfoButton()
+        protected void UpdateInfoButton(Sprite sprite)
         {
             //show unit
             gameObject.SetActive(true);
 
             //show icon
-            info.GetComponentsInChildren<Image>()[1].sprite = active.Sprite();
+            info.GetComponentsInChildren<Image>()[1].sprite = sprite;
             ShowPanelMessage(active.Status(S.ActPlayerID()));
 
             info.GetComponent<Button>().onClick.RemoveAllListeners();
@@ -142,21 +144,21 @@ namespace Buildings
             {
                 ShowPanelMessage(ActiveAction.PanelMessage());
                 FDataAction action = ActiveAction.DataAction();
-                UIHelper.CreateImageTextButton("Cancel " + action.Name(), action.Sprite(), actions.transform,
+                UIHelper.CreateImageTextButton(S.T("actionCancel",action.Name()) , action.Sprite(), actions.transform,
                     () => { OnMapUI.Get().SetActiveAction(null, active.GetComponent<BuildingInfo>() != null); },
                     "cancel");
                 return;
             }
 
             //has waiting action?
-            if (active.data.actionWaitingActionPos != -1)
+            if (active.data.waiting != null)
             {
-                ActionHolder a = active.data.action.actions[active.data.actionWaitingActionPos];
-                UIHelper.CreateImageTextButton($"Cancel preparation", a.DataAction().Sprite(), actions.transform,
+                ActionHolder a = active.data.action.actions[active.data.waiting.actionPos];
+                UIHelper.CreateImageTextButton(S.T("actionWaitingCancel"), a.DataAction().Sprite(), actions.transform,
                     () =>
                     {
-                        active.data.ap = Math.Max(0,Math.Min(active.data.actionWaitingAp, active.data.apMax));
-                        active.SetWaitingAction(-1, null);
+                        active.data.ap = Math.Max(0,Math.Min(active.data.waiting.ap, active.data.apMax));
+                        active.SetWaitingAction(null);
                         OnMapUI.Get().UpdatePanel(active.Pos());
                     }, "cancel");
                 return;
@@ -171,6 +173,14 @@ namespace Buildings
             UpdatePanel(active);
         }
 
-        public abstract void AddAllActionButtons();
+        protected void AddAllActionButtons()
+        {
+            //add new actions
+            foreach (var act in active.data.action.Is(ActionEvent.Direct))
+            {
+                if (act.req.Check(S.ActPlayer(),active,active.Pos(), true))
+                    AddNewActionButton(active.data.action, act, active, actions);
+            }
+        }
     }
 }

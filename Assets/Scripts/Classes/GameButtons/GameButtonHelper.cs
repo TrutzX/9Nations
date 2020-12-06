@@ -1,11 +1,8 @@
-using Debugs;
 using Game;
-using GameButtons;
 using Libraries;
 using LoadSave;
 using Options;
 using Players;
-using Players.Quests;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,26 +22,6 @@ namespace Classes.GameButtons
         }
     }
 
-    public class QuestGameButtonRun : BaseGameButtonRun
-    {
-        public QuestGameButtonRun() : base ("quest") { }
-
-        protected override void Run(Player player)
-        {
-            QuestHelper.ShowQuestWindow();
-        }
-    }
-    
-    public class DebugGameButtonRun : BaseGameButtonRun
-    {
-        public DebugGameButtonRun() : base ("debug") { }
-
-        protected override void Run(Player player)
-        {
-            DebugHelper.DebugMenu();
-        }
-    }
-    
     public class NextRoundGameButtonRun : BaseGameButtonRun
     {
         public NextRoundGameButtonRun() : base ("nextround") { }

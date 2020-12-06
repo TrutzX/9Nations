@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Audio;
 using Buildings;
 using DG.Tweening;
-using DigitalRuby.Tween;
 using Game;
-using Help;
-using InputActions;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.Terrains;
 using Libraries.Units;
-using MapElements;
 using MapElements.Items;
-using Maps;
-using Players;
-using reqs;
+using Players.Infos;
 using Tools;
 using Towns;
 using UI;
+using Units;
 using UnityEngine;
 
-namespace Units
+namespace MapElements.Units
 {
     public class UnitInfo : MapElementInfo
     {
@@ -29,13 +23,14 @@ namespace Units
 
         public override bool NextRound()
         {
-            data.lastInfo = null;
             data.UnitUpdate();
             
             //no town?
             if (data.townId == -1)
                 data.ap = data.apMax;
-
+            
+            //SetLastInfo("last:"+erg+" c:"+IsUnderConstruction()+" "+data.ap+"/"+data.apMax);
+            
             if (!base.NextRound())
             {
                 return false;
@@ -56,7 +51,7 @@ namespace Units
             var calc = CalculatedData.Calc(dataUnit, cost);
             
             data = new BuildingUnitData();
-            data.UnitInit(configType, -1, player, calc);
+            data.UnitInit(this, configType, -1, player, calc);
             data.pos = pos.Clone();
         
             //has a town?
@@ -96,13 +91,13 @@ namespace Units
 
         public override void Upgrade(string type, Dictionary<string, int> cost)
         {
-            BaseDataBuildingUnit old = baseData;
+            var oldCost = data.constructionOrg;
             
             GameMgmt.Get().data.units.Remove(data);
             Init(type,data.playerId,Pos(), cost);
             GameMgmt.Get().data.units.Add(data);
-            
-            CalcUpgradeCost(L.b.units[type], old);
+
+            CalcUpgradeCost(cost, oldCost);
         }
 
         public void MoveTo(NVector pos, bool moveCamera=true)
@@ -111,18 +106,24 @@ namespace Units
             if (data.pos.level != pos.level)
             {
                 transform.SetParent(GameMgmt.Get().newMap[pos.level].units.transform);
-                
             }
 
             if (moveCamera)
             {
-                MoveBy(pos.x-Pos().x,pos.y-Pos().y);
-                return;
+                //new level?
+                if (data.pos.level != pos.level)
+                {
+                    S.CameraMove().MoveTo(pos);
+                }
+                else
+                {
+                    MoveBy(pos.x-Pos().x,pos.y-Pos().y);
+                    return;
+                }
             }
             data.pos = pos;
             transform.position = new Vector2(Pos().x+0.5f,Pos().y);
             Clear(pos);
-            
         }
 
         public string Passable(NVector pos)
@@ -186,7 +187,6 @@ namespace Units
             }
             
             //start animation
-
             var pPath = GameMgmt.Get().newMap.PathFinding(Pos().level).Path(Player(), dataUnit.movement, Pos(), dPos);
             
             //rebuild path
@@ -196,7 +196,7 @@ namespace Units
                 path[i] = new Vector2(pPath[i].x+0.5f, pPath[i].y);
             }
 
-            GetComponent<UnitAnimator>().Calc((int) path[0].x - data.pos.x, (int) path[0].y - data.pos.y);
+            GetComponent<UnitAnimator>().MoveAnimationCalc((int) path[0].x - data.pos.x, (int) path[0].y - data.pos.y);
             
             // completion defaults to null if not passed in
             gameObject.transform.DOPath(path, pPath.Count, PathType.CatmullRom)
@@ -206,13 +206,12 @@ namespace Units
                     Clear(new NVector((int) path[value].x, (int) path[value].y, Pos().level));
                     if (value >= 1)
                     {
-                        GetComponent<UnitAnimator>().Calc((int) path[value].x-(int) path[value-1].x, (int) path[value].y-(int) path[value-1].y);
+                        GetComponent<UnitAnimator>().MoveAnimationCalc((int) path[value].x-(int) path[value-1].x, (int) path[value].y-(int) path[value-1].y);
                     }
-                    
                 })
                 .OnComplete(() =>
                 {
-                    GetComponent<UnitAnimator>().AnStop();
+                    GetComponent<UnitAnimator>().ResetRunning();
                     OnMapUI.Get().UpdatePanel(dPos);
                     transform.position = new Vector2(Pos().x+0.5f,Pos().y);
                 });
@@ -251,6 +250,11 @@ namespace Units
             
             wbs.Finish();
             return wbs;
+        }
+
+        public UnitAnimator UnitAnimator()
+        {
+            return GetComponent<UnitAnimator>();
         }
     }
 }

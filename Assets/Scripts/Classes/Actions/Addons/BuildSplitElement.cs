@@ -3,6 +3,8 @@ using Game;
 using Libraries;
 using Libraries.Buildings;
 using Libraries.PlayerOptions;
+using MapElements;
+using MapElements.Material;
 using Players;
 using Tools;
 using UI;
@@ -17,6 +19,7 @@ namespace Classes.Actions.Addons
         protected BaseDataBuildingUnit build;
         protected MapElementInfo go;
         protected NVector pos;
+        
         public BuildSplitElement(BaseDataBuildingUnit build, MapElementInfo go, NVector pos, ISplitManager ism) : base(build.Name(), build.Sprite())
         {
             this.build = build;
@@ -27,7 +30,7 @@ namespace Classes.Actions.Addons
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            build.ShowBuild(panel, pos);
+            build.ShowLexicon(panel, null, pos);
         }
 
         public override void Perform()

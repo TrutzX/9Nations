@@ -10,6 +10,7 @@ using Libraries;
 using Libraries.FActions;
 using Libraries.Terrains;
 using Libraries.Units;
+using MapElements.Units;
 using Players;
 using reqs;
 using Tools;
@@ -107,16 +108,8 @@ namespace Classes.Actions
             return "Select the field, where you want to interact.";
         }
 
-        public override void ClickFirst()
+        protected override void ClickFirst()
         {
-            //was selected?
-            if (Points.Count(p => p.x == LastClickPos.x && p.y == LastClickPos.y) == 0)
-            {
-                OnMapUI.Get().SetActiveAction(null,mapElementInfo.IsBuilding());
-                NAudio.PlayCancel();
-                return;
-            }
-            
             //special field?
             if (!S.Unit().Free(LastClickPos))
             {
@@ -136,7 +129,12 @@ namespace Classes.Actions
             mapElementInfo.UI().ShowPanelMessage($"You want to interact with {terr.Name()}? Click again!");
         }
 
-        public override void ClickSecond()
+        protected override void ClickFirstCancel()
+        {
+            OnMapUI.Get().SetActiveAction(null,mapElementInfo.IsBuilding());
+        }
+
+        protected override void ClickSecond()
         {
             //load options
             WindowBuilderSplit b = WindowBuilderSplit.Create("Interaction","Perform");

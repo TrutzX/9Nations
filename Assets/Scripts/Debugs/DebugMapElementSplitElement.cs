@@ -1,35 +1,36 @@
-using Buildings;
 using Libraries;
 using Libraries.FActions;
-using Libraries.FActions.General;
+using MapElements;
 using UI;
 using UI.Show;
 using UnityEngine;
 
-namespace GameButtons
+namespace Debugs
 {
     public class DebugMapElementSplitElement : SplitElement
     {
-        private MapElementInfo mapElementInfo;
+        private readonly MapElementInfo _mapElementInfo;
         public DebugMapElementSplitElement(MapElementInfo mapElementInfo) : base("Debug","debug")
         {
-            this.mapElementInfo = mapElementInfo;
+            this._mapElementInfo = mapElementInfo;
         }
 
         public override void ShowDetail(PanelBuilder panel)
         {
-            panel.AddSubLabel("Position",mapElementInfo.Pos().ToString());
+            panel.AddSubLabel("Position",_mapElementInfo.Pos().ToString());
             panel.AddHeaderLabel("HP");
-            panel.AddInput("HP", mapElementInfo.data.hp, (s => { mapElementInfo.data.hp = s; }));
+            panel.AddInput("HP", _mapElementInfo.data.hp, (s => { _mapElementInfo.data.hp = s; }));
             panel.AddHeaderLabel("AP");
-            panel.AddInput("AP", mapElementInfo.data.ap, (s => { mapElementInfo.data.ap = s; }));
-            panel.AddButton("Set Finish", mapElementInfo.FinishConstruct);
+            panel.AddInput("AP", _mapElementInfo.data.ap, (s => { _mapElementInfo.data.ap = s; }));
+            panel.AddButton("Set Finish", _mapElementInfo.FinishConstruct);
 
             //display all actions
-            foreach (var act in mapElementInfo.data.action.actions)
+            foreach (var act in _mapElementInfo.data.action.actions)
             {
-                act.PerformAction().BuildPanel(new ActionDisplaySettings(panel, mapElementInfo.Player(), mapElementInfo, mapElementInfo.Pos(), act));
+                act.PerformAction().BuildPanel(new ActionDisplaySettings(panel, _mapElementInfo.Player(), _mapElementInfo, _mapElementInfo.Pos(), act));
             }
+            
+            //display modis
         }
 
         public override void Perform()

@@ -1,9 +1,12 @@
 using Audio;
 using Buildings;
+using DG.Tweening;
 using Game;
 using Libraries;
 using Libraries.FActions;
 using Libraries.FActions.General;
+using MapElements;
+using MapElements.Units;
 using Players;
 using Tools;
 using Units;
@@ -26,26 +29,31 @@ namespace Classes.Actions
         public override void BuildPanel(ActionDisplaySettings sett)
         {
             //found dest?
-            MapElementInfo info = S.Game().At(sett.pos);
+            BuildPanelIntern(sett, S.Unit(sett.pos));
+        }
+
+        protected void BuildPanelIntern(ActionDisplaySettings sett, MapElementInfo info)
+        {
             if (info == null)
             {
                 base.BuildPanel(sett);
                 return;
             }
 
-            sett.header = $"Attack {info.name}";
+            sett.header = TextHelper.Cap(S.T("attack", info.name));
             base.BuildPanel(sett);
-            
+
             if (sett.compact)
                 return;
 
-            sett.panel.AddHeaderLabel($"{sett.mapElement.name} attacks");
-            sett.panel.AddSubLabelT("atk",sett.mapElement.data.atk,"atk");
-            sett.panel.AddSubLabelT("dam",$"{sett.mapElement.baseData.damMin}-{sett.mapElement.baseData.damMax}","damage");
+            sett.panel.AddHeaderLabel(S.T("attackSelf", sett.mapElement.name));
+            sett.panel.AddSubLabelT("atk", sett.mapElement.data.atk, "atk");
+            sett.panel.AddSubLabelT("dam", S.T("attackDam", sett.mapElement.baseData.damMin, sett.mapElement.baseData.damMax),
+                "damage");
 
-            sett.panel.AddHeaderLabel($"{info.name} defends");
-            sett.panel.AddSubLabelT("def",info.data.def,"def");
-            
+            sett.panel.AddHeaderLabel(S.T("attackNonSelf", info.name));
+            sett.panel.AddSubLabelT("def", info.data.def, "def");
+
             //both units?
             if (!sett.mapElement.IsBuilding() && !info.IsBuilding())
             {
@@ -60,12 +68,12 @@ namespace Classes.Actions
                         sett.panel.AddHeaderLabelT("fightmodi");
                         found = true;
                     }
-                    
+
                     sett.panel.AddImageLabel(fm.Desc(), fm.Icon);
                 }
             }
         }
-        
+
         public virtual void Perform(MapElementInfo self, MapElementInfo nonSelf)
         {
             // calc damage
@@ -78,10 +86,10 @@ namespace Classes.Actions
             
             // check it
             if (damage == 0) {
-                OnMapUI.Get().unitUI.ShowPanelMessage($"{self.name} and {d} are equal, nothing to win.");
+                OnMapUI.Get().unitUI.ShowPanelMessage(S.T("attackDamEqual",self.name,d));
                 NAudio.Play("defend");
                 //inform another player
-                nonSelf.SetLastInfo($"Defended against {a}");
+                nonSelf.AddNoti($"Defended against {a}",self.baseData.Icon);
                 return;
             }
 
@@ -91,11 +99,13 @@ namespace Classes.Actions
                 OnMapUI.Get().unitUI.ShowPanelMessage($"{d} fight back.");
                 return;
             }
-
+    
             // win
+            ShowUnitAttack(self, nonSelf);
             nonSelf.AddHp(-damage);
+            L.b.animations.Hp(-damage, nonSelf.Pos(), nonSelf);
             OnMapUI.Get().unitUI.ShowPanelMessage($"You won. {d} lose {damage} HP.");
-            nonSelf.SetLastInfo($"{a} attacked you. {nonSelf.name} lose {damage} HP.");
+            nonSelf.AddNoti($"{a} attacked you. {nonSelf.name} lose {damage} HP.",self.baseData.Icon);
             //int oX = defensor.getX();
             //int oY = defensor.getY();
             //UiHelper.textAnimation("-" + damage + " hp", oX, oY, true, Color.SALMON);
@@ -105,6 +115,35 @@ namespace Classes.Actions
             //getActor().addAction(Actions.parallel(Actions.sequence(Actions.moveTo(oX * 32, oY * 32, 1), Actions.moveTo(x * 32, y * 32, 1)),
             //    Actions.sequence(Actions.color(Color.BLACK, 1), Actions.color(Color.WHITE, 1))));
 
+        }
+
+        private void ShowUnitAttack(MapElementInfo own, MapElementInfo enemy)
+        {
+            int x = own.Pos().x - enemy.Pos().x;
+            int y = own.Pos().y - enemy.Pos().y;
+            
+            Debug.LogWarning(own.name+" "+own.IsBuilding());
+            //show attacker animation
+            if (!own.IsBuilding())
+            {
+                UnitInfo unit = (UnitInfo) own;
+
+                var sq = DOTween.Sequence();
+                sq.Append(unit.transform.DOMove(new Vector3(unit.Pos().x + 0.5f - x/4f, unit.Pos().y - y/4f), 1));
+                sq.Append(unit.transform.DOMove(new Vector3(unit.Pos().x + 0.5f, unit.Pos().y), 1));
+                unit.UnitAnimator().PlayFightAnimation(x>0?UnitAnimatorType.AttackEast:x<0?UnitAnimatorType.AttackWest:y<0?UnitAnimatorType.AttackSouth:UnitAnimatorType.AttackNorth);
+            }
+            
+            //show defender animation
+            if (!enemy.IsBuilding())
+            {
+                UnitInfo unit = (UnitInfo) enemy;
+
+                var sq = DOTween.Sequence();
+                sq.Append(unit.transform.DOMove(new Vector3(unit.Pos().x + 0.5f - x/4f, unit.Pos().y - y/4f), 1));
+                sq.Append(unit.transform.DOMove(new Vector3(unit.Pos().x + 0.5f, unit.Pos().y), 1));
+                unit.UnitAnimator().PlayFightAnimation(x>0?UnitAnimatorType.DefendEast:x<0?UnitAnimatorType.DefendWest:y<0?UnitAnimatorType.DefendSouth:UnitAnimatorType.DefendNorth);
+            }
         }
         
         /// <summary>

@@ -5,7 +5,7 @@ using Players;
 using Tools;
 using Units;
 using UnityEngine;
-using MapElementInfo = Buildings.MapElementInfo;
+using MapElementInfo = MapElements.MapElementInfo;
 
 namespace reqs
 {

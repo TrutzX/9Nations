@@ -733,7 +733,7 @@ TextureImporter:
     second: farm_95
   - first:
       213: 1126542997302682565
-    second: sfarm
+    second: sdfsdfsd
   - first:
       213: 1624539344510284823
     second: farm_97
@@ -829,7 +829,7 @@ TextureImporter:
     second: farm_127
   - first:
       213: -6782332237533207880
-    second: farm_128
+    second: nursery
   - first:
       213: 2884306774759757047
     second: farm_129
@@ -885,7 +885,7 @@ TextureImporter:
       213: 5084556410759929806
     second: farm_146
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -939,6 +939,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2984,7 +2985,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sfarm
+      name: sdfsdfsd
       rect:
         serializedVersion: 2
         x: 0
@@ -3656,7 +3657,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: farm_128
+      name: nursery
       rect:
         serializedVersion: 2
         x: 96
