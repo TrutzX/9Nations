@@ -1,0 +1,646 @@
+languageInfo=Пока переведена только часть.
+german=german
+english=english
+campaign=campaign
+load=загрузить игру
+language=language
+languageSystem=системный язык
+languageSelect=Выберите ваш язык
+action=action
+actionRepeatErrorDestination=Невозможно выполнить действие {0}. На этом уровне нет места назначения.
+actionRepeatErrorMove=Не может двигаться несколько раз. {0} будет отменен.
+actionRepeatErrorPath=Невозможно выполнить действие {0}. Путь перекрыт.
+advanced=расширенные настройки
+airfire=воздух> огонь
+airwater=воздух> вода
+android=android
+aqua=аква
+armoury=armoury
+athenaeum=athenaeum
+attackBuilding=здание атаки
+attackUnit=единица атаки
+audioMusic=Фоновая музыка
+audioSound=Звуки
+autosave=Сохраняйте игру после каждого раунда
+back=back
+badgood=плохо> хорошо
+badneutral=плохо> нейтрально
+barrack=barrack
+beta=Предупреждение
+black=черный
+blue=синий
+border=Граница карты
+boundary=граница города
+brick=brick
+brickworks=brickworks
+bridge=bridge
+brown=коричневый
+build=build
+building=building
+buildTime=время сборки
+cameraMove=переместить камеру
+cancel=cancel
+centermouse=Центрировать карту по щелчку мыши
+charcoal=charcoal
+claim=claim
+clay=clay
+claypit=глиняный карьер
+close=close
+coal== A52
+coat== A53
+coat0=красный
+coat1=синий
+coat2=бирюзовый
+coat3=фиолетовое золото
+coat4=голубая полоса
+coat5=Красное сердце
+coat6=черный с желтым
+coat7=коричневый
+cobblestoneC=коллекционер булыжника
+cobblestone=булыжник
+copper== A64
+craft=ремесленные ресурсы
+credits== A66
+custom== A67
+cyan=голубой
+darkblue=темно-синий
+debug== A70
+debugName={0} ({1})
+deep=глубокая грязь
+deepGrass=глубокая трава
+deepStone=глубокий камень
+deepUnknown=глубоко неизвестный
+deepWall=глубокая стена
+deepWater=глубокая вода
+destroy=уничтожьте это
+developElement=Развивайте свою нацию
+dirt== A80
+dirt2=больший сборщик грязи
+earth== A82
+earthfire=земля> огонь
+earthwall="земляная стена"
+earthwater=земля> вода
+ehall=земная ратуша
+element== A87
+elementPlural=элементы
+endgame=конец игры
+endGameLose=проиграть
+endGameWin=выиграть игру
+endless=бесконечная игра
+endlessLose=Как проиграть
+endlessLoseUnit=Потерять все единицы
+endlessWin=Как победить
+endlessWinGold=Собрать 1000 золота
+evolve== A97
+examine=исследовать местность
+examineRepeat=исследовать больше местности
+exit=выйти из игры
+explore== A101
+featurePlayer=особенность для игрока
+field=поле
+field6=Оазис (на двоих)
+field6mono=Оазис
+fieldPlural=поля
+fightmodi== A108
+fireair=огонь> воздух
+fireearth=огонь> земля
+fisher== A111
+float== A112
+floatswim=плавать> плавать
+floatwalk=плавать> ходить
+fly== A115
+flyswim=летать> плавать
+flywalk=летать> ходить
+fog=Туман войны
+food== A119
+forest=лес
+forestRough=грубый лес
+forestSand=песчаный лес
+forestSnow=зимний лес
+forge== A124
+forger== A125
+foundTown=нашел свой город
+frontier=граница королевства
+frontierEnemy=Нужна вражеская граница (видна через оверлей)
+frontierEnemyHere=. {0} Здесь вражеская граница.
+frontierNear=Нужна ваша собственная граница рядом (видна через оверлей)
+frontierNone=Не требует границ (отображается через оверлей)
+frontierNoneHere=. {0} Здесь нет границ.
+frontierOwn=Нужна ваша собственная граница (видна через оверлей)
+frontierOwnHere=. {0} Вот ваша граница.
+fuchsia=фуксия
+fullscreen=Играть в полноэкранном режиме
+gamebutton== A137
+gameoption=вариант игры
+general=Общее
+geologist== A140
+gold== A141
+goldignot=золотой слиток
+goldore=Золотая руда
+goodbad=хорошо> плохо
+goodneutral=хороший> нейтральный
+grass=трава
+grassDirt=грязная трава
+grassSand=песчаная трава
+grassSnow=зимняя трава
+green=зеленый
+grey=серый
+heal== A152
+help== A153
+hill=холм
+hillDirt=грязевой холм
+hillRough=грубый холм
+hillSand=песчаный холм
+hillSnow=снежный холм
+house== A159
+hunter== A160
+ice=лед
+iceMountain=ледяная гора
+icon== A163
+improvement=Преобразование в улучшение карты\n
+inhabitant== A165
+input== A167
+interact== A168
+invisible=Невидимый
+iron=железный слиток
+ironore=железная руда
+kingdom== A172
+lava=лава
+lavarock=лаварок
+lexicon== A177
+lexplorer=светлый исследователь
+lhall1=сельская администрация
+lhall2=большая ратуша
+library== A181
+light== A182
+lightblue=светло-синий
+lime=Лайм
+logger== A185
+lshrine=святыня
+lwarrior=легкий воин
+lworker=легкий рабочий
+magenta=пурпурный
+mageskill=маг> умение
+magewarrior=маг> воин
+mainmenu=Главное меню
+map== A193
+mapgeneration=создание карты
+market== A195
+maroon=бордовый
+mine== A197
+minimap=Показать миникарту
+mint== A199
+mod=моды
+modFolder=Дополнительная папка мода
+modifier== A202
+modifierPlural=модификаторы
+more== A204
+mountain=гора
+mountainDirt=грязная гора
+mountainRough=грубая гора
+mountainSand=Песчаная гора
+mountainSnow=снежная гора
+move=стоимость движения
+moveArea=идти
+moveCamera=Переместите камеру
+moveCameraEast=Прокрутите на восток
+moveCameraLevelDown=Прокрутите уровень вниз
+moveCameraLevelTop=Прокрутите уровень вверх
+moveCameraNorth=Прокрутите на север
+moveCameraSouth=Прокрутите на юг
+moveCameraWest=Прокрутите на запад
+moveCost=стоимость движения
+moveLevel=уровень перемещения
+movement== A221
+moveTo=перейти к точке
+moveUnit=Переместите единицы
+moveUnitEast=Переместить отряд на восток
+moveUnitNorth=Переместить отряд на север
+moveUnitSouth=Переместить отряд на юг
+moveUnitWest=Переместить отряд на запад
+name== A228
+nation== A229
+navy=флот
+neutralbad=нейтральный> плохой
+neutralgood=нейтральный> хороший
+new=Что нового?
+nextround=следующий раунд
+nextUnit=Показать следующий блок
+night=Показать ночь
+north== A237
+notifications== A238
+ocean=океан
+olive=оливковый
+option== A241
+options== A242
+orange=оранжевый
+overlay== A244
+owner== A245
+pantheon=пантеон
+plain=простой
+playeroption=вариант игрока
+plural={1} {0}
+pottery== A250
+privacy=политика конфиденциальности
+produce=производить ресурсы
+purple=пурпурный
+quarry== A254
+quest== A255
+red=красный
+religion== A257
+res=ресурс
+research== A259
+reset== A260
+resInclude=включены ресурсы
+resource== A262
+resourceCount={1} х {0}
+rootplantation=корневая плантация
+rough=пересеченной местности
+round== A266
+round0=весеннее утро
+round1=весенний полдень
+round10=зимний полдень
+round11=зимняя ночь
+round2=весенняя ночь
+round3=летнее утро
+round4=летний полдень
+round5=летняя ночь
+round6=осеннее утро
+round7=осенний полдень
+round8=осенняя ночь
+round9=зимнее утро
+roundPlural=раунды
+samplingpoint=точка отбора проб
+sandG=песок собираться
+sand== A282
+save=сохранить игру
+saveonexit=Сохраните игру
+scenario== A285
+sdirt=сборщик грязи
+separator=; 
+sexplorer=исследователь теней
+sfarm=грибная ферма
+shadow== A290
+shadowlight=тень> свет
+shall1=сельская администрация
+shall2=большая ратуша
+showaction=Показать каждое действие
+showLog=Показать журналы
+silver=Серебряный
+single=Единичные сценарии
+skillmage=умение> маг
+skillwarrior=умение> воин
+sleep== A300
+snow=снег
+sshrine=святыня
+stair== A303
+stone== A304
+street== A305
+street2=большая улица
+swamp=болото
+swarrior=воин Тени
+swim== A309
+swimfloat=плавать> плавать
+swimfly=плавать> летать
+sworker=теневой рабочий
+teal=бирюзовый
+temple=земной храм
+tent== A315
+terraform== A316
+terrain== A317
+tool=орудие труда
+toolPlural=инструменты
+toolshop=магазин инструментов
+town== A321
+townEvolve=развивать город
+tracks== A323
+trade== A324
+tradeAction={0} для {1}
+tradeBuy=Купить ресурсы
+tradeBuyError=Ресурсов для покупки не найдено.
+tradeSell=Продавать ресурсы 
+tradeSellError=Ресурсов для продажи не найдено.
+train== A330
+tutorial=Руководство
+uiScale=Масштабируйте пользовательский интерфейс
+underground== A334
+unit== A335
+unitMoveErrorAp=Невозможно переехать в {0}, потому что вам нужно еще {1} кв.
+unitMoveErrorBelong={0} принадлежит {1}.
+unitMoveErrorExplored=Не могу двигаться. Земля не исследована.
+unitMoveErrorPassable=Невозможно переехать в {0}, потому что это непроходимо.
+unitMoveErrorUnit=Невозможно переехать в {0}, потому что {1} стоят их.
+unknown=Темный ландшафт
+update=обновление доступно
+updateCheck=Проверить обновления
+upgrade== A344
+usage== A345
+view=просмотр диапазона
+walk== A347
+walkfloat=ходить> плавать
+walkfly=ходить> летать
+warriormage=воин> маг
+warriorskill=воин> умение
+water== A352
+waterair=вода> воздух
+waterearth=вода> земля
+waterMountain=водная гора
+way== A356
+white=белый
+wood== A358
+worker== A359
+yellow=желтый
+zoomCameraIn=Приблизить
+zoomCameraOut=Уменьшить
+reqElement=Нужен элемент {0}.
+reqElementPlural=Нужен один из элементов {0}.
+reqUpgradeField=Необходимо на поле здание {0}.
+reqUpgradeFieldPlural=Потребности на поле на домах {0}.
+reqTerrain=Нужен ландшафт {0}.
+reqTerrainPlural=Нужен на местности {0}.
+languageHelp=помогите с переводом
+task=задача
+taskPlural=задачи
+fight== A107
+inhabitantPlural=жители
+lastbuild=последние сборки
+lasttrain=последний поезд
+tutorial1=Основы и световой элемент
+screenshot== A369
+atk=атака
+def=оборона
+dam=наносить ущерб
+lampDesc=Позвольте вам увидеть больше
+swordcDesc=Простой меч
+swordiDesc=Продвинутый меч
+shieldcDesc=Простой щит
+shieldiDesc=Продвинутый щит
+potionapDesc=Это зелье даст вам 20 ап
+telescope== A379
+swordc=медный меч
+swordi=железный меч
+shieldc=медный экран
+shieldi=железный щит
+potionap=легкое зелье
+potionhp=легкое зелье здоровья
+potionhpdesc=Это зелье лечит 5 ап.
+foreman== A387
+foremanassistant=помощник мастера
+foremandesc=С прорабом здание работает на 50% эффективнее.
+foremanassistantdesc=С помощником прораба здание работает на 25% эффективнее.
+actionPlural=действия
+item== A392
+itemPlural=Предметы
+itemEquipNo=Ничего не оборудовано
+itemEquipUn=Снять
+itemEquipNew=Оборудуйте новый предмет
+itempos1=строительный элемент
+itempos2=строительный элемент
+itempos3=строительный элемент
+itemhand1=рука
+itemhand2=рука
+itemarmour=броня
+townPlural=города
+townNo=вам нужен как минимум 1 город
+tutorialDesc=Вы изучите основы 9 Наций.
+singleDesc=Играйте в разные одиночные сценарии.
+tutorial1Desc=Вы учитесь перемещать свои отряды, основываете город и строите здания с помощью светового элемента.
+pantheonDesc=Нашел свою религию
+screenshotDesc=пример для скриншотов
+lightDesc=Это основной элемент; если вам интересен другой мир. Вы получите свет, чтобы исследовать окрестности и развивать свой первый город.
+shadowDesc=Это основной элемент; если вас интересует преисподняя. Вы получите тень, чтобы исследовать окрестности и развивать свой первый город.
+fireDesc=На данный момент нет полезных функций.
+airDesc=На данный момент нет полезных функций.
+earthDesc=Глубоко под камнем лежат отличные варианты.
+waterElementDesc=На данный момент нет полезных функций.
+deathDesc=На данный момент нет полезных функций.
+energyDesc=На данный момент нет полезных функций.
+lifeDesc=На данный момент нет полезных функций.
+metalDesc=На данный момент нет полезных функций.
+woodDesc=На данный момент нет полезных функций.
+magewarriorDesc=Маг получает% бонус атаки по сравнению с воином.
+warriorskillDesc=воин получает бонус атаки% над навыком.
+skillmageDesc=умение получить% бонус атаки по сравнению с магом.
+warriormageDesc=воин получает% бонус атаки по сравнению с магом.
+skillwarriorDesc=умение получить% бонус атаки над воином.
+mageskillDesc=Маг получает% бонус атаки над навыком.
+fireearthDesc=Огненный отряд получает% бонус атаки на земной отряд.
+earthwaterDesc=земной юнит получает% бонус атаки водного юнита.
+waterairDesc=водный юнит получает бонус к атаке на воздушный юнит.
+airfireDesc=Воздушный юнит получает бонус к атаке на огненный юнит.
+earthfireDesc=земной отряд получает% бонус атаки от огненного отряда.
+waterearthDesc=Водный юнит получает% бонус атаки на земной юнит.
+airwaterDesc=Воздушный юнит получает% бонус атаки водного юнита.
+fireairDesc=Огненный отряд получает% бонус атаки на воздушный отряд.
+shadowlightDesc=теневой юнит получает бонус% атаки к легкому юниту.
+swimfloatDesc=Юниты с плаванием типа движения получают% бонус атаки к юнитам с плаванием типа движения.
+floatwalkDesc=Юниты с поплавком типа движения получают% бонус атаки к юнитам с типом движения ходьбы.
+walkflyDesc=Юниты с типом движения ходьба получают% бонус атаки к юнитам с типом движения муха.
+flyswimDesc=Юниты с типом движения летают получают% бонус атаки к юнитам с плаванием типа движения.
+swimflyDesc=Юниты из плавания с движением получают бонус атаки% к юнитам из движущихся летающих во второй половине дня.
+floatswimDesc=Юниты из плавучего типа движения получают% бонус атаки к юнитам из типа движения во второй половине дня.
+walkfloatDesc=Юниты из типа движения получают бонус% атаки к юнитам из типа движения во второй половине дня.
+flywalkDesc=Юниты с типом движения летают получают% бонус атаки к юнитам с типом движения походкой днем.
+goodbadDesc=Юнит с хорошим этосом получает% бонус атаки на юнитов с плохим этосом.
+badneutralDesc=Юнит с плохим этосом получает% бонус к атаке юнитов с нейтральным этосом.
+neutralgoodDesc=Юнит с нейтральным этосом получает% бонус атаки на юнитов с хорошим этосом.
+badgoodDesc=Юнит с этосом плохой получает% атаки на юнитов с хорошим этосом.
+neutralbadDesc=Юнит с нейтральным этосом получает малус% атаки на юнитов с плохим этосом.
+goodneutralDesc=Юнит с этосом хороший получает малус% атаки на юнитов с нейтральным этосом.
+statAdd=добавить {0} {1}
+statRemove=удалить {0} {1}
+ap== A452
+apMax=максимальное ap
+hp== A454
+hpMax=максимальная л.с.
+attackBuildingDesc=бороться со зданием
+attackUnitDesc=сражаться с отрядом
+buildDesc=построить новое здание
+cameraMoveDesc=переместить камеру
+endGameLoseDesc=проиграть
+endGameWinDesc=выиграть игру
+featurePlayerDesc=установить функцию
+foundTownDesc=нашел свой город
+gameButtonDesc=вызвать специальную игровую кнопку
+healDesc=исцелить отряд. Скорость лечения зависит от доступного AP.
+interactDesc=взаимодействовать с соседями или ближними полями
+moveAreaDesc=показать, куда отряд может двигаться или пройти в этом раунде
+moveLevelDesc=перемещать юниты между уровнями
+produceDesc=производить res
+sleepDesc=подожди следующего раунда
+terraformDesc=изменить местность
+townEvolveDesc=обновить город до нового уровня
+tradeDesc=торгуй своими ресурсами
+trainDesc=обучить новый отряд
+upgradeDesc=обновить это
+evolveDesc=попытаться развить новый элемент
+exploreDesc=автоматически исследовать мир
+moveToDesc=переместите устройство в определенную точку
+craftDesc=может крафтить из рецептов разные ресурсы
+examineDesc=исследуйте местность, чтобы найти различные ресурсы.
+claimDesc=претендовать на это поле для строительства
+improvementDesc=преобразовать в улучшение карты\n
+statDesc=изменить статистику
+modiDesc=изменить модификатор
+shoec=медная обувь
+shoei=железная обувь
+itemshoe=обувь
+northDesc=Нация по умолчанию
+rangerDesc=Строящаяся нация. На данный момент бесполезно.
+customnDesc=Вы сами формируете свое будущее
+unknownDesc=Черные сигнализируют о том, что земли нет; так что это не исследуемо.
+actionCancel=cancel {0}
+actionTooltip={0}, Cost: {1}/{2} AP
+actionWaitingCancel=cancel preparation
+addAP=give 10 AP
+addDef=5 defense for 5 rounds
+air=air
+androidDesc=The support for android is at the moment very limited  so no tooltips and mods are supported. If you find any bugs or display issues please contact us.
+animation=animation
+attack=attack {0}
+attackDam={0}-{1}
+attackDamEqual={0} and {1} are equal, nothing to win.
+attackNonSelf={0} defends
+attackSelf={0} attacks
+betaDesc=Hello;;This version starts a different kind of play. Your nation will later develop elements. At the moment their are two options. In this state the game does not contains all features at the moment. This means that you can encounter bugs; crashes; incomplete and unpolished features etc. also except balancing issuses.;;If you have found any mistakes; bugs oder you have questions use the feedback button. I'm happy to hear from you.;;Greetings Sven
+borderDesc=Not passable
+buildingDesc=Buildings are (besides the units) basic to the game. If they are clicked actions can be performed which costs action points (AP). At the end of each round the AP is replenished.;;Buildings are always part of a city. The closest city is automatically selected during construction.
+carrot=carrot
+charcoalhut=charcoal burner's hut
+chest=chest
+chestGen=generate bonus chests on the world
+chestGenField=You found knowledge about the area in the chest.
+chestGenItem=You found a {0} in the chest.
+chestGenLoading=The chests will be placed in the world.
+chestGenLoadingSub={0} from {1}
+chestGenNo=You found nothing valuable in this chest.
+chestGenRes=You found {0}x {1} in the chest.
+chestGenResearch=You found knowledge about {0} in the chest.
+chestGenWood=The chest was processed to {0} wood.
+chestopen=open this chest
+closeWindow=close window
+construction=construction material
+constructionCost=Cost for construction
+constructionMaterial=Select your material
+constructionMaterialNothing=There is no suitable resources in the {0} {1}.
+constructionMaterialUse=Use
+constructionOnGoing=Under construction
+constructionOnGoingDesc=Missing resources
+constructionOwn=Own combination
+constructionOwnReplace=Replace {0}
+constructionOwnReplaceNothing=Nothing to replace, you can build {0}!
+constructionOwnUseRes=Use {0}
+constructionReq=Requirement for construction
+coppertool=tool
+craftReceipt=Receipt
+creditsDesc=@F@CREDITS
+customn=custom nation
+destroyDie=The unit {0} has died.
+destroyKill=Kill {0}
+developElementDesc=You can use a ready-made nation or develop your own. If you want to develop your own you have to decide with which element you want to develop your nation. Each element gives you different units; buildings; abilities and access to other elements. In total you can develop in 4 elements.
+dirtDesc=Dirt is usually brown and is fairly generic.
+earthWall=earth wall
+earthWallGate=earth wall gate
+efighter=earth fighter
+emage=earth mage
+emagicschool=earth magic school
+endGamePlayer=No player exist anymore.
+endGamePoints=You got {0} points in {1} rounds.
+endGameWinButton=Play a little more
+equarters=earth quarters
+fire=fire
+fish=fish
+flower=flower
+fogDesc=Not explored
+fsoldier=fsoldier
+fuel=burning material
+generalDesc=Hello!;;Nice to meet you. I'm Sven and develop 9 Nations. It is a tuned-based strategy game. You have to explore the area and develop your kingdoms.
+hpAdd={0} hp
+id=english
+inhabitantGrow=inhabitant grow
+inhabitantGrowDesc=If you have enough space in your houses and all usages are filled; the inhabitant will grow. They grow one inhabitant per town level per round.
+inhabitantGrowMissingUsage=The {0} does not grow, because not all needs are met.
+inhabitantGrowMissingWorker={0} needs {1} more workers. Productivity drops to {2}. Try to build more houses or to pause some buildings.
+inhabitantGrowOverPop=People are leaving the {0} because {1} have no place to live.
+invisibleDesc=Unknown land; but not visible
+lastmagic=last used spells
+lastspellLearn=learn a new spell
+lcurer=curer
+magic=perform magic
+magicSelect=selection
+material=material
+materialDesc=If several materials are available in a city; you can choose which one to use or a mix of them.;;Each material has different properties; which affects for example the HP; AP and construction time.;;For example building material can be replaced by wood or stone. If you build with wood the building is finished faster; but has less HP. Stone is very robust but takes a long time to build.
+meat=meat
+modi=modifier
+moveCameraDesc=To move the camera use the keys WASD on the keyboard. Otherwise press the middle mouse button and move the map or move the cursor to the border. Zoom is possible with Q and E. Move between the levels is possible with R and F.
+moveUnitDesc=You can move the units with the arrow keys or via the move action.They need enough AP. Every Round the AP will be refreshed.
+mushroom=mushroom
+nature=nature
+newDesc=Hello;;this update brings items and a new tutorial for the earth element, animations and spells and much bugfixing and some ui improvements. To understand 9 nations play the tutorial. You can find it in the campaign menu.;;You can find the new features on the website https://9nations.de
+nursery=nursery
+occupy=occupy the town
+occupyMoved=Your unit moved. You can not occupy the town.
+occupyTransferEnemy=You have taken the {0} of {1}.
+occupyTransferOwner=Your {0} has been taken over by {1}.
+player=player
+playerPlural=players
+privacyDesc=Please take a look at the website https://9nations.de/privacy-policy/privacy-policy-in-game/
+refreshRes=refresh resources
+removeAP=get 10 AP
+reqBuildingCategory=Needs a {0} building on the field.
+reqBuildingCategoryHere=Here is a {0} building.
+reqBuildingCategoryNone=Here is nothing.
+requirement=requirement
+requirementPlural=requirements
+researchDesc=You never know what you will discover during research. Research in 9N also functions this way. You choose different elements or a combination of them and start researching. The more elements you combine the longer the research will take. The greater is the chance of researching something. If I only do research light you will discover the baracks. If you combine light and light you can also discover the bigger village hall or the baracks.
+resources=resources
+sandDesc=Sand is a yellow-brown and found only around water or in the desert.
+sendRes=send resources
+sendResCount=send {0}
+sendResTo=send to {0}
+settler=settler
+spell=spell
+spellChance=chance: {0}%
+spellCost=Cost: {0] AP
+spellCostUnit=Cost: {0} AP (from {1} AP)
+spellError=The last spell {0} was a failure. {1}
+spellField=You want to cast {0} on {1}?
+spellKnown=known spell
+spellLearn=learn a spell
+spellLearnDesc=learn a new spell
+spellLearned={0} learned the spell {1}.
+spellPerformFail=perform on failure
+spellPerformSuccess=perform on success
+spellSuccess=The last spell {0} was a success.
+spellTarget=Select the target, of your spell {0}.
+stat=statisitic
+tabNo={0}: Nothing possible found.
+terrainPassable={0} {1}
+terrainPassableAP={0} AP
+terrainPassableNot=not passable
+terrainPassableOrg=(Original: {0})
+terrainPassableWinter=winter
+townDesc=A city is a collection of buildings with shared resources. A city also manages all units that are in its area.;;Cities always have a center which is represented by the town hall. The city can be levelled if the town hall is upgraded. This allowed to build more and different buildings but also your inhabitens demands more resources.
+townDetails={0} is part of {1}. Show details for {1}.
+townProduceLastRound=Produced last round
+townRes={0} has {1}
+townTitle={0} of {1}
+tutorial2=town management & shadow element
+tutorial2Desc=You learn to management your town and develop it with the shadow element.
+tutorial3=units & earth element
+tutorial3Desc=You learn to develop your units, your town and develop it with the earth element.
+unitDesc=Units are (besides buildings) essential to the game. When clicked you can moved them with the arrow keys which costs action points (AP). You can also perform various actions which costs AP. At the end of each round the AP will be refilled.;;Units are always supplied by the nearest city. Also they use the resources of this city.
+unitMoveErrorConstruction=Can not move {0} because it is under construction.
+usageRound=usages per round
+usageRoundDisabled=based on the game rul
+usageRoundRes={0} from {1}
+usageRoundResult=result
+usageRoundResultStatus=Usage: {0} from needed {1}
+usageRoundResultStatusFulfilled=Status: Everything fulfilled your town can grow.
+usageRoundResultStatusNotFulfilled=Status: Not everything fulfilled your town can not grow.
+usageTownRes=The inhabitants from {0} needs {1} more.
+useageTown=enable usage system for towns
+viewDesc=Double the view area
+vision=See the area
+waterDesc=Water and can be found anywhere. It's blue. In winter it can become ice.
+well=well
