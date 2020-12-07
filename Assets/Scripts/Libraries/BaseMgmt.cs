@@ -20,7 +20,7 @@ namespace Libraries
     [Serializable]
     public class BaseMgmt<T> : IRead where T : BaseData, new()
     {
-        [SerializeField] protected Dictionary<string, T> Data;
+        [SerializeField] protected Dictionary<string, T> data;
         [SerializeField] protected readonly string id;
         [SerializeField] protected string icon;
         [SerializeField] protected string lastRead;
@@ -34,7 +34,7 @@ namespace Libraries
         
         public BaseMgmt(string id)
         {
-            Data = new Dictionary<string, T>();
+            data = new Dictionary<string, T>();
             this.id = id;
         }
         
@@ -43,13 +43,13 @@ namespace Libraries
             this.icon = icon;
         }
 
-        public int Length => Data.Count;
+        public int Length => data.Count;
 
         public T this[string key]{
             get{
                 if (ContainsKey(key))
                 {
-                    return Data[key];
+                    return data[key];
                 }
                 throw new MissingMemberException($"Can not find {key} in {id}");
             }
@@ -57,7 +57,7 @@ namespace Libraries
 
         public T Random()
         {
-            return Data.ElementAt(UnityEngine.Random.Range(0, Data.Count)).Value;
+            return data.ElementAt(UnityEngine.Random.Range(0, data.Count)).Value;
         }
 
         public T Random(string category)
@@ -68,7 +68,7 @@ namespace Libraries
         
         public bool ContainsKey(string key)
         {
-            return Data.ContainsKey(key);
+            return data.ContainsKey(key);
         }
 
         protected bool Bool(string data)
@@ -190,7 +190,7 @@ namespace Libraries
             return File.ReadAllText(path);
         }
         
-        public IEnumerator ParseIni(string path)
+        public virtual IEnumerator ParseIni(string path)
         {
             yield return LSys.tem.Load.ShowMessage("Loading "+Name());
             
@@ -224,9 +224,9 @@ namespace Libraries
         
         public Sprite Sprite()
         {
-            if (string.IsNullOrEmpty(icon) && Data.Count > 0)
+            if (string.IsNullOrEmpty(icon) && data.Count > 0)
             {
-                return Data.First().Value.Sprite();
+                return data.First().Value.Sprite();
             }
             return SpriteHelper.Load(icon);
         }
@@ -267,19 +267,19 @@ namespace Libraries
                 return this[id];
             }
 
-            Data[id] = new T();
-            Data[id].Id(id);
-            return Data[id];
+            data[id] = new T();
+            data[id].Id(id);
+            return data[id];
         }
 
         public Dictionary<string, T>.KeyCollection Keys()
         {
-            return Data.Keys;
+            return data.Keys;
         }
 
         public Dictionary<string, T>.ValueCollection Values()
         {
-            return Data.Values;
+            return data.Values;
         }
 
         /// <summary>

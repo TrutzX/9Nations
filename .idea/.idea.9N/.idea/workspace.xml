@@ -465,9 +465,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/TownUsageSplitElement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapElements/Construction.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapElements/Units/UnitInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionMagic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/BaseSelectElementAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/Tutorial3Earth.cs" />
@@ -489,7 +486,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameMapLevels/GameMapLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Animations/AnimationObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/OnMapUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/LClass.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Animations/AnimationMgmt.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Animations/AnimationText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionTownOccupy.cs" />
@@ -514,8 +510,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MapElements/MapElementUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/BasePerformAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/Addons/ActionHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/Town.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionOccupy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Towns/Town.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/LSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/BaseMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/TranslationMgmt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Classes/LClass.cs" />
       </list>
     </option>
   </component>
@@ -783,6 +783,7 @@
       <workItem from="1606162994747" duration="9505000" />
       <workItem from="1606550245404" duration="7335000" />
       <workItem from="1606804768790" duration="4686000" />
+      <workItem from="1607288629729" duration="3791000" />
     </task>
     <servers />
   </component>
@@ -825,13 +826,12 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="764" y="245" width="381" height="623" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1599419483587" />
-    <state x="647" y="404" width="942" height="546" key="find.popup" timestamp="1606804796708">
+    <state x="647" y="404" width="942" height="546" key="find.popup" timestamp="1607288709697">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="528" y="132" width="824" height="538" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1598165886708" />
     <state x="318" y="142" width="1260" height="811" key="find.popup/0.27.1920.1053/1920.0.1280.1024@0.27.1920.1053" timestamp="1605974441050" />
     <state x="2132" y="112" width="840" height="788" key="find.popup/0.27.1920.1053/1920.0.1280.1024@1920.0.1280.1024" timestamp="1606557316118" />
-    <state x="647" y="404" width="942" height="546" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1606804796708" />
+    <state x="647" y="404" width="942" height="546" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1607288709697" />
     <state x="578" y="204" width="1008" height="679" key="search.everywhere.popup" timestamp="1605975946453">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

@@ -392,7 +392,7 @@ namespace Towns
                     amount -= hasAmount;
                     if (hasAmount > 0)
                         AddRes(r.id, hasAmount, ResType.Consum);
-                    usageMess = S.T("UsageTownRes", TownTitle(), r.Text(amount * -1));
+                    usageMess = S.T("usageTownRes", TownTitle(), r.Text(amount * -1));
                     Player().info.Add(new Info(usageMess, r.Icon));
                 }
                 else

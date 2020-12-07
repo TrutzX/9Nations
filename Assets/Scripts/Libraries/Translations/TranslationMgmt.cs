@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
 using System.Linq;
+using IniParser.Model;
+using IniParser.Parser;
 using Libraries.Rounds;
 using UnityEngine;
 
@@ -64,6 +67,30 @@ namespace Libraries.Translations
             {
                 lang = LSys.tem.languages.Values().First(l => l.standard).id;
             }
+        }
+        
+        public override IEnumerator ParseIni(string path)
+        {
+            yield return LSys.tem.Load.ShowMessage("Loading "+Name());
+            
+            IniData iniData = new IniDataParser().Parse(Read(path));
+            
+            //language
+            var l = path.Split('/').Last();
+            
+            //add level
+                foreach (KeyData key in iniData.Global)
+                {
+                    if (string.IsNullOrEmpty(key.Value))
+                    {
+                        continue;
+                    }
+                    if (key.KeyName.StartsWith("//")) continue;
+                    
+                    //Debug.Log(key.KeyName+"="+key.Value);
+                    GetOrCreate(key.KeyName).Add(l, key.Value);
+                }
+            
         }
     }
 }

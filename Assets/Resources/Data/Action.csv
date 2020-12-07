@@ -3,7 +3,7 @@ attackBuilding,fight,10,true,,near,,,buildingOwn=enemy,,,attack
 attackUnit,fight,10,true,,near,hp=>25%,,unitDest=enemy,,,attack
 build,build,,true,,near,empty=building,frontier=own,unitDest=!enemy,,,
 cameraMove,logo,0,,,,,,,,false,
-destroy,!Icons/base:destroy,15,true,explosion,own,,,,true,,explode
+destroy,!Icons/base:destroy,15,true,,own,,,,true,,
 endGameLose,!Icons/base:destroy,0,,,,,,,,,
 endGameWin,!Icons/other:win,0,,,,,,,,,
 featurePlayer,logo,0,,,,,,,,,
@@ -35,3 +35,4 @@ vision,view,40,true,,own,,gameOption=fog:true,,,,
 magicSelect,magic,0,true,,,,,,,,
 spellLearn,spellLearn,0,true,,own,unitDest=own,buildingCategory=spellLearn,,,,
 sendRes,!Icons/icons:sendRes,,true,,,townCount=>2,,,,,trade
+occupy,logo,0,,,own,,,,,false,

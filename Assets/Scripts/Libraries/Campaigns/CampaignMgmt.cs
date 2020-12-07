@@ -27,7 +27,7 @@ namespace Libraries.Campaigns
             //load buildings
             WindowBuilderSplit b = WindowBuilderSplit.Create("Select your campaign","Play");
 
-            foreach(Campaign c in Data.Values)
+            foreach(Campaign c in data.Values)
             {
                 if (!c.Hidden)
                     b.Add(new CampaignSplitElement(c));

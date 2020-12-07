@@ -111,6 +111,7 @@ namespace Classes
             Add(CreateInstance<ActionMagicSelect>());
             Add(CreateInstance<ActionSpellLearn>());
             Add(CreateInstance<ActionVision>());
+            Add(CreateInstance<ActionOccupy>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());

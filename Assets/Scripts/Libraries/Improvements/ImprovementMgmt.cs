@@ -39,7 +39,7 @@ namespace Improvements
             UpdateSprite(id, pos);
             
             //update neighbors?
-            if (Data[id].combine)
+            if (data[id].combine)
             {
                 UpdateSprite(id, pos.DiffX(-1));
                 UpdateSprite(id, pos.DiffX(1));
@@ -60,7 +60,7 @@ namespace Improvements
                 return null;
             }
 
-            return Data[GameMgmt.Get().data.map.levels[pos.level].improvement[pos.x, pos.y]];
+            return data[GameMgmt.Get().data.map.levels[pos.level].improvement[pos.x, pos.y]];
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Improvements
             }
             
             //show it
-            GameMgmt.Get().newMap[pos.level].improvement.SetTile(pos.x, pos.y, Data[id].CalcSprite(pos));
+            GameMgmt.Get().newMap[pos.level].improvement.SetTile(pos.x, pos.y, data[id].CalcSprite(pos));
             
             //reset pathfinding
             GameMgmt.Get().newMap.levels[pos.level].ResetPathFinding();

@@ -1252,6 +1252,9 @@
               <e p="map.txt" t="Include" />
             </e>
           </e>
+          <e p="Translations" t="Include">
+            <e p="english.txt" t="Include" />
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">

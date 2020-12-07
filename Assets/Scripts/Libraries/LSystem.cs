@@ -70,6 +70,9 @@ namespace Libraries
         protected override IEnumerator Loading()
         {
             yield return tem.Load.ShowMessage("Loading "+file);
+            languages = (LanguageMgmt) Add(new LanguageMgmt());
+            translations = (TranslationMgmt) Add(new TranslationMgmt());
+            yield return translations.ParseIni("!Translations/english");
             maps = (MapMgmt) Add(new MapMgmt());
             mapGeneration = (MapGenerationMgmt) Add(new MapGenerationMgmt());
             campaigns = (CampaignMgmt) Add(new CampaignMgmt());
@@ -78,8 +81,6 @@ namespace Libraries
             options = (OptionMgmt<Option>) Add(new OptionMgmt<Option>());
             icons = (BaseMgmt<Icon>) Add(new BaseMgmt<Icon>("icon"));
             helps = (HelpMgmt) Add(new HelpMgmt());
-            languages = (LanguageMgmt) Add(new LanguageMgmt());
-            translations = (TranslationMgmt) Add(new TranslationMgmt());
             
             yield return base.Loading();
         }
