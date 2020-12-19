@@ -47,6 +47,7 @@ MonoBehaviour:
   unitUI: {fileID: 0}
   buildingUI: {fileID: 0}
   InfoUi: {fileID: 0}
+  textAnimation: {fileID: 0}
   menuButton: {fileID: 0}
   menuButtonText: {fileID: 0}
   bottomButton: {fileID: 0}
@@ -67,9 +68,9 @@ MonoBehaviour:
   imageTextButton: {fileID: 5913307913073529843, guid: 91a4c0f93b8d6427ca8275d2e51e46ac,
     type: 3}
   label: {fileID: 3932309353240543134, guid: 159bf9b72219b4b6e9e68fe2829b23b4, type: 3}
-  panelLabel: {fileID: 3932309353240543134, guid: 88cec0552c4dc4a5d94864cda7841126,
+  panelLabel: {fileID: 6481756304495876728, guid: b307706b31818b382ae251d687f46e50,
     type: 3}
-  panelLabelDesc: {fileID: 3932309353240543134, guid: ae3dc82a277084b61aae240da8239ffc,
+  panelLabelDesc: {fileID: 6481756304495876728, guid: e2ed1a83a2291f7c1a294559c3d55b10,
     type: 3}
   richlabel: {fileID: 6535159070551223911, guid: 3a52d208df5b642aba7b1186d3458333,
     type: 3}

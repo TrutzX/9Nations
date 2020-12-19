@@ -26,12 +26,12 @@ namespace Classes.Actions
             {
                 self.data.ap -= nonSelf.data.hpMax + nonSelf.data.hp;
                 nonSelf.data.hp = nonSelf.data.hpMax;
-                nonSelf.SetLastInfo($"Heal complett");
+                nonSelf.AddNoti(S.T("healComplete"), DataAction().Icon);
                 return;
             }
 
             nonSelf.data.hp += self.data.ap;
-            nonSelf.SetLastInfo($"Heal {self.data.ap} HP");
+            nonSelf.AddNoti(S.T("healHp", self.data.ap), DataAction().Icon);
             self.data.ap = 0;
         }
 

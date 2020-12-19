@@ -31,29 +31,34 @@ namespace MapElements.Units
         public void MoveAnimationCalc(int x, int y)
         {
             var dataUnit = GetComponent<UnitInfo>().dataUnit;
+            UnitAnimatorType type = UnitAnimatorType.MoveSouth;
             //rotate
             if (x > 0)
             {
-                act = 7;
+                type = UnitAnimatorType.MoveEast;
             }
             else if (x < 0)
             {
-                act = 4;
+                type = UnitAnimatorType.MoveWest;
             } 
             else if (y < 0)
             {
-                act = 1;
-            } 
-            else 
-            {
-                act = 10;
+                type = UnitAnimatorType.MoveNorth;
             }
+
+            PlayRunAnimation(type);
+        }
+
+        public void PlayRunAnimation(UnitAnimatorType type)
+        {
+            act = (int) type;
+            var dataUnit = GetComponent<UnitInfo>().dataUnit;
             anList = new []{dataUnit.Sprite(act-1), dataUnit.Sprite(act), dataUnit.Sprite(act-1), dataUnit.Sprite(act+1)};
             act = 0;
             ShowRen();
             running = true;
         }
-
+        
         public void PlayIdleAnimation(UnitAnimatorType type, int repeat=3)
         {
             var dataUnit = GetComponent<UnitInfo>().dataUnit;
@@ -80,6 +85,20 @@ namespace MapElements.Units
             //has animation?
             if (!dataUnit.ExistAnimationSprite(type))
             {
+                if (type == UnitAnimatorType.AttackEast || type == UnitAnimatorType.DefendEast)
+                {
+                    type = UnitAnimatorType.MoveEast;
+                } else if (type == UnitAnimatorType.AttackWest || type == UnitAnimatorType.DefendWest)
+                {
+                    type = UnitAnimatorType.MoveWest;
+                } else if (type == UnitAnimatorType.AttackSouth || type == UnitAnimatorType.DefendSouth)
+                {
+                    type = UnitAnimatorType.MoveSouth;
+                } else {
+                    type = UnitAnimatorType.MoveNorth;
+                }
+                PlayRunAnimation(type);
+                maxRepeat = 4;
                 return;
             }
             

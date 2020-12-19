@@ -276,8 +276,7 @@ namespace MapElements
             //perform first
             ActionHolder a = data.action.actions[waiting.actionPos];
             string erg = data.action.Perform(a, ActionEvent.NextRound, Player(), this, waiting.pos);
-            if (!string.IsNullOrEmpty(erg))
-                SetLastInfo($"Performs {a.DataAction().Name()}. {erg}");
+            AddNoti(S.T("actionPerform", data.name, a.DataAction().Name(), erg), a.DataAction().Icon);
         }
 
         public void StartPlayerRound()
@@ -287,13 +286,21 @@ namespace MapElements
             
             ActionHolder a = data.action.actions[data.waiting.actionPos];
             FDataAction da = a.DataAction();
-
+            
             //perform every turn?
             if (data.waiting.endless)
             {
-                string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.waiting.pos);
-                if (!string.IsNullOrEmpty(erg2))
-                    SetLastInfo($"Performs {da.Name()}. {erg2}");
+                if (da.interaction)
+                {
+                    AddNoti(S.T("actionInteraction", data.name, da.Name()), da.Icon);
+                    data.waiting.needPerform = true;
+                }
+                else
+                {
+                    string erg2 = data.action.Perform(a, ActionEvent.NextRound, Player(), this, data.waiting.pos);
+                    AddNoti(S.T("actionPerform", data.name, da.Name(), erg2), da.Icon);
+                }
+                
                 return;
             }
 
@@ -305,13 +312,34 @@ namespace MapElements
                 return;
             }
 
+            Debug.Log(da.Name()+da.interaction);
+            
+            if (da.interaction)
+            {
+                AddNoti(S.T("actionInteraction", data.name, da.Name()), da.Icon);
+                data.waiting.needPerform = true;
+            }
+            else
+            {
+                PerformWaitingAction();
+            }
+        }
+
+        public void PerformWaitingAction()
+        {
+            //has a waiting round?
+            if (data.waiting == null) return;
+            
+            ActionHolder a = data.action.actions[data.waiting.actionPos];
+            FDataAction da = a.DataAction();
+            
             data.ap = data.waiting.apMax - data.waiting.ap;
             data.ap += data.waiting.ap;
             a.data["waiting"] = data.waiting.sett;
             string erg = data.action.Perform(a, data.waiting.evt, Player(), this, data.waiting.pos);
             a.data.Remove("waiting");
             data.ap = data.waiting.apMax - data.waiting.ap;
-            SetLastInfo($"Performs {da.Name()}. {erg}");
+            AddNoti(S.T("actionPerform", data.name, da.Name(), erg), da.Icon);
             data.waiting = null;
         }
 

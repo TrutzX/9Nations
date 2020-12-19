@@ -13,6 +13,7 @@ namespace MapElements
         public string sett;
         public ActionEvent evt;
         public bool endless;
+        public bool needPerform;
 
         public ActionWaiting(ActionHolder action, ActionHolders holder, NVector pos)
         {

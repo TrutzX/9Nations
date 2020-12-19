@@ -44,15 +44,15 @@ namespace reqs
             {
                 if (S.Building().Free(pos)) return Desc(player, sett);
                 
-                return Desc(player, sett)+$" Here is {S.Building().At(pos).name}";
+                return S.T("reqHere",Desc(player, sett),S.Building(pos).name);
             }
             if (S.Unit().Free(pos)) return Desc(player, sett);
-            return Desc(player, sett)+$" Here is {S.Unit().At(pos).name}";
+            return S.T("reqHere",Desc(player, sett),S.Unit(pos).name);
         }
 
         public override string Desc(Player player, string sett)
         {
-            return $"Needs an empty field with no {sett}";
+            return S.T("reqEmpty", sett);
         }
     }
 
@@ -65,7 +65,7 @@ namespace reqs
 
         public override string Desc(Player player, string sett)
         {
-            return $"Needs a not empty field with {sett}";
+            return S.T("reqNotEmpty", sett);
         }
         
     } 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Game;
 using IniParser.Model;
 using IniParser.Parser;
 using Libraries.Rounds;
@@ -18,6 +19,8 @@ namespace Libraries.Translations
             //add base text
             GetOrCreate("language").Add(lang,id);
             GetOrCreate(id).Add(lang,id);
+            GetOrCreate("loadingSys").Add(lang,"Loading {0}");
+            GetOrCreate("loadingSysSub").Add(lang,"Reading {0}/{1}");
         }
         
         protected override void ParseElement(Translation ele, string header, string data)
@@ -71,16 +74,23 @@ namespace Libraries.Translations
         
         public override IEnumerator ParseIni(string path)
         {
-            yield return LSys.tem.Load.ShowMessage("Loading "+Name());
+            var l = path.Split('/').Last();
+            yield return LSys.tem.Load.ShowMessage(S.T("loadingSys",l));
             
             IniData iniData = new IniDataParser().Parse(Read(path));
             
             //language
-            var l = path.Split('/').Last();
+            int i = 0;
             
             //add level
                 foreach (KeyData key in iniData.Global)
                 {
+                    if (i % 100 == 0)
+                    {
+                        yield return LSys.tem.Load.ShowSubMessage(S.T("loadingSysSub",l,iniData.Global.Count));
+                    }
+                    i++;
+                    
                     if (string.IsNullOrEmpty(key.Value))
                     {
                         continue;
@@ -90,7 +100,6 @@ namespace Libraries.Translations
                     //Debug.Log(key.KeyName+"="+key.Value);
                     GetOrCreate(key.KeyName).Add(l, key.Value);
                 }
-            
         }
     }
 }

@@ -72,7 +72,7 @@ namespace Libraries
             yield return tem.Load.ShowMessage("Loading "+file);
             languages = (LanguageMgmt) Add(new LanguageMgmt());
             translations = (TranslationMgmt) Add(new TranslationMgmt());
-            yield return translations.ParseIni("!Translations/english");
+            yield return ReadLang();
             maps = (MapMgmt) Add(new MapMgmt());
             mapGeneration = (MapGenerationMgmt) Add(new MapGenerationMgmt());
             campaigns = (CampaignMgmt) Add(new CampaignMgmt());
@@ -83,6 +83,13 @@ namespace Libraries
             helps = (HelpMgmt) Add(new HelpMgmt());
             
             yield return base.Loading();
+        }
+
+        protected IEnumerator ReadLang()
+        {
+            //todo dynamic
+            yield return translations.ParseIni("!Translations/english");
+            yield return translations.ParseIni("!Translations/russian");
         }
     }
 }

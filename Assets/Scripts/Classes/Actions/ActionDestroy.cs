@@ -36,7 +36,7 @@ namespace Classes.Actions
             }));
             wpb.AddClose();
             wpb.Finish();
-    }
+        }
 
         protected override void Perform(ActionEvent evt, Player player, ActionHolder holder)
         {

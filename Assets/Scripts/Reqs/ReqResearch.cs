@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Game;
 using Libraries;
@@ -23,8 +24,8 @@ namespace reqs
 
         public override string Desc(Player player, string sett)
         {
-            return $"Need the research {sett}.";
-            //return $"Need the research {L.b.researches[sett].name}.";
+            var names = SplitHelper.Separator(sett).Select(s => L.b.researches[s].Name());
+            return S.T("reqResearch",TextHelper.CommaSep(names.ToArray()));
         }
     }
 }

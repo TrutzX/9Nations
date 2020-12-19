@@ -67,6 +67,7 @@ namespace Classes
             elementRuns = new Dictionary<string, BaseElementRun>();
             Add(CreateInstance<LightElement>());
             Add(CreateInstance<ShadowElement>());
+            Add(CreateInstance<FireElement>());
             
             overlaysRuns = new Dictionary<string, BaseOverlay>();
             Add(new OwnerOverlay());
@@ -112,6 +113,9 @@ namespace Classes
             Add(CreateInstance<ActionSpellLearn>());
             Add(CreateInstance<ActionVision>());
             Add(CreateInstance<ActionOccupy>());
+            Add(CreateInstance<ActionCreateUnit>());
+            Add(CreateInstance<ActionCreateBuilding>());
+            Add(CreateInstance<ActionPresent>());
             
             mapGenerators = new Dictionary<string, BaseMapGenerator>();
             mapGenerators.Add("underground",new UndergroundMapGenerator());

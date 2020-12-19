@@ -3,6 +3,7 @@ using Classes;
 using Game;
 using Libraries;
 using Libraries.Inputs;
+using Libraries.Translations;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;

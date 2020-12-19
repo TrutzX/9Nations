@@ -153,6 +153,13 @@ namespace Buildings
             //has waiting action?
             if (active.data.waiting != null)
             {
+                //can perform?
+                if (active.data.waiting.needPerform)
+                {
+                    active.PerformWaitingAction();
+                    return;
+                }
+                
                 ActionHolder a = active.data.action.actions[active.data.waiting.actionPos];
                 UIHelper.CreateImageTextButton(S.T("actionWaitingCancel"), a.DataAction().Sprite(), actions.transform,
                     () =>

@@ -12,6 +12,7 @@ namespace Libraries.FActions
         public bool mapElement;
         public string field;
         public string animation;
+        public bool interaction;
 
         public FDataAction()
         {

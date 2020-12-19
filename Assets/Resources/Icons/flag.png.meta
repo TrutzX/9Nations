@@ -112,7 +112,7 @@ TextureImporter:
     second: english
   - first:
       213: 5191155306151500582
-    second: flag_36
+    second: french
   - first:
       213: -7985502486285889393
     second: russian
@@ -1224,11 +1224,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flag_36
+      name: french
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 47
+        y: 95
         width: 24
         height: 24
       alignment: 0

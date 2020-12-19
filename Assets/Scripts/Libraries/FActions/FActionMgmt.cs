@@ -21,6 +21,9 @@ namespace Libraries.FActions
                 case "animation":
                     ele.animation = data;
                     break;
+                case "interaction":
+                    ele.interaction = Bool(data);
+                    break;
                 case "onlyowner":
                     ele.onlyOwner = Bool(data);
                     break;

@@ -118,17 +118,18 @@ namespace Libraries
 
         public IEnumerator ParseCsv(string path)
         {
-            yield return LSys.tem.Load.ShowMessage("Loading "+Name());
+            bool t = LSys.tem.translations != null;
+            
+            yield return LSys.tem.Load.ShowMessage(t?S.T("loadingSys",Name()):"Loading "+Name());
             //string[][] data = Ncsv.Read(Read(path));
             //Debug.Log($"Library {id}: from {path}");
             string[][] data = Ncsv.Csv2ArrayOwn(Read(path));
-            yield return LSys.tem.Load.ShowSubMessage($"Loading 0/{data.Length}");
             Debug.Log($"Library {id}: Reading {data.Length} elements with {data[0].Length} headers from {path}");
             for (int l = 1; l < data.Length; l++)
             {
-                if (l % 10 == 0)
+                if (l % 10 == 1)
                 {
-                    yield return LSys.tem.Load.ShowSubMessage($"Loading {l}/{data.Length}");
+                    yield return LSys.tem.Load.ShowSubMessage(t?S.T("loadingSysSub",l,data.Length):$"Reading {l}/{data.Length}");
                 }
                 
                 //skip?
@@ -183,8 +184,17 @@ namespace Libraries
             //intern?
             if (path.StartsWith("!"))
             {
-                TextAsset t = UnityEngine.Resources.Load<TextAsset>(path.Substring(1));
-                return t.text;
+                try
+                {
+                    TextAsset t = UnityEngine.Resources.Load<TextAsset>(path.Substring(1));
+                    return t.text;
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError("Can not find file "+path);
+                    throw;
+                }
+                
             }
 
             return File.ReadAllText(path);

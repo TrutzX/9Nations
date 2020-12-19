@@ -5,14 +5,12 @@ using Libraries;
 using Libraries.Buildings;
 using Libraries.FActions;
 using Libraries.Units;
-using MapElements;
 using MapElements.Spells;
-using Players;
 using Players.Infos;
 using Tools;
 using Towns;
 
-namespace Buildings
+namespace MapElements
 {
     [Serializable]
     public class BuildingUnitData

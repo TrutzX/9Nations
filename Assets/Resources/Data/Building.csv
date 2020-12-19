@@ -1,6 +1,6 @@
 id,icon,//element,category,atk,def,dammin,dammax,hp,ap,visible,buildtime,req,req,req,req,req,winter,connected,cost,cost,cost,cost,worker,modi,action,actionreq,action,action,action,action,action
 ,light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-lhall1,!Building/e:lhall1,light,light,1,,1,3,10,10,2,1,element=light,,,,disabled,!Building/e:lhall1winter,,,,,,6,,produce=once;wood:10;gold:8;food:20;water:30;tool:20,,train=lworker;lexplorer,upgrade=lhall2,trade=buy:tool;gold,,occupy=50
+lhall1,!Building/e:lhall1,light,light,1,,1,3,10,10,2,1,element=light,,,,disabled,!Building/e:lhall1winter,,,,,,6,,produce=once;wood:10;gold:8;meat:10;fish:10;water:30;tool:20,,train=lworker;lexplorer,upgrade=lhall2,trade=buy:tool;gold,,occupy=50
 lhall2,!Building/c:lhall2,light,light,1,,2,4,20,10,4,7,element=light,,research=lhall2,,upgradeField=lhall1,!Building/c:lhall2winter,,construction:17,,gold:3,tool:2,2,,townEvolve,,train=lworker;lexplorer,,trade=buy:tool;gold,sendRes,occupy=100
 logger,!Building/ro:logger,light;fire,light;fire,,,,,,,,2,element=light;fire,,,terrainCategory=forest,,,,construction:1,,gold:1,tool:1,-1,,produce=turn;wood:1,daytime=morning;afternoon,,destroy,,,
 cobblestoneC,!Building/bigCastle:cobblestoneC,light,light,,,,,,,,3,element=light,,,terrainCategory=hill;mountain,,,,construction:3,,,tool:1,-1,,produce=turn;cobblestone:1,daytime=morning;afternoon,,destroy,,,
@@ -57,4 +57,4 @@ altar,logo,fire,fire,,,,,,,,,element=fire,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,neutral,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-chest,!Building/chests_8:chests_8_1,,,,,,,,,0,,disabled,,,,,,,,,,,,,chestopen,,,,,,
+chest,!Building/chests_8:chests_8_1,,,,,,,,,0,,disabled,,,,,,,,,,,,,chestOpen,,,,,,

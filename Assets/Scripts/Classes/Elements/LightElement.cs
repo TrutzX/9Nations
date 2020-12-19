@@ -48,7 +48,7 @@ namespace Classes.Elements
         
         public override void ShowDetail(PanelBuilder panel)
         {
-            panel.AddHeaderLabel("Free unit on development");
+            panel.AddHeaderLabelT("elementFreeUnit");
             L.b.units[id].AddImageLabel(panel);
         }
     }

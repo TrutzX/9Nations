@@ -45,6 +45,7 @@
 * by Bogdan Mihaiciuc from deviantart.com/bogo-d/art/Kingdom-Icons-212892514
 * by Yusuke Kamiyamane from p.yusukekamiyamane.com
 * by Charles Gabriel from opengameart.org/content/world-flag-icons
+* by gamesbyangelina from opengameart.org/content/a-puzzling-present-image-bank
 
 # Sound
 * by artisticdude from opengameart.org/content/rpg-sound-pack
@@ -53,6 +54,7 @@
 * by qubodup from opengameart.org/content/3-background-crash-explosion-bang-sounds
 * by spookymodem from opengameart.org/content/open-chest
 * by p0ss from opengameart.org/content/spell-sounds-starter-pack
+* by spookymodem from opengameart.org/content/falling-rock
 
 # Music
 * by tob from RTP-Tunes

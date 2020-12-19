@@ -37,7 +37,7 @@ namespace Classes.Actions
                         ua.data["pos"] = unit.Pos().ToString();
                         unit.data.action.Add(ua);
                     
-                        ActionHelper.WaitRound(unit.data.action, ua, info, info.Pos());
+                        ActionHelper.WaitRound(unit.data.action, ua, unit, unit.Pos());
                         return;
                     }
                 

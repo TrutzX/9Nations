@@ -49,13 +49,13 @@ namespace Classes.Actions
 
                 if (rval <= 0)
                 {
-                    info.SetLastInfo($"The deposit of {res} is empty.");
+                    info.SetLastInfo(S.T("produceDepositEmpty",res));
                     return false;
                 }
 
                 if (rval < 20)
                 {
-                    info.SetLastInfo($"The deposit of {res} is nearly empty.");
+                    info.SetLastInfo(S.T("produceDepositNearlyEmpty",res));
                 }
 
                 GameMgmt.Get().data.map.ResGenAdd(pos, res, -val);
@@ -93,8 +93,8 @@ namespace Classes.Actions
         {
             if (sett.compact)
             {
-                sett.panel.AddHeaderLabel(sett.holder.trigger == ActionEvent.FinishConstruct
-                    ? "Produce resources after construction":"Produce resources every turn");
+                sett.panel.AddHeaderLabelT(sett.holder.trigger == ActionEvent.FinishConstruct
+                    ? "produceConstruction":"produceTurn");
                 foreach (var data in sett.holder.data)
                 {
                     if (!data.Key.StartsWith("res-")) continue;

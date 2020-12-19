@@ -20,26 +20,37 @@ namespace Classes.Scenarios
         public void Run()
         {
             L.b.gameOptions["chestGen"].SetValue("false");
-            L.b.gameOptions["fog"].SetValue("false");
+            //L.b.gameOptions["fog"].SetValue("false");
 
             int pid = S.Players().CreatePlayer("userx", "forger");
             S.Player(pid).elements.elements.Add("shadow");
+            S.Player(pid).elements.elements.Add("earth");
             S.Player(pid).quests.Add(QuestHelper.AddNoUnitTown(QuestHelper.Lose()));
             
             NVector pos = new NVector(8, 6, 1);
-            S.Unit().Create(pid, "fsoldier", pos).FinishConstruct();
+            S.Unit().Create(pid, "christkind", pos).FinishConstruct();
+            var u = S.Unit().Create(pid, "emage", pos.DiffX(2));
+            u.data.spells.Learn("createGolem");
+            u.data.spells.Learn("vision");
+            u.data.spells.Learn("heal");
+            
+            var tid = S.Towns().Create("ua", pid, pos.DiffY(-3));
+            //S.Building().Create(tid, "tent", pos).FinishConstruct();
+            
+            S.Player(pid).research.Set("createGolem",true);
 
             int pid2 = S.Players().CreatePlayer("usery", "customn");
             S.Player(pid2).elements.elements.Add("light");
             S.Player(pid2).quests.Add(QuestHelper.AddNoUnitTown(QuestHelper.Lose()));
             
             NVector p2 = new NVector(9, 6, 1);
-            var u = S.Unit().Create(pid2, "lcurer", p2);
+            u = S.Unit().Create(pid2, "lcurer", p2);
             u.FinishConstruct();
 
-            var tid = S.Towns().Create("ua", pid2, p2.DiffX(1));
+            tid = S.Towns().Create("ua", pid2, pos);
             S.Building().Create(tid, "logger", p2).FinishConstruct();
-
+            S.Building().Create(tid, "temple", p2.DiffX(1)).FinishConstruct();
+            
             //var at = L.b.animations.Hp(-12,u.Pos(), u);
             //Debug.Log("ds"+at.transform.position);
 

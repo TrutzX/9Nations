@@ -80,6 +80,7 @@ public class OLib : ScriptableObject
         AddReq("stat", CreateInstance<ReqStat>());
         AddReq("spellCount", CreateInstance<ReqSpellCount>());
         AddReq("buildingCategory", CreateInstance<ReqBuildingCategory>());
+        AddReq("dayOfYear", CreateInstance<ReqDayOfYear>());
     }
 
     private static void AddReq(string id, BaseReq action)

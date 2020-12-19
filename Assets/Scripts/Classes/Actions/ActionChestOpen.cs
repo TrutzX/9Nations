@@ -21,7 +21,8 @@ namespace Classes.Actions
 {
     public class ActionChestOpen : BasePerformAction
     {
-        public ActionChestOpen() : base("chestopen"){}
+        public ActionChestOpen(string id) : base(id){}
+        public ActionChestOpen() : base("chestOpen"){}
 
         protected override void Perform(ActionEvent evt, Player player, MapElementInfo info, NVector pos,
             ActionHolder holder)
@@ -29,6 +30,23 @@ namespace Classes.Actions
             var unit = S.Unit().At(pos);
             var town = unit.Town();
             
+            if (!CreateBonus(player, info, pos, town)) return;
+
+            //get some wood
+            if (town != null)
+            {
+                int a = Random.Range(2, 5);
+                var i = L.b.res["wood"];
+                player.info.Add(new Info(S.T("chestGenWood",a),i.Icon).CameraMove(pos));
+                town.AddRes(i.id,a,ResType.Gift);
+            }
+            
+            info.Kill();
+            OnMapUI.Get().UpdatePanel(pos);
+        }
+
+        protected bool CreateBonus(Player player, MapElementInfo info, NVector pos, Town town)
+        {
             //check it
             List<string> erg = new List<string>();
 
@@ -50,29 +68,27 @@ namespace Classes.Actions
 
             if (erg.Count == 0)
             {
-                player.info.Add(new Info(S.T("chestGenNo"),info.baseData.Icon).CameraMove(pos));
-                return;
+                player.info.Add(new Info(S.T("chestGenNo"), info.baseData.Icon).CameraMove(pos));
+                return false;
             }
-            
+
             switch (erg[Random.Range(0, erg.Count - 1)])
             {
-                case "research": GenResearch(player, pos); break;
-                case "res": GenRes(town, player, pos); break;
-                case "item": GenItem(town, player, pos); break;
-                case "fog": GenFog(player, pos); break;
+                case "research":
+                    GenResearch(player, pos);
+                    break;
+                case "res":
+                    GenRes(town, player, pos);
+                    break;
+                case "item":
+                    GenItem(town, player, pos);
+                    break;
+                case "fog":
+                    GenFog(player, pos);
+                    break;
             }
-            
-            //get some wood
-            if (town != null)
-            {
-                int a = Random.Range(2, 5);
-                var i = L.b.res["wood"];
-                player.info.Add(new Info(S.T("chestGenWood",a),i.Icon).CameraMove(pos));
-                town.AddRes(i.id,a,ResType.Gift);
-            }
-            
-            info.Kill();
-            OnMapUI.Get().UpdatePanel(pos);
+
+            return true;
         }
 
         private void GenResearch(Player p, NVector pos)

@@ -1,10 +1,9 @@
 using Game;
-using Libraries;
 using UI;
 using UI.Show;
 using UnityEngine;
 
-namespace Options
+namespace Libraries.Translations
 {
     public class LanguageOptionSplitElement : SplitElement
     {
@@ -15,7 +14,7 @@ namespace Options
         public override void ShowDetail(PanelBuilder panel)
         {
             panel.AddHeaderLabelT("languageSelect");
-            panel.AddLabelT("languageInfo");
+            panel.AddDesc(S.T("languageInfo"));
             panel.AddImageTextButton(S.T("languageSystem"), "language", (() => UpdateLang("languageSystem")));
             foreach (var lang in LSys.tem.languages.Values())
             {
