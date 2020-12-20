@@ -22,6 +22,12 @@ namespace Classes.Actions
 
         public override void BuildPanel(ActionDisplaySettings sett)
         {
+            if (sett.pos == null)
+            {
+                base.BuildPanel(sett);
+                return;
+            }
+            
             //found dest?
             BuildPanelIntern(sett, S.Building(sett.pos));
         }

@@ -7,6 +7,6 @@ forger,,,Bergvolk- Zwerge- unter der Erde?,!Icons/base:forger,magic,neutral,eart
 emis,Emissaries,true,Magisches Zaubervolk?,,magic,bad,energy,hill,,steam,,,,,moveCost=-5;t;hill,buildTime=-50%;t;hill,,,
 harv,Harvester,true,??,,fight,good,wood,marsh,,viking,,,,,moveCost=-5;t;marsh,buildTime=-50%;t;marsh,,,
 mess,Messenger,true,Luftvolk,,n,neutral,air,clouds,,sky,,,,,moveCost=-5;t;clouds,buildTime=-50%;t;clouds,,,
-fire,fire Worshipers,true,Satananbeter+ schwach+ aber viele,,fight,bad,fire,lava,,orc,,,,,moveCost=-5;t;lava,buildTime=-50%;t;lava,,,
+fireWor,,true,Satananbeter+ schwach+ aber viele,fire,fight,bad,fire,lava,,orc,,,,,moveCost=-5;t;lava,buildTime=-50%;t;lava,light,fire,4
 customn,,,,!Icons/icons:customn,,,,,,town,Hamlet,,,,,,,,5
 nature,,true,,nature,,neutral,,,,,,,,,,,,,0

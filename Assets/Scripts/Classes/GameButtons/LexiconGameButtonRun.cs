@@ -25,7 +25,7 @@ namespace Classes.GameButtons
 
         protected override void Run(Player player)
         {
-            WindowTabBuilder t = WindowTabBuilder.Create("Lexicon");
+            WindowTabBuilder t = WindowTabBuilder.CreateT("lexicon");
             t.Add(new HelpSplitTab());
             t.Add(new LexiconSplitTab<DataUnit>(L.b.units));
             t.Add(new LexiconSplitTab<DataBuilding>(L.b.buildings));

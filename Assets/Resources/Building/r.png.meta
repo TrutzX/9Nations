@@ -25,7 +25,7 @@ TextureImporter:
     second: r_32_6
   - first:
       213: 8416163682568419236
-    second: r_32_7
+    second: altar
   - first:
       213: -4930062269858260658
     second: r_32_8
@@ -67,7 +67,7 @@ TextureImporter:
     second: r_32_20
   - first:
       213: -696666738297024327
-    second: r_32_21
+    second: well
   - first:
       213: 3846473434233479937
     second: r_32_22
@@ -226,7 +226,7 @@ TextureImporter:
     second: r_32_6
   - first:
       213: -3079503529569996815
-    second: r_32_7
+    second: altar
   - first:
       213: -624361279750873851
     second: r_32_8
@@ -268,7 +268,7 @@ TextureImporter:
     second: r_32_20
   - first:
       213: 1932232486502303562
-    second: r_32_21
+    second: well
   - first:
       213: -1764325794371938220
     second: r_32_22
@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: r_32_7
+      name: altar
       rect:
         serializedVersion: 2
         x: 0
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: r_32_21
+      name: well
       rect:
         serializedVersion: 2
         x: 192

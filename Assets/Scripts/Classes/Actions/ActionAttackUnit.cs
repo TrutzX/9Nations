@@ -28,18 +28,18 @@ namespace Classes.Actions
 
         public override void BuildPanel(ActionDisplaySettings sett)
         {
+            if (sett.pos == null)
+            {
+                base.BuildPanel(sett);
+                return;
+            }
+            
             //found dest?
             BuildPanelIntern(sett, S.Unit(sett.pos));
         }
 
         protected void BuildPanelIntern(ActionDisplaySettings sett, MapElementInfo info)
         {
-            if (info == null)
-            {
-                base.BuildPanel(sett);
-                return;
-            }
-
             sett.header = TextHelper.Cap(S.T("attack", info.name));
             base.BuildPanel(sett);
 

@@ -57,16 +57,16 @@ namespace Libraries.Terrains
 
         public string GenDesc(int count)
         {
-            string b = S.Debug() ? $" ({count})" : "";
-
-            if (count == 0) return "none"+b;
-            if (count < 10) return "some"+b;
-            if (count < 25) return "several"+b;
-            if (count < 60) return "multiple"+b;
-            if (count < 100) return "more"+b;
-            if (count < 500) return "much"+b;
-            if (count < 1000) return "much more"+b;
-            return "numerous"+b;
+            foreach (var c in new int[]{0,10,25,60,100,500,1000})
+            {
+                if (count <= c)
+                {
+                    string s = S.T("resCount" + c);
+                    return S.Debug() ? S.T("resCountDebug",s,count) : s;
+                }
+            }
+            
+            return S.T("resCountMore");
         }
 
         public override void AfterLoad()

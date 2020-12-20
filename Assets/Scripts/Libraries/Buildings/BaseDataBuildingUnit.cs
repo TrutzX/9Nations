@@ -43,7 +43,7 @@ namespace Libraries.Buildings
         {
             base.ShowLexicon(panel);
             L.b.res[C.BuildRes].AddSubLabel(panel,buildTime,"round");
-            L.b.res[C.ViewModi].AddSubLabel(panel,visibilityRange,"field");
+            L.b.modifiers[C.ViewModi].AddSubLabel(panel,visibilityRange,"field");
             ShowWorker(panel);
             panel.AddResT("constructionCost",cost);
             req.BuildPanel(panel, S.T("constructionReq"));

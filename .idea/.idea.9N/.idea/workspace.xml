@@ -473,13 +473,19 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Elements/LightElement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Classes/LClass.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Elements/FireElement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/DebugScenario.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MapElements/MapElementInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/FActions/FActionMgmt.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionPresent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Resources/Translations/english.txt" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Translations/LanguageOptionSplitElement.cs" />
       <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Classes/GameButtons/LexiconGameButtonRun.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Scenarios/DebugScenario.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Buildings/BaseDataBuildingUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionAttackUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Classes/Actions/ActionAttackBuilding.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Terrains/TerrainMgmt.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Libraries/Terrains/DataTerrain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Resources/Translations/english.txt" />
     </changedPaths>
   </component>
   <component name="ProjectConfigurationFiles">
@@ -752,7 +758,7 @@
       <workItem from="1608102689433" duration="2355000" />
       <workItem from="1608364046960" duration="3788000" />
       <workItem from="1608400785479" duration="599000" />
-      <workItem from="1608401667510" duration="4108000" />
+      <workItem from="1608401667510" duration="11682000" />
     </task>
     <servers />
   </component>

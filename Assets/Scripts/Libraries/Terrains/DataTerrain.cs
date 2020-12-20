@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game;
+using JetBrains.Annotations;
 using Libraries.Movements;
 using MapElements;
 using Players;
@@ -33,7 +34,7 @@ namespace Libraries.Terrains
             ShowLexicon(panel, null, null);
         }
         
-        public override void ShowLexicon(PanelBuilder panel, MapElementInfo onMap, NVector pos)
+        public override void ShowLexicon(PanelBuilder panel, [CanBeNull] MapElementInfo onMap, [CanBeNull] NVector pos)
         {
             base.ShowLexicon(panel);
             if (!string.IsNullOrEmpty(winter))
@@ -46,7 +47,7 @@ namespace Libraries.Terrains
             foreach (Movement m in L.b.movements.Values())
             {
                 int costO = MoveCost(m.id);
-                int cost = GameMgmt.Get().newMap.PathFinding(pos.level).CostNode(S.ActPlayer(), m.id, pos);
+                int cost = pos==null?costO:GameMgmt.Get().newMap.PathFinding(pos.level).CostNode(S.ActPlayer(), m.id, pos);
 
                 var mess = S.T("terrainPassable", cost==0?S.T("terrainPassableNot"):S.T("terrainPassableAP",cost), cost == costO ? "" : S.T("terrainPassableOrg",costO==0?S.T("terrainPassableNot"):S.T("terrainPassableAP",costO)));
                 panel.AddSubLabel(m.Name(),mess,m.Icon);
@@ -54,7 +55,7 @@ namespace Libraries.Terrains
             //if (movement.Count == 0) panel.AddImageLabel(S.T("terrainPassableNot"),"no");
             panel.AddModi(modi);
 
-            ShowRes(panel, S.ActPlayer(), pos);
+            ShowRes(panel, S.IsGame()?S.ActPlayer():null, pos);
         }
 
         public void ShowRes(PanelBuilder panel, Player player, NVector pos)
@@ -75,17 +76,17 @@ namespace Libraries.Terrains
                     L.b.res[key].AddImageLabel(panel, L.b.terrains.GenDesc(GameMgmt.Get().data.map.ResGen(pos,key)));
                 }
                 return;
-            } 
+            }
             
             if (res.Count > 0)
             {
                 panel.AddHeaderLabelT("resInclude");
                 foreach (KeyValuePair<string, string> r in res)
                 {
-                    int chanc = ResChance(r.Key);
-                    string chance = chanc >= 1 ? $"{chanc}% chance: " : "";
+                    int chance = ResChance(r.Key);
                     var c = ResRange(r.Key);
-                    L.b.res[r.Key].AddImageLabel(panel, chance+$"{L.b.terrains.GenDesc(c.min)}-{L.b.terrains.GenDesc(c.max)}x {L.b.res[r.Key].Name()}");
+                    string txt = S.T("resCountRange", L.b.terrains.GenDesc(c.min), L.b.terrains.GenDesc(c.max));
+                    L.b.res[r.Key].AddImageLabel(panel, chance >= 1 ? S.T("resCountChance", chance, txt) : txt);
                 }
             }
         }
